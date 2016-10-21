@@ -3,6 +3,8 @@
 // Definitions by: Brian Kotek <https://github.com/brian428/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
+// tslint:disable
+
 declare namespace Ext {
 	export interface IAbstractComponent extends Ext.IEvented {
 	}
@@ -16,17 +18,17 @@ declare namespace Ext {
 		* @param defaultType String If no type is discovered in the config object, we fall back to this type.
 		* @returns Object The instance of whatever this manager is managing.
 		*/
-		create?( config?:any, defaultType?:string ): any;
+		create?( config?: any, defaultType?: string ): any;
 		/** [Method] Executes the specified function once for each item in the collection
 		* @param fn Function The function to execute.
 		* @param scope Object The scope to execute in.
 		*/
-		each?( fn?:any, scope?:any ): void;
+		each?( fn?: any, scope?: any ): void;
 		/** [Method] Returns an item by id
 		* @param id String The id of the item.
 		* @returns Object The item, undefined if not found.
 		*/
-		get?( id?:string ): any;
+		get?( id?: string ): any;
 		/** [Method] Gets the number of items in the collection
 		* @returns Number The number of items in the collection.
 		*/
@@ -35,26 +37,26 @@ declare namespace Ext {
 		* @param type String The mnemonic string by which the class may be looked up.
 		* @returns Boolean Whether the type is registered.
 		*/
-		isRegistered?( type?:string ): boolean;
+		isRegistered?( type?: string ): boolean;
 		/** [Method] Registers a function that will be called when an item with the specified id is added to the manager
 		* @param id String The item id.
 		* @param fn Function The callback function. Called with a single parameter, the item.
 		* @param scope Object The scope (this reference) in which the callback is executed. Defaults to the item.
 		*/
-		onAvailable?( id?:string, fn?:any, scope?:any ): void;
+		onAvailable?( id?: string, fn?: any, scope?: any ): void;
 		/** [Method] Registers an item to be managed
 		* @param item Object The item to register.
 		*/
-		register?( item?:any ): void;
+		register?( item?: any ): void;
 		/** [Method] Registers a new item constructor keyed by a type key
 		* @param type String The mnemonic string by which the class may be looked up.
 		* @param cls Function The new instance class.
 		*/
-		registerType?( type?:string, cls?:any ): void;
+		registerType?( type?: string, cls?: any ): void;
 		/** [Method] Unregisters an item by removing it from this manager
 		* @param item Object The item to unregister.
 		*/
-		unregister?( item?:any ): void;
+		unregister?( item?: any ): void;
 	}
 }
 declare namespace Ext {
@@ -98,27 +100,27 @@ declare namespace Ext {
 		/** [Method] Sets the value of baseCls
 		* @param baseCls String
 		*/
-		setBaseCls?( baseCls?:string ): void;
+		setBaseCls?( baseCls?: string ): void;
 		/** [Method] Sets the value of bottom
 		* @param bottom Number
 		*/
-		setBottom?( bottom?:number ): void;
+		setBottom?( bottom?: number ): void;
 		/** [Method] Sets the value of defaultType
 		* @param defaultType String
 		*/
-		setDefaultType?( defaultType?:string ): void;
+		setDefaultType?( defaultType?: string ): void;
 		/** [Method] Sets the value of height
 		* @param height String
 		*/
-		setHeight?( height?:string ): void;
+		setHeight?( height?: string ): void;
 		/** [Method] Sets the value of left
 		* @param left Number
 		*/
-		setLeft?( left?:number ): void;
+		setLeft?( left?: number ): void;
 		/** [Method] Sets the value of right
 		* @param right Number
 		*/
-		setRight?( right?:number ): void;
+		setRight?( right?: number ): void;
 	}
 }
 declare namespace Ext {
@@ -132,7 +134,7 @@ declare namespace Ext {
 		/** [Method] Aborts any outstanding request
 		* @param request Object Defaults to the last request.
 		*/
-		static abort( request?:any ): void;
+		static abort( request?: any ): void;
 		/** [Method] Aborts all outstanding requests  */
 		static abortAll(): void;
 		/** [Method] Appends an after event handler
@@ -141,18 +143,18 @@ declare namespace Ext {
 		* @param scope Object The scope for fn.
 		* @param options Object An object containing handler configuration.
 		*/
-		static addAfterListener( eventName?:any, fn?:any, scope?:any, options?:any ): void;
+		static addAfterListener( eventName?: any, fn?: any, scope?: any, options?: any ): void;
 		/** [Method] Appends a before event handler
 		* @param eventName String/String[]/Object The name of the event to listen for.
 		* @param fn Function/String The method the event invokes.
 		* @param scope Object The scope for fn.
 		* @param options Object An object containing handler configuration.
 		*/
-		static addBeforeListener( eventName?:any, fn?:any, scope?:any, options?:any ): void;
+		static addBeforeListener( eventName?: any, fn?: any, scope?: any, options?: any ): void;
 		/** [Method] Adds the specified events to the list of events which this Observable may fire
 		* @param eventNames Object/String... Either an object with event names as properties with a value of true or the first event name string if multiple event names are being passed as separate parameters.
 		*/
-		static addEvents( eventNames?:any ): void;
+		static addEvents( eventNames?: any ): void;
 		/** [Method] Appends an event handler to this object
 		* @param eventName String/String[]/Object The name of the event to listen for. May also be an object who's property names are event names.
 		* @param fn Function/String The method the event invokes. Will be called with arguments given to fireEvent plus the options parameter described below.
@@ -160,7 +162,7 @@ declare namespace Ext {
 		* @param options Object An object containing handler configuration.  This object may contain any of the following properties:
 		* @param order String The order of when the listener should be added into the listener queue. Possible values are before, current and after.
 		*/
-		static addListener( eventName?:any, fn?:any, scope?:any, options?:any, order?:string ): void;
+		static addListener( eventName?: any, fn?: any, scope?: any, options?: any, order?: string ): void;
 		/** [Method] Adds listeners to any Observable object or Element which are automatically removed when this Component is destroyed
 		* @param object Ext.mixin.Observable/HTMLElement The item to which to add a listener/listeners.
 		* @param eventName Object/String The event name, or an object containing event name properties.
@@ -168,12 +170,12 @@ declare namespace Ext {
 		* @param scope Object If the eventName parameter was an event name, this is the scope in which the handler function is executed.
 		* @param options Object If the eventName parameter was an event name, this is the addListener options.
 		*/
-		static addManagedListener( object?:any, eventName?:any, fn?:any, scope?:any, options?:any ): void;
+		static addManagedListener( object?: any, eventName?: any, fn?: any, scope?: any, options?: any ): void;
 		/** [Method] Call the original method that was previously overridden with override  This method is deprecated as callParent does
 		* @param args Array/Arguments The arguments, either an array or the arguments object from the current method, for example: this.callOverridden(arguments)
 		* @returns Object Returns the result of calling the overridden method
 		*/
-		static callOverridden( args?:any ): any;
+		static callOverridden( args?: any ): any;
 		/** [Method] Call the parent method of the current method
 		* @param args Array/Arguments The arguments, either an array or the arguments object from the current method, for example: this.callParent(arguments)
 		* @returns Object Returns the result of calling the parent method

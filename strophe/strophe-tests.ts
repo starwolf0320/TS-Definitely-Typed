@@ -44,15 +44,15 @@ function onMessage(msg: Element): boolean {
             Strophe.getText(body));
 
         var text = Strophe.getText(body) + " (this is echo)";
-    
+
         //var reply = $msg({to: from, from: to, type: 'chat', id: 'purple4dac25e4'}).c('active', {xmlns: "http://jabber.org/protocol/chatstates"}).up().cnode(body);
-        //.cnode(Strophe.copyElement(body)); 
+        //.cnode(Strophe.copyElement(body));
         //connection.send(reply.tree());
 
         log('ECHOBOT: I sent ' + from + ': ' + Strophe.getText(body));
     }
 
-    // we must return true to keep the handler alive.  
+    // we must return true to keep the handler alive.
     // returning false would remove it after it finishes.
     return true;
 }

@@ -54,7 +54,7 @@ declare module 'angular' {
             /**
              * Holds the ui-sortable element that the dragged item originated from.
              */
-            source: ng.IAugmentedJQuery
+            source: ng.IAugmentedJQuery;
 
             /**
              * Holds the array that is specified by the `ng-model` of the [`source`](#source) ui-sortable element.

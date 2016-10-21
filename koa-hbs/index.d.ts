@@ -31,16 +31,16 @@ declare module "koa-hbs" {
 
     namespace Hbs {
         export interface Middleware {
-            viewPath: Array<string> | string,
-            handlebars?: Function,
-            templateOptions?: {},
-            extname?: string,
-            partialsPath?: Array<string> | string,
-            defaultLayout?: string,
-            layoutsPath?: string,
-            contentHelperName?: string,
-            blockHelperName?: string,
-            disableCache?: boolean
+            viewPath: Array<string> | string;
+            handlebars?: Function;
+            templateOptions?: {};
+            extname?: string;
+            partialsPath?: Array<string> | string;
+            defaultLayout?: string;
+            layoutsPath?: string;
+            contentHelperName?: string;
+            blockHelperName?: string;
+            disableCache?: boolean;
         }
     }
 

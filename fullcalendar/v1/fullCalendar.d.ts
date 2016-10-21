@@ -54,12 +54,12 @@ declare namespace FullCalendar {
             left: string;
             center: string;
             right: string;
-        }
-        theme?: boolean
+        };
+        theme?: boolean;
         buttonIcons?: {
             prev: string;
             next: string;
-        }
+        };
         firstDay?: number;
         isRTL?: boolean;
         weekends?: boolean;
@@ -79,7 +79,7 @@ declare namespace FullCalendar {
 
         // Timezone
         timezone?: string | boolean;
-        now?: moment.Moment | Date | string | (() => moment.Moment)
+        now?: moment.Moment | Date | string | (() => moment.Moment);
 
         // Views - http://arshaw.com/fullcalendar/docs/views/
 
@@ -136,7 +136,7 @@ declare namespace FullCalendar {
         allDayDefault?: boolean;
         ignoreTimezone?: boolean;
         startParam?: string;
-        endParam?: string
+        endParam?: string;
         lazyFetching?: boolean;
         eventDataTransform?: (eventData: any) => EventObject;
         loading?: (isLoading: boolean, view: ViewObject) => void;
@@ -221,7 +221,7 @@ declare namespace FullCalendar {
         droppable?: boolean;
         dropAccept?: string | ((draggable: any) => boolean);
         drop?: (date: moment.Moment, jsEvent: MouseEvent, ui: any) => void;
-        eventReceive?: (event: EventObject) => void
+        eventReceive?: (event: EventObject) => void;
     }
 
     export interface ButtonTextObject {
@@ -236,7 +236,7 @@ declare namespace FullCalendar {
     }
 
     export interface EventObject extends Timespan {
-        id?: any // String/number
+        id?: any; // String/number
         title: string;
         allDay?: boolean;
         url?: string;
@@ -278,7 +278,7 @@ declare namespace FullCalendar {
         ignoreTimezone?: boolean;
         eventTransform?: any;
         startParam?: string;
-        endParam?: string
+        endParam?: string;
     }
 
 }

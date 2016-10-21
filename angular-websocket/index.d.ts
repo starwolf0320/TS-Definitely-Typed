@@ -12,14 +12,14 @@ declare module "angular" {
          * Options available to be specified for IWebSocketProvider.
          */
         type IWebSocketConfigOptions = {
-        scope?: ng.IScope;
-        rootScopeFailOver?: boolean;
-        useApplyAsync?: boolean;
-        initialTimeout?: number;
-        maxTimeout?: number;
-        binaryType?: "blob" | "arraybuffer";
-        reconnectIfNotNormalClose?: boolean;
-        }
+            scope?: ng.IScope;
+            rootScopeFailOver?: boolean;
+            useApplyAsync?: boolean;
+            initialTimeout?: number;
+            maxTimeout?: number;
+            binaryType?: "blob" | "arraybuffer";
+            reconnectIfNotNormalClose?: boolean;
+        };
         interface IWebSocketProvider {
             /**
              * Creates and opens an IWebSocket instance.
@@ -41,20 +41,20 @@ declare module "angular" {
 
             /** If true, each message handled will safely call `$rootScope.$digest()`. */
             autoApply?: boolean;
-        }
+        };
 
         /** Type corresponding to onMessage callbaks stored in $Websocket#onMessageCallbacks instance. */
         type IWebSocketMessageHandler = {
-        fn: (evt: MessageEvent) => void;
-        pattern: string | RegExp;
-        autoApply: boolean;
-        }
+            fn: (evt: MessageEvent) => void;
+            pattern: string | RegExp;
+            autoApply: boolean;
+        };
 
         /** Type corresponding to items stored in $WebSocket#sendQueue instance. */
         type IWebSocketQueueItem = {
-        message: any;
-        defered: ng.IPromise<void>;
-        }
+            message: any;
+            defered: ng.IPromise<void>;
+        };
 
         interface IWebSocket {
 

@@ -231,7 +231,7 @@ photonui.domInsert(icon, "demo");
 // FileManager
 // File manager that accepts PNG, JPEG, BMP and SVG files
 var fm = new photonui.FileManager({
-    acceptedMimes: ["image/png", "image/jpeg"], 
+    acceptedMimes: ["image/png", "image/jpeg"],
     acceptedExts: ["bmp", "svg"],
     dropZone: document,        // Enable file d&d
     multiselect: true,         // Allow to select more than one file
@@ -408,7 +408,7 @@ var mouse = new photonui.MouseManager({
     element: img,
     callbacks: {
         "click": function(manager: any, mstate: any) {
-            alert("You clicked on the image at " + 
+            alert("You clicked on the image at " +
                   mstate.x + ", " + mstate.y);
         }
     }

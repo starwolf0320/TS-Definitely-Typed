@@ -141,7 +141,7 @@ var optStr: Stream.Optional<String> = optNum.filter(n => n % 2 == 0)
 	.map(n => "number" + n)
 	.flatMap(n => Stream.Optional.of(n + 2))
 	;
-	
+
 var isPresent: boolean = optNum.isPresent();
 var num: number = optNum.get();
 optNum.ifPresent(n => console.log(n));

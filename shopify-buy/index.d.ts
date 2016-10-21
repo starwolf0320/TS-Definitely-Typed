@@ -69,26 +69,26 @@ declare namespace ShopifyBuy {
              * An API Key for your store. Documentation how to get an API Key:
              * https://help.shopify.com/api/sdks/js-buy-sdk/getting-started#api-key
              */
-            apiKey: string
+            apiKey: string;
 
             /**
              * Typically will be 6 which is the Buy Button App Id. For more info on App Id see:
              * https://help.shopify.com/api/sdks/js-buy-sdk/getting-started#app-id
              */
-            appId: string
+            appId: string;
 
             /**
              * Your shop's full myshopify.com domain. For example: embeds.myshopify.com
              */
-            domain: string
+            domain: string;
         }
 
         /**
          * Cart item, that should be added to the card
          */
         interface CartModelItem {
-            variant: Shopify.ProductVariantModel
-            quantity: number
+            variant: Shopify.ProductVariantModel;
+            quantity: number;
         }
 
         /**
@@ -99,41 +99,41 @@ declare namespace ShopifyBuy {
             /**
              * Config data to be used throughout all API interaction
              */
-            constructor(config?: Config)
+            constructor(config?: Config);
             /**
              * Creates a CartModel instance.
              */
-            createCart(): Promise<CartModel>
+            createCart(): Promise<CartModel>;
 
             /**
              * This function will return an Array of collections from your store
              */
-            fetchAllCollections(): Promise<Array<any>>
+            fetchAllCollections(): Promise<Array<any>>;
 
             /**
              * This function will return an Array of products from your store
              */
-            fetchAllProducts(): Promise<Array<ProductModel>>
+            fetchAllProducts(): Promise<Array<ProductModel>>;
 
             /**
              * Retrieve a previously created cart by its key.
              */
-            fetchCart(id: string): Promise<CartModel>
+            fetchCart(id: string): Promise<CartModel>;
 
             /**
              * Fetch one collection by its ID.
              */
-            fetchCollection(id: string | number): Promise<any>
+            fetchCollection(id: string | number): Promise<any>;
 
             /**
              * Fetch one product by its ID.
              */
-            fetchProduct(id: string | number): Promise<ProductModel>
+            fetchProduct(id: string | number): Promise<ProductModel>;
 
             /**
              * Fetches a list of collections matching a specified query.
              */
-            fetchQueryCollections(query?: any): Promise<Array<any>>
+            fetchQueryCollections(query?: any): Promise<Array<any>>;
 
             /**
              * Fetches a list of products matching a specified query.
@@ -145,7 +145,7 @@ declare namespace ShopifyBuy {
              * If one is not found, creates one. If the cart the reference points to doesn't exist,
              * create one and store the new reference.
              */
-            fetchRecentCart(): Promise<CartModel>
+            fetchRecentCart(): Promise<CartModel>;
 
         }
 
@@ -154,34 +154,34 @@ declare namespace ShopifyBuy {
          */
         class ProductModel extends BaseModel {
 
-            constructor()
+            constructor();
 
             /**
              * A product description.
              */
-            description: string
+            description: string;
 
             /**
              * Product unique ID
              */
-            id: string | number
+            id: string | number;
 
             /**
              * An Array of Objects that contain meta data about an image including src of the images.
              */
-            images: Array<Image>
+            images: Array<Image>;
 
             /**
              * All variants of a product.
              */
-            variants: Array<ProductVariantModel>
+            variants: Array<ProductVariantModel>;
 
             /**
              * Get an array of ProductOptionModels. ProductOptionModels can be used to define
              * the currently selectedVariant from which you can get a checkout url (ProductVariantModel.checkoutUrl)
              * or can be added to a cart (CartModel.createLineItemsFromVariants).
              */
-            options: Array<ProductOptionModel>
+            options: Array<ProductOptionModel>;
 
             /**
              * Retrieve variant for currently selected options. By default the first value in each option is selected
@@ -189,22 +189,22 @@ declare namespace ShopifyBuy {
              * create checkout url (ProductVariantModel.checkoutUrl) or
              * it can be added to a cart (CartModel.createLineItemsFromVariants).
              */
-            selectedVariant: ProductVariantModel
+            selectedVariant: ProductVariantModel;
 
             /**
              * Retrieve image for currently selected variantImage.
              */
-            selectedVariantImage: Image
+            selectedVariantImage: Image;
 
             /**
              * A read only Array of Strings represented currently selected option values. eg. ["Large", "Red"]
              */
-            selections: Array<string>
+            selections: Array<string>;
 
             /**
              * The product title
              */
-            title: string
+            title: string;
         }
 
         /**
@@ -212,7 +212,7 @@ declare namespace ShopifyBuy {
          */
         class ProductVariantModel extends BaseModel {
 
-            constructor()
+            constructor();
 
             /*
              * Get a checkout url for a specific product variant.
@@ -224,38 +224,38 @@ declare namespace ShopifyBuy {
             /**
              * Variant in stock. Always true if inventory tracking is disabled.
              */
-            available: boolean
+            available: boolean;
 
             /**
              * Compare at price for variant. The compareAtPrice would be the price of the
              * product previously before the product went on sale.
              */
-            compareAtPrice: string
+            compareAtPrice: string;
 
             /**
              * Price of variant, formatted according to shop currency format string. For instance "$10.00"
              */
-            formattedPrice: string
+            formattedPrice: string;
 
             /**
              * Variant weight in grams. If no weight is defined grams will be 0.
              */
-            grams: number
+            grams: number;
 
             /**
              * Variant unique ID
              */
-            id: string | number
+            id: string | number;
 
             /**
              * Image for variant
              */
-            image: Image
+            image: Image;
 
             /**
              * Image variants available for a variant.
              */
-            imageVariant: Array<ImageVariant>
+            imageVariant: Array<ImageVariant>;
 
             /**
              * Option values associated with this variant, ex {name: "color", value: "Blue"}
@@ -280,7 +280,7 @@ declare namespace ShopifyBuy {
             /**
              * Title of variant
              */
-            title: string
+            title: string;
         }
 
         /**
@@ -288,7 +288,7 @@ declare namespace ShopifyBuy {
          */
         class ProductOptionModel extends BaseModel {
 
-            constructor()
+            constructor();
 
             /**
              * name of option (ex. "Size", "Color")
@@ -300,13 +300,13 @@ declare namespace ShopifyBuy {
              * For instance if the option values array had the following ["Large", "Medium", "Small"] setting selected to be
              * "Large", "Medium", or "Small" would be valid any other value would throw an Error.
              */
-            selected: string
+            selected: string;
 
             /**
              * an Array possible values for option. For instance if this option
              * is a "Size" option an example value for values could be: ["Large", "Medium", "Small"]
              */
-            values: Array<any>
+            values: Array<any>;
 
         }
 
@@ -315,17 +315,17 @@ declare namespace ShopifyBuy {
          */
         class CartModel extends BaseModel {
 
-            constructor()
+            constructor();
 
             /**
              * Remove all line items from cart
              */
-            clearLineItems(): Promise<CartModel>
+            clearLineItems(): Promise<CartModel>;
 
             /**
              * Add items to cart. Updates cart's lineItems
              */
-            addVariants(item: CartModelItem, nextItem?: Array<CartModelItem>): Promise<CartModel>
+            addVariants(item: CartModelItem, nextItem?: Array<CartModelItem>): Promise<CartModel>;
 
             /**
              * Add items to the cart. Updates cart's lineItems based on variants passed in.
@@ -335,12 +335,12 @@ declare namespace ShopifyBuy {
             /**
              * Remove a line item from cart based on line item id
              */
-            removeLineItem(id: string | number): Promise<CartModel>
+            removeLineItem(id: string | number): Promise<CartModel>;
 
             /**
              * Update a line item quantity based on line item id
              */
-            updateLineItem(id: string | number, quantitiy: number): Promise<CartModel>
+            updateLineItem(id: string | number, quantitiy: number): Promise<CartModel>;
 
             /**
              * Force update of cart model on server. This function will only be used in advanced
@@ -348,17 +348,17 @@ declare namespace ShopifyBuy {
              * It is automatically called after createLineItemsFromVariants, updateLineItem,
              * removeLineItem, and removeLineItem
              */
-            updateModel(): Promise<CartModel>
+            updateModel(): Promise<CartModel>;
 
             /**
              * Get checkout URL for current cart
              */
-            checkoutUrl: string
+            checkoutUrl: string;
 
             /**
              * get ID for current cart
              */
-            id: string | number
+            id: string | number;
 
             /**
              * Gets the total quantity of all line items. Example: you've added two variants
@@ -380,7 +380,7 @@ declare namespace ShopifyBuy {
         }
 
         class CartLineItemModel extends BaseModel {
-            constructor()
+            constructor();
 
             /**
              * Compare at price for variant. The compareAtPrice would be the price of the product
@@ -428,17 +428,17 @@ declare namespace ShopifyBuy {
             /**
              * Product title of variant's parent product.
              */
-            title: string
+            title: string;
 
             /**
              * ID of line item variant.
              */
-            variant_id: string | number
+            variant_id: string | number;
 
             /**
              * Title of variant.
              */
-            variant_title: string
+            variant_title: string;
 
         }
 
@@ -447,5 +447,5 @@ declare namespace ShopifyBuy {
 }
 
 declare module "shopify-buy" {
-    export = ShopifyBuy
+    export = ShopifyBuy;
 }

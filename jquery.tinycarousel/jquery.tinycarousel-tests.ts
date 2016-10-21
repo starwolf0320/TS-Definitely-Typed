@@ -32,7 +32,7 @@ $('#stopslider').click(function () {
     return false;
 });
 
-$(document).ready(function () {    
+$(document).ready(function () {
     $('#slider-code').tinycarousel();
 });
 

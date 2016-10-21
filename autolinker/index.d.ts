@@ -14,9 +14,9 @@ declare namespace __Autolinker {
     stripPrefix?: boolean;
     truncate?: number | { length?: number; location?: string; };
     twitter?: boolean;
-    urls?: boolean | { schemeMatches: boolean; wwwMatches: boolean; tldMatches: boolean; }
+    urls?: boolean | { schemeMatches: boolean; wwwMatches: boolean; tldMatches: boolean; };
   }
-  
+
   interface Autolinker {
     getTagBuilder(): any;
     /**
@@ -28,13 +28,13 @@ declare namespace __Autolinker {
      */
     parse(textOrHtml: string): any[];
   }
-  
+
   interface Static {
     new(cfg?: ConfigOptions): Autolinker;
     /**
      * Automatically links URLs, Email addresses, Phone Numbers, Twitter handles, and Hashtags found in the given chunk of HTML. Does not link URLs found within HTML tags.
      */
-    link(textOrHtml: string, options?: ConfigOptions): string
+    link(textOrHtml: string, options?: ConfigOptions): string;
   }
 }
 

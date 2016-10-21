@@ -3,7 +3,7 @@
 // Definitions by: Alex Varju <https://github.com/varju/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import * as superagent from "superagent"
+import * as superagent from "superagent";
 
 export = supertest;
 

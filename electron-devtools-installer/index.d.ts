@@ -5,8 +5,8 @@
 
 declare module "electron-devtools-installer" {
     interface ExtensionReference {
-        id: string,
-        electron: string,
+        id: string;
+        electron: string;
     }
 
     // Default installation function

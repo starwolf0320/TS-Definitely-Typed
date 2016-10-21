@@ -12,7 +12,7 @@ declare namespace angular.material {
         controller?: any;
         locals?: {[index: string]: any};
         targetEvent?: any;
-        resolve?: {[index: string]: angular.IPromise<any>}
+        resolve?: {[index: string]: angular.IPromise<any>};
         controllerAs?: string;
         parent?: Element;
         disableParentScroll?: boolean;
@@ -49,7 +49,7 @@ declare namespace angular.material {
         controller?: any;
         locals?: {[index: string]: any};
         bindToController?: boolean;
-        resolve?: {[index: string]: angular.IPromise<any>}
+        resolve?: {[index: string]: angular.IPromise<any>};
         controllerAs?: string;
         parent?: Element;
         onComplete?: Function;
@@ -110,7 +110,7 @@ declare namespace angular.material {
         controller?: any;
         locals?: {[index: string]: any};
         bindToController?: boolean;
-        resolve?: {[index: string]: angular.IPromise<any>}
+        resolve?: {[index: string]: angular.IPromise<any>};
         controllerAs?: string;
         parent?: Element;
     }

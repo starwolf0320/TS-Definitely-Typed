@@ -353,7 +353,7 @@ declare namespace j {
 		 * Composes a set of functions into a new single function
 		 * @param ...args Arguments for compose
 		 */
-        compose(...args: ((...args: any[]) => any)[]): (...args: any[]) => any
+        compose(...args: ((...args: any[]) => any)[]): (...args: any[]) => any;
 
 		/**
 		 * Counts the number of arguments in a function declaration

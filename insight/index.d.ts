@@ -5,19 +5,19 @@
 
 declare namespace insight {
     interface IOptions {
-        trackingCode:string;
-        trackingProvider?:string;
-        packageName:string;
-        packageVersion?:string;
-        config?:IConfigstore;
+        trackingCode: string;
+        trackingProvider?: string;
+        packageName: string;
+        packageVersion?: string;
+        config?: IConfigstore;
     }
 
     interface IConfigstore {
-        path:string;
-        all:any;
-        get(key:string):any;
-        set(key:string, val:any):void;
-        del(key:string):void;
+        path: string;
+        all: any;
+        get(key: string): any;
+        set(key: string, val: any): void;
+        del(key: string): void;
     }
 }
 
@@ -26,23 +26,23 @@ import IOptions = insight.IOptions;
 import IConfigstore = insight.IConfigstore;
 
 declare class Insight {
-    trackingCode:string;
-    trackingProvider:string;
-    packageName:string;
-    packageVersion:string;
-    os:string;
-    nodeVersion:string;
-    appVersion:string;
-    config:IConfigstore;
+    trackingCode: string;
+    trackingProvider: string;
+    packageName: string;
+    packageVersion: string;
+    os: string;
+    nodeVersion: string;
+    appVersion: string;
+    config: IConfigstore;
 
-    optOut:boolean;
-    clientId:string;
+    optOut: boolean;
+    clientId: string;
 
-    constructor(options:IOptions);
+    constructor(options: IOptions);
 
-    track(...args:string[]):void;
+    track(...args: string[]): void;
 
-    askPermission(msg?:string, cb?:Function):void;
+    askPermission(msg?: string, cb?: Function): void;
 }
 
 export = Insight;

@@ -8,8 +8,7 @@ export = Long;
 export as namespace Long;
 
 declare namespace Long {}
-declare class Long
-{
+declare class Long {
     /**
      * Constructs a 64 bit two's-complement integer, given its low and high 32 bit values as signed integers. See the from* functions below for more convenient ways of constructing Longs.
      */
@@ -73,7 +72,7 @@ declare class Long
     /**
      * Returns a Long representing the 64 bit integer that comes by concatenating the given low and high bits. Each is assumed to use 32 bits.
      */
-    static fromBits( lowBits:number, highBits:number, unsigned?:boolean ): Long;
+    static fromBits( lowBits: number, highBits: number, unsigned?: boolean ): Long;
 
     /**
      * Returns a Long representing the given 32 bit integer value.

@@ -89,7 +89,7 @@ export interface ILabelOptions {
     precision?: number;
 }
 
-export interface IRange { min: number; max: number }
+export interface IRange { min: number; max: number; }
 
 export interface IHorizontalLine {
     value?: number;

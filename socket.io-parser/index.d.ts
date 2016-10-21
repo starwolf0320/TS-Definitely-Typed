@@ -11,7 +11,7 @@ declare module "socket.io-parser" {
             type: number,
             data: any,
             id: number
-        }
+        };
         type EncodedPacket = string | Buffer | ArrayBuffer | Blob;
 
         var types: string[];

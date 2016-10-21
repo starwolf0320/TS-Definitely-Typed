@@ -36,7 +36,7 @@ interface PromiseConstructor {
         reject: (error: any) => void,
         onCancel?: PromiseCancelHandlerSetter
     ) => void): Promise<T>;
-    
+
     config(options: {
         warnings?: boolean | {wForgottenReturn?: boolean};
         longStackTraces?: boolean;
@@ -152,8 +152,8 @@ interface PromiseConstructor {
     /**
      * Returns a promise that is resolved by a node style callback function.
      */
-    fromNode(resolver: (callback: (err: any, result?: any) => void) => void, options? : {multiArgs? : boolean}): Promise<any>;
-    fromCallback(resolver: (callback: (err: any, result?: any) => void) => void, options? : {multiArgs? : boolean}): Promise<any>;
+    fromNode(resolver: (callback: (err: any, result?: any) => void) => void, options?: {multiArgs?: boolean}): Promise<any>;
+    fromCallback(resolver: (callback: (err: any, result?: any) => void) => void, options?: {multiArgs?: boolean}): Promise<any>;
 
     /**
      * Returns a function that can use `yield` to run asynchronous code synchronously. This feature requires the support of generators which are drafted in the next version of the language. Node version greater than `0.11.2` is required and needs to be executed with the `--harmony-generators` (or `--harmony`) command-line switch.
@@ -313,7 +313,7 @@ interface PromiseConstructor {
 
     // array with values
     mapSeries<R, U>(values: R[], mapper: (item: R, index: number, arrayLength: number) => U | PromiseLike<U>): Promise<U[]>;
-    
+
 
     /**
      * Reduce an array, or a promise of an array, which contains a promises (or a mix of promises and values) with the given `reducer` function with the signature `(total, current, index, arrayLength)` where `item` is the resolved value of a respective promise in the input array. If any promise in the input array is rejected the returned promise is rejected as well.

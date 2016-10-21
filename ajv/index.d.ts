@@ -86,16 +86,16 @@ declare namespace Ajv {
         messages?: boolean;
         beautify?: boolean;
         cache?: any;
-    }
+    };
     type AjvValidate = ((data: any) => boolean | PromiseLike<boolean>) & {
         errors: ValidationError[];
-    }
+    };
     type AjxKeywordDefinition = {
         async?: boolean;
         type: string;
         compile?: (schema: any, parentsSchema: any) => ((data: any) => boolean | PromiseLike<boolean>);
         validate?: (schema: any, data: any) => boolean;
-    }
+    };
     type ValidationError = {
         keyword: string;
         dataPath: string;
@@ -105,7 +105,7 @@ declare namespace Ajv {
         schema: any;
         parentSchema: any;
         data: any;
-    }
+    };
 }
 
 export = Ajv;

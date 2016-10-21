@@ -60,7 +60,7 @@ export type CustomEventParameters = {
      * Any custom data associated with the event
      */
     detail: any;
-}
+};
 
 /**
  * Callback type for selections and transitions
@@ -1042,7 +1042,7 @@ export type NamespaceLocalObject = {
      * Name of the local to be namespaced.
      */
     local: string
-}
+};
 
 /**
  * Obtain an object with properties of fully qualified namespace string and
@@ -1120,7 +1120,7 @@ export function matcher(selector: string): (this: BaseType) => boolean;
  *
  * @param selector A CSS selector string.
  */
-export function selector<DescElement extends Element>(selector: string): (this: BaseType) => DescElement
+export function selector<DescElement extends Element>(selector: string): (this: BaseType) => DescElement;
 
 /**
  * Given the specified selector, returns a function which returns all descendants of "this" element that match the specified selector.

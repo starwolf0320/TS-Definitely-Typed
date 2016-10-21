@@ -16,7 +16,7 @@ declare module "react-datepicker" {
         disabled?: boolean;
         endDate?: {};
         excludeDates?: any[];
-        filterDate?():any;
+        filterDate?(): any;
         fixedHeight?: boolean;
         id?: string;
         includeDates?: any[];
@@ -25,10 +25,10 @@ declare module "react-datepicker" {
         maxDate?: {};
         minDate?: {};
         name?: string;
-        onBlur?():any;
-        onChange():any;
-        onChange(date?:any):any;
-        onFocus?():any;
+        onBlur?(): any;
+        onChange(): any;
+        onChange(date?: any): any;
+        onFocus?(): any;
         peekNextMonth?: boolean;
         placeholderText?: string;
         popoverAttachment?: string;
@@ -40,7 +40,7 @@ declare module "react-datepicker" {
         scrollableYearDropdown?: boolean;
         selected?: {};
         selectsEnd?: boolean;
-        selectsStart?: boolean; 
+        selectsStart?: boolean;
         showMonthDropdown?: boolean;
         showYearDropdown?: boolean;
         showWeekNumbers?: boolean;

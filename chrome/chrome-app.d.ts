@@ -566,28 +566,28 @@ declare namespace chrome.runtime {
 			background?: {
 				scripts?: string[];
 			}
-		},
+		};
 		bluetooth?: {
 			uuids?: string[];
 			socket?: boolean;
 			low_energy?: boolean;
 			peripheral?: boolean;
-		},
+		};
 		file_handlers?: {
 			[name: string]: {
 				types?: string[];
 				extensions?: string[];
 				title?: string;
 			}
-		},
-		kiosk_enabled?: boolean,
-		kiosk_only?: boolean,
+		};
+		kiosk_enabled?: boolean;
+		kiosk_only?: boolean;
 		url_handlers?: {
 			[name: string]: {
 				matches: string[];
 				title?: string;
 			}
-		},
+		};
 		usb_printers?: {
 			filters: {
 				vendorId?: number;
@@ -596,13 +596,13 @@ declare namespace chrome.runtime {
 				interfaceSubclass?: number;
 				interfaceProtocol?: number;
 			}[]
-		},
+		};
 		webview?: {
 			partitions?: {
 				name: string;
 				accessible_resources: string[];
 			}[]
-		}
+		};
 	}
 }
 
@@ -613,72 +613,72 @@ declare namespace chrome.usb {
 	type Direction = 'in' | 'out';
 
 	interface Device {
-		device: number,
-		vendorId: number,
-		productId: number,
-		productName: string,
-		manufacturerName: string,
-		serialNumber: string
+		device: number;
+		vendorId: number;
+		productId: number;
+		productName: string;
+		manufacturerName: string;
+		serialNumber: string;
 	}
 
 	interface ConnectionHandle {
-		handle: number,
-		vendorId: number,
-		productId: number
+		handle: number;
+		vendorId: number;
+		productId: number;
 	}
 
 	interface EndpointDescriptor {
-		address: number,
-		type: 'control' | 'interrupt' | 'isochronous' | 'bulk',
-		direction: Direction,
-		maximumPacketSize: number,
-		synchronization?: 'asynchronous' | 'adaptive' | 'synchronous',
-		usage?: 'data' | 'feedback' | 'explicitFeedback',
-		pollingInterval?: number,
-		extra_data: ArrayBuffer
+		address: number;
+		type: 'control' | 'interrupt' | 'isochronous' | 'bulk';
+		direction: Direction;
+		maximumPacketSize: number;
+		synchronization?: 'asynchronous' | 'adaptive' | 'synchronous';
+		usage?: 'data' | 'feedback' | 'explicitFeedback';
+		pollingInterval?: number;
+		extra_data: ArrayBuffer;
 	}
 
 	interface InterfaceDescriptor {
-		interfaceNumber: number,
-		alternateSetting: number,
-		interfaceClass: number,
-		interfaceSubclass: number,
-		interfaceProtocol: number,
-		description?: string,
-		endpoints: EndpointDescriptor[],
-		extra_data: ArrayBuffer
+		interfaceNumber: number;
+		alternateSetting: number;
+		interfaceClass: number;
+		interfaceSubclass: number;
+		interfaceProtocol: number;
+		description?: string;
+		endpoints: EndpointDescriptor[];
+		extra_data: ArrayBuffer;
 	}
 
 	interface ConfigDescriptor {
-		active: boolean,
-		configurationValue: number,
-		description?: string,
-		selfPowered: boolean,
-		remoteWakeup: boolean,
-		maxPower: number,
-		interfaces: InterfaceDescriptor[],
-		extra_data: ArrayBuffer
+		active: boolean;
+		configurationValue: number;
+		description?: string;
+		selfPowered: boolean;
+		remoteWakeup: boolean;
+		maxPower: number;
+		interfaces: InterfaceDescriptor[];
+		extra_data: ArrayBuffer;
 	}
 
 	interface GenericTransferInfo {
-		direction: Direction,
-		endpoint: number,
-		length?: number,
-		data?: ArrayBuffer,
-		timeout?: number
+		direction: Direction;
+		endpoint: number;
+		length?: number;
+		data?: ArrayBuffer;
+		timeout?: number;
 	}
 
 	interface TransferResultInfo {
-		resultCode: number,
-		data?: ArrayBuffer
+		resultCode: number;
+		data?: ArrayBuffer;
 	}
 
 	interface DeviceFilter {
-		vendorId?: number,
-		productId?: number,
-		interfaceClass?: number,
-		interfaceSubclass?: number,
-		interfaceProtocol?: number
+		vendorId?: number;
+		productId?: number;
+		interfaceClass?: number;
+		interfaceSubclass?: number;
+		interfaceProtocol?: number;
 	}
 
 	interface TransferInfo {

@@ -35,7 +35,7 @@ interface Attachment {
     generatedFileName: string;   // e.g. 'image.png'
     checksum: string;  // the md5 hash of the file, e.g. 'e4cef4c6e26037bcf8166905207ea09b'
     content: Buffer;   // possibly a SlowBuffer
-    stream: Stream; // a stream to read the attachment if streamAttachments is set to true 
+    stream: Stream; // a stream to read the attachment if streamAttachments is set to true
 }
 
 // emitted with the 'end' event

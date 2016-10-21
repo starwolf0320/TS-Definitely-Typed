@@ -9,7 +9,7 @@ var testObj = {
 eyes.inspect(testObj)
 
 var options = {
-    styles: {                
+    styles: {
         all: 'green',
         label: 'red',
         other: 'red',
@@ -21,8 +21,8 @@ var options = {
         regexp: 'red'
     },
 
-    pretty: false,         
-    hideFunctions: true,  
+    pretty: false,
+    hideFunctions: true,
     stream: process.stdout,
     maxLength: 120
 }

@@ -147,7 +147,7 @@ declare class Flickity {
     * Get the elements of the cells.
     * @returns  Element[]
     */
-    getCellElements() : Element[];
+    getCellElements(): Element[];
 
     //event listeners
 

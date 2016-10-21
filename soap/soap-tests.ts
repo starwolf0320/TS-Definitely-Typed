@@ -33,23 +33,23 @@ var myService = {
                       name: args.name
                   };
               },
- 
-              // This is how to define an asynchronous function. 
+
+              // This is how to define an asynchronous function.
               MyAsyncFunction: function(args: any, callback: any) {
-                  // do some work 
+                  // do some work
                   callback({
                       name: args.name
                   });
               },
- 
-              // This is how to receive incoming headers 
+
+              // This is how to receive incoming headers
               HeadersAwareFunction: function(args: any, cb: any, headers: any) {
                   return {
                       name: headers.Token
                   };
               },
- 
-              // You can also inspect the original `req` 
+
+              // You can also inspect the original `req`
               reallyDeatailedFunction: function(args: any, cb: any, headers: any, req: any) {
                   console.log('SOAP `reallyDeatailedFunction` request from ' + req.connection.remoteAddress);
                   return {
@@ -59,11 +59,11 @@ var myService = {
           }
       }
   };
- 
+
 var xml = fs.readFileSync('myservice.wsdl', 'utf8'),
     server = http.createServer(function(request,response) {
         response.end("404: Not Found: " + request.url);
     });
- 
+
 server.listen(8000);
 soap.listen(server, '/wsdl', myService, xml);

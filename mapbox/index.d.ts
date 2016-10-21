@@ -22,12 +22,12 @@ declare namespace L.mapbox {
 	function map(element: string|Element, tilejson: any, options?: MapOptions): L.mapbox.Map;
 
 	interface MapOptions extends L.Map.MapOptions {
-		featureLayer?  : FeatureLayerOptions;
-		gridLayer?     : any;
-		tileLayer?     : TileLayerOptions;
-		infoControl?   : ControlOptions;
-		legendControl? : ControlOptions;
-		shareControl?  : ShareControlOptions;
+		featureLayer?: FeatureLayerOptions;
+		gridLayer?: any;
+		tileLayer?: TileLayerOptions;
+		infoControl?: ControlOptions;
+		legendControl?: ControlOptions;
+		shareControl?: ShareControlOptions;
 	}
 
 	interface FilterFunction {
@@ -35,14 +35,14 @@ declare namespace L.mapbox {
 	}
 
 	interface Map extends L.Map {
-		tileLayer    : L.mapbox.TileLayer;
-		gridLayer    : L.mapbox.GridLayer;
-		featureLayer : L.mapbox.FeatureLayer;
+		tileLayer: L.mapbox.TileLayer;
+		gridLayer: L.mapbox.GridLayer;
+		featureLayer: L.mapbox.FeatureLayer;
 
-		gridControl   : L.mapbox.GridControl;
-		infoControl   : L.mapbox.InfoControl;
-		legendControl : L.mapbox.LegendControl;
-		shareControl  : L.mapbox.ShareControl;
+		gridControl: L.mapbox.GridControl;
+		infoControl: L.mapbox.InfoControl;
+		legendControl: L.mapbox.LegendControl;
+		shareControl: L.mapbox.ShareControl;
 
 		getTileJSON(): any;
 
@@ -135,8 +135,8 @@ declare namespace L.mapbox {
 	function featureLayer(geojson: any, options?: FeatureLayerOptions): L.mapbox.FeatureLayer;
 
 	interface FeatureLayerOptions {
-		filter?    : FilterFunction;
-		sanitizer? : (template: string) => string;
+		filter?: FilterFunction;
+		sanitizer?: (template: string) => string;
 	}
 
 	interface FeatureLayer extends L.FeatureGroup<L.ILayer> {
@@ -294,11 +294,11 @@ declare namespace L.mapbox {
 	function gridControl(layer: string, options?: GridControlOptions): GridControl;
 
 	interface GridControlOptions extends ControlOptions {
-		template?    : string;
-		follow?      : boolean;
-		pinnable?    : boolean;
-		touchTeaser? : boolean;
-		location?    : boolean;
+		template?: string;
+		follow?: boolean;
+		pinnable?: boolean;
+		touchTeaser?: boolean;
+		location?: boolean;
 	}
 
 	interface GridControl extends L.Control {

@@ -11,7 +11,7 @@ str = creds.accessKeyId;
 
 
 /*
- * ECS 
+ * ECS
  */
 var ecs:AWS.ECS
 
@@ -20,7 +20,7 @@ ecs = new AWS.ECS({apiVersion: '2012-11-05'});
 
 ecs.describeClusters({
 		clusters: ['STRING_VALUE', 'STRING_VALUE']
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
@@ -29,7 +29,7 @@ ecs.describeClusters({
 ecs.describeTasks({
 		cluster: 'STRING_VALUE',
 		tasks: ['STRING_VALUE', 'STRING_VALUE']
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
@@ -37,7 +37,7 @@ ecs.describeTasks({
 
 
 /*
- * SQS 
+ * SQS
  */
 var sqs:AWS.SQS
 
@@ -64,22 +64,22 @@ sqs.addPermission({
 	],
 	Label: 'STRING_VALUE', /* required */
 	QueueUrl: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.changeMessageVisibility({
 		QueueUrl: 'STRING_VALUE', /* required */
 		ReceiptHandle: 'STRING_VALUE', /* required */
 		VisibilityTimeout: 0 /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.changeMessageVisibilityBatch({
 		Entries: [ /* required */
 			{
@@ -90,19 +90,19 @@ sqs.changeMessageVisibilityBatch({
 			/* more items */
 		],
 		QueueUrl: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.createQueue({
 		QueueName: 'STRING_VALUE', /* required */
 		Attributes: {
 			someKey: 'STRING_VALUE',
 			/* anotherKey: ... */
 		}
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
@@ -111,12 +111,12 @@ sqs.createQueue({
 sqs.deleteMessage({
 		QueueUrl: 'STRING_VALUE', /* required */
 		ReceiptHandle: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.deleteMessageBatch({
 		Entries: [ /* required */
 			{
@@ -126,20 +126,20 @@ sqs.deleteMessageBatch({
 			/* more items */
 		],
 		QueueUrl: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.deleteQueue({
 		QueueUrl: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.getQueueAttributes({
 		QueueUrl: 'STRING_VALUE', /* required */
 		AttributeNames: [
@@ -151,26 +151,26 @@ sqs.getQueueAttributes({
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.getQueueUrl({
 		QueueName: 'STRING_VALUE', /* required */
 		QueueOwnerAWSAccountId: 'STRING_VALUE'
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.listDeadLetterSourceQueues({
 		QueueUrl: 'STRING_VALUE' /* required */
 	}, function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.listQueues({
 		QueueNamePrefix: 'STRING_VALUE'
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
@@ -182,7 +182,7 @@ sqs.purgeQueue({
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.receiveMessage({
 		QueueUrl: 'STRING_VALUE', /* required */
 		AttributeNames: [
@@ -200,7 +200,7 @@ sqs.receiveMessage({
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.removePermission({
 		Label: 'STRING_VALUE', /* required */
 		QueueUrl: 'STRING_VALUE' /* required */
@@ -208,7 +208,7 @@ sqs.removePermission({
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.sendMessage({
 		MessageBody: 'STRING_VALUE', /* required */
 		QueueUrl: 'STRING_VALUE', /* required */
@@ -229,7 +229,7 @@ sqs.sendMessage({
 			},
 			/* anotherKey: ... */
 		}
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
@@ -261,12 +261,12 @@ sqs.sendMessageBatch({
 			/* more items */
 		],
 		QueueUrl: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.setQueueAttributes({
 		Attributes: { /* required */
 			someKey: 'STRING_VALUE',
@@ -277,7 +277,7 @@ sqs.setQueueAttributes({
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 	var dynamoDBDocClient:AWS.DynamoDB.DocumentClient;
 dynamoDBDocClient = new AWS.DynamoDB.DocumentClient();
 dynamoDBDocClient = new AWS.DynamoDB.DocumentClient({});

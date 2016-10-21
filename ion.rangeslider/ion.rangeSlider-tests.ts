@@ -49,7 +49,7 @@ sliderInputElement.ionRangeSlider({
     to_max: 100,
     to_min: 60,
     to_shadowed: false,
-    type: "double", 
+    type: "double",
     values: ["a", "b", "c"],
     values_separator: ","
 });

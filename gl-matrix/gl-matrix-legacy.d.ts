@@ -4,8 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace GLM {
-    interface IArray
-    {
+    interface IArray {
         /**
          * Must be indexable like an array
          */
@@ -477,7 +476,7 @@ declare namespace vec3 {
      * @param b the second operand
      * @returns out
      */
-    export function sub(out: GLM.IArray, a: GLM.IArray, b: GLM.IArray): GLM.IArray
+    export function sub(out: GLM.IArray, a: GLM.IArray, b: GLM.IArray): GLM.IArray;
 
     /**
      * Multiplies two vec3's
@@ -1832,23 +1831,23 @@ declare namespace mat4 {
 
      /**
      * Creates a matrix from a quaternion rotation, vector translation and vector scale.
-     * 
+     *
      * This is equivalent to (but much faster than):
-     * 
-     *     mat4.identity(dest); 
-     *     mat4.translate(dest, vec); 
-     *     var quatMat = mat4.create(); 
-     *     quat4.toMat4(quat, quatMat); 
-     *     mat4.multiply(dest, quatMat); 
+     *
+     *     mat4.identity(dest);
+     *     mat4.translate(dest, vec);
+     *     var quatMat = mat4.create();
+     *     quat4.toMat4(quat, quatMat);
+     *     mat4.multiply(dest, quatMat);
      *     mat4.scale(dest, scale)
-     * 
+     *
      * @param out mat4 receiving operation result
      * @param q Rotation quaternion
      * @param v Translation vector
      * @param s Scale vector
      * @returns out
      */
-    export function fromRotationTranslationScale(out: GLM.IArray, q: GLM.IArray, v: GLM.IArray, s: GLM.IArray): GLM.IArray
+    export function fromRotationTranslationScale(out: GLM.IArray, q: GLM.IArray, v: GLM.IArray, s: GLM.IArray): GLM.IArray;
 
     /**
      * Creates a matrix from a quaternion

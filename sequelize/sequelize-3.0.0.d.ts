@@ -4505,7 +4505,7 @@ declare namespace sequelize {
         mapToModel?: boolean;
 
         // TODO: force, cascade
-        fieldMap?: { [key: string]: string; }
+        fieldMap?: { [key: string]: string; };
     }
 
     /**

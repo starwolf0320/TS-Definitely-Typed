@@ -31,10 +31,10 @@ declare namespace Quill {
     }
 
     export interface BoundsStatic {
-        left: number,
-        top: number,
-        height: number,
-        width: number
+        left: number;
+        top: number;
+        height: number;
+        width: number;
     }
 
     export interface DeltaStatic {

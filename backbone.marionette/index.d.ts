@@ -689,7 +689,7 @@ declare namespace Marionette {
          * Defines `triggers` to forward DOM events to view
          * events. `triggers: {"click .foo": "do:foo"}`
          */
-        triggers:{[key:string]:any};
+        triggers: {[key: string]: any};
 
         /**
          * A configuration hash for models. The left side is the event on
@@ -733,7 +733,7 @@ declare namespace Marionette {
          * Retrieve an object's attribute either directly from the object, or
          * from the object's this.options, with this.options taking precedence.
          */
-        getOption<T>(optionName:string): T;
+        getOption<T>(optionName: string): T;
 
         mixinTemplateHelpers(target?: any): any;
         configureTriggers(): any;
@@ -894,7 +894,7 @@ declare namespace Marionette {
          * Backbone view object definition, not an instance. It can be any
          * Backbone.View or be derived from Marionette.ItemView
          */
-        childView: new (...args:any[]) => TView;
+        childView: new (...args: any[]) => TView;
 
         /**
          * There may be scenarios where you need to pass data from your parent
@@ -1030,7 +1030,7 @@ declare namespace Marionette {
          * instantiated when a Model needs to be initially rendered. This method
          * also gives you the ability to customize per Model ChildViews.
          */
-        getChildView<M extends Backbone.Model>(item: M): new (...args:any[]) => TView;
+        getChildView<M extends Backbone.Model>(item: M): new (...args: any[]) => TView;
 
         /**
          * If you need the emptyView's class chosen dynamically, specify
@@ -1138,7 +1138,7 @@ declare namespace Marionette {
          * CompositeView's template is rendered and the childView's templates are
          * added to this.
          */
-        childView: new (...args:any[]) => TView;
+        childView: new (...args: any[]) => TView;
 
         /**
          * By default the composite view uses the same attachHtml method that the
@@ -1181,7 +1181,7 @@ declare namespace Marionette {
         /**
          * The LayoutView takes an additional parameter where you can pass the regions as option on creation.
          */
-        regions?:any;
+        regions?: any;
 
         /**
          * This option removes the layoutView from the DOM before destroying the

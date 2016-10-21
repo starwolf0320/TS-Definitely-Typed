@@ -171,7 +171,7 @@ function test_optional_parameters(): void {
         },
 
         hasCache: function (xmlResponse): XMLDocument {
-            
+
             let $tempXmlResponse: JQuery,
                 itemId: String;
 

@@ -14,13 +14,13 @@ declare namespace Session {
     function setDefaultPersistent(key: string, value: EJSONable | any /** Undefined **/): void;
     function setDefaultAuth(key: string, value: EJSONable | any /** Undefined **/): void;
 
-    function makeTemp(key: string) : void;
-    function makePersistent(key: string) : void;
-    function makeAuth(key: string) : void;
+    function makeTemp(key: string): void;
+    function makePersistent(key: string): void;
+    function makeAuth(key: string): void;
 
-    function clear() : void;
-    function clear(key: string) : void;
-    function clearTemp() : void;
-    function clearPersistent() : void;
-    function clearAuth() : void;
+    function clear(): void;
+    function clear(key: string): void;
+    function clearTemp(): void;
+    function clearPersistent(): void;
+    function clearAuth(): void;
 }

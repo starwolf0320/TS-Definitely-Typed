@@ -453,7 +453,7 @@ declare namespace __MaterialUI {
         interface MuiThemeProviderProps extends React.Props<MuiThemeProvider> {
             muiTheme: Styles.MuiTheme;
         }
-        export class MuiThemeProvider extends React.Component<MuiThemeProviderProps, {}>{
+        export class MuiThemeProvider extends React.Component<MuiThemeProviderProps, {}> {
         }
 
         export function getMuiTheme(...muiTheme: MuiTheme[]): MuiTheme;
@@ -522,7 +522,7 @@ declare namespace __MaterialUI {
         titleStyle?: React.CSSProperties;
         zDepth?: number;
     }
-    export class AppBar extends React.Component<AppBarProps, {}>{
+    export class AppBar extends React.Component<AppBarProps, {}> {
     }
 
     interface AppCanvasProps extends React.Props<AppCanvas> {
@@ -533,7 +533,7 @@ declare namespace __MaterialUI {
     namespace propTypes {
         type horizontal = 'left' | 'middle' | 'right';
         type vertical = 'top' | 'center' | 'bottom';
-        
+
         interface origin {
             horizontal: horizontal;
             vertical: vertical;
@@ -945,7 +945,7 @@ declare namespace __MaterialUI {
         inset?: boolean;
         style?: React.CSSProperties;
     }
-    export class Divider extends React.Component<DividerProps, {}>{
+    export class Divider extends React.Component<DividerProps, {}> {
     }
 
     interface DrawerProps extends React.Props<Drawer> {
@@ -974,7 +974,7 @@ declare namespace __MaterialUI {
             padding?: number;
             style?: React.CSSProperties;
         }
-        export class GridList extends React.Component<GridListProps, {}>{
+        export class GridList extends React.Component<GridListProps, {}> {
         }
 
         interface GridTileProps extends React.Props<GridTile> {
@@ -989,7 +989,7 @@ declare namespace __MaterialUI {
             titleBackground?: string;
             titlePosition?: "top" | "bottom";
         }
-        export class GridTile extends React.Component<GridTileProps, {}>{
+        export class GridTile extends React.Component<GridTileProps, {}> {
         }
     }
 
@@ -1103,7 +1103,7 @@ declare namespace __MaterialUI {
             /** @deprecated wrap it in `Paper` or another component that provides zDepth instead */
             zDepth?: number;
         }
-        export class Menu extends React.Component<MenuProps, {}>{
+        export class Menu extends React.Component<MenuProps, {}> {
         }
 
         interface MenuItemProps extends React.HTMLAttributes, React.Props<MenuItem> {
@@ -1126,7 +1126,7 @@ declare namespace __MaterialUI {
             primaryText?: React.ReactNode;
             secondaryTextLines?: number; // 1 or 2
         }
-        export class MenuItem extends React.Component<MenuItemProps, {}>{
+        export class MenuItem extends React.Component<MenuItemProps, {}> {
         }
 
         interface IconMenuProps extends React.Props<IconMenu> {
@@ -1218,7 +1218,7 @@ declare namespace __MaterialUI {
             useLayerForClickAway?: boolean;
             zDepth?: number;
         }
-        export class Popover extends React.Component<PopoverProps, {}>{
+        export class Popover extends React.Component<PopoverProps, {}> {
         }
 
         interface PopoverAnimationVerticalProps extends PopoverAnimationProps, React.Props<PopoverAnimationVertical> {
@@ -1226,7 +1226,7 @@ declare namespace __MaterialUI {
             targetOrigin?: propTypes.origin;
             zDepth?: number;
         }
-        export class PopoverAnimationVertical extends React.Component<PopoverAnimationVerticalProps, {}>{
+        export class PopoverAnimationVertical extends React.Component<PopoverAnimationVerticalProps, {}> {
         }
 
         interface PopoverAnimationDefaultProps extends PopoverAnimationProps, React.Props<PopoverAnimationDefault> {
@@ -1234,7 +1234,7 @@ declare namespace __MaterialUI {
             targetOrigin?: propTypes.origin;
             zDepth?: number;
         }
-        export class PopoverAnimationDefault extends React.Component<PopoverAnimationDefaultProps, {}>{
+        export class PopoverAnimationDefault extends React.Component<PopoverAnimationDefaultProps, {}> {
         }
     }
 
@@ -1435,7 +1435,7 @@ declare namespace __MaterialUI {
             disabled?: boolean;
             style?: React.CSSProperties;
         }
-        export class Step extends React.Component<StepProps, {}>{
+        export class Step extends React.Component<StepProps, {}> {
         }
 
         interface StepButtonProps extends SharedEnhancedButtonProps<StepButton> {
@@ -1448,7 +1448,7 @@ declare namespace __MaterialUI {
             onTouchStart?: React.TouchEventHandler;
             style?: React.CSSProperties;
         }
-        export class StepButton extends React.Component<StepButtonProps, {}>{
+        export class StepButton extends React.Component<StepButtonProps, {}> {
         }
 
         interface StepContentProps extends React.Props<StepContent> {
@@ -1456,7 +1456,7 @@ declare namespace __MaterialUI {
             last?: boolean;
             style?: React.CSSProperties;
         }
-        export class StepContent extends React.Component<StepContentProps, {}>{
+        export class StepContent extends React.Component<StepContentProps, {}> {
         }
 
         interface StepLabelProps extends React.Props<StepLabel> {
@@ -1466,7 +1466,7 @@ declare namespace __MaterialUI {
             icon?: React.ReactNode | string | number;
             style?: React.CSSProperties;
         }
-        export class StepLabel extends React.Component<StepLabelProps, {}>{
+        export class StepLabel extends React.Component<StepLabelProps, {}> {
         }
 
         interface StepperProps extends React.Props<Stepper> {
@@ -1475,7 +1475,7 @@ declare namespace __MaterialUI {
             orientation?: "horizontal" | "vertical";
             style?: React.CSSProperties;
         }
-        export class Stepper extends React.Component<StepperProps, {}>{
+        export class Stepper extends React.Component<StepperProps, {}> {
         }
     }
 
@@ -1483,7 +1483,7 @@ declare namespace __MaterialUI {
         inset?: boolean;
         style?: React.CSSProperties;
     }
-    export class Subheader extends React.Component<SubheaderProps, {}>{
+    export class Subheader extends React.Component<SubheaderProps, {}> {
     }
 
     namespace Table {
@@ -1679,8 +1679,8 @@ declare namespace __MaterialUI {
         onEnterKeyDown?: React.KeyboardEventHandler;
         onFocus?: React.FocusEventHandler;
         onKeyDown?: React.KeyboardEventHandler;
-        rows?: number,
-        rowsMax?: number,
+        rows?: number;
+        rowsMax?: number;
         style?: React.CSSProperties;
         textareaStyle?: React.CSSProperties;
         type?: string;
@@ -1734,8 +1734,8 @@ declare namespace __MaterialUI {
         name?: string;
         onBlur?: React.FocusEventHandler;
         onKeyDown?: React.KeyboardEventHandler;
-        rows?: number,
-        rowsMax?: number,
+        rows?: number;
+        rowsMax?: number;
         textareaStyle?: React.CSSProperties;
         type?: string;
         underlineDisabledStyle?: React.CSSProperties;

@@ -97,9 +97,9 @@ declare module 'angular' {
         }
 
         interface IUnfoundState {
-            to: string,
-            toParams: {},
-            options: IStateOptions
+            to: string;
+            toParams: {};
+            options: IStateOptions;
         }
 
         interface IStateProvider extends angular.IServiceProvider {

@@ -117,7 +117,7 @@ declare module 'joi' {
 
 	export interface IPOptions {
 		version?: Array<string>;
-		cidr?: string
+		cidr?: string;
 	}
 
 	export interface ValidationError extends Error {
@@ -163,9 +163,9 @@ declare module 'joi' {
 		 */
 		valid(value: any, ...values: any[]): T;
 		valid(values: any[]): T;
-		only(value: any, ...values : any[]): T;
+		only(value: any, ...values: any[]): T;
 		only(values: any[]): T;
-		equal(value: any, ...values : any[]): T;
+		equal(value: any, ...values: any[]): T;
 		equal(values: any[]): T;
 
 		/**
@@ -173,9 +173,9 @@ declare module 'joi' {
 		 */
 		invalid(value: any, ...values: any[]): T;
 		invalid(values: any[]): T;
-		disallow(value: any, ...values : any[]): T;
+		disallow(value: any, ...values: any[]): T;
 		disallow(values: any[]): T;
-		not(value: any, ...values : any[]): T;
+		not(value: any, ...values: any[]): T;
 		not(values: any[]): T;
 
 		/**
@@ -286,7 +286,7 @@ declare module 'joi' {
 		 * Considers anything that matches the schema to be empty (undefined).
 		 * @param schema - any object or joi schema to match. An undefined schema unsets that rule.
 		 */
-		empty(schema?: any) : T;
+		empty(schema?: any): T;
 	}
 
 	export interface BooleanSchema extends AnySchema<BooleanSchema> {
@@ -612,7 +612,7 @@ declare module 'joi' {
 		 */
 		requiredKeys(children: string): ObjectSchema;
 		requiredKeys(children: string[]): ObjectSchema;
-		requiredKeys(child:string, ...children: string[]): ObjectSchema;
+		requiredKeys(child: string, ...children: string[]): ObjectSchema;
 
 		/**
 		 * Sets the specified children to optional.
@@ -623,7 +623,7 @@ declare module 'joi' {
 		 */
 		optionalKeys(children: string): ObjectSchema;
 		optionalKeys(children: string[]): ObjectSchema;
-		optionalKeys(child:string, ...children: string[]): ObjectSchema;
+		optionalKeys(child: string, ...children: string[]): ObjectSchema;
 	}
 
 	export interface BinarySchema extends AnySchema<BinarySchema> {

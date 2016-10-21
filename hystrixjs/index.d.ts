@@ -9,19 +9,19 @@
 declare namespace HystrixJS {
 
      interface HystrixProperties {
-        "hystrix.force.circuit.open"?: boolean,
-        "hystrix.force.circuit.closed"?: boolean,
-        "hystrix.circuit.sleepWindowInMilliseconds"?:number,
-        "hystrix.circuit.errorThresholdPercentage"?: number,
-        "hystrix.circuit.volumeThreshold"?:number,
-        "hystrix.circuit.volumeThreshold.forceOverride"?: boolean,
-        "hystrix.circuit.volumeThreshold.override"?: number,
-        "hystrix.execution.timeoutInMilliseconds"?: number,
-        "hystrix.metrics.statistical.window.timeInMilliseconds"?: number,
-        "hystrix.metrics.statistical.window.bucketsNumber"?: number,
-        "hystrix.metrics.percentile.window.timeInMilliseconds"?: number,
-        "hystrix.metrics.percentile.window.bucketsNumber"?: number,
-        "hystrix.request.volume.rejectionThreshold"?: number
+        "hystrix.force.circuit.open"?: boolean;
+        "hystrix.force.circuit.closed"?: boolean;
+        "hystrix.circuit.sleepWindowInMilliseconds"?: number;
+        "hystrix.circuit.errorThresholdPercentage"?: number;
+        "hystrix.circuit.volumeThreshold"?: number;
+        "hystrix.circuit.volumeThreshold.forceOverride"?: boolean;
+        "hystrix.circuit.volumeThreshold.override"?: number;
+        "hystrix.execution.timeoutInMilliseconds"?: number;
+        "hystrix.metrics.statistical.window.timeInMilliseconds"?: number;
+        "hystrix.metrics.statistical.window.bucketsNumber"?: number;
+        "hystrix.metrics.percentile.window.timeInMilliseconds"?: number;
+        "hystrix.metrics.percentile.window.bucketsNumber"?: number;
+        "hystrix.request.volume.rejectionThreshold"?: number;
     }
 
      interface HystrixConfig {
@@ -94,12 +94,12 @@ declare namespace HystrixJS {
     }
 
     interface MetricsProperties {
-        commandKey: string,
-        commandGroup: string,
-        statisticalWindowTimeInMilliSeconds?: number,
-        statisticalWindowNumberOfBuckets?: number,
-        percentileWindowTimeInMilliSeconds?: number,
-        percentileWindowNumberOfBuckets?: number
+        commandKey: string;
+        commandGroup: string;
+        statisticalWindowTimeInMilliSeconds?: number;
+        statisticalWindowNumberOfBuckets?: number;
+        percentileWindowTimeInMilliSeconds?: number;
+        percentileWindowNumberOfBuckets?: number;
     }
 
     interface MetricsFactory {
@@ -109,13 +109,13 @@ declare namespace HystrixJS {
     }
 
     interface CirctuiBreakerConfig {
-        circuitBreakerSleepWindowInMilliseconds: number,
-        commandKey: string,
-        circuitBreakerErrorThresholdPercentage: number,
-        circuitBreakerRequestVolumeThreshold: number,
-        commandGroup: string,
-        circuitBreakerForceClosed: boolean,
-        circuitBreakerForceOpened: boolean
+        circuitBreakerSleepWindowInMilliseconds: number;
+        commandKey: string;
+        circuitBreakerErrorThresholdPercentage: number;
+        circuitBreakerRequestVolumeThreshold: number;
+        commandGroup: string;
+        circuitBreakerForceClosed: boolean;
+        circuitBreakerForceOpened: boolean;
     }
 
     interface CircuitBreaker {
@@ -132,7 +132,7 @@ declare namespace HystrixJS {
     }
 
     interface HystrixSSEStream {
-        toObservable(): Rx.Observable<any>
+        toObservable(): Rx.Observable<any>;
     }
 }
 declare var hystrixjs: {

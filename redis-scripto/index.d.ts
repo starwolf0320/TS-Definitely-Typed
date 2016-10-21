@@ -29,7 +29,7 @@
     export interface Scripts {
       [scriptName: string]: Script;
     }
-    
+
   }
 
   export = Scripto;

@@ -10,7 +10,7 @@ export interface ResultObject {
     memoryInfo: {
         rss: number;
         vsize: number;
-    }
+    };
     cpu: number;
 }
 

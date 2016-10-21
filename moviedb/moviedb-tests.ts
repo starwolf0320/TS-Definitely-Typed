@@ -12,7 +12,7 @@ export class TmbdMovieScanner {
                 console.log('Error: ' + err);
                 return;
             }
-            console.log(movies);            
+            console.log(movies);
         });
         this.movieDb.movieInfo({ id: 666 }, (err: any, curMovie: any) => {
             if (err) {

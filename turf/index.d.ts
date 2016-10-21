@@ -88,15 +88,15 @@ ASSERTIONS
  */
 
 declare const turf: turf.TurfStatic;
-declare const TemplateUnits: 'miles' | 'nauticalmiles' | 'degrees' | 'radians' | 'inches' | 'yards' | 'meters' | 'metres' | 'kilometers' | 'kilometres'
-declare const TemplateType: 'point'| 'points' | 'polygon' | 'polygons'
+declare const TemplateUnits: 'miles' | 'nauticalmiles' | 'degrees' | 'radians' | 'inches' | 'yards' | 'meters' | 'metres' | 'kilometers' | 'kilometres';
+declare const TemplateType: 'point'| 'points' | 'polygon' | 'polygons';
 declare interface OptionsRandom {
-    bbox?: Array<number>
-    num_vertices?: number
-    max_radial_length?: number
+    bbox?: Array<number>;
+    num_vertices?: number;
+    max_radial_length?: number;
 }
-declare type PropReduceCallback = (memo: any, coord: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>) => any
-declare module turf {
+declare type PropReduceCallback = (memo: any, coord: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>) => any;
+declare namespace turf {
   interface TurfStatic {
     //////////////////////////////////////////////////////
     // Aggregation
@@ -211,7 +211,7 @@ declare module turf {
      * @param {string} name name of calling function
      * @throws {Error} if value is not the expected type.
      */
-    geojsonType(value: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>, type: string, name: string): void
+    geojsonType(value: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>, type: string, name: string): void;
 
     /**
      * Reduce properties in any GeoJSON object into a single value, similar to how Array.reduce works. However, in this case we lazily run the reduction, so an array of all properties is unnecessary.
@@ -222,7 +222,7 @@ declare module turf {
      * @param {*} memo the starting value of memo: can be any type.
      * @return {*} combined value
      */
-    propReduce(layer: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>, callback: PropReduceCallback, memo: any): any
+    propReduce(layer: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>, callback: PropReduceCallback, memo: any): any;
 
     /**
      * Get all coordinates from any GeoJSON object, returning an array of coordinate arrays.
@@ -231,7 +231,7 @@ declare module turf {
      * @param {GeoJSON} layer any GeoJSON object
      * @returns {Array<Array<Number>>} coordinate position array
      */
-    coordAll(layer: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>): Array<Array<number>>
+    coordAll(layer: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>): Array<Array<number>>;
 
     /**
      * Tesselates a {@link Feature<Polygon>} into a {@link FeatureCollection<Polygon>} of triangles using [earcut](https://github.com/mapbox/earcut).
@@ -246,7 +246,7 @@ declare module turf {
      *
      * //=triangles
      */
-    tesselate(poly: GeoJSON.Feature<GeoJSON.Polygon>): GeoJSON.FeatureCollection<GeoJSON.Polygon>
+    tesselate(poly: GeoJSON.Feature<GeoJSON.Polygon>): GeoJSON.FeatureCollection<GeoJSON.Polygon>;
 
     /**
     * Takes a bbox and returns an equivalent polygon.
@@ -567,7 +567,7 @@ declare module turf {
      *
      * //=feature
      */
-    feature(geometry:GeoJSON.Feature<any>, properties?: any): GeoJSON.Feature<any>;
+    feature(geometry: GeoJSON.Feature<any>, properties?: any): GeoJSON.Feature<any>;
 
     /**
      * Creates a {@link LineString} based on a coordinate array. Properties can be added optionally.
@@ -975,12 +975,12 @@ declare module turf {
 
 // NPM Stable version of Turf
 declare module "turf" {
-  export = turf
+  export = turf;
 }
 
 // Latest version of Turf
 declare module "@turf/turf" {
-  export = turf
+  export = turf;
 }
 
 // AGGREGATION

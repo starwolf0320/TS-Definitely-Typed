@@ -976,7 +976,7 @@ export function classMethod(kind?: "constructor" | "method" | "get" | "set", key
 export function objectPattern(properties?: Array<AssignmentProperty | RestProperty>, typeAnnotation?: TypeAnnotation): ObjectPattern;
 export function spreadElement(argument?: Expression): SpreadElement;
 export function taggedTemplateExpression(tag?: Expression, quasi?: TemplateLiteral): TaggedTemplateExpression;
-export function templateElement(value?: {cooked?: string; raw?: string;}, tail?: boolean): TemplateElement;
+export function templateElement(value?: {cooked?: string; raw?: string}, tail?: boolean): TemplateElement;
 export function templateLiteral(quasis?: TemplateElement[], expressions?: Expression[]): TemplateLiteral;
 export function yieldExpression(argument?: Expression, delegate?: boolean): YieldExpression;
 export function anyTypeAnnotation(): AnyTypeAnnotation;

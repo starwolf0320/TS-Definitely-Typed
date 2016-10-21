@@ -5,4 +5,4 @@
 
 
 
-declare var freedom :freedom.FreedomInCoreEnv;
+declare var freedom: freedom.FreedomInCoreEnv;

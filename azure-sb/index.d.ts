@@ -46,7 +46,7 @@ declare namespace Azure.ServiceBus {
         */
     }
 
-    export module Apns {
+    export namespace Apns {
         interface Payload {
             expiry?: Date;
             aps?: Object;
@@ -67,7 +67,7 @@ declare namespace Azure.ServiceBus {
             listRegistrationsByToken(token: string, optionsOrCallback?: { top: number, skip: number } | Callback, callback?: Callback): void;
         }
     }
-    export module Gcm {
+    export namespace Gcm {
         interface Service {
             new(service: NotificationHubService): Service;
             send(tags: string | string[], payload: any, callback?: Callback): void;
@@ -80,9 +80,9 @@ declare namespace Azure.ServiceBus {
         }
     }
 
-    export module Mpns { interface Service { } }
+    export namespace Mpns { interface Service { } }
 
-    export module Wns {
+    export namespace Wns {
         interface Payload {
             text1?: string;
             text2?: string;

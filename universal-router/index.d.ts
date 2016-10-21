@@ -1,6 +1,6 @@
 // Type definitions for universal-router
 // Project: https://github.com/kriasoft/universal-router
-// Definitions by: Jack Moore <https://github.com/jtmthf> 
+// Definitions by: Jack Moore <https://github.com/jtmthf>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare module "universal-router" {
@@ -33,7 +33,7 @@ declare module "universal-router" {
   /**
    * A Route is a singular route in your application. It contains a path, an
    * action function, and optional children which are an array of Route.
-   * 
+   *
    * @template C User context that is made union with ActionContext.
    * @template R Result that every action function resolves to. If the action
    *  returns a Promise, R can be the type the Promise resolves to.
@@ -56,15 +56,15 @@ declare module "universal-router" {
    * Resolve function that is given routes and a path or context object.
    * Returns a Promise that resolves to result of the action function of the
    * matched route.
-   * 
+   *
    * @template C User context that is made union with Context.
    * @template R Result that every action function resolves to. If the action
    *  returns a Promise, R can be the type the Promise resolves to.
-   * 
+   *
    * @param {Routes<C, R> | Route<C, R>} routes - Single route or array of routes.
    * @param {string | String | Context & C}  pathOrContext - path to resolve or
    *  context object that contains the path along with other data.
    * @return {Promise<R>} - Result of matched action function wrapped in a Promsie.
    */
-  export function resolve<C, R>(routes: Routes<C, R> | Route<C, R>, pathOrContext: string | String | Context & C): Promise<R>
+  export function resolve<C, R>(routes: Routes<C, R> | Route<C, R>, pathOrContext: string | String | Context & C): Promise<R>;
 }

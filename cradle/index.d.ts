@@ -13,7 +13,7 @@ interface Options {
     auth?: string | {
         username: string;
         password: string;
-    }
+    };
     ca?: string;
     secure?: boolean;
     retries?: number;

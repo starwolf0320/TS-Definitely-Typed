@@ -8,7 +8,7 @@
   Tests include code from http://mikemcl.github.io/big.js/
 
   Minor changes have been made such as adding variable definitions where required.
-  
+
 */
 
 import BigJS = BigJsLibrary.BigJS;

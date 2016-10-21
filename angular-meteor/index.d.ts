@@ -51,7 +51,7 @@ declare module 'angular' {
              * @param definitions - Object containing `name` => `function` definition, where each name is a string and each function is the helper function. Should return a [MongoDB Cursor](http://docs.meteor.com/#/full/mongo_cursor)
              * @return This method returns this, which the the reactive context, in order to provide the ability to chain the logic.
              */
-            helpers(definitions : { [helperName : string] : () => Mongo.Cursor<any> }): IScope;
+            helpers(definitions: { [helperName: string]: () => Mongo.Cursor<any> }): IScope;
 
             /**
              * This method is a wrapper of Tracker.autorun and shares exactly the same API.
@@ -61,7 +61,7 @@ declare module 'angular' {
              *
              * @param runFunc - The function to run. It receives one argument: the Computation object that will be returned.
              */
-            autorun(runFunc : () => void) : Tracker.Computation;
+            autorun(runFunc: () => void): Tracker.Computation;
         }
 
         /**
@@ -76,7 +76,7 @@ declare module 'angular' {
              * @param [autoClientSave=true] - By default, changes in the Angular collection will automatically update the Meteor collection.
              *                              - However if set to false, changes in the client won't be automatically propagated back to the Meteor collection.
              */
-            collection<T>(collection: Mongo.Collection<T>|ReactiveResult|Function|(()=>T), autoClientSave?: boolean): AngularMeteorCollection<T>;
+            collection<T>(collection: Mongo.Collection<T>|ReactiveResult|Function|(() => T), autoClientSave?: boolean): AngularMeteorCollection<T>;
 
             /**
              * A service that wraps the Meteor collections to enable reactivity within AngularJS.
@@ -87,7 +87,7 @@ declare module 'angular' {
              *                              - However if set to false, changes in the client won't be automatically propagated back to the Meteor collection.
              * @param [updateCollection] - A collection object which will be used for updates (insert, update, delete).
              */
-            collection<T, U>(collection: Mongo.Collection<T>|ReactiveResult|Function|(()=>T), autoClientSave: boolean, updateCollection: Mongo.Collection<U>): AngularMeteorCollection2<T, U>;
+            collection<T, U>(collection: Mongo.Collection<T>|ReactiveResult|Function|(() => T), autoClientSave: boolean, updateCollection: Mongo.Collection<U>): AngularMeteorCollection2<T, U>;
 
             /**
              * A service that wraps a Meteor object to enable reactivity within AngularJS.
@@ -307,7 +307,7 @@ declare module 'angular' {
              *
              * @param subscriptionName - The subscription name to subscribe to. Exactly like the first parameter in $meteor.subscribe service.
              */
-            subscribe(subscriptionName:string): AngularMeteorObject<T>;
+            subscribe(subscriptionName: string): AngularMeteorObject<T>;
         }
 
         /**
@@ -342,7 +342,7 @@ declare module 'angular' {
              *
              * @param subscriptionName - The subscription name to subscribe to. Exactly like the first parameter in $meteor.subscribe service.
              */
-             subscribe(subscriptionName:string): AngularMeteorCollection2<T, U>;
+             subscribe(subscriptionName: string): AngularMeteorCollection2<T, U>;
         }
 
         interface ILoginWithExternalService {

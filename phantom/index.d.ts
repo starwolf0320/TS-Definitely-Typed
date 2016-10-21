@@ -41,13 +41,13 @@ export interface WebPage {
 }
 
 export interface ICookie {
-    name: string,
-    value: string,
-    domain?: string,
-    path: string,
-    httponly?: boolean,
-    secure?: boolean,
-    expires?: Date
+    name: string;
+    value: string;
+    domain?: string;
+    path: string;
+    httponly?: boolean;
+    secure?: boolean;
+    expires?: Date;
 }
 
 export interface IPaperSizeOptions {

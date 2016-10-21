@@ -29,12 +29,12 @@ declare namespace Handlebars {
     export var helpers: any;
 
     export function registerDecorator(name: string, fn: Function): void;
-    export function registerDecorator(obj: {[name: string] : Function}): void;
+    export function registerDecorator(obj: {[name: string]: Function}): void;
     export function unregisterDecorator(name: string): void;
 
     export function noConflict(): typeof Handlebars;
 
-    export module AST {
+    export namespace AST {
         export var helpers: hbs.AST.helpers;
     }
 
@@ -114,7 +114,7 @@ interface CompileOptions {
         with?: boolean;
         log?: boolean;
         lookup?: boolean;
-    }
+    };
     knownHelpersOnly?: boolean;
     noEscape?: boolean;
     strict?: boolean;
@@ -138,7 +138,7 @@ declare namespace hbs {
     namespace Utils {
         function escapeExpression(str: string): string;
         function createFrame(obj: Object): Object;
-        function isEmpty(obj: any) : boolean;
+        function isEmpty(obj: any): boolean;
         function extend(obj: any, ...source: any[]): any;
         function toString(obj: any): string;
         function isArray(obj: any): boolean;
@@ -216,11 +216,11 @@ declare namespace hbs {
 
         interface PartialBlockStatement extends Statement {
             name: PathExpression | SubExpression;
-            params: Expression[],
-            hash: Hash,
-            program: Program,
-            openStrip: StripFlags,
-            closeStrip: StripFlags
+            params: Expression[];
+            hash: Hash;
+            program: Program;
+            openStrip: StripFlags;
+            closeStrip: StripFlags;
         }
 
         interface ContentStatement extends Statement {

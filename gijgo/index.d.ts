@@ -3,7 +3,7 @@
 // Definitions by: Atanas Atanasov <https://github.com/atatanasov>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module Gijgo {
+declare namespace Gijgo {
 
     //Grid
     interface GridPager {

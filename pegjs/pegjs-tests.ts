@@ -12,7 +12,7 @@ import * as pegjs from 'pegjs';
         let result: string = pegparser.parse("abba");
     } catch (error) {
         if (error instanceof pegparser.SyntaxError) {
-            
+
         }
     }
 }
@@ -34,7 +34,7 @@ try {
     } else if (error instanceof pegjs.parser.SyntaxError) {
         let e: pegjs.parser.SyntaxError = error;
     }
-    
+
     let e: pegjs.PegjsError = error;
     console.log(e.expected[0].description);
     console.log(e.expected[0].type);

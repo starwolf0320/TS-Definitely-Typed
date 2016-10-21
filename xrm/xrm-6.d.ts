@@ -3,13 +3,11 @@
 // Definitions by: David Berry <https://github.com/6ix4our/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare namespace Xrm
-{
+declare namespace Xrm {
     /**
      * Interface for the client context.
      */
-    export interface ClientContext
-    {
+    export interface ClientContext {
         /**
          * Returns a value to indicate which client the script is executing in.
          *
@@ -28,8 +26,7 @@ declare namespace Xrm
     /**
      * Interface for the xRM application context.
      */
-    export interface Context
-    {
+    export interface Context {
         /**
          * The client's context instance.
          */
@@ -128,13 +125,11 @@ declare namespace Xrm
     /**
      *  A definition module for asynchronous interface declarations.
      */
-    export module Async
-    {
+    export namespace Async {
         /**
          * Interface for success callbacks.
          */
-        export interface SuccessCallbackDelegate
-        {
+        export interface SuccessCallbackDelegate {
             /**
              * Called when the operation is successful.
              */
@@ -144,8 +139,7 @@ declare namespace Xrm
         /**
          * Interface for error callbacks.
          */
-        export interface ErrorCallbackDelegate
-        {
+        export interface ErrorCallbackDelegate {
             /**
              * Called when the operation fails.
              *
@@ -158,8 +152,7 @@ declare namespace Xrm
         /**
          * Interface for Xrm.Page.data promises.
          */
-        export interface XrmPromise
-        {
+        export interface XrmPromise {
             /**
              * A basic 'then' promise.
              *
@@ -173,15 +166,13 @@ declare namespace Xrm
     /**
      * A definition module for collection interface declarations.
      */
-    export module Collection
-    {
+    export namespace Collection {
         /**
          * Interface for a matching delegate.
          *
          * @tparam  T   Generic type parameter.
          */
-        export interface MatchingDelegate<T>
-        {
+        export interface MatchingDelegate<T> {
             /**
              * Called for each item in an array
              *
@@ -198,8 +189,7 @@ declare namespace Xrm
          *
          * @tparam  T   Generic type parameter.
          */
-        export interface IterativeDelegate<T>
-        {
+        export interface IterativeDelegate<T> {
             /**
              * Called for each item in an array
              *
@@ -214,8 +204,7 @@ declare namespace Xrm
           *
           * @tparam  T   Generic type parameter.
           */
-        export interface ItemCollection<T>
-        {
+        export interface ItemCollection<T> {
             /**
              * Applies an operation to all items in this collection.
              *
@@ -273,13 +262,11 @@ declare namespace Xrm
      *
      * @see {@link http://msdn.microsoft.com/en-us/library/gg328255.aspx|Documentation} for details.
      */
-    export module Page
-    {
+    export namespace Page {
         /**
          * Enumeration of entity form states/types.
          */
-        export const enum FormType
-        {
+        export const enum FormType {
             Undefined = 0,
             Create = 1,
             Update = 2,
@@ -291,8 +278,7 @@ declare namespace Xrm
         /**
          * Enumeration of entity form save modes.
          */
-        export const enum SaveMode
-        {
+        export const enum SaveMode {
             Save = 1,
             SaveAndClose = 2,
             SaveAndNew = 59,
@@ -309,8 +295,7 @@ declare namespace Xrm
         /**
          * Interface for the event context.
          */
-        export interface EventContext
-        {
+        export interface EventContext {
             /**
              * Gets the Xrm context.
              *
@@ -368,8 +353,7 @@ declare namespace Xrm
         /**
          * Interface for a context-sensitive handler.
          */
-        export interface ContextSensitiveHandler
-        {
+        export interface ContextSensitiveHandler {
             /**
              * @param   {EventContext}  context The context.
              */
@@ -379,8 +363,7 @@ declare namespace Xrm
         /**
          * Base interface for UI elements.
          */
-        export interface UiElement
-        {
+        export interface UiElement {
             /**
              * Gets the label.
              *
@@ -413,8 +396,7 @@ declare namespace Xrm
         /**
          * Interface for focusable UI elements.
          */
-        export interface UiFocusable
-        {
+        export interface UiFocusable {
             /**
              * Sets focus on the element.
              */
@@ -424,8 +406,7 @@ declare namespace Xrm
         /**
          * Interface for a Lookup value.
          */
-        export interface LookupValue
-        {
+        export interface LookupValue {
             /**
              * The identifier.
              */
@@ -445,8 +426,7 @@ declare namespace Xrm
         /**
          * Interface for an OptionSet value.
          */
-        export interface OptionSetValue
-        {
+        export interface OptionSetValue {
             /**
              * The label text.
              */
@@ -464,8 +444,7 @@ declare namespace Xrm
         /**
          * Interface for a privilege.
          */
-        export interface Privilege
-        {
+        export interface Privilege {
             /**
              * true if the user can read.
              */
@@ -485,8 +464,7 @@ declare namespace Xrm
         /**
          * Interface for an Entity attribute.
          */
-        export interface Attribute
-        {
+        export interface Attribute {
             /**
              * A collection of all the controls on the form that interface with this attribute.
              */
@@ -659,8 +637,7 @@ declare namespace Xrm
          *
          * @sa  Attribute
          */
-        export interface NumberAttribute extends Attribute
-        {
+        export interface NumberAttribute extends Attribute {
             /**
              * Gets the maximum value allowed.
              *
@@ -704,8 +681,7 @@ declare namespace Xrm
          *
          * @sa  Attribute
          */
-        export interface StringAttribute extends Attribute
-        {
+        export interface StringAttribute extends Attribute {
             /**
              * Gets maximum length allowed.
              *
@@ -739,8 +715,7 @@ declare namespace Xrm
          *
          * @sa  Attribute
          */
-        export interface EnumAttribute extends Attribute
-        {
+        export interface EnumAttribute extends Attribute {
             /**
              * Gets the initial value of the attribute.
              *
@@ -755,8 +730,7 @@ declare namespace Xrm
          *
          * @sa  EnumAttribute
          */
-        export interface BooleanAttribute extends EnumAttribute
-        {
+        export interface BooleanAttribute extends EnumAttribute {
             /**
              * Gets the value.
              *
@@ -779,8 +753,7 @@ declare namespace Xrm
          *
          * @sa  Attribute
          */
-        export interface DateAttribute extends Attribute
-        {
+        export interface DateAttribute extends Attribute {
             /**
              * Gets the value.
              *
@@ -803,8 +776,7 @@ declare namespace Xrm
          *
          * @sa  EnumAttribute
          */
-        export interface OptionSetAttribute extends EnumAttribute
-        {
+        export interface OptionSetAttribute extends EnumAttribute {
             /**
              * Gets the option matching a value.
              *
@@ -869,8 +841,7 @@ declare namespace Xrm
          *
          * @sa  Attribute
          */
-        export interface LookupAttribute extends Attribute
-        {
+        export interface LookupAttribute extends Attribute {
             /**
              * Gets a boolean value indicating whether the Lookup is a multi-value PartyList.
              *
@@ -898,8 +869,7 @@ declare namespace Xrm
         /**
          * Interface for the form's record context, Xrm.Page.data.entity
          */
-        export interface Entity
-        {
+        export interface Entity {
             /**
              * The collection of attributes for the record.
              */
@@ -998,8 +968,7 @@ declare namespace Xrm
         /**
          * Interface for save event arguments.
          */
-        export interface SaveEventArguments
-        {
+        export interface SaveEventArguments {
             /**
              * Gets save mode, as an integer.
              *
@@ -1036,8 +1005,7 @@ declare namespace Xrm
         /**
          * Interface for the Xrm.Page.data API.
          */
-        export interface Data
-        {
+        export interface Data {
             /**
              * The record context of the form.
              */
@@ -1065,8 +1033,7 @@ declare namespace Xrm
          *
          * @sa  UiElement
          */
-        export interface Control extends UiElement
-        {
+        export interface Control extends UiElement {
             /**
              * Clears the notification identified by uniqueId.
              *
@@ -1151,8 +1118,7 @@ declare namespace Xrm
          *
          * @sa  Control
          */
-        export interface StandardControl extends Control
-        {
+        export interface StandardControl extends Control {
             /**
              * Gets the control's bound attribute.
              *
@@ -1175,8 +1141,7 @@ declare namespace Xrm
          *
          * @sa  StandardControl
          */
-        export interface DateControl extends StandardControl
-        {
+        export interface DateControl extends StandardControl {
             /**
              * Gets the control's bound attribute.
              *
@@ -1197,8 +1162,7 @@ declare namespace Xrm
          *
          * @sa  StandardControl
          */
-        export interface LookupControl extends StandardControl
-        {
+        export interface LookupControl extends StandardControl {
             /**
              * Adds a handler to the "pre search" event of the Lookup control.
              *
@@ -1280,8 +1244,7 @@ declare namespace Xrm
          *
          * @sa  StandardControl
          */
-        export interface OptionSetControl extends StandardControl
-        {
+        export interface OptionSetControl extends StandardControl {
             /**
              * Adds an option.
              *
@@ -1318,8 +1281,7 @@ declare namespace Xrm
          *
          * @sa  Control
          */
-        export interface GridControl extends Control
-        {
+        export interface GridControl extends Control {
             /**
              * Refreshes the sub grid.
              *
@@ -1336,8 +1298,7 @@ declare namespace Xrm
          * @remarks     An Iframe control provides additional methods, so use {@link IframeControl} where
          *              appropriate.  Silverlight controls should use {@link SilverlightControl}.
          */
-        export interface FramedControl extends Control
-        {
+        export interface FramedControl extends Control {
             /**
              * Gets the DOM element containing the control.
              *
@@ -1371,8 +1332,7 @@ declare namespace Xrm
          *
          * @sa  FramedControl
          */
-        export interface IframeControl extends FramedControl
-        {
+        export interface IframeControl extends FramedControl {
             /**
              * Gets initial URL defined for the Iframe.
              *
@@ -1388,8 +1348,7 @@ declare namespace Xrm
          *
          * @sa  Control
          */
-        export interface SilverlightControl extends Control
-        {
+        export interface SilverlightControl extends Control {
             /**
              * Gets the query string value passed to Silverlight.
              *
@@ -1424,8 +1383,7 @@ declare namespace Xrm
          * @sa  UiElement
          * @sa  UiFocusable
          */
-        export interface Tab extends UiElement, UiFocusable
-        {
+        export interface Tab extends UiElement, UiFocusable {
             /**
              * A reference to the collection of form sections within this tab.
              */
@@ -1479,8 +1437,7 @@ declare namespace Xrm
          *
          * @sa  UiElement
          */
-        export interface Section extends UiElement
-        {
+        export interface Section extends UiElement {
             /**
              * A reference to the collection of controls within this tab.
              */
@@ -1504,8 +1461,7 @@ declare namespace Xrm
         /**
          * Interface for Xrm.Page.ui API.
          */
-        export interface Ui
-        {
+        export interface Ui {
             /**
              * A reference to the collection of controls on the form.
              */
@@ -1635,8 +1591,7 @@ declare namespace Xrm
          * @sa  UiElement
          * @sa  UiFocusable
          */
-        export interface NavigationItem extends UiElement, UiFocusable
-        {
+        export interface NavigationItem extends UiElement, UiFocusable {
             /**
              * Gets the name of the item.
              *
@@ -1648,8 +1603,7 @@ declare namespace Xrm
         /**
          * Interface for Xrm.Page.ui.navigation.
          */
-        export interface Navigation
-        {
+        export interface Navigation {
             /**
              * A reference to the collection of available navigation items.
              */
@@ -1659,8 +1613,7 @@ declare namespace Xrm
         /**
          * Interface for an entity's form selector item.
          */
-        export interface FormItem
-        {
+        export interface FormItem {
             /**
              * Gets the unique identifier of the form.
              *
@@ -1684,8 +1637,7 @@ declare namespace Xrm
         /**
          * Interface for the form selector API.
          */
-        export interface FormSelector
-        {
+        export interface FormSelector {
             /**
              * Gets current form.
              *
@@ -1810,13 +1762,11 @@ declare namespace Xrm
      *
      * @see {@link http://msdn.microsoft.com/en-us/library/gg328483.aspx} for details.
      */
-    export module Url
-    {
+    export namespace Url {
         /**
          * An enumeration for view types.
          */
-        export const enum ViewType
-        {
+        export const enum ViewType {
             SystemView = 1039,
             UserView = 4230
         }
@@ -1831,8 +1781,7 @@ declare namespace Xrm
          * @remarks  A member for "pagetype" is not provided.  The value "entityrecord" is required in
          *           the URL, for forms. Example:  "pagetype=entityrecord"
          */
-        export interface FormOpenParameters
-        {
+        export interface FormOpenParameters {
             /**
              * The logical name of the entity.
              */
@@ -1874,8 +1823,7 @@ declare namespace Xrm
          * @remarks  A member for "pagetype" is not provided.  The value "entitylist" is required in
          *           the URL, for views. Example:  "pagetype=entitylist"
          */
-        export interface ViewOpenParameters
-        {
+        export interface ViewOpenParameters {
             /**
              * The logical name of the entity.
              */
@@ -1919,8 +1867,7 @@ declare namespace Xrm
          *
          * @see {@link http://msdn.microsoft.com/en-us/library/gg328483.aspx} for details.
          */
-        export interface DialogOpenParameters
-        {
+        export interface DialogOpenParameters {
             /**
              * The unique identifier of the dialog, in Guid format, which is valid for the entity described
              * by: {@link EntityName}
@@ -1945,8 +1892,7 @@ declare namespace Xrm
          *
          * @see {@link http://msdn.microsoft.com/en-us/library/gg328483.aspx} for details.
          */
-        export interface ReportOpenParameters
-        {
+        export interface ReportOpenParameters {
             /**
              * The action to perform, as either "run" or "filter".
              *
@@ -1973,13 +1919,11 @@ declare namespace Xrm
      *
      * @see {@link http://msdn.microsoft.com/en-us/library/gg328255.aspx|Documentation} for details.
      */
-    export module Utility
-    {
+    export namespace Utility {
         /**
          * Interface for defining parameters on a Xrm.Utility.openEntityForm() request.
          */
-        export interface FormOpenParameters
-        {
+        export interface FormOpenParameters {
             /**
              * The identifier of the form to use, when several are available.
              */

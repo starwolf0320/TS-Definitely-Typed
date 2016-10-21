@@ -3,8 +3,7 @@
 // Definitions by: Jeongho Nam <http://samchon.org>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module "typescript-stl"
-{
+declare module "typescript-stl" {
 	export = std;
 }
 

@@ -791,7 +791,7 @@ interface GoogleApiYouTubeActivityResource {
          * The group ID associated with the activity.
          */
         groupId: string;
-    }
+    };
     /**
      * The contentDetails object contains information about the content associated with the activity.
      */
@@ -1032,7 +1032,7 @@ interface GoogleApiYouTubeActivityResource {
             resourceId: {
             }
         }
-    }
+    };
 }
 
 interface GoogleApiYouTubeChannelBannerResource {
@@ -1083,7 +1083,7 @@ interface GoogleApiYouTubeChannelResource {
          * A map of thumbnail images associated with the channel. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail.
          */
         thumbnails: GoogleApiYouTubeThumbnailItemResource[];
-    }
+    };
     /**
      * The contentDetails object encapsulates information about the channels content.
      */
@@ -1117,7 +1117,7 @@ interface GoogleApiYouTubeChannelResource {
          * The googlePlusUserId object identifies the Google+ profile ID associated with this channel.
          */
         googlePlusUserId: string;
-    }
+    };
     /**
      * The statistics object encapsulates statistics for the channel.
      */
@@ -1138,7 +1138,7 @@ interface GoogleApiYouTubeChannelResource {
          * The number of videos uploaded to the channel.
          */
         videoCount: number;
-    }
+    };
     /**
      * The topicDetails object encapsulates information about Freebase topics associated with the channel.
      */
@@ -1147,7 +1147,7 @@ interface GoogleApiYouTubeChannelResource {
          * A list of Freebase topic IDs associated with the channel. You can retrieve information about each topic using the Freebase Topic API.
          */
         topicIds: string[];
-    }
+    };
     /**
      * The status object encapsulates information about the privacy status of the channel.
      */
@@ -1160,7 +1160,7 @@ interface GoogleApiYouTubeChannelResource {
          * Indicates whether the channel data identifies a user that is already linked to either a YouTube username or a Google+ account. A user that has one of these links already has a public YouTube identity, which is a prerequisite for several actions, such as uploading videos.
          */
         isLinked: boolean;
-    }
+    };
     /**
      * The brandingSettings object encapsulates information about the branding of the channel.
      */
@@ -1415,7 +1415,7 @@ interface GoogleApiYouTubeChannelResource {
              */
             value: string;
         }[];
-    }
+    };
     /**
      * The invideoPromotion object encapsulates information about a promotional campaign associated with the channel. A channel can use an in-video promotional campaign to display the thumbnail image of a promoted video in the video player during playback of the channels videos
      */
@@ -1459,7 +1459,7 @@ interface GoogleApiYouTubeChannelResource {
              */
             videoId: string;
         }[];
-    }
+    };
 }
 
 interface GoogleApiYouTubeGuideCategoryResource {
@@ -1487,7 +1487,7 @@ interface GoogleApiYouTubeGuideCategoryResource {
          * The categorys title.
          */
         title: string;
-    }
+    };
 }
 
 interface GoogleApiYouTubePlaylistItemResource {
@@ -1552,7 +1552,7 @@ interface GoogleApiYouTubePlaylistItemResource {
              */
             videoId: string;
         }
-    }
+    };
     /**
      * The contentDetails object is included in the resource if the included item is a YouTube video. The object contains additional information about the video.
      */
@@ -1573,7 +1573,7 @@ interface GoogleApiYouTubePlaylistItemResource {
          * A user-generated note for this item.
          */
         note: string;
-    }
+    };
     /**
      * The status object contains information about the playlist items privacy status.
      */
@@ -1582,7 +1582,7 @@ interface GoogleApiYouTubePlaylistItemResource {
          * The playlist items privacy status. The channel that uploaded the video that the playlist item represents can set this value using either the videos.insert or videos.update method.
          */
         privacyStatus: string;
-    }
+    };
 }
 
 interface GoogleApiYouTubePlaylistResource {
@@ -1630,7 +1630,7 @@ interface GoogleApiYouTubePlaylistResource {
          * Keyword tags associated with the playlist.
          */
         tags: string[];
-    }
+    };
     /**
      * The status object contains status information for the playlist.
      */
@@ -1639,7 +1639,7 @@ interface GoogleApiYouTubePlaylistResource {
          * The playlists privacy status.
          */
         privacyStatus: string;
-    }
+    };
     /**
      * The contentDetails object contains information about the playlist content, including the number of videos in the playlist.
      */
@@ -1648,7 +1648,7 @@ interface GoogleApiYouTubePlaylistResource {
          * The number of videos in the playlist.
          */
         itemCount: number;
-    }
+    };
     /**
      * The player object contains information that you would use to play the playlist in an embedded player.
      */
@@ -1657,7 +1657,7 @@ interface GoogleApiYouTubePlaylistResource {
          * An <iframe> tag that embeds a player that will play the playlist.
          */
         embedHtml: string;
-    }
+    };
 }
 
 interface GoogleApiYouTubeSearchResource {
@@ -1689,7 +1689,7 @@ interface GoogleApiYouTubeSearchResource {
          * If the id.type propertys value is youtube#playlist, then this property will be present and its value will contain the ID that YouTube uses to uniquely identify a playlist that matches the search query.
          */
         playlistId: string;
-    }
+    };
     /**
      * The snippet object contains basic details about a search result, such as its title or description.
      */
@@ -1718,7 +1718,7 @@ interface GoogleApiYouTubeSearchResource {
          * The title of the channel that published the resource that the search result identifies.
          */
         channelTitle: string;
-    }
+    };
 }
 
 interface GoogleApiYouTubeSubscriptionResource {
@@ -1775,7 +1775,7 @@ interface GoogleApiYouTubeSubscriptionResource {
          * A map of thumbnail images associated with the subscription. For each object in the map, the key is the name of the thumbnail image, and the value is an object that contains other information about the thumbnail.
          */
         thumbnails: GoogleApiYouTubeThumbnailItemResource[];
-    }
+    };
     /**
      *
      */
@@ -1788,7 +1788,7 @@ interface GoogleApiYouTubeSubscriptionResource {
          *
          */
         newItemCount: number;
-    }
+    };
     /**
      *
      */
@@ -1797,7 +1797,7 @@ interface GoogleApiYouTubeSubscriptionResource {
         description: string;
         channelId: string;
         thumbnails: GoogleApiYouTubeThumbnailItemResource[];
-    }
+    };
 }
 
 interface GoogleApiYouTubeThumbnailResource {
@@ -1855,7 +1855,7 @@ interface GoogleApiYouTubeVideoCategoryResource {
          * The video categorys title.
          */
         title: string;
-    }
+    };
 }
 
 interface GoogleApiYouTubeVideoResource {
@@ -1907,7 +1907,7 @@ interface GoogleApiYouTubeVideoResource {
          * The YouTube video category associated with the video.
          */
         categoryId: string;
-    }
+    };
     /**
      * The contentDetails object contains information about the video content, including the length of the video and its aspect ratio.
      */
@@ -2011,7 +2011,7 @@ interface GoogleApiYouTubeVideoResource {
              */
             rtcRating: string;
         }
-    }
+    };
     /**
      * The player object contains information that you would use to play the video in an embedded player.
      */
@@ -2020,7 +2020,7 @@ interface GoogleApiYouTubeVideoResource {
          * An <iframe> tag that embeds a player that will play the video.
          */
         embedHtml: string;
-    }
+    };
     /**
      * The statistics object contains statistics about the video.
      */
@@ -2045,7 +2045,7 @@ interface GoogleApiYouTubeVideoResource {
          * The number of comments for the video.
          */
         commentCount: number;
-    }
+    };
     /**
      * The status object contains information about the videos uploading, processing, and privacy statuses.
      */
@@ -2079,7 +2079,7 @@ interface GoogleApiYouTubeVideoResource {
          * This value indicates whether the extended video statistics on the videos watch page are publicly viewable. By default, those statistics are viewable, and statistics like a videos viewcount and ratings will still be publicly visible even if this propertys value is set to false.
          */
         publicStatsViewable: boolean;
-    }
+    };
     /**
      * The topicDetails object encapsulates information about Freebase topics associated with the video.
      */
@@ -2088,7 +2088,7 @@ interface GoogleApiYouTubeVideoResource {
          * A list of Freebase topic IDs associated with the video. You can retrieve information about each topic using the Freebase Topic API.
          */
         topicIds: string[];
-    }
+    };
     /**
      * The recordingDetails object encapsulates information about the location, date and address where the video was recorded. This object will only be returned for a video if the videos geolocation data or recording time has been set.
      */
@@ -2118,7 +2118,7 @@ interface GoogleApiYouTubeVideoResource {
          * The date and time when the video was recorded. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
          */
         recordingDate: string;
-    }
+    };
     /**
      * The fileDetails object encapsulates information about the video file that was uploaded to YouTube, including the files resolution, duration, audio and video codecs, stream bitrates, and more. This data can only be retrieved by the video owner.
      */
@@ -2226,7 +2226,7 @@ interface GoogleApiYouTubeVideoResource {
          * The date and time when the uploaded video file was created. The value is specified in ISO 8601 format. Currently, the following ISO 8601 formats are supported:
          */
         creationTime: string;
-    }
+    };
     /**
      * The processingProgress object encapsulates information about YouTubes progress in processing the uploaded video file. The properties in the object identify the current processing status and an estimate of the time remaining until YouTube finishes processing the video. This part also indicates whether different types of data or content, such as file details or thumbnail images, are available for the video.
      * The processingProgress object is designed to be polled so that the video uploaded can track the progress that YouTube has made in processing the uploaded video file. This data can only be retrieved by the video owner.
@@ -2274,7 +2274,7 @@ interface GoogleApiYouTubeVideoResource {
          * This value indicates whether thumbnail images have been generated for the video.
          */
         thumbnailsAvailability: string;
-    }
+    };
     /**
      * The suggestions object encapsulates suggestions that identify opportunities to improve the video quality or the metadata for the uploaded video. This data can only be retrieved by the video owner.
      */
@@ -2308,7 +2308,7 @@ interface GoogleApiYouTubeVideoResource {
          * A list of video editing operations that might improve the video quality or playback experience of the uploaded video.
          */
         editorSuggestions: string[];
-    }
+    };
 
 }
 

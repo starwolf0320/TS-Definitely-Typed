@@ -154,7 +154,7 @@ class Foo {}
     var arr = i.freeze([{ a: 1 }, { b: 2 }]);
 
     //ECMAScript 2015
-    //arr.find(function(item) { return item.b != null; }); // {b: 2} 
+    //arr.find(function(item) { return item.b != null; }); // {b: 2}
 }
 
 // chain(coll) - not defined

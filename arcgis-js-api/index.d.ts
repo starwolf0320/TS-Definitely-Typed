@@ -4320,7 +4320,7 @@ declare module "esri/dijit/Geocoder" {
     /** Finalizes the creation of the widget. */
     startup(): void;
     /** Fired when results are returned from an auto-complete. */
-    on(type: "auto-complete", listener: (event: { results : any; target: Geocoder }) => void): esri.Handle;
+    on(type: "auto-complete", listener: (event: { results: any; target: Geocoder }) => void): esri.Handle;
     /** Fired when a result is cleared from the input box or a new result is selected. */
     on(type: "clear", listener: (event: { target: Geocoder }) => void): esri.Handle;
     /** Fired when results are returned from a search. */
@@ -16120,7 +16120,7 @@ declare module "esri/tasks/datareviewer/BatchValidationJob" {
   /** Encapsulates a Batch Validation Job. */
   class BatchValidationJob {
     /** Contains a list of batch run IDs, one for each batch validation execution associated with this batch validation job. */
-    batchRunIds : string[];
+    batchRunIds: string[];
     /** Gets job creation date. */
     creationDate: Date;
     /** Gets the Job Id. */

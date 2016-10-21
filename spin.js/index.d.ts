@@ -45,8 +45,8 @@ declare class Spinner {
      * Stopped spinners may be reused by calling spin() again.
      */
     stop(): Spinner;
-    lines(el:HTMLElement, o:SpinnerOptions):HTMLElement;
-    opacity(el:HTMLElement, i:number, val:number, o:SpinnerOptions):void;
+    lines(el: HTMLElement, o: SpinnerOptions): HTMLElement;
+    opacity(el: HTMLElement, i: number, val: number, o: SpinnerOptions): void;
 }
 
 declare module "spin.js" {

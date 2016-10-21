@@ -89,7 +89,7 @@ interface HttpStatus {
 	BAD_GATEWAY: number;
 	SERVICE_UNAVAILABLE: number;
 	GATEWAY_TIMEOUT: number;
-	HTTP_VERSION_NOT_SUPPORTED: number
+	HTTP_VERSION_NOT_SUPPORTED: number;
 }
 
 declare var httpStatus: HttpStatus;

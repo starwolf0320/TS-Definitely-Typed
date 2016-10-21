@@ -7,7 +7,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Gmail {
+  export namespace Gmail {
     /**
      * Provides access to Gmail threads, messages, and labels.
      */

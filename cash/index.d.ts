@@ -105,7 +105,7 @@ interface CashStatic {
 
 /**
  * Cash
- * Interface for CashJs 
+ * Interface for CashJs
  * Refer https://github.com/kenwheeler/cash for documentation and uses of the methods and properties
  */
 interface Cash {
@@ -305,7 +305,7 @@ interface Cash {
    * Returns last element in the collection.
    */
   last(): Cash;
-  
+
   /**
    * next
    * Returns next sibling.
@@ -323,13 +323,13 @@ interface Cash {
    * Removes event listener from collection elements.
    */
   off(eventName: string, callback: Function): Cash;
-  
+
   /**
    * offset
    * Get the coordinates of the first element in a collection relative to the document.
    */
   offset(): OffsetType;
-  
+
   /**
    * offsetParent
    * Get the first element's ancestor that's positioned.
@@ -416,7 +416,7 @@ interface Cash {
    * Removes collection elements from the DOM.
    */
   remove(): Cash;
-  
+
   /**
    * removeAttr
    * Removes attribute from collection elements.

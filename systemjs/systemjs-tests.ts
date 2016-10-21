@@ -9,9 +9,9 @@ System.config({
 System.import('main.js');
 
 System.config({
-    // or 'traceur' or 'typescript' 
+    // or 'traceur' or 'typescript'
     transpiler: 'babel',
-    // or traceurOptions or typescriptOptions 
+    // or traceurOptions or typescriptOptions
     babelOptions: {
 
     }
@@ -27,7 +27,7 @@ System.config({
 System.transpiler = 'traceur';
 
 
-// loads './app.js' from the current directory 
+// loads './app.js' from the current directory
 System.import('./app.js').then(function (m) {
     console.log(m);
 });

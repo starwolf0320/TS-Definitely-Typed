@@ -45,8 +45,8 @@ declare namespace maquette {
     afterUpdate?: (element: Element, projectionOptions: ProjectionOptions, vnodeSelector: string, properties: VNodeProperties,
       children: VNode[]) => void;
     key?: Object;
-    classes?: {[index:string]: boolean};
-    styles?: {[index:string]: string};
+    classes?: {[index: string]: boolean};
+    styles?: {[index: string]: string};
 
     // From Element
     ontouchcancel?: (ev?: TouchEvent) => boolean|void;
@@ -105,7 +105,7 @@ declare namespace maquette {
     transitions?: {
       enter: (element: Element, properties: VNodeProperties, enterAnimation: string) => void;
       exit: (element: Element, properties: VNodeProperties, exitAnimation: string, removeElement: () => void) => void;
-    }
+    };
   }
 
   // The following line is not possible in Typescript, hence the workaround in the two lines below
@@ -131,7 +131,7 @@ declare namespace maquette {
      */
   export function createMapping<Source, Target>(
     getSourceKey: (source: Source) => (string|number),
-    createResult: (source: Source, index:number) => Target,
+    createResult: (source: Source, index: number) => Target,
     updateResult: (source: Source, target: Target, index: number) => void): Mapping<Source, Target>;
 
     /**
@@ -143,7 +143,7 @@ declare namespace maquette {
      * A transition strategy is not needed when enterAnimation and exitAnimation properties are provided as functions.
      * @returns {Projector}
      */
-  export function createProjector(projectionOptions? : ProjectionOptions) : Projector;
+  export function createProjector(projectionOptions?: ProjectionOptions): Projector;
 
     /**
      * Creates a virtual DOM node, used to render a real DOM later.
@@ -198,7 +198,7 @@ declare namespace maquette {
 
   // Not used anywhere in the maquette sourcecode, but it is a widely used pattern.
   export interface Component {
-    renderMaquette() : VNode;
+    renderMaquette(): VNode;
   }
 
   /**
@@ -220,7 +220,7 @@ declare namespace maquette {
          * These objects are assumed to be immutable primitive values.
          * @param {function} calculation - Function that takes zero arguments and returns an object (A {@link VNode} assumably) that can be cached.
          */
-    result(inputs: Array<Object>, calculation: () => Result):Result;
+    result(inputs: Array<Object>, calculation: () => Result): Result;
   }
 
   /**
@@ -294,7 +294,7 @@ declare namespace maquette {
        * Updates the projection with the new virtual DOM tree.
        * @param {VNode} updatedVnode - The updated virtual DOM tree. Note: The selector for the root of the tree must remain constant.
        */
-    update(updatedVnode:VNode): void;
+    update(updatedVnode: VNode): void;
       /**
        * The DOM node that is used as the root of this {@link Projection}.
        * @type {Element}

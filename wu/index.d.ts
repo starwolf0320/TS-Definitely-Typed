@@ -24,7 +24,6 @@ declare namespace Wu {
 		cycle<T>(iter: Iterable<T>): Iterable<T>;
 		chunk<T>(n: number, iter: Iterable<T>): WuIterable<T[]>;
 		concatMap<T, U>(fn: (t: T) => Iterable<U>, iter: Iterable<T>): WuIterable<U>;
-		dropWhile<T>(fn: Filter<T>, iter: Iterable<T>): WuIterable<T>;
 		enumerate<T>(iter: Iterable<T>): Iterable<[number, T]>;
 		every<T>(fn: Filter<T>, iter: Iterable<T>): boolean;
 		filter<T>(fn: Filter<T>, iter: Iterable<T>): WuIterable<T>;
@@ -33,7 +32,7 @@ declare namespace Wu {
 		flatten(shallow: boolean, iter: Iterable<any>): WuIterable<any>;
 		forEach<T>(fn: Consumer<T>, iter: Iterable<T>): void;
 		has<T>(t: T, iter: Iterable<T>): boolean;
-		// invoke<T, U>(name:string, ...t:T[], iter: Iterable<(t:T)=>U>): WuIterable<U>;
+		// invoke<T, U>(name:string, ...t:T[], iter: Iterable<(t:T) => U>): WuIterable<U>;
 		invoke: any;
 		map<T, U>(fn: (t: T) => U, iter: Iterable<T>): WuIterable<U>;
 		// pluck<T>(attribute:string, iter: Iterable<{[attribute]: T}>): WuIterable<T>;
@@ -83,7 +82,7 @@ declare namespace Wu {
 		flatten(shallow: boolean): WuIterable<any>;
 		forEach(fn: Consumer<T>): void;
 		has(t: T): boolean;
-		// invoke<T, U>(name:string, ...t:T[], iter: Iterable<(t:T)=>U>): WuIterable<U>;
+		// invoke<T, U>(name:string, ...t:T[], iter: Iterable<(t:T) => U>): WuIterable<U>;
 		invoke: any;
 		map<U>(fn: (t: T) => U): WuIterable<U>;
 		// pluck<T>(attribute:string, iter: Iterable<{[attribute]: T}>): WuIterable<T>;

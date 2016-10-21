@@ -161,7 +161,7 @@ declare namespace sprite {
     interface CustomConfigurationTransform {
         [transformationName: string]: {
             plugins?: { [transformationName: string]: boolean }[];
-        }
+        };
     }
 
     /**
@@ -176,7 +176,7 @@ declare namespace sprite {
              * @param callback Callback
              */
             (shape: any, sprite: SVGSpriter, callback: Function): any;
-        }
+        };
     }
 
     interface Svg {

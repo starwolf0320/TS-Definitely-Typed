@@ -58,7 +58,7 @@ export declare function compare(data: any, encrypted: string, callback: (err: Er
 
 /**
  * Return the number of rounds used to encrypt a given hash
- * 
+ *
  * @param encrypted Hash from which the number of rounds used should be extracted.
  */
 export declare function getRounds(encrypted: string): number;

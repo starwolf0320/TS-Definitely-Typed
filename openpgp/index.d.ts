@@ -6,31 +6,31 @@
 declare namespace openpgp {
 
     interface KeyPair {
-        key: key.Key,
-        privateKeyArmored: string,
-        publicKeyArmored: string
+        key: key.Key;
+        privateKeyArmored: string;
+        publicKeyArmored: string;
     }
 
     interface KeyOptions {
-        keyType?: enums.publicKey,
-        numBits: number,
-        userId: string,
-        passphrase: string,
-        unlocked?: boolean
+        keyType?: enums.publicKey;
+        numBits: number;
+        userId: string;
+        passphrase: string;
+        unlocked?: boolean;
     }
 
     interface Keyid {
-        bytes: string,
+        bytes: string;
     }
 
     interface Signature {
-        keyid: Keyid,
-        valid: boolean
+        keyid: Keyid;
+        valid: boolean;
     }
 
     interface VerifiedMessage {
-        text: string,
-        signatures: Array<Signature>
+        text: string;
+        signatures: Array<Signature>;
     }
 
     /** Decrypts message and verifies signatures
@@ -177,9 +177,9 @@ declare namespace openpgp.config {
 
 declare namespace openpgp.crypto {
     interface Mpi {
-        data: number,
-        read(input: string): number,
-        write(): string,
+        data: number;
+        read(input: string): number;
+        write(): string;
     }
 
     /** Generating a session key for the specified symmetric algorithm
@@ -375,14 +375,14 @@ declare namespace openpgp.enums {
 declare namespace openpgp.key {
 
     interface KeyResult {
-        keys: Array<Key>,
-        err: Array<Error>
+        keys: Array<Key>;
+        err: Array<Error>;
     }
 
     /** Class that represents an OpenPGP key. Must contain a primary key. Can contain additional subkeys, signatures, user ids, user attributes.
      */
     interface Key {
-        armor(): string,
+        armor(): string;
         decrypt(passphrase: string): boolean;
         getExpirationTime(): Date;
         getKeyIds(): Array<Keyid>;
@@ -417,47 +417,47 @@ declare namespace openpgp.message {
     interface Message {
         /** Returns ASCII armored text of message
          */
-        armor(): string,
+        armor(): string;
 
         /** Decrypt the message
             @param privateKey private key with decrypted secret data
          */
-        decrypt(privateKey: key.Key): Array<Message>,
+        decrypt(privateKey: key.Key): Array<Message>;
 
         /** Encrypt the message
             @param keys array of keys, used to encrypt the message
          */
-        encrypt(keys: Array<key.Key>): Array<Message>,
+        encrypt(keys: Array<key.Key>): Array<Message>;
 
         /** Returns the key IDs of the keys to which the session key is encrypted
          */
-        getEncryptionKeyIds(): Array<Keyid>,
+        getEncryptionKeyIds(): Array<Keyid>;
 
         /** Get literal data that is the body of the message
          */
-        getLiteralData(): string,
+        getLiteralData(): string;
 
         /** Returns the key IDs of the keys that signed the message
          */
-        getSigningKeyIds(): Array<Keyid>,
+        getSigningKeyIds(): Array<Keyid>;
 
         /** Get literal data as text
          */
-        getText(): string,
+        getText(): string;
 
         /** Sign the message (the literal data packet of the message)
             @param privateKey private keys with decrypted secret key data for signing
          */
-        sign(privateKey: Array<key.Key>): Message,
+        sign(privateKey: Array<key.Key>): Message;
 
         /** Unwrap compressed message
          */
-        unwrapCompressed(): Message,
+        unwrapCompressed(): Message;
 
         /** Verify message signatures
             @param keys array of keys to verify signatures
          */
-        verify(keys: Array<key.Key>): Array<Object>,
+        verify(keys: Array<key.Key>): Array<Object>;
     }
 
     /** creates new message object from binary data
@@ -492,16 +492,16 @@ declare namespace openpgp.packet {
     }
 
     interface SecretKey extends PublicKey {
-        read(bytes:string): void;
+        read(bytes: string): void;
         write(): string;
         clearPrivateMPIs(str_passphrase: string): boolean;
-        encrypt(passphrase:string): void;
+        encrypt(passphrase: string): void;
     }
 
     /** Allocate a new packet from structured packet clone
         @param packetClone packet clone
      */
-    function fromStructuredClone(packetClone: Object): Object
+    function fromStructuredClone(packetClone: Object): Object;
 
     /** Allocate a new packet
         @param property name from enums.packet
@@ -523,20 +523,20 @@ declare namespace openpgp.util {
     /** Convert a string of utf8 bytes to a native javascript string
         @param utf8 A valid squence of utf8 bytes
      */
-    function decode_utf8(utf8: string): string
+    function decode_utf8(utf8: string): string;
 
     /** Convert a native javascript string to a string of utf8 bytes
         param str The string to convert
      */
-    function encode_utf8(str: string): string
+    function encode_utf8(str: string): string;
 
     /** Return the algorithm type as string
      */
-    function get_hashAlgorithmString(): string
+    function get_hashAlgorithmString(): string;
 
     /** Get native Web Cryptography api. The default configuration is to use the api when available. But it can also be deactivated with config.useWebCrypto
      */
-    function getWebCrypto(): Object
+    function getWebCrypto(): Object;
 
     /** Create binary string from a hex encoded string
         @param str Hex string to convert

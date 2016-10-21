@@ -331,7 +331,7 @@ declare namespace RoyalSlider {
         /**
          * Scales and animates height based on current slide. Please note: if you have images in slide that don't have rsImg class) or don't have fixed size, use $(window).load() instead of $(document).ready() before initializing slider. Also, autoHeight doesn't work with properties like autoScaleSlider, imageScaleMode and imageAlignCenter.  (default: false)
          */
-        autoHeight?: boolean;// false
+        autoHeight?: boolean; // false
         /**
          * Overrides HTML of slides, used for creating of slides from HTML that is not attached to DOM. More info in knowledge base.  (default: null)
          */

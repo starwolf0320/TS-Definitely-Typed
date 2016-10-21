@@ -7,7 +7,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module URL_Fetch {
+  export namespace URL_Fetch {
     /**
      * This class allows users to access specific information on HTTP responses.
      * See also

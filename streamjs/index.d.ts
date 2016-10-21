@@ -95,12 +95,12 @@ declare class Stream<T> {
 declare namespace Stream {
 
 	export interface Map<T> {
-		[index: string]: T
+		[index: string]: T;
 	}
 
 
 	export interface Sample {
-		[index: string]: any
+		[index: string]: any;
 	}
 
 	export interface Accumulator<T> {
@@ -114,7 +114,7 @@ declare namespace Stream {
 	}
 
 	export interface Comparator<T> {
-		(e1: T, e2: T): number
+		(e1: T, e2: T): number;
 	}
 
 	export interface Consumer<T> {
@@ -126,7 +126,7 @@ declare namespace Stream {
 	}
 
 	export interface GroupingResult<T> {
-		[index: string]: T
+		[index: string]: T;
 	}
 
 	export interface Iterator<T> {
@@ -145,7 +145,7 @@ declare namespace Stream {
 	}
 
 	export interface Supplier<T> {
-		(): T
+		(): T;
 	}
 
 	export class Optional<T> {

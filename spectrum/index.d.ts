@@ -248,7 +248,7 @@ declare namespace Spectrum {
          * Changing this can help resolve issues with opening the colorpicker in a modal dialog
          * or fixed position container, for instance.
          */
-        appendTo?: any //same as JQuery appendTo : JQuery| any[] | Element| string
+        appendTo?: any; // same as JQuery appendTo : JQuery| any[] | Element| string
 
         /**
          * Sets the max size for the palette.

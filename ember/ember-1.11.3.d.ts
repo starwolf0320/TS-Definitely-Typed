@@ -129,7 +129,7 @@ declare namespace EmberStates {
           @arg {Boolean} [ignoreFailure=false] a boolean specifying whether unhandled events throw an error
           @arg {String} name the name of the event to fire
          */
-        trigger(ignoreFailure:boolean, eventName: string): void;
+        trigger(ignoreFailure: boolean, eventName: string): void;
         /**
           Fires an event on the current list of resolved/resolving
           handlers within this transition. Useful for firing events
@@ -919,7 +919,7 @@ declare namespace Ember {
         replaceRoute(name: string, ...args: any[]): void;
         transitionToRoute(name: string, ...args: any[]): void;
         controllers: {};
-        model : any;
+        model: any;
         needs: string[];
         queryParams: any;
         target: any;
@@ -1024,7 +1024,7 @@ declare namespace Ember {
         @param {Object} [args] - Object containing values to use within the new class
         Non-static method because Ember classes aren't currently 'real' TypeScript classes.
         **/
-        extend<T>(mixins ? : Mixin, args ?: CoreObjectArguments): T;
+        extend<T>(mixins ?: Mixin, args ?: CoreObjectArguments): T;
 
         /**
         Equivalent to doing extend(arguments).create(). If possible use the normal create method instead.
@@ -2069,7 +2069,7 @@ declare namespace Ember {
         @method paramsFor
         @param {String} name
         */
-        paramsFor(name: string) : any;
+        paramsFor(name: string): any;
 
         /**
         Configuration hash for this route's queryParams.
@@ -2380,7 +2380,7 @@ declare namespace Ember {
         @param {Function} method The function of the subscription
         @return this
         */
-        off(name: string, target:any , method: Function): Evented;
+        off(name: string, target: any , method: Function): Evented;
 
         /**
         Checks to see if object has any subscriptions for named event.

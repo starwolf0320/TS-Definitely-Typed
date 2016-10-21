@@ -5,8 +5,8 @@
  */
 
 var options = {
-    minMargin: 10, 
-    maxMargin: 35, 
+    minMargin: 10,
+    maxMargin: 35,
     itemSelector: ".item"
 };
 

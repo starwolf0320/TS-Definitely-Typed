@@ -30,7 +30,7 @@ declare namespace Navigation {
          */
         route?: string | string[];
         /**
-         * Gets a value that indicates whether to maintain the crumb trail 
+         * Gets a value that indicates whether to maintain the crumb trail
          */
         trackCrumbTrail?: boolean | string;
         /**
@@ -77,7 +77,7 @@ declare namespace Navigation {
          */
         route: string | string[];
         /**
-         * Gets a value that indicates whether to maintain the crumb trail 
+         * Gets a value that indicates whether to maintain the crumb trail
          */
         trackCrumbTrail: boolean;
         /**
@@ -92,7 +92,7 @@ declare namespace Navigation {
         /**
          * Gets the additional state attributes
          */
-        [extras: string]: any;        
+        [extras: string]: any;
         /**
          * Called on the old State before navigating to a different State
          * @param state The new State
@@ -199,7 +199,7 @@ declare namespace Navigation {
     class HashHistoryManager implements HistoryManager {
         /**
          * Gets or sets a value indicating whether to disable browser history.
-         * Set to true if used in a browser without the hashchange event or 
+         * Set to true if used in a browser without the hashchange event or
          * outside of a browser environment
          */
         disabled: boolean;
@@ -220,7 +220,7 @@ declare namespace Navigation {
         init(navigateHistory: any): void;
         /**
          * Sets the browser Url's hash to the url
-         * @param url The current url 
+         * @param url The current url
          * @param replace A value indicating whether to replace the current
          * browser history entry
          */
@@ -251,7 +251,7 @@ declare namespace Navigation {
     class HTML5HistoryManager implements HistoryManager {
         /**
          * Gets or sets a value indicating whether to disable browser history.
-         * Set to true if used in a browser without the HTML5 history api or 
+         * Set to true if used in a browser without the HTML5 history api or
          * outside of a browser environment
          */
         disabled: boolean;
@@ -271,7 +271,7 @@ declare namespace Navigation {
         init(navigateHistory: () => void): void;
         /**
          * Sets the browser Url to the url using pushState
-         * @param url The current url 
+         * @param url The current url
          * @param replace A value indicating whether to replace the current
          * browser history entry
          */
@@ -393,13 +393,13 @@ declare namespace Navigation {
          * Clears the Context Data
          */
         clear(): void;
-        /** 
+        /**
          * Combines the data with all the current NavigationData
          * @param The data to add to the current NavigationData
          * @returns The combined data
          */
         includeCurrentData(data: any): any;
-        /** 
+        /**
          * Combines the data with a subset of the current NavigationData
          * @param The data to add to the current NavigationData
          * @returns The combined data
@@ -463,7 +463,7 @@ declare namespace Navigation {
         /**
          * Navigates to a State
          * @param stateKey The key of a State
-         * @throws state does not match the key of a State or there is 
+         * @throws state does not match the key of a State or there is
          * NavigationData that cannot be converted to a String
          * @throws A mandatory route parameter has not been supplied a value
          */
@@ -473,7 +473,7 @@ declare namespace Navigation {
          * @param stateKey The key of a State
          * @param navigationData The NavigationData to be passed to the next
          * State and stored in the StateContext
-         * @throws state does not match the key of a State or there is 
+         * @throws state does not match the key of a State or there is
          * NavigationData that cannot be converted to a String
          * @throws A mandatory route parameter has not been supplied a value
          */
@@ -484,7 +484,7 @@ declare namespace Navigation {
          * @param navigationData The NavigationData to be passed to the next
          * State and stored in the StateContext
          * @param A value determining the effect on browser history
-         * @throws state does not match the key of a State or there is 
+         * @throws state does not match the key of a State or there is
          * NavigationData that cannot be converted to a String
          * @throws A mandatory route parameter has not been supplied a value
          */
@@ -493,7 +493,7 @@ declare namespace Navigation {
          * Gets a Url to navigate to a State
          * @param stateKey The key of a State
          * @returns Url that will navigate to State specified in the action
-         * @throws state does not match the key of a State or there is 
+         * @throws state does not match the key of a State or there is
          * NavigationData that cannot be converted to a String
          */
         getNavigationLink(stateKey: string): string;
@@ -503,7 +503,7 @@ declare namespace Navigation {
          * @param navigationData The NavigationData to be passed to the next
          * State and stored in the StateContext
          * @returns Url that will navigate to State specified in the action
-         * @throws state does not match the key of a State or there is 
+         * @throws state does not match the key of a State or there is
          * NavigationData that cannot be converted to a String
          */
         getNavigationLink(stateKey: string, navigationData: any): string;
@@ -591,12 +591,12 @@ declare namespace Navigation {
          */
         parseLink(url: string): { state: State; data: any; };
         /**
-         * Navigates to the current location 
+         * Navigates to the current location
          */
         start(): void;
         /**
          * Navigates to the passed in url
-         * @param url The url to navigate to 
+         * @param url The url to navigate to
          */
         start(url: string): void;
     }

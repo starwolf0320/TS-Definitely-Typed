@@ -28,7 +28,7 @@ interface FPSMeterOptions {
 
 declare class FPSMeter {
 	constructor(anchor?: HTMLElement, options?: FPSMeterOptions);
-	public options : FPSMeterOptions;
+	public options: FPSMeterOptions;
 	public tick(): void;
 	public tickStart(): void;
 	public pause(): FPSMeter;
@@ -39,6 +39,6 @@ declare class FPSMeter {
 	public toggle(): FPSMeter;
 	public hide(): FPSMeter;
 	public show(): FPSMeter;
-	public destroy() : void;
+	public destroy(): void;
 }
 

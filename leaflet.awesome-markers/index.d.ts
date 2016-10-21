@@ -5,8 +5,8 @@
 
 /// <reference types="leaflet" />
 
-declare module L {
-    module AwesomeMarkers {
+declare namespace L {
+    namespace AwesomeMarkers {
         var version: string;
 
         function icon(options: AwesomeMarkers.IconOptions): AwesomeMarkers.Icon;

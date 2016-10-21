@@ -8,25 +8,25 @@
 
 declare namespace StatusBar {
 	interface IStatusBarViewStatic {
-		content():any;
+		content(): any;
 
-		new(...args:any[]):IStatusBarView;
+		new(...args: any[]): IStatusBarView;
 	}
 
 	interface IStatusBarView extends View {
 
-		initialize():any;
-		attach():any;
-		destroy():any;
-		appendLeft(view:View):any;
-		prependLeft(view:View):any;
-		appendRight(view:View):any;
-		prependRight(view:View):any;
-		getActiveBuffer():TextBuffer.ITextBuffer;
-		getActiveItem():any;
-		storeActiveBuffer():TextBuffer.ITextBuffer;
-		subscribeToBuffer(event:string, callback:Function):any;
-		subscribeAllToBuffer():any[];
-		unsubscribeAllFromBuffer():any[];
+		initialize(): any;
+		attach(): any;
+		destroy(): any;
+		appendLeft(view: View): any;
+		prependLeft(view: View): any;
+		appendRight(view: View): any;
+		prependRight(view: View): any;
+		getActiveBuffer(): TextBuffer.ITextBuffer;
+		getActiveItem(): any;
+		storeActiveBuffer(): TextBuffer.ITextBuffer;
+		subscribeToBuffer(event: string, callback: Function): any;
+		subscribeAllToBuffer(): any[];
+		unsubscribeAllFromBuffer(): any[];
 	}
 }

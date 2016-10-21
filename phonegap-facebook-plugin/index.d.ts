@@ -245,7 +245,7 @@ declare namespace PhonegapFacebookPlugin {
             session_key: boolean;
             sig: string;
             userID: string;
-        },
+        };
         status: string;
     }
 

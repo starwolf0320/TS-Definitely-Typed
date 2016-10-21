@@ -109,7 +109,7 @@ interface FirebaseQuery {
 	 */
 	once(eventType: string, successCallback: (dataSnapshot: FirebaseDataSnapshot) => void, context?: Object): void;
 	once(eventType: string, successCallback: (dataSnapshot: FirebaseDataSnapshot) => void, failureCallback?: (error: any) => void, context?: Object): void;
-	once(eventType: string): Promise<FirebaseDataSnapshot>
+	once(eventType: string): Promise<FirebaseDataSnapshot>;
 	/**
 	 * Generates a new Query object ordered by the specified child key.
 	 */
@@ -166,13 +166,13 @@ interface Firebase extends FirebaseQuery {
 	 * @deprecated Use authWithCustomToken() instead.
 	 * Authenticates a Firebase client using the provided authentication token or Firebase Secret.
 	 */
-	auth(authToken: string, onComplete: (error: any, result: FirebaseAuthResult) => void, onCancel?:(error: any) => void): void;
+	auth(authToken: string, onComplete: (error: any, result: FirebaseAuthResult) => void, onCancel?: (error: any) => void): void;
 	auth(authToken: string): Promise<FirebaseAuthResult>;
 	/**
 	 * Authenticates a Firebase client using an authentication token or Firebase Secret.
 	 */
-	authWithCustomToken(autoToken: string, onComplete: (error: any, authData: FirebaseAuthData) => void, options?:Object): void;
-	authWithCustomToken(autoToken: string, options?:Object): Promise<FirebaseAuthData>;
+	authWithCustomToken(autoToken: string, onComplete: (error: any, authData: FirebaseAuthData) => void, options?: Object): void;
+	authWithCustomToken(autoToken: string, options?: Object): Promise<FirebaseAuthData>;
 	/**
 	 * Authenticates a Firebase client using a new, temporary guest account.
 	 */
@@ -186,7 +186,7 @@ interface Firebase extends FirebaseQuery {
 	/**
 	 * Authenticates a Firebase client using a popup-based OAuth flow.
 	 */
-	authWithOAuthPopup(provider: string, onComplete:(error: any, authData: FirebaseAuthData) => void, options?: Object): void;
+	authWithOAuthPopup(provider: string, onComplete: (error: any, authData: FirebaseAuthData) => void, options?: Object): void;
 	authWithOAuthPopup(provider: string, options?: Object): Promise<FirebaseAuthData>;
 	/**
 	 * Authenticates a Firebase client using a redirect-based OAuth flow.
@@ -272,7 +272,7 @@ interface Firebase extends FirebaseQuery {
 	/**
 	 * Atomically modifies the data at this location.
 	 */
-	transaction(updateFunction: (currentData: any)=> any, onComplete?: (error: any, committed: boolean, snapshot: FirebaseDataSnapshot) => void, applyLocally?: boolean): void;
+	transaction(updateFunction: (currentData: any) => any, onComplete?: (error: any, committed: boolean, snapshot: FirebaseDataSnapshot) => void, applyLocally?: boolean): void;
 	/**
 	 * Creates a new user account using an email / password combination.
 	 */
@@ -341,13 +341,13 @@ interface FirebaseAuthData {
 	anonymous?: any;
 }
 
-interface FirebaseAuthDataPassword{
+interface FirebaseAuthDataPassword {
 	email: string;
 	isTemporaryPassword: boolean;
 	profileImageURL: string;
 }
 
-interface FirebaseAuthDataTwitter{
+interface FirebaseAuthDataTwitter {
 	id: string;
 	accessToken: string;
 	accessTokenSecret: string;
@@ -357,7 +357,7 @@ interface FirebaseAuthDataTwitter{
 	cachedUserProfile: any;
 }
 
-interface FirebaseAuthDataGithub{
+interface FirebaseAuthDataGithub {
 	id: string;
 	accessToken: string;
 	displayName: string;
@@ -367,7 +367,7 @@ interface FirebaseAuthDataGithub{
 	cachedUserProfile: any;
 }
 
-interface FirebaseAuthDataFacebook{
+interface FirebaseAuthDataFacebook {
 	id: string;
 	accessToken: string;
 	displayName: string;

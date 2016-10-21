@@ -11,12 +11,12 @@ declare module "sinon" {
     /**
      * When called, the stub will return a "thenable" object which will return a promise for the provided value. Any Promises/A+ compliant library will handle this object properly.
      */
-    resolves(value:any):SinonStub;
+    resolves(value: any): SinonStub;
 
     /**
      * When called, the stub will return a thenable which ill return a reject promise with the provided err. If err is a string, it will be set as the message on an Error object.
      */
-    rejects(err:any):SinonStub;
+    rejects(err: any): SinonStub;
   }
 
 }

@@ -69,7 +69,7 @@ let datetime = new Date();
 function test_synchron(): void {
 
   let s7client = new snap7.S7Client();
- 
+
   //API - Control functions
   s7client.Connect();
   s7client.ConnectTo('172.20.30.96', 0, 2);
@@ -151,9 +151,9 @@ function test_synchron(): void {
 
 
 function test_asynchron(): void {
-  
+
   let s7client = new snap7.S7Client();
- 
+
   //API - Control functions
   s7client.Connect(function(err){});
   s7client.ConnectTo('172.20.30.96', 0, 2, function(err){});
@@ -162,7 +162,7 @@ function test_asynchron(): void {
   //not asynchron: s7client.Disconnect();
   //not asynchron: s7client.GetParam(snap7.ParamNumber.DstRef);
   //not asynchron: s7client.SetParam(snap7.ParamNumber.PDURequest, 8);
-  
+
   //API - Data I/O functions
   s7client.ReadArea(snap7.Area.S7AreaDB, 100, 0, 10, snap7.WordLen.S7WLByte, function(err, data){});
   s7client.WriteArea(snap7.Area.S7AreaDB, 100, 0, 10, snap7.WordLen.S7WLDWord, buffer, function(err){});
@@ -181,13 +181,13 @@ function test_asynchron(): void {
 
   s7client.ReadMultiVars(multivarsRead, function(err, data){});
   s7client.WriteMultiVars(multivarsWrite, function(err, data){});
-  
+
   //API - Directory functions
   s7client.ListBlocks(function(err, data){});
   s7client.ListBlocksOfType(snap7.BlockType.Block_DB, function(err, data){});
   s7client.GetAgBlockInfo(snap7.BlockType.Block_DB, 100, function(err, data){});
   //not asynchron: s7client.GetPgBlockInfo(buffer);
-  
+
   //API - Block oriented functions
   s7client.FullUpload(snap7.BlockType.Block_DB, 100, function(err, data){});
   s7client.Upload(snap7.BlockType.Block_DB, 100, function(err, data){});
@@ -195,7 +195,7 @@ function test_asynchron(): void {
   s7client.Delete(snap7.BlockType.Block_DB, 100, function(err){});
   s7client.DBGet(100, function(err, data){});
   s7client.DBFill(100, 'a', function(err){});
-  
+
   //API - Date/Time functions
   s7client.GetPlcDateTime(function(err, data){});
   s7client.SetPlcDateTime(datetime, function(err){})

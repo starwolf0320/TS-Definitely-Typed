@@ -1,5 +1,5 @@
 /// <reference types="jquery" />
- 
+
 // create svg drawing paper
 
 // Example from svgjs.com
@@ -20,7 +20,7 @@ function one() {
     })
 
     // clip image with text
-    image.clipWith(text)    
+    image.clipWith(text)
 }
 
 
@@ -32,7 +32,7 @@ function two() {
 }
 
 
-// Ripped out of a project. 
+// Ripped out of a project.
 function renderSVG(data:string) {
 
     var el:JQuery;
@@ -74,7 +74,7 @@ function elementTransformShouldReturnTransformObject() {
 
     /* draw a rectangle scale, rotate and skew it */
     var rect = draw.rect(50,50).move(100,100).scale(0.5, 0.3).rotate(35).skew(10,25)
-    
+
     /* first try to cast it */
     var trans:svgjs.Transform = rect.transform()
     /* then check values if they are correct */
@@ -98,7 +98,7 @@ function elementChildrenShouldReturnElementArray() {
     group.rect(30,30)
     group.rect(40,40)
     group.rect(50,50)
-    
+
     /* first try to cast it */
     var result:svgjs.Element[] = group.children()
     /* then check values if they are correct */

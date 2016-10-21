@@ -9,22 +9,22 @@ declare module "Lobibox" {
 }
 declare namespace LobiboxModule {
     interface MessageBoxesDefault {
-        title?           : string;
+        title?: string;
         horizontalOffset?: number;
-        width?           : number;
-        height?          : string;  // Height is automatically given calculated by width
-        closeButton?     : boolean;  // Show close button or not
-        draggable?       : boolean;  // Make messagebox draggable
-        customBtnClass?  : string; // Class for custom buttons
-        modal?           : boolean;
-        debug?           : boolean;
-        buttonsAlign?    : string; // Position where buttons should be aligned
-        closeOnEsc?      : boolean;  // Close messagebox on Esc press
-        delayToRemove?   : number;
-        baseClass?       : string;
-        showClass?       : string;
-        hideClass?       : string;
-        msg?             : string;
+        width?: number;
+        height?: string;  // Height is automatically given calculated by width
+        closeButton?: boolean;  // Show close button or not
+        draggable?: boolean;  // Make messagebox draggable
+        customBtnClass?: string; // Class for custom buttons
+        modal?: boolean;
+        debug?: boolean;
+        buttonsAlign?: string; // Position where buttons should be aligned
+        closeOnEsc?: boolean;  // Close messagebox on Esc press
+        delayToRemove?: number;
+        baseClass?: string;
+        showClass?: string;
+        hideClass?: string;
+        msg?: string;
 
         // methods
         hide? (): MessageBoxesDefault;
@@ -38,28 +38,28 @@ declare namespace LobiboxModule {
 
         // events
         // when messagebox show is called but before it is actually shown
-        onShow?           (lobibox:any): void ;
+        onShow?           (lobibox: any): void ;
         // after messagebox is shown
-        shown?            (lobibox:any): void;
+        shown?            (lobibox: any): void;
         // when messagebox remove method is called but before it is actually hidden
-        beforeClose?      (lobibox:any): void;
+        beforeClose?      (lobibox: any): void;
         // after messagebox is hidden
-        closed?           (lobibox:any): void;
+        closed?           (lobibox: any): void;
     }
 
     interface MessageBoxesOptions extends MessageBoxesDefault {
-        bodyClass?       : string;
-        modalClasses? : {
-            'error'?     : string,
-            'success'?   : string,
-            'info'?      : string,
-            'warning'?   : string,
-            'confirm'?   : string,
-            'progress'?  : string,
-            'prompt'?    : string,
-            'default'?   : string,
-            'window'?    : string
-        },
+        bodyClass?: string;
+        modalClasses?: {
+            'error'?: string,
+            'success'?: string,
+            'info'?: string,
+            'warning'?: string,
+            'confirm'?: string,
+            'progress'?: string,
+            'prompt'?: string,
+            'default'?: string,
+            'window'?: string
+        };
         buttonsAlign?: any;
         buttons?: {
             ok?: {
@@ -83,12 +83,12 @@ declare namespace LobiboxModule {
                 closeOnClick?: boolean
             },
         }|any;
-        callback? (lobibox:any, type?:string, ev?: any): void;
+        callback? (lobibox: any, type?: string, ev?: any): void;
     }
     interface ConfirmOptions extends MessageBoxesOptions {
-        title?           : string;
-        width?           : number;
-        iconClass?       : string;
+        title?: string;
+        width?: number;
+        iconClass?: string;
     }
 
     interface PromptOptions extends MessageBoxesOptions, PromptMethods {
@@ -105,7 +105,7 @@ declare namespace LobiboxModule {
             title?: string,
             iconClass?: string // Change warning alert icon globally
         };
-        info?:{
+        info?: {
             title?: string,
             iconClass?: string  // Change info alert icon globally
         };
@@ -119,36 +119,36 @@ declare namespace LobiboxModule {
         };
     }
     interface ProgressOptions extends MessageBoxesOptions, ProgressMethods, ProgressEvents {
-        width?               : number;
-        showProgressLabel?   : boolean;  // Show percentage of progress
-        label?               : string;  // Show progress label
-        progressTpl?         : boolean;  //Template of progress bar
+        width?: number;
+        showProgressLabel?: boolean;  // Show percentage of progress
+        label?: string;  // Show progress label
+        progressTpl?: boolean;  //Template of progress bar
 
         //Events
-        progressUpdated?     : any;
-        progressCompleted?   : any;
+        progressUpdated?: any;
+        progressCompleted?: any;
     }
     interface WindowOptions extends MessageBoxesOptions {
-        width?           : number;
-        height?          : any;
-        content?         : any;  // HTML Content of window
-        url?             : string;  // URL which will be used to load content
-        draggable?       : boolean;  // Override default option
-        autoload?        : boolean;  // Auto load from given url when window is created
-        loadMethod?      : string;  // Ajax method to load content
-        showAfterLoad?   : boolean;  // Show window after content is loaded or show and then load content
-        params?          : {};  // Parameters which will be send by ajax for loading content
+        width?: number;
+        height?: any;
+        content?: any;  // HTML Content of window
+        url?: string;  // URL which will be used to load content
+        draggable?: boolean;  // Override default option
+        autoload?: boolean;  // Auto load from given url when window is created
+        loadMethod?: string;  // Ajax method to load content
+        showAfterLoad?: boolean;  // Show window after content is loaded or show and then load content
+        params?: {};  // Parameters which will be send by ajax for loading content
     }
     interface ProgressEvents {
-        progressUpdated? (lobibox:LobiboxStatic): void;
-        progressComplete? (lobibox:LobiboxStatic): void;
+        progressUpdated? (lobibox: LobiboxStatic): void;
+        progressComplete? (lobibox: LobiboxStatic): void;
     }
     interface PromptMethods {
-        setValue? (val?:string): PromptMethods;
+        setValue? (val?: string): PromptMethods;
         getValue? (): string;
     }
     interface ProgressMethods {
-        setProgress? (progress:number): ProgressMethods;
+        setProgress? (progress: number): ProgressMethods;
         getProgress? (): number;
     }
 
@@ -173,12 +173,12 @@ declare namespace LobiboxModule {
     }
     interface NotifyOptions extends NotifyDefault, NotifyMethods {
         'class'?: string; //You can override options for large notifications from here
-        large?:     {width?: number};  //You can override options for small notifications from here
-        mini?:      {'class'?: string};   //Default options of different style notifications
-        success?:   {'class'?: string, 'title'?: string,'icon'?: string,sound?: string};
-        error?:     {'class'?: string, 'title'?: string,'icon'?: string,sound?: string};
-        warning?:   {'class'?: string, 'title'?: string,'icon'?: string,sound?: string};
-        info?:      {'class'?: string, 'title'?: string,'icon'?: string,sound?: string};
+        large?: {width?: number};  //You can override options for small notifications from here
+        mini?: {'class'?: string};   //Default options of different style notifications
+        success?: {'class'?: string, 'title'?: string, 'icon'?: string, sound?: string};
+        error?: {'class'?: string, 'title'?: string, 'icon'?: string, sound?: string};
+        warning?: {'class'?: string, 'title'?: string, 'icon'?: string, sound?: string};
+        info?: {'class'?: string, 'title'?: string, 'icon'?: string, sound?: string};
     }
 
     interface NotifyMethods {
@@ -186,12 +186,12 @@ declare namespace LobiboxModule {
     }
 
     interface LobiboxStatic {
-        base:       {OPTIONS: MessageBoxesOptions, DEFAULTS: MessageBoxesDefault};
-        alert:      {<T extends MessageBoxesDefault>(type: string, options?: T): LobiboxStatic, DEFAULTS: AlertOptions};
-        prompt:     {<T extends MessageBoxesDefault>(type: string, options?: T): LobiboxStatic, DEFAULTS: PromptOptions};
-        confirm:    {<T extends MessageBoxesDefault>(options?: ConfirmOptions): T, DEFAULTS: ConfirmOptions};
-        progress:   {<T extends MessageBoxesDefault>(options: ProgressOptions): T, DEFAULTS: ProgressOptions};
-        window:     {<T extends MessageBoxesDefault>(options: WindowOptions): T, DEFAULTS: WindowOptions};
-        notify:     {<T extends NotifyDefault>(type: string, options?: NotifyOptions): T, DEFAULTS?: NotifyDefault,OPTIONS?:NotifyOptions};
+        base: {OPTIONS: MessageBoxesOptions, DEFAULTS: MessageBoxesDefault};
+        alert: {<T extends MessageBoxesDefault>(type: string, options?: T): LobiboxStatic, DEFAULTS: AlertOptions};
+        prompt: {<T extends MessageBoxesDefault>(type: string, options?: T): LobiboxStatic, DEFAULTS: PromptOptions};
+        confirm: {<T extends MessageBoxesDefault>(options?: ConfirmOptions): T, DEFAULTS: ConfirmOptions};
+        progress: {<T extends MessageBoxesDefault>(options: ProgressOptions): T, DEFAULTS: ProgressOptions};
+        window: {<T extends MessageBoxesDefault>(options: WindowOptions): T, DEFAULTS: WindowOptions};
+        notify: {<T extends NotifyDefault>(type: string, options?: NotifyOptions): T, DEFAULTS?: NotifyDefault, OPTIONS?: NotifyOptions};
     }
 }

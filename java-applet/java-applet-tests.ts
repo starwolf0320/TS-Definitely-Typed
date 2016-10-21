@@ -21,7 +21,7 @@ function testStatus() {
  */
 function testHandlers() {
     var applet: JavaApplet = <JavaApplet>document.getElementById('applet');
-    
+
     var handler: Function = () => {};
     applet.onError  = handler;
     applet.onLoad  = handler;

@@ -3,7 +3,7 @@
 // Definitions by: Arvydas Sidorenko <https://github.com/Asido>
 // Definitions: https://github.com/Asido/DefinitelyTyped
 
-declare module amplitude {
+declare namespace amplitude {
     interface Config {
         batchEvents?: boolean;
         cookieExpiration?: number;

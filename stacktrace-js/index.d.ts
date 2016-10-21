@@ -16,23 +16,23 @@ declare namespace StackTrace {
    * @param offline Boolean (default: false) - Set to true to prevent all network requests
    */
   export interface StackTraceOptions {
-    filter?:      (stackFrame: StackFrame) => boolean;
+    filter?: (stackFrame: StackFrame) => boolean;
     sourceCache?: SourceCache;
-    offline?:     boolean;
+    offline?: boolean;
   }
 
   export interface StackFrame {
     constructor(functionName: string, args: any, fileName: string, lineNumber: number, columnNumber: number): StackFrame;
 
     functionName: string;
-    args:         any;
-    fileName:     string;
-    lineNumber:   number;
+    args: any;
+    fileName: string;
+    lineNumber: number;
     columnNumber: number;
-    source:       string;
-    isEval:       boolean;
-    isNative:     boolean;
-    toString():   string;
+    source: string;
+    isEval: boolean;
+    isNative: boolean;
+    toString(): string;
   }
 
   /**

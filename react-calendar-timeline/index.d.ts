@@ -11,7 +11,7 @@ declare module "react-calendar-timeline" {
             id: number;
             title: any; // string | Element (React.ClassicComponentClass<any>);
         }[];
-        items:{
+        items: {
             id: number;
             group: number;
             title?: any; // string | Element (React.ClassicComponentClass<any>);
@@ -22,7 +22,7 @@ declare module "react-calendar-timeline" {
             canChangeGroup?: boolean;
             className?: string;
         }[];
-        keys?:{
+        keys?: {
             groupIdKey: string;
             groupTitleKey: string;
             itemIdKey: string;
@@ -49,22 +49,22 @@ declare module "react-calendar-timeline" {
         stackItems?: boolean;
         traditionalZoom?: boolean;
         itemTouchSendsClick?: boolean;
-        onItemMove?(itemId:any, dragTime:any, newGroupOrder:any): any;
-        onItemResize?(itemId:any, newResizeEnd:any): any;
-        onItemSelect?(itemId:any): any;
-        onItemClick?(itemId:any): any;
-        onCanvasClick?(groupId:any, time:any, e:any): any;
-        onItemDoubleClick?(itemId:any): any;
-        moveResizeValidator?(action:any, itemId:any, time:any): any;
+        onItemMove?(itemId: any, dragTime: any, newGroupOrder: any): any;
+        onItemResize?(itemId: any, newResizeEnd: any): any;
+        onItemSelect?(itemId: any): any;
+        onItemClick?(itemId: any): any;
+        onCanvasClick?(groupId: any, time: any, e: any): any;
+        onItemDoubleClick?(itemId: any): any;
+        moveResizeValidator?(action: any, itemId: any, time: any): any;
         defaultTimeStart?: any;
         defaultTimeEnd?: any;
         visibleTimeStart?: number;
         visibleTimeEnd?: number;
-        onTimeChange?(visibleTimeStart:any, visibleTimeEnd:any): any;
-        onTimeInit?(visibleTimeStart:any, visibleTimeEnd:any): any;
-        onBoundsChange?(canvasTimeStart:any, canvasTimeEnd:any): any;
+        onTimeChange?(visibleTimeStart: any, visibleTimeEnd: any): any;
+        onTimeInit?(visibleTimeStart: any, visibleTimeEnd: any): any;
+        onBoundsChange?(canvasTimeStart: any, canvasTimeEnd: any): any;
         children?: any;
     }
-    let ReactCalendarTimeline : React.ClassicComponentClass<ReactCalendarTimeline>;
+    let ReactCalendarTimeline: React.ClassicComponentClass<ReactCalendarTimeline>;
     export default ReactCalendarTimeline;
 }

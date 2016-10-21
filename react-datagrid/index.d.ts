@@ -299,7 +299,7 @@ declare namespace ReactDataGrid {
   					style: React.SVGAttributes<{}>,
   					overStyle: React.SVGAttributes<{}>,
   					disabledStyle: React.SVGAttributes<{}>
-				}
+				};
     }
 
     export class DataGrid extends React.Component<DataGridProps, {}> {

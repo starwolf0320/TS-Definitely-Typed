@@ -11,7 +11,7 @@ declare module 'gulp-insert' {
     import File = require('vinyl');
 
     interface Transformer {
-        (contents: string, file: File): string
+        (contents: string, file: File): string;
     }
 
     namespace Insert {
@@ -47,6 +47,5 @@ declare module 'gulp-insert' {
 
     }
 
-    module Insert { }
     export = Insert;
 }

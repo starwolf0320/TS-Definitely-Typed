@@ -21,7 +21,7 @@ interface ScrollerOptions {
 
 interface ScrollValues {
     left: number;
-    top: number;    
+    top: number;
 }
 
 interface ScrollValuesWithZoom extends ScrollValues {

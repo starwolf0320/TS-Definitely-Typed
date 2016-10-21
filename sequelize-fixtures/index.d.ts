@@ -9,10 +9,10 @@ import * as Sequelize from "sequelize";
 
 declare namespace SequelizeFixtures {
     interface Options {
-        encoding?: string,
-        log?: (message: string) => void,
-        transaction?: Sequelize.Transaction,
-        transformFixtureDataFn?: (data: any) => any
+        encoding?: string;
+        log?: (message: string) => void;
+        transaction?: Sequelize.Transaction;
+        transformFixtureDataFn?: (data: any) => any;
     }
 
     interface SequelizeFixturesStatic {

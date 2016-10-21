@@ -346,8 +346,8 @@ declare namespace Dropbox {
             closeServer(): void;
 
             // TODO check request response types
-            doRequest(request:any, response:any): void;
-            closeBrowser(response:any): void;
+            doRequest(request: any, response: any): void;
+            closeBrowser(response: any): void;
         }
     }
 
@@ -495,8 +495,8 @@ declare namespace Dropbox {
         appInfo(appKey: string, callback: (err: ApiError, changes: Http.AppInfo) => void): XMLHttpRequest;
 
         // TODO check if this can better be described
-        isAppDeveloper(userId:any, callbackcallback: (err: ApiError, isAppDeveloper: boolean) => void): XMLHttpRequest;
-        isAppDeveloper(userId:any, appKey:any, callbackcallback: (err: ApiError, isAppDeveloper: boolean) => void): XMLHttpRequest;
+        isAppDeveloper(userId: any, callbackcallback: (err: ApiError, isAppDeveloper: boolean) => void): XMLHttpRequest;
+        isAppDeveloper(userId: any, appKey: any, callbackcallback: (err: ApiError, isAppDeveloper: boolean) => void): XMLHttpRequest;
         hasOauthRedirectUri(redirectUri: string, callback: (err: ApiError, hasOauthRedirectUri: boolean) => void): XMLHttpRequest;
         hasOauthRedirectUri(redirectUri: string, appKey: string, callback: (err: ApiError, hasOauthRedirectUri: boolean) => void): XMLHttpRequest;
         hasOauthRedirectUri(redirectUri: string, appKey: Http.AppInfo, callback: (err: ApiError, hasOauthRedirectUri: boolean) => void): XMLHttpRequest;

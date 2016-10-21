@@ -5,10 +5,7 @@
 
 /// <reference types="jquery" />
 
-/* tslint:disable: interface-name no-any */
-
 interface JQueryStatic {
-	/* tslint:enable: interface-name */
     notify(message: string): NotifyReturn;
 	notify(opts: NotifyOptions, settings?: NotifySettings): NotifyReturn;
 	notifyDefaults(settings: NotifySettings): void;

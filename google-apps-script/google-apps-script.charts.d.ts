@@ -8,7 +8,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Charts {
+  export namespace Charts {
     /**
      * Builder for area charts. For more details, see the
      *  Google Charts documentation.
@@ -265,14 +265,14 @@ declare namespace GoogleAppsScript {
      *      }
      */
     export interface Charts {
-      ChartType: ChartType
-      ColumnType: ColumnType
-      CurveStyle: CurveStyle
-      MatchType: MatchType
-      Orientation: Orientation
-      PickerValuesLayout: PickerValuesLayout
-      PointStyle: PointStyle
-      Position: Position
+      ChartType: ChartType;
+      ColumnType: ColumnType;
+      CurveStyle: CurveStyle;
+      MatchType: MatchType;
+      Orientation: Orientation;
+      PickerValuesLayout: PickerValuesLayout;
+      PointStyle: PointStyle;
+      Position: Position;
       newAreaChart(): AreaChartBuilder;
       newBarChart(): BarChartBuilder;
       newCategoryFilter(): CategoryFilterBuilder;

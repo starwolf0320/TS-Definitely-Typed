@@ -162,7 +162,7 @@ declare module 'amqplib/properties' {
 
 declare module 'amqplib/callback_api' {
     import events = require('events');
-    import shared = require('amqplib/properties')
+    import shared = require('amqplib/properties');
 
     export import Replies = shared.Replies;
     export import Options = shared.Options;

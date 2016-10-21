@@ -7,24 +7,24 @@ import * as Backbone from 'backbone';
 
 declare module 'backbone' {
   interface PageableState {
-    firstPage?:    number;
-    lastPage?:     number;
-    currentPage?:  number;
-    pageSize?:     number;
-    totalPages?:   number;
+    firstPage?: number;
+    lastPage?: number;
+    currentPage?: number;
+    pageSize?: number;
+    totalPages?: number;
     totalRecords?: number;
-    sortKey?:      string;
-    order?:        number;
+    sortKey?: string;
+    order?: number;
   }
 
   interface PageableQueryParams {
-    currentPage?:  string;
-    pageSize?:     string;
-    totalPages?:   string;
+    currentPage?: string;
+    pageSize?: string;
+    totalPages?: string;
     totalRecords?: string;
-    sortKey?:      string;
-    order?:        string;
-    directions?:   any;
+    sortKey?: string;
+    order?: string;
+    directions?: any;
   }
 
   interface PageableInitialOptions {
@@ -45,13 +45,13 @@ declare module 'backbone' {
   }
 
   interface PageableSwitchModeOptions {
-    fetch?:      boolean;
+    fetch?: boolean;
     resetState?: boolean;
   }
 
   type PageableGetPageOptions = CollectionFetchOptions|Silenceable;
 
-  class PageableCollection<TModel extends Model> extends Collection<TModel>{
+  class PageableCollection<TModel extends Model> extends Collection<TModel> {
 
     fullCollection: Collection<TModel>;
     mode: string;
@@ -65,10 +65,10 @@ declare module 'backbone' {
     getFirstPage(options?: PageableGetPageOptions):
                                     JQueryXHR|PageableCollection<TModel>;
 
-    getLastPage(options?:  PageableGetPageOptions):
+    getLastPage(options?: PageableGetPageOptions):
                                     JQueryXHR|PageableCollection<TModel>;
 
-    getNextPage(options?:  PageableGetPageOptions):
+    getNextPage(options?: PageableGetPageOptions):
                                     JQueryXHR|PageableCollection<TModel>;
 
     getPage(index: number|string, options?: PageableGetPageOptions):
@@ -80,7 +80,7 @@ declare module 'backbone' {
     getPreviousPage(options?: PageableGetPageOptions):
                                     JQueryXHR|PageableCollection<TModel>;
 
-    hasNextPage():     boolean;
+    hasNextPage(): boolean;
 
     hasPreviousPage(): boolean;
 

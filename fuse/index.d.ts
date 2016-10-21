@@ -18,7 +18,7 @@ declare namespace fuse {
 		sortFn?: (a: {score: number}, b: {score: number}) => number;
 		getFn?: (obj: any, path: string) => any;
 		keys?: string[] | { name:string; weight:number} [];
-        	verbose?:boolean;
+        verbose?:boolean;
 		tokenize?: boolean;
 		tokenSeparator? : RegExp;
 		matchAllTokens?: boolean;

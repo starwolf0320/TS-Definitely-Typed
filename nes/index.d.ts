@@ -25,7 +25,7 @@ declare module 'nes' {
     }
 
     export interface ServerBroadcastOptions {
-        user: any
+        user: any;
     }
 
     export interface ServerSubscriptionOptionsFilterOptions {

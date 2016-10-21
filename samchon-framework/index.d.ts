@@ -5,8 +5,7 @@
 
 /// <reference types="typescript-stl" />
 
-declare module "samchon-framework"
-{
+declare module "samchon-framework" {
 	export = samchon;
 }
 

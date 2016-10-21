@@ -309,7 +309,7 @@ interface PDFJSUtilStatic {
 	 * means normalization to (BL,TR) ordering. For systems with origin in the
 	 * top-left, this means (TL,BR) ordering.
 	 **/
-	normalizeRect(rect:number[]): number[];
+	normalizeRect(rect: number[]): number[];
 }
 
 interface PDFJSStatic {
@@ -450,25 +450,25 @@ interface PDFJSStatic {
 	 * @return A promise that is resolved with PDFDocumentProxy object.
 	 **/
 	getDocument(
-			source: string,
-			pdfDataRangeTransport?: any,
-			passwordCallback?: (fn: (password: string) => void, reason: string) => string,
-			progressCallback?: (progressData: PDFProgressData) => void)
-			: PDFPromise<PDFDocumentProxy>;
+		source: string,
+		pdfDataRangeTransport?: any,
+		passwordCallback?: (fn: (password: string) => void, reason: string) => string,
+		progressCallback?: (progressData: PDFProgressData) => void
+	): PDFPromise<PDFDocumentProxy>;
 
 	getDocument(
-			source: Uint8Array,
-			pdfDataRangeTransport?: any,
-			passwordCallback?: (fn: (password: string) => void, reason: string) => string,
-			progressCallback?: (progressData: PDFProgressData) => void)
-			: PDFPromise<PDFDocumentProxy>;
+		source: Uint8Array,
+		pdfDataRangeTransport?: any,
+		passwordCallback?: (fn: (password: string) => void, reason: string) => string,
+		progressCallback?: (progressData: PDFProgressData) => void
+	): PDFPromise<PDFDocumentProxy>;
 
 	getDocument(
-			source: PDFSource,
-			pdfDataRangeTransport?: any,
-			passwordCallback?: (fn: (password: string) => void, reason: string) => string,
-			progressCallback?: (progressData: PDFProgressData) => void)
-			: PDFPromise<PDFDocumentProxy>;
+		source: PDFSource,
+		pdfDataRangeTransport?: any,
+		passwordCallback?: (fn: (password: string) => void, reason: string) => string,
+		progressCallback?: (progressData: PDFProgressData) => void
+	): PDFPromise<PDFDocumentProxy>;
 
 	PDFViewer(params: PDFViewerParams): void;
 }

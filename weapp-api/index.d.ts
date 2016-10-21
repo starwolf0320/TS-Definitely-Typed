@@ -53,7 +53,7 @@ declare namespace wx {
          * 当小程序从前台进入后台，会触发 onHide
          */
         onHide?: NoneParamCallback;
-        [key: string]: any
+        [key: string]: any;
     }
 
     interface RequestHeader {
@@ -787,7 +787,7 @@ declare namespace wx {
 
     interface CanvasAction {
         method: string;
-        data: Array<CanvasAction> | Array<number | string>
+        data: Array<CanvasAction> | Array<number | string>;
     }
     type LineCapType = 'butt' | 'round' | 'square';
     type LineJoinType = 'bevel' | 'round' | 'miter';
@@ -796,7 +796,7 @@ declare namespace wx {
      */
     interface CanvasContext {
         /** 获取当前context上存储的绘图动作 */
-        getActions(): Array<CanvasAction>
+        getActions(): Array<CanvasAction>;
         /** 清空当前的存储绘图动作 */
         clearActions(): void;
         /**

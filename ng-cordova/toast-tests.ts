@@ -7,17 +7,17 @@
 
 namespace demo.toast {
 	'use strict';
-	
+
 	export class ToastController {
-		
+
 		toastMessage:string = 'enter a message';
 		msg:string;
-		
+
 		static $inject:Array<string> = ["$cordovaToast"];
 		constructor(private $cordovaToast:ngCordova.IToastService) {
-			
+
 		}
-		
+
 		center() {
 			this.$cordovaToast.show(this.toastMessage, 'long', 'center')
 				.then((success) => {
@@ -26,7 +26,7 @@ namespace demo.toast {
 					this.msg = error.message;
 				});
 		}
-		
+
 		top() {
 			this.$cordovaToast.showShortTop(this.toastMessage)
 				.then((success) => {
@@ -35,7 +35,7 @@ namespace demo.toast {
 					this.msg = error.message;
 				});
 		}
-		
+
 		bottom() {
 			this.$cordovaToast.showLongBottom(this.toastMessage)
 				.then((success) => {
@@ -44,8 +44,8 @@ namespace demo.toast {
 					this.msg = error.message;
 				});
 		}
-		
+
 	}
-	
+
 	angular.module("demo.toast").controller("ToastController", ToastController);
 }

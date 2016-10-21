@@ -108,21 +108,21 @@ declare module 'oracledb' {
 		metaData?: Array<IMetaData>;
 		/**
 		 * Closes the ResultSet.
-		 * @param  {(err:any)=>void} callback Callback called on finish or when some error occurs
+		 * @param  {(err:any) => void} callback Callback called on finish or when some error occurs
 		 * @returns void
 		 * @remarks After using a resultSet, it must be closed to free the resources used by the driver.
 		 */
 		close(callback: (err: any) => void): void;
 		/**
 		 * Fetch one row from ResultSet.
-		 * @param  {(err:any,row:Array<any>|Object)=>void} callback Callback called when the row is available or when some error occurs.
+		 * @param  {(err:any,row:Array<any>|Object) => void} callback Callback called when the row is available or when some error occurs.
 		 * @returns void
 		 */
 		getRow(callback: (err: any, row: Array<any> | Object) => void): void;
 		/**
 		 * Fetch some rows from ResultSet.
 		 * @param  {number} rowCount Number of rows to be fetched.
-		 * @param  {(err:any,rows:Array<Array<any>>|Array<Object>)=>void} callback Callback called when the rows are available, or when some error occurs.
+		 * @param  {(err:any,rows:Array<Array<any>>|Array<Object>) => void} callback Callback called when the rows are available, or when some error occurs.
 		 * @returns void
 		 * @remarks When the number of rows passed to the callback is less than the rowCount, no more rows are available to be fetched.
 		 */
@@ -216,13 +216,13 @@ declare module 'oracledb' {
 		stmtCacheSize: number;
 		/**
 		 * Finalizes the connection pool.
-		 * @param  {(err:any)=>void} callback Callback called when the pool is terminated or when some error occurs
+		 * @param  {(err:any) => void} callback Callback called when the pool is terminated or when some error occurs
 		 * @returns void
 		 */
 		terminate(callback: (err: any) => void): void;
 		/**
 		 * Retrieve a connection from the pool.
-		 * @param  {(err:any,connection:IConnection)=>void} callback Callback called when the connection is available or when some error occurs.
+		 * @param  {(err:any,connection:IConnection) => void} callback Callback called when the connection is available or when some error occurs.
 		 * @returns void
 		 * @see {@link https://jsao.io/2015/03/making-a-wrapper-module-for-the-node-js-driver-for-oracle-database/}
 		 * @see {@link https://github.com/OraOpenSource/orawrap}
@@ -264,7 +264,7 @@ declare module 'oracledb' {
 	/**
 	 * Creates a connection with the database.
 	 * @param  {IConnectionAttributes} connectionAttributes Parameters to stablish the connection.
-	 * @param  {(err:any,connection:IConnection)=>void} callback Callback to run when the connection gets stablished or when some error occurs.
+	 * @param  {(err:any,connection:IConnection) => void} callback Callback to run when the connection gets stablished or when some error occurs.
 	 * @returns void
 	 */
 	export function getConnection(connectionAttributes: IConnectionAttributes, callback: (err: any, connection: IConnection) => void): void;
@@ -272,7 +272,7 @@ declare module 'oracledb' {
 	/**
 	 * Creates a database managed connection pool.
 	 * @param  {IPoolAttributes} poolAttributes Parameters to stablish the connection pool.
-	 * @param  {(err:any,connection:IConnectionPool)=>void} callback Callback to run when the connection pool gets created or when some error occurs.
+	 * @param  {(err:any,connection:IConnectionPool) => void} callback Callback to run when the connection pool gets created or when some error occurs.
 	 * @returns void
 	 */
 	export function createPool(poolAttributes: IPoolAttributes, callback: (err: any, connection: IConnectionPool) => void): void;

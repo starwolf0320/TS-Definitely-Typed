@@ -126,7 +126,7 @@ declare namespace Chance {
         pick<T>(arr: T[]): T;
         pickone<T>(arr: T[]): T;
         /**
-         * @deprecated Use pickset 
+         * @deprecated Use pickset
          */
         pick<T>(arr: T[], count: number): T[];
         pickset<T>(arr: T[], count: number): T[];

@@ -14,102 +14,102 @@ declare namespace axe {
 	export type RunOnlyType = "rule" | "rules" | "tag" | "tags";
 
 	export interface ElementContext {
-		node?: Object,
-		selector?: string,
-		include?: any[],
-		exclude?: any[]
+		node?: Object;
+		selector?: string;
+		include?: any[];
+		exclude?: any[];
 	}
 	export interface RunOnly {
-		type: RunOnlyType,
+		type: RunOnlyType;
 		value?: {
-			include?: string[],
-			exclude?: string[]
-		}
-		values?: TagValue[]
+			include?: string[];
+			exclude?: string[];
+		};
+		values?: TagValue[];
 	}
 	export interface AxeResults {
-		url: string,
-		timestamp: string,
-		passes: Pass[],
-		violations: Violation[]
+		url: string;
+		timestamp: string;
+		passes: Pass[];
+		violations: Violation[];
 	}
 	export interface Pass {
-		description: string,
-		help: string,
-		helpUrl: string,
-		id: string,
-		impact: ImpactValue,
-		tags: TagValue[],
-		nodes: NodeResult[]
+		description: string;
+		help: string;
+		helpUrl: string;
+		id: string;
+		impact: ImpactValue;
+		tags: TagValue[];
+		nodes: NodeResult[];
 	}
 	export interface Violation {
-		description: string,
-		help: string,
-		helpUrl: string,
-		id: string,
-		impact: ImpactValue,
-		tags: TagValue[],
-		nodes: NodeResult[]
+		description: string;
+		help: string;
+		helpUrl: string;
+		id: string;
+		impact: ImpactValue;
+		tags: TagValue[];
+		nodes: NodeResult[];
 	}
 	export interface NodeResult {
-		html: string,
-		impact: ImpactValue,
-		target: string[],
-		any: CheckResult[],
-		all: CheckResult[],
-		none: CheckResult[]
+		html: string;
+		impact: ImpactValue;
+		target: string[];
+		any: CheckResult[];
+		all: CheckResult[];
+		none: CheckResult[];
 	}
 	export interface CheckResult {
-		id: string,
-		impact: string,
-		message: string,
-		data: any,
-		relatedNodes?: RelatedNode[]
+		id: string;
+		impact: string;
+		message: string;
+		data: any;
+		relatedNodes?: RelatedNode[];
 	}
 	export interface RelatedNode {
-		target: string[],
-		html: string
+		target: string[];
+		html: string;
 	}
 	export interface Spec {
 		branding?: {
-			brand: string,
-			application: string
-		},
-		reporter?: ReporterVersion,
-		checks?: Check[],
-		rules?: Rule[]
+			brand: string;
+			application: string;
+		};
+		reporter?: ReporterVersion;
+		checks?: Check[];
+		rules?: Rule[];
 	}
 	export interface Check {
-		id: string,
-		evaluate: Function,
-		after?: Function,
-		options?: any,
-		matches?: string,
-		enabled?: boolean
+		id: string;
+		evaluate: Function;
+		after?: Function;
+		options?: any;
+		matches?: string;
+		enabled?: boolean;
 	}
 	export interface Rule {
-		id: string,
-		selector?: string,
-		excludeHidden?: boolean,
-		enabled?: boolean,
-		pageLevel?: boolean,
-		any?: string[],
-		all?: string[],
-		none?: string[],
-		tags?: string[],
-		matches?: string
+		id: string;
+		selector?: string;
+		excludeHidden?: boolean;
+		enabled?: boolean;
+		pageLevel?: boolean;
+		any?: string[];
+		all?: string[];
+		none?: string[];
+		tags?: string[];
+		matches?: string;
 	}
 	export interface AxePlugin {
-		id: string,
-		run(...args:any[]): any,
+		id: string;
+		run(...args: any[]): any;
 		commands: {
 			id: string,
-			callback(...args:any[]): void
-		}[],
-		cleanup?(callback:Function): void
+			callback(...args: any[]): void
+		}[];
+		cleanup?(callback: Function): void;
 	}
 
-	export let plugins: any
+	export let plugins: any;
 
 	/**
 	 * Starts analysis on the current document and its subframes
@@ -119,37 +119,37 @@ declare namespace axe {
 	 * @param  {Function} callback The function to invoke when analysis is complete.
 	 * @returns {Object}  results  The aXe results object
 	 */
-	export function a11yCheck(context: ElementContext, options: {runOnly?: RunOnly, rules?: Object}, callback: (results:AxeResults) => void): AxeResults
+	export function a11yCheck(context: ElementContext, options: {runOnly?: RunOnly, rules?: Object}, callback: (results: AxeResults) => void): AxeResults;
 
 	/**
 	 * Method for configuring the data format used by aXe. Helpful for adding new
 	 * rules, which must be registered with the library to execute.
 	 * @param  {Spec}       Spec Object with valid `branding`, `reporter`, `checks` and `rules` data
 	 */
-	export function configure(spec: Spec): void
+	export function configure(spec: Spec): void;
 
 	/**
 	 * Searches and returns rules that contain a tag in the list of tags.
 	 * @param  {Array}  tags  Optional array of tags
 	 * @return {Array}  Array of rules
 	 */
-	export function getRules(tags?: string[]): Object[]
+	export function getRules(tags?: string[]): Object[];
 
 	/**
 	 * Restores the default axe configuration
 	 */
-	export function reset(): void
+	export function reset(): void;
 
 	/**
 	 * Function to register a plugin configuration in document and its subframes
 	 * @param  {Object}    plugin    A plugin configuration object
 	 */
-	export function registerPlugin(plugin: AxePlugin): void
+	export function registerPlugin(plugin: AxePlugin): void;
 
 	/**
 	 * Function to clean up plugin configuration in document and its subframes
 	 */
-	export function cleanup(): void
+	export function cleanup(): void;
 
 }
 

@@ -82,7 +82,7 @@ interface BazingaTranslator {
      *
      * @return {String}                 The translated string
      */
-    transChoice(id: string, number: number, parameters: any, domain: string, locale?: string): string,
+    transChoice(id: string, number: number, parameters: any, domain: string, locale?: string): string;
 
     /**
      * Loads translations from JSON.

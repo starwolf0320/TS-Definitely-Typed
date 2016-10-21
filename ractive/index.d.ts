@@ -33,7 +33,7 @@ declare namespace Ractive {
             // TODO: undocumented GH-429
             update?: (...args: any[]) => void;
             teardown: () => void;
-        }
+        };
     }
 
     export interface EventPlugin extends Function {

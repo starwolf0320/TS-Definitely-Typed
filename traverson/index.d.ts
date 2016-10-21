@@ -7,16 +7,13 @@ declare var traverson: Traverson.TraversonMethods;
 
 export = traverson;
 
-declare namespace Traverson
-{
-    interface TraversonMethods
-    {
+declare namespace Traverson {
+    interface TraversonMethods {
         from(uri: string): Builder;
         registerMediaType(name: string, handler: any): TraversonMethods;
     }
 
-    interface Builder
-    {
+    interface Builder {
         withRequestOptions(options: any): Builder;
         withTemplateParameters(parameters: any): Builder;
         json(): Builder;
@@ -37,18 +34,15 @@ declare namespace Traverson
         newRequest(): Builder;
     }
 
-    interface Json
-    {
+    interface Json {
         parseJson(): any;
     }
 
-    interface Traversal
-    {
+    interface Traversal {
         continue(): Builder;
     }
 
-    interface InAction
-    {
+    interface InAction {
         abort(): void;
     }
 

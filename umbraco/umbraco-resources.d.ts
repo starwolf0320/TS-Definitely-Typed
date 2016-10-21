@@ -5,7 +5,7 @@
 
 /// <reference types="angular" />
 
-declare namespace umbraco.resources{
+declare namespace umbraco.resources {
 
     /**
      * ResourcePromise object
@@ -44,7 +44,7 @@ declare namespace umbraco.resources{
  * @requires umbRequestHelper
  * @requires angularHelper
  */
-interface IAuthResource{
+interface IAuthResource {
 
 	    /**
          * @ngdoc method
@@ -173,7 +173,7 @@ interface IAuthResource{
   *          });
   * </pre>
   **/
-interface IContentResource{
+interface IContentResource {
 	/**
          * @ngdoc method
          * @name umbraco.resources.contentResource#sort
@@ -589,7 +589,7 @@ interface IContentResource{
     * @name umbraco.resources.contentTypeResource
     * @description Loads in data for content types
     **/
-interface IContentTypeResource{
+interface IContentTypeResource {
         /**
          * @ngdoc method
          * @name umbraco.resources.contentTypeResource#getAllowedTypes
@@ -632,7 +632,7 @@ interface IContentTypeResource{
     *
     *
     **/
-interface ICurrentUserResource{
+interface ICurrentUserResource {
 
         /**
          * @ngdoc method
@@ -664,7 +664,7 @@ interface ICurrentUserResource{
     * @name umbraco.resources.dashboardResource
     * @description Handles loading the dashboard manifest
     **/
-interface IDashboardResource{
+interface IDashboardResource {
         /**
          * @ngdoc method
          * @name umbraco.resources.dashboardResource#getDashboard
@@ -685,7 +685,7 @@ interface IDashboardResource{
     * @name umbraco.resources.dataTypeResource
     * @description Loads in data for data types
     **/
-interface IDataTypeResource{
+interface IDataTypeResource {
        /**
          * @ngdoc method
          * @name umbraco.resources.dataTypeResource#getPreValues
@@ -731,7 +731,7 @@ interface IDataTypeResource{
          */
     getById(id: number): ng.IPromise<IResourcePromise>;
 
-        getAll() : any;
+        getAll(): any;
 
         /**
          * @ngdoc method
@@ -834,7 +834,7 @@ interface IDataTypeResource{
     * - Domain
     * - DataType
     **/
-interface IEntityResource{
+interface IEntityResource {
 
     /**
          * @ngdoc method
@@ -1016,10 +1016,10 @@ interface IEntityResource{
         searchAll(query: string, canceler: any): ng.IPromise<IResourcePromise>;
 }
 
-    /**
-     * LogType
-     */
-    enum LogType{
+/**
+ * LogType
+ */
+enum LogType {
     Debug,
     Info
 }
@@ -1031,7 +1031,7 @@ interface IEntityResource{
     *
     *
     **/
-interface ILogResource{
+interface ILogResource {
     /**
          * @ngdoc method
          * @name umbraco.resources.logResource#getEntityLog
@@ -1107,7 +1107,7 @@ interface ILogResource{
     * @description Deals with data for macros
     *
     **/
-interface IMacroResource{
+interface IMacroResource {
 
     /**
          * @ngdoc method
@@ -1143,7 +1143,7 @@ interface IMacroResource{
     * @name umbraco.resources.mediaResource
     * @description Loads in data for media
     **/
-interface IMediaResource{
+interface IMediaResource {
     /**
          * @ngdoc method
          * @name umbraco.resources.mediaResource#sort
@@ -1409,7 +1409,7 @@ interface IMediaResource{
     * @name umbraco.resources.mediaTypeResource
     * @description Loads in data for media types
     **/
-interface IMediaTypeResource{
+interface IMediaTypeResource {
     /**
          * @ngdoc method
          * @name umbraco.resources.mediaTypeResource#getAllowedTypes
@@ -1437,7 +1437,7 @@ interface IMediaTypeResource{
     * @name umbraco.resources.memberResource
     * @description Loads in data for members
     **/
-interface IMemberResource{
+interface IMemberResource {
 
     getPagedResults(memberTypeAlias: string, options: any): any;
 
@@ -1557,7 +1557,7 @@ interface IMemberResource{
     * @name umbraco.resources.memberTypeResource
     * @description Loads in data for member types
     **/
-interface IMemberTypeResource{
+interface IMemberTypeResource {
     //return all member types
         getTypes(): any;
 }
@@ -1567,7 +1567,7 @@ interface IMemberTypeResource{
     * @name umbraco.resources.packageInstallResource
     * @description handles data for package installations
     **/
-interface IPackageResource{
+interface IPackageResource {
 
     /**
          * @ngdoc method
@@ -1629,7 +1629,7 @@ interface IPackageResource{
     * @name umbraco.resources.sectionResource
     * @description Loads in data for section
     **/
-interface ISectionResource{
+interface ISectionResource {
     /** Loads in the data to display the section list */
         getSections(): void;
 }
@@ -1641,7 +1641,7 @@ interface ISectionResource{
     *
     *
     **/
-interface IStylesheetResource{
+interface IStylesheetResource {
      /**
          * @ngdoc method
          * @name umbraco.resources.stylesheetResource#getAll
@@ -1713,7 +1713,7 @@ interface IStylesheetResource{
     * @name umbraco.resources.treeResource
     * @description Loads in data for trees
     **/
-interface ITreeResource{
+interface ITreeResource {
     /** Loads in the data to display the nodes menu */
         loadMenu(node: any): void;
 
@@ -1728,7 +1728,7 @@ interface ITreeResource{
     * @ngdoc service
     * @name umbraco.resources.userResource
     **/
-interface IUserResource{
+interface IUserResource {
      disableUser(userId: number): void;
 }
     }

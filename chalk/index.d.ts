@@ -125,7 +125,7 @@ declare namespace Chalk {
 
     export const constructor: {
         new (options: {enabled: boolean}): Chalk;
-    }
+    };
 
     export interface Chalk extends ChalkStyle {
         enabled: boolean;

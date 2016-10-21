@@ -5,10 +5,10 @@
 
 
 interface PifyOptions {
-    multiArgs?: boolean,
-    include?: [string | RegExp],
-    exclude?: [string | RegExp],
-    excludeMain?: boolean
+    multiArgs?: boolean;
+    include?: [string | RegExp];
+    exclude?: [string | RegExp];
+    excludeMain?: boolean;
 }
 
 declare function pify(input: Function, promiseModule?: Function, options?: PifyOptions): (...args: any[]) => Promise<any>;

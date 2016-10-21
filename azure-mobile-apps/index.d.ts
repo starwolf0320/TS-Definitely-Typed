@@ -30,8 +30,8 @@ declare module "azure-mobile-apps/src/query" {
 
 declare namespace Azure.MobileApps {
     // the additional Platforms namespace is required to avoid collisions with the main Express namespace
-    export module Platforms {
-        export module Express {
+    export namespace Platforms {
+        export namespace Express {
             interface MobileApp extends Middleware {
                 configuration: Configuration;
                 tables: Tables;
@@ -72,7 +72,7 @@ declare namespace Azure.MobileApps {
         }
     }
 
-    export module Data {
+    export namespace Data {
         interface Table {
             read(query: QueryJs): Thenable<any[]>;
             update(item: any, query: QueryJs): Thenable<any>;
@@ -130,7 +130,7 @@ declare namespace Azure.MobileApps {
         webhook?: Webhook;
     }
 
-    export module Configuration {
+    export namespace Configuration {
         // it would be nice to have the config for various providers in separate interfaces,
         // but this is the simplest solution to support variations of the current setup
         interface Data {
@@ -263,7 +263,7 @@ declare namespace Azure.MobileApps {
     }
 
     type AccessType = 'anonymous' | 'authenticated' | 'disabled';
-    
+
     interface Duration {
         milliseconds?: number;
         seconds?: number;
@@ -317,7 +317,7 @@ declare namespace Azure.MobileApps {
 // additions to the Express modules
 declare namespace Express {
     interface Request {
-        azureMobile: Azure.MobileApps.Context
+        azureMobile: Azure.MobileApps.Context;
     }
 
     interface Response {

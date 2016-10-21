@@ -98,7 +98,7 @@ declare function lessMiddleware(source: string, options?: {
      * Path to a JSON file that will be used to cache less data across server restarts.
      * This can greatly speed up initial load time after a server restart - if the less
      * files haven't changed and the css files still exist, specifying this option will
-     * mean that the less files don't need to be recompiled after a server restart.  
+     * mean that the less files don't need to be recompiled after a server restart.
      */
     cacheFile?: string;
 

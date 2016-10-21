@@ -51,7 +51,7 @@ function test_blocks_methods() {
 
 	blocks.type(null);
 	// -> null
-	
+
 	blocks.is([], 'array');
 	// -> true
 
@@ -91,7 +91,7 @@ function test_blocks_methods() {
 
 	blocks.toUnit('60px', '%');
 	// -> 60%
- 
+
 	var array = [3, 1, 4];
 	var cloned = blocks.clone(array);
 	// -> [3, 1, 4]
@@ -137,7 +137,7 @@ function test_blocks_methods() {
 
 	alertAll();
 	// -> alerts 'My name is John Doe'
-	
+
 	blocks.equals([3, 4], [3, 4]);
 	// -> true
 

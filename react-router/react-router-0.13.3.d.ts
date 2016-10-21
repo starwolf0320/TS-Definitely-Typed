@@ -276,7 +276,7 @@ declare module "react-router" {
     export = ReactRouter;
 }
 
-declare module __React {
+declare namespace __React {
 
   // for DefaultRoute
   function createElement(

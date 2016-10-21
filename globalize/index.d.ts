@@ -195,7 +195,7 @@ interface GlobalizeStatic {
 	 * @param variables Variables can be Objects, where each property can be referenced by name inside a message; or Arrays, where each entry of the Array can be used inside a message, using numeric indices. When passing one or more arguments of other types, they're converted to an Array and used as such.
 	 * @returns {string} Return a user-readable string.
 	 */
-	formatMessage(path: string | string[], variables?: string | string[] | Object): string
+	formatMessage(path: string | string[], variables?: string | string[] | Object): string;
 
 	/**
 	 * Return a function that formats a number according to the given options or locale's defaults.
@@ -216,7 +216,7 @@ interface GlobalizeStatic {
 	 * style Optional String decimal (default), or percent.
 	 * @returns {Function} Return a function that parses a String representing a number according to the given options. If value is invalid, NaN is returned.
 	 */
-	numberParser(options?: NumberParserOptions): (value: string) => number
+	numberParser(options?: NumberParserOptions): (value: string) => number;
 
 	/**
 	 * Return a number formatted according to the given options or locale's defaults.
@@ -311,7 +311,7 @@ interface GlobalizeStatic {
 	 * @param {UnitFormatterOptions} options form: [String] eg. "long", "short" or "narrow".
 	 * @returns {string} Returns the unit formatted.
 	 */
-	formatUnit(value: number, unit: string, options?: UnitFormatterOptions): string
+	formatUnit(value: number, unit: string, options?: UnitFormatterOptions): string;
 
 	/**
 	 * Create a Globalize instance.

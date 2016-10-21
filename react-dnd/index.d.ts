@@ -5,7 +5,7 @@
 
 ///<reference types="react" />
 
-declare module __ReactDnd {
+declare namespace __ReactDnd {
     // Decorated React Components
     // ----------------------------------------------------------------------
 

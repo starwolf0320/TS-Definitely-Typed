@@ -7,7 +7,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Maps {
+  export namespace Maps {
     /**
      * An enum representing the types of restrictions to avoid when finding directions.
      */
@@ -93,8 +93,8 @@ declare namespace GoogleAppsScript {
      * A collection of enums used by DirectionFinder.
      */
     export interface DirectionFinderEnums {
-      Avoid: Avoid
-      Mode: Mode
+      Avoid: Avoid;
+      Mode: Mode;
     }
 
     /**
@@ -200,8 +200,8 @@ declare namespace GoogleAppsScript {
      *  images.
      */
     export interface Maps {
-      DirectionFinder: DirectionFinderEnums
-      StaticMap: StaticMapEnums
+      DirectionFinder: DirectionFinderEnums;
+      StaticMap: StaticMapEnums;
       decodePolyline(polyline: string): Number[];
       encodePolyline(points: Number[]): string;
       newDirectionFinder(): DirectionFinder;
@@ -299,10 +299,10 @@ declare namespace GoogleAppsScript {
      * A collection of enums used by StaticMap.
      */
     export interface StaticMapEnums {
-      Color: Color
-      Format: Format
-      MarkerSize: MarkerSize
-      Type: Type
+      Color: Color;
+      Format: Format;
+      MarkerSize: MarkerSize;
+      Type: Type;
     }
 
     /**

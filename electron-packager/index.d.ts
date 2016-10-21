@@ -86,7 +86,7 @@ declare namespace ElectronPackager {
          * @param err - Contains errors if any.
          * @param appPath - Path(s) to the newly created application(s).
          */
-        (err: Error, appPath: string|string[]): void
+        (err: Error, appPath: string|string[]): void;
     }
 
     /** Electron-packager function */

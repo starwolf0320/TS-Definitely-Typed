@@ -283,7 +283,7 @@ declare namespace CacheFactory {
 		 * Return the values of all items in the cache as an array.
 		 * @returns Array<any>
 		 */
-		values(): Array<any>
+		values(): Array<any>;
 	}
 
 	export interface ICacheFactory {
@@ -379,7 +379,7 @@ declare namespace CacheFactory {
 		isObject(value: any): boolean;
 		isFunction(value: any): boolean;
 		equals(a: any, b: any): boolean;
-		fromJson(value: any): {}
+		fromJson(value: any): {};
 		Promise: any;
 	}
 

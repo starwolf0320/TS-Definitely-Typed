@@ -377,7 +377,7 @@ declare namespace AppleTVJS {
 		maxMovieRatingForCountry(countryCode: string): string;
 
 		/** The maximum television show ranking allowed. */
-		maxTVShowRank: number
+		maxTVShowRank: number;
 
 		/** Sets the maximum television show rating allowed for the specified country. */
 		maxTVShowRatingForCountry(countryCode: string): string;

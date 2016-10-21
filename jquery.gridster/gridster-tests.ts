@@ -48,13 +48,13 @@ function widgetSelectorString() {
 	};
 
 	var grid: Gridster = $('.gridster ul').gridster(opts).data('gridster')
-} 
+}
 
 function withNamespace() {
 	var grid: Gridster = $('.gridster ul').gridster({
 		namespace: 'custom-gridster'
 	}).data('gridster')
-} 
+}
 
 function withStylesheet() {
 	var grid: Gridster = $('.gridster ul').gridster({

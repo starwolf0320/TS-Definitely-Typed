@@ -83,10 +83,10 @@ declare namespace SIPml {
       public resume(): number;
       public transfer(): number;
     }
-    
+
     namespace Call {
         /**
-         * Should be 
+         * Should be
          *
          * Session.EventSubscriptionType |
          * "m_early_media" |
@@ -145,7 +145,7 @@ declare namespace SIPml {
       public subscribe(to: string, configuration?: Session.Configuration): number;
       public unsubscribe(configuration?: Session.Configuration): number;
     }
-    
+
     namespace Subscribe {
         /**
          * Should be
@@ -227,7 +227,7 @@ declare namespace SIPml {
 
   function haveMediaStream(): boolean;
 
-  function init(readyCallback?: (e:any) => any, errorCallback?: (e:any) => any): boolean;
+  function init(readyCallback?: (e: any) => any, errorCallback?: (e: any) => any): boolean;
 
   function isInitialized(): boolean;
 

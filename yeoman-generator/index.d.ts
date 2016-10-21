@@ -63,8 +63,8 @@ declare namespace yo {
         async(): any;
         prompt(opt: IPromptOptions | IPromptOptions[], callback: (answers: any) => void): void;
         prompt<T>(opt: IPromptOptions | IPromptOptions[]): PromiseLike<T>;
-        log(message: string) : void;
-        npmInstall(packages: string[], options?: any, cb?: Function) :void;
+        log(message: string): void;
+        npmInstall(packages: string[], options?: any, cb?: Function): void;
         installDependencies(options?: IInstallDependencyOptions): void;
         spawnCommand(name: string, args?: string[], options?: Object): void;
         spawnCommandSync(name: string, args?: string[], options?: Object): void;
@@ -102,7 +102,7 @@ declare namespace yo {
         short?: string;
     }
 
-    export interface IPromptOptions{
+    export interface IPromptOptions {
         type?: string;
         name: string;
         message: string | ((answers: Object) => string);
@@ -116,10 +116,10 @@ declare namespace yo {
 
     export interface IGruntFileStatic {
         loadNpmTasks(pluginName: string): void;
-        insertConfig(name:string, config:any):void;
-        registerTask(name:string, tasks:any):void;
-        insertVariable(name:string, value:any):void;
-        prependJavaScript(code:string):void;
+        insertConfig(name: string, config: any): void;
+        registerTask(name: string, tasks: any): void;
+        insertVariable(name: string, value: any): void;
+        prependJavaScript(code: string): void;
     }
 
     export interface IArgumentConfig {

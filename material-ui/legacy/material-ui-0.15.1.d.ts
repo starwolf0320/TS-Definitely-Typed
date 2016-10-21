@@ -458,7 +458,7 @@ declare namespace __MaterialUI {
         interface MuiThemeProviderProps extends React.Props<MuiThemeProvider> {
             muiTheme?: Styles.MuiTheme;
         }
-        export class MuiThemeProvider extends React.Component<MuiThemeProviderProps, {}>{
+        export class MuiThemeProvider extends React.Component<MuiThemeProviderProps, {}> {
         }
 
         export function getMuiTheme(...muiTheme: MuiTheme[]): MuiTheme;
@@ -528,7 +528,7 @@ declare namespace __MaterialUI {
         titleStyle?: React.CSSProperties;
         zDepth?: number;
     }
-    export class AppBar extends React.Component<AppBarProps, {}>{
+    export class AppBar extends React.Component<AppBarProps, {}> {
     }
 
     interface AppCanvasProps extends React.Props<AppCanvas> {
@@ -965,7 +965,7 @@ declare namespace __MaterialUI {
         inset?: boolean;
         style?: React.CSSProperties;
     }
-    export class Divider extends React.Component<DividerProps, {}>{
+    export class Divider extends React.Component<DividerProps, {}> {
     }
 
     interface DrawerProps extends React.Props<Drawer> {
@@ -994,7 +994,7 @@ declare namespace __MaterialUI {
             padding?: number;
             style?: React.CSSProperties;
         }
-        export class GridList extends React.Component<GridListProps, {}>{
+        export class GridList extends React.Component<GridListProps, {}> {
         }
 
         interface GridTileProps extends React.Props<GridTile> {
@@ -1009,7 +1009,7 @@ declare namespace __MaterialUI {
             titleBackground?: string;
             titlePosition?: "top" | "bottom";
         }
-        export class GridTile extends React.Component<GridTileProps, {}>{
+        export class GridTile extends React.Component<GridTileProps, {}> {
         }
     }
 
@@ -1123,7 +1123,7 @@ declare namespace __MaterialUI {
             /** @deprecated wrap it in `Paper` or another component that provides zDepth instead */
             zDepth?: number;
         }
-        export class Menu extends React.Component<MenuProps, {}>{
+        export class Menu extends React.Component<MenuProps, {}> {
         }
 
         interface MenuItemProps extends React.HTMLAttributes, React.Props<MenuItem> {
@@ -1146,7 +1146,7 @@ declare namespace __MaterialUI {
             primaryText?: React.ReactNode;
             secondaryTextLines?: number; // 1 or 2
         }
-        export class MenuItem extends React.Component<MenuItemProps, {}>{
+        export class MenuItem extends React.Component<MenuItemProps, {}> {
         }
 
         interface IconMenuProps extends React.Props<IconMenu> {
@@ -1240,7 +1240,7 @@ declare namespace __MaterialUI {
             useLayerForClickAway?: boolean;
             zDepth?: number;
         }
-        export class Popover extends React.Component<PopoverProps, {}>{
+        export class Popover extends React.Component<PopoverProps, {}> {
         }
 
         interface PopoverAnimationVerticalProps extends PopoverAnimationProps, React.Props<PopoverAnimationVertical> {
@@ -1248,7 +1248,7 @@ declare namespace __MaterialUI {
             targetOrigin?: propTypes.origin;
             zDepth?: number;
         }
-        export class PopoverAnimationVertical extends React.Component<PopoverAnimationVerticalProps, {}>{
+        export class PopoverAnimationVertical extends React.Component<PopoverAnimationVerticalProps, {}> {
         }
 
         interface PopoverAnimationDefaultProps extends PopoverAnimationProps, React.Props<PopoverAnimationDefault> {
@@ -1256,7 +1256,7 @@ declare namespace __MaterialUI {
             targetOrigin?: propTypes.origin;
             zDepth?: number;
         }
-        export class PopoverAnimationDefault extends React.Component<PopoverAnimationDefaultProps, {}>{
+        export class PopoverAnimationDefault extends React.Component<PopoverAnimationDefaultProps, {}> {
         }
     }
 
@@ -1457,7 +1457,7 @@ declare namespace __MaterialUI {
             disabled?: boolean;
             style?: React.CSSProperties;
         }
-        export class Step extends React.Component<StepProps, {}>{
+        export class Step extends React.Component<StepProps, {}> {
         }
 
         interface StepButtonProps extends SharedEnhancedButtonProps<StepButton> {
@@ -1470,7 +1470,7 @@ declare namespace __MaterialUI {
             onTouchStart?: React.TouchEventHandler;
             style?: React.CSSProperties;
         }
-        export class StepButton extends React.Component<StepButtonProps, {}>{
+        export class StepButton extends React.Component<StepButtonProps, {}> {
         }
 
         interface StepContentProps extends React.Props<StepContent> {
@@ -1478,7 +1478,7 @@ declare namespace __MaterialUI {
             last?: boolean;
             style?: React.CSSProperties;
         }
-        export class StepContent extends React.Component<StepContentProps, {}>{
+        export class StepContent extends React.Component<StepContentProps, {}> {
         }
 
         interface StepLabelProps extends React.Props<StepLabel> {
@@ -1488,7 +1488,7 @@ declare namespace __MaterialUI {
             icon?: React.ReactNode | string | number;
             style?: React.CSSProperties;
         }
-        export class StepLabel extends React.Component<StepLabelProps, {}>{
+        export class StepLabel extends React.Component<StepLabelProps, {}> {
         }
 
         interface StepperProps extends React.Props<Stepper> {
@@ -1497,7 +1497,7 @@ declare namespace __MaterialUI {
             orientation?: "horizontal" | "vertical";
             style?: React.CSSProperties;
         }
-        export class Stepper extends React.Component<StepperProps, {}>{
+        export class Stepper extends React.Component<StepperProps, {}> {
         }
     }
 
@@ -1505,7 +1505,7 @@ declare namespace __MaterialUI {
         inset?: boolean;
         style?: React.CSSProperties;
     }
-    export class Subheader extends React.Component<SubheaderProps, {}>{
+    export class Subheader extends React.Component<SubheaderProps, {}> {
     }
 
     namespace Table {
@@ -1701,8 +1701,8 @@ declare namespace __MaterialUI {
         onEnterKeyDown?: React.KeyboardEventHandler;
         onFocus?: React.FocusEventHandler;
         onKeyDown?: React.KeyboardEventHandler;
-        rows?: number,
-        rowsMax?: number,
+        rows?: number;
+        rowsMax?: number;
         style?: React.CSSProperties;
         textareaStyle?: React.CSSProperties;
         type?: string;
@@ -1758,8 +1758,8 @@ declare namespace __MaterialUI {
         name?: string;
         onBlur?: React.FocusEventHandler;
         onKeyDown?: React.KeyboardEventHandler;
-        rows?: number,
-        rowsMax?: number,
+        rows?: number;
+        rowsMax?: number;
         textareaStyle?: React.CSSProperties;
         type?: string;
         underlineDisabledStyle?: React.CSSProperties;
@@ -8467,12 +8467,12 @@ declare module 'material-ui/internal/AutoLockScrolling' {
 }
 declare module 'material-ui/internal/BeforeAfterWrapper' {
   interface BeforeAfterWrapperProps extends __React.Props<BeforeAfterWrapper> {
-    afterElementType?: string,
-    afterStyle?: __React.CSSProperties,
-    beforeElementType?: string,
-    beforeStyle?: __React.CSSProperties,
-    elementType?: string,
-    style?: __React.CSSProperties,
+    afterElementType?: string;
+    afterStyle?: __React.CSSProperties;
+    beforeElementType?: string;
+    beforeStyle?: __React.CSSProperties;
+    elementType?: string;
+    style?: __React.CSSProperties;
   }
   class BeforeAfterWrapper extends __React.Component<BeforeAfterWrapperProps, {}> { }
   export default BeforeAfterWrapper;
@@ -8496,7 +8496,7 @@ declare module 'material-ui/internal/ClearFix' {
 }
 declare module 'material-ui/internal/ClickAwayListener' {
   interface ClickAwayListenerProps extends __React.Props<ClickAwayListener> {
-    onClickAway?: any,
+    onClickAway?: any;
   }
   class ClickAwayListener extends __React.Component<ClickAwayListenerProps, {}> { }
   export default ClickAwayListener;
@@ -8535,11 +8535,11 @@ declare module 'material-ui/internal/ExpandTransitionChild' {
 }
 declare module 'material-ui/internal/FocusRipple' {
   interface FocusRippleProps extends __React.Props<FocusRipple> {
-    color?: string,
-    innerStyle?: __React.CSSProperties,
-    opacity?: number,
-    show?: boolean,
-    style?: __React.CSSProperties
+    color?: string;
+    innerStyle?: __React.CSSProperties;
+    opacity?: number;
+    show?: boolean;
+    style?: __React.CSSProperties;
   }
   class FocusRipple extends __React.Component<FocusRippleProps, {}> { }
   export default FocusRipple;
@@ -8596,7 +8596,7 @@ declare module 'material-ui/internal/SlideIn' {
 }
 declare module 'material-ui/internal/SlideInChild' {
   interface SlideInChildProps extends __React.Props<SlideInChild> {
-    direction?: string,
+    direction?: string;
     enterDelay?: number;
     getLeaveDirection: Function;
     style?: __React.CSSProperties;
@@ -8619,11 +8619,11 @@ declare module 'material-ui/internal/Tooltip' {
 }
 declare module 'material-ui/internal/TouchRipple' {
   interface TouchRippleProps extends __React.Props<TouchRipple> {
-    abortOnScroll?: boolean,
+    abortOnScroll?: boolean;
     centerRipple?: boolean;
     color?: string;
     opacity?: number;
-    style?: __React.CSSProperties
+    style?: __React.CSSProperties;
   }
   class TouchRipple extends __React.Component<TouchRippleProps, {}> { }
   export default TouchRipple;

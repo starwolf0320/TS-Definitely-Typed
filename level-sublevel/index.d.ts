@@ -20,5 +20,5 @@ interface Sublevel extends LevelUp {
 
 declare module "level-sublevel" {
 	function sublevel(levelup: LevelUp): Sublevel;
-	export = sublevel;		
+	export = sublevel;
 }

@@ -27,12 +27,12 @@ interface FileSaver {
         * @type {boolean}
         */
         disableAutoBOM?: boolean
-    ): void
+    ): void;
 }
 
 declare var saveAs: FileSaver;
 
 declare module "file-saver" {
     var fileSaver: { saveAs: typeof saveAs };
-    export = fileSaver
+    export = fileSaver;
 }

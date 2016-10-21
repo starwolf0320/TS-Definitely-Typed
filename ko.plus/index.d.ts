@@ -91,7 +91,7 @@ declare namespace KoPlus {
         //
         done: (callback: (data: any) => void) => Command;
 
-        fail: (callback: (response: any, status?: string, statusText?:string) => void) => Command;
+        fail: (callback: (response: any, status?: string, statusText?: string) => void) => Command;
 
         always: (callback: Function) => Command;
 

@@ -37,7 +37,7 @@ class OrderLine {
     subtotal: string;
 
     constructor(public item: any, public price: number, public quantity: number) {
-        // Instead of declaring ko.observable properties, we just have one call to ko.track 
+        // Instead of declaring ko.observable properties, we just have one call to ko.track
         ko.track(this);
 
         // Computed property

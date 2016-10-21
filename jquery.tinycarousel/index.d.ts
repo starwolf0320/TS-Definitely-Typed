@@ -50,7 +50,7 @@ declare namespace JQueryTinyCarousel {
         /**
         * Function that executes after every move (default: null)
         */
-        callback? : (element: HTMLElement, index: number) => void;
+        callback?: (element: HTMLElement, index: number) => void;
     }
 }
 interface JQuery {

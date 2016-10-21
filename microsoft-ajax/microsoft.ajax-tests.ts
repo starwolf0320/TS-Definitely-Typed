@@ -231,11 +231,11 @@ function Sys_Browser_Tests() {
     var name = browser.name;
     var version = browser.version;
     var hasDebuggerStatement = browser.hasDebuggerStatement;
-    
+
 }
 
 function Sys_EventArgs_Tests() {
-    
+
     var anEventArgs = new Sys.EventArgs();
     var eventArgs = anEventArgs.Empty;
 
@@ -412,7 +412,7 @@ function Sys_UI_DomEvent_Tests() {
 }
 
 function Sys_UI_DomElement_Tests() {
-    
+
     // Add CSS class
     Sys.UI.DomElement.addCssClass($get("Button1"), "redBackgroundColor");
 
@@ -430,7 +430,7 @@ function Sys_UI_DomElement_Tests() {
     Sys.UI.DomElement.toggleCssClass($get("id"), "redBackgroundColor");
 
 
-    // Add handlers using the $get shortcut to the 
+    // Add handlers using the $get shortcut to the
     // Sys.UI.DomElement.getElementById method
     $addHandler($get("Button1"), "click", toggleVisible);
     $addHandler($get("Button2"), "click", toggleVisibilityMode);
@@ -445,7 +445,7 @@ function Sys_UI_DomElement_Tests() {
             Sys.UI.DomElement.setVisible(anElement, true);
         }
     }
-    
+
     // This method is called when Button1 is clicked.
     function toggleVisibilityMode() {
 
@@ -483,7 +483,7 @@ function Sys_UI_DomElement_Tests() {
 }
 
 function Sys_Debug_Tests() {
-    
+
     var condition = true;
 
     Sys.Debug.assert(condition);
@@ -551,7 +551,7 @@ function Sys_Res_Tests() {
 }
 
 function Sys_StringBuilder_Tests() {
-    
+
     // Example taken from http://msdn.microsoft.com/en-us/library/bb310852(v=vs.100).aspx
     function buildAString(title: string) {
         var headTagStart = "<head>";
@@ -615,7 +615,7 @@ function Sys_Net_NetworkRequestEventArgs_Tests() {
 }
 
 function Sys_Net_WebRequestManager_Tests() {
-    
+
     var handler = (sender: any, args: any) => { }
 
     Sys.Net.WebRequestManager.add_completedRequest(handler);
@@ -666,7 +666,7 @@ function Sys_WebForms_PageRequestManager_Tests() {
 
 
     var isInAsyncPostBack: boolean = pageRequestManager.get_isInAsyncPostBack();
-    
+
     pageRequestManager.add_beginRequest(beginRequestHandler);
     pageRequestManager.add_endRequest(endRequestHandler);
     pageRequestManager.add_initializeRequest(initializeRequestHandler);
@@ -681,11 +681,11 @@ function Sys_WebForms_PageRequestManager_Tests() {
 }
 
 function Sys_WebForms_EndRequestEventArgs_Tests() {
-    
+
     var pageRequestManager: Sys.WebForms.PageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
 
     var handler = (sender: any, args: Sys.WebForms.EndRequestEventArgs) => {
-        
+
         var error: Error = args.get_error();
         var message: string = error.message;
         var name: string = error.name;
@@ -845,7 +845,7 @@ function CreatingCustomNonVisualClientComponentsTests() {
     Demo.Timer.registerClass('Demo.Timer', Sys.Component);
 
     // Since this script is not loaded by System.Web.Handlers.ScriptResourceHandler
-    // invoke Sys.Application.notifyScriptLoaded to notify ScriptManager 
+    // invoke Sys.Application.notifyScriptLoaded to notify ScriptManager
     // that this is the end of the script.
     if (typeof (Sys) !== 'undefined') Sys.Application.notifyScriptLoaded();
 

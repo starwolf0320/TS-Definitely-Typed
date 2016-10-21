@@ -103,7 +103,7 @@ declare var footstepsBuffer: any;
 	var gainNode1: GainNode;
 	var streamingAudioSource: MediaElementAudioSourceNode;
 
-	// Initial setup of the "long-lived" part of the routing graph  
+	// Initial setup of the "long-lived" part of the routing graph
 	function setupAudioContext() {
 	    context = new AudioContext();
 
@@ -119,18 +119,18 @@ declare var footstepsBuffer: any;
 	    compressor.connect(context.destination);
 	}
 
-	// Later in response to some user action (typically mouse or key event) 
-	// a one-shot sound can be played. 
+	// Later in response to some user action (typically mouse or key event)
+	// a one-shot sound can be played.
 	function playSound() {
 	    var oneShotSound = context.createBufferSource();
 	    oneShotSound.buffer = dogBarkingBuffer;
 
-	    // Create a filter, panner, and gain node. 
+	    // Create a filter, panner, and gain node.
 	    var lowpass = context.createBiquadFilter();
 	    var panner = context.createPanner();
 	    var gainNode2 = context.createGain();
 
-	    // Make connections 
+	    // Make connections
 	    oneShotSound.connect(lowpass);
 	    lowpass.connect(panner);
 	    panner.connect(gainNode2);
@@ -209,38 +209,38 @@ declare var footstepsBuffer: any;
 
 ()=>{
 
-	// Setup routing graph 
+	// Setup routing graph
 	function setupRoutingGraph() {
 	    var context = new AudioContext();
 
 	    var compressor = context.createDynamicsCompressor();
 
-	    // Send1 effect 
+	    // Send1 effect
 	    var reverb = context.createConvolver();
-	    // Convolver impulse response may be set here or later 
+	    // Convolver impulse response may be set here or later
 
-	    // Send2 effect 
+	    // Send2 effect
 	    var delay = context.createDelay();
 
-	    // Connect final compressor to final destination 
+	    // Connect final compressor to final destination
 	    compressor.connect(context.destination);
 
-	    // Connect sends 1 & 2 through effects to main mixer 
+	    // Connect sends 1 & 2 through effects to main mixer
 	    var s1 = context.createGain();
 	    reverb.connect(s1);
 	    s1.connect(compressor);
-	    
+
 	    var s2 = context.createGain();
 	    delay.connect(s2);
 	    s2.connect(compressor);
 
-	    // Create a couple of sources 
+	    // Create a couple of sources
 	    var source1 = context.createBufferSource();
 	    var source2 = context.createBufferSource();
 	    source1.buffer = manTalkingBuffer;
 	    source2.buffer = footstepsBuffer;
 
-	    // Connect source1 
+	    // Connect source1
 	    var g1_1 = context.createGain();
 	    var g2_1 = context.createGain();
 	    var g3_1 = context.createGain();
@@ -251,7 +251,7 @@ declare var footstepsBuffer: any;
 	    g2_1.connect(reverb);
 	    g3_1.connect(delay);
 
-	    // Connect source2 
+	    // Connect source2
 	    var g1_2 = context.createGain();
 	    var g2_2 = context.createGain();
 	    var g3_2 = context.createGain();
@@ -262,12 +262,12 @@ declare var footstepsBuffer: any;
 	    g2_2.connect(reverb);
 	    g3_2.connect(delay);
 
-	    // We now have explicit control over all the volumes g1_1, g2_1, ..., s1, s2 
-	    g2_1.gain.value = 0.2;  // For example, set source1 reverb gain 
+	    // We now have explicit control over all the volumes g1_1, g2_1, ..., s1, s2
+	    g2_1.gain.value = 0.2;  // For example, set source1 reverb gain
 
-	     // Because g2_1.gain is an "AudioParam", 
-	     // an automation curve could also be attached to it. 
-	     // A "mixing board" UI could be created in canvas or WebGL controlling these gains. 
+	     // Because g2_1.gain is an "AudioParam",
+	     // an automation curve could also be attached to it.
+	     // A "mixing board" UI could be created in canvas or WebGL controlling these gains.
 	}
 };
 
@@ -277,7 +277,7 @@ declare var footstepsBuffer: any;
 	var gainNode1: GainNode;
 	var streamingAudioSource: MediaElementAudioSourceNode;
 
-	// Initial setup of the "long-lived" part of the routing graph  
+	// Initial setup of the "long-lived" part of the routing graph
 	function setupAudioContext() {
 	    context = new AudioContext();
 
@@ -293,18 +293,18 @@ declare var footstepsBuffer: any;
 	    compressor.connect(context.destination);
 	}
 
-	// Later in response to some user action (typically mouse or key event) 
-	// a one-shot sound can be played. 
+	// Later in response to some user action (typically mouse or key event)
+	// a one-shot sound can be played.
 	function playSound() {
 	    var oneShotSound = context.createBufferSource();
 	    oneShotSound.buffer = dogBarkingBuffer;
 
-	    // Create a filter, panner, and gain node. 
+	    // Create a filter, panner, and gain node.
 	    var lowpass = context.createBiquadFilter();
 	    var panner = context.createPanner();
 	    var gainNode2 = context.createGain();
 
-	    // Make connections 
+	    // Make connections
 	    oneShotSound.connect(lowpass);
 	    lowpass.connect(panner);
 	    panner.connect(gainNode2);

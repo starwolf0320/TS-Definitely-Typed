@@ -1,7 +1,7 @@
 
 
 function test_general() {
-    // Example from homepage 
+    // Example from homepage
     var app = Sammy('#main', function () {
         var _this: Sammy.Application = this;
         _this.use('Mustache');
@@ -368,7 +368,7 @@ function test_misc() {
     });
 
     _this.get('#/', function () {
-        var evt: Sammy.EventContext = this; 
+        var evt: Sammy.EventContext = this;
         evt.load('mytext.json')
             .then(function (content) {
                 var context = this,
@@ -397,7 +397,7 @@ function test_misc() {
     store.each(function (key, value) {
         Sammy.log('key', key, 'value', value);
     });
-    
+
     store = new Sammy.Store();
     store.exists('foo');
     store.fetch('foo', function () {
@@ -430,8 +430,8 @@ function test_misc() {
     $.sammy(function () {
         _this.use('Template');
         _this.get('#/', function () {
-            var evt: Sammy.EventContext = this; 
-            // Adding a dynamic property 
+            var evt: Sammy.EventContext = this;
+            // Adding a dynamic property
             (<any>evt).user = { name: 'Aaron Quint' };
             evt.partial('user.template');
         })

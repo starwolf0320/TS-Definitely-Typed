@@ -9,6 +9,6 @@ bucket.upsert('testdoc', { name: 'Frank' }, (error) => {
         if (err) throw err;
 
         console.log(result.value);
-        // {name: Frank} 
+        // {name: Frank}
     });
 });

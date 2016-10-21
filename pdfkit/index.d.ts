@@ -272,7 +272,7 @@ declare namespace PDFKit {
         switchToPage(n?: number): PDFPage;
         flushPages(): void;
         ref(data: {}): PDFKitReference;
-        addContent(data: any): PDFDocument
+        addContent(data: any): PDFDocument;
         /**
         * Deprecated
         */
@@ -292,11 +292,11 @@ declare module "pdfkit" {
 }
 
 declare module "pdfkit/js/gradient" {
-    var gradient : {
+    var gradient: {
         PDFGradient: PDFKit.PDFGradient;
         PDFLinearGradient: PDFKit.PDFLinearGradient;
         PDFRadialGradiant: PDFKit.PDFRadialGradient;
-    }
+    };
 
     export = gradient;
 }
@@ -332,9 +332,9 @@ declare namespace PDFKit {
 }
 
 declare module "pdfkit/js/page" {
-  var PDFKitPage: PDFKit.PDFPage
+    var PDFKitPage: PDFKit.PDFPage;
 
-    export = PDFKitPage
+    export = PDFKitPage;
 }
 
 declare namespace PDFKit {
@@ -342,7 +342,7 @@ declare namespace PDFKit {
     class PDFKitReference {
         id: number;
         gen: number;
-        deflate:any;
+        deflate: any;
         compress: boolean;
         uncompressedLength: number;
         chunks: any[];

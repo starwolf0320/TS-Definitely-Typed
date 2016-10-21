@@ -79,7 +79,7 @@ function validateCommand(event: SafariValidateEvent) {
         (<SafariExtensionToolbarItem>event.target).disabled = !(<SafariExtensionToolbarItem>event.target).browserWindow.activeTab.url;
     }
 }
- 
+
 // if event handlers are in the global HTML page,
 // register with application:
 safari.application.addEventListener("command", performCommand, false);

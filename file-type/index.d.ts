@@ -6,10 +6,10 @@
 /// <reference types="node" />
 
 interface FileTypeResult {
-    ext: string
-    mime: string
+    ext: string;
+    mime: string;
 }
 
-declare function FileType(buf: Buffer): FileTypeResult
+declare function FileType(buf: Buffer): FileTypeResult;
 
-export = FileType
+export = FileType;

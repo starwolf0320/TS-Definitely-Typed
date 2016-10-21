@@ -97,7 +97,7 @@ declare module "mongoose" {
   export var SchemaTypes: typeof Schema.Types;
 
   /** Expose connection states for user-land */
-  export var STATES: Object
+  export var STATES: Object;
   /** The default connection of the mongoose module. */
   export var connection: Connection;
   /** The node-mongodb-native driver Mongoose uses. */
@@ -189,7 +189,7 @@ declare module "mongoose" {
      * and .disconnect().then() are viable.
      */
     catch<TRes>(onRejected?: (err: mongodb.MongoError) => void | TRes | PromiseLike<TRes>): Promise<TRes>;
-  }
+  };
 
   class CastError extends Error {
     /**

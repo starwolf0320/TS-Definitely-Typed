@@ -90,4 +90,4 @@ export interface Client {
 	unbind(callback: CallBack): void;
 }
 
-export function createClient(options? : ClientOptions): Client;
+export function createClient(options?: ClientOptions): Client;

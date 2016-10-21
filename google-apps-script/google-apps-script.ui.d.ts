@@ -6,7 +6,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module UI {
+  export namespace UI {
     /**
      *
      * Deprecated. The UI service was
@@ -3266,10 +3266,10 @@ declare namespace GoogleAppsScript {
      * Create user interfaces for use inside Google Apps or as standalone services.
      */
     export interface UiApp {
-      DateTimeFormat: DateTimeFormat
-      FileType: FileType
-      HorizontalAlignment: HorizontalAlignment
-      VerticalAlignment: VerticalAlignment
+      DateTimeFormat: DateTimeFormat;
+      FileType: FileType;
+      HorizontalAlignment: HorizontalAlignment;
+      VerticalAlignment: VerticalAlignment;
       createApplication(): UiInstance;
       getActiveApplication(): UiInstance;
       getUserAgent(): string;

@@ -12,7 +12,7 @@ declare module "react-redux" {
 
   export class ElementClass extends Component<any, any> { }
   export interface ClassDecorator {
-    <T extends (typeof ElementClass)>(component: T): T
+    <T extends (typeof ElementClass)>(component: T): T;
   }
 
   /**

@@ -23,7 +23,7 @@ export interface History {
     createPath(path: LocationDescriptor): Path;
     createHref(path: LocationDescriptor): Href;
     createLocation(path?: LocationDescriptor, action?: Action, key?: LocationKey): Location;
-    getCurrentLocation: () => Location
+    getCurrentLocation: () => Location;
 
     /** @deprecated use a location descriptor instead */
     createLocation(path?: Path, state?: LocationState, action?: Action, key?: LocationKey): Location;
@@ -52,7 +52,7 @@ export type HistoryOptions = {
     basename?: string;
     entries?: string | [any];
     current?: number;
-}
+};
 
 export type Location = {
     pathname: Pathname;
@@ -76,12 +76,12 @@ export namespace History {
     export type LocationKey = string;
     export type LocationListener = (location: Location) => void;
     export type LocationState = Object;
-    export type Path = string // Pathname + QueryString;
+    export type Path = string; // Pathname + QueryString;
     export type Pathname = string;
     export type Query = Object;
     export type QueryString = string;
     export type Search = string;
-    export type TransitionHook = (location: Location, callback: (result: any) => void) => any
+    export type TransitionHook = (location: Location, callback: (result: any) => void) => any;
     export type Href = string;
 }
 // Back-compat aliases

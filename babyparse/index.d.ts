@@ -9,7 +9,7 @@ declare namespace BabyParse {
          * Parse a csv string or a csv file
          */
         parse(csvString: string, config?: ParseConfig): ParseResult;
-        
+
         /**
          * Parse single file or multiple files
          */
@@ -92,8 +92,8 @@ declare namespace BabyParse {
     }
 
     interface FileObject {
-        file: string
-        config?: ParseConfig
+        file: string;
+        config?: ParseConfig;
     }
 
     interface ParseError {
@@ -137,9 +137,9 @@ declare namespace BabyParse {
 
 }
 
-declare var Baby:BabyParse.Static;
+declare var Baby: BabyParse.Static;
 
-declare module "babyparse"{
-    var Baby:BabyParse.Static;
+declare module "babyparse" {
+    var Baby: BabyParse.Static;
     export = Baby;
 }

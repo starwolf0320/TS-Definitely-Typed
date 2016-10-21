@@ -351,7 +351,7 @@ declare namespace ColorFormats {
     }
 
     interface RGBA extends RGB {
-        a: number
+        a: number;
     }
 
     interface HSL {

@@ -144,10 +144,10 @@ declare namespace Chai {
 declare module "chai-enzyme" {
     import { ShallowWrapper, ReactWrapper, CheerioWrapper } from "enzyme";
 
-    type DebugWrapper = ShallowWrapper<any,any> | CheerioWrapper<any, any> | ReactWrapper<any, any>;
+    type DebugWrapper = ShallowWrapper<any, any> | CheerioWrapper<any, any> | ReactWrapper<any, any>;
     function chaiEnzyMe(wrapper?: (debugWrapper: DebugWrapper) => string): (chai: any) => void;
 
-    module chaiEnzyMe {
+    namespace chaiEnzyMe {
     }
     export = chaiEnzyMe;
 }

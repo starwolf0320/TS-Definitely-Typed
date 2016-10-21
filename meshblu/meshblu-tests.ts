@@ -3,11 +3,11 @@
 import Meshblu = require('meshblu');
 
 var UUID = "26de691f-8068-4cdc-907a-4cb5961a1aba";
-var TOKEN = "4cb5961a1aba26de691f80684cdc907a";  
+var TOKEN = "4cb5961a1aba26de691f80684cdc907a";
 
 var meshblu = Meshblu.createConnection({
     uuid: UUID,
-    token: TOKEN 
+    token: TOKEN
 });
 
 meshblu.data({

@@ -17,16 +17,16 @@ declare namespace ssutils {
         dfmt: (d: Date) => string;
         dfmthm: (d: Date) => string;
         tfmt12: (d: Date) => string;
-        splitOnFirst: (s: string, delimiter:string) => string[];
+        splitOnFirst: (s: string, delimiter: string) => string[];
         splitOnLast: (s: string, delimiter: string) => string[];
         getSelection: () => string;
-        combinePaths: (...paths:string[]) => string;
+        combinePaths: (...paths: string[]) => string;
         queryString: (url: string) => { [index: string]: string };
         createPath: (route: string, args: any) => string;
         createUrl: (route: string, args: any) => string;
         humanize: (s: string) => string;
         normalizeKey: (key: string) => string;
-        normalize: (dto: any, deep?:boolean) => any;
+        normalize: (dto: any, deep?: boolean) => any;
         parseResponseStatus: (json: string, defaultMsg?: string) => any;
         postJSON: (url: string, data: Object | String, success?: Function, error?: Function) => any;
 

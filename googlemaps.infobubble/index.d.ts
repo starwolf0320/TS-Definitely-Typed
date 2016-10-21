@@ -56,7 +56,7 @@ declare namespace google.maps.infobubble {
           * @map The google map object
           * @marker The marker used for anchoring the infobubble to
           */
-        open(map: google.maps.Map, marker: google.maps.Marker) : void;
+        open(map: google.maps.Map, marker: google.maps.Marker): void;
 
 		/**
           * Returns the position of the InfoBubble

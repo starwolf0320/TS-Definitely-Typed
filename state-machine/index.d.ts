@@ -77,7 +77,7 @@ interface StateMachine {
     cannot: StateMachineCan;
     error: StateMachineErrorCallback;
 	isFinished: StateMachineIsFinished;
-    /*  transition - only available when performing async state transitions; otherwise null. Can be a: 
+    /*  transition - only available when performing async state transitions; otherwise null. Can be a:
         [1] fsm.transition(); // called from async callback
         [2] fsm.transition.cancel();
     */

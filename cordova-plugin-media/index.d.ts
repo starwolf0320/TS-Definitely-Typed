@@ -2,7 +2,7 @@
 // Project: https://github.com/apache/cordova-plugin-media
 // Definitions by: Microsoft Open Technologies Inc <http://msopentech.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// 
+//
 // Copyright (c) Microsoft Open Technologies Inc
 // Licensed under the MIT license
 
@@ -37,7 +37,7 @@ interface Media {
         mediaError?: (error: MediaError) => void): void;
     /** Returns the duration of an audio file in seconds. If the duration is unknown, it returns a value of -1. */
     getDuration(): number;
-    /** 
+    /**
      * Starts or resumes playing an audio file.
      * @param iosPlayOptions: iOS options quirks
      */

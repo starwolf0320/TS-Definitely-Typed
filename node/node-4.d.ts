@@ -49,7 +49,7 @@ interface NodeRequireFunction {
 }
 
 interface NodeRequire extends NodeRequireFunction {
-    resolve(id:string): string;
+    resolve(id: string): string;
     cache: any;
     extensions: any;
     main: NodeModule;
@@ -149,7 +149,7 @@ declare var Buffer: {
      * @param byteOffset
      * @param length
      */
-    from(arrayBuffer: ArrayBuffer, byteOffset?: number, length?:number): Buffer;
+    from(arrayBuffer: ArrayBuffer, byteOffset?: number, length?: number): Buffer;
     /**
      * Copies the passed {buffer} data onto a new Buffer instance.
      *
@@ -334,7 +334,7 @@ declare namespace NodeJS {
                 visibility: string;
             };
         };
-        kill(pid:number, signal?: string|number): void;
+        kill(pid: number, signal?: string|number): void;
         pid: number;
         title: string;
         arch: string;
@@ -344,7 +344,7 @@ declare namespace NodeJS {
         nextTick(callback: Function): void;
         umask(mask?: number): number;
         uptime(): number;
-        hrtime(time?:number[]): number[];
+        hrtime(time?: number[]): number[];
         domain: Domain;
 
         // Worker
@@ -420,8 +420,8 @@ declare namespace NodeJS {
     }
 
     export interface Timer {
-        ref() : void;
-        unref() : void;
+        ref(): void;
+        unref(): void;
     }
 }
 
@@ -687,7 +687,7 @@ declare module "http" {
         [errorCode: number]: string;
         [errorCode: string]: string;
     };
-    export function createServer(requestListener?: (request: IncomingMessage, response: ServerResponse) =>void ): Server;
+    export function createServer(requestListener?: (request: IncomingMessage, response: ServerResponse) => void ): Server;
     export function createClient(port?: number, host?: string): any;
     export function request(options: RequestOptions, callback?: (res: IncomingMessage) => void): ClientRequest;
     export function get(options: any, callback?: (res: IncomingMessage) => void): ClientRequest;
@@ -771,19 +771,19 @@ declare module "zlib" {
     export function createInflateRaw(options?: ZlibOptions): InflateRaw;
     export function createUnzip(options?: ZlibOptions): Unzip;
 
-    export function deflate(buf: Buffer, callback: (error: Error, result: any) =>void ): void;
+    export function deflate(buf: Buffer, callback: (error: Error, result: any) => void ): void;
     export function deflateSync(buf: Buffer, options?: ZlibOptions): any;
-    export function deflateRaw(buf: Buffer, callback: (error: Error, result: any) =>void ): void;
+    export function deflateRaw(buf: Buffer, callback: (error: Error, result: any) => void ): void;
     export function deflateRawSync(buf: Buffer, options?: ZlibOptions): any;
-    export function gzip(buf: Buffer, callback: (error: Error, result: any) =>void ): void;
+    export function gzip(buf: Buffer, callback: (error: Error, result: any) => void ): void;
     export function gzipSync(buf: Buffer, options?: ZlibOptions): any;
-    export function gunzip(buf: Buffer, callback: (error: Error, result: any) =>void ): void;
+    export function gunzip(buf: Buffer, callback: (error: Error, result: any) => void ): void;
     export function gunzipSync(buf: Buffer, options?: ZlibOptions): any;
-    export function inflate(buf: Buffer, callback: (error: Error, result: any) =>void ): void;
+    export function inflate(buf: Buffer, callback: (error: Error, result: any) => void ): void;
     export function inflateSync(buf: Buffer, options?: ZlibOptions): any;
-    export function inflateRaw(buf: Buffer, callback: (error: Error, result: any) =>void ): void;
+    export function inflateRaw(buf: Buffer, callback: (error: Error, result: any) => void ): void;
     export function inflateRawSync(buf: Buffer, options?: ZlibOptions): any;
-    export function unzip(buf: Buffer, callback: (error: Error, result: any) =>void ): void;
+    export function unzip(buf: Buffer, callback: (error: Error, result: any) => void ): void;
     export function unzipSync(buf: Buffer, options?: ZlibOptions): any;
 
     // Constants
@@ -908,8 +908,8 @@ declare module "https" {
     };
     export interface Server extends tls.Server { }
     export function createServer(options: ServerOptions, requestListener?: Function): Server;
-    export function request(options: RequestOptions, callback?: (res: http.IncomingMessage) =>void ): http.ClientRequest;
-    export function get(options: RequestOptions, callback?: (res: http.IncomingMessage) =>void ): http.ClientRequest;
+    export function request(options: RequestOptions, callback?: (res: http.IncomingMessage) => void ): http.ClientRequest;
+    export function get(options: RequestOptions, callback?: (res: http.IncomingMessage) => void ): http.ClientRequest;
     export var globalAgent: Agent;
 }
 
@@ -1027,7 +1027,7 @@ declare module "child_process" {
     import * as stream from "stream";
 
     export interface ChildProcess extends events.EventEmitter {
-        stdin:  stream.Writable;
+        stdin: stream.Writable;
         stdout: stream.Readable;
         stderr: stream.Readable;
         stdio: [stream.Writable, stream.Readable, stream.Readable];
@@ -1066,11 +1066,11 @@ declare module "child_process" {
     export interface ExecOptionsWithBufferEncoding extends ExecOptions {
         encoding: string; // specify `null`.
     }
-    export function exec(command: string, callback?: (error: Error, stdout: string, stderr: string) =>void ): ChildProcess;
-    export function exec(command: string, options: ExecOptionsWithStringEncoding, callback?: (error: Error, stdout: string, stderr: string) =>void ): ChildProcess;
+    export function exec(command: string, callback?: (error: Error, stdout: string, stderr: string) => void ): ChildProcess;
+    export function exec(command: string, options: ExecOptionsWithStringEncoding, callback?: (error: Error, stdout: string, stderr: string) => void ): ChildProcess;
     // usage. child_process.exec("tsc", {encoding: null as string}, (err, stdout, stderr) => {});
-    export function exec(command: string, options: ExecOptionsWithBufferEncoding, callback?: (error: Error, stdout: Buffer, stderr: Buffer) =>void ): ChildProcess;
-    export function exec(command: string, options: ExecOptions, callback?: (error: Error, stdout: string, stderr: string) =>void ): ChildProcess;
+    export function exec(command: string, options: ExecOptionsWithBufferEncoding, callback?: (error: Error, stdout: Buffer, stderr: Buffer) => void ): ChildProcess;
+    export function exec(command: string, options: ExecOptions, callback?: (error: Error, stdout: string, stderr: string) => void ): ChildProcess;
 
     export interface ExecFileOptions {
         cwd?: string;
@@ -1087,16 +1087,16 @@ declare module "child_process" {
     export interface ExecFileOptionsWithBufferEncoding extends ExecFileOptions {
         encoding: string; // specify `null`.
     }
-    export function execFile(file: string, callback?: (error: Error, stdout: string, stderr: string) =>void ): ChildProcess;
-    export function execFile(file: string, options?: ExecFileOptionsWithStringEncoding, callback?: (error: Error, stdout: string, stderr: string) =>void ): ChildProcess;
+    export function execFile(file: string, callback?: (error: Error, stdout: string, stderr: string) => void ): ChildProcess;
+    export function execFile(file: string, options?: ExecFileOptionsWithStringEncoding, callback?: (error: Error, stdout: string, stderr: string) => void ): ChildProcess;
     // usage. child_process.execFile("file.sh", {encoding: null as string}, (err, stdout, stderr) => {});
-    export function execFile(file: string, options?: ExecFileOptionsWithBufferEncoding, callback?: (error: Error, stdout: Buffer, stderr: Buffer) =>void ): ChildProcess;
-    export function execFile(file: string, options?: ExecFileOptions, callback?: (error: Error, stdout: string, stderr: string) =>void ): ChildProcess;
-    export function execFile(file: string, args?: string[], callback?: (error: Error, stdout: string, stderr: string) =>void ): ChildProcess;
-    export function execFile(file: string, args?: string[], options?: ExecFileOptionsWithStringEncoding, callback?: (error: Error, stdout: string, stderr: string) =>void ): ChildProcess;
+    export function execFile(file: string, options?: ExecFileOptionsWithBufferEncoding, callback?: (error: Error, stdout: Buffer, stderr: Buffer) => void ): ChildProcess;
+    export function execFile(file: string, options?: ExecFileOptions, callback?: (error: Error, stdout: string, stderr: string) => void ): ChildProcess;
+    export function execFile(file: string, args?: string[], callback?: (error: Error, stdout: string, stderr: string) => void ): ChildProcess;
+    export function execFile(file: string, args?: string[], options?: ExecFileOptionsWithStringEncoding, callback?: (error: Error, stdout: string, stderr: string) => void ): ChildProcess;
     // usage. child_process.execFile("file.sh", ["foo"], {encoding: null as string}, (err, stdout, stderr) => {});
-    export function execFile(file: string, args?: string[], options?: ExecFileOptionsWithBufferEncoding, callback?: (error: Error, stdout: Buffer, stderr: Buffer) =>void ): ChildProcess;
-    export function execFile(file: string, args?: string[], options?: ExecFileOptions, callback?: (error: Error, stdout: string, stderr: string) =>void ): ChildProcess;
+    export function execFile(file: string, args?: string[], options?: ExecFileOptionsWithBufferEncoding, callback?: (error: Error, stdout: Buffer, stderr: Buffer) => void ): ChildProcess;
+    export function execFile(file: string, args?: string[], options?: ExecFileOptions, callback?: (error: Error, stdout: string, stderr: string) => void ): ChildProcess;
 
     export interface ForkOptions {
         cwd?: string;
@@ -1218,18 +1218,18 @@ declare module "url" {
 }
 
 declare module "dns" {
-    export function lookup(domain: string, family: number, callback: (err: Error, address: string, family: number) =>void ): string;
-    export function lookup(domain: string, callback: (err: Error, address: string, family: number) =>void ): string;
-    export function resolve(domain: string, rrtype: string, callback: (err: Error, addresses: string[]) =>void ): string[];
-    export function resolve(domain: string, callback: (err: Error, addresses: string[]) =>void ): string[];
-    export function resolve4(domain: string, callback: (err: Error, addresses: string[]) =>void ): string[];
-    export function resolve6(domain: string, callback: (err: Error, addresses: string[]) =>void ): string[];
-    export function resolveMx(domain: string, callback: (err: Error, addresses: string[]) =>void ): string[];
-    export function resolveTxt(domain: string, callback: (err: Error, addresses: string[]) =>void ): string[];
-    export function resolveSrv(domain: string, callback: (err: Error, addresses: string[]) =>void ): string[];
-    export function resolveNs(domain: string, callback: (err: Error, addresses: string[]) =>void ): string[];
-    export function resolveCname(domain: string, callback: (err: Error, addresses: string[]) =>void ): string[];
-    export function reverse(ip: string, callback: (err: Error, domains: string[]) =>void ): string[];
+    export function lookup(domain: string, family: number, callback: (err: Error, address: string, family: number) => void ): string;
+    export function lookup(domain: string, callback: (err: Error, address: string, family: number) => void ): string;
+    export function resolve(domain: string, rrtype: string, callback: (err: Error, addresses: string[]) => void ): string[];
+    export function resolve(domain: string, callback: (err: Error, addresses: string[]) => void ): string[];
+    export function resolve4(domain: string, callback: (err: Error, addresses: string[]) => void ): string[];
+    export function resolve6(domain: string, callback: (err: Error, addresses: string[]) => void ): string[];
+    export function resolveMx(domain: string, callback: (err: Error, addresses: string[]) => void ): string[];
+    export function resolveTxt(domain: string, callback: (err: Error, addresses: string[]) => void ): string[];
+    export function resolveSrv(domain: string, callback: (err: Error, addresses: string[]) => void ): string[];
+    export function resolveNs(domain: string, callback: (err: Error, addresses: string[]) => void ): string[];
+    export function resolveCname(domain: string, callback: (err: Error, addresses: string[]) => void ): string[];
+    export function reverse(ip: string, callback: (err: Error, domains: string[]) => void ): string[];
 }
 
 declare module "net" {
@@ -1348,12 +1348,12 @@ declare module "net" {
         prependOnceListener(event: "error", listener: (err: Error) => void): this;
         prependOnceListener(event: "listening", listener: () => void): this;
     }
-    export function createServer(connectionListener?: (socket: Socket) =>void ): Server;
-    export function createServer(options?: { allowHalfOpen?: boolean; }, connectionListener?: (socket: Socket) =>void ): Server;
-    export function connect(options: { port: number, host?: string, localAddress? : string, localPort? : string, family? : number, allowHalfOpen?: boolean; }, connectionListener?: Function): Socket;
+    export function createServer(connectionListener?: (socket: Socket) => void ): Server;
+    export function createServer(options?: { allowHalfOpen?: boolean; }, connectionListener?: (socket: Socket) => void ): Server;
+    export function connect(options: { port: number, host?: string, localAddress?: string, localPort?: string, family?: number, allowHalfOpen?: boolean; }, connectionListener?: Function): Socket;
     export function connect(port: number, host?: string, connectionListener?: Function): Socket;
     export function connect(path: string, connectionListener?: Function): Socket;
-    export function createConnection(options: { port: number, host?: string, localAddress? : string, localPort? : string, family? : number, allowHalfOpen?: boolean; }, connectionListener?: Function): Socket;
+    export function createConnection(options: { port: number, host?: string, localAddress?: string, localPort?: string, family?: number, allowHalfOpen?: boolean; }, connectionListener?: Function): Socket;
     export function createConnection(port: number, host?: string, connectionListener?: Function): Socket;
     export function createConnection(path: string, connectionListener?: Function): Socket;
     export function isIP(input: string): number;
@@ -1481,7 +1481,7 @@ declare module "fs" {
     export function readlink(path: string, callback?: (err: NodeJS.ErrnoException, linkString: string) => any): void;
     export function readlinkSync(path: string): string;
     export function realpath(path: string, callback?: (err: NodeJS.ErrnoException, resolvedPath: string) => any): void;
-    export function realpath(path: string, cache: {[path: string]: string}, callback: (err: NodeJS.ErrnoException, resolvedPath: string) =>any): void;
+    export function realpath(path: string, cache: {[path: string]: string}, callback: (err: NodeJS.ErrnoException, resolvedPath: string) => any): void;
     export function realpathSync(path: string, cache?: { [path: string]: string }): string;
     /*
      * Asynchronous unlink - deletes the file specified in {path}
@@ -1802,7 +1802,7 @@ declare module "path" {
      */
     export function format(pathObject: ParsedPath): string;
 
-    export module posix {
+    export namespace posix {
       export function normalize(p: string): string;
       export function join(...paths: any[]): string;
       export function resolve(...pathSegments: any[]): string;
@@ -1817,7 +1817,7 @@ declare module "path" {
       export function format(pP: ParsedPath): string;
     }
 
-    export module win32 {
+    export namespace win32 {
       export function normalize(p: string): string;
       export function join(...paths: any[]): string;
       export function resolve(...pathSegments: any[]): string;
@@ -1872,10 +1872,10 @@ declare module "tls" {
         host?: string;
         port?: number;
         socket?: net.Socket;
-        pfx?: string | Buffer
-        key?: string | Buffer
+        pfx?: string | Buffer;
+        key?: string | Buffer;
         passphrase?: string;
-        cert?: string | Buffer
+        cert?: string | Buffer;
         ca?: (string | Buffer)[];
         rejectUnauthorized?: boolean;
         NPNProtocols?: (string | Buffer)[];
@@ -1922,7 +1922,7 @@ declare module "tls" {
         passphrase?: string;
         cert?: string | Buffer;
         ca?: string | Buffer;
-        crl?: string | string[]
+        crl?: string | string[];
         ciphers?: string;
         honorCipherOrder?: boolean;
     }
@@ -1931,10 +1931,10 @@ declare module "tls" {
         context: any;
     }
 
-    export function createServer(options: TlsOptions, secureConnectionListener?: (cleartextStream: ClearTextStream) =>void ): Server;
-    export function connect(options: TlsOptions, secureConnectionListener?: () =>void ): ClearTextStream;
-    export function connect(port: number, host?: string, options?: ConnectionOptions, secureConnectListener?: () =>void ): ClearTextStream;
-    export function connect(port: number, options?: ConnectionOptions, secureConnectListener?: () =>void ): ClearTextStream;
+    export function createServer(options: TlsOptions, secureConnectionListener?: (cleartextStream: ClearTextStream) => void ): Server;
+    export function connect(options: TlsOptions, secureConnectionListener?: () => void ): ClearTextStream;
+    export function connect(port: number, host?: string, options?: ConnectionOptions, secureConnectListener?: () => void ): ClearTextStream;
+    export function connect(port: number, options?: ConnectionOptions, secureConnectListener?: () => void ): ClearTextStream;
     export function createSecurePair(credentials?: crypto.Credentials, isServer?: boolean, requestCert?: boolean, rejectUnauthorized?: boolean): SecurePair;
     export function createSecureContext(details: SecureContextOptions): SecureContext;
 }
@@ -2015,23 +2015,23 @@ declare module "crypto" {
     export function getDiffieHellman(group_name: string): DiffieHellman;
     export function pbkdf2(password: string|Buffer, salt: string|Buffer, iterations: number, keylen: number, callback: (err: Error, derivedKey: Buffer) => any): void;
     export function pbkdf2(password: string|Buffer, salt: string|Buffer, iterations: number, keylen: number, digest: string, callback: (err: Error, derivedKey: Buffer) => any): void;
-    export function pbkdf2Sync(password: string|Buffer, salt: string|Buffer, iterations: number, keylen: number) : Buffer;
-    export function pbkdf2Sync(password: string|Buffer, salt: string|Buffer, iterations: number, keylen: number, digest: string) : Buffer;
+    export function pbkdf2Sync(password: string|Buffer, salt: string|Buffer, iterations: number, keylen: number): Buffer;
+    export function pbkdf2Sync(password: string|Buffer, salt: string|Buffer, iterations: number, keylen: number, digest: string): Buffer;
     export function randomBytes(size: number): Buffer;
-    export function randomBytes(size: number, callback: (err: Error, buf: Buffer) =>void ): void;
+    export function randomBytes(size: number, callback: (err: Error, buf: Buffer) => void ): void;
     export function pseudoRandomBytes(size: number): Buffer;
-    export function pseudoRandomBytes(size: number, callback: (err: Error, buf: Buffer) =>void ): void;
+    export function pseudoRandomBytes(size: number, callback: (err: Error, buf: Buffer) => void ): void;
     export interface RsaPublicKey {
         key: string;
         padding?: any;
     }
     export interface RsaPrivateKey {
         key: string;
-        passphrase?: string,
+        passphrase?: string;
         padding?: any;
     }
-    export function publicEncrypt(public_key: string|RsaPublicKey, buffer: Buffer): Buffer
-    export function privateDecrypt(private_key: string|RsaPrivateKey, buffer: Buffer): Buffer
+    export function publicEncrypt(public_key: string|RsaPublicKey, buffer: Buffer): Buffer;
+    export function privateDecrypt(private_key: string|RsaPrivateKey, buffer: Buffer): Buffer;
 }
 
 declare module "stream" {
@@ -2144,7 +2144,7 @@ declare module "util" {
     export function isDate(object: any): boolean;
     export function isError(object: any): boolean;
     export function inherits(constructor: any, superConstructor: any): void;
-    export function debuglog(key:string): (msg:string,...param: any[])=>void;
+    export function debuglog(key: string): (msg: string, ...param: any[]) => void;
 }
 
 declare module "assert" {

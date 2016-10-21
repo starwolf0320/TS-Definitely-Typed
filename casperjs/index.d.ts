@@ -7,7 +7,7 @@
 
 interface CasperModule {
     create(options: CasperOptions): Casper;
-    selectXPath(expression: string): Object
+    selectXPath(expression: string): Object;
 }
 
 interface EventEmitter {
@@ -43,7 +43,7 @@ interface Casper extends EventEmitter {
 	download(url: string, target?: string, method?: string, data?: any): Casper;
     each<T>(array: T[], fn: (self: Casper, item: T, index: number) => void): Casper;
 	echo(message: string, style?: string): Casper;
-    evaluate<T>(fn: () => T, ...args: any[]): T
+    evaluate<T>(fn: () => T, ...args: any[]): T;
     evaluateOrDie(fn: () => any, message?: string, status?: number): Casper;
 	exit(status?: number): Casper;
 	exists(selector: string): boolean;

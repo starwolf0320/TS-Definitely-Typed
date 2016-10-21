@@ -74,12 +74,12 @@ declare namespace SocketIOClient {
 		 * event in question
 		 * @return This Emitter
 		 */
-		on( event: string, fn: Function ):Emitter;
+		on( event: string, fn: Function ): Emitter;
 
 		/**
 		 * @see on( event, fn )
 		 */
-		addEventListener( event: string, fn: Function ):Emitter;
+		addEventListener( event: string, fn: Function ): Emitter;
 
 		/**
 		 * Adds a listener for a particular event that will be invoked
@@ -89,7 +89,7 @@ declare namespace SocketIOClient {
 		 * the event in question
 		 * @return This Emitter
 		 */
-		once( event: string, fn: Function ):Emitter;
+		once( event: string, fn: Function ): Emitter;
 
 		/**
 		 * Removes a listener for a particular type of event. This will either
@@ -98,23 +98,23 @@ declare namespace SocketIOClient {
 		 * @param fn The function to remove, or null if we want to remove all functions
 		 * @return This Emitter
 		 */
-		off( event: string, fn?: Function ):Emitter;
+		off( event: string, fn?: Function ): Emitter;
 
 		/**
 		 * @see off( event, fn )
 		 */
-		removeListener( event: string, fn?: Function ):Emitter;
+		removeListener( event: string, fn?: Function ): Emitter;
 
 		/**
 		 * @see off( event, fn )
 		 */
-		removeEventListener( event: string, fn?: Function ):Emitter;
+		removeEventListener( event: string, fn?: Function ): Emitter;
 
 		/**
 		 * Removes all event listeners on this object
 		 * @return This Emitter
 		 */
-		removeAllListeners():Emitter;
+		removeAllListeners(): Emitter;
 
 		/**
 		 * Emits 'event' with the given args
@@ -122,21 +122,21 @@ declare namespace SocketIOClient {
 		 * @param args Optional arguments to emit with the event
 		 * @return Emitter
 		 */
-		emit( event: string, ...args: any[] ):Emitter;
+		emit( event: string, ...args: any[] ): Emitter;
 
 		/**
 		 * Returns all the callbacks for a particular event
 		 * @param event The event that we're looking for the callbacks of
 		 * @return An array of callback Functions, or an empty array if we don't have any
 		 */
-		listeners( event: string ):Function[];
+		listeners( event: string ): Function[];
 
 		/**
 		 * Returns if we have listeners for a particular event
 		 * @param event The event that we want to check if we've listeners for
 		 * @return True if we have listeners for this event, false otherwise
 		 */
-		hasListeners( event: string ):boolean;
+		hasListeners( event: string ): boolean;
 	}
 
 	/**
@@ -212,7 +212,7 @@ declare namespace SocketIOClient {
 		 * @see emit
 		 * @return This Socket
 		 */
-		send( ...args: any[] ):Socket;
+		send( ...args: any[] ): Socket;
 
 		/**
 		 * An override of the base emit. If the event is one of:
@@ -239,25 +239,25 @@ declare namespace SocketIOClient {
 		 * @param args Optional arguments to send with the event
 		 * @return This Socket
 		 */
-		emit( event: string, ...args: any[] ):Socket;
+		emit( event: string, ...args: any[] ): Socket;
 
 		/**
 		 * Disconnects the socket manually
 		 * @return This Socket
 		 */
-		close():Socket;
+		close(): Socket;
 
 		/**
 		 * @see close()
 		 */
-		disconnect():Socket;
+		disconnect(): Socket;
 
 		/**
 		* Sets the compress flag.
 		* @param compress If `true`, compresses the sending data
 		* @return this Socket
 		*/
-		compress(compress: boolean):Socket;
+		compress(compress: boolean): Socket;
 	}
 
 	/**
@@ -266,7 +266,7 @@ declare namespace SocketIOClient {
 	interface ManagerStatic {
 		/**
 		 * Creates a new Manager
-		 * @param uri The URI that we're connecting to (e.g. http://localhost:4000)
+		 * @param uri The URI that we're connecting to (e.g. http://localhost: 4000)
 		 * @param opts Any connection options that we want to use (and pass to engine.io)
 		 * @return A Manager
 		 */
@@ -276,7 +276,7 @@ declare namespace SocketIOClient {
 		 * Creates a new Manager with the default URI (window host)
 		 * @param opts Any connection options that we want to use (and pass to engine.io)
 		 */
-		( opts: SocketIOClient.ConnectOpts ):SocketIOClient.Manager;
+		( opts: SocketIOClient.ConnectOpts ): SocketIOClient.Manager;
 
 		/**
 		 * @see default constructor
@@ -286,7 +286,7 @@ declare namespace SocketIOClient {
 		/**
 		 * @see default constructor
 		 */
-		new ( opts: SocketIOClient.ConnectOpts ):SocketIOClient.Manager;
+		new ( opts: SocketIOClient.ConnectOpts ): SocketIOClient.Manager;
 	}
 
 	/**
@@ -298,7 +298,7 @@ declare namespace SocketIOClient {
 		 * All the namespaces currently controlled by this Manager, and the Sockets
 		 * that we're using to communicate with them
 		 */
-		nsps: { [namespace:string]: Socket };
+		nsps: { [namespace: string]: Socket };
 
 		/**
 		 * The connect options that we used when creating this Manager
@@ -634,7 +634,7 @@ declare namespace SocketIOClient {
 		 * used in Node.js client environment to manually specify certificate
 		 * information.
 		 */
-		passphrase?: string
+		passphrase?: string;
 
 		/**
 		 * (SSL) Public x509 certificate to use. Can be used in Node.js client

@@ -36,7 +36,7 @@ declare namespace Bucks {
      * Catch all errors.
      * @param onError Function called after catching error
      */
-    onError(onError: (err:Error, bucks:Bucks)=>any): void;
+    onError(onError: (err: Error, bucks: Bucks) => any): void;
   }
 
   interface Bucks {
@@ -51,7 +51,7 @@ declare namespace Bucks {
      * Add a task called only in case of success.
      * @param onSuccess Function called only in case of success
      */
-    then(onSuccess: (res:any, next?:Task)=>any): Bucks;
+    then(onSuccess: (res: any, next?: Task) => any): Bucks;
 
     /**
      * Add a empty task.
@@ -62,7 +62,7 @@ declare namespace Bucks {
      * Add a task called only in case of error.
      * @param onError Function called only in case of error
      */
-    error(onError: (err:Error, next?:Task)=>any): Bucks;
+    error(onError: (err: Error, next?: Task) => any): Bucks;
 
     /**
      * Add tasks in asynchronous way and join their results.
@@ -98,7 +98,7 @@ declare namespace Bucks {
      * @param callback Last callback function
      * @param errback Handler for occurring error in last callback function
      */
-    end(callback?: Task, errback?: (err:Error)=>any): void;
+    end(callback?: Task, errback?: (err: Error) => any): void;
   }
 
   interface TaskWithNext {

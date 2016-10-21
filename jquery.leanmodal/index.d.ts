@@ -6,17 +6,17 @@
 ///<reference types="jquery" />
 
 interface JQueryLeanModalOption {
-    top? : number;
-    overlay? : number;
-    closeButton? : String;
+    top?: number;
+    overlay?: number;
+    closeButton?: String;
 }
 
 interface JQueryStatic {
     leanModal(): JQuery;
-    leanModal(val : JQueryLeanModalOption): JQuery;
+    leanModal(val: JQueryLeanModalOption): JQuery;
 }
 
 interface JQuery {
     leanModal(): JQuery;
-    leanModal(val : JQueryLeanModalOption): JQuery;
+    leanModal(val: JQueryLeanModalOption): JQuery;
 }

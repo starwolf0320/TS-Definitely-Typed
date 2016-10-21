@@ -8,35 +8,35 @@ interface IJQuerySlimScrollOptions {
     /**
      * width in pixels of the visible scroll area
      */
-    width? :string;
+    width?: string;
     /**
      * height in pixels of the visible scroll area
      */
-    height? :string;
+    height?: string;
     /**
      * width in pixels of the scrollbar and rail
      */
-    size? :string;
+    size?: string;
     /**
      * scrollbar color, accepts any hex/color value
      */
-    color?:string;
+    color?: string;
     /**
      * scrollbar position - left/right
      */
-    position?:string;
+    position?: string;
     /**
      * distance in pixels between the side edge and the scrollbar
      */
-    distance?:string;
+    distance?: string;
     /**
      * default scroll position on load - top / bottom / $('selector')
      */
-    start?:any;
+    start?: any;
     /**
      * sets scrollbar opacity
      */
-    opacity? :number;
+    opacity?: number;
     /**
      * enables always-on mode for the scrollbar
      */
@@ -56,7 +56,7 @@ interface IJQuerySlimScrollOptions {
     /**
      * sets rail opacity
      */
-    railOpacity?:number;
+    railOpacity?: number;
     /**
      * whether  we should use jQuery UI Draggable to enable bar dragging
      */
@@ -104,13 +104,13 @@ interface IJQuerySlimScrollOptions {
     /**
      * release resources held by the plugin
      */
-    destroy?:boolean;
+    destroy?: boolean;
 }
 
 interface JQuery {
-    slimScroll:{
+    slimScroll: {
         (): JQuery;
-        (options:IJQuerySlimScrollOptions): JQuery;
-    }
+        (options: IJQuerySlimScrollOptions): JQuery;
+    };
 }
 

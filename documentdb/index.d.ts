@@ -94,12 +94,12 @@ interface RequestCallback<TResult> {
 /** Represents the result returned from a query. */
 interface QueryIterator<TResultRow> {
     current(): TResultRow;
-    executeNext(callback: (error: QueryError, result: TResultRow[], responseHeaders? : any) => void): void;
-    forEach(iteratorFunction : (error: QueryError, element: TResultRow, responseHeaders? : any) => void): void;
+    executeNext(callback: (error: QueryError, result: TResultRow[], responseHeaders?: any) => void): void;
+    forEach(iteratorFunction: (error: QueryError, element: TResultRow, responseHeaders?: any) => void): void;
     hasMoreResults(): boolean;
-    nextItem(callback: (error: QueryError, item: TResultRow, responseHeaders? : any) => void): void;
+    nextItem(callback: (error: QueryError, item: TResultRow, responseHeaders?: any) => void): void;
     reset(): void;
-    toArray(callback: (error: QueryError, result: TResultRow[], responseHeaders? : any) => void): void
+    toArray(callback: (error: QueryError, result: TResultRow[], responseHeaders?: any) => void): void;
 }
 
 /** Reprents an object with a unique identifier. */
@@ -127,14 +127,14 @@ interface AbstractMeta extends UniqueId {
 /** Represents a custom document for storing in DocumentDB  */
 interface NewDocument<TContent> extends UniqueId {
 
-    /** A custom property for containing the actual JSON object representing the document. 
+    /** A custom property for containing the actual JSON object representing the document.
       * Define a custom property in order to disambiguate the JSON document from the metadata added by Azure.
       * This property is optional and the name is application-specific.
       */
     // doc: TContent;
 }
 
-/** Represents a document retrieved from storage. 
+/** Represents a document retrieved from storage.
   * This differs from a new document by the properties in AbstractMeta, which are added by the system.
   */
 interface RetrievedDocument<TContent> extends NewDocument<TContent>, AbstractMeta {
@@ -249,7 +249,7 @@ export declare class DocumentClient {
     */
     constructor(urlConnection: string, auth: AuthOptions, connectionPolicy?: any, consistencyLevel?: string);
 
-    /** Send a request for creating a database. 
+    /** Send a request for creating a database.
      * <p>
      *  A database manages users, permissions and a set of collections.  <br>
      *  Each Azure DocumentDB Database Account is able to support multiple independent named databases, with the database being the logical container for data. <br>
@@ -281,7 +281,7 @@ export declare class DocumentClient {
      * <p>
      * DocumentDB allows stored procedures to be executed in the storage tier, directly against a document collection. The script <br>
      * gets executed under ACID transactions on the primary storage partition of the specified collection. For additional details, <br>
-     * refer to the server-side JavaScript API documentation. 
+     * refer to the server-side JavaScript API documentation.
      * </p>
      * @param collectionLink    - The self-link of the collection.
      * @param procedure         - Represents the body of the stored procedure.
@@ -305,7 +305,7 @@ export declare class DocumentClient {
 
     /**
      * Create a document.
-     * <p> 
+     * <p>
      * There is no set schema for JSON documents. They may contain any number of custom properties as well as an optional list of attachments. <br>
      * A Document is an application resource and can be authorized using the master key or resource keys
      * </p>
@@ -324,7 +324,7 @@ export declare class DocumentClient {
      */
     public executeStoredProcedure<TDocument>(procedureLink: string, params: any[], callback: RequestCallback<TDocument>): void;
 
-    /** Lists all databases that satisfy a query. 
+    /** Lists all databases that satisfy a query.
      * @param query     - A SQL query string.
      * @param [options] - The feed options.
      * @returns         - An instance of QueryIterator to handle reading feed.
@@ -371,7 +371,7 @@ export declare class DocumentClient {
      * Delete the document object.
      * @param documentLink  - The self-link of the document.
      * @param [options]     - The request options.
-     * @param callback      - The callback for the request. 
+     * @param callback      - The callback for the request.
     */
     public deleteDocument(documentLink: string, options: RequestOptions, callback: RequestCallback<void>): void;
 
@@ -379,7 +379,7 @@ export declare class DocumentClient {
      * Delete the database object.
      * @param databaseLink  - The self-link of the database.
      * @param [options]     - The request options.
-     * @param callback      - The callback for the request. 
+     * @param callback      - The callback for the request.
     */
     public deleteDatabase(databaseLink: string, options: RequestOptions, callback: RequestCallback<void>): void;
 
@@ -387,7 +387,7 @@ export declare class DocumentClient {
      * Delete the collection object.
      * @param collectionLink    - The self-link of the collection.
      * @param [options]         - The request options.
-     * @param callback          - The callback for the request. 
+     * @param callback          - The callback for the request.
     */
     public deleteCollection(collectionLink: string, options: RequestOptions, callback: RequestCallback<void>): void;
 

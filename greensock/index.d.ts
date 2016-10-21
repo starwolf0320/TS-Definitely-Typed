@@ -7,8 +7,8 @@
 // Version 1.15.1 (TypeScript 1.4)
 
 interface IDispatcher {
-    addEventListener(type:string, callback:Function, scope?:Object, useParam?:boolean, priority?:number):void;
-    removeEventListener(type:string, callback:Function):void;
+    addEventListener(type: string, callback: Function, scope?: Object, useParam?: boolean, priority?: number): void;
+    removeEventListener(type: string, callback: Function): void;
 }
 
 declare type Tween = TweenLite | TweenMax;
@@ -43,8 +43,8 @@ declare type TweenConfig = {
     onOverwrite?: Function;
     autoCSS?: boolean;
     callbackScope?: Object;
-}
-    
+};
+
 //com.greensock.core
 declare class Animation {
     static ticker: IDispatcher;
@@ -143,7 +143,7 @@ declare class TweenMax extends TweenLite {
     static staggerFrom(targets: any, duration: number, vars: Object, stagger: number, onCompleteAll?: Function, onCompleteAllParams?: any[], onCompleteAllScope?: any): any[];
     static staggerFromTo(targets: any, duration: number, fromVars: Object, toVars: Object, stagger: number, onCompleteAll?: Function, onCompleteAllParams?: any[], onCompleteAllScope?: any): any[];
     static staggerTo(targets: any, duration: number, vars: Object, stagger: number, onCompleteAll?: Function, onCompleteAllParams?: any[], onCompleteAllScope?: any): any[];
-    static to(target:Object, duration:number, vars:TweenConfig):TweenMax;
+    static to(target: Object, duration: number, vars: TweenConfig): TweenMax;
     updateTo(vars: Object, resetDuration?: boolean): TweenMax;
     yoyo(): boolean;
     yoyo(value?: boolean): TweenMax;
@@ -199,7 +199,7 @@ declare class TimelineMax extends TimelineLite {
 
 //com.greensock.easing
 declare class Ease {
-    constructor(func:Function, extraParams:any[], type:number, power:number);
+    constructor(func: Function, extraParams: any[], type: number, power: number);
     public getRatio(p: number): number;
 }
 
@@ -292,7 +292,7 @@ declare type RoughEaseConfig = {
     strength?: number;
     taper?: string; /* one of "in" | "out" | "both" | "none" */
     template?: Ease;
-}
+};
 
 declare class RoughEase extends Ease {
     public static ease: RoughEase;
@@ -302,9 +302,9 @@ declare class RoughEase extends Ease {
 
 //com.greensock.plugins
 interface BezierPlugin extends TweenPlugin {
-    bezierThrough(values:any[], curviness?:number, quadratic?:boolean, correlate?:string, prepend?:Object, calcDifs?:boolean):Object;
-    cubicToQuadratic(a:number, b:number, c:number, d:number):any[];
-    quadraticToCubic(a:number, b:number, c:number):Object;
+    bezierThrough(values: any[], curviness?: number, quadratic?: boolean, correlate?: string, prepend?: Object, calcDifs?: boolean): Object;
+    cubicToQuadratic(a: number, b: number, c: number, d: number): any[];
+    quadraticToCubic(a: number, b: number, c: number): Object;
 }
 interface ColorPropsPlugin extends TweenPlugin {
 
@@ -313,7 +313,7 @@ interface CSSPlugin extends TweenPlugin {
 
 }
 interface CSSRulePlugin extends TweenPlugin {
-    getRule(selector:string):Object;
+    getRule(selector: string): Object;
 }
 interface EaselPlugin extends TweenPlugin {
 
@@ -328,7 +328,7 @@ interface ScrollToPlugin extends TweenPlugin {
 
 }
 interface TweenPlugin {
-    activate(plugins:any[]):boolean;
+    activate(plugins: any[]): boolean;
 }
 
 //com.greensock.easing
@@ -340,12 +340,12 @@ declare var Power4: typeof Quint;
 declare var Strong: typeof Quint;
 
 //com.greensock.plugins
-declare var BezierPlugin:BezierPlugin;
-declare var ColorPropsPlugin:ColorPropsPlugin;
-declare var CSSPlugin:CSSPlugin;
-declare var CSSRulePlugin:CSSRulePlugin;
-declare var EaselPlugin:EaselPlugin;
-declare var RaphaelPlugin:RaphaelPlugin;
-declare var RoundPropsPlugin:RoundPropsPlugin;
-declare var ScrollToPlugin:ScrollToPlugin;
-declare var TweenPlugin:TweenPlugin;
+declare var BezierPlugin: BezierPlugin;
+declare var ColorPropsPlugin: ColorPropsPlugin;
+declare var CSSPlugin: CSSPlugin;
+declare var CSSRulePlugin: CSSRulePlugin;
+declare var EaselPlugin: EaselPlugin;
+declare var RaphaelPlugin: RaphaelPlugin;
+declare var RoundPropsPlugin: RoundPropsPlugin;
+declare var ScrollToPlugin: ScrollToPlugin;
+declare var TweenPlugin: TweenPlugin;

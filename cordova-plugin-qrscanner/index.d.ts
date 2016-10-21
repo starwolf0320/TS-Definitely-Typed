@@ -150,7 +150,7 @@ interface QRScannerStatus {
   * (`AVAuthorizationStatus.Authorized`). On platforms with permissions granted
   * at install (Android pre-6.0, Windows Phone) this property is always true.
   */
-  authorized: Boolean,
+  authorized: Boolean;
 
   /**
   * A boolean value which is true if the user permenantly denied camera access
@@ -158,59 +158,59 @@ interface QRScannerStatus {
   * only be gained by requesting the user change their decision (consider
   * offering a link to the setting via `openSettings()`).
   */
-  denied: Boolean,
+  denied: Boolean;
 
   /**
   * A boolean value which is true if the user is unable to grant permissions due
   * to parental controls, organization security configuration profiles, or
   * similar reasons.
   */
-  restricted: Boolean,
+  restricted: Boolean;
 
   /**
   * A boolean value which is true if QRScanner is prepared to capture video and
   * render it to the view.
   */
-  prepared: Boolean,
+  prepared: Boolean;
 
   /**
   * A boolean value which is true if QRScanner is actively scanning for a QR code.
   */
-  scanning: Boolean,
+  scanning: Boolean;
 
   /**
   * A boolean value which is true if QRScanner is displaying a live preview
   * from the device's camera. Set to false when the preview is paused.
   */
-  previewing: Boolean,
+  previewing: Boolean;
 
   /**
   * A boolean value which is true when the native webview background is transparent.
   */
-  webviewBackgroundIsTransparent: Boolean,
+  webviewBackgroundIsTransparent: Boolean;
 
   /**
   * A boolean value which is true if the light is enabled.
   */
-  lightEnabled: Boolean,
+  lightEnabled: Boolean;
 
   /**
   * A boolean value which is true only if the users' operating system is able
   * to `QRScanner.openSettings()`.
   */
-  canOpenSettings: Boolean,
+  canOpenSettings: Boolean;
 
   /**
   * A boolean value which is true only if the users' device can enable a light
   * in the direction of the currentCamera.
   */
-  canEnableLight: Boolean,
+  canEnableLight: Boolean;
 
   /**
   * A number representing the index of the currentCamera. `0` is the back
   * camera, `1` is the front.
   */
-  currentCamera: Number
+  currentCamera: Number;
 }
 
 /**
@@ -242,17 +242,17 @@ interface QRScannerError {
   /**
   * The standard string identifying the type of this QRScannerError.
   */
-  name: String,
+  name: String;
 
   /**
   * The standard number identifying the type of this QRScannerError.
   */
-  code: Number,
+  code: Number;
 
   /**
   * A simple message describing this QRScannerError.
   */
-  _message: String
+  _message: String;
 }
 
 declare var QRScanner: QRScanner;

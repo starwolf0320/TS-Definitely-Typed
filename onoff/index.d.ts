@@ -9,45 +9,45 @@ export = __ONOFF;
 
 declare namespace __ONOFF {
 
-    var version:string;
+    var version: string;
 
     interface GpioOptions {
-        debounceTimeout:number;
+        debounceTimeout: number;
     }
 
     class Gpio {
-        constructor(gpio:number, direction:string);
-        constructor(gpio:number, direction:string, edge:string);
-        constructor(gpio:number, direction:string, edge:string, options:GpioOptions);
-        constructor(gpio:number, direction:string, options:GpioOptions);
+        constructor(gpio: number, direction: string);
+        constructor(gpio: number, direction: string, edge: string);
+        constructor(gpio: number, direction: string, edge: string, options: GpioOptions);
+        constructor(gpio: number, direction: string, options: GpioOptions);
 
-        gpio:number
-        gpioPath:string;
-        opts:GpioOptions;
-        readBuffer:Buffer;
-        listeners:Array<(error:Error, value:number) => void>;
-        valueFd:number;
+        gpio: number;
+        gpioPath: string;
+        opts: GpioOptions;
+        readBuffer: Buffer;
+        listeners: Array<(error: Error, value: number) => void>;
+        valueFd: number;
 
-        read(cb:(err:Error, value:number) => void):void;
-        readSync():number;
+        read(cb: (err: Error, value: number) => void): void;
+        readSync(): number;
 
-        write(value:number, cb:(err:Error, value:number) => void):void;
-        writeSync(value:number):void;
+        write(value: number, cb: (err: Error, value: number) => void): void;
+        writeSync(value: number): void;
 
-        watch(cb:(error:Error, value:number) => void):void;
-        unwatch():void;
-        unwatch(cb:(error:Error, value:number) => void):void;
-        unwatchAll():void;
+        watch(cb: (error: Error, value: number) => void): void;
+        unwatch(): void;
+        unwatch(cb: (error: Error, value: number) => void): void;
+        unwatchAll(): void;
 
-        direction():string;
-        setDirection(value:string):void;
+        direction(): string;
+        setDirection(value: string): void;
 
-        edge():string;
-        setEdge(value:string):void;
+        edge(): string;
+        setEdge(value: string): void;
 
-        options():GpioOptions;
+        options(): GpioOptions;
 
-        unexport():void;
+        unexport(): void;
     }
 
 }

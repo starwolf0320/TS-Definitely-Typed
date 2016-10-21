@@ -14,17 +14,17 @@ interface JScrollPaneSettings {
 	/**
 	 * Whether the scrollpane should attempt to maintain it's position whenever it is reinitialised.
 	 * If true then the viewport of the scrollpane will remain the same when it is reinitialised, if false
-		then the viewport will jump back up to the top when the scrollpane is reinitialised. See also stickToBottom and stickToRight. 
+		then the viewport will jump back up to the top when the scrollpane is reinitialised. See also stickToBottom and stickToRight.
 	 */
 	maintainPosition?: boolean;
 	/**
 	 * If maintainPosition is true and the scrollpane is scrolled to the bottom then the scrollpane then the scrollpane will
-	 * remain scrolled to the bottom even if new content is added to the pane which makes it taller. 
+	 * remain scrolled to the bottom even if new content is added to the pane which makes it taller.
 	*/
 	stickToBottom?: boolean;
 	/**
 	 * If maintainPosition is true and the scrollpane is scrolled to its right edge then the scrollpane then the scrollpane
-	 * will remain scrolled to the right edge even if new content is added to the pane which makes it wider. 
+	 * will remain scrolled to the right edge even if new content is added to the pane which makes it wider.
 	*/
 	stickToRight?: boolean;
 	/**
@@ -35,7 +35,7 @@ interface JScrollPaneSettings {
 	*/
 	autoReinitialise?: boolean;
 	/**
-	 * The number of milliseconds between each reinitialisation (if autoReinitialise is true). 
+	 * The number of milliseconds between each reinitialisation (if autoReinitialise is true).
 	*/
 	autoReinitialiseDelay?: number;
 	/**
@@ -67,7 +67,7 @@ interface JScrollPaneSettings {
 	/**
 	 * Whether to use animation when calling scrollTo or scrollBy. You can control the animation speed and easing by using
 	 * the animateDuration and animateEase settings or if you want to exercise more complete control then you can override
-	 * the animate API method. Demo. 
+	 * the animate API method. Demo.
 	*/
 	animateScroll?: boolean;
 	/**
@@ -84,15 +84,15 @@ interface JScrollPaneSettings {
 	*/
 	hijackInternalLinks?: boolean;
 	/**
-	 * The amount of space between the side of the content and the vertical scrollbar. 
+	 * The amount of space between the side of the content and the vertical scrollbar.
 	*/
 	verticalGutter?: number;
 	/**
-	 * The amount of space between the bottom of the content and the horizontal scrollbar. 
+	 * The amount of space between the bottom of the content and the horizontal scrollbar.
 	*/
 	horizontalGutter?: number;
 	/**
-	 * A multiplier which is used to control the amount that the scrollpane scrolls each time the mouse wheel is turned. 
+	 * A multiplier which is used to control the amount that the scrollpane scrolls each time the mouse wheel is turned.
 	*/
 	mouseWheelSpeed?: number;
 	/**
@@ -104,7 +104,7 @@ interface JScrollPaneSettings {
 	*/
 	arrowRepeatFreq?: number;
 	/**
-	 * Whether the arrow buttons should cause the jScrollPane to scroll while you are hovering over them. 
+	 * Whether the arrow buttons should cause the jScrollPane to scroll while you are hovering over them.
 	*/
 	arrowScrollOnHover?: boolean;
 	/**
@@ -117,26 +117,26 @@ interface JScrollPaneSettings {
 	horizontalArrowPositions?: string;
 	/**
 	 * Whether keyboard navigation should be enabled (e.g. whether the user can focus the scrollpane and then use
-	 * the arrow (and other) keys to navigate around. 
+	 * the arrow (and other) keys to navigate around.
 	*/
 	enableKeyboardNavigation?: boolean;
 	/**
 	 * Whether the focus outline should be hidden in all browsers. For best accessibility you should not change
-	 * this option. You can style the outline with the CSS property outline and outline-offset. 
+	 * this option. You can style the outline with the CSS property outline and outline-offset.
 	*/
 	hideFocus?: boolean;
 	/**
 	 * Whether clicking on the track (e.g. the area behind the drag) should scroll towards the point clicked on.
-	 * Defaults to true as this is the native behaviour in these situations. 
+	 * Defaults to true as this is the native behaviour in these situations.
 	*/
 	clickOnTrack?: boolean;
 	/**
 	 * A multiplier which is used to control the amount that the scrollpane scrolls each trackClickRepeatFreq
-	 * while the mouse button is held down over the track. 
+	 * while the mouse button is held down over the track.
 	*/
 	trackClickSpeed?: number;
 	/**
-	 * The number of milliseconds between each repeated scroll event when the mouse is held down over the track. 
+	 * The number of milliseconds between each repeated scroll event when the mouse is held down over the track.
 	*/
 	trackClickRepeatFreq?: number;
 }
@@ -253,41 +253,41 @@ interface JScrollPaneApi {
 	*/
 	animate(ele: JQuery, prop: string, value: any, stepCallback: (...args: any[]) => any): void;
 	/**
-	 * Returns the current x position of the viewport with regards to the content pane. 
+	 * Returns the current x position of the viewport with regards to the content pane.
 	*/
 	getContentPositionX(): number;
 	/**
-	 * Returns the current y position of the viewport with regards to the content pane. 
+	 * Returns the current y position of the viewport with regards to the content pane.
 	*/
 	getContentPositionY(): number;
 	/**
-	 * Returns the width of the content within the scroll pane. 
+	 * Returns the width of the content within the scroll pane.
 	*/
 	getContentWidth(): number;
 	/**
-	 * Returns the height of the content within the scroll pane. 
+	 * Returns the height of the content within the scroll pane.
 	*/
 	getContentHeight(): number;
 	/**
-	 * Returns whether or not this scrollpane has a horizontal scrollbar. 
+	 * Returns whether or not this scrollpane has a horizontal scrollbar.
 	*/
 	getIsScrollableH(): boolean;
 	/**
-	 * Returns the horizontal position of the viewport within the pane content. 
+	 * Returns the horizontal position of the viewport within the pane content.
 	*/
 	getPercentScrolledX(): number;
 	/**
-	 * Returns the vertical position of the viewport within the pane content. 
+	 * Returns the vertical position of the viewport within the pane content.
 	*/
 	getPercentScrolledY(): number;
 	/**
-	 * Returns whether or not this scrollpane has a vertical scrollbar. 
+	 * Returns whether or not this scrollpane has a vertical scrollbar.
 	*/
 	getIsScrollableV(): boolean;
 	/**
 	 * Gets a reference to the content pane. It is important that you use this method if you want to edit the content
 	 * of your jScrollPane as if you access the element directly then you may have some problems (as your original
-	 * element has had additional elements for the scrollbars etc added into it). 
+	 * element has had additional elements for the scrollbars etc added into it).
 	*/
 	getContentPane(): JQuery;
 	/**
@@ -299,7 +299,7 @@ interface JScrollPaneApi {
 	/**
 	 * Hijacks the links on the page which link to content inside the scrollpane. If you have changed the content of
 	 * your page (e.g. via AJAX) and want to make sure any new anchor links to the contents of your scroll pane will
-	 * work then call this function. 
+	 * work then call this function.
 	*/
 	hijackInternalLinks(): void;
 	/**

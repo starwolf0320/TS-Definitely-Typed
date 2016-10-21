@@ -87,7 +87,7 @@ declare namespace Consul {
         update: {
             <TData>(opts: Acl.UpdateOptions, callback: Callback<TData>): void;
             <TData>(opts: Acl.UpdateOptions): Thenable<TData>;
-        }
+        };
 
         /**
          * Destroys a given token

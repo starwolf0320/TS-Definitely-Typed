@@ -17,7 +17,7 @@ declare namespace keyboardjs {
     /**
 	 * Information and functions in the current callback.
 	 */
-    interface KeyEvent{
+    interface KeyEvent {
         preventRepeat(): void;
     }
 
@@ -92,7 +92,7 @@ declare namespace keyboardjs {
      * Triggers a key press. Stays in pressed state until released.
      * @param keyCombo String of keys to be pressed to execute 'pressed' callbacks.
      */
-    export function pressKey(keyCombo: string): void
+    export function pressKey(keyCombo: string): void;
     /**
      * Triggers a key release.
      * @param keyCombo String of keys to be released to execute 'released' callbacks.
@@ -126,6 +126,6 @@ declare namespace keyboardjs {
      */
     export function stop(): void;
 }
-    
+
 export = keyboardjs;
 export as namespace keyboardJS;

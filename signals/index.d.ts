@@ -11,7 +11,7 @@ export as namespace signals;
 declare namespace signals {
 
     interface SignalWrapper {
-        Signal: Signal
+        Signal: Signal;
     }
 
     interface SignalBinding {

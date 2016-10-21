@@ -6,8 +6,8 @@
 
 declare namespace jsSHA {
     export interface OutputFormatOptions {
-        outputUpper? : boolean;
-        b64Pad? : string;
+        outputUpper?: boolean;
+        b64Pad?: string;
     }
 
     export interface jsSHA {
@@ -22,7 +22,7 @@ declare namespace jsSHA {
          * @param {string=} encoding The text encoding to use to encode the source
          *   string
          */
-        new (srcString:string, inputFormat:string, encoding?:string):jsSHA;
+        new (srcString: string, inputFormat: string, encoding?: string): jsSHA;
 
         /**
          * Returns the desired SHA hash of the string specified at instantiation
@@ -38,7 +38,7 @@ declare namespace jsSHA {
          * @return {string} The string representation of the hash in the format
          *   specified
          */
-        getHash(variant:string, format:string, numRounds?:number, outputFormatOpts?:OutputFormatOptions):string;
+        getHash(variant: string, format: string, numRounds?: number, outputFormatOpts?: OutputFormatOptions): string;
 
         /**
          * Returns the desired HMAC of the string specified at instantiation
@@ -55,7 +55,7 @@ declare namespace jsSHA {
          * @return {string} The string representation of the hash in the format
          *   specified
          */
-        getHMAC(key:string, inputFormat:string, variant:string, outputFormat:string, outputFormatOpts?:OutputFormatOptions):string;
+        getHMAC(key: string, inputFormat: string, variant: string, outputFormat: string, outputFormatOpts?: OutputFormatOptions): string;
     }
 }
 

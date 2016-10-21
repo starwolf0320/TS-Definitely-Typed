@@ -33,7 +33,7 @@ declare class SwipeView {
     next(): void;
     prev(): void;
     handleEvent(e: Event): void;
-    
+
     onFlip: SwipeViewEvent;
     onMoveOut: SwipeViewEvent;
     onMoveIn: SwipeViewEvent;

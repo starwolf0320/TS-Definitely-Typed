@@ -6,7 +6,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Lock {
+  export namespace Lock {
     /**
      * A representation of a mutual-exclusion lock.
      *

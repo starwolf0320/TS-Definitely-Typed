@@ -50,7 +50,7 @@ declare module "strftime" {
             PM?: string;
             am?: string;
             pm?: string;
-            formats: LocaleFormats
+            formats: LocaleFormats;
         }
     }
 

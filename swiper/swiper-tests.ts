@@ -40,7 +40,7 @@ function dynamicSlides() {
         pagination: '.pagination',
         paginationClickable: true
     });
-    
+
     function randomColor() {
         var colors = ('blue red green orange pink').split(' ');
         return colors[Math.floor(Math.random() * colors.length)];
@@ -108,7 +108,7 @@ function freeMode() {
     });
 }
 
-// 06-carousel-mode.html 
+// 06-carousel-mode.html
 function carouselMode() {
     var mySwiper = new Swiper('.swiper-container', {
         pagination: '.pagination',
@@ -256,7 +256,7 @@ function visibilityApi() {
     });
 }
 
-// 17 - responsive.html 
+// 17 - responsive.html
 function responsive() {
     var mySwiper = new Swiper('.swiper-container', {
         pagination: '.pagination',

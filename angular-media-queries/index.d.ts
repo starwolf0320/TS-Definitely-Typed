@@ -14,7 +14,7 @@ declare module 'angular' {
 
             // Returns a value indicating if the current device has a retina screen
             isRetina: boolean;
-        
+
             is(list: Array<string> | string): boolean;
 
             // Executes the callback function on window resize with the match truthiness as the first argument.
@@ -28,7 +28,7 @@ declare module 'angular' {
             onChange(scope: angular.IScope, list: Array<string> | string, callback: (result: boolean) => void): boolean;
 
             // Executes the callback only when inside of the particular screensize.
-            // The 'scope' parameter is optional. If it's not passed in, '$rootScope' is used.  
+            // The 'scope' parameter is optional. If it's not passed in, '$rootScope' is used.
             when(list: Array<string> | string, callback: (result: boolean) => void, scope?: angular.IScope): boolean;
         }
     }

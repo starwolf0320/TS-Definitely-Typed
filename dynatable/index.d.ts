@@ -1124,7 +1124,7 @@ declare namespace JQueryDynatable {
         /** The `domColumns` API */
         domColumns: DOMColumns;
         /** The native element on which the dynatable plugin was called */
-        element: Element
+        element: Element;
         /** The `inputsSearch` API */
         inputsSearch: InputsSearch;
         /** The `paginationLinks` API */

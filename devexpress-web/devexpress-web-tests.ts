@@ -6,7 +6,7 @@ declare var loginPopup: ASPxClientPopupControl;
 declare var searchButton: ASPxClientButton;
 declare var searchComboBox: ASPxClientComboBox;
 declare var roomsNumberSpinEdit: ASPxClientSpinEdit;
-declare var adultsNumberSpinEdit: ASPxClientSpinEdit; 
+declare var adultsNumberSpinEdit: ASPxClientSpinEdit;
 declare var childrenNumberSpinEdit: ASPxClientSpinEdit;
 declare var checkInDateEdit: ASPxClientDateEdit;
 declare var checkOutDateEdit: ASPxClientDateEdit;

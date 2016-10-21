@@ -35,7 +35,7 @@ declare namespace YandexMoneySDK {
 				blocked?: number;
 				debt?: number;
 				hold?: number;
-			}
+			};
 			cards_linked?: {
 				pan_fragment?: string;
 				type?: string;
@@ -115,8 +115,8 @@ declare namespace YandexMoneySDK {
 			codepro?: boolean;
 			hold_for_pickup?: boolean;
 			expire_period?: number;
-			'phone-number'?: string;
-			[key: string]: any
+			"phone-number"?: string;
+			[key: string]: any;
 
 			test_payment?: boolean;
 			test_card?: string;
@@ -263,7 +263,7 @@ declare namespace YandexMoneySDK {
 }
 
 declare module "yandex-money-sdk" {
-	import * as http from 'http';
+	import * as http from "http";
 
 	export interface ResponseCallback<TBody> {
 		(err: any, body: TBody, response: http.IncomingMessage): any;

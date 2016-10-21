@@ -8,7 +8,7 @@
 
 namespace demo.device {
 	'use strict';
-	
+
 	interface IDeviceViewModel {
 		available:boolean;
         cordova:string;
@@ -17,14 +17,14 @@ namespace demo.device {
         uuid:string;
         version:string;
 	}
-	
+
 	export class DeviceController {
-		
+
 		public vm:IDeviceViewModel;
-		
-		static $inject:Array<string> = ["$ionicPlatform", "$cordovaDevice"];		
+
+		static $inject:Array<string> = ["$ionicPlatform", "$cordovaDevice"];
 		constructor($ionicPlatform:ionic.platform.IonicPlatformService, $cordovaDevice:ngCordova.IDeviceService) {
-			
+
 			$ionicPlatform.ready(() => {
 				this.vm = {
 					available : $cordovaDevice.getDevice().available,
@@ -36,8 +36,8 @@ namespace demo.device {
 				};
 			});
 		}
-								
+
 	}
-	
+
 	angular.module("demo.device").controller("DeviceController", DeviceController);
 }

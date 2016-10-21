@@ -22,7 +22,7 @@ declare namespace UrbanAirshipPlugin {
             badge: number;
             sound: number;
             alert: number;
-        }
+        };
 
         /**
          * Enables or disables user notifications on the device.
@@ -442,10 +442,10 @@ declare namespace UrbanAirshipPlugin {
      * { startHour: 22, startMinute: 0, endHour: 6, endMinute: 0 }
      */
     interface QuietTimeTimeSpan {
-        startHour: number,
-        startMinute: number,
-        endHour: number,
-        endMinute: number
+        startHour: number;
+        startMinute: number;
+        endHour: number;
+        endMinute: number;
     }
 
     /**

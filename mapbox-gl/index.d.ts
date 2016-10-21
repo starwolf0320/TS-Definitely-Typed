@@ -132,7 +132,7 @@ declare namespace mapboxgl {
 
 		setPitch(pitch: number, eventData?: EventData): this;
 
-		fitBounds(bounds: mapboxgl.LngLatBounds | number[][], options?: { linear?: boolean, easing?: Function, padding?: number, offset?: Point|number[],maxZoom?: number }): this;
+		fitBounds(bounds: mapboxgl.LngLatBounds | number[][], options?: { linear?: boolean, easing?: Function, padding?: number, offset?: Point|number[], maxZoom?: number }): this;
 
 		jumpTo(options: mapboxgl.CameraOptions, eventData?: mapboxgl.EventData): this;
 
@@ -394,7 +394,7 @@ declare namespace mapboxgl {
 
 		anchor?: 'top' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
-		offset?: number | Point | number[] | { [key:string]: Point | number[];};
+		offset?: number | Point | number[] | { [key: string]: Point | number[]};
 	}
 
 	export interface Style {
@@ -770,7 +770,7 @@ declare namespace mapboxgl {
 		moveend?: {data: mapboxgl.MapMouseEvent | mapboxgl.MapTouchEvent};
 		move?: {data: mapboxgl.MapMouseEvent | mapboxgl.MapTouchEvent};
 		movestart?: {data: mapboxgl.MapMouseEvent | mapboxgl.MapTouchEvent};
-		mouseout?:{data: mapboxgl.MapMouseEvent};
+		mouseout?: {data: mapboxgl.MapMouseEvent};
 		load?: void;
 		zoomend?: {data: mapboxgl.MapMouseEvent | mapboxgl.MapTouchEvent};
 		zoom?: {data: mapboxgl.MapMouseEvent | mapboxgl.MapTouchEvent};

@@ -61,7 +61,7 @@ declare namespace Office {
              * @param minVersion - The minimum required version.
              */
             isSetSupported(name: string, minVersion?: number): boolean;
-        }
+        };
     }
     /**
      * Provides specific information about an error that occurred during an asynchronous data operation.
@@ -101,15 +101,15 @@ declare namespace Office {
         /**
          * Optional. Defines the width of the dialog as a percentage of the current display. Defaults to 99%. 250px minimum.
          */
-        height?: number,
+        height?: number;
         /**
          * Optional. Defines the height of the dialog as a percentage of the current display. Defaults to 99%. 150px minimum.
          */
-        width?: number,
+        width?: number;
         /**
          * Optional. Determines whether the dialog is safe to display within a Web frame.
          */
-        xFrameDenySafe?: boolean,
+        xFrameDenySafe?: boolean;
     }
 
     /**
@@ -125,6 +125,159 @@ declare namespace Office {
          */
         addEventHandler(eventType: Office.EventType, handler: Function): void;
 
+    }
+}
+
+declare namespace Office {
+    /**
+     * Returns a promise of an object described in the expression. Callback is invoked only if method fails.
+     * @param expression The object to be retrieved. Example "bindings#BindingName", retrieves a binding promise for a binding named 'BindingName'
+     * @param callback The optional callback method
+     */
+    export function select(expression: string, callback?: (result: AsyncResult) => void): Binding;
+    // Enumerations
+    export enum ActiveView {
+        Read,
+        Edit
+    }
+    export enum BindingType {
+        /**
+         * Text based Binding
+         */
+        Text,
+        /**
+         * Matrix based Binding
+         */
+        Matrix,
+        /**
+         * Table based Binding
+         */
+        Table
+    }
+    export enum CoercionType {
+        /**
+         * Coerce as Text
+         */
+        Text,
+        /**
+         * Coerce as Matrix
+         */
+        Matrix,
+        /**
+         * Coerce as Table
+         */
+        Table,
+        /**
+         * Coerce as HTML
+         */
+        Html,
+        /**
+         * Coerce as Office Open XML
+         */
+        Ooxml,
+        /**
+         * Coerce as JSON object containing an array of the ids, titles, and indexes of the selected slides.
+         */
+        SlideRange,
+        /**
+        * Coerce as Image
+        */
+        Image
+    }
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
+    export enum DocumentMode {
+=======
+
+    /** An Promise object that represents a deferred interaction with the host Office application. The publically-consumable OfficeExtension.Promise is available starting in ExcelApi 1.2 and WordApi 1.2. Promises can be chained via ".then", and errors can be caught via ".catch". Remember to always use a ".catch" on the outer promise, and to return intermediary promises so as not to break the promise chain. When a "native" Promise implementation is available, OfficeExtension.Promise will switch to use the native Promise instead. */
+    export class Promise<R> implements IPromise<R> {
+>>>>>>> WIP
+        /**
+         * Document in Read Only Mode
+         */
+        ReadOnly,
+        /**
+         * Document in Read/Write Mode
+         */
+        ReadWrite
+    }
+    export enum EventType {
+        /**
+         * Occurs when the user changes the current view of the document.
+         */
+        ActiveViewChanged,
+        /**
+         * Triggers when a binding level data change happens
+         */
+        BindingDataChanged,
+        /**
+         *  Triggers when a binding level selection happens
+         */
+        BindingSelectionChanged,
+        /**
+         * Triggers when Dialog sends a message via MessageParent.
+         */
+        DialogMessageReceived,
+        /**
+         * Triggers when Dialog has a event, such as dialog closed, dialog navigation failed.
+         */
+        DialogEventReceived,
+        /**
+         * Triggers when a document level selection happens
+         */
+        DocumentSelectionChanged,
+        /**
+         * Triggers when a customXmlPart node was deleted
+         */
+        NodeDeleted,
+        /**
+         * Triggers when a customXmlPart node was inserted
+         */
+        NodeInserted,
+        /**
+         * Triggers when a customXmlPart node was replaced
+         */
+        NodeReplaced,
+        /**
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
+=======
+         * Catches failures or exceptions from actions within the promise, or from an unhandled exception earlier in the call stack.
+         * @param onRejected function to be called if or when the promise rejects.
+         */
+        catch<U>(onRejected?: (error: any) => void): IPromise<U>;
+    }
+}
+
+declare namespace OfficeExtension {
+    /** Collection of tracked objects, contained within a request context. See "context.trackedObjects" for more information. */
+    class TrackedObjects {
+        /** Track a new object for automatic adjustment based on surrounding changes in the document. Only some object types require this. If you are using an object across ".sync" calls and outside the sequential execution of a ".run" batch, and get an "InvalidObjectPath" error when setting a property or invoking a method on the object, you needed to have added the object to the tracked object collection when the object was first created. */
+        add(object: ClientObject): void;
+        /** Track a new object for automatic adjustment based on surrounding changes in the document. Only some object types require this. If you are using an object across ".sync" calls and outside the sequential execution of a ".run" batch, and get an "InvalidObjectPath" error when setting a property or invoking a method on the object, you needed to have added the object to the tracked object collection when the object was first created. */
+        add(objects: ClientObject[]): void;
+        /** Release the memory associated with an object that was previously added to this collection. Having many tracked objects slows down the host application, so please remember to free any objects you add, once you're done using them. You will need to call "context.sync()" before the memory release takes effect. */
+        remove(object: ClientObject): void;
+        /** Release the memory associated with an object that was previously added to this collection. Having many tracked objects slows down the host application, so please remember to free any objects you add, once you're done using them. You will need to call "context.sync()" before the memory release takes effect. */
+        remove(objects: ClientObject[]): void;
+    }
+}
+
+declare namespace OfficeExtension {
+    export class EventHandlers<T> {
+        constructor(context: ClientRequestContext, parentObject: ClientObject, name: string, eventInfo: EventInfo<T>);
+        add(handler: (args: T) => IPromise<any>): EventHandlerResult<T>;
+        remove(handler: (args: T) => IPromise<any>): void;
+        removeAll(): void;
+    }
+
+    export class EventHandlerResult<T> {
+        constructor(context: ClientRequestContext, handlers: EventHandlers<T>, handler: (args: T) => IPromise<any>);
+        remove(): void;
+    }
+
+    export interface EventInfo<T> {
+        registerFunc: (callback: (args: any) => void) => IPromise<any>;
+        unregisterFunc: (callback: (args: any) => void) => IPromise<any>;
+        eventArgsTransformFunc: (args: any) => IPromise<T>;
     }
 }
 
@@ -232,6 +385,7 @@ declare namespace Office {
          */
         NodeReplaced,
         /**
+>>>>>>> WIP
          * Triggers when settings change in a co-Auth session.
          */
         SettingsChanged,
@@ -690,7 +844,7 @@ declare namespace Office {
         /**
          * File's URL
          */
-        url: string
+        url: string;
     }
     export interface MatrixBinding extends Binding {
         columnCount: number;
@@ -1411,6 +1565,7 @@ declare namespace Office {
         getWSSUrlAsync(options?: any, callback?: (result: AsyncResult) => void): void;
     }
 }
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
 
 
 
@@ -1430,6 +1585,20 @@ declare namespace Office.MailboxEnums {
          * The body is in text format
          */
         text
+=======
+declare namespace Excel {
+    interface ThreeArrowsSet {
+        [index: number]: Icon;
+        redDownArrow: Icon;
+        yellowSideArrow: Icon;
+        greenUpArrow: Icon;
+    }
+    interface ThreeArrowsGraySet {
+        [index: number]: Icon;
+        grayDownArrow: Icon;
+        graySideArrow: Icon;
+        grayUpArrow: Icon;
+>>>>>>> WIP
     }
     export enum EntityType {
         /**
@@ -2077,7 +2246,7 @@ declare module OfficeExtension {
         /**
         * Queues up a command to recursively load the specified properties of the object and its navigation properties.
         * You must call "context.sync()" before reading the properties.
-        * 
+        *
         * @param object The object to be loaded.
         * @param options The key-value pairing of load options for the types, such as { "Workbook": "worksheets,tables",  "Worksheet": "tables",  "Tables": "name" }
         * @param maxDepth The maximum recursive depth.
@@ -2334,7 +2503,7 @@ declare module OfficeExtension {
 }
 declare module OfficeExtension {
     /**
-    * Request URL and headers 
+    * Request URL and headers
     */
     interface RequestUrlAndHeaderInfo {
         /** Request URL */
@@ -4376,11 +4545,111 @@ declare module Excel {
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         load(option?: string | string[] | OfficeExtension.LoadOption): Excel.FormatProtection;
         toJSON(): {
             "formulaHidden": boolean;
             "locked": boolean;
         };
+=======
+        load(option?: string | string[] | OfficeExtension.LoadOption): Excel.PivotTable;
+    }
+    /**
+     * [Api set: ExcelApi 1.1]
+     */
+    namespace BindingType {
+        var range: string;
+        var table: string;
+        var text: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.1]
+     */
+    namespace BorderIndex {
+        var edgeTop: string;
+        var edgeBottom: string;
+        var edgeLeft: string;
+        var edgeRight: string;
+        var insideVertical: string;
+        var insideHorizontal: string;
+        var diagonalDown: string;
+        var diagonalUp: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.1]
+     */
+    namespace BorderLineStyle {
+        var none: string;
+        var continuous: string;
+        var dash: string;
+        var dashDot: string;
+        var dashDotDot: string;
+        var dot: string;
+        var double: string;
+        var slantDashDot: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.1]
+     */
+    namespace BorderWeight {
+        var hairline: string;
+        var thin: string;
+        var medium: string;
+        var thick: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.1]
+     */
+    namespace CalculationMode {
+        var automatic: string;
+        var automaticExceptTables: string;
+        var manual: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.1]
+     */
+    namespace CalculationType {
+        var recalculate: string;
+        var full: string;
+        var fullRebuild: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.1]
+     */
+    namespace ClearApplyTo {
+        var all: string;
+        var formats: string;
+        var contents: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.1]
+     */
+    namespace ChartDataLabelPosition {
+        var invalid: string;
+        var none: string;
+        var center: string;
+        var insideEnd: string;
+        var insideBase: string;
+        var outsideEnd: string;
+        var left: string;
+        var right: string;
+        var top: string;
+        var bottom: string;
+        var bestFit: string;
+        var callout: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.1]
+     */
+    namespace ChartLegendPosition {
+        var invalid: string;
+        var top: string;
+        var bottom: string;
+        var left: string;
+        var right: string;
+        var corner: string;
+        var custom: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4388,13 +4657,18 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class RangeFill extends OfficeExtension.ClientObject {
+=======
+    namespace ChartSeriesBy {
+>>>>>>> WIP
         /**
          *
          * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. "FFA500") or as a named HTML color (e.g. "orange")
          *
          * [Api set: ExcelApi 1.1]
          */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         color: string;
         /**
          *
@@ -4410,6 +4684,90 @@ declare module Excel {
         toJSON(): {
             "color": string;
         };
+=======
+        var auto: string;
+        var columns: string;
+        var rows: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.1]
+     */
+    namespace ChartType {
+        var invalid: string;
+        var columnClustered: string;
+        var columnStacked: string;
+        var columnStacked100: string;
+        var _3DColumnClustered: string;
+        var _3DColumnStacked: string;
+        var _3DColumnStacked100: string;
+        var barClustered: string;
+        var barStacked: string;
+        var barStacked100: string;
+        var _3DBarClustered: string;
+        var _3DBarStacked: string;
+        var _3DBarStacked100: string;
+        var lineStacked: string;
+        var lineStacked100: string;
+        var lineMarkers: string;
+        var lineMarkersStacked: string;
+        var lineMarkersStacked100: string;
+        var pieOfPie: string;
+        var pieExploded: string;
+        var _3DPieExploded: string;
+        var barOfPie: string;
+        var xyscatterSmooth: string;
+        var xyscatterSmoothNoMarkers: string;
+        var xyscatterLines: string;
+        var xyscatterLinesNoMarkers: string;
+        var areaStacked: string;
+        var areaStacked100: string;
+        var _3DAreaStacked: string;
+        var _3DAreaStacked100: string;
+        var doughnutExploded: string;
+        var radarMarkers: string;
+        var radarFilled: string;
+        var surface: string;
+        var surfaceWireframe: string;
+        var surfaceTopView: string;
+        var surfaceTopViewWireframe: string;
+        var bubble: string;
+        var bubble3DEffect: string;
+        var stockHLC: string;
+        var stockOHLC: string;
+        var stockVHLC: string;
+        var stockVOHLC: string;
+        var cylinderColClustered: string;
+        var cylinderColStacked: string;
+        var cylinderColStacked100: string;
+        var cylinderBarClustered: string;
+        var cylinderBarStacked: string;
+        var cylinderBarStacked100: string;
+        var cylinderCol: string;
+        var coneColClustered: string;
+        var coneColStacked: string;
+        var coneColStacked100: string;
+        var coneBarClustered: string;
+        var coneBarStacked: string;
+        var coneBarStacked100: string;
+        var coneCol: string;
+        var pyramidColClustered: string;
+        var pyramidColStacked: string;
+        var pyramidColStacked100: string;
+        var pyramidBarClustered: string;
+        var pyramidBarStacked: string;
+        var pyramidBarStacked100: string;
+        var pyramidCol: string;
+        var _3DColumn: string;
+        var line: string;
+        var _3DLine: string;
+        var _3DPie: string;
+        var pie: string;
+        var xyscatter: string;
+        var _3DArea: string;
+        var area: string;
+        var doughnut: string;
+        var radar: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4417,6 +4775,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class RangeBorder extends OfficeExtension.ClientObject {
         /**
          *
@@ -4456,6 +4815,11 @@ declare module Excel {
             "style": string;
             "weight": string;
         };
+=======
+    namespace ChartUnderlineStyle {
+        var none: string;
+        var single: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4463,6 +4827,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class RangeBorderCollection extends OfficeExtension.ClientObject {
         /** Gets the loaded child items in this collection. */
         items: Array<Excel.RangeBorder>;
@@ -4498,6 +4863,77 @@ declare module Excel {
         toJSON(): {
             "count": number;
         };
+=======
+    namespace DeleteShiftDirection {
+        var up: string;
+        var left: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.2]
+     */
+    namespace DynamicFilterCriteria {
+        var unknown: string;
+        var aboveAverage: string;
+        var allDatesInPeriodApril: string;
+        var allDatesInPeriodAugust: string;
+        var allDatesInPeriodDecember: string;
+        var allDatesInPeriodFebruray: string;
+        var allDatesInPeriodJanuary: string;
+        var allDatesInPeriodJuly: string;
+        var allDatesInPeriodJune: string;
+        var allDatesInPeriodMarch: string;
+        var allDatesInPeriodMay: string;
+        var allDatesInPeriodNovember: string;
+        var allDatesInPeriodOctober: string;
+        var allDatesInPeriodQuarter1: string;
+        var allDatesInPeriodQuarter2: string;
+        var allDatesInPeriodQuarter3: string;
+        var allDatesInPeriodQuarter4: string;
+        var allDatesInPeriodSeptember: string;
+        var belowAverage: string;
+        var lastMonth: string;
+        var lastQuarter: string;
+        var lastWeek: string;
+        var lastYear: string;
+        var nextMonth: string;
+        var nextQuarter: string;
+        var nextWeek: string;
+        var nextYear: string;
+        var thisMonth: string;
+        var thisQuarter: string;
+        var thisWeek: string;
+        var thisYear: string;
+        var today: string;
+        var tomorrow: string;
+        var yearToDate: string;
+        var yesterday: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.2]
+     */
+    namespace FilterDatetimeSpecificity {
+        var year: string;
+        var month: string;
+        var day: string;
+        var hour: string;
+        var minute: string;
+        var second: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.2]
+     */
+    namespace FilterOn {
+        var bottomItems: string;
+        var bottomPercent: string;
+        var cellColor: string;
+        var dynamic: string;
+        var fontColor: string;
+        var values: string;
+        var topItems: string;
+        var topPercent: string;
+        var icon: string;
+        var custom: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4505,6 +4941,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class RangeFont extends OfficeExtension.ClientObject {
         /**
          *
@@ -4560,6 +4997,11 @@ declare module Excel {
             "size": number;
             "underline": string;
         };
+=======
+    namespace FilterOperator {
+        var and: string;
+        var or: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4567,6 +5009,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class ChartCollection extends OfficeExtension.ClientObject {
         /** Gets the loaded child items in this collection. */
         items: Array<Excel.Chart>;
@@ -4613,6 +5056,17 @@ declare module Excel {
         toJSON(): {
             "count": number;
         };
+=======
+    namespace HorizontalAlignment {
+        var general: string;
+        var left: string;
+        var center: string;
+        var right: string;
+        var fill: string;
+        var justify: string;
+        var centerAcrossSelection: string;
+        var distributed: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4620,6 +5074,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class Chart extends OfficeExtension.ClientObject {
         /**
          *
@@ -4760,6 +5215,30 @@ declare module Excel {
             "top": number;
             "width": number;
         };
+=======
+    namespace IconSet {
+        var invalid: string;
+        var threeArrows: string;
+        var threeArrowsGray: string;
+        var threeFlags: string;
+        var threeTrafficLights1: string;
+        var threeTrafficLights2: string;
+        var threeSigns: string;
+        var threeSymbols: string;
+        var threeSymbols2: string;
+        var fourArrows: string;
+        var fourArrowsGray: string;
+        var fourRedToBlack: string;
+        var fourRating: string;
+        var fourTrafficLights: string;
+        var fiveArrows: string;
+        var fiveArrowsGray: string;
+        var fiveRating: string;
+        var fiveQuarters: string;
+        var threeStars: string;
+        var threeTriangles: string;
+        var fiveBoxes: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4767,6 +5246,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class ChartAreaFormat extends OfficeExtension.ClientObject {
         /**
          *
@@ -4790,6 +5270,12 @@ declare module Excel {
             "fill": ChartFill;
             "font": ChartFont;
         };
+=======
+    namespace ImageFittingMode {
+        var fit: string;
+        var fitAndCenter: string;
+        var fill: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4797,6 +5283,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class ChartSeriesCollection extends OfficeExtension.ClientObject {
         /** Gets the loaded child items in this collection. */
         items: Array<Excel.ChartSeries>;
@@ -4823,6 +5310,11 @@ declare module Excel {
         toJSON(): {
             "count": number;
         };
+=======
+    namespace InsertShiftDirection {
+        var down: string;
+        var right: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4830,6 +5322,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class ChartSeries extends OfficeExtension.ClientObject {
         /**
          *
@@ -4860,6 +5353,14 @@ declare module Excel {
             "format": ChartSeriesFormat;
             "name": string;
         };
+=======
+    namespace NamedItemType {
+        var string: string;
+        var integer: string;
+        var double: string;
+        var boolean: string;
+        var range: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4867,6 +5368,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class ChartSeriesFormat extends OfficeExtension.ClientObject {
         /**
          *
@@ -4890,6 +5392,14 @@ declare module Excel {
             "fill": ChartFill;
             "line": ChartLineFormat;
         };
+=======
+    namespace RangeUnderlineStyle {
+        var none: string;
+        var single: string;
+        var double: string;
+        var singleAccountant: string;
+        var doubleAccountant: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4897,6 +5407,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class ChartPointsCollection extends OfficeExtension.ClientObject {
         /** Gets the loaded child items in this collection. */
         items: Array<Excel.ChartPoint>;
@@ -4923,6 +5434,12 @@ declare module Excel {
         toJSON(): {
             "count": number;
         };
+=======
+    namespace SheetVisibility {
+        var visible: string;
+        var hidden: string;
+        var veryHidden: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4930,6 +5447,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class ChartPoint extends OfficeExtension.ClientObject {
         /**
          *
@@ -4953,6 +5471,32 @@ declare module Excel {
             "format": ChartPointFormat;
             "value": any;
         };
+=======
+    namespace RangeValueType {
+        var unknown: string;
+        var empty: string;
+        var string: string;
+        var integer: string;
+        var double: string;
+        var boolean: string;
+        var error: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.2]
+     */
+    namespace SortOrientation {
+        var rows: string;
+        var columns: string;
+    }
+    /**
+     * [Api set: ExcelApi 1.2]
+     */
+    namespace SortOn {
+        var value: string;
+        var cellColor: string;
+        var fontColor: string;
+        var icon: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4960,6 +5504,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class ChartPointFormat extends OfficeExtension.ClientObject {
         /**
          *
@@ -4975,6 +5520,11 @@ declare module Excel {
         toJSON(): {
             "fill": ChartFill;
         };
+=======
+    namespace SortDataOption {
+        var normal: string;
+        var textAsNumber: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -4982,6 +5532,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class ChartAxes extends OfficeExtension.ClientObject {
         /**
          *
@@ -5013,6 +5564,11 @@ declare module Excel {
             "seriesAxis": ChartAxis;
             "valueAxis": ChartAxis;
         };
+=======
+    namespace SortMethod {
+        var pinYin: string;
+        var strokeCount: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -5020,6 +5576,7 @@ declare module Excel {
      *
      * [Api set: ExcelApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class ChartAxis extends OfficeExtension.ClientObject {
         /**
          *
@@ -5091,6 +5648,14 @@ declare module Excel {
             "minorUnit": any;
             "title": ChartAxisTitle;
         };
+=======
+    namespace VerticalAlignment {
+        var top: string;
+        var center: string;
+        var bottom: string;
+        var justify: string;
+        var distributed: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -5905,7 +6470,7 @@ declare module Excel {
          *
          * The first criterion used to filter data. Used as an operator in the case of "custom" filtering.
              For example ">50" for number greater than 50 or "=*s" for values ending in "s".
-            
+
              Used as a number in the case of top/bottom items/percents. E.g. "5" for the top 5 items if filterOn is set to "topItems"
          *
          * [Api set: ExcelApi 1.2]
@@ -9287,7 +9852,51 @@ declare module Excel {
          *
          * [Api set: ExcelApi 1.2]
          */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         product(...values: Array<number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>>): FunctionResult<number>;
+=======
+        z_Test(array: number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>, x: number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>, sigma?: number | Excel.Range | Excel.RangeReference | Excel.FunctionResult<any>): FunctionResult<number>;
+    }
+    namespace ErrorCodes {
+        var accessDenied: string;
+        var generalException: string;
+        var insertDeleteConflict: string;
+        var invalidArgument: string;
+        var invalidBinding: string;
+        var invalidOperation: string;
+        var invalidReference: string;
+        var invalidSelection: string;
+        var itemAlreadyExists: string;
+        var itemNotFound: string;
+        var notImplemented: string;
+        var unsupportedOperation: string;
+    }
+}
+declare namespace Excel {
+    /**
+     * The RequestContext object facilitates requests to the Excel application. Since the Office add-in and the Excel application run in two different processes, the request context is required to get access to the Excel object model from the add-in.
+     */
+    class RequestContext extends OfficeExtension.ClientRequestContext {
+        private m_workbook;
+        constructor(url?: string);
+        workbook: Workbook;
+    }
+    /**
+     * Executes a batch script that performs actions on the Excel object model. When the promise is resolved, any tracked objects that were automatically allocated during execution will be released.
+     * @param batch - A function that takes in an Excel.RequestContext and returns a promise (typically, just the result of "context.sync()"). The context parameter facilitates requests to the Excel application. Since the Office add-in and the Excel application run in two different processes, the request context is required to get access to the Excel object model from the add-in.
+     */
+    function run<T>(batch: (context: Excel.RequestContext) => OfficeExtension.IPromise<T>): OfficeExtension.IPromise<T>;
+}
+
+declare namespace Word {
+    /**
+     *
+     * The Application object.
+     *
+     * [Api set: WordApiDesktop 1.3 Beta]
+     */
+    class Application extends OfficeExtension.ClientObject {
+>>>>>>> WIP
         /**
          *
          * Converts a text string to proper case; the first letter in each word to uppercase, and all other letters to lowercase.
@@ -12389,12 +12998,88 @@ declare namespace Word {
         /**
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         load(option?: string | string[] | OfficeExtension.LoadOption): Word.RangeCollection;
+=======
+        load(option?: string | string[] | OfficeExtension.LoadOption): Word.TableBorderStyle;
+    }
+    /**
+     *
+     * Specifies supported content control types and subtypes.
+     *
+     * [Api set: WordApi]
+     */
+    namespace ContentControlType {
+        var unknown: string;
+        var richTextInline: string;
+        var richTextParagraphs: string;
+        var richTextTableCell: string;
+        var richTextTableRow: string;
+        var richTextTable: string;
+        var plainTextInline: string;
+        var plainTextParagraph: string;
+        var picture: string;
+        var buildingBlockGallery: string;
+        var checkBox: string;
+        var comboBox: string;
+        var dropDownList: string;
+        var datePicker: string;
+        var repeatingSection: string;
+        var richText: string;
+        var plainText: string;
+    }
+    /**
+     *
+     * ContentControl appearance
+     *
+     * [Api set: WordApi]
+     */
+    namespace ContentControlAppearance {
+        var boundingBox: string;
+        var tags: string;
+        var hidden: string;
+    }
+    /**
+     *
+     * Underline types
+     *
+     * [Api set: WordApi]
+     */
+    namespace UnderlineType {
+        var none: string;
+        var single: string;
+        var word: string;
+        var double: string;
+        var dotted: string;
+        var hidden: string;
+        var thick: string;
+        var dashLine: string;
+        var dotLine: string;
+        var dotDashLine: string;
+        var twoDotDashLine: string;
+        var wave: string;
+    }
+    /**
+     * [Api set: WordApi]
+     */
+    namespace BreakType {
+        var page: string;
+        var column: string;
+        var next: string;
+        var sectionContinuous: string;
+        var sectionEven: string;
+        var sectionOdd: string;
+        var line: string;
+        var lineClearLeft: string;
+        var lineClearRight: string;
+        var textWrapping: string;
+>>>>>>> WIP
     }
     /**
      *
      * Specifies the options to be included in a search operation.
      *
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
      * [Api set: WordApi 1.1]
      */
     class SearchOptions extends OfficeExtension.ClientObject {
@@ -12471,6 +13156,143 @@ declare namespace Word {
          * Create a new instance of Word.SearchOptions object
          */
         static newObject(context: OfficeExtension.ClientRequestContext): Word.SearchOptions;
+=======
+     * [Api set: WordApi]
+     */
+    namespace InsertLocation {
+        var before: string;
+        var after: string;
+        var start: string;
+        var end: string;
+        var replace: string;
+    }
+    /**
+     * [Api set: WordApi]
+     */
+    namespace Alignment {
+        var unknown: string;
+        var left: string;
+        var centered: string;
+        var right: string;
+        var justified: string;
+    }
+    /**
+     * [Api set: WordApi]
+     */
+    namespace HeaderFooterType {
+        var primary: string;
+        var firstPage: string;
+        var evenPages: string;
+    }
+    /**
+     * [Api set: WordApi]
+     */
+    namespace BodyType {
+        var unknown: string;
+        var mainDoc: string;
+        var section: string;
+        var header: string;
+        var footer: string;
+        var tableCell: string;
+    }
+    /**
+     * [Api set: WordApi]
+     */
+    namespace SelectionMode {
+        var select: string;
+        var start: string;
+        var end: string;
+    }
+    /**
+     * [Api set: WordApi]
+     */
+    namespace ImageFormat {
+        var unsupported: string;
+        var undefined: string;
+        var bmp: string;
+        var jpeg: string;
+        var gif: string;
+        var tiff: string;
+        var png: string;
+        var icon: string;
+        var exif: string;
+        var wmf: string;
+        var emf: string;
+        var pict: string;
+        var pdf: string;
+    }
+    /**
+     * [Api set: WordApi]
+     */
+    namespace RangeLocation {
+        var whole: string;
+        var start: string;
+        var end: string;
+    }
+    /**
+     * [Api set: WordApi]
+     */
+    namespace LocationRelation {
+        var unrelated: string;
+        var equal: string;
+        var containsStart: string;
+        var containsEnd: string;
+        var contains: string;
+        var insideStart: string;
+        var insideEnd: string;
+        var inside: string;
+        var adjacentBefore: string;
+        var overlapsBefore: string;
+        var before: string;
+        var adjacentAfter: string;
+        var overlapsAfter: string;
+        var after: string;
+    }
+    /**
+     * [Api set: WordApi]
+     */
+    namespace BorderLocation {
+        var top: string;
+        var left: string;
+        var bottom: string;
+        var right: string;
+        var insideHorizontal: string;
+        var insideVertical: string;
+        var inside: string;
+        var outside: string;
+        var all: string;
+    }
+    /**
+     * [Api set: WordApi]
+     */
+    namespace BorderType {
+        var mixed: string;
+        var none: string;
+        var single: string;
+        var thick: string;
+        var double: string;
+        var hairline: string;
+        var dotted: string;
+        var dashed: string;
+        var dotDashed: string;
+        var dot2Dashed: string;
+        var triple: string;
+        var thinThickSmall: string;
+        var thickThinSmall: string;
+        var thinThickThinSmall: string;
+        var thinThickMed: string;
+        var thickThinMed: string;
+        var thinThickThinMed: string;
+        var thinThickLarge: string;
+        var thickThinLarge: string;
+        var thinThickThinLarge: string;
+        var wave: string;
+        var doubleWave: string;
+        var dashedSmall: string;
+        var dashDotStroked: string;
+        var threeDEmboss: string;
+        var threeDEngrave: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -12478,6 +13300,7 @@ declare namespace Word {
      *
      * [Api set: WordApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class SearchResultCollection extends OfficeExtension.ClientObject {
         private m_first;
         private m__ReferenceId;
@@ -12495,6 +13318,13 @@ declare namespace Word {
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
         load(option?: string | string[] | OfficeExtension.LoadOption): Word.SearchResultCollection;
+=======
+    namespace VerticalAlignment {
+        var mixed: string;
+        var top: string;
+        var center: string;
+        var bottom: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -12502,6 +13332,7 @@ declare namespace Word {
      *
      * [Api set: WordApi 1.1]
      */
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     class Section extends OfficeExtension.ClientObject {
         private m_body;
         private m_next;
@@ -12543,6 +13374,19 @@ declare namespace Word {
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
         load(option?: string | string[] | OfficeExtension.LoadOption): Word.Section;
+=======
+    namespace ListLevelType {
+        var bullet: string;
+        var number: string;
+        var picture: string;
+    }
+    namespace ErrorCodes {
+        var accessDenied: string;
+        var generalException: string;
+        var invalidArgument: string;
+        var itemNotFound: string;
+        var notImplemented: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -12886,6 +13730,7 @@ declare namespace Word {
          */
         distributeRows(): void;
         /**
+<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
          *
          * Gets the border style for the specified border.
          *
@@ -12986,6 +13831,254 @@ declare namespace Word {
          * Queues up a command to load the specified properties of the object. You must call "context.sync()" before reading the properties.
          */
         load(option?: string | string[] | OfficeExtension.LoadOption): Word.Table;
+=======
+         * The attachment is an Exchange item
+         */
+        Item
+    }
+}
+declare namespace Office {
+    export namespace Types {
+        export interface ItemRead extends Office.Item {
+            subject: any;
+            /**
+             * Displays a reply form that includes the sender and all the recipients of the selected message
+             * @param htmlBody A string that contains text and HTML and that represents the body of the reply form. The string is limited to 32 KB
+             */
+            displayReplyAllForm(htmlBody: string): void;
+            /**
+             * Displays a reply form that includes only the sender of the selected message
+             * @param htmlBody A string that contains text and HTML and that represents the body of the reply form. The string is limited to 32 KB
+             */
+            displayReplyForm(htmlBody: string): void;
+            /**
+             * Gets an array of entities found in an message
+             */
+            getEntities(): Office.Entities;
+            /**
+             * Gets an array of entities of the specified entity type found in an message
+             * @param entityType One of the EntityType enumeration values
+             */
+            getEntitiesByType(entityType: Office.MailboxEnums.EntityType): Office.Entities;
+            /**
+             * Returns well-known entities that pass the named filter defined in the manifest XML file
+             * @param name  A TableData object with the headers and rows
+             */
+            getFilteredEntitiesByName(name: string): Office.Entities;
+            /**
+             * Returns string values in the currently selected message object that match the regular expressions defined in the manifest XML file
+             */
+            getRegExMatches(): string[];
+            /**
+             * Returns string values that match the named regular expression defined in the manifest XML file
+             */
+            getRegExMatchesByName(name: string): string[];
+        }
+        export interface ItemCompose extends Office.Item {
+            body: Office.Body;
+            subject: any;
+            /**
+             * Adds a file to a message as an attachment
+             * @param uri The URI that provides the location of the file to attach to the message. The maximum length is 2048 characters
+             * @param attachmentName The name of the attachment that is shown while the attachment is uploading. The maximum length is 255 characters
+             * @param options Any optional parameters or state data passed to the method
+             * @param callback The optional callback method
+             */
+            addFileAttachmentAsync(uri: string, attachmentName: string, options?: any, callback?: (result: AsyncResult) => void): void;
+            /**
+             * Adds an Exchange item, such as a message, as an attachment to the message
+             * @param itemId The Exchange identifier of the item to attach. The maximum length is 100 characters
+             * @param attachmentName The name of the attachment that is shown while the attachment is uploading. The maximum length is 255 characters
+             * @param options Any optional parameters or state data passed to the method
+             * @param callback The optional callback method
+             */
+            addItemAttachmentAsync(itemId: any, attachmentName: string, options?: any, callback?: (result: AsyncResult) => void): void;
+            /**
+             * Removes an attachment from a message
+             * @param attachmentIndex The index of the attachment to remove. The maximum length of the string is 100 characters
+             * @param options Any optional parameters or state data passed to the method
+             * @param callback The optional callback method
+             */
+            removeAttachmentAsync(attachmentIndex: string, option?: any, callback?: (result: AsyncResult) => void): void;
+        }
+        export interface MessageCompose extends Office.Message {
+            attachments: Office.AttachmentDetails[];
+            body: Office.Body;
+            bcc: Office.Recipients;
+            cc: Office.Recipients;
+            subject: Office.Subject;
+            to: Office.Recipients;
+            /**
+             * Adds a file to a message as an attachment
+             * @param uri The URI that provides the location of the file to attach to the message. The maximum length is 2048 characters
+             * @param attachmentName The name of the attachment that is shown while the attachment is uploading. The maximum length is 255 characters
+             * @param options Any optional parameters or state data passed to the method
+             * @param callback The optional callback method
+             */
+            addFileAttachmentAsync(uri: string, attachmentName: string, options?: any, callback?: (result: AsyncResult) => void): void;
+            /**
+             * Adds an Exchange item, such as a message, as an attachment to the message
+             * @param itemId The Exchange identifier of the item to attach. The maximum length is 100 characters
+             * @param attachmentName The name of the attachment that is shown while the attachment is uploading. The maximum length is 255 characters
+             * @param options Any optional parameters or state data passed to the method
+             * @param callback The optional callback method
+             */
+            addItemAttachmentAsync(itemId: any, attachmentName: string, options?: any, callback?: (result: AsyncResult) => void): void;
+            /**
+             * Removes an attachment from a message
+             * @param attachmentIndex The index of the attachment to remove. The maximum length of the string is 100 characters
+             * @param options Any optional parameters or state data passed to the method
+             * @param callback The optional callback method
+             */
+            removeAttachmentAsync(attachmentIndex: string, option?: any, callback?: (result: AsyncResult) => void): void;
+        }
+        export interface MessageRead extends Office.Message {
+            cc: Office.EmailAddressDetails[];
+            from: Office.EmailAddressDetails;
+            internetMessageId: string;
+            normalizedSubject: string;
+            sender: Office.EmailAddressDetails;
+            subject: string;
+            to: Office.EmailAddressDetails;
+            /**
+             * Displays a reply form that includes the sender and all the recipients of the selected message
+             * @param htmlBody A string that contains text and HTML and that represents the body of the reply form. The string is limited to 32 KB
+             */
+            displayReplyAllForm(htmlBody: string): void;
+            /**
+             * Displays a reply form that includes only the sender of the selected message
+             * @param htmlBody A string that contains text and HTML and that represents the body of the reply form. The string is limited to 32 KB
+             */
+            displayReplyForm(htmlBody: string): void;
+            /**
+             * Gets an array of entities found in an message
+             */
+            getEntities(): Office.Entities;
+            /**
+             * Gets an array of entities of the specified entity type found in an message
+             * @param entityType One of the EntityType enumeration values
+             */
+            getEntitiesByType(entityType: Office.MailboxEnums.EntityType): Office.Entities;
+            /**
+             * Returns well-known entities that pass the named filter defined in the manifest XML file
+             * @param name  A TableData object with the headers and rows
+             */
+            getFilteredEntitiesByName(name: string): Office.Entities;
+            /**
+             * Returns string values in the currently selected message object that match the regular expressions defined in the manifest XML file
+             */
+            getRegExMatches(): string[];
+            /**
+             * Returns string values that match the named regular expression defined in the manifest XML file
+             */
+            getRegExMatchesByName(name: string): string[];
+        }
+        export interface AppointmentCompose extends Office.Appointment {
+            body: Office.Body;
+            end: Office.Time;
+            location: Office.Location;
+            optionalAttendees: Office.Recipients;
+            requiredAttendees: Office.Recipients;
+            start: Office.Time;
+            subject: Office.Subject;
+            /**
+             * Adds a file to an appointment as an attachment
+             * @param uri The URI that provides the location of the file to attach to the appointment. The maximum length is 2048 characters
+             * @param attachmentName The name of the attachment that is shown while the attachment is uploading. The maximum length is 255 characters
+             * @param options Any optional parameters or state data passed to the method
+             * @param callback The optional callback method
+             */
+            addFileAttachmentAsync(uri: string, attachmentName: string, options?: any, callback?: (result: AsyncResult) => void): void;
+            /**
+             * Adds an Exchange item, such as a message, as an attachment to the appointment
+             * @param itemId The Exchange identifier of the item to attach. The maximum length is 100 characters
+             * @param attachmentName The name of the attachment that is shown while the attachment is uploading. The maximum length is 255 characters
+             * @param options Any optional parameters or state data passed to the method
+             * @param callback The optional callback method
+             */
+            addItemAttachmentAsync(itemId: any, attachmentName: string, options?: any, callback?: (result: AsyncResult) => void): void;
+            /**
+             * Removes an attachment from a appointment
+             * @param attachmentIndex The index of the attachment to remove. The maximum length of the string is 100 characters
+             * @param options Any optional parameters or state data passed to the method
+             * @param callback The optional callback method
+             */
+            removeAttachmentAsync(attachmentIndex: string, option?: any, callback?: (result: AsyncResult) => void): void;
+        }
+        export interface AppointmentRead extends Office.Appointment {
+            attachments: Office.AttachmentDetails[];
+            end: Date;
+            location: string;
+            normalizedSubject: string;
+            optionalAttendees: Office.EmailAddressDetails;
+            organizer: Office.EmailAddressDetails;
+            requiredAttendees: Office.EmailAddressDetails;
+            resources: string[];
+            start: Date;
+            subject: string;
+            /**
+             * Displays a reply form that includes the organizer and all the attendees of the selected appointment item
+             * @param htmlBody A string that contains text and HTML and that represents the body of the reply form. The string is limited to 32 KB
+             */
+            displayReplyAllForm(htmlBody: string): void;
+            /**
+             * Displays a reply form that includes only the organizer of the selected appointment item
+             * @param htmlBody A string that contains text and HTML and that represents the body of the reply form. The string is limited to 32 KB
+             */
+            displayReplyForm(htmlBody: string): void;
+            /**
+             * Gets an array of entities found in an appointment
+             */
+            getEntities(): Office.Entities;
+            /**
+             * Gets an array of entities of the specified entity type found in an appointment
+             * @param entityType One of the EntityType enumeration values
+             */
+            getEntitiesByType(entityType: Office.MailboxEnums.EntityType): Office.Entities;
+            /**
+             * Returns well-known entities that pass the named filter defined in the manifest XML file
+             * @param name  A TableData object with the headers and rows
+             */
+            getFilteredEntitiesByName(name: string): Office.Entities;
+            /**
+             * Returns string values in the currently selected appointment object that match the regular expressions defined in the manifest XML file
+             */
+            getRegExMatches(): string[];
+            /**
+             * Returns string values that match the named regular expression defined in the manifest XML file
+             */
+            getRegExMatchesByName(name: string): string[];
+        }
+    }
+    export namespace cast {
+        export namespace item {
+            function toAppointmentCompose(item: Office.Item): Office.Types.AppointmentCompose;
+            function toAppointmentRead(item: Office.Item): Office.Types.AppointmentRead;
+            function toAppointment(item: Office.Item): Office.Appointment;
+            function toMessageCompose(item: Office.Item): Office.Types.MessageCompose;
+            function toMessageRead(item: Office.Item): Office.Types.MessageRead;
+            function toMessage(item: Office.Item): Office.Message;
+            function toItemCompose(item: Office.Item): Office.Types.ItemCompose;
+            function toItemRead(item: Office.Item): Office.Types.ItemRead;
+        }
+    }
+    export interface AttachmentDetails {
+        attachmentType: Office.MailboxEnums.AttachmentType;
+        contentType: string;
+        id: string;
+        isInline: boolean;
+        name: string;
+        size: number;
+    }
+    export interface Contact {
+        personName: string;
+        businessName: string;
+        phoneNumbers: PhoneNumber[];
+        emailAddresses: string[];
+        urls: string[];
+        addresses: string[];
+        contactString: string;
+>>>>>>> WIP
     }
     /**
      *
@@ -15878,14 +16971,14 @@ declare namespace OneNote {
     /**
      * [Api set: OneNoteApi]
      */
-    module InsertLocation {
+    namespace InsertLocation {
         var before: string;
         var after: string;
     }
     /**
      * [Api set: OneNoteApi]
      */
-    module Alignment {
+    namespace Alignment {
         var left: string;
         var centered: string;
         var right: string;
@@ -15894,7 +16987,7 @@ declare namespace OneNote {
     /**
      * [Api set: OneNoteApi]
      */
-    module Selected {
+    namespace Selected {
         var notSelected: string;
         var partialSelected: string;
         var selected: string;
@@ -15902,7 +16995,7 @@ declare namespace OneNote {
     /**
      * [Api set: OneNoteApi]
      */
-    module PageContentType {
+    namespace PageContentType {
         var outline: string;
         var image: string;
         var ink: string;
@@ -15911,14 +17004,14 @@ declare namespace OneNote {
     /**
      * [Api set: OneNoteApi]
      */
-    module ParagraphType {
+    namespace ParagraphType {
         var richText: string;
         var image: string;
         var table: string;
         var ink: string;
         var other: string;
     }
-    module ErrorCodes {
+    namespace ErrorCodes {
         var generalException: string;
     }
 }

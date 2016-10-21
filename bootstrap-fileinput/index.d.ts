@@ -10,7 +10,7 @@ interface JQuery {
 }
 
 
-declare module BootstrapFileInput {
+declare namespace BootstrapFileInput {
     interface FileInputOptions {
         /**
         Language configuration for the plugin to enable the plugin to display messages for your locale (you must set the ISO code for the language).
@@ -109,11 +109,11 @@ declare module BootstrapFileInput {
         /**
         this will be a list of tags used in thumbnail templates that will be replaced dynamically within the thumbnail markup, when the thumbnail is rendered.
         */
-        previewThumbTags?: { [key: string]: string; }
+        previewThumbTags?: { [key: string]: string; };
         /**
         this is an extension of previewThumbTags specifically for initial preview content - but will be configured as an array of objects corresponding to each initial preview thumbnail. The initial preview thumbnails set via initialPreview will read this configuration for replacing tags.
         */
-        initialPreviewThumbTags?: { [key: string]: string; }
+        initialPreviewThumbTags?: { [key: string]: string; };
         /**
         the extra data that will be passed as data to the initial preview delete url/AJAX server call via POST.
         This will be overridden by the initialPreviewConfig['extra'] property.

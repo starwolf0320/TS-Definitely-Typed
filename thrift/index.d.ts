@@ -22,7 +22,7 @@
  * under the License.
  */
 
-export declare module Thrift {
+export declare namespace Thrift {
     /**
      * Thrift IDL type string to Id mapping.
      * @property {number}    STOP     - End of a set of fields.

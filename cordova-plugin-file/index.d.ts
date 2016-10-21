@@ -368,11 +368,11 @@ interface Cordova {
         documentsDirectory: string;
         /* BlackBerry10: Files globally available to all apps */
         sharedDirectory: string
-    }
+    };
 }
 
 
 declare enum LocalFileSystem {
-    PERSISTENT=0,
-    TEMPORARY=1
+    PERSISTENT = 0,
+    TEMPORARY = 1
 }

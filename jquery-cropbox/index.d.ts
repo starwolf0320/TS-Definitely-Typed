@@ -49,21 +49,21 @@ declare namespace jQueryCropBox {
         /**
          * This flag is used to determine when to display the controls. Never, always and hover do exactly what you would expect (never show them, always show them, show them on hover). The auto flag is the same as the hover flag, except that on mobile devices it always shows the controls (since there is no hover event).
          */
-        showControls?: ShowControls
+        showControls?: ShowControls;
     }
 
     interface CropboxDragOptions {
-        startX: number,
-        startY: number,
-        dx: number,
-        dy: number
+        startX: number;
+        startY: number;
+        dx: number;
+        dy: number;
     }
 
     interface CropboxSetCropOptions {
-        cropX: number,
-        cropY: number,
-        cropW: number,
-        cropH: number
+        cropX: number;
+        cropY: number;
+        cropW: number;
+        cropH: number;
     }
 
     interface Cropbox {
@@ -114,9 +114,9 @@ declare namespace jQueryCropBox {
 }
 
 interface JQuery {
-    cropbox(params?: jQueryCropBox.CropboxOptions): jQueryCropBox.Cropbox
+    cropbox(params?: jQueryCropBox.CropboxOptions): jQueryCropBox.Cropbox;
 }
 
 interface JQueryStatic {
-    cropbox(params?: jQueryCropBox.CropboxOptions): jQueryCropBox.Cropbox
+    cropbox(params?: jQueryCropBox.CropboxOptions): jQueryCropBox.Cropbox;
 }

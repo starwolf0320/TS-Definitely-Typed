@@ -6,7 +6,7 @@
 /// <reference types="geojson" />
 
 declare namespace L {
-    type LatLngExpression = LatLng | number[] | ({ lat: number; lng: number })
+    type LatLngExpression = LatLng | number[] | ({ lat: number; lng: number });
     type LatLngBoundsExpression = LatLngBounds | LatLngExpression[];
     type PositionString = 'topleft' | 'topright' | 'bottomleft' | 'bottomright';
 }
@@ -2455,7 +2455,8 @@ declare namespace L {
         on(type: string, fn: (e: LeafletEvent) => void, context?: any): Map;
         once(type: string, fn: (e: LeafletEvent) => void, context?: any): Map;
         off(type: string, fn?: (e: LeafletEvent) => void, context?: any): Map;
-        fire(type: string, data?: any): Map;addEventListener(eventMap: any, context?: any): Map;
+        fire(type: string, data?: any): Map;
+        addEventListener(eventMap: any, context?: any): Map;
         removeEventListener(eventMap?: any, context?: any): Map;
         clearAllEventListeners(): Map;
         on(eventMap: any, context?: any): Map;

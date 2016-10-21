@@ -3,7 +3,7 @@
 // Definitions by: Oleksii Trekhleb <https://ua.linkedin.com/in/trekhleb>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module elasticjs {
+declare namespace elasticjs {
 
   export interface Facet {}
   export interface Geo {}

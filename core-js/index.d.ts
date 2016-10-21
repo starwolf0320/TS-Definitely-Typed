@@ -827,7 +827,7 @@ interface PromiseConstructor {
     all<T1, T2, T3>(values: [T1 | PromiseLike<T1>, T2 | PromiseLike<T2>, T3 | PromiseLike<T3>]): Promise<[T1, T2, T3]>;
     all<T1, T2>(values: [T1 | PromiseLike<T1>, T2 | PromiseLike<T2>]): Promise<[T1, T2]>;
     all<TAll>(values: Iterable<TAll | PromiseLike<TAll>>): Promise<TAll[]>;
-    
+
     /**
      * Creates a Promise that is resolved or rejected when any of the provided Promises are resolved
      * or rejected.
@@ -1782,8 +1782,7 @@ declare module "core-js/fn/function/has-instance" {
     var hasInstance: (value: any) => boolean;
     export = hasInstance;
 }
-declare module "core-js/fn/function/name"
-{
+declare module "core-js/fn/function/name" {
 }
 declare module "core-js/fn/function/part" {
     var part: typeof core.Function.part;

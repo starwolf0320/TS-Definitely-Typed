@@ -14,7 +14,7 @@ docDBClient.createDatabase({ id: 'foo' }, undefined, (error, result) => {
 
 var dbQuerySpec: docDB.SqlQuerySpec = {query: 'SELECT * FROM d WHERE d.meta = @meta', parameters: [{name: '@meta', value: {creator: 'John Smith', type: 'documentdb'}}]};
 docDBClient.queryDatabases(dbQuerySpec).toArray((error, result) => {
-    
+
     if (error) {
         throw new Error(error.body);
     }
@@ -65,7 +65,7 @@ var trigger: docDB.Trigger = {
 };
 
 docDBClient.createTrigger('collection', trigger, undefined, (error, result) => {
-    
+
     if (error) {
         throw new Error(error.body);
     }
@@ -76,7 +76,7 @@ docDBClient.createTrigger('collection', trigger, undefined, (error, result) => {
 
 var triggerQuerySpec: docDB.SqlQuerySpec = {query: 'SELECT * FROM t WHERE t.id = @id', parameters: [{name: '@id', value: 'trigger-foo'}]};
 docDBClient.queryTriggers('collection', triggerQuerySpec).toArray((error, result) => {
-    
+
     if (error) {
         throw new Error(error.body);
     }
@@ -101,9 +101,9 @@ docDBClient.createDocument('collection', document, undefined, (error, result) =>
     }
     else {
         console.log('Created document: ' + result.id);
-        
+
         docDBClient.replaceDocument(result._self, document, undefined, (subError, subResult) => {
-            
+
             if (subError) {
                 throw new Error(subError.body);
             }

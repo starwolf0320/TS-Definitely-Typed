@@ -59,7 +59,7 @@ declare namespace Knockback {
     class Store extends Destroyable {
         static useOptionsOrCreate(options: StoreOptions, obj: any, observable: KnockoutObservable<any>);
 
-        constructor (model:Backbone.Model, options: StoreOptions);
+        constructor (model: Backbone.Model, options: StoreOptions);
         clear();
         register(obj: Backbone.Model, observable: KnockoutObservable<any>, options: StoreOptions);
         findOrCreate(obj: Backbone.Model, options: StoreOptions);
@@ -129,8 +129,8 @@ declare namespace Knockback {
         collection(colleciton: Backbone.Collection<Backbone.Model>);
         collection(): Backbone.Collection<Backbone.Model>;
         destroy();
-        shareOptions():  CollectionOptions;
-        filters(id: any) : Backbone.Model;
+        shareOptions(): CollectionOptions;
+        filters(id: any): Backbone.Model;
         filters(ids: any[]): CollectionObservable;
         filters(iterator: (element: Backbone.Model) => boolean): CollectionObservable;
         comparator(comparatorFunction: any);

@@ -5,7 +5,7 @@
 
 /// <reference types="geojson" />
 
-declare module turf {
+declare namespace turf {
     //////////////////////////////////////////////////////
     // Aggregation
     //////////////////////////////////////////////////////
@@ -415,7 +415,7 @@ declare module turf {
     *   - The total number of decimal degrees longitude or latitude that a polygon can extent outwards to from its center. Default is 10.
     * @returns Generated random features
     */
-    function random(type?: string, count?: number, options?: {bbox?: Array<number>; num_vertices?: number; max_radial_length?: number;}): GeoJSON.FeatureCollection<any>;
+    function random(type?: string, count?: number, options?: {bbox?: Array<number>; num_vertices?: number; max_radial_length?: number}): GeoJSON.FeatureCollection<any>;
 
     /**
     * Takes a FeatureCollection of any type, a property, and a value and returns a FeatureCollection with features matching that property-value pair removed.
@@ -576,5 +576,5 @@ declare module turf {
 }
 
 declare module 'turf' {
-  export= turf;
+  export = turf;
 }

@@ -81,7 +81,7 @@ declare namespace fabric {
    * @param {DOMElement} element Element to parse
    * @param {Array} attributes Array of attributes to parse
    */
-  function parseAttributes(elemen: HTMLElement, attributes: string[], svgUid?: string): { [key: string]: string }
+  function parseAttributes(elemen: HTMLElement, attributes: string[], svgUid?: string): { [key: string]: string };
   /**
    * Parses an SVG document, returning all of the gradient declarations found in it
    * @param {SVGDocument} doc SVG document to parse
@@ -330,7 +330,7 @@ declare namespace fabric {
      * Observes specified event
      * @param eventName Object with key/value pairs (eg. {'after:render': handler, 'selection:cleared': handler})
      */
-    on(eventName: {[key:string] : Function}): T;
+    on(eventName: {[key: string]: Function}): T;
     /**
      * Fires event with an optional options object
      * @param {String} eventName Event name to fire
@@ -844,7 +844,7 @@ declare namespace fabric {
      * @param {Number} x
      * @param {Number} y
      */
-    setXY(x:number, y: number): IPoint;
+    setXY(x: number, y: number): IPoint;
 
     /**
      * Sets x/y of this point from another point
@@ -908,7 +908,7 @@ declare namespace fabric {
     /**
      * Regex matching shadow offsetX, offsetY and blur, Static
      */
-    reOffsetsAndBlur: RegExp
+    reOffsetsAndBlur: RegExp;
   }
   interface IShadowStatic {
     new (options?: IShadowOptions): IShadow;
@@ -1067,7 +1067,7 @@ declare namespace fabric {
      * @param {Number|String} value                         Value to set width to
      * @param {Object}        [options]                     Options object
      */
-    setWidth(value: number|string, options?: ICanvasDimensionsOptions): IStaticCanvas
+    setWidth(value: number|string, options?: ICanvasDimensionsOptions): IStaticCanvas;
 
     /**
      * Sets height of this canvas instance
@@ -1320,13 +1320,13 @@ declare namespace fabric {
      * Straightens object, then rerenders canvas
      * @param {fabric.Object} object Object to straighten
      */
-    straightenObject(object: IObject): IStaticCanvas
+    straightenObject(object: IObject): IStaticCanvas;
 
     /**
      * Same as straightenObject, but animated
      * @param {fabric.Object} object Object to straighten
      */
-    fxStraightenObject(object: IObject): IStaticCanvas
+    fxStraightenObject(object: IObject): IStaticCanvas;
   }
   interface IStaticCanvasStatic {
     /**
@@ -1551,7 +1551,7 @@ declare namespace fabric {
     /**
      * Removes all event listeners
      */
-    removeListeners(): void
+    removeListeners(): void;
   }
   interface ICanvasStatic {
     /**
@@ -1943,7 +1943,7 @@ declare namespace fabric {
      */
     CSS_CANVAS: string;
 
-    filters: IAllFilters
+    filters: IAllFilters;
   }
 
   interface ILineOptions extends IObjectOptions {
@@ -4022,7 +4022,7 @@ declare namespace fabric {
      * @param {Object} pointer
      * @return {fabric.Point} Just added pointer point
      */
-    addPoint(pointer: any): IPoint
+    addPoint(pointer: any): IPoint;
   }
   interface ISprayBrush extends IBaseBrush {
     /**
@@ -4054,7 +4054,7 @@ declare namespace fabric {
     /**
      * @param {Object} pointer
      */
-    addSprayChunk(pointer: any): void
+    addSprayChunk(pointer: any): void;
   }
   interface IPatternBrush extends IPencilBrush {
     getPatternSrc(): HTMLCanvasElement;
@@ -4386,7 +4386,7 @@ declare namespace fabric {
      * @param {Object} object Object to clone
      * @return {Object}
      */
-    clone(object: any): any
+    clone(object: any): any;
   }
 
   interface IUtilString {

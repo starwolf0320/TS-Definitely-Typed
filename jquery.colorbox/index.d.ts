@@ -266,15 +266,15 @@ interface ColorboxStatic {
     */
     close(): void;
     /**
-    * This method is used to fetch the current HTML element that Colorbox is associated with. 
+    * This method is used to fetch the current HTML element that Colorbox is associated with.
     */
     element(): JQuery;
     /**
-    * This allows Colorbox to be resized based on it's own auto-calculations, or to a specific size. This must be called manually after Colorbox's content has loaded. 
+    * This allows Colorbox to be resized based on it's own auto-calculations, or to a specific size. This must be called manually after Colorbox's content has loaded.
     */
     resize(): void;
     /**
-    * This allows Colorbox to be resized based on it's own auto-calculations, or to a specific size. This must be called manually after Colorbox's content has loaded. 
+    * This allows Colorbox to be resized based on it's own auto-calculations, or to a specific size. This must be called manually after Colorbox's content has loaded.
     */
     resize(settings: ColorboxResizeSettings): void;
     /**

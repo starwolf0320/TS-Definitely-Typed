@@ -23,7 +23,7 @@ declare namespace ng.sanitize {
     // Filters included with the ngSanitize
     // see https://code.angularjs.org/1.2.26/docs/api/ngSanitize/filter
     ///////////////////////////////////////////////////////////////////////////
-    export module filter {
+    export namespace filter {
 
         // Finds links in text input and turns them into html links.
         // Supports http/https/ftp/mailto and plain email address links.

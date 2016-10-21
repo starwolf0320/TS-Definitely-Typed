@@ -9,7 +9,7 @@ declare module "sqs-producer" {
 
   import { SQS } from "aws-sdk";
 
-  module SQSProducer {
+  namespace SQSProducer {
 
     interface ProducerOpts {
       queueUrl: string;
@@ -31,7 +31,7 @@ declare module "sqs-producer" {
     interface ProducerMessage {
       id: string;
       body: string;
-      messageAttributes?: { [key: string]: ProducerMessageAttribute }
+      messageAttributes?: { [key: string]: ProducerMessageAttribute };
       delaySeconds?: number;
     }
 

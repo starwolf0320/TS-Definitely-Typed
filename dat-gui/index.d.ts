@@ -11,17 +11,17 @@ declare namespace dat {
         __folders: GUI[];
         domElement: HTMLElement;
 
-        add(target: Object, propName:string): GUIController;
-        add(target: Object, propName:string, min: number, max: number): GUIController;
-        add(target: Object, propName:string, status: boolean): GUIController;
-        add(target: Object, propName:string, items:string[]): GUIController;
-        add(target: Object, propName:string, items:number[]): GUIController;
-        add(target: Object, propName:string, items:Object): GUIController;
+        add(target: Object, propName: string): GUIController;
+        add(target: Object, propName: string, min: number, max: number): GUIController;
+        add(target: Object, propName: string, status: boolean): GUIController;
+        add(target: Object, propName: string, items: string[]): GUIController;
+        add(target: Object, propName: string, items: number[]): GUIController;
+        add(target: Object, propName: string, items: Object): GUIController;
 
-        addColor(target: Object, propName:string): GUIController;
-        addColor(target: Object, propName:string, color: string): GUIController;
-        addColor(target: Object, propName:string, rgba: number[]): GUIController; // rgb or rgba
-        addColor(target: Object, propName:string, hsv:{h:number; s:number; v:number}): GUIController;
+        addColor(target: Object, propName: string): GUIController;
+        addColor(target: Object, propName: string, color: string): GUIController;
+        addColor(target: Object, propName: string, rgba: number[]): GUIController; // rgb or rgba
+        addColor(target: Object, propName: string, hsv: {h: number; s: number; v: number}): GUIController;
 
         remove(controller: GUIController): void;
         destroy(): void;
@@ -54,7 +54,7 @@ declare namespace dat {
         useLocalStorage: boolean;
     }
 
-    export interface GUIParams{
+    export interface GUIParams {
         autoPlace?: boolean;
         closed?: boolean;
         load?: any;

@@ -263,4 +263,3 @@ function test_static_methods() {
     jQuery.validator.format('{0} {1}', 'a', 2);
     jQuery.validator.format('{0} {1}', ['a', 2]);
 }
-    

@@ -6,7 +6,7 @@
 /**
  * Convert a path to a file URL.
  */
-declare function fileUrl(path:string):string;
+declare function fileUrl(path: string): string;
 
 /**
  * Convert a path to a file URL.

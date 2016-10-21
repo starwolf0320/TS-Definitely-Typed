@@ -6,4 +6,4 @@ console.log(swapCase('string')); 	// => "STRING"
 console.log(swapCase('PascalCase'));	// => "pASCALcASE"
 console.log(swapCase('Iñtërnâtiônàlizætiøn')); //=> "iÑTËRNÂTIÔNÀLIZÆTIØN"
 
-console.log(swapCase('My String', 'tr')); // => "mY sTRİNG" 
+console.log(swapCase('My String', 'tr')); // => "mY sTRİNG"

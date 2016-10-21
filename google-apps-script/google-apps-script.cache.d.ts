@@ -6,7 +6,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Cache {
+  export namespace Cache {
     /**
      * A reference to a particular cache.
      *

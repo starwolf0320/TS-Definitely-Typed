@@ -10,8 +10,7 @@ declare namespace ByteBuffer {}
 export = ByteBuffer;
 export as namespace ByteBuffer;
 
-declare class ByteBuffer
-{
+declare class ByteBuffer {
     /**
      * Constructs a new ByteBuffer.
      */

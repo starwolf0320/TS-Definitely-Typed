@@ -72,7 +72,7 @@ interface JStorageStatic {
      *
      * @return Read-only copy of _storage
      */
-    storageObj(): JStorageReadonlyStore
+    storageObj(): JStorageReadonlyStore;
 
     /**
      * Returns an index of all used keys as an array

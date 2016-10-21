@@ -287,7 +287,7 @@ declare namespace Fancytree {
          * @param map callback function(NodeData) that could modify the new node
          * @returns new node.
          */
-        copyTo(node: FancytreeNode, mode?: string, map?: (node: NodeData) => void) : FancytreeNode;
+        copyTo(node: FancytreeNode, mode?: string, map?: (node: NodeData) => void): FancytreeNode;
 
         /** Count direct and indirect children.
          *
@@ -512,7 +512,7 @@ declare namespace Fancytree {
         resetLazy(): void;
 
         /** Schedule activity for delayed execution (cancel any pending request). scheduleAction('cancel') will only cancel a pending request (if any). */
-        scheduleAction(mode: string, ms: number) : void;
+        scheduleAction(mode: string, ms: number): void;
 
         /**
          * @param effects animation options.

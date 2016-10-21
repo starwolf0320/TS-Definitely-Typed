@@ -21,23 +21,23 @@ declare namespace QtyModule {
 
     parse(value: string): Qty;
 
-    swiftConverter(srcUnits:string, dstUnits:string): (value:number) => number;
+    swiftConverter(srcUnits: string, dstUnits: string): (value: number) => number;
 
     getkinds(): string[];
 
-    getUnits(kind:string): string[];
+    getUnits(kind: string): string[];
 
-    getAliases(unitName:string): string[];
+    getAliases(unitName: string): string[];
 
-    formatter(scalar:number, units:string):string;
+    formatter(scalar: number, units: string): string;
 
     toFloat(): number;
 
     isUnitless(): boolean;
 
-    isCompatible(other:string|Qty): boolean;
+    isCompatible(other: string|Qty): boolean;
 
-    isInverse(other:string|Qty): boolean
+    isInverse(other: string|Qty): boolean;
 
     kind(): string;
 
@@ -47,19 +47,19 @@ declare namespace QtyModule {
 
     units(): string;
 
-    eq(other:Qty): boolean;
-    lt(other:Qty): boolean;
-    lte(other:Qty): boolean;
-    gt(other:Qty): boolean;
-    gte(other:Qty): boolean;
+    eq(other: Qty): boolean;
+    lt(other: Qty): boolean;
+    lte(other: Qty): boolean;
+    gt(other: Qty): boolean;
+    gte(other: Qty): boolean;
 
     toPrec(precQuantity: Qty|string|number): Qty;
 
-    toString(targetUnitsOrMaxDecimalsOrPrec?:number|string|Qty, maxDecimals?: number): string;
+    toString(targetUnitsOrMaxDecimalsOrPrec?: number|string|Qty, maxDecimals?: number): string;
 
-    format(targetUnits?:string, formatter?:(scalar:number, units:string) => string): string;
+    format(targetUnits?: string, formatter?: (scalar: number, units: string) => string): string;
 
-    compareTo(other:Qty|string): number;
+    compareTo(other: Qty|string): number;
 
     same(other: Qty): boolean;
 
@@ -69,11 +69,11 @@ declare namespace QtyModule {
 
     isTemperature(): boolean;
 
-    to(other:string|Qty): Qty;
+    to(other: string|Qty): Qty;
 
-    add(other:string|Qty): Qty;
-    sub(other:string|Qty): Qty;
-    mul(other:number|string|Qty): Qty;
-    div(other:number|string|Qty): Qty;
+    add(other: string|Qty): Qty;
+    sub(other: string|Qty): Qty;
+    mul(other: number|string|Qty): Qty;
+    div(other: number|string|Qty): Qty;
   }
 }

@@ -9,7 +9,7 @@ declare module "sqs-consumer" {
 
   import { SQS } from "aws-sdk";
 
-  module SQSConsumer {
+  namespace SQSConsumer {
 
     interface MessageHandler {
       (message: SQS.Message, done: Function): any;

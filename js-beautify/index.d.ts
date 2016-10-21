@@ -1,6 +1,6 @@
 // Type definitions for js_beautify
 // Project: https://github.com/beautify-web/js-beautify/
-// Definitions by: Josh Goldberg <https://github.com/JoshuaKGoldberg/>, Hans Windhoff <https://github.com/hansrwindhoff/> 
+// Definitions by: Josh Goldberg <https://github.com/JoshuaKGoldberg/>, Hans Windhoff <https://github.com/hansrwindhoff/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 interface JsBeautifyOptions {
@@ -36,7 +36,7 @@ interface HTMLBeautifyOptions {
   max_preserve_newlines?: number;
   indent_inner_html?: boolean;
   brace_style?: 'collapse-preserve-inline'|'collapse'|'expand'|'end-expand'|'none';
-  indent_scripts?: boolean; 
+  indent_scripts?: boolean;
   wrap_line_length?: number;
   wrap_attributes?: 'auto'|'force' ;
   wrap_attributes_indent_size?: number;
@@ -50,25 +50,24 @@ interface CSSBeautifyOptions {
   indent_with_tabs?: boolean;
   eol?: string;
   end_with_newline?: boolean;
-  selector_separator_newline?: boolean;   
+  selector_separator_newline?: boolean;
   newline_between_rules?: boolean;
 }
 
-interface jsb{
-  (js_source_text: string, options?: JsBeautifyOptions) : string ;
-  js:(js_source_text: string, options?: JsBeautifyOptions) => string ;
-  beautify_js:(js_source_text: string, options?: JsBeautifyOptions) => string ;
+interface jsb {
+  (js_source_text: string, options?: JsBeautifyOptions): string ;
+  js: (js_source_text: string, options?: JsBeautifyOptions) => string ;
+  beautify_js: (js_source_text: string, options?: JsBeautifyOptions) => string ;
 
-  css:(js_source_text: string, options?: CSSBeautifyOptions) => string ;
-  css_beautify:(js_source_text: string, options?: CSSBeautifyOptions) => string ;
-  
-  html:(js_source_text: string, options?: HTMLBeautifyOptions) => string ;
-  html_beautify:(js_source_text: string, options?: HTMLBeautifyOptions) => string ;
+  css: (js_source_text: string, options?: CSSBeautifyOptions) => string ;
+  css_beautify: (js_source_text: string, options?: CSSBeautifyOptions) => string ;
+
+  html: (js_source_text: string, options?: HTMLBeautifyOptions) => string ;
+  html_beautify: (js_source_text: string, options?: HTMLBeautifyOptions) => string ;
 }
 
-declare var js_beautify:jsb;
-declare module "js-beautify"
-{
+declare var js_beautify: jsb;
+declare module "js-beautify" {
     export = js_beautify;
 }
 

@@ -44,13 +44,13 @@ declare namespace TL {
     }
 
     export interface ITimelineEvents {
-        addEventListener(type: string, fn: ()=>void, context?: any): ITimelineEvents;
+        addEventListener(type: string, fn: () => void, context?: any): ITimelineEvents;
         hasEventListeners(type: string): boolean;
-        removeEventListener(type: string, fn:()=>void, context?: any): ITimelineEvents;
+        removeEventListener(type: string, fn: () => void, context?: any): ITimelineEvents;
         fireEvent(type: string, data?: any): ITimelineEvents;
 
-        on(type: string, fn: ()=>void, context?: any): ITimelineEvents;
-        off(type: string, fn:()=>void, context?: any): ITimelineEvents;
+        on(type: string, fn: () => void, context?: any): ITimelineEvents;
+        off(type: string, fn: () => void, context?: any): ITimelineEvents;
         fire(type: string, data?: any): ITimelineEvents;
     }
 

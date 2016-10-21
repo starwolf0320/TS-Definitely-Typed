@@ -8,38 +8,38 @@ declare namespace Microsoft {
     namespace ADAL {
 
         interface UserInfo {
-            displayableId: string,
-            userId: string,
-            familyName: string,
-            givenName: string,
-            identityProvider: string,
-            passwordChangeUrl: string,
-            passwordExpiresOn: Date,
-            uniqueId: string,
+            displayableId: string;
+            userId: string;
+            familyName: string;
+            givenName: string;
+            identityProvider: string;
+            passwordChangeUrl: string;
+            passwordExpiresOn: Date;
+            uniqueId: string;
         }
 
         interface TokenCacheItem {
-            accessToken: string,
-            authority: string,
-            clientId: string,
-            displayableId: string,
-            expiresOn: Date,
-            isMultipleResourceRefreshToken: boolean,
-            resource: string,
-            tenantId: string,
-            userInfo: UserInfo
+            accessToken: string;
+            authority: string;
+            clientId: string;
+            displayableId: string;
+            expiresOn: Date;
+            isMultipleResourceRefreshToken: boolean;
+            resource: string;
+            tenantId: string;
+            userInfo: UserInfo;
         }
 
         interface Promise {
-            then(doneCallBack: () => any, failCallBack?: (message: string) => any):any;
+            then(doneCallBack: () => any, failCallBack?: (message: string) => any): any;
         }
 
         interface PromiseTokenCacheItems {
-            then(doneCallBack: (tokenCacheItems: TokenCacheItem[]) => any, failCallBack?: (message: string) => any):any;
+            then(doneCallBack: (tokenCacheItems: TokenCacheItem[]) => any, failCallBack?: (message: string) => any): any;
         }
 
         class TokenCache {
-            contextAuthority: string
+            contextAuthority: string;
 
             /**
             * Clears the cache by deleting all the items.
@@ -85,11 +85,11 @@ declare namespace Microsoft {
         }
 
         interface PromiseAuthenticationResult {
-            then(doneCallBack: (context: AuthenticationResult) => any, failCallBack?: (message: string) => any):any;
+            then(doneCallBack: (context: AuthenticationResult) => any, failCallBack?: (message: string) => any): any;
         }
 
         interface PromiseAuthenticationContext {
-            then(doneCallBack: (context: AuthenticationContext) => any, failCallBack?: (message: string) => any):any;
+            then(doneCallBack: (context: AuthenticationContext) => any, failCallBack?: (message: string) => any): any;
         }
 
         class AuthenticationContext {

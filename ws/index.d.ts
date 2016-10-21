@@ -6,10 +6,10 @@
 /// <reference types="node" />
 
 
-import * as events from 'events';
-import * as http from 'http';
-import * as https from 'https';
-import * as net from 'net';
+import * as events from "events";
+import * as http from "http";
+import * as https from "https";
+import * as net from "net";
 
 declare class WebSocket extends events.EventEmitter {
     static CONNECTING: number;
@@ -50,30 +50,30 @@ declare class WebSocket extends events.EventEmitter {
     terminate(): void;
 
     // HTML5 WebSocket events
-    addEventListener(method: 'message', cb?: (event: { data: any; type: string; target: WebSocket }) => void): void;
-    addEventListener(method: 'close', cb?: (event: {
+    addEventListener(method: "message", cb?: (event: { data: any; type: string; target: WebSocket }) => void): void;
+    addEventListener(method: "close", cb?: (event: {
         wasClean: boolean; code: number;
         reason: string; target: WebSocket
     }) => void): void;
-    addEventListener(method: 'error', cb?: (err: Error) => void): void;
-    addEventListener(method: 'open', cb?: (event: { target: WebSocket }) => void): void;
+    addEventListener(method: "error", cb?: (err: Error) => void): void;
+    addEventListener(method: "open", cb?: (event: { target: WebSocket }) => void): void;
     addEventListener(method: string, listener?: () => void): void;
 
     // Events
-    on(event: 'error', cb: (err: Error) => void): this;
-    on(event: 'close', cb: (code: number, message: string) => void): this;
-    on(event: 'message', cb: (data: any, flags: { binary: boolean }) => void): this;
-    on(event: 'ping', cb: (data: any, flags: { binary: boolean }) => void): this;
-    on(event: 'pong', cb: (data: any, flags: { binary: boolean }) => void): this;
-    on(event: 'open', cb: () => void): this;
+    on(event: "error", cb: (err: Error) => void): this;
+    on(event: "close", cb: (code: number, message: string) => void): this;
+    on(event: "message", cb: (data: any, flags: { binary: boolean }) => void): this;
+    on(event: "ping", cb: (data: any, flags: { binary: boolean }) => void): this;
+    on(event: "pong", cb: (data: any, flags: { binary: boolean }) => void): this;
+    on(event: "open", cb: () => void): this;
     on(event: string, listener: () => void): this;
 
-    addListener(event: 'error', cb: (err: Error) => void): this;
-    addListener(event: 'close', cb: (code: number, message: string) => void): this;
-    addListener(event: 'message', cb: (data: any, flags: { binary: boolean }) => void): this;
-    addListener(event: 'ping', cb: (data: any, flags: { binary: boolean }) => void): this;
-    addListener(event: 'pong', cb: (data: any, flags: { binary: boolean }) => void): this;
-    addListener(event: 'open', cb: () => void): this;
+    addListener(event: "error", cb: (err: Error) => void): this;
+    addListener(event: "close", cb: (code: number, message: string) => void): this;
+    addListener(event: "message", cb: (data: any, flags: { binary: boolean }) => void): this;
+    addListener(event: "ping", cb: (data: any, flags: { binary: boolean }) => void): this;
+    addListener(event: "pong", cb: (data: any, flags: { binary: boolean }) => void): this;
+    addListener(event: "open", cb: () => void): this;
     addListener(event: string, listener: () => void): this;
 }
 
@@ -140,14 +140,14 @@ declare namespace WebSocket {
             upgradeHead: Buffer, callback: (client: WebSocket) => void): void;
 
         // Events
-        on(event: 'error', cb: (err: Error) => void): this;
-        on(event: 'headers', cb: (headers: string[]) => void): this;
-        on(event: 'connection', cb: (client: WebSocket) => void): this;
+        on(event: "error", cb: (err: Error) => void): this;
+        on(event: "headers", cb: (headers: string[]) => void): this;
+        on(event: "connection", cb: (client: WebSocket) => void): this;
         on(event: string, listener: () => void): this;
 
-        addListener(event: 'error', cb: (err: Error) => void): this;
-        addListener(event: 'headers', cb: (headers: string[]) => void): this;
-        addListener(event: 'connection', cb: (client: WebSocket) => void): this;
+        addListener(event: "error", cb: (err: Error) => void): this;
+        addListener(event: "headers", cb: (headers: string[]) => void): this;
+        addListener(event: "connection", cb: (client: WebSocket) => void): this;
         addListener(event: string, listener: () => void): this;
     }
 

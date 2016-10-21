@@ -18,7 +18,7 @@ export interface Options {
     };
     ipml_options?: {
         defaultExchangeName?: string;
-    }
+    };
     conn_options?: any;
 }
 

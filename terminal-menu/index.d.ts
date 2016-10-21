@@ -28,22 +28,22 @@ declare module "terminal-menu" {
             /**
              * Represents width of the left side of the bounding rectangle.
              */
-            left: number,
+            left: number;
 
             /**
              * Represents width of the right side of the bounding rectangle.
              */
-            right: number,
+            right: number;
 
             /**
              * Represents width of the upper side of the bounding rectangle.
              */
-            top: number,
+            top: number;
 
             /**
              * Represents width of the lower side of the bounding rectangle.
              */
-            bottom: number
+            bottom: number;
         }
 
         /**
@@ -97,7 +97,7 @@ declare module "terminal-menu" {
              * Index of the menu item to be selected.
              * Default = 0
              */
-            selected?: number
+            selected?: number;
         }
 
         /**

@@ -24,7 +24,7 @@ interface Loki extends LokiEventEmitter {
     collections: LokiCollection<any>[];
     databaseVersion: number;
     engineVersion: number;
-    ENV: string;/*NODEJS, CORDOVA, BROWSER*/
+    ENV: string; /*NODEJS, CORDOVA, BROWSER*/
     events: { [id: string]: ((...args: any[]) => void)[] }; /*{
         'init': ((...args) => void)[];
         'loaded': ((...args) => void)[];
@@ -1116,7 +1116,7 @@ interface LokiExactIndex<E> {
     index: { [id: string]: E[] };
     field: string;
 
-    new <E>(exactField: string): LokiExactIndex<E>
+    new <E>(exactField: string): LokiExactIndex<E>;
 
     /** add the value you want returned to the key in the index */
     set(key: string, val: E): void;
@@ -1219,7 +1219,7 @@ interface LokiElementMetaData {
 
 interface LokiCollectionChange {
     name: string;
-    operation: string;/*'I', 'R', 'U'*/
+    operation: string; /*'I', 'R', 'U'*/
     obj: any;
 }
 
@@ -1505,7 +1505,7 @@ interface LokiCryptedFileAdapterEncryptResult {
  * load: { url: the url to load from, dataType [optional]: json|xml| etc., type [optional]: POST|GET|PUT }
  */
 interface LokiJquerySyncAdapter {
-    options: LokiJquerySyncAdapterOptions
+    options: LokiJquerySyncAdapterOptions;
 
     new (options: LokiJquerySyncAdapterOptions): LokiJquerySyncAdapter;
 
@@ -1541,7 +1541,7 @@ interface LokiJquerySyncAdapterError extends Error {
 
 declare var LokiCryptedFileAdapterConstructor: {
     new (): LokiCryptedFileAdapter;
-}
+};
 
 declare module "lokiCryptedFileAdapter" {
     export = LokiCryptedFileAdapterConstructor;
@@ -1550,7 +1550,7 @@ declare module "lokiCryptedFileAdapter" {
 
 declare var LokiIndexedAdapterConstructor: {
     new (filename: string): LokiIndexedAdapter;
-}
+};
 
 declare module "loki-indexed-adapter" {
     export = LokiIndexedAdapterConstructor;
@@ -1562,7 +1562,7 @@ declare var LokiConstructor: {
     LokiOps: LokiOps;
     Collection: LokiCollection<any>;
     KeyValueStore: LokiKeyValueStore<any, any>;
-}
+};
 
 declare module "lokijs" {
     export = LokiConstructor;

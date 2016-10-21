@@ -135,7 +135,7 @@ declare namespace BigJsLibrary {
 }
 
 declare module "big.js" {
-    var bigjs : BigJsLibrary.BigJS;
+    var bigjs: BigJsLibrary.BigJS;
     export = bigjs;
 }
 

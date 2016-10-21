@@ -9,15 +9,15 @@ declare const shapefile: shapefile.ShapefileStatic;
 
 declare namespace shapefile {
     interface Options {
-        encoding: string
-        highWaterMark: number
+        encoding: string;
+        highWaterMark: number;
     }
     interface Feature {
-        done: boolean
-        value: GeoJSON.Feature<any>
+        done: boolean;
+        value: GeoJSON.Feature<any>;
     }
     interface Shapefile {
-        bbox: Array<number>
+        bbox: Array<number>;
         read(): Promise<Feature>;
     }
     interface ShapefileStatic {
@@ -27,5 +27,5 @@ declare namespace shapefile {
 }
 
 declare module "shapefile" {
-    export = shapefile
+    export = shapefile;
 }

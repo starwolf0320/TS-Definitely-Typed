@@ -16,24 +16,24 @@ declare namespace CrossFilter {
         bisect: {
             <T>(array: T[], value: T, lo: number, hi: number): number;
             by<T>(value: Selector<T>): Bisector<T>;
-        }
+        };
         heap: {
             <T>(array: T[], lo: number, hi: number): T[];
 
             by<T>(value: Selector<T>): Heap<T>;
-        }
+        };
         heapselect: {
             <T>(array: T[], lo: number, hi: number, k: number): T[];
             by<T>(value: Selector<T>): HeapSelect<T>;
-        }
+        };
         insertionsort: {
             <T>(array: T[], lo: number, hi: number): T[];
             by<T>(value: Selector<T>): Sort<T>;
-        }
+        };
         quicksort: {
             <T>(array: T[], lo: number, hi: number): T[];
             by<T>(value: Selector<T>): Sort<T>;
-        }
+        };
     }
 
     export interface Bisection<T> {
@@ -41,8 +41,8 @@ declare namespace CrossFilter {
     }
 
     export interface Bisector<T> extends Bisection<T> {
-        left: Bisection<T>
-        right: Bisection<T>
+        left: Bisection<T>;
+        right: Bisection<T>;
     }
 
     export interface Heap<T> {
@@ -113,6 +113,6 @@ declare namespace CrossFilter {
 declare var crossfilter: CrossFilter.CrossFilterStatic;
 declare module "crossfilter" {
     var crossfilter: CrossFilter.CrossFilterStatic;
-    export = crossfilter;    	
+    export = crossfilter;
 }
 

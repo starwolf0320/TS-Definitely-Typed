@@ -5,6 +5,6 @@
 
 declare module "tempfile" {
 	function tempfile(extension?: string): string;
-	module tempfile {}
+	namespace tempfile {}
 	export = tempfile;
 }

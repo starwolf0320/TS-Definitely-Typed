@@ -27,8 +27,8 @@ declare namespace Pickadate {
 
         // Day/Time states
         disabled?: string; // default 'picker__day--disabled' or 'picker__list-item--disabled'
-        selected?: string // default 'picker__day--selected' or 'picker__list-item--selected'
-        highlighted?: string // default 'picker__day--highlighted' or 'picker__list-item--highlighted'
+        selected?: string; // default 'picker__day--selected' or 'picker__list-item--selected'
+        highlighted?: string; // default 'picker__day--highlighted' or 'picker__list-item--highlighted'
         now?: string; // default 'picker__day--today' or 'picker__list-item--now'
 
         // Clear button

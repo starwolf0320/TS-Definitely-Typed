@@ -11,7 +11,7 @@ type MockRequest = Request | RequestInit;
  * @param url
  * @param opts
  */
-type MockMatcherFunction = (url: string, opts: MockRequest) => boolean
+type MockMatcherFunction = (url: string, opts: MockRequest) => boolean;
 /**
  * Mock matcher. Can be one of following:
  * string: Either
@@ -114,23 +114,23 @@ interface MatchedRoutes {
 }
 
 interface MockOptionsMethodGet extends MockOptions {
-  method: 'GET'
+  method: 'GET';
 }
 
 interface MockOptionsMethodPost extends MockOptions {
-  method: 'POST'
+  method: 'POST';
 }
 
 interface MockOptionsMethodPut extends MockOptions {
-  method: 'PUT'
+  method: 'PUT';
 }
 
 interface MockOptionsMethodDelete extends MockOptions {
-  method: 'DELETE'
+  method: 'DELETE';
 }
 
 interface MockOptionsMethodHead extends MockOptions {
-  method: 'HEAD'
+  method: 'HEAD';
 }
 
 interface FetchMockStatic {

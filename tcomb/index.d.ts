@@ -27,7 +27,7 @@ declare namespace TComb {
     func: {
         (domain: TCombBase[], codomain: TCombBase, name?: string): Func_Static;
         (domain: TCombBase, codomain: TCombBase, name?: string) : Func_Static;
-    }
+    };
     Err: Err_Static;
     Re: Re_Static;
     Dat: Dat_Static;
@@ -43,15 +43,15 @@ declare namespace TComb {
     maybe(type: TCombBase, name?: string): Maybe_Static;
 
     Tuple: Tuple_Static;
-    tuple:(types: TCombBase[], name?: string)=> Tuple_Static;
+    tuple: (types: TCombBase[], name?: string) => Tuple_Static;
 
     Subtype: Subtype_Static;
 
     List: List_Static;
-    list:(type: TCombBase, name?: string)=> List_Static;
+    list: (type: TCombBase, name?: string) => List_Static;
 
     Dict: Dict_Static;
-    dict:(domain: TCombBase, codomain: TCombBase, name?: string)=> Dict_Static;
+    dict: (domain: TCombBase, codomain: TCombBase, name?: string) => Dict_Static;
 
     subtype(type: TCombBase, predicate: TypePredicate, name?: string): Subtype_Static;
 
@@ -260,7 +260,7 @@ declare namespace TComb {
    * @param name - Useful for debugging purposes.
    */
 
-  export module enums {
+  export namespace enums {
     /**
      * @param keys - Array of enums.
      * @param name - Useful for debugging purposes.

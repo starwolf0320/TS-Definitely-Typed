@@ -6,7 +6,7 @@
 /// <reference types="node"/>
 
 declare namespace NodeJS {
-    export module _debugger {
+    export namespace _debugger {
         export interface Packet {
             raw: string;
             headers: string[];
@@ -124,12 +124,12 @@ declare namespace NodeJS {
             reqContinue(cb: RequestHandler): void;
         }
 
-        export var Client : {
+        export var Client: {
             new (): ClientInstance
-        }
+        };
     }
 }
 
-declare module "_debugger"{
+declare module "_debugger" {
     export = NodeJS._debugger;
 }

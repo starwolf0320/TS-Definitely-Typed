@@ -123,9 +123,9 @@ declare namespace SemVerModule {
         build: string[];
         prerelease: string[];
 
-        compare(other:SemVer): number;
-        compareMain(other:SemVer): number;
-        comparePre(other:SemVer): number;
+        compare(other: SemVer): number;
+        compareMain(other: SemVer): number;
+        comparePre(other: SemVer): number;
         inc(release: string): SemVer;
     }
 
@@ -136,7 +136,7 @@ declare namespace SemVerModule {
         operator: string;
         value: boolean;
         parse(comp: string): void;
-        test(version:SemVer): boolean;
+        test(version: SemVer): boolean;
     }
 
     class Range extends SemVerBase {

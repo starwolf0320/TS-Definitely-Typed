@@ -1,6 +1,6 @@
 // Type definitions for upper-case
-// Project: https://github.com/blakeembrey/upper-case 
-// Definitions by: Sam Saint-Pettersen <https://github.com/stpettersens> 
+// Project: https://github.com/blakeembrey/upper-case
+// Definitions by: Sam Saint-Pettersen <https://github.com/stpettersens>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 

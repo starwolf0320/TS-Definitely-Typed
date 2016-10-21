@@ -7,7 +7,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Calendar {
+  export namespace Calendar {
     /**
      * Represents a calendar that the user owns or is subscribed to.
      */
@@ -51,11 +51,11 @@ declare namespace GoogleAppsScript {
      *  that the user owns or is subscribed to.
      */
     export interface CalendarApp {
-      Color: Color
-      GuestStatus: GuestStatus
-      Month: Base.Month
-      Visibility: Visibility
-      Weekday: Base.Weekday
+      Color: Color;
+      GuestStatus: GuestStatus;
+      Month: Base.Month;
+      Visibility: Visibility;
+      Weekday: Base.Weekday;
       createAllDayEvent(title: string, date: Date): CalendarEvent;
       createAllDayEvent(title: string, date: Date, options: Object): CalendarEvent;
       createAllDayEventSeries(title: string, startDate: Date, recurrence: EventRecurrence): CalendarEventSeries;

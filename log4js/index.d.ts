@@ -114,12 +114,12 @@ export var layouts: {
   addLayout: (name: string, serializerGenerator: (config?: LayoutConfig) => Layout) => void,
 
   /**
-   * Get layout. Available predified layout names: 
+   * Get layout. Available predified layout names:
    * messagePassThrough, basic, colored, coloured, pattern, dummy
-   * 
+   *
    */
   layout: (name: string, config: LayoutConfig) => Layout
-}
+};
 
 export var appenders: any;
 export var levels: {
@@ -174,7 +174,7 @@ export interface IConfig {
 export interface AppenderConfigBase {
   type: string;
   category?: string;
-  layout?: { type: string;[key: string]: any }
+  layout?: { type: string; [key: string]: any };
 }
 
 export interface ConsoleAppenderConfig extends AppenderConfigBase { }
@@ -223,7 +223,7 @@ export interface SmtpAppenderConfig extends AppenderConfigBase {
       user: string;
       pass: string;
     }
-  }
+  };
 }
 
 export interface HookIoAppenderConfig extends FileAppenderConfig {
@@ -273,7 +273,7 @@ type CoreAppenderConfig = ConsoleAppenderConfig
   | GelfAppenderConfig
   | MultiprocessAppenderConfig
   | LogglyAppenderConfig
-  | ClusteredAppenderConfig
+  | ClusteredAppenderConfig;
 
 interface CustomAppenderConfig extends AppenderConfigBase {
   [prop: string]: any;
@@ -306,7 +306,7 @@ export interface LayoutConfig {
   [key: string]: any;
 }
 export interface LayoutGenerator {
-  (config?: LayoutConfig): Layout
+  (config?: LayoutConfig): Layout;
 }
 
 export interface Layout {

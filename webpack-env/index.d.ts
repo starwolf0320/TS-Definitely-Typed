@@ -49,7 +49,7 @@ declare namespace __WebpackModuleApi {
          */
         cache: {
             [id: string]: any;
-        }
+        };
     }
 
     interface Module {

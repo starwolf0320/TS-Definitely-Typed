@@ -318,7 +318,7 @@ declare class Bluebird<R> implements Bluebird.Thenable<R>, Bluebird.Inspection<R
 
   /**
    * Basically sugar for doing: somePromise.catch(function(){});
-   * 
+   *
    * Which is needed in case error handlers are attached asynchronously to the promise later, which would otherwise result in premature unhandled rejection reporting.
    */
   suppressUnhandledRejections(): void;

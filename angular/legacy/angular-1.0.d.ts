@@ -10,7 +10,7 @@ declare var angular: ng.IAngularStatic;
 
 // Support for painless dependency injection
 interface Function {
-    $inject:string[];
+    $inject: string[];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -93,8 +93,8 @@ declare namespace ng {
         constant(object: Object): IModule;
         controller(name: string, controllerConstructor: Function): IModule;
         controller(name: string, inlineAnnotadedConstructor: any[]): IModule;
-        controller(object : Object): IModule;
-        directive(name: string, directiveFactory: (...params:any[])=> IDirective): IModule;
+        controller(object: Object): IModule;
+        directive(name: string, directiveFactory: (...params: any[]) => IDirective): IModule;
         directive(name: string, inlineAnnotadedFunction: any[]): IModule;
         directive(object: Object): IModule;
         factory(name: string, serviceFactoryFunction: Function): IModule;
@@ -125,7 +125,7 @@ declare namespace ng {
     ///////////////////////////////////////////////////////////////////////////
     interface IAttributes {
         $set(name: string, value: any): void;
-        $observe(name: string, fn:(value?:any)=>any):void;
+        $observe(name: string, fn: (value?: any) => any): void;
         $attr: any;
     }
 
@@ -669,7 +669,7 @@ declare namespace ng {
     // and http://docs.angularjs.org/guide/directive
     ///////////////////////////////////////////////////////////////////////////
 
-    interface IDirective{
+    interface IDirective {
         priority?: number;
         template?: any;
         templateUrl?: any;
@@ -722,7 +722,7 @@ declare namespace ng {
     ///////////////////////////////////////////////////////////////////////////
     // AUTO module (angular.js)
     ///////////////////////////////////////////////////////////////////////////
-    export module auto {
+    export namespace auto {
 
         ///////////////////////////////////////////////////////////////////////
         // InjectorService

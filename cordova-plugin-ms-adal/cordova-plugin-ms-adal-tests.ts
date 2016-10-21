@@ -31,7 +31,7 @@ function test_cordova_plugin_ms_adal() {
                         });
                 }
             });
-            
+
             // clear TokenCache
             context.tokenCache.clear();
 

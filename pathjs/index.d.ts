@@ -3,30 +3,30 @@
 // Definitions by: Lokesh Peta <https://github.com/lokeshpeta/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-interface IPathHistory{
+interface IPathHistory {
 	initial: any;
-	pushState(state: any, title: string, path: string):void;
-	popState(event: any): void;	
+	pushState(state: any, title: string, path: string): void;
+	popState(event: any): void;
 	listen(fallback: any): void;
 }
 
-interface IPathRoute{
+interface IPathRoute {
 	to(fn: () => void): IPathRoute;
 	enter(fns: Function|Function[]): IPathRoute;
 	exit(fn: () => void): IPathRoute;
 	partition(): string[];
-	run():void;
+	run(): void;
 }
 
-interface IPathRoutes{
-	current: IPathRoute,
-    root: IPathRoute,
-	rescue: Function,
-	previous: IPathRoute,
-	defined: {}
+interface IPathRoutes {
+	current: IPathRoute;
+    root: IPathRoute;
+	rescue: Function;
+	previous: IPathRoute;
+	defined: {};
 }
 
-interface IPathCore{
+interface IPathCore {
 	route: IPathRouteConstructor;
 }
 
@@ -36,22 +36,22 @@ interface IPathRouteConstructor {
 
 interface IPath {
     map(path: string): IPathRoute;
-	
+
 	root(path: string): void;
-	
+
 	rescue(fn: Function): void;
-	
+
 	history: IPathHistory;
-	
+
 	match(path: string, parameterize: boolean): IPathRoute;
-	
+
 	dispatch(passed_route: string): void;
-	
+
     listen(): void;
-	
+
 	core: IPathCore;
-	
-	routes: IPathRoutes
+
+	routes: IPathRoutes;
 }
 
 declare var Path: IPath;

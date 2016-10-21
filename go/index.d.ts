@@ -559,7 +559,7 @@ declare namespace go {
         groupTemplate: Group;
 
         /**Gets or sets a Map mapping template names to Groups.*/
-        groupTemplateMap: Map<string,Group>;
+        groupTemplateMap: Map<string, Group>;
 
         /**Gets or sets whether the Diagram has a horizontal Scrollbar.*/
         hasHorizontalScrollbar: boolean;
@@ -625,7 +625,7 @@ declare namespace go {
         linkTemplate: Link;
 
         /**Gets or sets a Map mapping template names to Links.*/
-        linkTemplateMap: Map<string,Link>;
+        linkTemplateMap: Map<string, Link>;
 
         /**Gets or sets the largest value that .scale may take.*/
         maxScale: number;
@@ -664,7 +664,7 @@ declare namespace go {
         nodeTemplate: Part;
 
         /**Gets or sets a Map mapping template names to Parts.*/
-        nodeTemplateMap: Map<string,Part>;
+        nodeTemplateMap: Map<string, Part>;
 
         /**Gets or sets the Margin (or number for a uniform Margin) that describes the Diagram's padding, which controls how much extra space there is around the area occupied by the document.*/
         padding: MarginLike;
@@ -1592,7 +1592,7 @@ declare namespace go {
 
         spanAllocation: (obj: GraphObject, r: RowColumnDefinition, n: number) => number;  // undocumented
         protected cloneProtected(copy: GraphObject): void;  // undocumented
-        static getBuilders(): Map<string,(args: Array<any>) => Object>;  // undocumented
+        static getBuilders(): Map<string, (args: Array<any>) => Object>;  // undocumented
     }
 
     /**
@@ -2614,7 +2614,7 @@ declare namespace go {
         itemTemplate: Panel;
 
         /**Gets or sets a Map mapping template names to Panels.*/
-        itemTemplateMap: Map<string,Panel>;
+        itemTemplateMap: Map<string, Panel>;
 
         /**Gets or sets the first column that this Panel of .type Panel.Table displays.*/
         leftIndex: number;
@@ -3336,7 +3336,7 @@ declare namespace go {
         * This static function returns a read-only Map of named geometry generators.
         * @return {Map} the keys are figure names; the values are either synonymed names or generator functions
         */
-        static getFigureGenerators(): Map<string,(shape: Shape, width: number, height: number) => Geometry>;
+        static getFigureGenerators(): Map<string, (shape: Shape, width: number, height: number) => Geometry>;
 
         /**
         * This static function defines a named figure geometry generator for Shapes.
@@ -3355,7 +3355,7 @@ declare namespace go {
         * This static function returns a read-only Map of named arrowhead geometries.
         * @return {Map} the keys are arrowhead names; the values are Geometry objects
         */
-        static getArrowheadGeometries(): Map<string,Geometry>;
+        static getArrowheadGeometries(): Map<string, Geometry>;
 
         /**
         * This static function defines a named arrowhead geometry.
@@ -3476,7 +3476,7 @@ declare namespace go {
         color: string;
 
         /**Gets or sets a Map holding all of the color stops used in this gradient, where the key is a number, the fractional distance between zero and one (inclusive), and where the corresponding value is a color string.*/
-        colorStops: Map<number,string>;
+        colorStops: Map<number, string>;
 
         /**Gets or sets the ending location for a linear or radial gradient.*/
         end: Spot;
@@ -5452,7 +5452,7 @@ declare namespace go {
 
         /**
          * Copies properties from this model to the given model, which must be of the same class as this model.
-         * @param {Model} copy 
+         * @param {Model} copy
          */
         protected cloneProtected(copy: Model): void;
 
@@ -6629,7 +6629,7 @@ declare namespace go {
 
         /**
          * Copies properties from this layout to the given layout, which must be of the same class as this layout.
-         * @param {Layout} copy 
+         * @param {Layout} copy
          */
         protected cloneProtected(copy: Layout): void;
 
@@ -7556,7 +7556,7 @@ declare namespace go {
         constructor();
 
         /**This read-only property returns the collection of Parts that this tool has copied.*/
-        copiedParts: Map<Part,DraggingInfo>;
+        copiedParts: Map<Part, DraggingInfo>;
 
         /**Gets or sets whether for a copying operation the extended selection is copied or only the selected parts.*/
         copiesEffectiveCollection: boolean;
@@ -7568,7 +7568,7 @@ declare namespace go {
         delay: number;
 
         /**This read-only property returns the collection of Parts being dragged.*/
-        draggedParts: Map<Part,DraggingInfo>;
+        draggedParts: Map<Part, DraggingInfo>;
 
         /**Gets or sets whether the user can drag a single Link, disconnecting it from its connected nodes and possibly connecting it to valid ports when the link is dropped.*/
         dragsLink: boolean;
@@ -7606,7 +7606,7 @@ declare namespace go {
         * Find the actual collection of nodes and links to be moved or copied, given an initial collection.
         * @param {Iterable<Part>} parts A Set or List of Parts.
         */
-        computeEffectiveCollection(parts: Iterable<Part>): Map<Part,DraggingInfo>;
+        computeEffectiveCollection(parts: Iterable<Part>): Map<Part, DraggingInfo>;
 
         /**
         * This method computes the new location for a Node or simple Part, given a new desired location and an optional Map of dragged parts, taking any grid-snapping into consideration, any Part.dragComputation function, and any Part.minLocation and Part.maxLocation.
@@ -7615,7 +7615,7 @@ declare namespace go {
         * @param {Map=} draggedparts  an optional Map mapping Parts to JavaScript Objects that have a "point" property remembering the original location of that Part.
         * @param {Point=} result  an optional Point that is modified and returned
         */
-        computeMove(n: Part, newloc: Point, draggedparts?: Map<Part,DraggingInfo>, result?: Point): Point;
+        computeMove(n: Part, newloc: Point, draggedparts?: Map<Part, DraggingInfo>, result?: Point): Point;
 
         /**
         * Start the dragging operation.
@@ -7695,7 +7695,7 @@ declare namespace go {
         * @param {Point} offset
         * @param {boolean} check  Whether to check Part.canMove on each part.
         */
-        moveParts(parts: Map<Part,DraggingInfo>, offset: Point, check: boolean): void;
+        moveParts(parts: Map<Part, DraggingInfo>, offset: Point, check: boolean): void;
 
         /**
         * This override prevents the Control modifier unselecting an already selected part.
@@ -9125,7 +9125,7 @@ declare namespace go {
     /**
     * This is a structure used by Map to hold key-value pairs.
     */
-    interface KeyValuePair<K,V> {  // undocumented
+    interface KeyValuePair<K, V> {  // undocumented
         key: K;
         value: V;
     }
@@ -9135,7 +9135,7 @@ declare namespace go {
     * same key.
     * It optionally enforces the type of the key and the type of the associated value.
     */
-    class Map<K,V> extends Iterator<KeyValuePair<K,V>> {
+    class Map<K, V> extends Iterator<KeyValuePair<K, V>> {
         /**
         * This creates a Map that may check the types of the keys and/or values.
         * @param {function(...)} keytype if supplied, this must be a class function/constructor.
@@ -9165,7 +9165,7 @@ declare namespace go {
         count: number;
 
         /**Gets an object that you can use for iterating over the key-value pairs of the Map.*/
-        iterator: Iterator<KeyValuePair<K,V>>;
+        iterator: Iterator<KeyValuePair<K, V>>;
 
         /**Gets an object that you can use for iterating over the keys in the Map.*/
         iteratorKeys: Iterator<K>;
@@ -9185,9 +9185,9 @@ declare namespace go {
 
         /**
         * Adds all of the key-value pairs of another Map to this Map.
-        * @param {Iterable.<KeyValuePair.<K,V>>|Array} coll
+        * @param {Iterable.<KeyValuePair.<K, V>>|Array} coll
         */
-        addAll(coll: Iterable<KeyValuePair<K, V>> | Array<KeyValuePair<K, V>>): Map<K,V>;
+        addAll(coll: Iterable<KeyValuePair<K, V>> | Array<KeyValuePair<K, V>>): Map<K, V>;
 
         /**
         * This is true if all invocations of the given predicate on key-value pairs in the collection are true.
@@ -9209,7 +9209,7 @@ declare namespace go {
         /**
         * Produce a new Map that includes the key-value pairs of this Map and then adds the pairs of the given Iterator.
         * Unlike Iterator.concat, this returns a Map, not an Iterator.
-        * @param {Iterable.<KeyValuePair<K,V>>} it An Iterable
+        * @param {Iterable.<KeyValuePair<K, V>>} it An Iterable
         */
         concat<W>(it: Iterable<KeyValuePair<K, W>>): Map<K, V | W>;
 
@@ -9222,7 +9222,7 @@ declare namespace go {
         /**
         * Makes a shallow copy of this Map.
         */
-        copy(): Map<K,V>;
+        copy(): Map<K, V>;
 
         /**
         * Removes a key (if found) from the Map. ES6-like synonym for remove.
@@ -9234,19 +9234,19 @@ declare namespace go {
         * Call the given function on each key-value pair in the collection.
         * @param {(x: Object) => void} func
         */
-        each(func: (x: KeyValuePair<K,V>) => void ): void;
+        each(func: (x: KeyValuePair<K, V>) => void ): void;
 
         /**
         * Call the given predicate on each key-value pair in the collection and for each pair that it returns true, add the key-value association in a new Map.
         * Unlike Iterator.filter, this returns a Map, not an Iterator.
-        * @param {function(KeyValuePair<K,V>):boolean} pred This function must not have any side-effects.
+        * @param {function(KeyValuePair<K, V>):boolean} pred This function must not have any side-effects.
         */
         filter(pred: (x: KeyValuePair<K, V>) => boolean): Map<K, V>;
 
         /**
         * Returns the first key-value pair in the collection, or null if there is none.
         */
-        first(): KeyValuePair<K,V>;
+        first(): KeyValuePair<K, V>;
 
         /**
         * Returns the value associated with a key. ES6-like synonym for getValue.
@@ -9269,7 +9269,7 @@ declare namespace go {
         /**
         * Call the given function on each key-value pair in the collection and associate the key with the result of the function in a new Map.
         * Unlike Iterator.map, this returns a Map, not an Iterator.
-        * @param {function(KeyValuePair<K,V>)} func This function must not modify the collection.
+        * @param {function(KeyValuePair<K, V>)} func This function must not modify the collection.
         */
         map<S>(func: (x: KeyValuePair<K, V>) => S): Map<K, S>;
 
@@ -9289,7 +9289,7 @@ declare namespace go {
         /**
         * Produces a JavaScript Array of key/value pair objects from the contents of this Map.
         */
-        toArray(): Array<KeyValuePair<K,V>>;
+        toArray(): Array<KeyValuePair<K, V>>;
 
         /**
         * Produces a Set that provides a read-only view onto the keys of this Map.

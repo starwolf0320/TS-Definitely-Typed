@@ -27,7 +27,7 @@ declare namespace polymer {
 
     // Attributes
 
-    hostAttributes?: {[name:string]:any};
+    hostAttributes?: {[name: string]: any};
 
     reflectPropertiesToAttribute?(name: string): void;
 
@@ -44,7 +44,7 @@ declare namespace polymer {
 
     // Behaviors
 
-    behaviors?:Object[];
+    behaviors?: Object[];
 
     // Constructors
 
@@ -68,7 +68,7 @@ declare namespace polymer {
 
     // Properties
 
-    properties?:{[prop:string]:(PropConstructorType|PropObjectType);};
+    properties?: {[prop: string]: (PropConstructorType|PropObjectType)};
 
     getPropertyInfo?(property: string): Object;
 
@@ -105,7 +105,7 @@ declare namespace polymer {
 
     // Events
 
-    listeners?: {[key:string]:string;};
+    listeners?: {[key: string]: string};
 
     listen?(node: Element, eventName: string, methodName: string): void;
 
@@ -164,7 +164,7 @@ declare namespace polymer {
 
     fire?(type: string, detail?: any, options?: Object): CustomEvent;
 
-    async?(callback: ()=>void, waitTime?: number): number;
+    async?(callback: () => void, waitTime?: number): number;
 
     cancelAsync?(handle: number): void;
 
@@ -180,7 +180,7 @@ declare namespace polymer {
 
     isLightDescendant?(node: HTMLElement): boolean;
 
-    isLocalDescendant?(node: HTMLElement): boolean
+    isLocalDescendant?(node: HTMLElement): boolean;
 
     // XStyling
 
@@ -188,21 +188,21 @@ declare namespace polymer {
 
     /* common api */
 
-    registerCallback?():void;
+    registerCallback?(): void;
 
-    createdCallback?():void;
+    createdCallback?(): void;
 
-    attachedCallback?():void;
+    attachedCallback?(): void;
 
-    detachedCallback?():void;
+    detachedCallback?(): void;
 
-    attributeChangedCallback?(name: string):void;
+    attributeChangedCallback?(name: string): void;
 
-    extend?(prototype: Object, api: Object):Object;
+    extend?(prototype: Object, api: Object): Object;
 
-    mixin?(target: Object, source: Object):Object;
+    mixin?(target: Object, source: Object): Object;
 
-    copyOwnProperty?(name: string, source: Object, target: Object):void;
+    copyOwnProperty?(name: string, source: Object, target: Object): void;
 
     observers?: string[];
 
@@ -222,73 +222,73 @@ declare namespace polymer {
 
   interface DomApiStatic {
 
-    (obj: Node|Base):DomApi;
+    (obj: Node|Base): DomApi;
 
-    (obj: Event):EventApi;
+    (obj: Event): EventApi;
 
-    flush():void;
+    flush(): void;
   }
 
   interface DomApi {
 
     appendChild(node: Node): Node;
 
-    insertBefore(node: Node, refNode?: Node):Node;
+    insertBefore(node: Node, refNode?: Node): Node;
 
-    removeChild(node: Node):Node;
+    removeChild(node: Node): Node;
 
-    replaceChild(node: Node, refNode: Node):Node;
+    replaceChild(node: Node, refNode: Node): Node;
 
-    getOwnerRoot():Node;
+    getOwnerRoot(): Node;
 
-    querySelector(selector: string):Node;
+    querySelector(selector: string): Node;
 
-    querySelectorAll(selector: string):Node[];
+    querySelectorAll(selector: string): Node[];
 
-    getDestinationInsertionPoints():Node[];
+    getDestinationInsertionPoints(): Node[];
 
-    getDistributedNodes():Node[];
+    getDistributedNodes(): Node[];
 
-    queryDistributedElements(selector: string):Node[];
+    queryDistributedElements(selector: string): Node[];
 
-    setAttribute(name: string, value: any):void;
+    setAttribute(name: string, value: any): void;
 
-    removeAttribute(name: string):void;
+    removeAttribute(name: string): void;
 
-    childNodes:Node[];
+    childNodes: Node[];
 
-    children:Element[];
+    children: Element[];
 
-    parentNode:Node;
+    parentNode: Node;
 
-    firstChild:Node;
+    firstChild: Node;
 
-    lastChild:Node;
+    lastChild: Node;
 
-    nextSibling:Node;
+    nextSibling: Node;
 
-    previousSibling:Node;
+    previousSibling: Node;
 
-    firstElementChild:Element;
+    firstElementChild: Element;
 
-    lastElementChild:Element;
+    lastElementChild: Element;
 
-    nextElementSibling:Element;
+    nextElementSibling: Element;
 
-    previousElementSibling:Element;
+    previousElementSibling: Element;
 
-    textContent:string;
+    textContent: string;
 
-    innerHTML:string;
+    innerHTML: string;
   }
 
   interface EventApi {
 
-    rootTarget:EventTarget;
+    rootTarget: EventTarget;
 
-    localTarget:EventTarget;
+    localTarget: EventTarget;
 
-    path:Node[];
+    path: Node[];
   }
 
   interface Settings {

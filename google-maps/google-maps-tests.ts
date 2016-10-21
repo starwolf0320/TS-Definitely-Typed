@@ -1,7 +1,7 @@
 
 
 import GoogleMapsLoader = require('google-maps');
- 
+
 GoogleMapsLoader.load(function(google) {
     var loadedMap = google.maps.Map;
 });

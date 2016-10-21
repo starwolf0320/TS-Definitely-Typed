@@ -75,7 +75,7 @@ declare namespace noUiSlider {
          * See manual formatting to the right for usage information.
          * By default, noUiSlider will format output with 2 decimals.
          */
-        format?: Object | ((...args:any[]) => any);
+        format?: Object | ((...args: any[]) => any);
 
         /**
          * Allows you to generate points along the slider.
@@ -140,7 +140,7 @@ declare namespace noUiSlider {
          * Array for both one-handle and two-handle sliders. It contains the current slider values,
          * with formatting applied.
          */
-        (values: any[], handle: number, unencoded: number): void
+        (values: any[], handle: number, unencoded: number): void;
     }
 
 
@@ -174,6 +174,6 @@ declare namespace noUiSlider {
     }
 
     interface Instance extends HTMLElement {
-        noUiSlider: noUiSlider
+        noUiSlider: noUiSlider;
     }
 }

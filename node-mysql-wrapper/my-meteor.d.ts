@@ -43,8 +43,8 @@ declare namespace Mongo {
 			transform?: Function;
 		}): T;
 		insert(doc: T, callback?: Function): string;
-		rawCollection():any;
-		rawDatabase():any;
+		rawCollection(): any;
+		rawDatabase(): any;
 		remove(selector: any, callback?: Function): void;
 		update(selector: any, modifier: any, options?: {
 			multi?: boolean;

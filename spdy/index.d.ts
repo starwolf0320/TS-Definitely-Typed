@@ -11,7 +11,7 @@ declare module "spdy" {
         export function create(base: any, options: AgentOptions): Agent | PlainAgent;
 
         export interface AgentOptions extends node.https.AgentOptions {
-            port?: number,
+            port?: number;
             spdy?: {
                 plain?: boolean,
                 ssl?: boolean,
@@ -70,10 +70,10 @@ declare module "spdy" {
                 | 'http/1.0';
 
         export interface PushOptions {
-            status?: number,
-            method?: string,
-            request?: any,
-            response?: any
+            status?: number;
+            method?: string;
+            request?: any;
+            response?: any;
         }
 
         export interface ServerOptions extends node.https.ServerOptions {

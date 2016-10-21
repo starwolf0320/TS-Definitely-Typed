@@ -7,7 +7,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Document {
+  export namespace Document {
     /**
      * An enumeration of the element attributes.
      *
@@ -230,14 +230,14 @@ declare namespace GoogleAppsScript {
      *      doc = DocumentApp.create('Document Name');
      */
     export interface DocumentApp {
-      Attribute: Attribute
-      ElementType: ElementType
-      FontFamily: FontFamily
-      GlyphType: GlyphType
-      HorizontalAlignment: HorizontalAlignment
-      ParagraphHeading: ParagraphHeading
-      TextAlignment: TextAlignment
-      VerticalAlignment: VerticalAlignment
+      Attribute: Attribute;
+      ElementType: ElementType;
+      FontFamily: FontFamily;
+      GlyphType: GlyphType;
+      HorizontalAlignment: HorizontalAlignment;
+      ParagraphHeading: ParagraphHeading;
+      TextAlignment: TextAlignment;
+      VerticalAlignment: VerticalAlignment;
       create(name: string): Document;
       getActiveDocument(): Document;
       getUi(): Base.Ui;

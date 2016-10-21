@@ -23,7 +23,7 @@ declare module "material-ui" {
     export import ClearFix = __MaterialUI.ClearFix; // require('material-ui/lib/clearfix');
     export import DatePicker = __MaterialUI.DatePicker.DatePicker; // require('material-ui/lib/date-picker/date-picker');
     export import DatePickerDialog = __MaterialUI.DatePicker.DatePickerDialog; // require('material-ui/lib/date-picker/date-picker-dialog');
-    export import Dialog = __MaterialUI.Dialog // require('material-ui/lib/dialog');
+    export import Dialog = __MaterialUI.Dialog; // require('material-ui/lib/dialog');
     export import DropDownIcon = __MaterialUI.DropDownIcon; // require('material-ui/lib/drop-down-icon');
     export import DropDownMenu = __MaterialUI.DropDownMenu; // require('material-ui/lib/drop-down-menu');
     export import EnhancedButton = __MaterialUI.EnhancedButton; // require('material-ui/lib/enhanced-button');
@@ -72,7 +72,7 @@ declare module "material-ui" {
     export import ToolbarTitle = __MaterialUI.Toolbar.ToolbarTitle; // require('material-ui/lib/toolbar/toolbar-title');
     export import Tooltip = __MaterialUI.Tooltip; // require('material-ui/lib/tooltip');
     export import Utils = __MaterialUI.Utils; // require('material-ui/lib/utils/');
-    
+
     export import GridList = __MaterialUI.GridList.GridList; // require('material-ui/lib/gridlist/grid-list');
     export import GridTile = __MaterialUI.GridList.GridTile; // require('material-ui/lib/gridlist/grid-tile');
 
@@ -119,7 +119,7 @@ declare namespace __MaterialUI {
         onLeftIconButtonTouchTap?: TouchTapEventHandler;
         onRightIconButtonTouchTap?: TouchTapEventHandler;
     }
-    export class AppBar extends React.Component<AppBarProps, {}>{
+    export class AppBar extends React.Component<AppBarProps, {}> {
     }
 
     interface AppCanvasProps extends React.Props<AppCanvas> {
@@ -320,7 +320,7 @@ declare namespace __MaterialUI {
         interface DatePickerProps extends React.Props<DatePicker> {
             autoOk?: boolean;
             defaultDate?: Date;
-            formatDate?: (date:Date) => string;
+            formatDate?: (date: Date) => string;
             hintText?: string;
             floatingLabelText?: string;
             hideToolbarYearChange?: boolean;
@@ -647,7 +647,7 @@ declare namespace __MaterialUI {
             style?: React.CSSProperties;
         }
         export class MenuItem extends React.Component<MenuItemProps, {}> {
-            static Types: { LINK: string, SUBHEADER: string, NESTED: string, }
+            static Types: { LINK: string, SUBHEADER: string, NESTED: string };
         }
     }
 
@@ -662,11 +662,11 @@ declare namespace __MaterialUI {
 
         interface StylePropable extends React.Mixin<any, any> {
         }
-        var StylePropable: StylePropable
+        var StylePropable: StylePropable;
 
         interface StyleResizable extends React.Mixin<any, any> {
         }
-        var StyleResizable: StyleResizable
+        var StyleResizable: StyleResizable;
     }
 
     interface OverlayProps extends React.Props<Overlay> {
@@ -900,15 +900,15 @@ declare namespace __MaterialUI {
                 color?: string,
                 textColor?: string,
                 height?: number
-            },
+            };
             avatar?: {
                 borderColor?: string;
-            }
+            };
             button?: {
                 height?: number,
                 minWidth?: number,
                 iconButtonSize?: number
-            },
+            };
             checkbox?: {
                 boxColor?: string,
                 checkedColor?: string,
@@ -916,24 +916,24 @@ declare namespace __MaterialUI {
                 disabledColor?: string,
                 labelColor?: string,
                 labelDisabledColor?: string
-            },
+            };
             datePicker?: {
                 color?: string,
                 textColor?: string,
                 calendarTextColor?: string,
                 selectColor?: string,
                 selectTextColor?: string,
-            },
+            };
             dropDownMenu?: {
                 accentColor?: string,
-            },
+            };
             flatButton?: {
                 color?: string,
                 textColor?: string,
                 primaryTextColor?: string,
                 secondaryTextColor?: string,
                 disabledColor?: string
-            },
+            };
             floatingActionButton?: {
                 buttonSize?: number,
                 miniSize?: number,
@@ -943,36 +943,36 @@ declare namespace __MaterialUI {
                 secondaryIconColor?: string,
                 disabledColor?: string,
                 disabledTextColor?: string
-            },
+            };
             inkBar?: {
                 backgroundColor?: string;
-            },
+            };
             leftNav?: {
                 width?: number,
                 color?: string,
-            },
+            };
             listItem?: {
                 nestedLevelDepth?: number;
-            },
+            };
             menu?: {
                 backgroundColor?: string,
                 containerBackgroundColor?: string,
-            },
+            };
             menuItem?: {
                 dataHeight?: number,
                 height?: number,
                 hoverColor?: string,
                 padding?: number,
                 selectedTextColor?: string,
-            },
+            };
             menuSubheader?: {
                 padding?: number,
                 borderColor?: string,
                 textColor?: string,
-            },
+            };
             paper?: {
                 backgroundColor?: string,
-            },
+            };
             radioButton?: {
                 borderColor?: string,
                 backgroundColor?: string,
@@ -982,7 +982,7 @@ declare namespace __MaterialUI {
                 size?: number,
                 labelColor?: string,
                 labelDisabledColor?: string
-            },
+            };
             raisedButton?: {
                 color?: string,
                 textColor?: string,
@@ -992,7 +992,7 @@ declare namespace __MaterialUI {
                 secondaryTextColor?: string,
                 disabledColor?: string,
                 disabledTextColor?: string
-            },
+            };
             refreshIndicator?: {
                 strokeColor?: string;
                 loadingStrokeColor?: string;
@@ -1008,12 +1008,12 @@ declare namespace __MaterialUI {
                 handleFillColor?: string,
                 selectionColor?: string,
                 rippleColor?: string,
-            },
+            };
             snackbar?: {
                 textColor?: string,
                 backgroundColor?: string,
                 actionColor?: string,
-            },
+            };
             table?: {
                 backgroundColor?: string;
             };
@@ -1057,7 +1057,7 @@ declare namespace __MaterialUI {
                 trackRequiredColor?: string,
                 labelColor?: string,
                 labelDisabledColor?: string
-            },
+            };
             toolbar?: {
                 backgroundColor?: string,
                 height?: number,
@@ -1320,7 +1320,7 @@ declare namespace __MaterialUI {
         multiLine?: boolean;
         onEnterKeyDown?: React.KeyboardEventHandler;
         style?: React.CSSProperties;
-        rows?: number,
+        rows?: number;
         underlineStyle?: React.CSSProperties;
         underlineFocusStyle?: React.CSSProperties;
         underlineDisabledStyle?: React.CSSProperties;
@@ -1507,7 +1507,7 @@ declare namespace __MaterialUI {
             zDepth?: number;
             style?: React.CSSProperties;
         }
-        export class Menu extends React.Component<MenuProps, {}>{
+        export class Menu extends React.Component<MenuProps, {}> {
         }
 
         interface MenuItemProps extends React.Props<MenuItem> {
@@ -1527,14 +1527,14 @@ declare namespace __MaterialUI {
             onItemTouchTap?: (e: TouchTapEvent, item: React.ReactElement<any>) => void;
             onChange?: (e: React.FormEvent, value: string) => void;
         }
-        export class MenuItem extends React.Component<MenuItemProps, {}>{
+        export class MenuItem extends React.Component<MenuItemProps, {}> {
         }
 
         interface MenuDividerProps extends React.Props<MenuDivider> {
             inset?: boolean;
             style?: React.CSSProperties;
         }
-        export class MenuDivider extends React.Component<MenuDividerProps, {}>{
+        export class MenuDivider extends React.Component<MenuDividerProps, {}> {
         }
     }
 
@@ -1547,7 +1547,7 @@ declare namespace __MaterialUI {
             style?: React.CSSProperties;
         }
 
-        export class GridList extends React.Component<GridListProps, {}>{
+        export class GridList extends React.Component<GridListProps, {}> {
         }
 
         interface GridTileProps extends React.Props<GridTile> {
@@ -1559,11 +1559,11 @@ declare namespace __MaterialUI {
             actionPosition?: string; //"left"|"right"
             cols?: number;
             rows?: number;
-            rootClass?: string | __React.Component<any,any>;
+            rootClass?: string | __React.Component<any, any>;
             style?: React.CSSProperties;
         }
 
-        export class GridTile extends React.Component<GridTileProps, {}>{
+        export class GridTile extends React.Component<GridTileProps, {}> {
         }
 
     }

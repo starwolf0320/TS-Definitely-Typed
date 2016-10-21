@@ -9,9 +9,9 @@ export as namespace fromNow;
 
 declare namespace FromNow {
     interface FromNowOpts {
-        maxChunks?: number,
-        useAgo?: boolean,
-        useAnd?: boolean
+        maxChunks?: number;
+        useAgo?: boolean;
+        useAnd?: boolean;
     }
     export interface FromNowStatic {
         /**
@@ -22,6 +22,6 @@ declare namespace FromNow {
          * @param {boolean} [opts.useAgo=false]
          * @param {boolean} [opts.useAnd=false]
          */
-        (date: string|Date, opts?: FromNowOpts): string
+        (date: string|Date, opts?: FromNowOpts): string;
     }
 }

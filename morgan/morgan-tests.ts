@@ -46,7 +46,7 @@ interface IExtendedFormatFn extends morgan.FormatFn {
 
 
 var developmentExtendedFormatLine : IExtendedFormatFn = function(tokens, req, res):string {
-    
+
   // get the status code if response written
   var status = res.statusCode
     ? res.statusCode

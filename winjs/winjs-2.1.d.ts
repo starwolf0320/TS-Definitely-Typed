@@ -4203,7 +4203,7 @@ declare namespace WinJS.UI {
 
        //#endregion Properties
     }
-    
+
     /**
      * Represents a grid layout for the ListView in which items are arranged in a horizontal grid.
     **/
@@ -6680,7 +6680,7 @@ declare namespace WinJS.Utilities {
 	export var QueryCollection: {
         new <T>(items: T[]): QueryCollection<T>;
         prototype: QueryCollection<any>;
-    }
+    };
 
 	//#endregion Objects
 

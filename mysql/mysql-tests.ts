@@ -208,7 +208,7 @@ poolCluster.getConnection('MASTER', function (err, connection) { });
 // Target Group : SLAVE1-2, Selector : order
 // If can't connect to SLAVE1, return SLAVE2. (remove SLAVE1 in the cluster)
 poolCluster.on('remove', function (nodeId) {
-    console.log('REMOVED NODE : ' + nodeId); // nodeId = SLAVE1 
+    console.log('REMOVED NODE : ' + nodeId); // nodeId = SLAVE1
 });
 
 poolCluster.getConnection('SLAVE*', 'ORDER', function (err, connection) { });

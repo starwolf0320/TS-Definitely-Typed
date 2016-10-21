@@ -104,7 +104,7 @@ declare module "sdk/context-menu" {
     add: (context: Context) => void;
     remove: (context: Context) => void;
   }
-  
+
   interface Item {
     context: ItemContext;
     destroy: () => void;
@@ -121,7 +121,7 @@ declare module "sdk/context-menu" {
    */
   export function Item(options: {label: string, image?: string, accessKey?: string, context?: Context | Context[],
     contentScript?: string, contentScriptFile?: string,  data?: any, onMessage?: (message?: any) => any}): Item;
-  
+
   /**
    * @constructor
    * A menu separator
@@ -165,16 +165,16 @@ declare module "sdk/hotkeys" {
   /**
    * @contructor
    * Hotkey
-   * Used to define a hotkey combination passing it the combination and a function to be called when the user 
+   * Used to define a hotkey combination passing it the combination and a function to be called when the user
    * presses that combination
    */
   export function Hotkey(options: {combo: string, onPress: () => void}): Hotkey;
 }
 
 declare module "sdk/indexed-db" {
-  
+
   // these interfaces are already provided by TypeScript
-  
+
   interface IndexedImpl {
     indexedDB: IDBFactory;
     IDBKeyRange: IDBKeyRange;
@@ -241,7 +241,7 @@ declare module "sdk/page-mod" {
     contentScriptOptions?: any, attachTo?: attachmentMode | attachmentMode[], contentScriptWhen?: "start" | "ready" | "end",
     exclude?: string | string[], onAttach?: (worker: FFAddonSDK.ContentWorker) => any, onError?: (error: Error) => any}): PageMod;
 
-  type attachmentMode = "existing" | "top" | "frame"
+  type attachmentMode = "existing" | "top" | "frame";
 
   interface PageMod {
     destroy: () => void;
@@ -473,15 +473,15 @@ declare module "sdk/request" {
     content: string;
     contentType: string;
   }
-  
+
   interface Request extends BaseRequest {
     response: Response;
   }
-  
-  interface STRequest<ResponseType> extends BaseRequest{
+
+  interface STRequest<ResponseType> extends BaseRequest {
     response: STResponse<ResponseType>;
   }
-  
+
   interface BaseResponse {
     url: string;
     text: string;
@@ -490,11 +490,11 @@ declare module "sdk/request" {
     headers: Object;
     anonymous: boolean;
   }
-  
+
   interface Response extends BaseResponse {
     json: Object;
   }
-  
+
   interface STResponse<T> {
     json: T;
   }
@@ -590,9 +590,9 @@ declare module "sdk/self" {
      * The url can be passed to a content frame constructor, such as the {@link Panel}
      */
     export function url(name: string): string;
-    
+
   }
-  
+
 }
 
 /**
@@ -613,7 +613,7 @@ declare module "sdk/simple-prefs" {
   export function removeListener(prefName: string, listener: Function): void;
 
   export const prefs: Object;
-  
+
 }
 
 /**
@@ -986,7 +986,7 @@ declare module "sdk/windows" {
 }
 
 declare namespace FFAddonSDK {
-  
+
   interface BrowserWindow {
     title: string;
     activate: () => void;
@@ -1078,7 +1078,7 @@ declare namespace FFAddonSDK {
     isPinned: boolean;
     window: BrowserWindow;
     readyState: "uninitialized" | "loading" | "interactive" | "complete";
-    on: (event: "ready" | "load" | "pageshow" | "activate" | "deactivate" | "close", handler: (tab: Tab) => any)=> void;
+    on: (event: "ready" | "load" | "pageshow" | "activate" | "deactivate" | "close", handler: (tab: Tab) => any) => void;
     attach: (options: {contentScript?: string | string[], contentScriptFile?: string | string[], contentScriptOptions?: Object,
       onMessage?: (message: string) => any, onError?: (error: Error) => any}) => ContentWorker;
     activate: () => void;
@@ -1103,7 +1103,7 @@ declare namespace FFAddonSDK {
     new(options: {window: Window, contentScript?: string | string[], contentScriptFile?: string | string[],
       onMessage: (data?: any) => any, onError: (data?: any) => any}): ContentWorker;
     url: URL;
-    port: Port,
+    port: Port;
     tab: Tab;
     on: (event: "detach" | "message" | "error", handler: () => any) => void;
     postMessage: (data?: any) => void;
@@ -1129,5 +1129,5 @@ declare namespace FFAddonSDK {
     result: any;
     toString: () => string;
   }
-  
+
 }

@@ -212,7 +212,7 @@ declare namespace FalcorModel {
     //  ModelResponse
     /////////////////////////////////////////////////////
 
-    class ModelResponse<T> extends Observable<T>{
+    class ModelResponse<T> extends Observable<T> {
         constructor(observable: Observable<T>);
         progressively(): ModelResponse<JSONEnvelope<T>>;
         forEach(onNext: (value: T) => void, onError?: (error: Error) => void, onCompleted?: () => void): Subscription;

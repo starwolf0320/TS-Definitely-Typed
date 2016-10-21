@@ -284,7 +284,6 @@ declare namespace ydn.db.events {
     getValue(): any;
   }
 
-
   export class StorageEvent extends Event {
 
     getError(): Error;
@@ -293,7 +292,6 @@ declare namespace ydn.db.events {
 
     getOldVersion(): number;
   }
-
 
   export class StoreEvent extends Event {
 

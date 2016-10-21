@@ -11,7 +11,7 @@ export interface Visitor {
 
     fallback?: 'iteration'|((node: ESTree.Node) => string[]);
 
-    keys?: {[nodeType: string]: string[];};
+    keys?: {[nodeType: string]: string[]};
 }
 
 export enum VisitorOption {Skip, Break, Remove}

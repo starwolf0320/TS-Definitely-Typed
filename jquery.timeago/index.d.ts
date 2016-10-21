@@ -27,7 +27,7 @@ interface TimeagoSetings {
         months?: any;
         year?: any;
         years?: any;
-        
+
         wordSeparator?: string;
         numbers?: any[];
     };

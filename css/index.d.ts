@@ -26,16 +26,16 @@ export interface StringifyOptions {
     indent?: string;
     /** Omit comments and extraneous whitespace. */
     compress?: boolean;
-    /** Return a sourcemap along with the CSS output. 
-     * Using the source option of css.parse is strongly recommended 
-     * when creating a source map. Specify sourcemap: 'generator' 
-     * to return the SourceMapGenerator object instead of serializing the source map. 
+    /** Return a sourcemap along with the CSS output.
+     * Using the source option of css.parse is strongly recommended
+     * when creating a source map. Specify sourcemap: 'generator'
+     * to return the SourceMapGenerator object instead of serializing the source map.
      */
     sourcemap?: string;
     /** (enabled by default, specify false to disable)
-     *  Reads any source maps referenced by the input files 
-     * when generating the output source map. When enabled, 
-     * file system access may be required for reading the referenced source maps. 
+     *  Reads any source maps referenced by the input files
+     * when generating the output source map. When enabled,
+     * file system access may be required for reading the referenced source maps.
      */
     inputSourcemaps?: boolean;
 }
@@ -102,15 +102,15 @@ export interface Declaration extends Node {
     value?: string;
 }
 
-/** 
+/**
  * A rule-level or declaration-level comment. Comments inside selectors, properties and values etc. are lost.
  */
 export interface Comment extends Node {
     comment?: string;
 }
 
-/** 
- * The @charset at-rule. 
+/**
+ * The @charset at-rule.
  */
 export interface Charset {
     /** The part following @charset. */
@@ -118,7 +118,7 @@ export interface Charset {
 }
 
 /**
- * The @custom-media at-rule 
+ * The @custom-media at-rule
  */
 export interface CustomMedia {
     /** The ---prefixed name. */
@@ -223,8 +223,8 @@ export interface Supports {
 /** All at-rules. */
 export type AtRule = Charset | CustomMedia | Document | FontFace | Host | Import | KeyFrames | Media | Namespace | Page | Supports;
 
-/** 
- * The root node returned by css.parse. 
+/**
+ * The root node returned by css.parse.
  */
 export interface Stylesheet extends Node {
     stylesheet?: {
@@ -239,7 +239,7 @@ export interface Stylesheet extends Node {
 
 /**
  * Accepts a CSS string and returns an AST object.
- * 
+ *
  * @param {string} code - CSS code.
  * @param {ParserOptions} options - CSS parser options.
  * @return {Stylesheet} AST object built using provides CSS code.
@@ -248,7 +248,7 @@ export function parse(code: string, options?: ParserOptions): Stylesheet;
 
 /**
  * Accepts an AST object (as css.parse produces) and returns a CSS string.
- * 
+ *
  * @param {Stylesheet} stylesheet - AST tree.
  * @param {StringifyOptions} options - AST tree to string serializaiton options.
  * @return {string} CSS code.

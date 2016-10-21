@@ -133,4 +133,4 @@ declare var FileTransferError: {
     CONNECTION_ERR: number;
     ABORT_ERR: number;
     NOT_MODIFIED_ERR: number;
-}
+};

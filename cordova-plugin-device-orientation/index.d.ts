@@ -2,12 +2,12 @@
 // Project: https://github.com/apache/cordova-plugin-device-orientation
 // Definitions by: Microsoft Open Technologies Inc <http://msopentech.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// 
+//
 // Copyright (c) Microsoft Open Technologies Inc
-// Licensed under the MIT license. 
+// Licensed under the MIT license.
 
 interface Navigator {
-    /** 
+    /**
      * This plugin provides access to the device's compass. The compass is a sensor that detects
      * the direction or heading that the device is pointed, typically from the top of the device.
      * It measures the heading in degrees from 0 to 359.99, where 0 is north.
@@ -15,7 +15,7 @@ interface Navigator {
     compass: Compass;
 }
 
-/** 
+/**
  * This plugin provides access to the device's compass. The compass is a sensor that detects
  * the direction or heading that the device is pointed, typically from the top of the device.
  * It measures the heading in degrees from 0 to 359.99, where 0 is north.
@@ -83,4 +83,4 @@ declare var CompassError: {
     new(code: number): CompassError;
     COMPASS_INTERNAL_ERR: number;
     COMPASS_NOT_SUPPORTED: number
-}
+};

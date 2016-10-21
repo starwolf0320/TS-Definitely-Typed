@@ -19,14 +19,13 @@ declare namespace angular.ui {
             * When defined to true, the state is never included in the chain of states and never appears in the breadcrumb
             **/
             skip?: boolean;
-        },
+        };
         ncyBreadcrumbLabel?: string;
         ncyBreadcrumbLink?: string;
     }
 }
 
 declare namespace ncy {
-	
     /**
     * Provider that returns an instance of $breadcrumb service. It contains the global configuration of the module.
     **/
@@ -36,7 +35,7 @@ declare namespace ncy {
         **/
         setOptions(options: breadcrumbProviderOptions): void;
     }
-	
+
     /**
     * Global configuration options for angular-breadcrumb
     **/
@@ -51,7 +50,7 @@ declare namespace ncy {
         **/
         template?: string;
 
-        /** 
+        /**
         * Contains the path to a template file. This property takes precedence over the template property.
         **/
         templateUrl?: string;

@@ -12,8 +12,8 @@ ts.createTable("babbsies", function (error, table) {
 Azure.RoleEnvironment.on('stopping', () => {
 });
 
-Azure.RoleEnvironment.getDeploymentId((error, id) => { 
+Azure.RoleEnvironment.getDeploymentId((error, id) => {
 });
 
-Azure.RoleEnvironment.isAvailable((error, available) => { 
+Azure.RoleEnvironment.isAvailable((error, available) => {
 });

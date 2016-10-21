@@ -3,8 +3,8 @@
 // Definitions by: Maksim Kozhukh <http://github.com/mkozhukh>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-interface SchedulerCallback { (...args: any[]): any }
-interface SchedulerFilterCallback { (id: string | number, event: any): boolean }
+interface SchedulerCallback { (...args: any[]): any; }
+interface SchedulerFilterCallback { (id: string | number, event: any): boolean; }
 
 type SchedulerEventName = 'onAfterEventDisplay' | 'onAfterFolderToggle' | 'onAfterLightbox' | 'onAfterSchedulerResize' | 'onBeforeCollapse' | 'onBeforeDrag' | 'onBeforeEventChanged' | 'onBeforeEventCreated' | 'onBeforeEventDelete' | 'onBeforeEventDisplay' | 'onBeforeEventDragIn' | 'onBeforeEventDragOut' | 'onBeforeExpand' | 'onBeforeExternalDragIn' | 'onBeforeFolderToggle' | 'onBeforeLightbox' | 'onBeforeSectionRender' | 'onBeforeTodayDisplayed' | 'onBeforeTooltip' | 'onBeforeViewChange' | 'onCellClick' | 'onCellDblClick' | 'onClearAll' | 'onClick' | 'onCollapse' | 'onConfirmedBeforeEventDelete' | 'onContextMenu' | 'onDblClick' | 'onDragEnd' | 'onEmptyClick' | 'onEventAdded' | 'onEventCancel' | 'onEventChanged' | 'onEventCollision' | 'onEventCopied' | 'onEventCreated' | 'onEventCut' | 'onEventDeleted' | 'onEventDrag' | 'onEventDragIn' | 'onEventDragOut' | 'onEventDropOut' | 'onEventIdChange' | 'onEventLoading' | 'onEventPasted' | 'onEventSave' | 'onExpand' | 'onExternalDragIn' | 'onLightbox' | 'onLightboxButton' | 'onLimitViolation' | 'onLoadError' | 'onLocationError' | 'onMouseDown' | 'onMouseMove' | 'onOptionsLoad' | 'onOptionsLoadFinal' | 'onOptionsLoadStart' | 'onSaveError' | 'onScaleAdd' | 'onScaleDblClick' | 'onSchedulerReady' | 'onSchedulerResize' | 'onTemplatesReady' | 'onTimelineCreated' | 'onViewChange' | 'onViewMoreClick' | 'onXLE' | 'onXLS' | 'onXScaleClick' | 'onXScaleDblClick' | 'onYScaleClick' | 'onYScaleDblClick';
 

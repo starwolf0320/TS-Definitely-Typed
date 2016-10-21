@@ -11,7 +11,7 @@ interface Options {
 }
 
 interface Replacer {
-    (match: string): string
+    (match: string): string;
 }
 
 declare function replace(pattern: string, replacement: string | Replacer, opts?: Options): NodeJS.ReadWriteStream;

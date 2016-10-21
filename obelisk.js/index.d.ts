@@ -149,7 +149,7 @@ declare namespace obelisk {
 
         imageData: ImageData;
         canvas: HTMLCanvasElement;
-        context : CanvasRenderingContext2D;
+        context: CanvasRenderingContext2D;
 
         setPixel(posX: number, posY: number, color: number): void;
         setPixelByIndex(index: number, color: number): void;

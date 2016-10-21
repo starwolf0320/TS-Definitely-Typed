@@ -22,7 +22,7 @@ export interface Agent {
 }
 
 interface getAgent {
-    (...args: any[]): Agent
+    (...args: any[]): Agent;
 }
 
 export declare function getAgentFactory(app: express.Application, transform?: Function): getAgent;

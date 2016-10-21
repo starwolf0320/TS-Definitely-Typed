@@ -6,7 +6,7 @@ var storage = new LargeLocalStorage({size: 75*1024*1024});
 storage.initialized.then(function(grantedCapacity) {
     // storage ready to be used.
 });
- 
+
 var desiredCapacity = 50 * 1024 * 1024; // 50MB
 var storage = new LargeLocalStorage({
     // desired capacity, in bytes.
@@ -18,7 +18,7 @@ var storage = new LargeLocalStorage({
     // LLS's with different names are independent.
     name: 'myStorage'
 
-    // the following is an optional param 
+    // the following is an optional param
     // that is useful for debugging.
     // force LLS to use a specific storage implementation
     // forceProvider: 'IndexedDB' or 'WebSQL' or 'FilesystemAPI'
@@ -39,7 +39,7 @@ storage.getAllAttachments('exampleDoc').then(function(attachEntries) {
         } else if (a.type.indexOf('audio') == 0) {
             // play audio...
         } else {
-            
+
         }
     })
 });

@@ -21,8 +21,8 @@ server.on('client:connected', function(conn: ftpd.FtpConnection): void {
 		success();
 	});
 	conn.on('command:pass', function(
-		pass: string, 
-		success: (username: string, fs?: ftpd.FtpFileSystem) => void, 
+		pass: string,
+		success: (username: string, fs?: ftpd.FtpFileSystem) => void,
 		failure: () => void) {
 		success("Rogier");
 	});

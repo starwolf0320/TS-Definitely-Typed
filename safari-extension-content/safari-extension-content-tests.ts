@@ -8,7 +8,7 @@ element.id = "status";
 element.style.cssText = "float:right; color:red";
 element.textContent = "Waiting...";
 theBody.insertBefore(element, theBody.firstChild);
- 
+
 function replyToMessage(aMessageEvent: SafariExtensionMessageEvent) {
    if (aMessageEvent.name === "hey") {
     document.getElementById("status").textContent="Message received.";
@@ -27,7 +27,7 @@ function handleContextMenu(event: MouseEvent) {
 
 // https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/AddingContextualMenuItems/AddingContextualMenuItems.html#//apple_ref/doc/uid/TP40009977-CH4-SW16
 document.addEventListener("contextmenu", handleContextMenu2, false);
- 
+
 function handleContextMenu2(event: MouseEvent) {
     if ((<Node>event.target).nodeName == "VIDEO") {
         event.preventDefault();
@@ -37,11 +37,11 @@ function handleContextMenu2(event: MouseEvent) {
 // https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/MessagesandProxies/MessagesandProxies.html#//apple_ref/doc/uid/TP40009977-CH14-SW2
 var initialVal=1;
 var calculatedVal=0 ;
- 
+
 function doBigCalc(theData: number) {
     safari.self.tab.dispatchMessage("calcThis",theData);
 }
- 
+
 function getAnswer(theMessageEvent: SafariExtensionMessageEvent) {
     if (theMessageEvent.name === "theAnswer") {
         calculatedVal=theMessageEvent.message;
@@ -49,7 +49,7 @@ function getAnswer(theMessageEvent: SafariExtensionMessageEvent) {
     }
 }
 safari.self.addEventListener("message", getAnswer, false);
- 
+
 doBigCalc(initialVal);
 
 //https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/MessagesandProxies/MessagesandProxies.html#//apple_ref/doc/uid/TP40009977-CH14-SW9
@@ -60,5 +60,5 @@ function isItOkay(event: BeforeLoadEvent) {
         event.preventDefault();
     }
 }
- 
+
 document.addEventListener("beforeload", isItOkay, true);

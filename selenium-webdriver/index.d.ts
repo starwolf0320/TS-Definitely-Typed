@@ -1859,7 +1859,7 @@ declare namespace webdriver {
            * @param {string=} opt_type The log type, if known.
            * @constructor
            */
-          constructor(level: Level|string|number, message: string, opt_timestamp?:number, opt_type?:string|IType);
+          constructor(level: Level|string|number, message: string, opt_timestamp?: number, opt_type?: string|IType);
 
           /** @type {!webdriver.logging.Level} */
           level: Level;
@@ -2174,7 +2174,7 @@ declare namespace webdriver {
          *     {@code fn}.
          * @template TYPE, SELF
          */
-        function map<T>(arr: Array<T>|Promise<Array<T>>, fn: (self: any, type: any, index: number, array: T[]) => any, opt_self?: any): Promise<any[]>
+        function map<T>(arr: Array<T>|Promise<Array<T>>, fn: (self: any, type: any, index: number, array: T[]) => any, opt_self?: any): Promise<any[]>;
 
         /**
          * Creates a promise that has been rejected with the given reason.
@@ -2806,7 +2806,7 @@ declare namespace webdriver {
              *     with the result of the action.
              * @template T
              */
-            execute<T>(fn: ()=>(T|Promise<T>), opt_description?: string): Promise<T>;
+            execute<T>(fn: () => (T|Promise<T>), opt_description?: string): Promise<T>;
 
             /**
              * Inserts a {@code setTimeout} into the command queue. This is equivalent to
@@ -2900,7 +2900,7 @@ declare namespace webdriver {
          *     The frame identifier.
          * @return {!Condition<boolean>} A new condition.
          */
-        function ableToSwitchToFrame(frame: number|WebElement|By|((webdriver: WebDriver)=>WebElement)): Condition<boolean>;
+        function ableToSwitchToFrame(frame: number|WebElement|By|((webdriver: WebDriver) => WebElement)): Condition<boolean>;
 
         /**
          * Creates a condition that waits for an alert to be opened. Upon success, the
@@ -3558,7 +3558,7 @@ declare namespace webdriver {
      * @implements {promise.Thenable.<!webdriver.Alert>}
      * @final
      */
-    class AlertPromise extends Alert implements webdriver.promise.IThenable<Alert>{
+    class AlertPromise extends Alert implements webdriver.promise.IThenable<Alert> {
       /**
        * @param {!WebDriver} driver The driver controlling the browser this
        *     alert is attached to.
@@ -4665,7 +4665,7 @@ declare namespace webdriver {
          * @return {!EventEmitter} A self reference.
          * @private
          */
-        addListener(type: string, fn: Function, opt_scope?:any, opt_oneshot?: boolean): EventEmitter;
+        addListener(type: string, fn: Function, opt_scope?: any, opt_oneshot?: boolean): EventEmitter;
 
 
         /**
@@ -4685,7 +4685,7 @@ declare namespace webdriver {
          * @param {Object=} opt_scope The object in whose scope to invoke the listener.
          * @return {!webdriver.EventEmitter} A self reference.
          */
-        on(type: string, fn: Function, opt_scope?:any): EventEmitter;
+        on(type: string, fn: Function, opt_scope?: any): EventEmitter;
 
         /**
          * Removes a previously registered event listener.
@@ -5419,7 +5419,7 @@ declare namespace webdriver {
          *     with the function's result.
          * @template T
          */
-        call<T>(fn: (...var_args: any[])=>(T|webdriver.promise.Promise<T>), opt_scope?: any, ...var_args: any[]): webdriver.promise.Promise<T>;
+        call<T>(fn: (...var_args: any[]) => (T|webdriver.promise.Promise<T>), opt_scope?: any, ...var_args: any[]): webdriver.promise.Promise<T>;
 
         /**
          * Schedules a command to wait for a condition to hold. The condition may be
@@ -5467,7 +5467,7 @@ declare namespace webdriver {
          *     rejected if the condition times out.
          * @template T
          */
-        wait<T>(condition: webdriver.promise.Promise<T>|webdriver.until.Condition<T>|((driver: WebDriver)=>T), timeout?: number, opt_message?: string): webdriver.promise.Promise<T>;
+        wait<T>(condition: webdriver.promise.Promise<T>|webdriver.until.Condition<T>|((driver: WebDriver) => T), timeout?: number, opt_message?: string): webdriver.promise.Promise<T>;
 
         /**
          * Schedules a command to make the driver sleep for the given amount of time.
@@ -5631,7 +5631,7 @@ declare namespace webdriver {
     }
 
     interface IWebElementId {
-        [ELEMENT:string]: string;
+        [ELEMENT: string]: string;
     }
 
     /**

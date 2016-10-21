@@ -11,7 +11,7 @@ export = MsPortalTestFx;
 
 declare namespace MsPortalTestFx {
 
-    export module Locators {
+    export namespace Locators {
         export class Locator {
             seleniumLocator: any;
             findElements(context: any): any;
@@ -48,7 +48,7 @@ declare namespace MsPortalTestFx {
         }
     }
 
-    export module ActionBars {
+    export namespace ActionBars {
         export class ActionBarButton extends PortalElement {
             constructor(parentLocator?: Locators.Locator, baseLocator?: Locators.Locator);
             click(): Q.Promise<void>;
@@ -74,7 +74,7 @@ declare namespace MsPortalTestFx {
         }
     }
 
-    export module Blades {
+    export namespace Blades {
         export class Blade extends MsPortalTestFx.PortalElement {
             public title: string;
 
@@ -111,7 +111,7 @@ declare namespace MsPortalTestFx {
         }
     }
 
-    export module Controls {
+    export namespace Controls {
         export class FormElement extends MsPortalTestFx.PortalElement {
             protected label: string;
 
@@ -154,7 +154,7 @@ declare namespace MsPortalTestFx {
         }
     }
 
-    export module Parts {
+    export namespace Parts {
         export class Part extends MsPortalTestFx.PortalElement {
             public innerText: string;
 
@@ -195,7 +195,7 @@ declare namespace MsPortalTestFx {
         }
     }
 
-    export module Commands {
+    export namespace Commands {
         export class ContextMenu extends PortalElement {
             constructor();
             public hasItem(text: string): Q.Promise<boolean>;
@@ -207,7 +207,7 @@ declare namespace MsPortalTestFx {
         }
     }
 
-    export module Notifications {
+    export namespace Notifications {
         export class Notification extends PortalElement {
             constructor();
             getTitle(): Q.Promise<string>;
@@ -220,8 +220,8 @@ declare namespace MsPortalTestFx {
         }
     }
 
-    export module Tests {
-        export module Parts {
+    export namespace Tests {
+        export namespace Parts {
             export function canPinAllBladeParts(targetBladeDeepLink: string, targetBladeTitle: string, timeout?: number): Q.Promise<boolean>;
         }
     }
@@ -258,8 +258,8 @@ declare namespace MsPortalTestFx {
             chromeOptions: {
                 args: string[]
             }
-        },
-        chromeDriverPath?: string,
+        };
+        chromeDriverPath?: string;
         portalUrl: string;
         signInUrl?: string;
         signInEmail?: string;

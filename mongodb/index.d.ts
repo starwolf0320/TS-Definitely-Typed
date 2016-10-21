@@ -392,7 +392,7 @@ export interface AddUserOptions {
     j?: boolean;
     fsync: boolean;
     customData?: Object;
-    roles?: Object[]
+    roles?: Object[];
 }
 
 //http://mongodb.github.io/node-mongodb-native/2.1/api/Admin.html#removeUser
@@ -400,7 +400,7 @@ export interface FSyncOptions {
     w?: number | string;
     wtimeout?: number;
     j?: boolean;
-    fsync?: boolean
+    fsync?: boolean;
 }
 
 // Class documentation : http://mongodb.github.io/node-mongodb-native/2.1/api/ObjectID.html
@@ -857,7 +857,7 @@ export interface DeleteWriteOpResultObject {
         ok?: number;
         //The total count of documents deleted.
         n?: number;
-    }
+    };
     //The connection object used for the operation.
     connection?: any;
     //The number of documents deleted.
@@ -1010,26 +1010,26 @@ export interface FindOperatorsUnordered {
 
 //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#findOne
 export interface FindOneOptions {
-    limit?: number,
-    sort?: Array<any> | Object,
-    fields?: Object,
-    skip?: number,
-    hint?: Object,
-    explain?: boolean,
-    snapshot?: boolean,
-    timeout?: boolean,
-    tailable?: boolean,
-    batchSize?: number,
-    returnKey?: boolean,
-    maxScan?: number,
-    min?: number,
-    max?: number,
-    showDiskLoc?: boolean,
-    comment?: string,
-    raw?: boolean,
-    readPreference?: ReadPreference | string,
-    partial?: boolean,
-    maxTimeMs?: number
+    limit?: number;
+    sort?: Array<any> | Object;
+    fields?: Object;
+    skip?: number;
+    hint?: Object;
+    explain?: boolean;
+    snapshot?: boolean;
+    timeout?: boolean;
+    tailable?: boolean;
+    batchSize?: number;
+    returnKey?: boolean;
+    maxScan?: number;
+    min?: number;
+    max?: number;
+    showDiskLoc?: boolean;
+    comment?: string;
+    raw?: boolean;
+    readPreference?: ReadPreference | string;
+    partial?: boolean;
+    maxTimeMs?: number;
 }
 
 //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#~insertWriteOpResult
@@ -1038,7 +1038,7 @@ export interface InsertWriteOpResult {
     ops: Array<any>;
     insertedIds: Array<ObjectID>;
     connection: any;
-    result: { ok: number, n: number }
+    result: { ok: number, n: number };
 }
 
 //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#insertOne
@@ -1054,7 +1054,7 @@ export interface CollectionInsertOneOptions {
     //Force server to assign _id values instead of driver.
     forceServerObjectId?: boolean;
     //Allow driver to bypass schema validation in MongoDB 3.2 or higher.
-    bypassDocumentValidation?: boolean
+    bypassDocumentValidation?: boolean;
 }
 
 //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#~insertOneWriteOpResult
@@ -1063,7 +1063,7 @@ export interface InsertOneWriteOpResult {
     ops: Array<any>;
     insertedId: ObjectID;
     connection: any;
-    result: { ok: number, n: number }
+    result: { ok: number, n: number };
 }
 
 //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#parallelCollectionScan
@@ -1105,7 +1105,7 @@ export interface MapReduceOptions {
     scope?: Object;
     jsMode?: boolean;
     verbose?: boolean;
-    bypassDocumentValidation?: boolean
+    bypassDocumentValidation?: boolean;
 }
 
 //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#~WriteOpResult

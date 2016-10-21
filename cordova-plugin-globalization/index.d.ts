@@ -2,13 +2,13 @@
 // Project: https://github.com/apache/cordova-plugin-globalization
 // Definitions by: Microsoft Open Technologies Inc <http://msopentech.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// 
+//
 // Copyright (c) Microsoft Open Technologies Inc
 // Licensed under the MIT license.
 
 interface Navigator {
     /** This plugin obtains information and performs operations specific to the user's locale and timezone. */
-    globalization: Globalization
+    globalization: Globalization;
 }
 
 /** This plugin obtains information and performs operations specific to the user's locale and timezone. */
@@ -257,4 +257,4 @@ declare var GlobalizationError: {
     FORMATTING_ERROR: number;
     PARSING_ERROR: number;
     PATTERN_ERROR: number;
-}
+};

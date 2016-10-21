@@ -3,7 +3,7 @@
 // Definitions by: Vincent Zhu <https://github.com/zhu1230>
 // Definitions: https://github.com/zhu1230/DefinitelyTyped
 
-declare module ActionCable {
+declare namespace ActionCable {
   interface Channel {
     unsubscribe(): void;
     perform(action: string, data: {}): void;

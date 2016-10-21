@@ -4,9 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare class MobileDetect {
-	
+
 	constructor(userAgent: string, maxPhoneWidth?: number);
-	
+
 	is(key: string): boolean;
 	match(pattern: string|RegExp): boolean;
 	mobile(): string;
@@ -18,6 +18,6 @@ declare class MobileDetect {
 	version(value: string): number;
 	versionStr(value: string): string;
 }
-	
+
 export = MobileDetect;
 export as namespace MobileDetect;

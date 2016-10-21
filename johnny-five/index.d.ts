@@ -175,7 +175,7 @@ export declare class IMU {
     on(event: "data", cb: (data: any) => void): void;
 }
 
-export declare module IR {
+export declare namespace IR {
     export interface MotionOption {
         pin: number | string;
     }
@@ -212,7 +212,7 @@ export declare module IR {
         max: Array<number>;
     }
 
-    export module Reflect {
+    export namespace Reflect {
         export class Array {
             constructor(option: ArrayOption);
             enable(): void;
@@ -298,7 +298,7 @@ export declare class Led {
     stop(ms: number): void;
 }
 
-export declare module Led {
+export declare namespace Led {
     export interface DigitsOption {
         pins: any;
         devices?: number;
@@ -542,7 +542,7 @@ export interface StepperOption {
     direction?: number;
 }
 
-export declare module Stepper {
+export declare namespace Stepper {
     export class TYPE {
         static DRIVER: number;
         static TWO_WIRE: number;

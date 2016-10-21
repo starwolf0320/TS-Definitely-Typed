@@ -475,7 +475,7 @@ declare namespace ImageMapster {
          * a "key" property identifying a valid mapKey, and additional
          * rendering options specific to that area or group
          */
-        areas?: AreaRenderingOptions[],
+        areas?: AreaRenderingOptions[];
 
         /**
          * add "classname" class to the wrapper created around the image, or

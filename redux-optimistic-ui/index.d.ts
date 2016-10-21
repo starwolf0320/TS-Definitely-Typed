@@ -60,7 +60,7 @@ declare module "redux-optimistic-ui" {
                  */
                 id: number;
             }
-        }
+        };
     }
 
     /**

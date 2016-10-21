@@ -67,7 +67,7 @@ declare namespace Faker {
 			account(length?: number): string;
 			accountName(): string;
 			mask(length?: number, parens?: boolean, elipsis?: boolean): string;
-			amount(min?:number, max?: number, dec?: number, symbol?: string): string;
+			amount(min?: number, max?: number, dec?: number, symbol?: string): string;
 			transactionType(): string;
 			currencyCode(): string;
 			currencyName(): string;

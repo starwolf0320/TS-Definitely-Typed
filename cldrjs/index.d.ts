@@ -133,7 +133,7 @@ declare namespace self {
          *
          * @returns {any} The cldr member.
          */
-        get(path: string) : any;
+        get(path: string): any;
 
         /**
          * @name get
@@ -257,15 +257,15 @@ declare namespace self {
     }
 
     interface CldrStatic {
-        on(event:string, listener:(path:string, value:any) => void): void;
-        once(event:string, listener:(path:string, value:any) => void): void;
-        off(event:string, listener:(path:string, value:any) => void): void;
+        on(event: string, listener: (path: string, value: any) => void): void;
+        once(event: string, listener: (path: string, value: any) => void): void;
+        off(event: string, listener: (path: string, value: any) => void): void;
     }
 
     interface CldrFactory {
-        on(event:string, listener:(path:string, value:any) => void): void;
-        once(event:string, listener:(path:string, value:any) => void): void;
-        off(event:string, listener:(path:string, value:any) => void): void;
+        on(event: string, listener: (path: string, value: any) => void): void;
+        once(event: string, listener: (path: string, value: any) => void): void;
+        off(event: string, listener: (path: string, value: any) => void): void;
     }
 
 }

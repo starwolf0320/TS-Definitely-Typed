@@ -191,7 +191,7 @@ export declare function fromCallback<T>(fn: (callback: (value: T) => void) => vo
 export declare function fromNodeCallback<T, S>(fn: (callback: (error: S, result: T) => void) => void): Stream<T, S>;
 export declare function fromEvents<T, S>(target: EventTarget | NodeJS.EventEmitter | { on: Function, off: Function }, eventName: string, transform?: (value: T) => S): Stream<T, S>;
 export declare function stream<T, S>(subscribe: (emitter: Emitter<T, S>) => Function | void): Stream<T, S>;
-export declare function fromESObservable<T, S>(observable: any): Stream<T, S>
+export declare function fromESObservable<T, S>(observable: any): Stream<T, S>;
 
 // Create a property
 export declare function constant<T>(value: T): Property<T, void>;

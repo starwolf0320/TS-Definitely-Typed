@@ -17,7 +17,7 @@ declare namespace MomentTimezone {
 
         abbr(timestamp: number): string;
         offset(timestamp: number): number;
-        parse(timestamp: number): number
+        parse(timestamp: number): number;
     }
 
     interface MomentTimezone {
@@ -60,8 +60,8 @@ declare module "moment" {
     interface Moment {
         tz(): string;
         tz(timezone: string): Moment;
-        zoneAbbr() :Moment;
-        zoneName() :Moment;
+        zoneAbbr(): Moment;
+        zoneName(): Moment;
     }
 
     const tz: MomentTimezone.MomentTimezone;

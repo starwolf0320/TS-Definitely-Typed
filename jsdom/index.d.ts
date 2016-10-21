@@ -22,7 +22,7 @@ import EventEmitter = NodeJS.EventEmitter;
  * @param urlOrSource may be a URL, file name, or HTML fragment
  * @param scriptUrlsOrSources a string or array of strings, containing file names or URLs that will be inserted as
  * @param config  Configuration object
- * @param callback 
+ * @param callback
  */
 export declare function env(urlOrHtml: string, scripts: string, config: Config, callback?: Callback): void;
 export declare function env(urlOrHtml: string, scripts: string, callback: Callback): void;
@@ -113,7 +113,7 @@ export interface FeatureOptions {
     /**
      * Enables/disables JavaScript execution
      * Default: ["script"]
-     * Allowed: ["script"] or false, 
+     * Allowed: ["script"] or false,
      * Default for jsdom.env: false
      */
     ProcessExternalResources?: string[] | boolean;

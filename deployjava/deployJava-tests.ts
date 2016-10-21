@@ -13,7 +13,7 @@ function testAllowPlugin() {
 function testCompareVersions() {
     var installed = '1.8';
     var required = '1.7';
-    
+
     var result = deployJava.compareVersions(installed, required);
 }
 
@@ -25,7 +25,7 @@ function testCompareVersionToPattern() {
     var patternArray: Array<string> = ['1.6', '1.7', '1.8'];
     var familyMatch: boolean = false;
     var minMatch: boolean = true;
-    
+
     var result = deployJava.compareVersionToPattern(version, patternArray, familyMatch, minMatch);
 }
 
@@ -180,10 +180,10 @@ function testRunApplet() {
         width:710,
         height:540
     };
-    
+
     var parameters: Object = { fontSize:16, permissions:'sandbox' };
     var version: string = '1.8';
-    
+
     deployJava.runApplet(attributes, parameters);
     deployJava.runApplet(attributes, parameters, version);
 }
@@ -267,7 +267,7 @@ function testWriteAppletTag() {
         width:710,
         height:540
     };
-    
+
     var parameters: Object = { fontSize:16, permissions:'sandbox' };
     deployJava.writeAppletTag(attributes, parameters);
 }

@@ -29,7 +29,7 @@ app.post('/:urlparam', function(req: express.Request, res: express.Response) {
   req.sanitizeQuery('queryvar').toDate();
   req.sanitizeParams('urlparam').toFloat().toInt().toInt(10);
   req.sanitizeHeaders('header').normalizeEmail();
-  
+
 
   var errors = req.validationErrors();
   var mappedErrors = req.validationErrors(true);

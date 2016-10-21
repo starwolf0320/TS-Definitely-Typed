@@ -8126,7 +8126,7 @@ declare namespace WinJS.Utilities {
 	export var QueryCollection: {
         new <T>(items: T[]): QueryCollection<T>;
         prototype: QueryCollection<any>;
-    }
+    };
 
 	//#endregion Objects
 

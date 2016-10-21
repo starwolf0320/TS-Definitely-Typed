@@ -15,7 +15,7 @@ declare module "fibers" {
 
     namespace Fiber {
         export var current: Fiber;
-        export function yield(value?: any): any
+        export function yield(value?: any): any;
     }
 
     export = Fiber;

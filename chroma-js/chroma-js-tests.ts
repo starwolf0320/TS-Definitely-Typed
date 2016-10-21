@@ -7,7 +7,7 @@ function test_chroma() {
     chroma('#ff3399');
     chroma('F39');
     chroma.hex("#fff");
-    
+
     chroma(0xff3399);
     chroma(0xff, 0x33, 0x99);
     chroma(255, 51, 153);

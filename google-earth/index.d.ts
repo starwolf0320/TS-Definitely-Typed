@@ -6,8 +6,8 @@
 declare namespace google {
 
   export function load(
-    moduleName:        string,
-    moduleVersion:     string,
+    moduleName: string,
+    moduleVersion: string,
     optionalSettings?: any
   ): void;
 }
@@ -99,40 +99,40 @@ declare namespace google.earth {
    * Upon failure, calls the function passed in as the failureCallback argument and displays an error message to the user in place of the plug-in object.
    *
    * Note:
-   *  
+   *
    *    The HTML DOM must be loaded before this function can be called.
    *    Common usage is to call this function upon the <body>'s load event, or to use google.setOnLoadCallback.
    */
   export function createInstance(
-    domNode:         string|Element,
-    initCallback:    (plugin: GEPlugin) => void,
+    domNode: string|Element,
+    initCallback: (plugin: GEPlugin) => void,
     failureCallback: (error: any) => void,
-    options?:        any
+    options?: any
   ): void;
 
   /**
    * Attaches a listener to a given object for a specific event; when the event occurs on the object, the given callback is invoked.
    */
   export function addEventListener(
-    targetObject:     any,
-    eventID:          string,
+    targetObject: any,
+    eventID: string,
     listenerCallback: (event: KmlEvent) => void,
-    useCapture?:      boolean
+    useCapture?: boolean
   ): void;
 
   /**
    * Removes an event listener previously added using google.earth.addEventListener() from the event chain.
-   * 
+   *
    * Note:
    *
    *    You must pass in the exact same function object as was passed to addEventListener.
    *    If you are using an anonymous function callback, it will need to be refactored into its own variable.
    */
   export function removeEventListener(
-    targetObject:     any,
-    eventID:          string,
+    targetObject: any,
+    eventID: string,
     listenerCallback: (event: KmlEvent) => void,
-    useCapture?:      boolean
+    useCapture?: boolean
   ): void;
 
   /**
@@ -141,8 +141,8 @@ declare namespace google.earth {
    * Note: This function does not display the feature on the Earth. See below for more information.
    */
   export function fetchKml(
-    pluginInstance:     GEPlugin,
-    url:                string,
+    pluginInstance: GEPlugin,
+    url: string,
     completionCallback: (feature: KmlFeature) => void
   ): void;
 
@@ -154,7 +154,7 @@ declare namespace google.earth {
 
   /**
    * Sets the language to be used for new instances of the plugin.
-   * Needs to be called before google.earth.createInstance(). 
+   * Needs to be called before google.earth.createInstance().
    * Affects road and border labels, the error message displayed when the plugin fails to load, as well as the language of the Terms of Use page linked from the plugin.
    */
   export function setLanguage(languageCode: string): void;
@@ -167,7 +167,7 @@ declare namespace google.earth {
   export class GEPhotoOverlayViewer {
 
     /**
-     * Enters the given photo overlay object, exiting any other currently active photo overlay. 
+     * Enters the given photo overlay object, exiting any other currently active photo overlay.
      * If the argument is null, then any currently active photo overlay is exited and normal global navigation is enabled.
      */
     setPhotoOverlay(photoOverlay: KmlPhotoOverlay): void;
@@ -238,7 +238,7 @@ declare namespace google.earth {
     getStreetViewEnabled(): boolean;
   }
 
-  /** 
+  /**
    * Defines a tour, which is a playlist of scripted camera and update events.
    *
    * Note: This interface is still under development.
@@ -254,7 +254,7 @@ declare namespace google.earth {
 
     /**
      * Enters the given tour object, exiting any other currently active tour.
-     * This method does not automatically begin playing the tour. 
+     * This method does not automatically begin playing the tour.
      * If the argument is null, then any currently active tour is exited and normal globe navigation is enabled.
      */
     setTour(tour: KmlTour): void;
@@ -454,7 +454,7 @@ declare namespace google.earth {
    * Positioning of the overlay is handled by mapping a point in the image specified by screenXY to a point on the screen specified by overlayXY.
    * Then the image is rotated by rotation degrees about a point relative to the screen specified by rotationXY.
    *
-   * Note: 
+   * Note:
    *
    *  screenXY and overlayXY behave opposite to their corresponding behaviors in KML.
    *  This is due to a bug in the Earth API that will intentionally remain unfixed until a major version change.
@@ -465,7 +465,7 @@ declare namespace google.earth {
      * Specifies a point on (or outside of) the overlay image that is mapped to the screen coordinate.
      * It requires x and y values, and the units for those values.
      *
-     * Note: 
+     * Note:
      *
      *  screenXY and overlayXY behave opposite to their corresponding behaviors in KML.
      *  This is due to a bug in the Earth API that will intentionally remain unfixed until a major version change.
@@ -478,7 +478,7 @@ declare namespace google.earth {
      * The x and y positions can be specified in different ways - for example, x can be in pixels and y can be a fraction.
      * The origin of the coordinate system is in the lower left corner of the screen.
      *
-     * Note: 
+     * Note:
      *
      *  screenXY and overlayXY behave opposite to their corresponding behaviors in KML.
      *  This is due to a bug in the Earth API that will intentionally remain unfixed until a major version change.
@@ -789,7 +789,7 @@ declare namespace google.earth {
    * Longitude and latitude values are in degrees.
    *
    * * longitude = -180 and <= 180
-   * * latitude = -90 and = 90 
+   * * latitude = -90 and = 90
    * * altitude values (optional) are in meters above sea level
    */
   export class KmlCoord {
@@ -853,19 +853,19 @@ declare namespace google.earth {
      * Sets the latitude, longitude, and altitude.
      */
     setLatLngAlt(
-      index:     number,
-      latitude:  number,
+      index: number,
+      latitude: number,
       longitude: number,
-      altitude:  number
+      altitude: number
     ): void;
 
     /**
      * Appends one or more new elements to the end of an array and returns the new length of the array.
      */
     pushLatLngAlt(
-      latitude:  number,
+      latitude: number,
       longitude: number,
-      altitude:  number
+      altitude: number
     ): void;
 
     /**
@@ -887,9 +887,9 @@ declare namespace google.earth {
      * Adds an element or elements to the beginning of an array.
      */
     unshiftLatLngAlt(
-      latitude:  number,
+      latitude: number,
       longitude: number,
-      altitude:  number
+      altitude: number
     ): void;
 
     /**
@@ -973,9 +973,9 @@ declare namespace google.earth {
      * * GEPlugin.ALTITUDE_RELATIVE_TO_SEA_FLOOR
      */
     project(
-      lat:          number,
-      lng:          number,
-      alt:          number,
+      lat: number,
+      lng: number,
+      alt: number,
       altitudeMode: KmlAltitudeModeEnum
     ): KmlVec2;
 
@@ -1015,7 +1015,7 @@ declare namespace google.earth {
     getViewportGlobeBounds(): KmlLatLonBox;
 
     /**
-     * Given a point on the screen in pixel coordinates, returns a GEHitTestResult with information about the geographic location corresponding to the point on the screen. 
+     * Given a point on the screen in pixel coordinates, returns a GEHitTestResult with information about the geographic location corresponding to the point on the screen.
      * Tip: hitTest() is the inverse of project().
      *
      * See also:
@@ -1028,11 +1028,11 @@ declare namespace google.earth {
      * * GEPlugin.HIT_TEST_BUILDINGS
      */
     hitTest(
-      x:      number,
+      x: number,
       xUnits: KmlUnitsEnum,
-      y:      number,
+      y: number,
       yUnits: KmlUnitsEnum,
-      mode:   GEHitTestModeEnum
+      mode: GEHitTestModeEnum
     ): GEHitTestResult;
   }
 
@@ -1421,7 +1421,7 @@ declare namespace google.earth {
   }
 
   /**
-   * Adds a node to the end of the list of children of a specified feature. 
+   * Adds a node to the end of the list of children of a specified feature.
    * Returns the appended object.
    */
   export class GESchemaObjectContainer<T extends KmlObject> {
@@ -1503,9 +1503,9 @@ declare namespace google.earth {
      * Sets the coordinates of the vector.
      */
     set(
-      x:      number,
+      x: number,
       xUnits: KmlUnitsEnum,
-      y:      number,
+      y: number,
       yUnits: KmlUnitsEnum
     ): void;
 
@@ -1597,8 +1597,8 @@ declare namespace google.earth {
    * The range of values for any one color component is 0 to 255 (00 to ff).
    * For alpha, 00 is fully transparent and ff is fully opaque.
    * The order of expression is aabbggrr, where aa=alpha (00 to ff); bb=blue (00 to ff); gg=green (00 to ff); rr=red (00 to ff).
-   * For example, if you want to apply a blue color with 50 percent opacity to an overlay, 
-   * you would specify the following when setting color value: 7fff0000, where alpha=0x7f, blue=0xff, green=0x00, and red=0x00. 
+   * For example, if you want to apply a blue color with 50 percent opacity to an overlay,
+   * you would specify the following when setting color value: 7fff0000, where alpha=0x7f, blue=0xff, green=0x00, and red=0x00.
    */
   export class KmlColor {
 
@@ -1941,7 +1941,7 @@ declare namespace google.earth {
 
     /**
      * Specifies which color mode effect to apply to the base color.
-     * 
+     *
      * See also:
      *
      * * GEPlugin.COLOR_NORMAL
@@ -1952,7 +1952,7 @@ declare namespace google.earth {
 
     /**
      * Specifies which color mode effect to apply to the base color.
-     * 
+     *
      * See also:
      *
      * * GEPlugin.COLOR_NORMAL
@@ -2112,12 +2112,12 @@ declare namespace google.earth {
     getTextColor(): KmlColor;
 
     /**
-     * The text contained in the balloon. 
+     * The text contained in the balloon.
      */
     getText(): string;
 
     /**
-     * The text contained in the balloon. 
+     * The text contained in the balloon.
      */
     setText(text: string): void;
   }
@@ -2131,10 +2131,10 @@ declare namespace google.earth {
      * Sets the north, south, east, and west edges of the bounding box, as well as the rotation of the overlay.
      */
     setBox(
-      north:    number,
-      south:    number,
-      east:     number,
-      west:     number,
+      north: number,
+      south: number,
+      east: number,
+      west: number,
       rotation: number
     ): void;
 
@@ -2206,13 +2206,13 @@ declare namespace google.earth {
      * Sets the north, south, east, west, rotation, minAltitude, maxAltitude, and altitudeMode of bounding box.
      */
     setAltBox(
-      north:        number,
-      south:        number,
-      east:         number,
-      west:         number,
-      rotation:     number,
-      minAltitude:  number,
-      maxAltitude:  number,
+      north: number,
+      south: number,
+      east: number,
+      west: number,
+      rotation: number,
+      minAltitude: number,
+      maxAltitude: number,
       altitudeMode: KmlAltitudeModeEnum
     ): void;
 
@@ -2273,8 +2273,8 @@ declare namespace google.earth {
      * Sets the minLodPixels, maxLodPixels, minFadeExtent, and maxFadeExtent for the projected region on the screen.
      */
     set(
-      minLodPixels:  number,
-      maxLodPixels:  number,
+      minLodPixels: number,
+      maxLodPixels: number,
       minFadeExtent: number,
       maxFadeExtent: number
     ): void;
@@ -2447,7 +2447,7 @@ declare namespace google.earth {
   export class KmlAbstractView extends KmlObject {
 
     /**
-     * Creates a new KmlLookAt object that matches as closely as possible this KmlAbstractView. 
+     * Creates a new KmlLookAt object that matches as closely as possible this KmlAbstractView.
      * KmlLookAt is unable to represent roll, so roll values in the current view will not be passed to the new KmlLookAt object.
      *
      * If this view is already a KmlLookAt, this function returns a new KmlLookAt representing the same view.
@@ -2505,13 +2505,13 @@ declare namespace google.earth {
      * Sets the latitude, longitude, altitude, altitudeMode, heading, tilt, and range for the camera.
      */
     set	(
-      latitude:     number,
-      longitude:    number,
-      altitude:     number,
+      latitude: number,
+      longitude: number,
+      altitude: number,
       altitudeMode: KmlAltitudeModeEnum,
-      heading:      number,
-      tilt:         number,
-      range:        number
+      heading: number,
+      tilt: number,
+      range: number
     ): void;
 
     /**
@@ -2612,13 +2612,13 @@ declare namespace google.earth {
      * Sets the latitude, longitude, altitude, alitudeMode, heading, tilt, and roll values.
      */
     set(
-      latitude:     number,
-      longitude:    number,
-      altitude:     number,
+      latitude: number,
+      longitude: number,
+      altitude: number,
       altitudeMode: KmlAltitudeModeEnum,
-      heading:      number,
-      tilt:         number,
-      roll:         number
+      heading: number,
+      tilt: number,
+      roll: number
     ): void;
 
     /**
@@ -2848,12 +2848,12 @@ declare namespace google.earth {
      * Sets altitudeMode, extrude, tessellate, latitude, longitude, and altitude values.
      */
     set(
-      latitude:     number,
-      longitude:    number,
-      altitude:     number,
+      latitude: number,
+      longitude: number,
+      altitude: number,
       altitudeMode: KmlAltitudeModeEnum,
-      extrude:      boolean,
-      tessellate:   boolean
+      extrude: boolean,
+      tessellate: boolean
     ): void;
 
     /**
@@ -2939,8 +2939,8 @@ declare namespace google.earth {
 
     /**
      * Retrieves the contents of the feature's <ExtendedData> element.
-     * The retrieved contents are scrubbed to remove JavaScript; CSS; and iframe, embed, and object tags. 
-     * 
+     * The retrieved contents are scrubbed to remove JavaScript; CSS; and iframe, embed, and object tags.
+     *
      * It should be safe to insert the resulting HTML into your page without concern for malicious content embedded in the feature data;
      * however any feature depending on CSS or Javascript will not work.
      */
@@ -3093,7 +3093,7 @@ declare namespace google.earth {
     getComputedStyle(): KmlStyle;
 
     /**
-     * Experimental Feature — this is an experimental feature and can change (or even be removed) at any time.  
+     * Experimental Feature — this is an experimental feature and can change (or even be removed) at any time.
      * The opacity of a feature, ranging from 0 (completely transparent) to 1 (complete opaque).
      * The opacity of a folder or document will influence the opacity of child features.
      * Thus, if a folder has an opacity of 0.5 and a child ground overlay in the folder also has an opacity of 0.5, the overlay will be drawn with an opacity of 0.25.
@@ -3101,7 +3101,7 @@ declare namespace google.earth {
     getOpacity(): number;
 
     /**
-     * Experimental Feature — this is an experimental feature and can change (or even be removed) at any time.  
+     * Experimental Feature — this is an experimental feature and can change (or even be removed) at any time.
      * The opacity of a feature, ranging from 0 (completely transparent) to 1 (complete opaque).
      * The opacity of a folder or document will influence the opacity of child features.
      * Thus, if a folder has an opacity of 0.5 and a child ground overlay in the folder also has an opacity of 0.5, the overlay will be drawn with an opacity of 0.25.
@@ -3127,9 +3127,9 @@ declare namespace google.earth {
     getElementById(id: string): KmlObject;
 
     /**
-     * Get an element by URL. A URL consists of the base address and ID, joined with the # character. 
+     * Get an element by URL. A URL consists of the base address and ID, joined with the # character.
      *
-     * For example: http://www.google.com/bar.kml#here_be_monsters 
+     * For example: http://www.google.com/bar.kml#here_be_monsters
      *
      * This applies to objects that are fetched.
      * In the case of plugin created objects, the URL is simply #foo.
@@ -3192,7 +3192,7 @@ declare namespace google.earth {
   /**
    * A KmlDocument has containers that holds features and styles.
    * This container is required if you use shared styles.
-   * It is recommended that you use shared styles, which require the following.  
+   * It is recommended that you use shared styles, which require the following.
    *
    * 1. Define all Styles in a Document. Assign a unique ID to each Style.
    * 2. Within a given feature or StyleMap, reference the Style's ID using a styleUrl element.
@@ -3295,8 +3295,8 @@ declare namespace google.earth {
 
     /**
      * When true, the balloon frame is displayed with a button that the user
-     * can click to close the balloon. When false, the balloon frame is just 
-     * a plain frame.  
+     * can click to close the balloon. When false, the balloon frame is just
+     * a plain frame.
      *
      * Default is true.
      */
@@ -3304,8 +3304,8 @@ declare namespace google.earth {
 
     /**
      * When true, the balloon frame is displayed with a button that the user
-     * can click to close the balloon. When false, the balloon frame is just 
-     * a plain frame.  
+     * can click to close the balloon. When false, the balloon frame is just
+     * a plain frame.
      *
      * Default is true.
      */
@@ -3692,8 +3692,8 @@ declare namespace google.earth {
 
     /**
      * Get an element by URL. A URL consists of the base address and the ID, joined with the # character.
-     * 
-     * For example: http://www.google.com/bar.kml#here_be_monsters 
+     *
+     * For example: http://www.google.com/bar.kml#here_be_monsters
      *
      * This applies to objects that are fetched.
      * In the case of plugin created objects, the URL is simply #foo.
@@ -3727,7 +3727,7 @@ declare namespace google.earth {
     createLineString(id: string): KmlLineString;
 
     /**
-     * Creates a folder. 
+     * Creates a folder.
      * A KMLFolder is used to arrange other features hierarchically (Folders, Placemarks, NetworkLinks, or Overlays).
      * A feature is visible only if it and all its ancestors are visible.
      */

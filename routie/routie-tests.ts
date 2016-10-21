@@ -8,7 +8,7 @@ routie("users", function () {
     // This gets called when hash == #users
 });
 
-// If you want to define multiple routes you can pass in an object like this: 
+// If you want to define multiple routes you can pass in an object like this:
 
 routie({
     "users": function () {
@@ -17,7 +17,7 @@ routie({
     }
 });
 
-// If you want to trigger a route manually, you can call routie like this: 
+// If you want to trigger a route manually, you can call routie like this:
 
 routie("users/bob");  // window.location.hash will be #users/bob
 
@@ -42,7 +42,7 @@ routie("users/?:name", function (name: string) {
 routie("users/");
 routie("users/bob");
 
-// Wildcard: 
+// Wildcard:
 
 routie("users/*", function () {
 });

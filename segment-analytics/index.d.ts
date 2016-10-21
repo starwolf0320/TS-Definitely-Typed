@@ -104,12 +104,12 @@ declare namespace SegmentAnalytics {
       reset(): void;
       anonymousId(newId?: string): string;
       traits(newTraits?: Object): void;
-    }
+    };
 
     group(): {
       id(): string;
       traits(newTraits?: Object): void;
-    }
+    };
 
     /* Analytics.js has a debug mode that logs helpful messages to the
        console. */

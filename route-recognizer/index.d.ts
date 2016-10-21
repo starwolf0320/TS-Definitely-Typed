@@ -5,19 +5,19 @@
 
 declare class RouteRecognizer<H> {
 constructor()
-	add: (routes: Route<H>[]) => void
-	recognize: (path: string) => MatchedRoute<H>[]
+	add: (routes: Route<H>[]) => void;
+	recognize: (path: string) => MatchedRoute<H>[];
 }
 
 interface Route<H> {
-	path: string
-	handler: H
+	path: string;
+	handler: H;
 }
 
 export = RouteRecognizer;
 export as namespace RouteRecognizer;
 
 interface MatchedRoute<H> {
-	handler: H
-	params: { [key: string]: string }
+	handler: H;
+	params: { [key: string]: string };
 }

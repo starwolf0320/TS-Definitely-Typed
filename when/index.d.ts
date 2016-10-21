@@ -13,14 +13,14 @@ declare function When<T, U>(value: T, transform: (val: T) => U): When.Promise<U>
 
 declare namespace When {
     // Helper interfaces
-    module _ {
-        interface Fn0<T> { (): T }
-        interface Fn1<A1, T> { (a1: A1): T }
-        interface Fn2<A1, A2, T> { (a1: A1, a2: A2): T }
-        interface Fn3<A1, A2, A3, T> { (a1: A1, a2: A2, a3: A3): T }
-        interface Fn4<A1, A2, A3, A4, T> { (a1: A1, a2: A2, a3: A3, a4: A4): T }
-        interface Fn5<A1, A2, A3, A4, A5, T> { (a1: A1, a2: A2, a3: A3, a4: A4, a5: A5): T }
-        interface Fn6<A1, A2, A3, A4, A5, A6, T> { (a1: A1, a2: A2, a3: A3, a4: A4, a5: A5, a6: A6): T }
+    namespace _ {
+        interface Fn0<T> { (): T; }
+        interface Fn1<A1, T> { (a1: A1): T; }
+        interface Fn2<A1, A2, T> { (a1: A1, a2: A2): T; }
+        interface Fn3<A1, A2, A3, T> { (a1: A1, a2: A2, a3: A3): T; }
+        interface Fn4<A1, A2, A3, A4, T> { (a1: A1, a2: A2, a3: A3, a4: A4): T; }
+        interface Fn5<A1, A2, A3, A4, A5, T> { (a1: A1, a2: A2, a3: A3, a4: A4, a5: A5): T; }
+        interface Fn6<A1, A2, A3, A4, A5, A6, T> { (a1: A1, a2: A2, a3: A3, a4: A4, a5: A5, a6: A6): T; }
 
         interface LiftedFn0<T> extends Fn0<Promise<T>> { }
         interface LiftedFn1<A1, T> extends Fn1<A1 | Promise<A1>, Promise<T>> { }
@@ -29,7 +29,7 @@ declare namespace When {
         interface LiftedFn4<A1, A2, A3, A4, T> extends Fn4<A1 | Promise<A1>, A2 | Promise<A2>, A3 | Promise<A3>, A4 | Promise<A4>, Promise<T>> { }
         interface LiftedFn5<A1, A2, A3, A4, A5, T> extends Fn5<A1 | Promise<A1>, A2 | Promise<A2>, A3 | Promise<A3>, A4 | Promise<A4>, A5 | Promise<A5>, Promise<T>> { }
 
-        interface NodeCallback<T> { (err: any, result: T): void }
+        interface NodeCallback<T> { (err: any, result: T): void; }
 
         interface NodeFn0<T> extends _.Fn1<NodeCallback<T>, void> { }
         interface NodeFn1<A1, T> extends _.Fn2<A1, NodeCallback<T>, void> { }
@@ -299,7 +299,7 @@ declare module "when" {
 }
 
 declare module "when/node" {
-    import when = require('when');
+    import when = require("when");
     import _ = when._;
 
     function lift<T>(fn: _.NodeFn0<T>): _.LiftedFn0<T>;

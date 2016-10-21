@@ -60,7 +60,7 @@ declare namespace Qwest {
 		then(callback: (xhr: any, response?: any) => any): Promise;
 
 		/** Request has failed */
-		catch(callback: (e: any, xhr? : any, response?: any) => any): Promise;
+		catch(callback: (e: any, xhr?: any, response?: any) => any): Promise;
 
 		/** Always run */
 		complete(callback: () => any): Promise;

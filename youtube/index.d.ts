@@ -73,8 +73,7 @@ declare namespace YT {
         suggestedQuality?: string;
     }
 
-    export interface VideoData
-    {
+    export interface VideoData {
         video_id: string;
         author: string;
         title: string;
@@ -103,7 +102,7 @@ declare namespace YT {
         playVideo(): void;
         pauseVideo(): void;
         stopVideo(): void;
-        seekTo(seconds:number, allowSeekAhead:boolean): void;
+        seekTo(seconds: number, allowSeekAhead: boolean): void;
         clearVideo(): void;
 
         // Playlist
@@ -123,7 +122,7 @@ declare namespace YT {
 
         // Playback
         getPlaybackRate(): number;
-        setPlaybackRate(suggestedRate:number): void;
+        setPlaybackRate(suggestedRate: number): void;
         getAvailablePlaybackRates(): number[];
 
         // Behavior

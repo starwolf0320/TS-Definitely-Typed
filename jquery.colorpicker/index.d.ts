@@ -8,12 +8,12 @@
 interface JQueryColorpickerOptions {
     // Events
     // TODO: Figure out actual types.
-    cancel?: Function,
-    close?: Function,
-    init?: Function,
-    select?: Function,
-    ok?: Function,
-    open?: Function,
+    cancel?: Function;
+    close?: Function;
+    init?: Function;
+    select?: Function;
+    ok?: Function;
+    open?: Function;
 
     alpha?: boolean;
     altAlpha?: boolean;
@@ -37,7 +37,7 @@ interface JQueryColorpickerOptions {
     hsv?: boolean;
     inline?: boolean;
     inlineFrame?: boolean;
-    layout?: {[part: string]: number[];};
+    layout?: {[part: string]: number[]};
     limit?: string;
     modal?: boolean;
     mode?: string;

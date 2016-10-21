@@ -130,7 +130,7 @@ declare namespace Useragent {
      * @param jsAgent Optional UA from js to detect chrome frame
      */
     export function parse(userAgent?: string, jsAgent?: string): Agent;
-    
+
     /**
      * If you are doing a lot of lookups you might want to cache the results of the parsed user agent string instead, in memory.
      * @param userAgent The user agent string

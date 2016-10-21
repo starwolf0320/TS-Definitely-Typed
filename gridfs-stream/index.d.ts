@@ -60,7 +60,7 @@ declare namespace g {
 
         remove(options: GridFSStream.Options, callback: (err: Error) => void): void;
         exist(options: GridFSStream.Options, callback: (err: Error, found: boolean) => void): void;
-        findOne(options: GridFSStream.Options, callback: (err: Error, record: any)=>void):void;
+        findOne(options: GridFSStream.Options, callback: (err: Error, record: any) => void): void;
     }
 }
 

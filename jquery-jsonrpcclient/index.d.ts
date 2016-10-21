@@ -7,7 +7,7 @@
 
 interface JsonRpcClientOptions extends JQueryAjaxSettings {
     ajaxUrl: string;
-    headers?: {[key:string]: any};
+    headers?: {[key: string]: any};
     socketUrl?: string;
     onmessage?: (ev: MessageEvent) => void;
     onopen?: (ev: Event) => void;
@@ -35,7 +35,7 @@ interface JsonRpcClient {
     * @return {object} Returns the deferred object that $.ajax returns or {null} for websockets
     */
     call(method: string, params: Object | Array<any>, successCb: (result: any) => void, errorCb: (result: any) => void): JQueryDeferred<JQueryXHR>;
-        
+
     /**
     * Notify sends a command to the server that won't need a response.  In http, there is probably
     * an empty response - that will be dropped, but in ws there should be no response at all.

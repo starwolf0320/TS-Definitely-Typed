@@ -32,13 +32,13 @@ declare module 'angular' {
     // see https://docs.angularjs.org/api/ngMock/function/angular.mock.dump
     dump(obj: any): string;
 
-    inject: IInjectStatic
+    inject: IInjectStatic;
 
     // see https://docs.angularjs.org/api/ngMock/function/angular.mock.module
     module: {
       (...modules: any[]): any;
       sharedInjector(): void;
-    }
+    };
 
     // see https://docs.angularjs.org/api/ngMock/type/angular.mock.TzDate
     TzDate(offset: number, timestamp: number): Date;

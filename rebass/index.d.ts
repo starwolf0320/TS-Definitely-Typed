@@ -37,14 +37,14 @@ export interface BaseProps<C> extends React.Props<C> {
 export interface ArrowProps extends BaseProps<ArrowClass> {
     direction?: "up" | "down";
 }
-type ArrowClass = React.StatelessComponent<ArrowProps>
+type ArrowClass = React.StatelessComponent<ArrowProps>;
 export declare const Arrow: ArrowClass;
 
 export interface AvatarProps extends BaseProps<AvatarClass> {
     size?: number;
     src?: string;
 }
-type AvatarClass = React.StatelessComponent<AvatarProps>
+type AvatarClass = React.StatelessComponent<AvatarProps>;
 export declare const Avatar: AvatarClass;
 
 export interface BadgeProps extends BaseProps<BadgeClass> {
@@ -53,14 +53,14 @@ export interface BadgeProps extends BaseProps<BadgeClass> {
     pill?: boolean;
     circle?: boolean;
 }
-type BadgeClass = React.StatelessComponent<BadgeProps>
+type BadgeClass = React.StatelessComponent<BadgeProps>;
 export declare const Badge: BadgeClass;
 
 export interface BannerProps extends BaseProps<BannerClass> {
     align?: "left" | "center" | "right";
     backgroundImage: string;
 }
-type BannerClass = React.StatelessComponent<BannerProps>
+type BannerClass = React.StatelessComponent<BannerProps>;
 export declare const Banner: BannerClass;
 
 export interface BlockProps extends BaseProps<BlockClass> {
@@ -88,14 +88,14 @@ export interface BlockProps extends BaseProps<BlockClass> {
     borderLeft?: boolean;
     rounded?: boolean | "top" | "right" | "bottom" | "left";
 }
-type BlockClass = React.StatelessComponent<BlockProps>
+type BlockClass = React.StatelessComponent<BlockProps>;
 export declare const Block: BlockClass;
 
 export interface BlockquoteProps extends BaseProps<BlockquoteClass> {
     source: string;
     href: string;
 }
-type BlockquoteClass = React.StatelessComponent<BlockquoteProps>
+type BlockquoteClass = React.StatelessComponent<BlockquoteProps>;
 export declare const Blockquote: BlockquoteClass;
 
 export interface BreadcrumbsProps extends BaseProps<BreadcrumbsClass> {
@@ -104,7 +104,7 @@ export interface BreadcrumbsProps extends BaseProps<BreadcrumbsClass> {
         href: string;
     }[];
 }
-type BreadcrumbsClass = React.StatelessComponent<BreadcrumbsProps>
+type BreadcrumbsClass = React.StatelessComponent<BreadcrumbsProps>;
 export declare const Breadcrumbs: BreadcrumbsClass;
 
 export interface ButtonProps extends BaseProps<ButtonClass> {
@@ -116,7 +116,7 @@ export interface ButtonProps extends BaseProps<ButtonClass> {
     big?: boolean;
     theme?: "primary" | "secondary" | "default" | "info" | "success" | "warning" | "error";
 }
-type ButtonClass = React.StatelessComponent<ButtonProps>
+type ButtonClass = React.StatelessComponent<ButtonProps>;
 export declare const Button: ButtonClass;
 
 export interface ButtonCircleProps extends BaseProps<ButtonCircleClass> {
@@ -126,7 +126,7 @@ export interface ButtonCircleProps extends BaseProps<ButtonCircleClass> {
     backgroundColor?: string;
     size?: number;
 }
-type ButtonCircleClass = React.StatelessComponent<ButtonCircleProps>
+type ButtonCircleClass = React.StatelessComponent<ButtonCircleProps>;
 export declare const ButtonCircle: ButtonCircleClass;
 
 export interface ButtonOutlineProps extends BaseProps<ButtonOutlineClass> {
@@ -136,19 +136,19 @@ export interface ButtonOutlineProps extends BaseProps<ButtonOutlineClass> {
     pill?: boolean;
     big?: boolean;
 }
-type ButtonOutlineClass = React.StatelessComponent<ButtonOutlineProps>
+type ButtonOutlineClass = React.StatelessComponent<ButtonOutlineProps>;
 export declare const ButtonOutline: ButtonOutlineClass;
 
 export interface CardProps extends BaseProps<CardClass> {
     width?: number | string;
 }
-type CardClass = React.StatelessComponent<CardProps>
+type CardClass = React.StatelessComponent<CardProps>;
 export declare const Card: CardClass;
 
 export interface CardImageProps extends BaseProps<CardImageClass> {
     src?: string;
 }
-type CardImageClass = React.StatelessComponent<CardImageProps>
+type CardImageClass = React.StatelessComponent<CardImageProps>;
 export declare const CardImage: CardImageClass;
 
 export interface CheckboxProps extends BaseProps<CheckboxClass> {
@@ -158,23 +158,23 @@ export interface CheckboxProps extends BaseProps<CheckboxClass> {
     readOnly?: boolean;
     theme?: "primary" | "secondary" | "default" | "info" | "success" | "warning" | "error";
 }
-type CheckboxClass = React.StatelessComponent<CheckboxProps>
+type CheckboxClass = React.StatelessComponent<CheckboxProps>;
 export declare const Checkbox: CheckboxClass;
 
 export interface CloseProps extends BaseProps<CloseClass> {
 }
-type CloseClass = React.StatelessComponent<CloseProps>
+type CloseClass = React.StatelessComponent<CloseProps>;
 export declare const Close: CloseClass;
 
 export interface ContainerProps extends BaseProps<ContainerClass> {
 }
-type ContainerClass = React.StatelessComponent<ContainerProps>
+type ContainerClass = React.StatelessComponent<ContainerProps>;
 export declare const Container: ContainerClass;
 
 export interface DividerProps extends BaseProps<DividerClass> {
     width?: number;
 }
-type DividerClass = React.StatelessComponent<DividerProps>
+type DividerClass = React.StatelessComponent<DividerProps>;
 export declare const Divider: DividerClass;
 
 export interface DonutProps extends BaseProps<DonutClass> {
@@ -183,7 +183,7 @@ export interface DonutProps extends BaseProps<DonutClass> {
     strokeWidth?: number;
     color?: string;
 }
-type DonutClass = React.StatelessComponent<DonutProps>
+type DonutClass = React.StatelessComponent<DonutProps>;
 export declare const Donut: DonutClass;
 
 export interface DotIndicatorProps extends BaseProps<DotIndicatorClass> {
@@ -191,7 +191,7 @@ export interface DotIndicatorProps extends BaseProps<DotIndicatorClass> {
     active?: number;
     onClick?: Function;
 }
-type DotIndicatorClass = React.StatelessComponent<DotIndicatorProps>
+type DotIndicatorClass = React.StatelessComponent<DotIndicatorProps>;
 export declare const DotIndicator: DotIndicatorClass;
 
 export interface DrawerProps extends BaseProps<DrawerClass> {
@@ -200,12 +200,12 @@ export interface DrawerProps extends BaseProps<DrawerClass> {
     position?: "top" | "right" | "bottom" | "left";
     onDismiss?: Function;
 }
-type DrawerClass = React.StatelessComponent<DrawerProps>
+type DrawerClass = React.StatelessComponent<DrawerProps>;
 export declare const Drawer: DrawerClass;
 
 export interface DropdownProps extends BaseProps<DropdownClass> {
 }
-type DropdownClass = React.StatelessComponent<DropdownProps>
+type DropdownClass = React.StatelessComponent<DropdownProps>;
 export declare const Dropdown: DropdownClass;
 
 export interface DropdownMenuProps extends BaseProps<DropdownMenuClass> {
@@ -214,13 +214,13 @@ export interface DropdownMenuProps extends BaseProps<DropdownMenuClass> {
     top?: boolean;
     onDismiss?: Function;
 }
-type DropdownMenuClass = React.StatelessComponent<DropdownMenuProps>
+type DropdownMenuClass = React.StatelessComponent<DropdownMenuProps>;
 export declare const DropdownMenu: DropdownMenuClass;
 
 export interface EmbedProps extends BaseProps<EmbedClass> {
     ratio?: number;
 }
-type EmbedClass = React.StatelessComponent<EmbedProps>
+type EmbedClass = React.StatelessComponent<EmbedProps>;
 export declare const Embed: EmbedClass;
 
 export interface FixedProps extends BaseProps<FixedClass> {
@@ -230,12 +230,12 @@ export interface FixedProps extends BaseProps<FixedClass> {
     left?: boolean;
     zIndex?: number;
 }
-type FixedClass = React.StatelessComponent<FixedProps>
+type FixedClass = React.StatelessComponent<FixedProps>;
 export declare const Fixed: FixedClass;
 
 export interface FooterProps extends BaseProps<FooterClass> {
 }
-type FooterClass = React.StatelessComponent<FooterProps>
+type FooterClass = React.StatelessComponent<FooterProps>;
 export declare const Footer: FooterClass;
 
 export interface HeadingProps extends BaseProps<HeadingClass> {
@@ -244,7 +244,7 @@ export interface HeadingProps extends BaseProps<HeadingClass> {
     size?: number;
     alt?: boolean;
 }
-type HeadingClass = React.StatelessComponent<HeadingProps>
+type HeadingClass = React.StatelessComponent<HeadingProps>;
 export declare const Heading: HeadingClass;
 
 export interface HeadingLinkProps extends BaseProps<HeadingLinkClass> {
@@ -252,7 +252,7 @@ export interface HeadingLinkProps extends BaseProps<HeadingLinkClass> {
     size?: number;
     href?: string;
 }
-type HeadingLinkClass = React.StatelessComponent<HeadingLinkProps>
+type HeadingLinkClass = React.StatelessComponent<HeadingLinkProps>;
 export declare const HeadingLink: HeadingLinkClass;
 
 export interface InlineFormProps extends BaseProps<InlineFormClass> {
@@ -264,7 +264,7 @@ export interface InlineFormProps extends BaseProps<InlineFormClass> {
     buttonLabel?: string;
     onClick?: Function;
 }
-type InlineFormClass = React.StatelessComponent<InlineFormProps>
+type InlineFormClass = React.StatelessComponent<InlineFormProps>;
 export declare const InlineForm: InlineFormClass;
 
 export interface InputProps extends BaseProps<InputClass> {
@@ -276,20 +276,20 @@ export interface InputProps extends BaseProps<InputClass> {
     rounded?: boolean | "top" | "right" | "bottom" | "left";
     placeholder?: string;
 }
-type InputClass = React.StatelessComponent<InputProps>
+type InputClass = React.StatelessComponent<InputProps>;
 export declare const Input: InputClass;
 
 export interface LabelProps extends BaseProps<LabelClass> {
     hide?: boolean;
 }
-type LabelClass = React.StatelessComponent<LabelProps>
+type LabelClass = React.StatelessComponent<LabelProps>;
 export declare const Label: LabelClass;
 
 export interface LinkBlockProps extends BaseProps<LinkBlockClass> {
     is?: string | Object | Function;
     href?: string;
 }
-type LinkBlockClass = React.StatelessComponent<LinkBlockProps>
+type LinkBlockClass = React.StatelessComponent<LinkBlockProps>;
 export declare const LinkBlock: LinkBlockClass;
 
 export interface MediaProps extends BaseProps<MediaClass> {
@@ -297,25 +297,25 @@ export interface MediaProps extends BaseProps<MediaClass> {
     right?: boolean;
     align?: "top" | "center" | "bottom";
 }
-type MediaClass = React.StatelessComponent<MediaProps>
+type MediaClass = React.StatelessComponent<MediaProps>;
 export declare const Media: MediaClass;
 
 export interface MenuProps extends BaseProps<MenuClass> {
 }
-type MenuClass = React.StatelessComponent<MenuProps>
+type MenuClass = React.StatelessComponent<MenuProps>;
 export declare const Menu: MenuClass;
 
 export interface MessageProps extends BaseProps<MessageClass> {
     theme?: "primary" | "secondary" | "default" | "info" | "success" | "warning" | "error";
 }
-type MessageClass = React.StatelessComponent<MessageProps>
+type MessageClass = React.StatelessComponent<MessageProps>;
 export declare const Message: MessageClass;
 
 export interface NavItemProps extends BaseProps<NavItemClass> {
     small?: boolean;
     is?: string | Object | Function;
 }
-type NavItemClass = React.StatelessComponent<NavItemProps>
+type NavItemClass = React.StatelessComponent<NavItemProps>;
 export declare const NavItem: NavItemClass;
 
 export interface OverlayProps extends BaseProps<OverlayClass> {
@@ -325,44 +325,44 @@ export interface OverlayProps extends BaseProps<OverlayClass> {
     fullWidth?: boolean;
     onDismiss?: Function;
 }
-type OverlayClass = React.StatelessComponent<OverlayProps>
+type OverlayClass = React.StatelessComponent<OverlayProps>;
 export declare const Overlay: OverlayClass;
 
 export interface PageHeaderProps extends BaseProps<PageHeaderClass> {
     heading?: string;
     description?: string;
 }
-type PageHeaderClass = React.StatelessComponent<PageHeaderProps>
+type PageHeaderClass = React.StatelessComponent<PageHeaderProps>;
 export declare const PageHeader: PageHeaderClass;
 
 export interface PanelProps extends BaseProps<PanelClass> {
     theme?: "primary" | "secondary" | "default" | "info" | "success" | "warning" | "error";
 }
-type PanelClass = React.StatelessComponent<PanelProps>
+type PanelClass = React.StatelessComponent<PanelProps>;
 export declare const Panel: PanelClass;
 
 export interface PanelFooterProps extends BaseProps<PanelFooterClass> {
     theme?: "primary" | "secondary" | "default" | "info" | "success" | "warning" | "error";
 }
-type PanelFooterClass = React.StatelessComponent<PanelFooterProps>
+type PanelFooterClass = React.StatelessComponent<PanelFooterProps>;
 export declare const PanelFooter: PanelFooterClass;
 
 export interface PanelHeaderProps extends BaseProps<PanelHeaderClass> {
     theme?: "primary" | "secondary" | "default" | "info" | "success" | "warning" | "error";
 }
-type PanelHeaderClass = React.StatelessComponent<PanelHeaderProps>
+type PanelHeaderClass = React.StatelessComponent<PanelHeaderProps>;
 export declare const PanelHeader: PanelHeaderClass;
 
 export interface PreProps extends BaseProps<PreClass> {
 }
-type PreClass = React.StatelessComponent<PreProps>
+type PreClass = React.StatelessComponent<PreProps>;
 export declare const Pre: PreClass;
 
 export interface ProgressProps extends BaseProps<ProgressClass> {
     value?: number;
     color?: string;
 }
-type ProgressClass = React.StatelessComponent<ProgressProps>
+type ProgressClass = React.StatelessComponent<ProgressProps>;
 export declare const Progress: ProgressClass;
 
 export interface RadioProps extends BaseProps<RadioClass> {
@@ -372,19 +372,19 @@ export interface RadioProps extends BaseProps<RadioClass> {
     name?: string;
     readOnly?: boolean;
 }
-type RadioClass = React.StatelessComponent<RadioProps>
+type RadioClass = React.StatelessComponent<RadioProps>;
 export declare const Radio: RadioClass;
 
 export interface RatingProps extends BaseProps<RatingClass> {
     value?: number;
     onClick?: Function;
 }
-type RatingClass = React.StatelessComponent<RatingProps>
+type RatingClass = React.StatelessComponent<RatingProps>;
 export declare const Rating: RatingClass;
 
 export interface SectionProps extends BaseProps<SectionClass> {
 }
-type SectionClass = React.StatelessComponent<SectionProps>
+type SectionClass = React.StatelessComponent<SectionProps>;
 export declare const Section: SectionClass;
 
 export interface SectionHeaderProps extends BaseProps<SectionHeaderClass> {
@@ -392,7 +392,7 @@ export interface SectionHeaderProps extends BaseProps<SectionHeaderClass> {
     href?: string;
     description?: string;
 }
-type SectionHeaderClass = React.StatelessComponent<SectionHeaderProps>
+type SectionHeaderClass = React.StatelessComponent<SectionHeaderProps>;
 export declare const SectionHeader: SectionHeaderClass;
 
 export interface SelectProps extends BaseProps<SelectClass> {
@@ -405,7 +405,7 @@ export interface SelectProps extends BaseProps<SelectClass> {
     message?: string;
     hideLabel?: boolean;
 }
-type SelectClass = React.StatelessComponent<SelectProps>
+type SelectClass = React.StatelessComponent<SelectProps>;
 export declare const Select: SelectClass;
 
 export interface SequenceMapProps extends BaseProps<SequenceMapClass> {
@@ -415,7 +415,7 @@ export interface SequenceMapProps extends BaseProps<SequenceMapClass> {
     }[];
     active?: number;
 }
-type SequenceMapClass = React.StatelessComponent<SequenceMapProps>
+type SequenceMapClass = React.StatelessComponent<SequenceMapProps>;
 export declare const SequenceMap: SequenceMapClass;
 
 export interface SequenceMapStepProps extends BaseProps<SequenceMapStepClass> {
@@ -423,7 +423,7 @@ export interface SequenceMapStepProps extends BaseProps<SequenceMapStepClass> {
     first?: boolean;
     active?: boolean;
 }
-type SequenceMapStepClass = React.StatelessComponent<SequenceMapStepProps>
+type SequenceMapStepClass = React.StatelessComponent<SequenceMapStepProps>;
 export declare const SequenceMapStep: SequenceMapStepClass;
 
 export interface SliderProps extends BaseProps<SliderClass> {
@@ -435,14 +435,14 @@ export interface SliderProps extends BaseProps<SliderClass> {
     defaultValue?: number;
     readOnly?: boolean;
 }
-type SliderClass = React.StatelessComponent<SliderProps>
+type SliderClass = React.StatelessComponent<SliderProps>;
 export declare const Slider: SliderClass;
 
 export interface SpaceProps extends BaseProps<SpaceClass> {
     x?: number;
     auto?: boolean;
 }
-type SpaceClass = React.StatelessComponent<SpaceProps>
+type SpaceClass = React.StatelessComponent<SpaceProps>;
 export declare const Space: SpaceClass;
 
 export interface StatProps extends BaseProps<StatClass> {
@@ -451,27 +451,27 @@ export interface StatProps extends BaseProps<StatClass> {
     label?: string;
     topLabel?: boolean;
 }
-type StatClass = React.StatelessComponent<StatProps>
+type StatClass = React.StatelessComponent<StatProps>;
 export declare const Stat: StatClass;
 
 export interface SwitchProps extends BaseProps<SwitchClass> {
     checked?: boolean;
 }
-type SwitchClass = React.StatelessComponent<SwitchProps>
+type SwitchClass = React.StatelessComponent<SwitchProps>;
 export declare const Switch: SwitchClass;
 
 export interface TableProps extends BaseProps<TableClass> {
     headings?: any[];
     data?: any[][];
 }
-type TableClass = React.StatelessComponent<TableProps>
+type TableClass = React.StatelessComponent<TableProps>;
 export declare const Table: TableClass;
 
 export interface TextProps extends BaseProps<TextClass> {
     small?: boolean;
     bold?: boolean;
 }
-type TextClass = React.StatelessComponent<TextProps>
+type TextClass = React.StatelessComponent<TextProps>;
 export declare const Text: TextClass;
 
 export interface TextareaProps extends BaseProps<TextareaClass> {
@@ -480,16 +480,16 @@ export interface TextareaProps extends BaseProps<TextareaClass> {
     message?: string;
     hideLabel?: boolean;
 }
-type TextareaClass = React.StatelessComponent<TextareaProps>
+type TextareaClass = React.StatelessComponent<TextareaProps>;
 export declare const Textarea: TextareaClass;
 
 export interface ToolbarProps extends BaseProps<ToolbarClass> {
 }
-type ToolbarClass = React.StatelessComponent<ToolbarProps>
+type ToolbarClass = React.StatelessComponent<ToolbarProps>;
 export declare const Toolbar: ToolbarClass;
 
 export interface TooltipProps extends BaseProps<TooltipClass> {
     title?: string;
 }
-type TooltipClass = React.StatelessComponent<TooltipProps>
+type TooltipClass = React.StatelessComponent<TooltipProps>;
 export declare const Tooltip: TooltipClass;

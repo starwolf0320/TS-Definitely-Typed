@@ -13,13 +13,13 @@ declare namespace Microsoft.Maps.Search {
          formattedAddress: string;
          locality: string;
          postalCode: string;
-         postalTown:string;
+         postalTown: string;
      }
 
      export interface GeocodeLocation {
          location: Location;
          name: string;
-         precision:LocationPrecision;
+         precision: LocationPrecision;
      }
 
      export interface GeocodeRequestOptions {
@@ -29,14 +29,14 @@ declare namespace Microsoft.Maps.Search {
          errorCallback?: (options: GeocodeRequestOptions) => any;
          timeout?: number;
          userData?: any;
-         where:string;
+         where: string;
      }
 
      export interface GeocodeResult {
          parsedAddress: Address;
          parsedKeyword: string;
          parsedSeparator: string;
-         results:Array<PlaceResult>;
+         results: Array<PlaceResult>;
      }
 
      export enum LocationPrecision {
@@ -65,7 +65,7 @@ declare namespace Microsoft.Maps.Search {
          locations: Array<GeocodeLocation>;
          matchCode: MatchCode;
          matchConfidence: MatchConfidence;
-         name:string;
+         name: string;
      }
 
      export interface ReverseGeocodeRequestOptions {
@@ -73,7 +73,7 @@ declare namespace Microsoft.Maps.Search {
          errorCallback?: (options: ReverseGeocodeRequestOptions) => any;
          location?: Location;
          timeout?: number;
-         userData?:any;
+         userData?: any;
      }
 
      export class SearchManager {
@@ -82,13 +82,13 @@ declare namespace Microsoft.Maps.Search {
 
          geocode(request: GeocodeRequestOptions): void;
          reverseGeocode(request: ReverseGeocodeRequestOptions): void;
-         search(request:SearchRequestOptions):void;
+         search(request: SearchRequestOptions): void;
      }
 
      export interface SearchParseResult {
          keyword: string;
          location: GeocodeLocation;
-         matchConfidence:MatchConfidence;
+         matchConfidence: MatchConfidence;
      }
 
      export interface SearchRegion {
@@ -98,20 +98,20 @@ declare namespace Microsoft.Maps.Search {
          mapBounds: LocationRect;
          matchCode: MatchCode;
          matchConfidence: MatchConfidence;
-         source:string;
+         source: string;
      }
 
      export interface SearchRequestOptions {
-         callback?:(result: SearchResponse, userData: any)=>any;
+         callback?: (result: SearchResponse, userData: any) => any;
          count: number;
-         errorCallback?:(options: SearchRequestOptions)=>any;
+         errorCallback?: (options: SearchRequestOptions) => any;
          query?: string;
          startIndex?: number;
          timeout?: number;
          entityType?: string;
          userData?: any;
          what?: string;
-         where?:string;
+         where?: string;
      }
 
      export interface SearchResponse {
@@ -120,7 +120,7 @@ declare namespace Microsoft.Maps.Search {
          parseResults: Array<SearchParseResult>;
          responseSummary: SearchResponseSummary;
          searchRegion: SearchRegion;
-         searchResults:Array<SearchResult>;
+         searchResults: Array<SearchResult>;
      }
 
      export interface SearchResponseSummary {
@@ -128,7 +128,7 @@ declare namespace Microsoft.Maps.Search {
          copyright: string;
          errorMessage: string;
          statusCode: number;
-         traceId:number;
+         traceId: number;
      }
 
      export interface SearchResult {
@@ -144,7 +144,7 @@ declare namespace Microsoft.Maps.Search {
          postalCode: string;
          reviewCount: number;
          userRating: number;
-         website:string;
+         website: string;
      }
 
  }

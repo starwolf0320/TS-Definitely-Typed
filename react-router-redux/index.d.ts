@@ -33,7 +33,7 @@ declare namespace ReactRouterRedux {
     type RouterAction = {
         type: string
         payload?: LocationDescriptor
-    }
+    };
 
     interface RouteActions {
         push: PushAction;

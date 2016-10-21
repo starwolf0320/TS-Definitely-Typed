@@ -52,7 +52,7 @@ declare namespace JQueryUILayout {
         fxSettings?: JQueryAnimationOptions;
         initClosed?: boolean;
         initHidden?: boolean;
-        onshow_start?: string | { (name:string, pane:JQuery, state: PaneState, options: PaneOptions, layout_name: string): (boolean | void) };
+        onshow_start?: string | { (name: string, pane: JQuery, state: PaneState, options: PaneOptions, layout_name: string): (boolean | void) };
         onshow_end?: string | { (name: string, pane: JQuery, state: PaneState, options: PaneOptions, layout_name: string): void };
         onshow?: string | { (name: string, pane: JQuery, state: PaneState, options: PaneOptions, layout_name: string): void };
         onhide_start?: string | { (name: string, pane: JQuery, state: PaneState, options: PaneOptions, layout_name: string): (boolean | void) };
@@ -356,7 +356,7 @@ declare namespace JQueryUILayout {
         west__fxSettings?: JQueryAnimationOptions;
         west__initClosed?: boolean;
         west__initHidden?: boolean;
-        west__onshow_start?: string | { (name:string, pane:JQuery, state: PaneState, options: PaneOptions, layout_name: string): (boolean | void) };
+        west__onshow_start?: string | { (name: string, pane: JQuery, state: PaneState, options: PaneOptions, layout_name: string): (boolean | void) };
         west__onshow_end?: string | { (name: string, pane: JQuery, state: PaneState, options: PaneOptions, layout_name: string): void };
         west__onshow?: string | { (name: string, pane: JQuery, state: PaneState, options: PaneOptions, layout_name: string): void };
         west__onhide_start?: string | { (name: string, pane: JQuery, state: PaneState, options: PaneOptions, layout_name: string): (boolean | void) };
@@ -458,7 +458,7 @@ declare namespace JQueryUILayout {
             east: PaneState;
             south: PaneState;
             west: PaneState;
-        }
+        };
 
         toggle(pane: string): JQuery;
         open(pane: string): JQuery;

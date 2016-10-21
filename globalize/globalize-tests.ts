@@ -21,17 +21,17 @@ Globalize.format(new Date(1955, 10, 5), "dddd MMMM d, yyyy");
 Globalize.addCultureInfo("fr", { messages: { "translate": "traduire" } });
 console.log(Globalize.localize("translate", "fr"));
 
-Globalize.parseInt("1,234.56"); 
+Globalize.parseInt("1,234.56");
 Globalize.parseInt("1.234,56", 10);
 Globalize.parseInt("1.234,56", 10, "de");
-Globalize.parseFloat("1,234.56"); 
+Globalize.parseFloat("1,234.56");
 Globalize.parseFloat("1.234,56", 10);
 Globalize.parseFloat("1.234,56", 10, "de");
 Globalize.parseDate("1/2/2003");
 Globalize.parseDate("15 Jun 2012", "dd MMM yyyy");
 Globalize.parseDate("15 Jun 2012", ["dd MMM yyyy"]);
 Globalize.culture("fr");
-Globalize.parseDate("1/2/2003"); 
+Globalize.parseDate("1/2/2003");
 
 Globalize.addCultureInfo({ numberFormat: { billionZeroes: 12 } });
 Globalize.addCultureInfo("fr", { numberFormat: { billionZeroes: 12 } });
@@ -40,19 +40,19 @@ Globalize.addCultureInfo("de-DE", "de", { numberFormat: { billionZeroes: 12 } })
 //Globalize.culture().calendar = Globalize.culture().calendars.SomeOtherCalendar;
 //Globalize.culture().calendar = Globalize.culture().calendars.standard;
 
-Globalize.format(123.45, "n"); 
+Globalize.format(123.45, "n");
 Globalize.format(123.45, "n0");
 Globalize.format(123.45, "n1");
 
 Globalize.format(123.45, "d");
-Globalize.format(12, "d3"); 
+Globalize.format(12, "d3");
 
-Globalize.format(123.45, "c"); 
+Globalize.format(123.45, "c");
 Globalize.format(123.45, "c0");
 Globalize.format(123.45, "c1");
 Globalize.format(-123.45, "c");
 
-Globalize.format(0.12345, "p"); 
+Globalize.format(0.12345, "p");
 Globalize.format(0.12345, "p0");
 Globalize.format(0.12345, "p4");
 

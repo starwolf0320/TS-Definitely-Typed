@@ -250,7 +250,7 @@ declare namespace NodeJS {
     export var Console: {
         prototype: Console;
         new(stdout: WritableStream, stderr?: WritableStream): Console;
-    }
+    };
 
     export interface ErrnoException extends Error {
         errno?: number;
@@ -1028,7 +1028,7 @@ declare module "cluster" {
 
 declare module "zlib" {
     import * as stream from "stream";
-    export interface ZlibOptions { chunkSize?: number; windowBits?: number; level?: number; memLevel?: number; strategy?: number; dictionary?: any; finishFlush?: number }
+    export interface ZlibOptions { chunkSize?: number; windowBits?: number; level?: number; memLevel?: number; strategy?: number; dictionary?: any; finishFlush?: number; }
 
     export interface Gzip extends stream.Transform { }
     export interface Gunzip extends stream.Transform { }
@@ -1126,7 +1126,7 @@ declare module "os" {
     export function release(): string;
     export function networkInterfaces(): { [index: string]: NetworkInterfaceInfo[] };
     export function homedir(): string;
-    export function userInfo(options?: { encoding: string }): { username: string, uid: number, gid: number, shell: any, homedir: string }
+    export function userInfo(options?: { encoding: string }): { username: string, uid: number, gid: number, shell: any, homedir: string };
     export var constants: {
         UV_UDP_REUSEADDR: number,
         errno: {
@@ -1772,8 +1772,8 @@ declare module "url" {
 
 declare module "dns" {
     export interface MxRecord {
-        exchange: string,
-        priority: number
+        exchange: string;
+        priority: number;
     }
 
     export function lookup(domain: string, family: number, callback: (err: Error, address: string, family: number) => void): string;
@@ -2724,7 +2724,7 @@ declare module "path" {
      */
     export function format(pathObject: ParsedPath): string;
 
-    export module posix {
+    export namespace posix {
         export function normalize(p: string): string;
         export function join(...paths: any[]): string;
         export function resolve(...pathSegments: any[]): string;
@@ -2739,7 +2739,7 @@ declare module "path" {
         export function format(pP: ParsedPath): string;
     }
 
-    export module win32 {
+    export namespace win32 {
         export function normalize(p: string): string;
         export function join(...paths: any[]): string;
         export function resolve(...pathSegments: any[]): string;
@@ -2815,7 +2815,7 @@ declare module "tls" {
         /**
          * Construct a new tls.TLSSocket object from an existing TCP socket.
          */
-        constructor(socket:net.Socket, options?: {
+        constructor(socket: net.Socket, options?: {
           /**
            * An optional TLS context object from tls.createSecureContext()
            */
@@ -3034,7 +3034,7 @@ declare module "tls" {
         host?: string;
         port?: number;
         socket?: net.Socket;
-        pfx?: string | Buffer
+        pfx?: string | Buffer;
         key?: string | string[] | Buffer | Buffer[];
         passphrase?: string;
         cert?: string | string[] | Buffer | Buffer[];
@@ -3141,7 +3141,7 @@ declare module "tls" {
         passphrase?: string;
         cert?: string | Buffer;
         ca?: string | Buffer;
-        crl?: string | string[]
+        crl?: string | string[];
         ciphers?: string;
         honorCipherOrder?: boolean;
     }
@@ -3167,7 +3167,7 @@ declare module "crypto" {
     export var Certificate: {
         new (): Certificate;
         (): Certificate;
-    }
+    };
 
     export var fips: boolean;
 
@@ -3281,13 +3281,13 @@ declare module "crypto" {
     }
     export interface RsaPrivateKey {
         key: string;
-        passphrase?: string,
+        passphrase?: string;
         padding?: number;
     }
-    export function publicEncrypt(public_key: string | RsaPublicKey, buffer: Buffer): Buffer
-    export function privateDecrypt(private_key: string | RsaPrivateKey, buffer: Buffer): Buffer
-    export function privateEncrypt(private_key: string | RsaPrivateKey, buffer: Buffer): Buffer
-    export function publicDecrypt(public_key: string | RsaPublicKey, buffer: Buffer): Buffer
+    export function publicEncrypt(public_key: string | RsaPublicKey, buffer: Buffer): Buffer;
+    export function privateDecrypt(private_key: string | RsaPrivateKey, buffer: Buffer): Buffer;
+    export function privateEncrypt(private_key: string | RsaPrivateKey, buffer: Buffer): Buffer;
+    export function publicDecrypt(public_key: string | RsaPublicKey, buffer: Buffer): Buffer;
     export function getCiphers(): string[];
     export function getCurves(): string[];
     export function getHashes(): string[];

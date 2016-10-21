@@ -29,7 +29,7 @@ declare module "koa-compress" {
         /**
          * Minimum response size in bytes to compress. Default 1024 bytes or 1kb.
          */
-        threshold?: number
+        threshold?: number;
     }
 
     /**

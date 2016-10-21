@@ -3,8 +3,6 @@
 // Definitions by: Michel Salib <https://github.com/michelsalib>, Jason McNeil <https://github.com/jasonrm>, Christopher Currens <https://github.com/ccurrens>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-
 export = xml2js;
 
 declare namespace xml2js {
@@ -12,9 +10,9 @@ declare namespace xml2js {
     function parseString(xml: convertableToString, options: OptionsV2, callback: (err: any, result: any) => void): void;
 
     var defaults: {
-        '0.1': Options;
-        '0.2': OptionsV2;
-    }
+        "0.1": Options;
+        "0.2": OptionsV2;
+    };
 
     class Builder {
         constructor(options?: OptionsV2);

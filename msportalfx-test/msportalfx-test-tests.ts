@@ -19,7 +19,7 @@ var stringPromise: Q.Promise<string>;
 
 var summaryBlade = new testFx.Blades.Blade(resourceName);
 
-function TestPortal() {    
+function TestPortal() {
     testFx.portal.portalContext.signInEmail = userName;
     testFx.portal.portalContext.signInPassword = password;
     testFx.portal.portalContext.features = [{ name: "greatfeature", value: "true" }];
@@ -104,7 +104,7 @@ function TestControls() {
 function TestActionBars() {
     var createBar = new testFx.ActionBars.CreateActionBar(summaryBlade.getLocator());
     voidPromise = createBar.createButton.click();
-    
+
     var deleteBar = new testFx.ActionBars.DeleteActionBar(summaryBlade.getLocator());
     voidPromise = deleteBar.deleteButton.click();
     voidPromise = deleteBar.cancelButton.click();

@@ -19,12 +19,12 @@ declare module "bull" {
     namespace Bull {
 
         export interface DoneCallback {
-            (error?: Error, value?: any): void
+            (error?: Error, value?: any): void;
         }
 
         export interface Job {
 
-            jobId: string
+            jobId: string;
 
             /**
             * The custom data passed when the job was created
@@ -54,7 +54,7 @@ declare module "bull" {
             /**
              * Backoff type, which can be either `fixed` or `exponential`
              */
-            type: string
+            type: string;
 
             /**
              * Backoff delay, in milliseconds
@@ -77,7 +77,7 @@ declare module "bull" {
             /**
              * Backoff setting for automatic retries if the job fails
              */
-            backoff?: number | Backoff
+            backoff?: number | Backoff;
 
             /**
              * A boolean which, if true, adds the job to the right
@@ -213,7 +213,7 @@ declare module "bull" {
         }
 
         interface EventCallback {
-            (...args: any[]): void
+            (...args: any[]): void;
         }
 
         interface ReadyEventCallback extends EventCallback {
@@ -228,7 +228,7 @@ declare module "bull" {
             /**
              * Abort this job
              */
-            cancel(): void
+            cancel(): void;
         }
 
         interface ActiveEventCallback extends EventCallback {

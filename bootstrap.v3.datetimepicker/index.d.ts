@@ -47,9 +47,9 @@ export interface Datetimepicker {
 	hide(): void;
 	/**Returns the components current options object.
 	 * Note that the changing the values of the returned object does not change the components actual configuration. */
-	options(): DatetimepickerOptions
+	options(): DatetimepickerOptions;
 	/**Takes an object variable with option key:value properties and configures the component. Use this to update multiple options on the component. */
-	options(options: DatetimepickerOptions): void
+	options(options: DatetimepickerOptions): void;
 	/**Shows the widget
 	 * Emits:
 	 * - dp.show - if the widget was hidden before that call

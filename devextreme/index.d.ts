@@ -5,7 +5,7 @@
 
 /// <reference types="jquery" />
 
-declare module DevExpress {
+declare namespace DevExpress {
     /** A mixin that provides a capability to fire and subscribe to events. */
     export interface EventsMixin<T> {
         /** Subscribes to a specified event. */
@@ -18,7 +18,7 @@ declare module DevExpress {
         off(eventName: string, eventHandler: Function): T;
     }
     /** An object that serves as a namespace for the methods required to perform validation. */
-    export module validationEngine {
+    export namespace validationEngine {
         export interface IValidator {
             validate(): ValidatorValidationResult;
             reset(): void;
@@ -42,9 +42,9 @@ declare module DevExpress {
             reset(): void;
         }
         /** Provides access to the object that represents the specified validation group. */
-        export function getGroupConfig(group: any): GroupConfig
+        export function getGroupConfig(group: any): GroupConfig;
         /** Provides access to the object that represents the default validation group. */
-        export function getGroupConfig(): GroupConfig
+        export function getGroupConfig(): GroupConfig;
         /** Validates rules of the validators that belong to the specified validation group. */
         export function validateGroup(group: any): ValidationGroupValidationResult;
         /** Validates rules of the validators that belong to the default validation group. */
@@ -56,7 +56,7 @@ declare module DevExpress {
         /** Validates the rules that are defined within the dxValidator objects that are registered for the specified ViewModel. */
         export function validateModel(model: Object): ValidationGroupValidationResult;
         /** Registers all the dxValidator objects by which the fields of the specified ViewModel are extended. */
-        export function registerModelForValidation(model: Object) : void;
+        export function registerModelForValidation(model: Object): void;
     }
     export var hardwareBackButton: JQueryCallback;
     /** Processes the hardware back button click. */
@@ -85,7 +85,7 @@ declare module DevExpress {
         urlFor(key: string): string;
     }
     /** An object that serves as a namespace for the methods that are used to animate UI elements. */
-    export module fx {
+    export namespace fx {
         /** Defines animation options. */
         export interface AnimationOptions {
             /** A function called after animation is completed. */
@@ -258,7 +258,7 @@ declare module DevExpress {
             options?: any;
         }): void;
     }
-    export module data {
+    export namespace data {
         export interface ODataError extends Error {
             httpStatus?: number;
             errorDetails?: any;
@@ -677,10 +677,10 @@ declare module DevExpress {
                     Decimal(value: any): EdmLiteral;
                 };
             }
-        }
+        };
     }
     /** An object that serves as a namespace for DevExtreme UI widgets as well as for methods implementing UI logic in DevExtreme sites/applications. */
-    export module ui {
+    export namespace ui {
         export interface WidgetOptions extends DOMComponentOptions {
             /** A Boolean value specifying whether or not the widget changes its state when interacting with a user. */
             activeStateEnabled?: boolean;
@@ -827,7 +827,7 @@ declare module DevExpress {
         cancelAnimationFrame(requestID: number): void;
     };
     /** An object that serves as a namespace for DevExtreme Data Visualization Widgets. */
-    export module viz {
+    export namespace viz {
         /** Applies a theme for the entire page with several DevExtreme visualization widgets. */
         export function currentTheme(theme: string): void;
         /** Applies a new theme (with the color scheme defined separately) for the entire page with several DevExtreme visualization widgets. */
@@ -842,7 +842,7 @@ declare module DevExpress {
         export function registerPalette(paletteName: string, palette: Object): void;
     }
 }
-declare module DevExpress.ui {
+declare namespace DevExpress.ui {
     export interface dxValidatorOptions extends DOMComponentOptions {
         /** An array of validation rules to be checked for the editor with which the dxValidator object is associated. */
         validationRules?: Array<any>;
@@ -1436,7 +1436,7 @@ declare module DevExpress.ui {
             google?: string;
             /** A key used to authenticate the application within the "Google Static" map provider. */
             googleStatic?: string;
-        }
+        };
         /** A handler for the markerAdded event. */
         onMarkerAdded?: Function;
         /** A URL pointing to the custom icon to be used for map markers. */
@@ -2470,7 +2470,7 @@ interface JQuery {
     dxForm(options: DevExpress.ui.dxFormOptions): JQuery;
 }
 
-declare module DevExpress.ui {
+declare namespace DevExpress.ui {
     export interface dxTileViewOptions extends CollectionWidgetOptions {
         /** A Boolean value specifying whether or not the widget changes its state when interacting with a user. */
         activeStateEnabled?: boolean;
@@ -2706,7 +2706,7 @@ interface JQuery {
     dxDropDownMenu(options: string, ...params: any[]): any;
     dxDropDownMenu(options: DevExpress.ui.dxDropDownMenuOptions): JQuery;
 }
-declare module DevExpress.data {
+declare namespace DevExpress.data {
     export interface XmlaStoreOptions {
         /** The HTTP address to an XMLA OLAP server. */
         url?: string;
@@ -2903,7 +2903,7 @@ declare module DevExpress.data {
         off(eventName: string, eventHandler: Function): PivotGridDataSource;
     }
 }
-declare module DevExpress.ui {
+declare namespace DevExpress.ui {
     export interface dxSchedulerOptions extends WidgetOptions {
         /** Specifies a date displayed on the current scheduler view by default. */
         currentDate?: any;
@@ -2947,7 +2947,7 @@ declare module DevExpress.ui {
             allowResizing?: boolean;
             /** Specifies whether or not an end-user can drag appointments. */
             allowDragging?: boolean;
-        }
+        };
         /** Specifies an array of resources available in the scheduler. */
         resources?: Array<{
             /** Indicates whether or not several resources of this kind can be assigned to an appointment. */
@@ -4084,7 +4084,7 @@ declare module DevExpress.ui {
                 /** The string to display instead of All Fields. */
                 allFields?: string;
             };
-        }
+        };
         /** Strings that can be changed or localized in the dxPivotGrid widget. */
         texts?: {
             /** The string to display as a header of the Grand Total row and column. */
@@ -4260,7 +4260,7 @@ interface JQuery {
     dxScheduler(options: string, ...params: any[]): any;
     dxScheduler(options: DevExpress.ui.dxSchedulerOptions): JQuery;
 }
-declare module DevExpress.framework {
+declare namespace DevExpress.framework {
     /** An object used to store information on the views displayed in an application. */
     export class ViewCache {
         viewRemoved: JQueryCallback;
@@ -4328,11 +4328,11 @@ declare module DevExpress.framework {
         /** Removes the application state that has been saved by the saveState() method to the state storage. */
         clearState(): void;
     }
-    export module html {
+    export namespace html {
         export var layoutSets: Array<string>;
         export var animationSets: { [animationSetName: string]: AnimationSet };
         export interface AnimationSet {
-            [animationName: string]: any
+            [animationName: string]: any;
         }
         export interface HtmlApplicationOptions {
             /** Specifies where the commands that are defined in the application's views must be displayed. */
@@ -4542,7 +4542,7 @@ declare module DevExpress.framework {
         }
     }
 }
-declare module DevExpress.viz.core {
+declare namespace DevExpress.viz.core {
     /**
      * Applies a theme for the entire page with several DevExtreme visualization widgets.
      * @deprecated Use the DevExpress.viz.currentTheme(theme) method instead.
@@ -4645,7 +4645,7 @@ declare module DevExpress.viz.core {
             font?: viz.core.Font;
            /** Specifies text for the subtitle. */
             text?: string;
-        }
+        };
     }
     export interface Tooltip {
         /** Specifies the length of the tooltip's arrow in pixels. */
@@ -4778,7 +4778,7 @@ declare module DevExpress.viz.core {
         svg(): string;
     }
 }
-declare module DevExpress.viz.charts {
+declare namespace DevExpress.viz.charts {
     /** This section describes the fields and methods that can be used in code to manipulate the Series object. */
     export interface BaseSeries {
         /** Provides information about the state of the series object. */
@@ -5634,7 +5634,7 @@ declare module DevExpress.viz.charts {
         minValueMargin?: number;
         tick?: {
             visible?: boolean;
-        }
+        };
     }
     export interface CommonPane {
         /** Specifies a background color in a pane. */
@@ -5934,7 +5934,7 @@ declare module DevExpress.viz.charts {
             precision?: number;
             /** Customizes the text displayed by the crosshair label that accompany the horizontal line. */
             customizeText?: (info: { value: any; valueText: string; point: ChartPoint; }) => string;
-        }
+        };
     }
     export interface PolarChartTooltip extends BaseChartTooltip {
         /** Specifies the kind of information to display in a tooltip. */
@@ -6029,7 +6029,7 @@ interface JQuery {
     dxPolarChart(methodName: string, ...params: any[]): any;
     dxPolarChart(methodName: "instance"): DevExpress.viz.charts.dxPolarChart;
 }
-declare module DevExpress.viz.gauges {
+declare namespace DevExpress.viz.gauges {
     export interface BaseRangeContainer {
         /** Specifies a range container's background color. */
         backgroundColor?: string;
@@ -6446,7 +6446,7 @@ interface JQuery {
     dxBarGauge(methodName: string, ...params: any[]): any;
     dxBarGauge(methodName: "instance"): DevExpress.viz.gauges.dxBarGauge;
 }
-declare module DevExpress.viz.rangeSelector {
+declare namespace DevExpress.viz.rangeSelector {
     export interface dxRangeSelectorOptions extends viz.core.BaseWidgetOptions {
         /** Specifies the options for the range selector's background. */
         background?: {
@@ -6742,7 +6742,7 @@ interface JQuery {
     dxRangeSelector(methodName: string, ...params: any[]): any;
     dxRangeSelector(methodName: "instance"): DevExpress.viz.rangeSelector.dxRangeSelector;
 }
-declare module DevExpress.viz.map {
+declare namespace DevExpress.viz.map {
     /** This section describes the fields and methods that can be used in code to manipulate the Layer object. */
     export interface MapLayer {
         /** The name of the layer. */
@@ -7307,7 +7307,7 @@ declare module DevExpress.viz.map {
             layer?: string;
             /** Specifies the type of the legend grouping. */
             grouping?: string;
-        }
+        };
     }
     /** A vector map widget. */
     export class dxVectorMap extends viz.core.BaseWidget {
@@ -7381,7 +7381,7 @@ interface JQuery {
     dxVectorMap(methodName: string, ...params: any[]): any;
     dxVectorMap(methodName: "instance"): DevExpress.viz.map.dxVectorMap;
 }
-declare module DevExpress.viz.sparklines {
+declare namespace DevExpress.viz.sparklines {
     export interface SparklineTooltip extends viz.core.Tooltip {
         /**
          * Specifies how a tooltip is horizontally aligned relative to the graph.

@@ -1,6 +1,6 @@
 var mk = new MilkCocoa("hostAddress");
 mk.addAccount("sample@test.com", "password", null, (err: MilkCocoa.Error.AddAccount, user: milkcocoa.User) => {
-  
+
   switch (err) {
     case null:
       console.log("Done.");

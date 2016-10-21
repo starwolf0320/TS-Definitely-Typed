@@ -986,7 +986,7 @@ runCoreParserTests();
 runParseTests();
 runUnparseTests();
 console.log('passCount=' + passCount + ', failCount=' + failCount);
-    
+
 
 // Executes all tests in CORE_PARSER_TESTS from test-cases.js
 // and renders results in the table.
@@ -1172,10 +1172,10 @@ function revealChars(txt:string) {
     // Make spaces and tabs more obvious when glancing
     //     txt = txt.replace(/( |\t)/ig, '<span class="whitespace-char">$1</span>');
     //     txt = txt.replace(/(\r\n|\n\r|\r|\n)/ig, '<span class="whitespace-char special-char">$1</span>$1');
-    // 
+    //
     //     // Make UNIT_SEP and RECORD_SEP characters visible
     //     txt = txt.replace(/(\u001e|\u001f)/ig, '<span class="special-char">$1</span>$1');
-    // 
+    //
     //     // Now make the whitespace and invisible characters
     //     // within the spans actually appear on the page
     //     txt = txt.replace(/">\r\n<\/span>/ig, '">\\r\\n</span>');
@@ -1184,7 +1184,7 @@ function revealChars(txt:string) {
     //     txt = txt.replace(/">\n<\/span>/ig, '">\\n</span>');
     //     txt = txt.replace(/">\u001e<\/span>/ig, '">\\u001e</span>');
     //     txt = txt.replace(/">\u001f<\/span>/ig, '">\\u001f</span>');
-    // 
+    //
     return txt;
 }
 

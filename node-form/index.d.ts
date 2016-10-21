@@ -120,8 +120,8 @@ declare namespace Validation {
         public RangeLength: number[];
         constructor(RangeLength?: number[]);
         public isAcceptable(s: string): boolean;
-        public MinLength : number;
-        public MaxLength : number;
+        public MinLength: number;
+        public MaxLength: number;
         public tagName: string;
     }
     class MinValidator implements IPropertyValidator {
@@ -140,8 +140,8 @@ declare namespace Validation {
         public Range: number[];
         constructor(Range?: number[]);
         public isAcceptable(s: any): boolean;
-        public Min : number;
-        public Max : number;
+        public Min: number;
+        public Max: number;
         public tagName: string;
     }
     class StepValidator implements IPropertyValidator {
@@ -271,9 +271,9 @@ declare namespace Validation {
         public Error: IError;
         public IsAsync: boolean;
         constructor(Error: IError, IsAsync: boolean);
-        public HasError : boolean;
-        public ErrorMessage : string;
-        public TranslateArgs : IErrorTranslateArgs;
+        public HasError: boolean;
+        public ErrorMessage: string;
+        public TranslateArgs: IErrorTranslateArgs;
     }
     /**
     *
@@ -289,15 +289,15 @@ declare namespace Validation {
         public Name: string;
         constructor(Name: string);
         public IsDirty: boolean;
-        public Children : IValidationResult[];
+        public Children: IValidationResult[];
         public Add(error: IValidationResult): void;
         public Remove(index: number): void;
         public Optional: IOptional;
         public TranslateArgs: IErrorTranslateArgs[];
-        public HasErrorsDirty : boolean;
-        public HasErrors : boolean;
-        public ErrorCount : number;
-        public ErrorMessage : string;
+        public HasErrorsDirty: boolean;
+        public HasErrors: boolean;
+        public ErrorCount: number;
+        public ErrorMessage: string;
     }
     /**
     *
@@ -317,13 +317,13 @@ declare namespace Validation {
         public AddFirst(error: IValidationResult): void;
         public Add(error: IValidationResult): void;
         public Remove(index: number): void;
-        public HasErrorsDirty : boolean;
-        public HasErrors : boolean;
-        public ErrorCount : number;
-        public ErrorMessage : string;
-        public TranslateArgs : IErrorTranslateArgs[];
+        public HasErrorsDirty: boolean;
+        public HasErrors: boolean;
+        public ErrorCount: number;
+        public ErrorMessage: string;
+        public TranslateArgs: IErrorTranslateArgs[];
         public LogErrors(headerMessage?: string): void;
-        public Errors : {
+        public Errors: {
             [name: string]: IValidationResult;
         };
         private FlattenErros;
@@ -584,7 +584,7 @@ declare namespace Validation {
         public Key: string;
         public Data: T;
         constructor(Key: string, Data: T);
-        public Value : any;
+        public Value: any;
     }
     class MessageLocalization {
         static customMsg: string;
@@ -656,13 +656,13 @@ declare namespace Validation {
         };
         constructor(Name: string, validatorsToAdd?: IPropertyValidator[]);
         public AddValidator(validator: any): void;
-        public Errors : {
+        public Errors: {
             [name: string]: IValidationFailure;
         };
-        public HasErrors : boolean;
-        public ErrorCount : number;
-        public ErrorMessage : string;
-        public TranslateArgs : IErrorTranslateArgs[];
+        public HasErrors: boolean;
+        public ErrorCount: number;
+        public ErrorMessage: string;
+        public TranslateArgs: IErrorTranslateArgs[];
         /**
         * Performs validation using a validation context and returns a collection of Validation Failures.
         */
@@ -699,13 +699,13 @@ declare namespace Validation {
         public Optional: IOptional;
         public Validate(context: any): IValidationFailure;
         public ValidateAsync(context: any): Q.Promise<IValidationFailure>;
-        public HasError : boolean;
-        public Errors : {
+        public HasError: boolean;
+        public Errors: {
             [name: string]: IValidationFailure;
         };
-        public HasErrors : boolean;
-        public ErrorCount : number;
-        public ErrorMessage : string;
-        public TranslateArgs : IErrorTranslateArgs[];
+        public HasErrors: boolean;
+        public ErrorCount: number;
+        public ErrorMessage: string;
+        public TranslateArgs: IErrorTranslateArgs[];
     }
 }

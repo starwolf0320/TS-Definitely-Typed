@@ -282,7 +282,7 @@ fetch('../controllers/php-post.php', {
   },
   body: formData
 })
-.then($.json) 
+.then($.json)
 .then(function<postData>(data: any): any {
   if(data.email_check == "valid"){
     $("#message_ajax").html("<div class='successMessage'>" + data.email + " is a valid e-mail address. Thank you, " + data.name + ".</div>");
@@ -300,12 +300,12 @@ interface putData {
 var putData = $('#fileText').val();
 fetch('../controllers/php-put.php', {
   method: 'put',
-  headers: {  
-    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"  
+  headers: {
+    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
   },
   body: putData
 })
-.then($.json) 
+.then($.json)
 .then(function<putData>(data:any): any {
    console.dir(data.base);
    $("#message_ajax").append('<p>' + data.result + '</p>');
@@ -324,12 +324,12 @@ interface deleteData {
 var file = $('#fileName').val();
 fetch('../controllers/php-delete.php', {
   method: 'delete',
-  headers: {  
-    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"  
+  headers: {
+    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
   },
   body: file
 })
-.then($.json) 
+.then($.json)
 .then(function<deleteData>(data: any): any {
    $("#message_ajax").html("<div>DELETE was sent to the server successfully.</div>");
    $("#message_ajax").append('<p>' + data.result + '</p>');

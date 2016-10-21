@@ -43,7 +43,7 @@ declare namespace google {
             constructor(spec?: ChartSpecs);
             draw(container_ref?: HTMLElement): void;
             toJSON(): string;
-            clone():ChartWrapper;
+            clone(): ChartWrapper;
             getDataSourceUrl(): string;
             getDataTable(): DataTable;
             getChartType(): string;
@@ -133,7 +133,7 @@ declare namespace google {
         }
 
         export interface Properties {
-            [property: string]: any
+            [property: string]: any;
         }
 
         export interface SortByColumn {
@@ -204,14 +204,14 @@ declare namespace google {
 
             setRefreshInterval(intervalSeconds: number): void;
             setTimeout(timeoutSeconds: number): void;
-            setQuery(queryString:string): void;
+            setQuery(queryString: string): void;
 
             send(callback: (response: QueryResponse) => void): void;
         }
 
         export interface QueryOptions {
-            sendMethod?: string,
-            makeRequestParams?: Object
+            sendMethod?: string;
+            makeRequestParams?: Object;
         }
 
         //#endregion
@@ -365,7 +365,7 @@ declare namespace google {
                 x2: string;
                 y2: string;
                 useObjectBoundingBoxUnits?: boolean;
-            }
+            };
         }
 
         export interface ChartTextStyle {
@@ -383,13 +383,13 @@ declare namespace google {
             focused?: {
                 color?: string;
                 opacity?: number;
-            }
+            };
             opacity?: number;
             orientation?: string;
             selected?: {
                 color?: string;
                 opacity?: number;
-            }
+            };
             trigger?: string;
         }
 
@@ -599,7 +599,7 @@ declare namespace google {
             isStacked?: boolean;
             legend?: ChartLegend;
             reverseCategories?: boolean;
-            selectionMode?: string // single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             theme?: string;
             title?: string;
@@ -645,7 +645,7 @@ declare namespace google {
             orientation?: string;
             pointSize?: number;
             reverseCategories?: boolean;
-            selectionMode?: string // single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             theme?: string;
             title?: string;
@@ -780,7 +780,7 @@ declare namespace google {
             orientation?: string;
             pointSize?: number;
             reverseCategories?: boolean;
-            selectionMode?: string // single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             theme?: string;
             title?: string;
@@ -796,8 +796,7 @@ declare namespace google {
         //#region AnnotationChart
 
         // https://developers.google.com/chart/interactive/docs/gallery/annotationchart
-        export class AnnotationChart extends CoreChartBase
-        {
+        export class AnnotationChart extends CoreChartBase {
             draw(data: DataTable, options: AnnotationChartOptions): void;
             draw(data: DataView, options: AnnotationChartOptions): void;
             setVisibleChartRange(start: Date, end: Date): void;
@@ -807,8 +806,7 @@ declare namespace google {
         }
 
         // https://developers.google.com/chart/interactive/docs/gallery/annotationchart#Configuration_Options
-        export interface AnnotationChartOptions
-        {
+        export interface AnnotationChartOptions {
             allowHtml?: boolean;
             allValuesSuffix?: string;
             annotationsWidth?: number;
@@ -864,7 +862,7 @@ declare namespace google {
             isStacked?: boolean;
             legend?: ChartLegend;
             reverseCategories?: boolean;
-            selectionMode?: string // single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             theme?: string;
             title?: string;
@@ -1067,7 +1065,7 @@ declare namespace google {
                 rowLabelStyle?: LabelStyle;
                 showRowLabels?: boolean;
                 singleColor?: string;
-            }
+            };
             width?: number;
         }
 
@@ -1105,7 +1103,7 @@ declare namespace google {
             legend?: ChartLegend;
             orientation?: string;
             reverseCategories?: boolean;
-            selectionMode?: string // single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             theme?: string;
             title?: string;
@@ -1158,7 +1156,7 @@ declare namespace google {
             pointSize?: number;
             pointsVisible?: boolean;
             reverseCategories?: boolean;
-            selectionMode?: string;// single / multiple
+            selectionMode?: string; // single / multiple
             series?: any;
             seriesType?: string;
             theme?: string;

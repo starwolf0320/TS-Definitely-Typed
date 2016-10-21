@@ -17,7 +17,7 @@ interface Options {
     map?: {
         inline?: boolean;
         prev?: string | Object;
-    }
+    };
 }
 
 interface Result {

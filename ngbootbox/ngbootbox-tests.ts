@@ -29,15 +29,15 @@ class TestBootboxController {
 				warning: {
 					label: "Cancel",
 					className: "btn-warning",
-					callback: function() { 
+					callback: function() {
 						console.log('warning callback');
 					}
 				},
 				success: {
 					label: "Ok",
 					className: "btn-success",
-					callback: function() { 
-						console.log('sucess callback'); 
+					callback: function() {
+						console.log('sucess callback');
 					}
 				}
 			}

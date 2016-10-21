@@ -72,21 +72,21 @@ export declare function ensureSymlinkSync(path: string): void;
 
 export declare function emptyDir(path: string, callback?: (err: Error) => void): void;
 export declare function emptyDirSync(path: string): boolean;
-	
-    export interface CopyFilterFunction {
+
+export interface CopyFilterFunction {
     (src: string): boolean
 }
 
 export type CopyFilter = CopyFilterFunction | RegExp;
 
 export interface CopyOptions {
-    clobber?: boolean
-    preserveTimestamps?: boolean
-    dereference?: boolean
-    filter?: CopyFilter
-    recursive?: boolean
+    clobber?: boolean;
+    preserveTimestamps?: boolean;
+    dereference?: boolean;
+    filter?: CopyFilter;
+    recursive?: boolean;
 }
-	
+
 	export interface MoveOptions {
 		clobber? : boolean;
 		limit?: number;

@@ -10,7 +10,7 @@ declare function CodeMirror(host: HTMLElement, options?: CodeMirror.EditorConfig
 declare function CodeMirror(callback: (host: HTMLElement) => void , options?: CodeMirror.EditorConfiguration): CodeMirror.Editor;
 
 declare namespace CodeMirror {
-    export var Doc : CodeMirror.DocConstructor;
+    export var Doc: CodeMirror.DocConstructor;
     export var Pos: CodeMirror.PositionConstructor;
     export var Pass: any;
 
@@ -302,7 +302,7 @@ declare namespace CodeMirror {
         If you need to perform a lot of operations on a CodeMirror instance, you can call this method with a function argument.
         It will call the function, buffering up all changes, and only doing the expensive update after the function returns.
         This can be a lot faster. The return value from this method will be the return value of your function. */
-        operation<T>(fn: ()=> T): T;
+        operation<T>(fn: () => T): T;
 
         /** Adjust the indentation of the given line.
         The second argument (which defaults to "smart") may be one of:
@@ -665,7 +665,7 @@ declare namespace CodeMirror {
         (line: number, ch?: number): Position;
     }
 
-    interface Range{
+    interface Range {
         from: CodeMirror.Position;
         to: CodeMirror.Position;
     }
@@ -800,7 +800,7 @@ declare namespace CodeMirror {
         /** Indicates how quickly CodeMirror should poll its input textarea for changes(when focused).
         Most input is captured by events, but some things, like IME input on some browsers, don't generate events that allow CodeMirror to properly detect it.
         Thus, it polls. Default is 100 milliseconds. */
-        pollInterval?: number
+        pollInterval?: number;
 
         /** By default, CodeMirror will combine adjacent tokens into a single span if they have the same class.
         This will result in a simpler DOM tree, and thus perform better. With some kinds of styling(such as rounded corners),
@@ -1048,18 +1048,18 @@ declare namespace CodeMirror {
         /**
          * Trigger a reindent whenever one of the characters in the string is typed.
          */
-        electricChars?: string
+        electricChars?: string;
         /**
          * Trigger a reindent whenever the regex matches the part of the line before the cursor.
          */
-        electricinput?: RegExp
+        electricinput?: RegExp;
     }
 
     /**
      * A function that, given a CodeMirror configuration object and an optional mode configuration object, returns a mode object.
      */
     interface ModeFactory<T> {
-        (config: CodeMirror.EditorConfiguration, modeOptions?: any): Mode<T>
+        (config: CodeMirror.EditorConfiguration, modeOptions?: any): Mode<T>;
     }
 
     /**
@@ -1086,7 +1086,7 @@ declare namespace CodeMirror {
      * Both modes get to parse all of the text, but when both assign a non-null style to a piece of code, the overlay wins, unless
      * the combine argument was true and not overridden, or state.overlay.combineTokens was true, in which case the styles are combined.
      */
-    function overlayMode<T, S>(base: Mode<T>, overlay: Mode<S>, combine?: boolean): Mode<any>
+    function overlayMode<T, S>(base: Mode<T>, overlay: Mode<S>, combine?: boolean): Mode<any>;
 
     /**
      * async specifies that the lint process runs asynchronously. hasGutters specifies that lint errors should be displayed in the CodeMirror

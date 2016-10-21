@@ -218,7 +218,7 @@ declare namespace Agenda {
              * The name of the collection to use.
              */
             collection?: string;
-        }
+        };
 
         /**
          * Specifies that Agenda should connect to MongoDB.
@@ -238,7 +238,7 @@ declare namespace Agenda {
              * Connection options to pass to MongoDB.
              */
             options?: any;
-        }
+        };
     }
 
     /**
@@ -323,7 +323,7 @@ declare namespace Agenda {
         /**
          * Job's state
          */
-        disabled: boolean
+        disabled: boolean;
     }
 
     /**
@@ -342,13 +342,13 @@ declare namespace Agenda {
          * @param options An optional argument that can include a timezone field. The timezone should be a string as
          * accepted by moment-timezone and is considered when using an interval in the cron string format.
          */
-        repeatEvery(interval: string | number, options?: { timezone?: string }): Job
+        repeatEvery(interval: string | number, options?: { timezone?: string }): Job;
 
         /**
          * Specifies a time when the job should repeat. [Possible values](https://github.com/matthewmueller/date#examples).
          * @param time
          */
-        repeatAt(time: string): Job
+        repeatAt(time: string): Job;
 
         /**
          * Disables the job.

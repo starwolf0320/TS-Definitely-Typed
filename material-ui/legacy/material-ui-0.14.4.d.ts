@@ -24,8 +24,8 @@ declare module "material-ui" {
     export import ClearFix = __MaterialUI.ClearFix; // require('material-ui/lib/clearfix');
     export import DatePicker = __MaterialUI.DatePicker.DatePicker; // require('material-ui/lib/date-picker/date-picker');
     export import DatePickerDialog = __MaterialUI.DatePicker.DatePickerDialog; // require('material-ui/lib/date-picker/date-picker-dialog');
-    export import Dialog = __MaterialUI.Dialog // require('material-ui/lib/dialog');
-    export import Divider = __MaterialUI.Divider // require('material-ui/lib/divider');
+    export import Dialog = __MaterialUI.Dialog; // require('material-ui/lib/dialog');
+    export import Divider = __MaterialUI.Divider; // require('material-ui/lib/divider');
     export import DropDownMenu = __MaterialUI.Menus.DropDownMenu; // require('material-ui/lib/DropDownMenu/DropDownMenu');
     export import EnhancedButton = __MaterialUI.EnhancedButton; // require('material-ui/lib/enhanced-button');
     export import FlatButton = __MaterialUI.FlatButton; // require('material-ui/lib/flat-button');
@@ -175,7 +175,7 @@ declare namespace __MaterialUI {
             };
             avatar?: {
                 borderColor?: string,
-            }
+            };
             badge?: {
                 color?: string,
                 textColor?: string,
@@ -183,15 +183,15 @@ declare namespace __MaterialUI {
                 primaryTextColor?: string,
                 secondaryColor?: string,
                 secondaryTextColor?: string,
-            },
+            };
             button?: {
                 height?: number,
                 minWidth?: number,
                 iconButtonSize?: number,
-            },
+            };
             cardText?: {
                 textColor?: string,
-            },
+            };
             checkbox?: {
                 boxColor?: string,
                 checkedColor?: string,
@@ -199,17 +199,17 @@ declare namespace __MaterialUI {
                 disabledColor?: string,
                 labelColor?: string,
                 labelDisabledColor?: string,
-            },
+            };
             datePicker?: {
                 color?: string,
                 textColor?: string,
                 calendarTextColor?: string,
                 selectColor?: string,
                 selectTextColor?: string,
-            },
+            };
             dropDownMenu?: {
                 accentColor?: string,
-            },
+            };
             flatButton?: {
                 color?: string,
                 buttonFilterColor?: string,
@@ -217,7 +217,7 @@ declare namespace __MaterialUI {
                 textColor?: string,
                 primaryTextColor?: string,
                 secondaryTextColor?: string,
-            },
+            };
             floatingActionButton?: {
                 buttonSize?: number,
                 miniSize?: number,
@@ -227,40 +227,40 @@ declare namespace __MaterialUI {
                 secondaryIconColor?: string,
                 disabledColor?: string,
                 disabledTextColor?: string,
-            },
+            };
             gridTile?: {
                 textColor?: string,
-            },
+            };
             inkBar?: {
                 backgroundColor?: string,
-            },
+            };
             leftNav?: {
                 width?: number,
                 color?: string,
-            },
+            };
             listItem?: {
                 nestedLevelDepth?: number,
-            },
+            };
             menu?: {
                 backgroundColor?: string,
                 containerBackgroundColor?: string,
-            },
+            };
             menuItem?: {
                 dataHeight?: number,
                 height?: number,
                 hoverColor?: string,
                 padding?: number,
                 selectedTextColor?: string,
-            },
+            };
             menuSubheader?: {
                 padding?: number,
                 borderColor?: string,
                 textColor?: string,
-            },
+            };
             paper?: {
                 backgroundColor?: string,
                 zDepthShadows?: string[],
-            },
+            };
             radioButton?: {
                 borderColor?: string,
                 backgroundColor?: string,
@@ -270,7 +270,7 @@ declare namespace __MaterialUI {
                 size?: number,
                 labelColor?: string,
                 labelDisabledColor?: string,
-            },
+            };
             raisedButton?: {
                 color?: string,
                 textColor?: string,
@@ -280,7 +280,7 @@ declare namespace __MaterialUI {
                 secondaryTextColor?: string,
                 disabledColor?: string,
                 disabledTextColor?: string,
-            },
+            };
             refreshIndicator?: {
                 strokeColor?: string,
                 loadingStrokeColor?: string,
@@ -296,12 +296,12 @@ declare namespace __MaterialUI {
                 handleFillColor?: string,
                 selectionColor?: string,
                 rippleColor?: string,
-            },
+            };
             snackbar?: {
                 textColor?: string,
                 backgroundColor?: string,
                 actionColor?: string,
-            },
+            };
             table?: {
                 backgroundColor?: string;
             };
@@ -350,7 +350,7 @@ declare namespace __MaterialUI {
                 labelColor?: string,
                 labelDisabledColor?: string
                 trackRequiredColor?: string,
-            },
+            };
             toolbar?: {
                 backgroundColor?: string,
                 height?: number,
@@ -457,7 +457,7 @@ declare namespace __MaterialUI {
         titleStyle?: React.CSSProperties;
         zDepth?: number;
     }
-    export class AppBar extends React.Component<AppBarProps, {}>{
+    export class AppBar extends React.Component<AppBarProps, {}> {
     }
 
     interface AppCanvasProps extends React.Props<AppCanvas> {
@@ -800,8 +800,8 @@ declare namespace __MaterialUI {
             inputStyle?: React.CSSProperties;
             onBlur?: React.FocusEventHandler;
             onKeyDown?: React.KeyboardEventHandler;
-            rows?: number,
-            rowsMax?: number,
+            rows?: number;
+            rowsMax?: number;
             type?: string;
             underlineDisabledStyle?: React.CSSProperties;
             underlineFocusStyle?: React.CSSProperties;
@@ -877,7 +877,7 @@ declare namespace __MaterialUI {
         inset?: boolean;
         style?: React.CSSProperties;
     }
-    export class Divider extends React.Component<DividerProps, {}>{
+    export class Divider extends React.Component<DividerProps, {}> {
     }
 
     namespace GridList {
@@ -888,7 +888,7 @@ declare namespace __MaterialUI {
             style?: React.CSSProperties;
         }
 
-        export class GridList extends React.Component<GridListProps, {}>{
+        export class GridList extends React.Component<GridListProps, {}> {
         }
 
         interface GridTileProps extends React.Props<GridTile> {
@@ -904,7 +904,7 @@ declare namespace __MaterialUI {
             titlePosition?: string; //"top"|"bottom"
         }
 
-        export class GridTile extends React.Component<GridTileProps, {}>{
+        export class GridTile extends React.Component<GridTileProps, {}> {
         }
     }
 
@@ -1050,7 +1050,7 @@ declare namespace __MaterialUI {
             width?: string | number;
             zDepth?: number;
         }
-        export class Menu extends React.Component<MenuProps, {}>{
+        export class Menu extends React.Component<MenuProps, {}> {
         }
 
         interface MenuItemProps extends React.HTMLAttributes, React.Props<MenuItem> {
@@ -1073,7 +1073,7 @@ declare namespace __MaterialUI {
             primaryText?: React.ReactNode;
             secondaryTextLines?: number; // 1 or 2
         }
-        export class MenuItem extends React.Component<MenuItemProps, {}>{
+        export class MenuItem extends React.Component<MenuItemProps, {}> {
         }
 
         interface IconMenuProps extends React.Props<IconMenu> {
@@ -1184,7 +1184,7 @@ declare namespace __MaterialUI {
             useLayerForClickAway?: boolean;
             zDepth?: number;
         }
-        export class Popover extends React.Component<PopoverProps, {}>{
+        export class Popover extends React.Component<PopoverProps, {}> {
         }
 
         interface PopoverAnimationFromTopProps extends PopoverAnimationProps, React.Props<PopoverAnimationFromTop> {
@@ -1192,7 +1192,7 @@ declare namespace __MaterialUI {
             targetOrigin?: Origin;
             zDepth?: number;
         }
-        export class PopoverAnimationFromTop extends React.Component<PopoverAnimationFromTopProps, {}>{
+        export class PopoverAnimationFromTop extends React.Component<PopoverAnimationFromTopProps, {}> {
         }
 
         interface PopoverDefaultAnimationProps extends PopoverAnimationProps, React.Props<PopoverDefaultAnimation> {
@@ -1200,7 +1200,7 @@ declare namespace __MaterialUI {
             targetOrigin?: Origin;
             zDepth?: number;
         }
-        export class PopoverDefaultAnimation extends React.Component<PopoverDefaultAnimationProps, {}>{
+        export class PopoverDefaultAnimation extends React.Component<PopoverDefaultAnimationProps, {}> {
         }
     }
 
@@ -1622,8 +1622,8 @@ declare namespace __MaterialUI {
         onEnterKeyDown?: React.KeyboardEventHandler;
         onFocus?: React.FocusEventHandler;
         onKeyDown?: React.KeyboardEventHandler;
-        rows?: number,
-        rowsMax?: number,
+        rows?: number;
+        rowsMax?: number;
         style?: React.CSSProperties;
         type?: string;
         underlineDisabledStyle?: React.CSSProperties;
@@ -1672,8 +1672,8 @@ declare namespace __MaterialUI {
         inputStyle?: React.CSSProperties;
         onBlur?: React.FocusEventHandler;
         onKeyDown?: React.KeyboardEventHandler;
-        rows?: number,
-        rowsMax?: number,
+        rows?: number;
+        rowsMax?: number;
         type?: string;
         underlineDisabledStyle?: React.CSSProperties;
         underlineFocusStyle?: React.CSSProperties;
@@ -1793,11 +1793,11 @@ declare namespace __MaterialUI {
 
         interface StylePropable extends React.Mixin<any, any> {
         }
-        var StylePropable: StylePropable
+        var StylePropable: StylePropable;
 
         interface StyleResizable extends React.Mixin<any, any> {
         }
-        var StyleResizable: StyleResizable
+        var StyleResizable: StyleResizable;
     }
 
     export namespace Utils {

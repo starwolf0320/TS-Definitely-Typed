@@ -3,7 +3,7 @@
 // Definitions by: inversify <https://github.com/inversify/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-import inversify = require("inversify")
+import inversify = require("inversify");
 
 interface IProvideInSyntax<T> extends IProvideDoneSyntax<T> {
     inSingletonScope(): IProvideWhenOnSyntax<T>;

@@ -1603,7 +1603,7 @@ declare module PIXI {
     ////////////////////////////EXTRAS////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////
 
-    export module extras {
+    export namespace extras {
 
         export interface IBitmapTextStyle {
 
@@ -1843,7 +1843,7 @@ declare module PIXI {
     ////////////////////////////INTERACTION///////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////
 
-    export module interaction {
+    export namespace interaction {
 
         export interface InteractionEvent {
 
@@ -1961,7 +1961,7 @@ declare module PIXI {
     // https://github.com/englercj/resource-loader/
     // 1.6.4
 
-    export module loaders {
+    export namespace loaders {
 
         export interface ILoaderOptions {
 
@@ -2087,7 +2087,7 @@ declare module PIXI {
     ///////////////////////////////MESH///////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////
 
-    export module mesh {
+    export namespace mesh {
 
         export class Mesh extends Container {
 

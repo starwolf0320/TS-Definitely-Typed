@@ -154,7 +154,7 @@ declare namespace Microsoft.Maps {
 
     export interface MapModeOptions {
         shouldClipPolygons?: boolean;
-        drawShapesInSingleLayer?:boolean;
+        drawShapesInSingleLayer?: boolean;
     }
 
     export interface MapOptions {
@@ -512,9 +512,9 @@ declare namespace Microsoft.Maps {
 
     export interface PositionOptionsErrorCallbackResult {
         internalError: PositionError;
-        errorCode:number;
+        errorCode: number;
 		}
-    
+
     export interface PositionOptionsSuccessCallbackResult {
         center: Location;
         position: Position;

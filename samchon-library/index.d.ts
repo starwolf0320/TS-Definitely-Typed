@@ -5,8 +5,7 @@
 
 /// <reference types="samchon-framework" />
 
-declare module "samchon-library"
-{
+declare module "samchon-library" {
 	import library = samchon.library;
 	export = library;
 }

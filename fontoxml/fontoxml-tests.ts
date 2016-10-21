@@ -16,7 +16,7 @@ var init:com.fontoxml.IInvocator = {
 	user: user,
 	workflow: workflow,
 	autosave: false,
-	heartbeat: 300	
+	heartbeat: 300
 }
 
 var simpleinit:com.fontoxml.IInvocator = {

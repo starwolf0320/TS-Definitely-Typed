@@ -236,7 +236,7 @@ declare namespace Connection {
         serverSupports(capability: string): boolean;
     }
 
-    
+
 }
 
 declare class Connection extends NodeJS.EventEmitter implements Connection.MessageFunctions {

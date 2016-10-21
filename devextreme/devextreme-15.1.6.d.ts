@@ -18,7 +18,7 @@ declare namespace DevExpress {
         off(eventName: string, eventHandler: Function): T;
     }
     /** An object that serves as a namespace for the methods required to perform validation. */
-    export module validationEngine {
+    export namespace validationEngine {
         export interface IValidator {
             validate(): ValidatorValidationResult;
             reset(): void;
@@ -42,9 +42,9 @@ declare namespace DevExpress {
             reset(): void;
         }
         /** Provides access to the object that represents the specified validation group. */
-        export function getGroupConfig(group: any): GroupConfig
+        export function getGroupConfig(group: any): GroupConfig;
         /** Provides access to the object that represents the default validation group. */
-        export function getGroupConfig(): GroupConfig
+        export function getGroupConfig(): GroupConfig;
         /** Validates rules of the validators that belong to the specified validation group. */
         export function validateGroup(group: any): ValidationGroupValidationResult;
         /** Validates rules of the validators that belong to the default validation group. */
@@ -85,7 +85,7 @@ declare namespace DevExpress {
         urlFor(key: string): string;
     }
     /** An object that serves as a namespace for the methods that are used to animate UI elements. */
-    export module fx {
+    export namespace fx {
         /** Defines animation options. */
         export interface AnimationOptions {
             /** A function called after animation is completed. */
@@ -250,7 +250,7 @@ declare namespace DevExpress {
             options?: any;
         }): void;
     }
-    export module data {
+    export namespace data {
         export interface ODataError extends Error {
             httpStatus?: number;
             errorDetails?: any;
@@ -672,10 +672,10 @@ declare namespace DevExpress {
                     Decimal(value: any): EdmLiteral;
                 };
             }
-        }
+        };
     }
     /** An object that serves as a namespace for DevExtreme UI widgets as well as for methods implementing UI logic in DevExtreme sites/applications. */
-    export module ui {
+    export namespace ui {
         export interface WidgetOptions extends DOMComponentOptions {
             /** A Boolean value specifying whether or not the widget changes its state when interacting with a user. */
             activeStateEnabled?: boolean;
@@ -830,7 +830,7 @@ declare namespace DevExpress {
         initMobileViewport(options: { allowZoom?: boolean; allowPan?: boolean; allowSelection?: boolean }): void;
     };
     /** An object that serves as a namespace for DevExtreme Data Visualization Widgets. */
-    export module viz {
+    export namespace viz {
         /** Applies a theme for the entire page with several DevExtreme visualization widgets. */
         export function currentTheme(theme: string): void;
         /** Applies a new theme (with the color scheme defined separately) for the entire page with several DevExtreme visualization widgets. */
@@ -3734,7 +3734,7 @@ declare namespace DevExpress.ui {
                 /** The string to display instead of All Fields. */
                 allFields?: string;
             };
-        }
+        };
         /** Strings that can be changed or localized in the dxPivotGrid widget. */
         texts?: {
             /** The string to display as a header of the Grand Total row and column. */
@@ -3933,11 +3933,11 @@ declare namespace DevExpress.framework {
         /** Removes the application state that has been saved by the saveState() method to the state storage. */
         clearState(): void;
     }
-    export module html {
+    export namespace html {
         export var layoutSets: Array<string>;
         export var animationSets: { [animationSetName: string]: AnimationSet };
         export interface AnimationSet {
-            [animationName: string]: any
+            [animationName: string]: any;
         }
         export interface HtmlApplicationOptions {
             /** Specifies where the commands that are defined in the application's views must be displayed. */
@@ -5202,7 +5202,7 @@ declare namespace DevExpress.viz.charts {
         minValueMargin?: number;
         tick?: {
             visible?: boolean;
-        }
+        };
     }
     export interface CommonPane {
         /** Specifies a background color in a pane. */
@@ -5510,7 +5510,7 @@ declare namespace DevExpress.viz.charts {
             visible?: boolean;
             /** Specifies font options for the text of the label that belongs to the horizontal crosshair line. */
             font?: viz.core.Font;
-        }
+        };
     }
     export interface PolarChartTooltip extends BaseChartTooltip {
         /** Specifies the kind of information to display in a tooltip. */

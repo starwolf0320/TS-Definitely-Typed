@@ -7,7 +7,7 @@ let options: sanitize.IOptions = {
     'a': sanitize.defaults.allowedAttributes['a'].concat('rel'),
     'img': ['src', 'height', 'width', 'alt']
   },
-	transformTags: { 
+	transformTags: {
     'a': sanitize.simpleTransform('a', { 'rel': 'nofollow' }),
     'img': (tagName: string, attribs: sanitize.Attributes) => {
       let img = { tagName, attribs };

@@ -718,7 +718,7 @@ declare namespace CKEDITOR {
         linkShowAdvancedTab?: boolean;
         linkShowTargetTab?: boolean;
 
-        magicline_color?: string
+        magicline_color?: string;
         magicline_everywhere?: boolean;
         magicline_holdDistance?: number;
         magicline_keystrokeNext?: number;
@@ -966,7 +966,7 @@ declare namespace CKEDITOR {
             editables: any;
             editor: CKEDITOR.editor;
             element: CKEDITOR.dom.element;
-            focusedEditable: CKEDITOR.plugins.widget.nestedEditable
+            focusedEditable: CKEDITOR.plugins.widget.nestedEditable;
             id: number;
             init: Function;
             inited: boolean;
@@ -1042,10 +1042,10 @@ declare namespace CKEDITOR {
     }
 
     interface IMenuItemDefinition {
-        label:string,
-        command:string,
-        group:string,
-        order:number
+        label: string;
+        command: string;
+        group: string;
+        order: number;
     }
 
     class editor extends event {
@@ -1085,13 +1085,13 @@ declare namespace CKEDITOR {
         addFeature(feature: feature): boolean;
         addMenuGroup(name: string, order?: number): void;
         addMenuItem(name: string, definition?: IMenuItemDefinition): void;
-        addMenuItems(definitions: {[id:string]:IMenuItemDefinition}): void;
+        addMenuItems(definitions: {[id: string]: IMenuItemDefinition}): void;
         addMode(mode: string, exec: () => void): void;
         addRemoveFormatFilter(func: Function): void;
         applyStyle(style: style): void;
         attachStyleStateChange(style: style, callback: Function): void;
         checkDirty(): boolean;
-        commands:any;
+        commands: any;
         createFakeElement(realElement: Object, className: Object, realElementType: Object, isResizable: Object): void;
         createFakeParserElement(realElement: Object, className: Object, realElementType: Object, isResizable: Object): void;
         createRange(): dom.range;
@@ -1255,9 +1255,9 @@ declare namespace CKEDITOR {
     }
 
     interface buttonDefinition {
-        label : string;
-        command : string;
-        toolbar : string;
+        label: string;
+        command: string;
+        toolbar: string;
     }
 
     interface template {
@@ -1323,24 +1323,24 @@ declare namespace CKEDITOR {
     }
 
     class environmentConfig  {
-        air : boolean;
-        chrome : boolean;
-        cssClass : string;
-        edge : boolean;
-        gecko : boolean;
-        hc : boolean;
-        hidpi : boolean;
-        iOS : boolean;
-        ie : boolean;
-        isCompatible : boolean;
-        mac : boolean;
-        needsBrFiller : boolean;
-        needsNbspFiller : boolean;
-        quirks : boolean;
-        safari : boolean;
-        version : number;
-        webkit : boolean;
-        secure( ) : boolean;
+        air: boolean;
+        chrome: boolean;
+        cssClass: string;
+        edge: boolean;
+        gecko: boolean;
+        hc: boolean;
+        hidpi: boolean;
+        iOS: boolean;
+        ie: boolean;
+        isCompatible: boolean;
+        mac: boolean;
+        needsBrFiller: boolean;
+        needsNbspFiller: boolean;
+        quirks: boolean;
+        safari: boolean;
+        version: number;
+        webkit: boolean;
+        secure( ): boolean;
     }
 
     namespace ui {
@@ -1826,7 +1826,7 @@ declare namespace CKEDITOR {
 
     namespace tools {
         var callFunction: Function;
-        function enableHtml5Elements(doc: Object, withAppend? : Boolean) : void;
+        function enableHtml5Elements(doc: Object, withAppend?: Boolean): void;
     }
 
 

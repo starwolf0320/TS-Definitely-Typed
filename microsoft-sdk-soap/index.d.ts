@@ -5,10 +5,8 @@
 
 /// <reference types="q"/>
 
-declare namespace Sdk
-{
-    interface IEntityView
-    {
+declare namespace Sdk {
+    interface IEntityView {
         attributes: AttributeCollection;
         entityState: EntityState;
         id: string;
@@ -16,8 +14,7 @@ declare namespace Sdk
         relatedEntities: RelatedEntityCollection;
     }
 
-    interface IEntityCollectionView
-    {
+    interface IEntityCollectionView {
         entityName: string;
         entities: Array<IEntityView>;
         minActiveRowVersion: string;
@@ -27,19 +24,16 @@ declare namespace Sdk
         totalRecordCountLimitExceeded: boolean;
     }
 
-    interface IEntityReferenceView
-    {
+    interface IEntityReferenceView {
         Id: string;
         Type: string;
         Name: string;
     }
 
-    interface IEntityReferenceCollectionView extends Array<IEntityReferenceView>
-    {
+    interface IEntityReferenceCollectionView extends Array<IEntityReferenceView> {
     }
 
-    class Q
-    {
+    class Q {
         /**
          * Creates a link between records.
          * @param entityName The logical name of the entity that is specified in the entityId parameter.
@@ -109,8 +103,7 @@ declare namespace Sdk
         static update( entity: Entity ): Q.Promise<boolean>;
     }
 
-    class ColumnSet
-    {
+    class ColumnSet {
         /**
          * Specifies the attributes for which non- null values are returned from a query.
          * @param columns Comma separated string values for attribute logical names.
@@ -184,12 +177,9 @@ declare namespace Sdk
         toValueXml(): string;
     }
 
-    class ValueType
-    {
-    }
+    class ValueType { }
 
-    class Collection<T>
-    {
+    class Collection<T> {
         /**
          * A Collection for a specified type.
          * @param type The function that specifies the type.
@@ -266,8 +256,7 @@ declare namespace Sdk
         getCount(): number;
     }
 
-    class EntityCollection
-    {
+    class EntityCollection {
         /**
          * Contains a collection of entity instances.
          * @param entities Initializes a new instance of the EntityCollection class setting the Sdk.Collection of Sdk.Entity objects.
@@ -388,8 +377,7 @@ declare namespace Sdk
         view(): IEntityCollectionView;
     }
 
-    class EntityReferenceCollection
-    {
+    class EntityReferenceCollection {
         /**
          * Contains a collection of EntityReference instances.
          * @param entityReferences Initializes a new instance of the EntityReferenceCollection class setting the Sdk.Collection of Sdk.EntityReference objects.
@@ -427,12 +415,9 @@ declare namespace Sdk
         toValueXml(): string;
     }
 
-    class RelatedEntityCollection extends EntityCollection
-    {
-    }
+    class RelatedEntityCollection extends EntityCollection { }
 
-    class AttributeCollection extends Collection<AttributeBase>
-    {
+    class AttributeCollection extends Collection<AttributeBase> {
         constructor();
 
         /**
@@ -495,16 +480,11 @@ declare namespace Sdk
         toXml( action: string ): string;
     }
 
-    class FormattedValueCollection
-    {
-    }
+    class FormattedValueCollection { }
 
-    class RelatedEntitiesCollection
-    {
-    }
+    class RelatedEntitiesCollection { }
 
-    class AttributeBase
-    {
+    class AttributeBase {
         /**
          * Gets whether the value of the attribute has changed.
          */
@@ -562,8 +542,7 @@ declare namespace Sdk
         toXml( action: string ): string;
     }
 
-    class Boolean extends AttributeBase
-    {
+    class Boolean extends AttributeBase  {
         /**
          * A Boolean Attribute.
          * @param name The logical name of the attribute .
@@ -583,8 +562,7 @@ declare namespace Sdk
         setValue( value: boolean ): void;
     }
 
-    class DateTime extends AttributeBase
-    {
+    class DateTime extends AttributeBase {
         /**
          * A DateTime Attribute.
          * @param name The logical name of the attribute.
@@ -604,8 +582,7 @@ declare namespace Sdk
         setValue( value: Date ): void;
     }
 
-    class Decimal extends AttributeBase
-    {
+    class Decimal extends AttributeBase {
         /**
          * A Decimal Attribute.
          * @param name The logical name of the attribute.
@@ -625,8 +602,7 @@ declare namespace Sdk
         setValue( value: number ): void;
     }
 
-    class Double
-    {
+    class Double {
         /**
          * A Double Attribute.
          * @param name The logical name of the attribute.
@@ -646,8 +622,7 @@ declare namespace Sdk
         setValue( value: number ): void;
     }
 
-    class Guid extends AttributeBase
-    {
+    class Guid extends AttributeBase {
         /**
          * A Guid Attribute.
          * @param name The logical name of the attribute.
@@ -667,8 +642,7 @@ declare namespace Sdk
         setValue( value: string ): void;
     }
 
-    class Int extends AttributeBase
-    {
+    class Int extends AttributeBase {
         /**
          * An Integer Attribute.
          * @param name The logical name of the attribute.
@@ -688,8 +662,7 @@ declare namespace Sdk
         setValue( value: number ): void;
     }
 
-    class Long extends AttributeBase
-    {
+    class Long extends AttributeBase {
         /**
          * A Long Attribute.
          * @param name The logical name of the attribute.
@@ -709,8 +682,7 @@ declare namespace Sdk
         setValue( value: number ): void;
     }
 
-    class Lookup extends AttributeBase
-    {
+    class Lookup extends AttributeBase {
         /**
          * A Lookup Attribute.
          * @param name The logical name of the attribute.
@@ -730,8 +702,7 @@ declare namespace Sdk
         setValue( value: EntityReference ): void;
     }
 
-    class Money extends AttributeBase
-    {
+    class Money extends AttributeBase {
         /**
          * A Money Attribute.
          * @param name The logical name of the attribute.
@@ -751,8 +722,7 @@ declare namespace Sdk
         setValue( value: number ): void;
     }
 
-    class OptionSet extends AttributeBase
-    {
+    class OptionSet extends AttributeBase {
         /**
          * An OptionSet Attribute.
          * @param name The logical name of the attribute.
@@ -772,8 +742,7 @@ declare namespace Sdk
         setValue( value: number ): void;
     }
 
-    class PartyList extends AttributeBase
-    {
+    class PartyList extends AttributeBase {
         /**
          * A PartyList Attribute.
          * @param name The logical name of the attribute.
@@ -793,8 +762,7 @@ declare namespace Sdk
         setValue( value: EntityCollection ): void;
     }
 
-    class String extends AttributeBase
-    {
+    class String extends AttributeBase {
         /**
          * A String Attribute.
          * @param name The logical name of the attribute.
@@ -814,12 +782,9 @@ declare namespace Sdk
         setValue( value: string ): void;
     }
 
-    class EntityState
-    {
-    }
+    class EntityState { }
 
-    class Entity
-    {
+    class Entity {
         /**
          * Represents an instance of an entity (a record).
          * @param type The logical name of the entity.
@@ -987,8 +952,7 @@ declare namespace Sdk
         view(): IEntityView;
     }
 
-    class EntityReference
-    {
+    class EntityReference {
         /**
          * Identifies a record.
          * @param logicalName The logical name of the entity.
@@ -1049,8 +1013,7 @@ declare namespace Sdk
         view(): IEntityReferenceView;
     }
 
-    class OrganizationRequest
-    {
+    class OrganizationRequest {
         /**
          * Sets the request XML.
          * @param xml The request XML.
@@ -1074,16 +1037,13 @@ declare namespace Sdk
         getResponseType(): OrganizationResponse;
     }
 
-    class OrganizationResponse
-    {
-    }
+    class OrganizationResponse { }
 
     /**
      * Contains the data that is needed to convert a query in FetchXML to a QueryExpression.
      * @param fetchXml Sets the query to convert.
      */
-    class FetchXmlToQueryExpressionRequest extends Sdk.OrganizationRequest
-    {
+    class FetchXmlToQueryExpressionRequest extends Sdk.OrganizationRequest {
         constructor( fetchXml: string );
 
         /**
@@ -1097,8 +1057,7 @@ declare namespace Sdk
      * Response to FetchXmlToQueryExpressionRequest.
      * @param responseXml The response XML to the FetchXmlToQueryExpressionRequest.
      */
-    class FetchXmlToQueryExpressionResponse extends Sdk.OrganizationResponse
-    {
+    class FetchXmlToQueryExpressionResponse extends Sdk.OrganizationResponse {
         constructor( responseXml: string );
 
         /**
@@ -1111,8 +1070,7 @@ declare namespace Sdk
      * Contains the data that is needed to  convert a query, which is represented as a QueryExpression class, to its equivalent query, which is represented as FetchXML.
      * @param query The query.
      */
-    class QueryExpressionToFetchXmlRequest extends Sdk.OrganizationRequest
-    {
+    class QueryExpressionToFetchXmlRequest extends Sdk.OrganizationRequest {
         constructor( query: Sdk.Query.QueryBase );
 
         /**
@@ -1126,8 +1084,7 @@ declare namespace Sdk
     /**
      * Response to QueryExpressionToFetchXmlRequest.
      */
-    class QueryExpressionToFetchXmlResponse extends Sdk.OrganizationResponse
-    {
+    class QueryExpressionToFetchXmlResponse extends Sdk.OrganizationResponse {
         constructor( responseXml: string );
 
         /**
@@ -1142,8 +1099,7 @@ declare namespace Sdk
      * @param clientVersionStamp The Sdk.Mdq.RetrieveMetadataChangesResponse.ServerVersionStamp value from a previous request. When included only the metadata changes since the previous request will be returned.
      * @param deletedMetadataFilters An Sdk.Mdq.DeletedMetadataFilters enumeration value. When included the deleted metadata changes will be limited to the types defined by the enumeration.
      */
-    class RetrieveMetadataChangesRequest extends Sdk.OrganizationRequest
-    {
+    class RetrieveMetadataChangesRequest extends Sdk.OrganizationRequest {
         constructor( query: Sdk.Mdq.EntityQueryExpression, clientVersionStamp?: string, deletedMetadataFilters?: Sdk.Mdq.DeletedMetadataFilters );
         getEntityMetadata(): Sdk.Mdq.IEntityMetadata[];
         getServerVersionStamp(): string;
@@ -1154,8 +1110,7 @@ declare namespace Sdk
      * Response to RetrieveMetadataChangesRequest.
      * @param resopnseXml The response XML.
      */
-    class RetrieveMetadataChangesResponse
-    {
+    class RetrieveMetadataChangesResponse {
         constructor( responseXml: string );
 
         /***
@@ -1181,8 +1136,7 @@ declare namespace Sdk
     * @param state Sets the state of the entity record.
     * @param status Sets the status that corresponds to the State property.
     */
-    class SetStateRequest extends Sdk.OrganizationRequest
-    {
+    class SetStateRequest extends Sdk.OrganizationRequest {
         constructor( entityMoniker: EntityReference, state: number, status: number );
 
         /**
@@ -1207,16 +1161,13 @@ declare namespace Sdk
     /**
      * Response to SetStateRequest.
      */
-    class SetStateResponse
-    {
+    class SetStateResponse {
         constructor( responseXml: string );
     }
 }
 
-declare namespace Sdk.Query
-{
-    class QueryBase
-    {
+declare namespace Sdk.Query {
+    class QueryBase {
         /**
          * Internal Use Only.
          * @param type An Abstract class for different query classes to inherit from.
@@ -1313,8 +1264,7 @@ declare namespace Sdk.Query
         toValueXml(): string;
     }
 
-    class QueryByAttribute extends QueryBase
-    {
+    class QueryByAttribute extends QueryBase {
         /**
          * Initializes a new instance of the QueryByAttribute class setting the entity name.
          * @param entityName The logical name of the entity.
@@ -1355,8 +1305,7 @@ declare namespace Sdk.Query
         removeAttributeValue( attributeValue: Sdk.AttributeBase, errorIfNotFound?: boolean ): void;
     }
 
-    class QueryExpression extends QueryBase
-    {
+    class QueryExpression extends QueryBase {
         /**
          * Initializes a new instance of the QueryExpression class setting the entity name.
          * @param entityName The name of the entity.
@@ -1446,12 +1395,9 @@ declare namespace Sdk.Query
         addOrder( attributeName: string, orderType: Sdk.Query.OrderType ): void;
     }
 
-    class OrderExpression
-    {
-    }
+    class OrderExpression { }
 
-    class ConditionExpression
-    {
+    class ConditionExpression {
         /**
          * Contains a condition expression used to filter the results of the query.
          * @param name entityName The logical name of the entity in the condition expression.
@@ -1536,8 +1482,7 @@ declare namespace Sdk.Query
      * Specifies complex condition and logical filter expressions used for filtering the results of the query.
      * @param logicalOperator The filter operator.
      */
-    class FilterExpression
-    {
+    class FilterExpression {
         constructor( logicalOperator: LogicalOperator );
 
         /**
@@ -1613,8 +1558,7 @@ declare namespace Sdk.Query
         setIsQuickFindFilter( isQuickFind: boolean ): void;
     }
 
-    class FetchExpression
-    {
+    class FetchExpression {
         /**
          * @param fetchXml The FetchXml to be used in a query.
          */
@@ -1632,8 +1576,7 @@ declare namespace Sdk.Query
         public setFetchXml( fetchXml: string ): void;
     }
 
-    class LinkEntity
-    {
+    class LinkEntity {
         /**
          * Initializes a new instance of the Sdk.Query.LinkEntity class setting the required properties.
          * @param linkFromEntityName The logical name of the entity to link from.
@@ -1773,8 +1716,7 @@ declare namespace Sdk.Query
         public toValueXml(): string;
     }
 
-    class PagingInfo
-    {
+    class PagingInfo {
         /**
          * Gets the number of entity instances returned per page.
          */
@@ -1832,8 +1774,7 @@ declare namespace Sdk.Query
         toValueXml(): string;
     }
 
-    export enum ConditionOperator
-    {
+    export enum ConditionOperator {
         Equal,
         NotEqual,
         GreaterThan,
@@ -1909,28 +1850,24 @@ declare namespace Sdk.Query
         EqualUserTeams,
     }
 
-    export enum JoinOperator
-    {
+    export enum JoinOperator {
         Inner,
         LeftOuter,
         Natural,
     }
 
-    export enum OrderType
-    {
+    export enum OrderType {
         Ascending,
         Descending,
     }
 
-    export class ValueBase
-    { }
+    export class ValueBase { }
 
     /**
      * Specifies Boolean values to be compared in the query.
      * @param args An array of Boolean values.
      */
-    class Booleans extends ValueBase
-    {
+    class Booleans extends ValueBase {
         constructor( args: boolean[] );
 
         /**
@@ -1955,8 +1892,7 @@ declare namespace Sdk.Query
      * Specifies the Date values to be compared in the query.
      * @param args An array of Date values.
      */
-    class Dates extends ValueBase
-    {
+    class Dates extends ValueBase {
         constructor( args: Date[] );
 
         /**
@@ -1980,8 +1916,7 @@ declare namespace Sdk.Query
      * Specifies the Decimal values to be compared in the query.
      * @param args An array of Decimal values.
      */
-    class Decimals extends ValueBase
-    {
+    class Decimals extends ValueBase {
         constructor( args: number[] );
 
         /**
@@ -2005,8 +1940,7 @@ declare namespace Sdk.Query
      * Specifies the Double values to be compared in the query.
      * @param args An array of Double values.
      */
-    class Doubles extends ValueBase
-    {
+    class Doubles extends ValueBase {
         constructor( args: number[] );
 
         /**
@@ -2030,8 +1964,7 @@ declare namespace Sdk.Query
      * Specifies the Int values to be compared in the query.
      * @param args An array of Int values.
      */
-    class Ints extends ValueBase
-    {
+    class Ints extends ValueBase {
         constructor( args: number[] );
 
         /**
@@ -2055,8 +1988,7 @@ declare namespace Sdk.Query
      * Specifies the Long values to be compared in the query.
      * @param args An array of Long values.
      */
-    class Longs extends ValueBase
-    {
+    class Longs extends ValueBase {
         constructor( args: number[] );
 
         /**
@@ -2080,8 +2012,7 @@ declare namespace Sdk.Query
      * Specifies the Sdk.EntityReference values to be compared in the query.
      * @param args An array of Sdk.EntityReference values.
      */
-    class EntityReferences extends ValueBase
-    {
+    class EntityReferences extends ValueBase {
         constructor( args: Sdk.EntityReference[] );
 
         /**
@@ -2105,8 +2036,7 @@ declare namespace Sdk.Query
      * Specifies the Sdk.Query.Guids values to be compared in the query.
      * @param args An array of GUID string values.
      */
-    class Guids extends ValueBase
-    {
+    class Guids extends ValueBase {
         constructor( args: string[] );
 
         /**
@@ -2130,8 +2060,7 @@ declare namespace Sdk.Query
      * Specifies the Money values to be compared in the query.
      * @param args An array of number values.
      */
-    class Money extends ValueBase
-    {
+    class Money extends ValueBase {
         constructor( args: number[] );
 
         /**
@@ -2155,8 +2084,7 @@ declare namespace Sdk.Query
      * Specifies the OptionSet values to be compared in the query.
      * @param args An array of number values.
      */
-    class OptionSets extends ValueBase
-    {
+    class OptionSets extends ValueBase {
         constructor( args: number[] );
 
         /**
@@ -2180,8 +2108,7 @@ declare namespace Sdk.Query
      * Specifies the String values to be compared in the query.
      * @param args An array of String values.
      */
-    class Strings extends ValueBase
-    {
+    class Strings extends ValueBase {
         constructor( args: string[] );
 
         /**
@@ -2201,15 +2128,13 @@ declare namespace Sdk.Query
         public setValues( setValueArgs: string[] ): void
     }
 
-    export enum LogicalOperator
-    {
+    export enum LogicalOperator {
         Or,
         And,
     }
 }
 
-declare namespace Sdk.Util
-{
+declare namespace Sdk.Util {
     /**
      * Verifies the parameter is a string formatted as a GUID.
      * @param value The value to check.
@@ -2268,12 +2193,9 @@ declare namespace Sdk.Util
     function createEntityFromNode( node: string ): void;
 }
 
-declare namespace Sdk.Xml
-{
-}
+declare namespace Sdk.Xml { }
 
-declare namespace Sdk.Mdq
-{
+declare namespace Sdk.Mdq {
     /**
      * Defines a complex query to retrieve entity metadata.
      * @param criteria The filter criteria for the metadata query.
@@ -2282,8 +2204,7 @@ declare namespace Sdk.Mdq
      * @param relationshipQuery A query expression for the entity relationship metadata to return.
      * @param labelQuery A query expression for the labels to return.
      */
-    export class EntityQueryExpression
-    {
+    export class EntityQueryExpression {
         constructor(
             criteria: Sdk.Mdq.MetadataFilterExpression,
             properties: Sdk.Mdq.MetadataPropertiesExpression,
@@ -2295,8 +2216,7 @@ declare namespace Sdk.Mdq
     /**
      * An enumeration that specifies the type of deleted metadata to retrieve.
      */
-    export enum DeletedMetadataFilters
-    {
+    export enum DeletedMetadataFilters {
         All, // All deleted metadata
         Attribute, // Deleted Attribute metadata
         Default, // The value used if not set. Equals Entity
@@ -2311,8 +2231,7 @@ declare namespace Sdk.Mdq
      * @param filterOperator The logical AND/OR filter operator.
      */
 
-    export class MetadataFilterExpression
-    {
+    export class MetadataFilterExpression {
         constructor( filterOperator: Sdk.Mdq.LogicalOperator );
 
         /**
@@ -2343,8 +2262,7 @@ declare namespace Sdk.Mdq
      * @param criteria The filter criteria for the metadata query.
      * @param properties The properties to be returned by the query.
      */
-    export class AttributeQueryExpression
-    {
+    export class AttributeQueryExpression {
         constructor( criteria: MetadataFilterExpression, properties: Sdk.Mdq.MetadataPropertiesExpression );
     }
 
@@ -2353,8 +2271,7 @@ declare namespace Sdk.Mdq
      * @param criteria The filter criteria for the metadata query.
      * @param properties The properties to be returned by the query.
      */
-    export class RelationshipQueryExpression
-    {
+    export class RelationshipQueryExpression {
         constructor( criteria: MetadataFilterExpression, properties: Mdq.MetadataPropertiesExpression );
     }
 
@@ -2362,16 +2279,14 @@ declare namespace Sdk.Mdq
      * Defines the languages for the labels to be retrieved for metadata items that have labels.
      * @param languages An array of LCID number values.
      */
-    export class LabelQueryExpression
-    {
+    export class LabelQueryExpression {
         constructor( languages: Array<number> );
     }
 
     /**
      * Logical operator.
      */
-    export enum LogicalOperator
-    {
+    export enum LogicalOperator {
         And,
         Or,
     }
@@ -2381,13 +2296,11 @@ declare namespace Sdk.Mdq
      * @param allProperties  Whether to retrieve all the properties of a metadata object.
      * @param propertyNames: >An array of strings representing the metadata properties to retrieve.
      */
-    export class MetadataPropertiesExpression
-    {
+    export class MetadataPropertiesExpression {
         constructor( allProperties: boolean, propertyNames?: Array<EntityMetadataProperties|AttributeMetadataProperties|RelationshipMetadataProperties|any> );
     }
 
-    export enum RelationshipMetadataProperties
-    {
+    export enum RelationshipMetadataProperties {
         AssociatedMenuConfiguration,
         CascadeConfiguration,
         HasChanged,
@@ -2413,8 +2326,7 @@ declare namespace Sdk.Mdq
         SecurityTypes,
     }
 
-    export enum AttributeMetadataProperties
-    {
+    export enum AttributeMetadataProperties {
         AttributeOf,
         AttributeType,
         AttributeTypeName,
@@ -2461,8 +2373,7 @@ declare namespace Sdk.Mdq
         YomiOf,
     }
 
-    export enum EntityMetadataProperties
-    {
+    export enum EntityMetadataProperties {
         ActivityTypeMask,
         Attributes,
         AutoCreateAccessTeams,
@@ -2524,8 +2435,7 @@ declare namespace Sdk.Mdq
         SchemaName,
     }
 
-    export enum SearchableEntityMetadataProperties
-    {
+    export enum SearchableEntityMetadataProperties {
         ActivityTypeMask,
         AutoCreateAccessTeams,
         AutoRouteToOwnerQueue,
@@ -2579,8 +2489,7 @@ declare namespace Sdk.Mdq
         SchemaName,
     }
 
-    export enum SearchableAttributeMetadataProperties
-    {
+    export enum SearchableAttributeMetadataProperties {
         AttributeOf,
         AttributeType,
         CalculationOf,
@@ -2622,8 +2531,7 @@ declare namespace Sdk.Mdq
         YomiOf,
     }
 
-    export enum SearchableRelationshipMetadataProperties
-    {
+    export enum SearchableRelationshipMetadataProperties {
         HasChanged,
         Entity1IntersectAttribute,
         Entity1LogicalName,
@@ -2645,8 +2553,7 @@ declare namespace Sdk.Mdq
         SecurityTypes,
     }
 
-    export enum MetadataConditionOperator
-    {
+    export enum MetadataConditionOperator {
         Equals,
         NotEquals,
         In,
@@ -2655,8 +2562,7 @@ declare namespace Sdk.Mdq
         LessThan,
     }
 
-    export interface IEntityMetadata
-    {
+    export interface IEntityMetadata {
         ActivityTypeMask: number;
         Attributes: IAttributeMetadata[];
         AutoCreateAccessTeams: any;
@@ -2718,8 +2624,7 @@ declare namespace Sdk.Mdq
         SchemaName: string;
     }
 
-    export interface SecurityPrivilegeMetadata
-    {
+    export interface SecurityPrivilegeMetadata {
         CanBeBasic: boolean;
         CanBeDeep: boolean;
         CanBeEntityReference: boolean;
@@ -2732,8 +2637,7 @@ declare namespace Sdk.Mdq
         PrivilegeType: "Append" | "AppendTo" | "Assign" | "Create" | "Delete" | "None" | "Read" | "Share" | "Write";
     }
 
-    export interface OneToManyRelationshipMetadata
-    {
+    export interface OneToManyRelationshipMetadata {
         AssociatedMenuConfiguration: AssociatedMenuConfiguration;
         CascadeConfiguration: CascadeConfiguration;
         HasChanged: any;
@@ -2753,8 +2657,7 @@ declare namespace Sdk.Mdq
         SecurityTypes: any;
     }
 
-    export interface CascadeConfiguration
-    {
+    export interface CascadeConfiguration {
         Assign: CascadeType;
         Delete: CascadeType;
         ExtensionData: CascadeType;
@@ -2766,8 +2669,7 @@ declare namespace Sdk.Mdq
 
     export type CascadeType = "Active" | "Cascade" | "NoCascade" | "UserOwned";
 
-    export interface ManyToManyRelationshipMetadata
-    {
+    export interface ManyToManyRelationshipMetadata {
         Entity1AssociatedMenuConfiguration: AssociatedMenuConfiguration;
         Entity1IntersectAttribute: string;
         Entity1LogicalName: string;
@@ -2787,8 +2689,7 @@ declare namespace Sdk.Mdq
         SecurityTypes: SecurityType;
     }
 
-    export interface AssociatedMenuConfiguration
-    {
+    export interface AssociatedMenuConfiguration {
         Behavior: AssociatedMenuBehavior;
         Group: AssociatedMenuGroup;
         Label: Label;
@@ -2803,10 +2704,9 @@ declare namespace Sdk.Mdq
 
     export type SecurityType = "Append" | "Inheritance" | "None" | "ParentChild" | "Pointer";
 
-    export interface IAttributeMetadata
-    {
+    export interface IAttributeMetadata {
         AttributeOf: string;
-        AttributeType: "Customer" | "DateTime" | "Decimal" | "Double" | "EntityName" | "Integer" | "Lookup" | "ManagedProperty" | "Memo" | "Money" | "Owner" | "PartyList" | "Picklist" | "State" | "Status" | "Uniqueidentifier" | "Virtual"
+        AttributeType: "Customer" | "DateTime" | "Decimal" | "Double" | "EntityName" | "Integer" | "Lookup" | "ManagedProperty" | "Memo" | "Money" | "Owner" | "PartyList" | "Picklist" | "State" | "Status" | "Uniqueidentifier" | "Virtual";
         AttributeTypeName: "BigIntType" | "BooleanType" | "CalendarRulesType" | "CustomerType" | "DateTimeType" | "DecimalType" | "DoubleType" | "EntityNameType" | "ImageType" | "IntegerType" | "LookupType" | "ManagedPropertyType" | "MemoType" | "MoneyType" | "OwnerType" | "PartyListType" | "PicklistType" | "StateType	StatusType" | "StringType" | "UniqueidentifierType" | "VirtualType";
         CalculationOf: any;
         CanBeSecuredForCreate: boolean;
@@ -2851,21 +2751,18 @@ declare namespace Sdk.Mdq
         YomiOf: any;
     }
 
-    export interface ManagedProperty<T>
-    {
+    export interface ManagedProperty<T> {
         CanBeChanged: boolean;
         ManagedPropertyLogicalName: string;
         Value: T;
     }
 
-    export interface Label
-    {
+    export interface Label {
         LocalizedLabels: LocalizedLabel[];
         UserLocalizedLabel: LocalizedLabel;
     }
 
-    export interface LocalizedLabel
-    {
+    export interface LocalizedLabel {
         Label: string;
         LangaugeCode: number;
         MetadataId: string;
@@ -2873,18 +2770,15 @@ declare namespace Sdk.Mdq
         IsManaged: boolean;
     }
 
-    namespace ValueEnums
-    {
-        export enum OwnershipType
-        {
+    namespace ValueEnums {
+        export enum OwnershipType {
             None,
             OrganizationOwned,
             TeamOwned,
             UserOwned,
         }
 
-        export enum AttributeTypeCode
-        {
+        export enum AttributeTypeCode {
             BigInt,
             Boolean,
             CalendarRules,
@@ -2909,8 +2803,7 @@ declare namespace Sdk.Mdq
         }
 
 
-        export enum AttributeRequiredLevel
-        {
+        export enum AttributeRequiredLevel {
             ApplicationRequired,
             None,
             Recommended,
@@ -2918,14 +2811,12 @@ declare namespace Sdk.Mdq
         }
 
 
-        export enum DateTimeFormat
-        {
+        export enum DateTimeFormat {
             DateAndTime,
             DateOnly,
         }
 
-        export enum ImeMode
-        {
+        export enum ImeMode {
             Active,
             Auto,
             Disabled,
@@ -2934,8 +2825,7 @@ declare namespace Sdk.Mdq
 
 
 
-        export enum IntegerFormat
-        {
+        export enum IntegerFormat  {
             Duration,
             Language,
             Locale,
@@ -2944,8 +2834,7 @@ declare namespace Sdk.Mdq
         }
 
 
-        export enum SecurityTypes
-        {
+        export enum SecurityTypes {
             Append,
             Inheritance,
             None,
@@ -2953,8 +2842,7 @@ declare namespace Sdk.Mdq
             Pointer,
         }
 
-        export enum StringFormat
-        {
+        export enum StringFormat {
             Email,
             PhoneticGuide,
             Text,
@@ -2966,5 +2854,4 @@ declare namespace Sdk.Mdq
     }
 }
 
-declare namespace Sdk.Mdq.ValueEnums
-{ }
+declare namespace Sdk.Mdq.ValueEnums { }

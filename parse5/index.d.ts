@@ -13,7 +13,7 @@ import * as events from "events";
  * @function
  * @param {string} html - Input HTML string.
  * @param {ParserOptions} html - Parsing options.
- * 
+ *
  * @example
  * var parse5 = require('parse5');
  * var document = parse5.parse('<!DOCTYPE html><html><head></head><body>Hi there!</body></html>');
@@ -22,7 +22,7 @@ export declare function parse(html: string, options?: ParserOptions): ASTNode;
 
 /**
  * Parses an HTML fragment.
- * 
+ *
  * @param {string} html - Input html fragment
  * @param {ParserOptions} - Parsign options
  * @example
@@ -91,7 +91,7 @@ export interface LocationInfo {
 export declare class SerializerStream extends stream.Readable {
     /**
      * Streaming AST node to an HTML serializer. A readable stream.
-     * 
+     *
      * @param Node to serialize.
      * @param options Serialization options.
      */
@@ -113,7 +113,7 @@ export declare class ParserStream extends stream.Writable {
     on(event: string, listener: Function): this;
     /**
      * Raised then parser encounters a <script> element. If this event has listeners, parsing will be suspended
-     *  once it is emitted. So, if <script> has the src attribute, 
+     *  once it is emitted. So, if <script> has the src attribute,
      * you can fetch it, execute and then resume parsing just like browsers do.
      * The listener will have 3 parameters:
      * The script element that caused the event, a function for writing additional html at the current parsing position. Suitable for implementing the DOM document.write and document.writeln methods.
@@ -128,14 +128,14 @@ export declare class SAXParser extends stream.Transform {
     /**
      * Raised when the parser encounters a start tag.
      * Listener function has 4 parameters:
-     * Tag name, List of attributes in the { name: String, value: String, prefix?: String } form, selfClosing boolean  
+     * Tag name, List of attributes in the { name: String, value: String, prefix?: String } form, selfClosing boolean
      * and start tag source code location info. Available if location info is enabled in SAXParserOptions.
      */
     on(event: 'startTag', listener: (name: string, attrs: ASTAttribute[], selfClosing: boolean, location?: StartTagLocationInfo) => void): this;
     /**
      * Raised when parser encounters an end tag.
      * Listener function has 2 parameters:
-     * Tag name and location End tag source code location info. Available if location info is enabled in SAXParserOptions. 
+     * Tag name and location End tag source code location info. Available if location info is enabled in SAXParserOptions.
      */
     on(event: 'endTag', listener: (name: string, location?: LocationInfo) => void): this;
     /**
@@ -158,7 +158,7 @@ export declare class SAXParser extends stream.Transform {
      */
     on(event: 'doctype', listener: (name: string, publicId: string, systemId: string, location?: LocationInfo) => void): this;
     /**
-     * Stops parsing. Useful if you want the parser to stop consuming CPU time once you've obtained the desired info from the input stream. 
+     * Stops parsing. Useful if you want the parser to stop consuming CPU time once you've obtained the desired info from the input stream.
      * Doesn't prevent piping, so that data will flow through the parser as usual.
      */
     stop(): void;
@@ -205,7 +205,7 @@ export interface StartTagLocationInfo extends LocationInfo {
     /**
      * Start tag attributes' location info
      */
-    attrs: AttributesLocationInfo
+    attrs: AttributesLocationInfo;
 }
 
 export interface ElementLocationInfo {
@@ -235,7 +235,7 @@ export declare var treeAdapters: {
 
 export interface ParserOptions {
     /**
-     * Enables source code location information for the nodes. When enabled, each node (except root node) has the __location property. 
+     * Enables source code location information for the nodes. When enabled, each node (except root node) has the __location property.
      * In case the node is not an empty element, __location will be ElementLocationInfo object, otherwise it's LocationInfo.
      * If the element was implicitly created by *the parser it's __location property will be null.
      */
@@ -255,7 +255,7 @@ export interface SerializerOptions {
 
 /**
  * Enables source code location information for the tokens.
- *  When enabled, each token event handler will receive LocationInfo 
+ *  When enabled, each token event handler will receive LocationInfo
  * (or StartTagLocationInfo) object as its last argument.
  */
 export interface SAXParserOptions {

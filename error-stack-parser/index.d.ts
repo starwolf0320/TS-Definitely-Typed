@@ -3,7 +3,7 @@
 // Definitions by: Eric Wendelin <https://www.eriwen.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module ErrorStackParser {
+declare namespace ErrorStackParser {
     export interface StackFrame {
         constructor(functionName: string, args: any, fileName: string, lineNumber: number, columnNumber: number, source: string): StackFrame;
 

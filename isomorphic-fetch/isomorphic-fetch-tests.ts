@@ -4,7 +4,7 @@ import * as fetchImportedViaES6Module from 'isomorphic-fetch';
 
 function test_isomorphicFetchTestCases_ambient() {
     expectSuccess(fetch('http://localhost:3000/good'), 'Good response');
-    
+
     fetch('http://localhost:3000/bad')
         .then((response: IResponse) => {
             return response.text();
@@ -15,7 +15,7 @@ function test_isomorphicFetchTestCases_ambient() {
 
 function test_isomorphicFetchTestCases_commonjs() {
     expectSuccess(fetchImportedViaCommonJS('http://localhost:3000/good'), 'Good response');
-    
+
     fetchImportedViaCommonJS('http://localhost:3000/bad')
         .then((response: IResponse) => {
             return response.text();
@@ -26,7 +26,7 @@ function test_isomorphicFetchTestCases_commonjs() {
 
 function test_isomorphicFetchTestCases_es6() {
     expectSuccess(fetchImportedViaES6Module('http://localhost:3000/good'), 'Good response');
-    
+
     fetchImportedViaES6Module('http://localhost:3000/bad')
         .then((response: IResponse) => {
             return response.text();
@@ -48,16 +48,16 @@ function test_whatwgTestCases_ambient() {
     };
 
     expectSuccess(fetch('http://localhost:3000/poster', requestOptions), 'Post response:');
-    
+
     var requestOptions: RequestInit = {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         }
     };
-    
+
     expectSuccess(fetch('http://localhost:3000/poster', requestOptions), 'Post response:');
-    
+
     var requestOptions: RequestInit = {
         method: "POST",
         headers: {
@@ -68,7 +68,7 @@ function test_whatwgTestCases_ambient() {
 
     expectSuccess(fetch(request), 'Post response:');
 }
-    
+
 function test_whatwgTestCases_commonjs() {
     var headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -81,16 +81,16 @@ function test_whatwgTestCases_commonjs() {
     };
 
     expectSuccess(fetchImportedViaCommonJS('http://localhost:3000/poster', requestOptions), 'Post response:');
-    
+
     var requestOptions: RequestInit = {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         }
     };
-    
+
     expectSuccess(fetchImportedViaCommonJS('http://localhost:3000/poster', requestOptions), 'Post response:');
-    
+
     var requestOptions: RequestInit = {
         method: "POST",
         headers: {
@@ -114,16 +114,16 @@ function test_whatwgTestCases_es6() {
     };
 
     expectSuccess(fetchImportedViaES6Module('http://localhost:3000/poster', requestOptions), 'Post response:');
-    
+
     var requestOptions: RequestInit = {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         }
     };
-    
+
     expectSuccess(fetchImportedViaES6Module('http://localhost:3000/poster', requestOptions), 'Post response:');
-    
+
     var requestOptions: RequestInit = {
         method: "POST",
         headers: {
@@ -134,7 +134,7 @@ function test_whatwgTestCases_es6() {
 
     expectSuccess(fetchImportedViaES6Module(request), 'Post response:');
 }
-    
+
 function expectSuccess(promise: Promise<IResponse>, responseText: string) {
     promise.then((response: IResponse) => {
         return response.text();

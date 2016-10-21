@@ -20,10 +20,10 @@ var id: string = basicDispatcher.register((payload) => {
 // unregister(id: string): void
 basicDispatcher.unregister(id)
 
-// waitFor(ids: string[]): void 
+// waitFor(ids: string[]): void
 basicDispatcher.waitFor([id])
 
-// dispatch(payload: any): void 
+// dispatch(payload: any): void
 basicDispatcher.dispatch({ msg: 'hello' })
 
 // isDispatching(): boolean

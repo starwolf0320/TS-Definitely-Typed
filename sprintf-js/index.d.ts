@@ -71,7 +71,7 @@ X - yields an integer as a hexadecimal number (upper-case)
 }
 
 declare module "sprintf-js" {
-	export =sprintf_js;
+	export = sprintf_js;
 }
 
 declare var sprintf: typeof sprintf_js.sprintf;

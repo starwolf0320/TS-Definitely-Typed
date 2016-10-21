@@ -472,8 +472,7 @@ declare namespace uiGrid {
          *        reset any existing sorting and sort by this column only
          * @returns {ng.IPromise<IGridColumn>} A resolved promise that supplies the column.
          */
-        sortColumn(column: IGridColumnOf<TEntity>, direction?: string, add?: boolean)
-            : ng.IPromise<IGridColumnOf<TEntity>>;
+        sortColumn(column: IGridColumnOf<TEntity>, direction?: string, add?: boolean): ng.IPromise<IGridColumnOf<TEntity>>;
         /**
          * flags all render containers to update their canvas height
          */
@@ -711,7 +710,7 @@ declare namespace uiGrid {
          * total items at the bottom of the grid, and the selected items if selection is enabled.
          * @default 'ui-grid/ui-grid-grid-footer'
          */
-        gridFooterTemplate?: string
+        gridFooterTemplate?: string;
         /**
          * Null by default. When provided, this setting uses a custom header
          * template, rather than the default template. Can be set to either the name of a template file:
@@ -894,7 +893,7 @@ declare namespace uiGrid {
          * which is provided when you want to remove an item.  The id should be unique.
 
          */
-        addToGridMenu(grid: IGridInstanceOf<TEntity>, items: Array<IMenuItem>):  void;
+        addToGridMenu(grid: IGridInstanceOf<TEntity>, items: Array<IMenuItem>): void;
         /**
          * Clears all filters and optionally refreshes the visible rows.
          * @param {boolean} [refreshRows=true] Defaults to true.
@@ -1141,7 +1140,7 @@ declare namespace uiGrid {
         (grid: IGridInstanceOf<TEntity>, columns: Array<IGridColumnOf<TEntity>>): void;
     }
 
-    export module cellNav {
+    export namespace cellNav {
         /**
          * Column Definitions for cellNav feature, these are available to be set using the ui-grid
          * gridOptions.columnDefs
@@ -1303,7 +1302,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module edit {
+    export namespace edit {
         /**
          * Edit related Column Definition
          */
@@ -1455,7 +1454,7 @@ declare namespace uiGrid {
                  * @param {cancelCellEditHandler} handler Callback
                  */
                 cancelCellEdit: (scope: ng.IScope, handler: cancelCellEditHandler<TEntity>) => void;
-            }
+            };
         }
         export interface afterCellEditHandler<TEntity> {
             /**
@@ -1502,7 +1501,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module expandable {
+    export namespace expandable {
         /**
          * Options for configuring the expandable feature, these are available to be set using the ui-grid gridOptions
          */
@@ -1593,7 +1592,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module exporter {
+    export namespace exporter {
         /**
          * ColumnDef settings for exporter
          */
@@ -1847,7 +1846,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module grouping {
+    export namespace grouping {
         /**
          * ColumnDef for grouping feature, these are available to be set using the ui-grid gridOptions.columnDefs
          */
@@ -2055,7 +2054,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module importer {
+    export namespace importer {
         /**
          * GridOptions for importer feature, these are available to be set using the ui-grid gridOptions
          */
@@ -2171,7 +2170,7 @@ declare namespace uiGrid {
     /**
      * This module provides infinite scroll functionality to ui-grid
      */
-    export module infiniteScroll {
+    export namespace infiniteScroll {
         /**
          * GridOptions for infinite scroll feature, these are available to be set using the ui-grid gridOptions
          */
@@ -2275,11 +2274,11 @@ declare namespace uiGrid {
                  * This event fires when scroll reaches top percentage of grid and needs to load data
                  */
                 needLoadMoreDataTop: Function;
-            }
+            };
         }
     }
 
-    export module moveColumns {
+    export namespace moveColumns {
         /**
          * Column Definition for move column features.
          * These are available to be set using the ui-grid `gridOptions.columnDefs`
@@ -2328,7 +2327,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module pagination {
+    export namespace pagination {
         /**
          * Pagination related grid options
          */
@@ -2421,7 +2420,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module pinning {
+    export namespace pinning {
         /**
          * ColumnDef for pinning feature, these are available to be set using the ui-grid gridOptions.columnDefs
          */
@@ -2494,7 +2493,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module resizeColumns {
+    export namespace resizeColumns {
         /**
          * ColumnDef for resizeColumns feature, these are available to be set using the ui-grid gridOptions.columnDefs
          */
@@ -2542,7 +2541,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module rowEdit {
+    export namespace rowEdit {
         /**
          * Row Edit Grid Options
          */
@@ -2627,7 +2626,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module saveState {
+    export namespace saveState {
         /**
          * Save State Grid Options
          */
@@ -2796,7 +2795,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module selection {
+    export namespace selection {
         /**
          * GridOptions for selection feature, these are available to be set using the ui-grid gridOptions
          */
@@ -3015,7 +3014,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module treeBase {
+    export namespace treeBase {
         /**
          * ColumnDef for tree feature, these are available to be set using the ui-grid gridOptions.columnDefs
          */
@@ -3266,7 +3265,7 @@ declare namespace uiGrid {
         }
     }
 
-    export module treeView {
+    export namespace treeView {
         /**
          * GridOptions for treeView feature, these are available to be set using the ui-grid gridOptions
          *

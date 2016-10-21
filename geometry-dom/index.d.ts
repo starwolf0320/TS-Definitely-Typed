@@ -26,7 +26,7 @@ declare namespace GeometryDom {
          * Post-multiply point with matrix.
          * @param matrix
          */
-        matrixTransform(matrix:DOMMatrixReadOnly): DOMPoint;
+        matrixTransform(matrix: DOMMatrixReadOnly): DOMPoint;
     }
 
     interface DOMPoint extends DOMPointReadOnly {
@@ -240,7 +240,7 @@ declare var DOMPointReadOnly: {
 
 declare var DOMPoint: {
     prototype: GeometryDom.DOMPoint;
-    new (x?:number, y?:number, z?:number, w?:number): GeometryDom.DOMPoint;
+    new (x?: number, y?: number, z?: number, w?: number): GeometryDom.DOMPoint;
 };
 
 interface DOMPointInit {

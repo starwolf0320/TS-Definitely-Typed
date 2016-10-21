@@ -133,7 +133,7 @@ interface KnockoutBindingHandlers {
      * </ul>
      * @name ko.bindingHandlers.validationCss
      */
-    validationCss: KnockoutBindingHandler
+    validationCss: KnockoutBindingHandler;
 
     /**
      * Makes the element behave like a validation message for the chosen property or model:
@@ -316,7 +316,7 @@ declare namespace Valerie {
         //  - either parameter can be omitted and a clone of the other parameter will be returned
         //  - the merge is shallow
         //  - array properties are shallow cloned
-        mergeOptions(defaultOptions: ValidationOptions, options:any): ValidationOptions;
+        mergeOptions(defaultOptions: ValidationOptions, options: any): ValidationOptions;
 
     }
 
@@ -331,7 +331,7 @@ declare namespace Valerie {
         new: (model: any, options?: ModelValidationStateOptions) => ModelValidationState;
 
         model: any;
-        options?: ModelValidationStateOptions
+        options?: ModelValidationStateOptions;
 
         // methods
 
@@ -402,7 +402,7 @@ declare namespace Valerie {
 
         result(): ValidationResult;
 
-        summary(): summaryItem[]
+        summary(): summaryItem[];
 
         /***
          * Gets or sets whether the model has been 'touched' by user action

@@ -34,7 +34,7 @@ declare module "rest" {
 		}
 
 		export interface Headers {
-			[index: string]: any // string or string[]
+			[index: string]: any; // string or string[]
 		}
 
 		export interface Response {
@@ -298,7 +298,7 @@ declare module "rest/interceptor/jsonp" {
 				param?: string;
 				prefix?: string;
 				name?: string;
-			}
+			};
 		}
 	}
 

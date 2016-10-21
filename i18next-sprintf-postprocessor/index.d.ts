@@ -13,7 +13,7 @@ declare module "i18next-sprintf-postprocessor" {
           t(key: string, ...args: any[]): string;
         }
     }
-  
+
     interface I18nextSprintfPostProcessor {
         name: string;
         type: string;

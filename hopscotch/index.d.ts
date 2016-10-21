@@ -21,13 +21,13 @@ interface HopscotchConfiguration {
   skipIfNoElement?: boolean;
   nextOnTargetClick?: boolean;
 
-  onNext?:  CallbackNameNamesOrDefinition;
-  onPrev?:  CallbackNameNamesOrDefinition;
+  onNext?: CallbackNameNamesOrDefinition;
+  onPrev?: CallbackNameNamesOrDefinition;
   onStart?: CallbackNameNamesOrDefinition;
-  onEnd?:   CallbackNameNamesOrDefinition;
+  onEnd?: CallbackNameNamesOrDefinition;
   onClose?: CallbackNameNamesOrDefinition;
   onError?: CallbackNameNamesOrDefinition;
-               
+
   i18n?: {
     nextBtn?: string;
     prevBtn?: string;
@@ -35,7 +35,7 @@ interface HopscotchConfiguration {
     skipBtn?: string;
     closeTooltip?: string;
     stepNums?: string[];
-  }
+  };
 }
 
 interface TourDefinition extends HopscotchConfiguration {
@@ -45,7 +45,7 @@ interface TourDefinition extends HopscotchConfiguration {
 
 interface StepDefinition {
   placement: string;
-  target: string | HTMLElement | Array<string | HTMLElement>
+  target: string | HTMLElement | Array<string | HTMLElement>;
 
   title?: string;
   content?: string;
@@ -73,7 +73,7 @@ interface StepDefinition {
   onPrev?: CallbackNameNamesOrDefinition;
   onNext?: CallbackNameNamesOrDefinition;
   onShow?: CallbackNameNamesOrDefinition;
-  onCTA?:  CallbackNameNamesOrDefinition;
+  onCTA?: CallbackNameNamesOrDefinition;
 }
 
 interface HopscotchStatic {
@@ -81,7 +81,7 @@ interface HopscotchStatic {
    * Actually starts the tour. Optional stepNum argument specifies what step to start at.
    */
   startTour(tour: TourDefinition, stepNum?: number): void;
-  
+
   /**
    * Skips to a given step in the tour
    */
@@ -128,12 +128,12 @@ interface HopscotchStatic {
    * Adds a callback for one of the event types. Valid event types are:
    * *start*, *end*, *next*, *prev*, *show*, *close*, *error*
    */
-  listen(eventName: string, callback: () => void): void; 
+  listen(eventName: string, callback: () => void): void;
 
   /**
    * Removes a callback for one of the event types.
    */
-  unlisten(eventName: string, callback: () => void): void; 
+  unlisten(eventName: string, callback: () => void): void;
 
   /**
    * Remove callbacks for hopscotch events. If tourOnly is set to true, only removes

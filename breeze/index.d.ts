@@ -462,7 +462,7 @@ declare namespace breeze {
 
         static importEntities(exportedString: string, config?: { mergeStrategy?: MergeStrategySymbol; metadataVersionFn?: (any: any) => void }): EntityManager;
         static importEntities(exportedData: Object, config?: { mergeStrategy?: MergeStrategySymbol; metadataVersionFn?: (any: any) => void }): EntityManager;
-        importEntities(exportedString: string, config?: { mergeStrategy?: MergeStrategySymbol; metadataVersionFn?: (any: any) => void }): { entities: Entity[]; tempKeyMapping: { [key: string] : EntityKey } };
+        importEntities(exportedString: string, config?: { mergeStrategy?: MergeStrategySymbol; metadataVersionFn?: (any: any) => void }): { entities: Entity[]; tempKeyMapping: { [key: string]: EntityKey } };
         importEntities(exportedData: Object, config?: { mergeStrategy?: MergeStrategySymbol; metadataVersionFn?: (any: any) => void }): { entities: Entity[]; tempKeyMapping: { [key: string]: EntityKey } };
 
         rejectChanges(): Entity[];
@@ -495,7 +495,7 @@ declare namespace breeze {
     }
 
     export interface ExecuteQueryErrorCallback {
-        (error: { query: EntityQuery; httpResponse: HttpResponse; entityManager: EntityManager; message?: string; stack?:string }): void;
+        (error: { query: EntityQuery; httpResponse: HttpResponse; entityManager: EntityManager; message?: string; stack?: string }): void;
     }
 
     export interface SaveChangesSuccessCallback {
@@ -796,7 +796,7 @@ declare namespace breeze {
     export interface IRecursiveArray<T> {
         [i: number]: T | IRecursiveArray<T>;
     }
-    
+
     export class Predicate {
         constructor();
         constructor(property: string, operator: string, value: any);
@@ -843,7 +843,7 @@ declare namespace breeze {
         fetchStrategy: FetchStrategySymbol;
         mergeStrategy: MergeStrategySymbol;
         /** Whether query should return cached deleted entities (false by default) */
-        includeDeleted: boolean
+        includeDeleted: boolean;
 
         constructor(config?: QueryOptionsConfiguration);
 
@@ -864,7 +864,7 @@ declare namespace breeze {
         error?: any;
         saveContext?: any;
         status: number;
-        getHeaders(headerName: string): string
+        getHeaders(headerName: string): string;
     }
 
     export interface QueryResult {
@@ -879,7 +879,7 @@ declare namespace breeze {
         /** Total number of results available on the server */
         inlineCount?: number;
         /** All entities returned by the query.  Differs from results when an expand is used. */
-        retrievedEntities?: Entity[]
+        retrievedEntities?: Entity[];
     }
 
     export class SaveOptions {
@@ -993,7 +993,7 @@ declare namespace breeze {
         /** Creates a regular expression validator with a fixed expression. */
         static makeRegExpValidator(validatorName: string, expression: RegExp, defaultMessage: string, context?: any): Validator;
 
-        /** Run this validator against the specified value. 
+        /** Run this validator against the specified value.
             @param value {Object} Value to validate
             @param additionalContext {Object} Any additional contextual information that the Validator can make use of.
             @return {ValidationError|null} A ValidationError if validation fails, null otherwise        */
@@ -1046,15 +1046,15 @@ declare namespace breeze.config {
     export function getAdapterInstance(interfaceName: string, adapterName?: string): Object;
 
     export interface Adapter {
-        getRoutePrefix: Function
+        getRoutePrefix: Function;
     }
     /**
-    Initializes a single adapter implementation. Initialization means either newing a instance of the 
+    Initializes a single adapter implementation. Initialization means either newing a instance of the
     specified interface and then calling "initialize" on it or simply calling "initialize" on the instance
     if it already exists.
     @param interfaceName {String} The name of the interface to which the adapter to initialize belongs.
     @param adapterName {String} - The name of a previously registered adapter to initialize.
-    @param isDefault=true {Boolean} - Whether to make this the default "adapter" for this interface. 
+    @param isDefault=true {Boolean} - Whether to make this the default "adapter" for this interface.
     @return {an instance of the specified adapter}
     **/
     export function initializeAdapterInstance(interfaceName: string, adapterName: string, isDefault?: boolean): Adapter;
@@ -1080,15 +1080,15 @@ declare namespace breeze.config {
     export var objectRegistry: Object;
     /**
     Method use to register implementations of standard breeze interfaces.  Calls to this method are usually
-    made as the last step within an adapter implementation. 
+    made as the last step within an adapter implementation.
     @param interfaceName {String} - one of the following interface names "ajax", "dataService" or "modelLibrary"
-    @param adapterCtor {Function} - an ctor function that returns an instance of the specified interface.  
+    @param adapterCtor {Function} - an ctor function that returns an instance of the specified interface.
     **/
     export function registerAdapter(interfaceName: string, adapterCtor: Function): void;
     export function registerFunction(fn: Function, fnName: string): void;
     export function registerType(ctor: Function, typeName: string): void;
     //static setProperties(config: Object): void; //deprecated
-    /** 
+    /**
     Set the promise implementation, if Q.js is not found.
     @param q - implementation of promise.  @see http://wiki.commonjs.org/wiki/Promises/A
     */

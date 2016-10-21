@@ -44,7 +44,7 @@ myApp.config(($stateProvider: angular.ui.IStateProvider, $stickyStateProvider: a
 
 	$stickyStateProvider.enableDebug(true);
 	$stateProvider.state(state);
-    
+
     $stateProvider.state({
 		name: 'test',
         sticky: true,
@@ -84,7 +84,7 @@ myApp.config(($stateProvider: angular.ui.IStateProvider, $stickyStateProvider: a
             'name1': {}
         }
 	});
-    
+
     $stateProvider.state('name1', {
 		name: 'test',
         sticky: true,
@@ -124,5 +124,5 @@ myApp.config(($stateProvider: angular.ui.IStateProvider, $stickyStateProvider: a
             'name1': {}
         }
 	});
-    
+
 });

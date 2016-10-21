@@ -204,22 +204,22 @@ QUnit.test("a test", function (assert) {
 });
 
 test( "throws", function() {
- 
+
   function CustomError( message ) {
     this.message = message;
   }
- 
+
   CustomError.prototype.toString = function() {
     return this.message;
   };
- 
+
   throws(
     function() {
       throw "error"
     },
     "throws with just a message, no expected"
   );
- 
+
   throws(
     function() {
       throw new Error();
@@ -227,7 +227,7 @@ test( "throws", function() {
     Error,
     "raised error is an instance of CustomError"
   );
- 
+
   throws(
     function() {
       throw new Error("some error description");
@@ -242,7 +242,7 @@ test( "throws", function() {
     },
     "throws with just a message, no expected"
   );
- 
+
   QUnit.throws(
     function() {
       throw new Error();
@@ -250,14 +250,14 @@ test( "throws", function() {
     Error,
     "raised error is an instance of CustomError"
   );
- 
+
   QUnit.throws(
     function() {
       throw new Error("some error description");
     },
     /description/,
     "raised error message contains 'description'"
-  ); 
+  );
 });
 
 QUnit.test("raises", function () {
@@ -1647,10 +1647,10 @@ QUnit.test( "QUnit.extend", function( assert ) {
     c: 3,
     z: undefined
   } );
-  
+
   // Change from documentation example to satisfy tsc:
   var newBase = <any> base;
- 
+
   assert.equal( newBase.a, 1, "Unspecified values are not modified" );
   assert.equal( newBase.b, 2.5, "Existing values are updated" );
   assert.equal( newBase.c, 3, "New values are defined" );

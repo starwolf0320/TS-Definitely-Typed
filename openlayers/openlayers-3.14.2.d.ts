@@ -204,7 +204,7 @@ declare namespace olx {
         keyboardEventTarget?: any;
 
         /** Layers. If this is not defined, a map with no layers will be rendered. Note that layers are rendered in the order supplied, so if you want, for example, a vector layer to appear on top of a tile layer, it must come after the tile layer. */
-        layers?: Array<any>
+        layers?: Array<any>;
 
         /** When set to true, tiles will be loaded during animations. This may improve the user experience, but can also make animations stutter on devices with slow memory. Default is false. */
         loadTilesWhileAnimating?: boolean;
@@ -456,7 +456,7 @@ declare namespace olx {
             /**
              * The easing function to use. Can be an ol.easing or a custom function. Default is ol.easing.upAndDown.
              */
-            easing?: (t: number) => number
+            easing?: (t: number) => number;
         }
 
         interface ZoomOptions {
@@ -479,7 +479,7 @@ declare namespace olx {
             /**
              * The easing function to use. Can be an ol.easing or a custom function. Default is ol.easing.upAndDown.
              */
-            easing?: (t: number) => number
+            easing?: (t: number) => number;
         }
     }
 
@@ -536,12 +536,12 @@ declare namespace olx {
             zoomDuration?: number;
         }
         interface DragBoxOptions {
-            className?: string
-            condition?: ol.events.ConditionType
-            boxEndCondition?: ol.interaction.DragBoxEndConditionType
+            className?: string;
+            condition?: ol.events.ConditionType;
+            boxEndCondition?: ol.interaction.DragBoxEndConditionType;
         }
         interface InteractionOptions {
-            handleEvent (e: ol.MapBrowserEvent): boolean
+            handleEvent (e: ol.MapBrowserEvent): boolean;
         }
         interface ModifyOptions {
             deleteCondition?: ol.events.ConditionType;
@@ -1096,11 +1096,11 @@ declare namespace olx {
  */
 declare namespace ol {
 
-    interface TileLoadFunctionType { (image: ol.Image, url: string): void }
+    interface TileLoadFunctionType { (image: ol.Image, url: string): void; }
 
-    interface FeatureUrlFunction { (extent: ol.Extent, resolution: number, projection: ol.proj.Projection): string }
+    interface FeatureUrlFunction { (extent: ol.Extent, resolution: number, projection: ol.proj.Projection): string; }
 
-    interface ImageLoadFunctionType { (image: ol.Image, url: string): void }
+    interface ImageLoadFunctionType { (image: ol.Image, url: string): void; }
 
     /**
      * An attribution for a layer source.
@@ -2173,7 +2173,7 @@ declare namespace ol {
         /**
          * Selected features array.
          */
-        selected: Array<ol.Feature>
+        selected: Array<ol.Feature>;
     }
 
     /**
@@ -3678,7 +3678,7 @@ declare namespace ol {
 
         class DrawEvent extends ol.events.Event {
             constructor (type: ol.interaction.DrawEventType, feature: ol.Feature)
-            feature: ol.Feature
+            feature: ol.Feature;
         }
 
         class Interaction extends ol.Object {
@@ -3741,7 +3741,7 @@ declare namespace ol {
         function defaults(opts: olx.interaction.DefaultsOptions): ol.Collection<ol.interaction.Interaction>;
 
         interface DragBoxEndConditionType {
-            (evt: ol.MapBrowserEvent, startPixel: ol.Pixel, endPixel: ol.Pixel): boolean
+            (evt: ol.MapBrowserEvent, startPixel: ol.Pixel, endPixel: ol.Pixel): boolean;
         }
 
         interface DrawGeometryFunctionType {
@@ -4532,7 +4532,7 @@ declare namespace ol {
         }
 
         interface GeometryFunction {
-            (feature: Feature): ol.geom.Geometry
+            (feature: Feature): ol.geom.Geometry;
         }
 
         class RegularShape {
@@ -4651,7 +4651,7 @@ declare namespace ol {
         /**
          * A function that takes an ol.Feature and a {number} representing the view's resolution. The function should return an array of ol.style.Style. This way e.g. a vector layer can be styled.
          */
-        interface StyleFunction { (feature: ol.Feature, resolution: number): ol.style.Style | ol.style.Style[] }
+        interface StyleFunction { (feature: ol.Feature, resolution: number): ol.style.Style | ol.style.Style[]; }
     }
 
     namespace tilegrid {
@@ -4865,27 +4865,27 @@ declare namespace ol {
     /**
      * Implementation based on the code of OpenLayers, no documentation available (yet). If it is incorrect, please create an issue and I will change it.
      */
-    interface FeatureLoader { (extent: ol.Extent, number: number, projection: ol.proj.Projection): string }
+    interface FeatureLoader { (extent: ol.Extent, number: number, projection: ol.proj.Projection): string; }
 
     /**
      * A function that returns a style given a resolution. The this keyword inside the function references the ol.Feature to be styled.
      */
-    interface FeatureStyleFunction { (resolution: number): ol.style.Style }
+    interface FeatureStyleFunction { (resolution: number): ol.style.Style; }
 
     /**
      * Loading strategy
      */
-    interface LoadingStrategy { (extent: ol.Extent, resolution: number): Array<ol.Extent> }
+    interface LoadingStrategy { (extent: ol.Extent, resolution: number): Array<ol.Extent>; }
 
     /**
      * Function to perform manipulations before rendering. This function is called with the ol.Map as first and an optional olx.FrameState as second argument. Return true to keep this function for the next frame, false to remove it.
      */
-    interface PreRenderFunction { (map: ol.Map, frameState?: olx.FrameState): boolean }
+    interface PreRenderFunction { (map: ol.Map, frameState?: olx.FrameState): boolean; }
 
     /**
      * A transform function accepts an array of input coordinate values, an optional output array, and an optional dimension (default should be 2). The function transforms the input coordinate values, populates the output array, and returns the output array.
      */
-    interface TransformFunction { (input: Array<number>, output?: Array<number>, dimension?: number): Array<number> }
+    interface TransformFunction { (input: Array<number>, output?: Array<number>, dimension?: number): Array<number>; }
 }
 
 declare module "openlayers" {

@@ -14,29 +14,29 @@ declare namespace ApigeeAccess {
     function getQuota(options?: any): QuotaService;
     function getMode(): "apigee" | "standalone";
 
-    interface CacheOptions{
+    interface CacheOptions {
         resource?: string;
         scope?: "global" | "application" | "exclusive";
         defaultTtl?: number;
         timeout?: number;
     }
 
-    interface Cache{
+    interface Cache {
         put(key: string, data: any, ttl?: number, callback?: (err: any) => void): void;
         get(key: string, callback: (err: any, data: any) => void): void;
         remove(key: string, callback?: (err: any) => void): void;
     }
 
-    interface SecureVault{
+    interface SecureVault {
         getKeys(callback: (err: any, data: any) => void): void;
-        get(key: string, callback: (err: any, data: any) => void): void;    
+        get(key: string, callback: (err: any, data: any) => void): void;
     }
 
-    interface QuotaService{
+    interface QuotaService {
         apply(options?: QuotaServiceApplyOptions, callback?: (err: any, data: QuotaServiceApplyCallbackData) => void): void;
     }
 
-    interface QuotaServiceApplyOptions{
+    interface QuotaServiceApplyOptions {
         identifier: string;
         timeUnit: "minute" | "hour" | "day" | "week" | "month";
         allow: number;
@@ -44,7 +44,7 @@ declare namespace ApigeeAccess {
         weight?: number;
     }
 
-    interface QuotaServiceApplyCallbackData{
+    interface QuotaServiceApplyCallbackData {
         used: number;
         allowed: number;
         isAllowed: boolean;

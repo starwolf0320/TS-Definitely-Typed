@@ -19,7 +19,7 @@ declare namespace NodeIRC {
          * Socket to the server. Rarely, if ever needed. Use Client#send
          * instead.
          */
-        public conn: net.Socket
+        public conn: net.Socket;
 
         /**
          * Channels joined. Includes channel modes, user list, and topic
@@ -35,7 +35,7 @@ declare namespace NodeIRC {
                 mode: string;
                 created: string;
             }
-        }
+        };
 
         /** Features supported by the server */
         public supported: {
@@ -56,7 +56,7 @@ declare namespace NodeIRC {
             nicklength: number
             topiclength: number;
             usermodes: string;
-        }
+        };
 
         /**
          * The current nick of the client. Updated if the nick changes
@@ -525,7 +525,7 @@ declare namespace NodeIRC {
                 nick: string,
                 reason: string,
                 message: IMessage
-            ): void
+            ): void;
         }
 
         /**
@@ -542,7 +542,7 @@ declare namespace NodeIRC {
                 nick: string,
                 reason: string,
                 message: IMessage
-            ): void
+            ): void;
         }
 
         /**

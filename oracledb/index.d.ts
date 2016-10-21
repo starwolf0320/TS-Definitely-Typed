@@ -14,8 +14,8 @@ declare namespace oracledb {
 	type TFunc<T, R> = (value: T) => TRet<R>;
 
 	interface IPromise<T> {
-		catch<R>(onReject: TFunc<any, R>) : IPromise<R>;
-		then<R>(onResolve?: TFunc<T, R>, onReject?: TFunc<any, R>) : IPromise<R>;
+		catch<R>(onReject: TFunc<any, R>): IPromise<R>;
+		then<R>(onResolve?: TFunc<T, R>, onReject?: TFunc<any, R>): IPromise<R>;
 	}
 
 	interface ILob {
@@ -184,7 +184,7 @@ declare namespace oracledb {
 
 		/**
 		 * Closes a ResultSet. Applications should always call this at the end of fetch or when no more rows are needed.
-		 * @param  {(err:any)=>void} callback Callback called on finish or when some error occurs.
+		 * @param  {(err:any) => void} callback Callback called on finish or when some error occurs.
 		 * @returns void
 		 * @remarks Applications should always call this at the end of fetch or when no more rows are needed.
 		 */
@@ -200,7 +200,7 @@ declare namespace oracledb {
 		/**
 		 * This call fetches one row of the result set as an object or an array of column values, depending on the value of outFormat.
 		 * At the end of fetching, the ResultSet should be freed by calling close().
-		 * @param  {(err:any,row:Array<any>|Object)=>void} callback Callback called when the row is available or when some error occurs.
+		 * @param  {(err:any,row:Array<any>|Object) => void} callback Callback called when the row is available or when some error occurs.
 		 * @returns void
 		 */
 		getRow(callback: (err: any, row: Array<any> | Object) => void): void;
@@ -437,7 +437,7 @@ declare namespace oracledb {
 
 		/**
 		 * Finalizes the connection pool.
-		 * @param  {(err:any)=>void} callback Callback called when the pool is terminated or when some error occurs
+		 * @param  {(err:any) => void} callback Callback called when the pool is terminated or when some error occurs
 		 * @returns void
 		 */
 		close(callback: (err: any) => void): void;
@@ -451,7 +451,7 @@ declare namespace oracledb {
 		/**
 		 * This method obtains a connection from the connection pool.
 		 * If a previously opened connection is available in the pool, that connection is returned. If all connections in the pool are in use, a new connection is created and returned to the caller, as long as the number of connections does not exceed the specified maximum for the pool. If the pool is at its maximum limit, the getConnection() call results in an error, such as ORA-24418: Cannot open further sessions.
-		 * @param  {(err:any,connection:IConnection)=>void} callback Callback called when the connection is available or when some error occurs.
+		 * @param  {(err:any,connection:IConnection) => void} callback Callback called when the connection is available or when some error occurs.
 		 * @returns void
 		 * @see {@link https://jsao.io/2015/03/making-a-wrapper-module-for-the-node-js-driver-for-oracle-database/}
 		 * @see {@link https://github.com/OraOpenSource/orawrap}
@@ -469,7 +469,7 @@ declare namespace oracledb {
 
 		/**
 		 * An alias for IConnectionPool.close().
-		 * @param  {(err:any)=>void} callback Callback called when the pool is terminated or when some error occurs
+		 * @param  {(err:any) => void} callback Callback called when the pool is terminated or when some error occurs
 		 * @returns void
 		 */
 		terminate(callback: (err: any) => void): void;
@@ -618,7 +618,7 @@ declare namespace oracledb {
 	/**
 	 * Creates a database managed connection pool.
 	 * @param  {IPoolAttributes} poolAttributes Parameters to stablish the connection pool.
-	 * @param  {(err:any,connection:IConnectionPool)=>void} callback Callback to run when the connection pool gets created or when some error occurs.
+	 * @param  {(err:any,connection:IConnectionPool) => void} callback Callback to run when the connection pool gets created or when some error occurs.
 	 * @returns void
 	 */
 	function createPool(poolAttributes: IPoolAttributes, callback: (err: any, connection: IConnectionPool) => void): void;
@@ -626,7 +626,7 @@ declare namespace oracledb {
 	/**
 	 * Creates a database managed connection pool.
 	 * @param  {IPoolAttributes} poolAttributes Parameters to stablish the connection pool.
-	 * @returns Promise {(connection:IConnectionPool)=>any} Promise with the connection pool.
+	 * @returns Promise {(connection:IConnectionPool) => any} Promise with the connection pool.
 	 */
 	function createPool(poolAttributes: IPoolAttributes): IPromise< IConnectionPool >;
 
@@ -639,7 +639,7 @@ declare namespace oracledb {
 
 	/**
 	 * Creates a connection with the database - the pool alias will be "default".
-	 * @param  {(err:any,connection:IConnection)=>void} callback Callback to run when the connection gets stablished or when some error occurs.
+	 * @param  {(err:any,connection:IConnection) => void} callback Callback to run when the connection gets stablished or when some error occurs.
 	 * @returns void
 	 */
 	function getConnection(callback: (err: any, connection: IConnection) => void): void;
@@ -647,7 +647,7 @@ declare namespace oracledb {
 	/**
 	 * Creates a connection with the database.
 	 * @param  {string} poolAlias Poll from which the connection should be retrieved.
-	 * @param  {(err:any,connection:IConnection)=>void} callback Callback to run when the connection gets stablished or when some error occurs.
+	 * @param  {(err:any,connection:IConnection) => void} callback Callback to run when the connection gets stablished or when some error occurs.
 	 * @returns void
 	 */
 	function getConnection(poolAlias: string, callback: (err: any, connection: IConnection) => void): void;
@@ -655,28 +655,28 @@ declare namespace oracledb {
 	/**
 	 * Creates a connection with the database.
 	 * @param  {IConnectionAttributes} connectionAttributes Parameters to stablish the connection.
-	 * @param  {(err:any,connection:IConnection)=>void} callback Callback to run when the connection gets stablished or when some error occurs.
+	 * @param  {(err:any,connection:IConnection) => void} callback Callback to run when the connection gets stablished or when some error occurs.
 	 * @returns void
 	 */
 	function getConnection(connectionAttributes: IConnectionAttributes, callback: (err: any, connection: IConnection) => void): void;
 
 	/**
 	 * Creates a connection with the database. The pool name will be "default".
-	 * @returns  {(connection:IConnection)=>any} Promise with the connection.
+	 * @returns  {(connection:IConnection) => any} Promise with the connection.
 	 */
 	function getConnection(): IPromise< IConnection >;
 
 	/**
 	 * Creates a connection with the database.
 	 * @param  {string} poolAlias Poll from which the connection should be retrieved.
-	 * @returns  {(connection:IConnection)=>any} Promise with the connection.
+	 * @returns  {(connection:IConnection) => any} Promise with the connection.
 	 */
 	function getConnection(poolAlias: string): IPromise< IConnection >;
 
 	/**
 	 * Creates a connection with the database.
 	 * @param  {IConnectionAttributes} connectionAttributes Parameters to stablish the connection.
-	 * @returns  {(connection:IConnection)=>any} Promise with the connection.
+	 * @returns  {(connection:IConnection) => any} Promise with the connection.
 	 */
 	function getConnection(connectionAttributes: IConnectionAttributes): IPromise< IConnection >;
 }

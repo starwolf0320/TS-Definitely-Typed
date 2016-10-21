@@ -36,7 +36,7 @@ function testDropotronConfiguration() {
         detach:             true,
         cloneOnDetach:      true
     };
-    
+
     var foo: JQuery = $('#main-nav > ul');
     foo.dropotron(config);
 }

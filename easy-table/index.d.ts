@@ -215,7 +215,7 @@ interface FormatObject {
 
 interface ColumnFormat<T> {
     name?: string;
-    printer?: CellPrinter<T>
+    printer?: CellPrinter<T>;
 }
 
 export = EasyTable;

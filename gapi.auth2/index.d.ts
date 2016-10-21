@@ -67,7 +67,7 @@ declare namespace gapi.auth2 {
     }, onsuccess: (googleUser: GoogleUser) => any, onfailure: (reason: string) => any): any;
   }
 
-  export interface IsSignedIn{
+  export interface IsSignedIn {
     /**
      * Returns whether the current user is currently signed in.
      */

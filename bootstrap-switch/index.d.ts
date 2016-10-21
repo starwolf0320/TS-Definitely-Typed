@@ -13,7 +13,7 @@
 
 declare namespace BootstrapSwitch {
     interface BootstrapSwitchChangeEventObject extends JQueryEventObject {
-        state: boolean
+        state: boolean;
     }
 
     interface BootstrapSwitchEventObject extends JQueryEventObject { }

@@ -2026,7 +2026,7 @@ declare namespace Microsoft.Live {
              * Information on folders chosen in the picker.
              */
             folders?: IFolder[];
-        }
+        };
     }
 
     /**

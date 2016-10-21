@@ -66,7 +66,7 @@ declare namespace ElectronBuilder {
          * Callback wich is called when electron-builder is done.
          * @param err - Contains errors if any.
          */
-        (err: Error): void
+        (err: Error): void;
     }
 
     /** Prototype for electron-builder. */

@@ -5,10 +5,10 @@
 
 /*
  * This test file contains the sample output from The Spotify Web Api obtained from [The Web API Console](https://developer.spotify.com/web-api/console/)
- * 
+ *
  * Run the tests (they should always compile without any errors):
  * tsc spotify-api-tests.ts --target es6 --noImplicitAny
- * 
+ *
  * The order of tests is the same as on [The Spotify Web Api](https://developer.spotify.com/web-api/endpoint-reference/)
  */
 
@@ -16,7 +16,7 @@
 
 /**
  * Get an Album
- * 
+ *
  * GET /v1/albums/{id}
  * https://developer.spotify.com/web-api/get-album/
  */
@@ -405,9 +405,9 @@ const getSingleAlbum : SpotifyApi.SingleAlbumResponse = {
 
 /**
  * Get Several Albums
- * 
+ *
  * GET /v1/albums?ids={ids}
- * https://developer.spotify.com/web-api/get-several-albums/ 
+ * https://developer.spotify.com/web-api/get-several-albums/
  */
 const getMultipleAlbumsResponse : SpotifyApi.MultipleAlbumsResponse = {
   "albums" : [ {
@@ -2241,7 +2241,7 @@ const getMultipleAlbumsResponse : SpotifyApi.MultipleAlbumsResponse = {
 
 /**
  * Get an Album’s Tracks
- * 
+ *
  * GET /v1/albums/{id}/tracks
  * https://developer.spotify.com/web-api/get-albums-tracks/
  */
@@ -2310,7 +2310,7 @@ const getAlbumTracks : SpotifyApi.AlbumTracksResponse = {
 
 /**
  * Get an Artist
- * 
+ *
  * GET /v1/artists/{id}
  * https://developer.spotify.com/web-api/get-artist/
  */
@@ -2352,7 +2352,7 @@ const getAnArtist : SpotifyApi.SingleArtistResponse = {
 
 /**
  * Get Several Artists
- * 
+ *
  * GET /v1/artists
  * https://developer.spotify.com/web-api/get-several-artists/
  */
@@ -2429,7 +2429,7 @@ const getSeveralArtists : SpotifyApi.MultipleArtistsResponse = {
 
 /**
  * Get an Artist’s Albums
- * 
+ *
  * GET /v1/artists/{id}/albums
  * https://developer.spotify.com/web-api/get-artists-albums/
  */
@@ -2495,7 +2495,7 @@ const getArtistsAlbums : SpotifyApi.ArtistsAlbumsResponse = {
 
 /**
  * Get an Artist’s Top Tracks
- * 
+ *
  * GET /v1/artists/{id}/top-tracks
  * https://developer.spotify.com/web-api/get-artists-top-tracks/
  */
@@ -3066,7 +3066,7 @@ const getArtistsTopTracks : SpotifyApi.ArtistsTopTracksResponse = {
 
 /**
  * Get an Artist’s Related Artists
- * 
+ *
  * GET /v1/artists/{id}/related-artists
  * https://developer.spotify.com/web-api/get-related-artists/
  */
@@ -3716,11 +3716,11 @@ const getArtistRelatedArtists : SpotifyApi.ArtistsRelatedArtistsResponse = {
 
 /**
  * Get audio features for a track
- * 
+ *
  * GET /v1/audio-features/{id}
  * https://developer.spotify.com/web-api/get-audio-features/
  */
-const singleAudioFeaturesResponse : SpotifyApi.AudioFeaturesResponse = { 
+const singleAudioFeaturesResponse : SpotifyApi.AudioFeaturesResponse = {
   "danceability": 0.281,
   "energy": 0.402,
   "key": 4,
@@ -3738,7 +3738,7 @@ const singleAudioFeaturesResponse : SpotifyApi.AudioFeaturesResponse = {
   "track_href": "https://api.spotify.com/v1/tracks/24JygzOLM0EmRQeGtFcIcG",
   "analysis_url": "http://echonest-analysis.s3.amazonaws.com/TR/ehbkMg05Ck-FN7p3lV7vd8TUdBCvM6z5mgDiZRv6iSlw8P_b8GYBZ4PRAlOgTl3e5rS34_l3dZGDeYzH4=/3/full.json?AWSAccessKeyId=AKIAJRDFEY23UEVW42BQ&Expires=1458063189&Signature=bnTm0Hcb%2Bxo8ZCmuxm1mY0JY4Hs%3D",
   "duration_ms": 497493,
-  "time_signature": 3 
+  "time_signature": 3
 };
 
 
@@ -3747,11 +3747,11 @@ const singleAudioFeaturesResponse : SpotifyApi.AudioFeaturesResponse = {
 
 /**
  * Get audio features for several tracks
- * 
+ *
  * GET /v1/audio-features?ids={ids}
  * https://developer.spotify.com/get-several-audio-features/
  */
-const severalAudioFeaturesResponse : SpotifyApi.MultipleAudioFeaturesResponse = { audio_features: 
+const severalAudioFeaturesResponse : SpotifyApi.MultipleAudioFeaturesResponse = { audio_features:
    [ { "danceability": 0.808,
        "energy": 0.626,
        "key": 7,
@@ -3769,7 +3769,7 @@ const severalAudioFeaturesResponse : SpotifyApi.MultipleAudioFeaturesResponse = 
        "track_href": "https://api.spotify.com/v1/tracks/4JpKVNYnVcJ8tuMKjAj50A",
        "analysis_url": "http://echonest-analysis.s3.amazonaws.com/TR/WhpYUARk1kNJ_qP0AdKGcDDFKOQTTgsOoINrqyPQjkUnbteuuBiyj_u94iFCSGzdxGiwqQ6d77f4QLL_8=/3/full.json?AWSAccessKeyId=AKIAJRDFEY23UEVW42BQ&Expires=1458063189&Signature=JRE8SDZStpNOdUsPN/PoS49FMtQ%3D",
        "duration_ms": 535223,
-       "time_signature": 4 
+       "time_signature": 4
      },
      { "danceability": 0.457,
        "energy": 0.815,
@@ -3788,7 +3788,7 @@ const severalAudioFeaturesResponse : SpotifyApi.MultipleAudioFeaturesResponse = 
        "track_href": "https://api.spotify.com/v1/tracks/2NRANZE9UCmPAS5XVbXL40",
        "analysis_url": "http://echonest-analysis.s3.amazonaws.com/TR/WhuQhwPDhmEg5TO4JjbJu0my-awIhk3eaXkRd1ofoJ7tXogPnMtbxkTyLOeHXu5Jke0FCIt52saKJyfPM=/3/full.json?AWSAccessKeyId=AKIAJRDFEY23UEVW42BQ&Expires=1458063189&Signature=qfclum7FwTaR/7aQbnBNO0daCsM%3D",
        "duration_ms": 187800,
-       "time_signature": 4 
+       "time_signature": 4
      },
      { "danceability": 0.281,
        "energy": 0.402,
@@ -3807,8 +3807,8 @@ const severalAudioFeaturesResponse : SpotifyApi.MultipleAudioFeaturesResponse = 
        "track_href": "https://api.spotify.com/v1/tracks/24JygzOLM0EmRQeGtFcIcG",
        "analysis_url": "http://echonest-analysis.s3.amazonaws.com/TR/ehbkMg05Ck-FN7p3lV7vd8TUdBCvM6z5mgDiZRv6iSlw8P_b8GYBZ4PRAlOgTl3e5rS34_l3dZGDeYzH4=/3/full.json?AWSAccessKeyId=AKIAJRDFEY23UEVW42BQ&Expires=1458063189&Signature=bnTm0Hcb%2Bxo8ZCmuxm1mY0JY4Hs%3D",
        "duration_ms": 497493,
-       "time_signature": 3 
-     } ] 
+       "time_signature": 3
+     } ]
 };
 
 
@@ -3817,7 +3817,7 @@ const severalAudioFeaturesResponse : SpotifyApi.MultipleAudioFeaturesResponse = 
 
 /**
  * Get a list of featured playlists
- * 
+ *
  * GET /v1/browse/featured-playlists
  * https://developer.spotify.com/web-api/get-list-featured-playlists/
  */
@@ -3899,7 +3899,7 @@ const featuredPlaylists : SpotifyApi.ListOfFeaturedPlaylistsResponse = {
 
 /**
  * Get a list of new releases
- * 
+ *
  * GET /v1/browse/new-releases
  * https://developer.spotify.com/web-api/get-list-new-releases/
  */
@@ -4400,7 +4400,7 @@ const newReleases : SpotifyApi.ListOfNewReleasesResponse = {
 
 /**
  * Get a list of categories
- * 
+ *
  * GET /v1/browse/categories
  * https://developer.spotify.com/web-api/get-list-categories/
  */
@@ -4601,7 +4601,7 @@ const listOfCategories : SpotifyApi.MultipleCategoriesResponse = {
 
 /**
  * Get a category
- * 
+ *
  * GET /v1/browse/categories/{category_id}
  * https://developer.spotify.com/web-api/get-category/
  */
@@ -4621,7 +4621,7 @@ const category : SpotifyApi.SingleCategoryResponse = {
 
 /**
  * Get a categorys playlists
- * 
+ *
  * GET /v1/browse/categories/{id}/playlists
  * https://developer.spotify.com/web-api/get-categorys-playlists/
  */
@@ -4703,7 +4703,7 @@ const categoryPlaylists : SpotifyApi.CategoryPlaylistsReponse = {
 
 /**
  * Get Current User’s Profile
- * 
+ *
  * GET /v1/me
  * https://developer.spotify.com/web-api/get-current-users-profile/
  */
@@ -4732,7 +4732,7 @@ const userProfilePrivate : SpotifyApi.CurrentUsersProfileResponse = {
 
 /**
  * Get User’s Followed Artists
- * 
+ *
  * GET /v1/me/following?type=artist
  * https://developer.spotify.com/web-api/get-followed-artists/
  */
@@ -4814,7 +4814,7 @@ const followedArtists : SpotifyApi.UsersFollowedArtistsResponse = {
 
 /**
  * Follow artists or users
- * 
+ *
  * PUT /v1/me/following
  * https://developer.spotify.com/web-api/follow-artists-users/
  */
@@ -4825,7 +4825,7 @@ const followArtistsOrUsers : SpotifyApi.FollowArtistsOrUsersResponse = {}
 
 /**
  * Unfollow artists or users
- * 
+ *
  * DELETE /v1/me/following
  * https://developer.spotify.com/web-api/unfollow-artists-users/
  */
@@ -4836,7 +4836,7 @@ const unfollowArtistsOrUsers : SpotifyApi.UnfollowArtistsOrUsersResponse = {}
 
 /**
  * Check if User Follows Users or Artists
- * 
+ *
  * GET /v1/me/following/contains
  * https://developer.spotify.com/web-api/check-current-user-follows/
  */
@@ -4847,7 +4847,7 @@ const checkCurrentUserFollows : SpotifyApi.UserFollowsUsersOrArtistsResponse = [
 
 /**
  * Follow a Playlist
- * 
+ *
  * PUT /v1/users/{owner_id}/playlists/{playlist_id}/followers
  * https://developer.spotify.com/web-api/follow-playlist/
  */
@@ -4858,7 +4858,7 @@ const followPlaylist : SpotifyApi.FollowPlaylistReponse = {};
 
 /**
  * Unfollow a Playlist
- * 
+ *
  * DELETE /v1/users/{owner_id}/playlists/{playlist_id}/followers
  * https://developer.spotify.com/web-api/unfollow-playlist/
  */
@@ -4869,7 +4869,7 @@ const unfollowPlaylist : SpotifyApi.UnfollowPlaylistReponse = {};
 
 /**
  * Save tracks for user
- * 
+ *
  * PUT /v1/me/tracks?ids={ids}
  * https://developer.spotify.com/web-api/save-tracks-user/
  */
@@ -4880,7 +4880,7 @@ const saveTracksForUser : SpotifyApi.SaveTracksForUserResponse = {};
 
 /**
  * Get user's saved tracks
- * 
+ *
  * GET /v1/me/tracks
  * https://developer.spotify.com/web-api/get-users-saved-tracks/
  */
@@ -5179,7 +5179,7 @@ const getSavedTracks : SpotifyApi.UsersSavedTracksResponse = {
 
 /**
  * Remove User’s Saved Tracks
- * 
+ *
  * DELETE /v1/me/tracks?ids={ids}
  * https://developer.spotify.com/web-api/remove-tracks-user/
  */
@@ -5190,7 +5190,7 @@ const removeUsersTracks : SpotifyApi.RemoveUsersSavedTracksResponse = {};
 
 /**
  * Check User’s Saved Tracks
- * 
+ *
  * GET /v1/me/tracks/contains?ids={ids}
  * https://developer.spotify.com/web-api/check-users-saved-tracks/
  */
@@ -5201,7 +5201,7 @@ const checkUsersTracks : SpotifyApi.CheckUserSavedAlbumsResponse = [ false, fals
 
 /**
  * Save albums for user
- * 
+ *
  * PUT /v1/me/albums?ids={ids}
  * https://developer.spotify.com/web-api/save-albums-user/
  */
@@ -5211,7 +5211,7 @@ const saveAlbumForUser : SpotifyApi.SaveAlbumsForUserResponse = {};
 
 /**
  * Get user's saved albums
- * 
+ *
  * GET /v1/me/albums
  * https://developer.spotify.com/web-api/get-users-saved-albums/
  */
@@ -5310,7 +5310,7 @@ const usersSavedAlbums : SpotifyApi.UsersSavedAlbumsResponse = {
           "track_number" : 1,
           "type" : "track",
           "uri" : "spotify:track:3VNWq8rTnQG6fM1eldSpZ0"
-        }, 
+        },
         {
           "artists" : [ {
             "external_urls" : {
@@ -5358,7 +5358,7 @@ const usersSavedAlbums : SpotifyApi.UsersSavedAlbumsResponse = {
 
 /**
  * Remove Albums for Current User
- * 
+ *
  * DELETE /v1/me/albums?ids={ids}
  * https://developer.spotify.com/web-api/remove-albums-user/
  */
@@ -5370,7 +5370,7 @@ const removeAlbumForUser : SpotifyApi.RemoveAlbumsForUserResponse = {};
 
 /**
  * Check user's saved albums
- * 
+ *
  * DELETE /v1/me/albums/contains?ids={ids}
  * https://developer.spotify.com/web-api/check-users-saved-albums/
  */
@@ -5380,12 +5380,12 @@ const checkUsersSavedAlbums : SpotifyApi.CheckUserSavedAlbumsResponse = [ true, 
 
 /**
  * Get a User’s Top Artists and Tracks (Note: This is only Artists)
- * 
+ *
  * GET /v1/me/top/{type}
  * https://developer.spotify.com/web-api/get-users-top-artists-and-tracks/
  */
 const usersTopArtists : SpotifyApi.UsersTopArtistsResponse = {
-    "items" : [ 
+    "items" : [
       {
       "external_urls" : {
         "spotify" : "https://open.spotify.com/artist/3qqhR4mOQZP2t2I6QmU8lE"
@@ -5414,7 +5414,7 @@ const usersTopArtists : SpotifyApi.UsersTopArtistsResponse = {
       "popularity" : 43,
       "type" : "artist",
       "uri" : "spotify:artist:3qqhR4mOQZP2t2I6QmU8lE"
-    }, 
+    },
     {
       "external_urls" : {
         "spotify" : "https://open.spotify.com/artist/5CuU6SRJjbbZL926nSGGxX"
@@ -5463,12 +5463,12 @@ const usersTopArtists : SpotifyApi.UsersTopArtistsResponse = {
 
 /**
  * Get a User’s Top Artists and Tracks (Note: This is only Tracks)
- * 
+ *
  * GET /v1/me/top/{type}
  * https://developer.spotify.com/web-api/get-users-top-artists-and-tracks/
  */
 const usersTopTracks : SpotifyApi.UsersTopTracksResponse = {
-    "items" : [ 
+    "items" : [
       {
         "album" : {
           "album_type" : "SINGLE",
@@ -5608,7 +5608,7 @@ const usersTopTracks : SpotifyApi.UsersTopTracksResponse = {
 
 /**
  * Get recommendations based on seeds
- * 
+ *
  * GET /v1/recommendations
  * https://developer.spotify.com/get-recommendations/
  */
@@ -5698,7 +5698,7 @@ const recommendationsBasedOnSeeds: SpotifyApi.RecommendationsFromSeedsResponse =
 
 /**
  * Get available genre seeds
- * 
+ *
  * GET /v1/recommendations/available-genre-seeds
  * https://developer.spotify.com/web-api/get-recommendations/#available-genre-seeds
  */
@@ -5709,7 +5709,7 @@ const availableGenreSeeds : SpotifyApi.AvailableGenreSeedsResponse = {
 
 /**
  * Search for an album
- * 
+ *
  * GET /v1/search?type=album
  * https://developer.spotify.com/web-api/search-item/
  */
@@ -5778,7 +5778,7 @@ const searchAlbums : SpotifyApi.AlbumSearchResponse = {
 
 /**
  * Search for an artist
- * 
+ *
  * GET /v1/search?type=artist
  * https://developer.spotify.com/web-api/search-item/
  */
@@ -5827,7 +5827,7 @@ const searchArtists : SpotifyApi.ArtistSearchResponse = {
 
 /**
  * Search for a playlist
- * 
+ *
  * GET /v1/search?type=playlist
  * https://developer.spotify.com/web-api/search-item/
  */
@@ -5924,7 +5924,7 @@ const searchPlaylists : SpotifyApi.PlaylistSearchResponse = {
 
 /**
  * Search for a track
- * 
+ *
  * GET /v1/search?type=track
  * https://developer.spotify.com/web-api/search-item/
  */
@@ -6071,7 +6071,7 @@ const searchTracks : SpotifyApi.TrackSearchResponse = {
 
 /**
  * Get a track
- * 
+ *
  * GET /v1/tracks/{id}
  * https://developer.spotify.com/web-api/get-track/
  */
@@ -6136,7 +6136,7 @@ const track : SpotifyApi.SingleTrackResponse = {
 
 /**
  * Get multiple tracks
- * 
+ *
  * GET /v1/tracks?ids={ids}
  * https://developer.spotify.com/web-api/get-several-tracks/
  */
@@ -6256,7 +6256,7 @@ const tracks : SpotifyApi.MultipleTracksResponse = {
 
 /**
  * Get user profile
- * 
+ *
  * GET /v1/users/{user_id}
  * https://developer.spotify.com/web-api/get-users-profile/
  */
@@ -6285,7 +6285,7 @@ const userProfile : SpotifyApi.UserProfileResponse = {
 
 /**
  * Get a list of a user's playlists
- * 
+ *
  * GET /v1/users/{user_id}/playlists
  * https://developer.spotify.com/web-api/get-list-users-playlists/
  */
@@ -6364,7 +6364,7 @@ const usersPlaylists : SpotifyApi.ListOfUsersPlaylistsResponse = {
 
 /**
  * Get a list of the current user's playlists
- * 
+ *
  * GET /v1/users/{user_id}/playlists
  * https://developer.spotify.com/web-api/get-list-users-playlists/
  */
@@ -6443,7 +6443,7 @@ const currentUsersPlaylists : SpotifyApi.ListOfUsersPlaylistsResponse = {
 
 /**
  * Get a playlist
- * 
+ *
  * GET /v1/users/{user_id}/playlists/{playlist_id}
  * https://developer.spotify.com/web-api/get-playlist/
  */
@@ -6704,7 +6704,7 @@ const playlist : SpotifyApi.SinglePlaylistResponse = {
 
 /**
  * Get a playlist's tracks
- * 
+ *
  * GET /v1/users/{user_id}/playlists/{playlist_id}/tracks
  * https://developer.spotify.com/web-api/get-playlists-tracks/
  */
@@ -6951,7 +6951,7 @@ const playlistTracks : SpotifyApi.PlaylistTrackResponse = {
 
 /**
  * Create a Playlist
- * 
+ *
  * POST /v1/users/{user_id}/playlists
  * https://developer.spotify.com/web-api/create-playlist/
  */
@@ -6998,7 +6998,7 @@ const newPlaylist : SpotifyApi.CreatePlaylistResponse = {
 
 /**
  * Change a Playlist’s Details
- * 
+ *
  * PUT /v1/users/{user_id}/playlists/{playlist_id}
  * https://developer.spotify.com/web-api/change-playlist-details/
  */
@@ -7009,7 +7009,7 @@ const changePlaylistDetails : SpotifyApi.ChangePlaylistDetailsReponse = {};
 
 /**
  * Add Tracks to a Playlist
- * 
+ *
  * POST /v1/users/{user_id}/playlists/{playlist_id}/tracks
  * https://developer.spotify.com/web-api/add-tracks-to-playlist/
  */
@@ -7022,7 +7022,7 @@ const addTracksToPlaylist : SpotifyApi.AddTracksToPlaylistResponse = {
 
 /**
  * Remove Tracks from a Playlist
- * 
+ *
  * DELETE /v1/users/{user_id}/playlists/{playlist_id}/tracks
  * https://developer.spotify.com/web-api/remove-tracks-playlist/
  */
@@ -7035,7 +7035,7 @@ const removeTracksFromPlaylist : SpotifyApi.RemoveTracksFromPlaylistResponse = {
 
 /**
  * Reorder a Playlist’s Tracks
- * 
+ *
  * PUT /v1/users/{user_id}/playlists/{playlist_id}/tracks
  * https://developer.spotify.com/web-api/reorder-playlists-tracks/
  */
@@ -7048,7 +7048,7 @@ const reorderTracksInPlaylist : SpotifyApi.ReorderPlaylistTracksResponse = {
 
 /**
  * Replace a Playlist’s Tracks
- * 
+ *
  * PUT /v1/users/{user_id}/playlists/{playlist_id}/tracks
  * https://developer.spotify.com/web-api/replace-playlists-tracks/
  */
@@ -7059,7 +7059,7 @@ const replacePlaylistTracks : SpotifyApi.ReplacePlaylistTracksResponse = {};
 
 /**
  * Check if Users Follow a Playlist
- * 
+ *
  * GET /v1/users/{user_id}/playlists/{playlist_id}/followers/contains
  * https://developer.spotify.com/web-api/check-user-following-playlist/
  */

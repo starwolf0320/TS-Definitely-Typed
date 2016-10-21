@@ -4578,14 +4578,14 @@ declare namespace WinJS.UI {
         /***
          * The dialog's dismissal result. May be 'primary', 'secondary', 'none', or whatever custom value was passed to hide.
         **/
-        result: string
+        result: string;
     }
 
     /**
      * Event object associated with hiding a dialog.
     **/
     interface ContentDialogHideEvent extends Event {
-        detail: ContentDialogHideInfo
+        detail: ContentDialogHideInfo;
     }
 
     /**
@@ -4617,8 +4617,8 @@ declare namespace WinJS.UI {
             /**
              * The user dismissed the dialog by pressing the secondary command.
             **/
-            secondary: string
-        }
+            secondary: string;
+        };
 
         /**
          * Indicates that the object is compatibile with declarative processing.
@@ -5489,7 +5489,7 @@ declare namespace WinJS.UI {
              * The animation plays when a section is removed into the Hub.
             **/
             remove: string;
-        }
+        };
 
         /**
          * Gets the current loading state of the Hub.
@@ -5503,7 +5503,7 @@ declare namespace WinJS.UI {
              * All sections are loaded and animations are complete.
             **/
             complete: string;
-        }
+        };
 
         //#endregion Properties
 
@@ -7776,7 +7776,7 @@ declare namespace WinJS.UI {
              * Pane is positioned below the SplitView's content.
             **/
             bottom: string;
-        }
+        };
 
         /**
          * Display options for a SplitView's pane when it is closed.
@@ -7790,7 +7790,7 @@ declare namespace WinJS.UI {
              * When the pane is closed, it occupies space leaving less room for the SplitView's content.
             **/
             inline: string;
-        }
+        };
 
         /**
          * Display options for a SplitView's pane when it is open.
@@ -7804,7 +7804,7 @@ declare namespace WinJS.UI {
              * When the pane is open, it doesn't take up any space and it is light dismissable.
             **/
             overlay: string;
-        }
+        };
 
         /**
          * Indicates that the object is compatibile with declarative processing.
@@ -10645,6 +10645,6 @@ declare namespace WinJS.Utilities.Scheduler {
 
 }
 
-declare module 'winjs' {
+declare module "winjs" {
     export = WinJS;
 }

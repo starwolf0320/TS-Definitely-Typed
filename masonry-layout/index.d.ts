@@ -8,7 +8,7 @@
 // Modified from original definitions by:
 // Travis Brown < https://github.com/warriorrocker>
 
-declare module Masonry {
+declare namespace Masonry {
 
      class Masonry implements MasonryGrid {
         constructor(options?: MasonryOptions);

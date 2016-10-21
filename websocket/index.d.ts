@@ -629,7 +629,7 @@ interface IRouterConfig {
     /*
      * The WebSocketServer instance to attach to.
      */
-    server: server
+    server: server;
 }
 
 declare class router extends events.EventEmitter {

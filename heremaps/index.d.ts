@@ -260,7 +260,7 @@ declare namespace H {
         addOnDisposeCallback(callback: Function, opt_scope?: Object): void;
     }
 
-    export module Map {
+    export namespace Map {
         /**
          * It defines the number of lower and higher zoom levels, where cached content of the base map is rendered while content of the current zoom level is still loading. Example: if range was set to {lower: 3, higher: 2} and current level is 10 then rendering engine will try to display cached tiles from lower zoom levels 7, 8, 9 and higher levels 11 and 12.
          * @property lower {number} - The number of lower zoom levels to take into account, default is 0
@@ -311,7 +311,7 @@ declare namespace H {
     }
 
     /***** clustering *****/
-    export module clustering {
+    export namespace clustering {
         /**
          * This class represents the input data structure for data points to be clustered.
          * @property lat {H.geo.Latitude} - The latitude coordinate of the data point's position
@@ -616,7 +616,7 @@ declare namespace H {
             max: number;
         }
 
-        export module Provider {
+        export namespace Provider {
             /**
              * Options which are used within cluster calculations.
              * @property eps {number=} - epsilon parameter for cluster calculation. For the FASTGRID strategy it must not exceed 256 and must take values that are power of 2. For the GRID and DYNAMICGRID strategies it can take values from 10 to 127. Default is 32.
@@ -657,7 +657,7 @@ declare namespace H {
     }
 
     /***** data *****/
-    export module data {
+    export namespace data {
         /**
          * An abstract reader class defines interface for data readers and has general functionality related to fetching data and reader events.
          */
@@ -705,7 +705,7 @@ declare namespace H {
             parse(): void;
         }
 
-        export module AbstractReader {
+        export namespace AbstractReader {
             /**
              * The event class for state events that are dispatched by AbstractReader
              */
@@ -733,7 +733,7 @@ declare namespace H {
     }
 
     /***** geo *****/
-    export module geo {
+    export namespace geo {
         /**
          * A Geographic coordinate that specifies the height of a point in meters. A value of undefined is treated as 0.
          */
@@ -1197,7 +1197,7 @@ declare namespace H {
     /***** lang *****/
 
     /***** map *****/
-    export module map {
+    export namespace map {
         /**
          * This class represents marker, which offers a means of identifying a location on the map with an icon.
          */
@@ -1236,7 +1236,7 @@ declare namespace H {
             setIcon(icon: (H.map.Icon | H.map.DomIcon)): H.map.AbstractMarker;
         }
 
-        export module AbstractMarker {
+        export namespace AbstractMarker {
             /**
              * Options used to initialize a AbstractMarker
              * @property min {number=} - The minimum zoom level for which the object is visible, default is -Infinity
@@ -1276,7 +1276,7 @@ declare namespace H {
             equals(other: (H.map.ArrowStyle | H.map.ArrowStyle.Options)): boolean;
         }
 
-        export module ArrowStyle {
+        export namespace ArrowStyle {
             /**
              * An object type to specify the style of arrows to render along a polyline
              * @property fillColor {string=} - The CSS color value used to fill the arrow shapes. If omitted or the value evaluates to false it defaults to "rgba(255, 255, 255, 0.75)"
@@ -1341,7 +1341,7 @@ declare namespace H {
           getPrecision(): number;
         }
 
-        export module Circle {
+        export namespace Circle {
           /**
            * @property style {H.map.SpatialStyle=} - the style to be used when tracing the polyline
            * @property visibility {boolean=} - An optional boolean value indicating whether this map object is visible, default is true
@@ -1387,7 +1387,7 @@ declare namespace H {
             constructor(element: (Element | string), opt_options?: H.map.DomIcon.Options);
         }
 
-        export module DomIcon {
+        export namespace DomIcon {
             /**
              * Options used to initialize a DomIcon
              * @property onAttach {function(Element, H.map.DomIcon, H.map.DomMarker)=} - A callback which is invoked before a clone of the icon's element is appended and displayed on the map. This callback can be used to setup the clone.
@@ -1411,7 +1411,7 @@ declare namespace H {
             constructor(position: H.geo.IPoint, opt_options?: H.map.DomMarker.Options);
         }
 
-        export module DomMarker {
+        export namespace DomMarker {
             /**
              * Options used to initialize a DomMarker
              * @property min {number=} - The minimum zoom level for which the object is visible, default is -Infinity
@@ -1528,7 +1528,7 @@ declare namespace H {
             removeAll(): void;
         }
 
-        export module Group {
+        export namespace Group {
             /**
              * Options used to initialize a group
              * @property min {number=} - The minimum zoom level for which the object is visible, default is -Infinity
@@ -1562,7 +1562,7 @@ declare namespace H {
             constructor(shapeType: H.map.HitArea.ShapeType, opt_values?: Array<number>);
         }
 
-        export module HitArea {
+        export namespace HitArea {
             /**
              * Enumeration represents possible shape types that HitArea can have.
              */
@@ -1724,7 +1724,7 @@ declare namespace H {
             addOnDisposeCallback(callback: Function, opt_scope?: Object): void;
         }
 
-        export module Icon {
+        export namespace Icon {
             /**
              * The state types of an Icon
              */
@@ -1797,7 +1797,7 @@ declare namespace H {
             capture(canvas: HTMLCanvasElement, pixelRatio: number, callback?: (canvas: HTMLCanvasElement) => void, opt_errback?: (s: string) => void): void;
         }
 
-        export module Imprint {
+        export namespace Imprint {
             /**
              * Options to style an imprint
              * @property invert {boolean=} - Indicates whether the logo is inverted. If omitted the current value remains, default is false.
@@ -1823,7 +1823,7 @@ declare namespace H {
             constructor(position: H.geo.IPoint, opt_options?: H.map.Marker.Options);
         }
 
-        export module Marker {
+        export namespace Marker {
             /**
              * Options used to initialize a Marker
              * @property min {number=} - The minimum zoom level for which the object is visible, default is -Infinity
@@ -1966,7 +1966,7 @@ declare namespace H {
             addOnDisposeCallback(callback: Function, opt_scope?: Object): void;
         }
 
-        export module Object {
+        export namespace Object {
             /**
              * Options used to initialize a map object
              * @property min {number=} - The minimum zoom level for which the object is visible, default is -Infinity
@@ -2056,7 +2056,7 @@ declare namespace H {
             setOpacity(opacity: number): H.map.Overlay;
         }
 
-        export module Overlay {
+        export namespace Overlay {
             /**
              * Options used to initialize an Overlay
              * @property min {number=} - The minimum zoom level for which the object is visible, default is -Infinity
@@ -2122,7 +2122,7 @@ declare namespace H {
           clip(geoRect: H.geo.Rect): Array<Array<number>>;
         }
 
-        export module Polyline {
+        export namespace Polyline {
           /**
            * Options which are used to initialize a polyline
            * @property style {(H.map.SpatialStyle | H.map.SpatialStyle.Options)=} - the style to be used when tracing the polyline
@@ -2208,7 +2208,7 @@ declare namespace H {
             isClosed(): boolean;
         }
 
-        export module Spatial {
+        export namespace Spatial {
             /**
              * Data to used as rendering hint for a label
              * @property x {number} - The X coordinate of the first line's starting point
@@ -2298,7 +2298,7 @@ declare namespace H {
             static DEFAULT_STYLE: H.map.SpatialStyle;
         }
 
-        export module SpatialStyle {
+        export namespace SpatialStyle {
             /**
              * The style of the end caps for a line, one of 'butt', 'round' or 'square'.
              */
@@ -2414,7 +2414,7 @@ declare namespace H {
             addOnDisposeCallback(callback: Function, opt_scope?: Object): void;
         }
 
-        export module ViewModel {
+        export namespace ViewModel {
             /**
              * Defines camera's properties.
              * @property zoom {number=} - zoom level to be used by rendering engine
@@ -2562,7 +2562,7 @@ declare namespace H {
             center: H.math.Point;
         }
 
-        export module ViewPort {
+        export namespace ViewPort {
             /**
              * Options which may be used to initialize new ViewPort instance
              * @property margin {number=} - The size in pixel of the supplemental area to render for each side of the map
@@ -2590,7 +2590,7 @@ declare namespace H {
             }
         }
 
-        export module layer {
+        export namespace layer {
             /**
              * BaseTileLayer encapsulates funcitonailty that is common to all layers that deliver tiles, such as H.map.layer.TileLayer. The functionality includes geo bounding box to grid calculation, tile request management.
              */
@@ -2680,7 +2680,7 @@ declare namespace H {
                 requestDomMarkers(boundingRect: H.geo.Rect, zoomLevel: number, cacheOnly: boolean, prioCenter: H.math.Point): (H.map.layer.IMarkerLayer.Response | H.map.layer.IMarkerLayer.TiledResponse);
             }
 
-            export module IMarkerLayer {
+            export namespace IMarkerLayer {
                 /**
                  * This type represents a response object returned by the H.map.layer.IMarkerLayer#requestMarkers function.
                  * @property total {number} - The total number of markers, inclusive markers with not ready icons
@@ -2737,7 +2737,7 @@ declare namespace H {
                 cancelTile(x: number, y: number, z: number): void;
             }
 
-            export module ITileLayer {
+            export namespace ITileLayer {
                 /**
                  * Options which are used to initialize a TileLayer object.
                  * @property projection {H.geo.IProjection=} - an optional projection to be used for this layer, default is H.geo.mercator
@@ -2817,7 +2817,7 @@ declare namespace H {
                 addOnDisposeCallback(callback: Function, opt_scope?: Object): void;
             }
 
-            export module Layer {
+            export namespace Layer {
                 /**
                  * Options which can be used when creating new layer object.
                  * @property min {number=} - The minimum zoom level for which the layer can provide data, default is 0
@@ -2943,7 +2943,7 @@ declare namespace H {
                 requestDomMarkers(boundingRect: H.geo.Rect, zoomLevel: number, cacheOnly: boolean, prioCenter: H.math.Point): (H.map.layer.IMarkerLayer.Response | H.map.layer.IMarkerLayer.TiledResponse);
             }
 
-            export module ObjectLayer {
+            export namespace ObjectLayer {
                 /**
                  * Configuration object which can be use to initialize the ObjectLayer.
                  * @property tileSize {number=} - the size of the tiles rendered by this layer for polylines and polygons (must be power of 2, default is 256)
@@ -2995,7 +2995,7 @@ declare namespace H {
             }
         }
 
-        export module provider {
+        export namespace provider {
             /**
              * An ImageTileProvider uses network service to provide bitmap images as tiles.
              * @property tileSize {number} - Size of a tile image supported by the provider
@@ -3010,7 +3010,7 @@ declare namespace H {
                 tileSize: number;
             }
 
-            export module ImageTileProvider {
+            export namespace ImageTileProvider {
                 /**
                  * Options to initialize an ImageTileProvider instance
                  * @property uri {string=} - The provider's unique resource identifier which must not contain an underscore "_". If omitted an auto-generated unique Session ID is used. If a cross sessions consistent IDs is needed (e.g. for storing provider data) this property must be specified.
@@ -3096,7 +3096,7 @@ declare namespace H {
                 static MARK_INITIAL: H.map.provider.Invalidations.Mark;
             }
 
-            export module Invalidations {
+            export namespace Invalidations {
                 /**
                  * This enumeration encapsulates bit flags for different invalidations of map objects.
                  */
@@ -3146,7 +3146,7 @@ declare namespace H {
                 providesDomMarkers(): boolean;
             }
 
-            export module MarkerTileProvider {
+            export namespace MarkerTileProvider {
                 /**
                  * Options which are used to initialize the MarkerTileProvider object.
                  * @property min {number=} - The minimal supported zoom level, default is 0
@@ -3306,7 +3306,7 @@ declare namespace H {
                 uid: string;
             }
 
-            export module Provider {
+            export namespace Provider {
                 /**
                  * Options to initialize a Provider instance
                  * @property uri {string=} - The provider's unique resource identifier which must not contain an underscore "_". If omitted an auto-generated unique Session ID is used. If a cross sessions consistent IDs is needed (e.g. for storing provider data) this property must be specified.
@@ -3441,7 +3441,7 @@ declare namespace H {
                 uid: string;
             }
 
-            export module TileProvider {
+            export namespace TileProvider {
                 /**
                  * @property uri {string=} - The provider&#x27;s unique resource identifier which must not contain an underscore &quot;_&quot;. If omitted an auto-generated unique Session ID is used. If a cross sessions consistent IDs is needed (e.g. for storing provider data) this property must be specified.
                  * @property min {number=} - The minimal supported zoom level, default is 0
@@ -3461,7 +3461,7 @@ declare namespace H {
     }
 
     /***** mapevents *****/
-    export module mapevents {
+    export namespace mapevents {
         /**
          * Behavior class uses map events and adds behavior functionality to the map. This allows map panning and zooming via using mouse wheel
          * @property DRAGGING {number} - Map responds to user dragging via mouse or touch
@@ -3505,7 +3505,7 @@ declare namespace H {
             static DBLTAPZOOM: number;
         }
 
-        export module Behavior {
+        export namespace Behavior {
             /**
              * Options which are used to initialize the Behavior class.
              * @property kinetics {H.util.kinetics.IKinetics=} - The parameters for the kinetic movement.
@@ -3640,7 +3640,7 @@ declare namespace H {
             static button: H.mapevents.Pointer.Button;
         }
 
-        export module Pointer {
+        export namespace Pointer {
             /**
              * Types of a button
              */
@@ -3697,7 +3697,7 @@ declare namespace H {
     }
 
     /***** math *****/
-    export module math {
+    export namespace math {
         /**
          * A signed 32 bit integer (JS restriction) where bit operator can be applied to. The range is [-2,147,483,648 ... 2,147,483,647] or [-2^31 ... 2^31 − 1]
          */
@@ -3898,8 +3898,8 @@ declare namespace H {
     }
 
     /***** net *****/
-    export module net {
-        export module Request {
+    export namespace net {
+        export namespace Request {
             export enum State {
                 DONE = 2,
                 OPENED = 1,
@@ -3914,7 +3914,7 @@ declare namespace H {
     /***** places *****/
 
     /***** service *****/
-    export module service {
+    export namespace service {
         /**
          * Abstract rest service class
          */
@@ -3937,7 +3937,7 @@ declare namespace H {
             configure(appId: string, appCode: string, useHTTPS: boolean, useCIT: boolean, opt_baseUrl?: H.service.Url): H.service.IConfigurable;
         }
 
-        export module AbstractRestService {
+        export namespace AbstractRestService {
             export interface Options {
 
             }
@@ -3986,7 +3986,7 @@ declare namespace H {
             calculateIsoline(calculateIsolineParams: H.service.ServiceParameters, onResult: (result: H.service.ServiceResult) => void, onError: (error: Error) => void): void;
         }
 
-        export module EnterpriseRoutingService {
+        export namespace EnterpriseRoutingService {
             /**
              * @property subDomain {string=} - The sub-domain of the routing service relative to the platform's base URL (default is 'route')
              * @property path {string=} - The path of the map tile service, default is "routing/7.2"
@@ -4037,7 +4037,7 @@ declare namespace H {
             search(searchParams: H.service.ServiceParameters, onResult: (result: H.service.ServiceResult) => void, onError: (error: Error) => void): H.service.JsonpRequestHandle;
         }
 
-        export module GeocodingService {
+        export namespace GeocodingService {
             /**
              * @property subDomain {string=} - the sub-domain of the geo-coding service relative to the platform's base URL, default is 'geocoder'
              * @property path {string=} - the path of the Geocoding service, default is '6.2'
@@ -4139,7 +4139,7 @@ declare namespace H {
             configure(appId: string, appCode: string, useHTTPS: boolean, useCIT: boolean, opt_baseUrl?: H.service.Url): H.service.IConfigurable;
         }
 
-        export module MapTileService {
+        export namespace MapTileService {
             /**
              * @property maps {Object<string, Object>} -
              * @property schemes {Object<string, Object>} -
@@ -4286,7 +4286,7 @@ declare namespace H {
             follow(hyperlink: string, onResult: Function, onError: Function, opt_additionalParameters?: Object): H.service.JsonpRequestHandle;
         }
 
-        export module PlacesService {
+        export namespace PlacesService {
             /**
              * List of available entry points
              */
@@ -4419,7 +4419,7 @@ declare namespace H {
             getEnterpriseRoutingService(opt_options?: H.service.EnterpriseRoutingService.Options): H.service.EnterpriseRoutingService;
         }
 
-        export module Platform {
+        export namespace Platform {
             /**
              * Options used to create default layers
              * @property tileSize {number=} - tile size to be queried from the HERE Map Tile API, default is 256
@@ -4485,7 +4485,7 @@ declare namespace H {
             calculateRoute(calculateRouteParams: H.service.ServiceParameters, onResult: (result: H.service.ServiceResult) => void, onError: (error: Error) => void): void;
         }
 
-        export module RoutingService {
+        export namespace RoutingService {
             /**
              * @property subDomain {string=} - the sub-domain of the routing service relative to the platform's base URL, default is 'route'
              * @property path {string=} - the path of the map tile service, default is 'routing/7.2'
@@ -4552,7 +4552,7 @@ declare namespace H {
             requestIncidentsByTile(x: number, y: number, z: number, onResponse: (result: H.service.ServiceResult) => void, onError: () => void, opt_serviceParams?: H.service.ServiceParameters): H.service.JsonpRequestHandle;
         }
 
-        export module TrafficIncidentsService {
+        export namespace TrafficIncidentsService {
             /**
              * @property subDomain {string=} - the sub-domain of the traffic incidents service relative to the platform's base URL, default is 'traffic'
              * @property path {string=} - the path of the traffic incidents service, default is 'traffic/6.1'
@@ -4693,7 +4693,7 @@ declare namespace H {
             toString(): string;
         }
 
-        export module metaInfo {
+        export namespace metaInfo {
             /**
              * This class encapsulates a Metainfo Tile end point of the HERE Map Tile API.
              */
@@ -4752,7 +4752,7 @@ declare namespace H {
                 configure(appId: string, appCode: string, useHTTPS: boolean, useCIT: boolean, opt_baseUrl?: H.service.Url): H.service.IConfigurable;
             }
 
-            export module Service {
+            export namespace Service {
                 /**
                  * @property maps {Object<string, Object>} -
                  * @property schemes {Object<string, Object>} -
@@ -4795,7 +4795,7 @@ declare namespace H {
                 constructor(service: (H.service.metaInfo.Service | H.service.MapTileService), opt_params?: H.service.ServiceParameters, opt_options?: H.service.metaInfo.TileProvider.Options);
             }
 
-            export module TileProvider {
+            export namespace TileProvider {
                 /**
                  * Configuration object which can be used to initialize the TileProvider.
                  * @property tileType {string=} - The tile type for which to request meta info
@@ -4816,7 +4816,7 @@ declare namespace H {
             }
         }
 
-        export module venues {
+        export namespace venues {
             /**
              * The class represents the building in the venue hiearachy (see H.service.venues.Venue) and holds floors that belong to the building.
              */
@@ -4949,7 +4949,7 @@ declare namespace H {
                 configure(appId: string, appCode: string, useHTTPS: boolean, useCIT: boolean, opt_baseUrl?: H.service.Url): H.service.IConfigurable;
             }
 
-            export module Service {
+            export namespace Service {
                 /**
                  * @property subDomain {string=} - the sub-domain of the Venue Maps service relative to the platform's base URL, default is 'venue.maps'
                  * @property path {string=} - the path to append after host name when making requests to the Venue Maps API, default is empty
@@ -5031,7 +5031,7 @@ declare namespace H {
                 getCurrentLevel(): number;
             }
 
-            export module TileProvider {
+            export namespace TileProvider {
                 /**
                  * Configuration object which can be used to initialize the TileProvider.
                  * @property tileCacheSize {number=} - The number of fully rendered spatial tiles that are cached for immediate reuse, default is 32
@@ -5073,7 +5073,7 @@ declare namespace H {
     }
 
     /***** ui *****/
-    export module ui {
+    export namespace ui {
         /**
          * This class represents the base class for UI controls on the map.
          */
@@ -5127,7 +5127,7 @@ declare namespace H {
             constructor(opt_options?: H.ui.DistanceMeasurement.Options);
         }
 
-        export module DistanceMeasurement {
+        export namespace DistanceMeasurement {
             /**
              * @property alignment {H.ui.LayoutAlignment=} - the layout alignment which should be applied to this control, default is H.ui.LayoutAlignment.RIGHT_BOTTOM
              * @property startIcon {H.map.Icon=} - the icon to use for the first measurement point
@@ -5202,7 +5202,7 @@ declare namespace H {
             setContent(content: string | Node): void;
         }
 
-        export module InfoBubble {
+        export namespace InfoBubble {
             /**
              * This enumeration holds the state an info bubble can have.
              */
@@ -5262,7 +5262,7 @@ declare namespace H {
             setIncidentsLayer(incidentsLayer: H.map.layer.Layer): void;
         }
 
-        export module MapSettingsControl {
+        export namespace MapSettingsControl {
             /**
              * The map type entry is an object containing a display name and a map type object to which it refers.
              * @property name {string} - label which describes the map type
@@ -5296,7 +5296,7 @@ declare namespace H {
             constructor(opt_options?: H.ui.Pano.Options);
         }
 
-        export module Pano {
+        export namespace Pano {
             /**
              * @property alignment {H.ui.LayoutAlignment=} - the layout alignment which should be applied to this control, default is H.ui.LayoutAlignment.RIGHT_BOTTOM
              * @property mapTypes {H.service.MapTypes} - The map types to use
@@ -5318,7 +5318,7 @@ declare namespace H {
             constructor(opt_options?: H.ui.ScaleBar.Options);
         }
 
-        export module ScaleBar {
+        export namespace ScaleBar {
             /**
              * @property alignment {H.ui.LayoutAlignment=} - the layout alignment which should be applied to this control, default is H.ui.LayoutAlignment.BOTTOM_RIGHT
              */
@@ -5451,7 +5451,7 @@ declare namespace H {
              */
         }
 
-        export module UI {
+        export namespace UI {
             /**
              * Optional parameters to be passed to the UI constructor.
              * @property unitSystem {H.ui.UnitSystem=} - An optional unit system to be used by the UI, default is H.ui.UnitSystem.METRIC
@@ -5502,7 +5502,7 @@ declare namespace H {
             getZoomSpeed(): number;
         }
 
-        export module ZoomControl {
+        export namespace ZoomControl {
             /**
              * @property zoomSpeed {number=} - the speed if zooming in and out in levels per millisecond, defaults to 0.05
              * @property alignment {H.ui.LayoutAlignment=} - the layout alignment which should be applied to this control, defaults to H.ui.LayoutAlignment.RIGHT_MIDDLE
@@ -5528,7 +5528,7 @@ declare namespace H {
             constructor(opt_options?: H.ui.ZoomRectangle.Options);
         }
 
-        export module ZoomRectangle {
+        export namespace ZoomRectangle {
             /**
              * @property alignment {H.ui.LayoutAlignment=} - the layout alignment which should be applied to this control, default is H.ui.LayoutAlignment.BOTTOM_RIGHT
              * @property adjustZoom {function(number, H.Map) : number=} - optional function that defines how zoom level should be changed, by default zoom level is picked to fit the bounding rectangle into the view port.
@@ -5544,7 +5544,7 @@ declare namespace H {
         /**
          * This namespace contains basic UI elements from which the UI controls are built.
          */
-        export module base {
+        export namespace base {
             export class Container extends H.util.EventTarget {
                 /**
                  * Constructor
@@ -5721,7 +5721,7 @@ declare namespace H {
         /**
          * Namespace contains functionality related to internationalization.
          */
-        export module i18n {
+        export namespace i18n {
             /**
              * Default available locales. UI provides default translations for this set of locale codes.
              */
@@ -5763,7 +5763,7 @@ declare namespace H {
     }
 
     /***** util *****/
-    export module util {
+    export namespace util {
         /**
          * The cache represents a in-memory LRU-cache with a fixed size. It stores any data that is added until the cache's content exceeds a maximum size. Once the size of all content elements exceeds the maximum size the cache will drop the least recently retrieved elements until the size of the cache is within the bounds of its maximum size. Data elements are always associated with an identifier that allow to retrieve them at a later stage and their content size.
          */
@@ -5929,7 +5929,7 @@ declare namespace H {
             static SEPARATOR: H.util.ContextItem;
         }
 
-        export module ContextItem {
+        export namespace ContextItem {
             /**
              * This type defines options which can be used to initialize the context item.
              * @property label {string=} - the label of the context item
@@ -6204,7 +6204,7 @@ declare namespace H {
             addOnDisposeCallback(callback: Function, opt_scope?: Object): void;
         }
 
-        export module OList {
+        export namespace OList {
             /**
              * The event class for events that are dispatched by OList
              * @property target {*} - Object which triggered the event
@@ -6277,7 +6277,7 @@ declare namespace H {
             getFailed(): number;
         }
 
-        export module Request {
+        export namespace Request {
             /**
              * The supported states of an request
              */
@@ -6290,7 +6290,7 @@ declare namespace H {
             }
         }
 
-        export module animation {
+        export namespace animation {
             /**
              * This mamespace contains easing functions used for Animation class.
              */
@@ -6332,7 +6332,7 @@ declare namespace H {
             }
         }
 
-        export module kinetics {
+        export namespace kinetics {
             /**
              * This interface defines kinetic move parameters used by map for kinetic drag.
              * @property power {number} - Power multiplier. Multiplier is used to increase the speed of the kinetic move. By default map uses 1.

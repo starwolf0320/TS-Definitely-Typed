@@ -63,5 +63,5 @@ declare namespace Rx {
 }
 
 declare module "rx" {
-    export = Rx
+    export = Rx;
 }

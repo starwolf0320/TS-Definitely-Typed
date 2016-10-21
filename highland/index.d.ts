@@ -699,8 +699,8 @@ declare namespace Highland {
 		 * @api public
 		 */
 		// TODO verify this
-		group(f: (x: R) => string): Stream<{[prop:string]:R[]}>;
-		group(prop: string): Stream<{[prop:string]:R[]}>;
+		group(f: (x: R) => string): Stream<{[prop: string]: R[]}>;
+		group(prop: string): Stream<{[prop: string]: R[]}>;
 
 		// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -1011,7 +1011,7 @@ declare namespace Highland {
 	}
 }
 
-declare var highland:HighlandStatic;
+declare var highland: HighlandStatic;
 
 declare module 'highland' {
 	export = highland;

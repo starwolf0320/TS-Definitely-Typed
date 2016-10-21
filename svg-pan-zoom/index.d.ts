@@ -30,7 +30,7 @@ declare namespace SvgPanZoom {
     interface CustomEventHandler {
         haltEventListeners: string[],
         init: (options: CustomEventOptions) => void,
-        destroy: Function
+        destroy: Function;
     }
 
     interface CustomEventOptions {
@@ -140,7 +140,7 @@ declare namespace SvgPanZoom {
 
         setOnZoom(fn: (scale: number) => void): Instance;
 
-        zoom(scale: number):void;
+        zoom(scale: number): void;
 
         zoomIn(): Instance;
 

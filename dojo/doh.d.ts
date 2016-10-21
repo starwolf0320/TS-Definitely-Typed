@@ -3,6 +3,8 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
+// tslint:disable
+
 
 declare namespace doh {
     namespace plugins {

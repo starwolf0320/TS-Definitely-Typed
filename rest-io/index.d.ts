@@ -12,7 +12,7 @@ import {Mongoose, Schema, Model, Document, Types, Promise} from 'mongoose';
 declare function restIO(app: Application, config?: IRestIOConfig): RestIO;
 
 export interface RestIO {
-    resource: ResourceModule
+    resource: ResourceModule;
 }
 
 export interface IRestIOConfig {
@@ -75,8 +75,8 @@ export interface IResource {
 }
 
 export interface AuthorizedResourceModule {
-    AuthorizedResource: AuthorizedResource
-    ROLES: Roles
+    AuthorizedResource: AuthorizedResource;
+    ROLES: Roles;
 }
 
 export interface Roles {

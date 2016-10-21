@@ -37,19 +37,19 @@ function test_physics() {
 		.setAlign(.5, .5)
 		.setMountPoint(.5, .5)
 		.setOrigin(.5, .4);
-	
+
 	button.addUIEvent('mousedown');
 	button.addUIEvent('touchstart');
 	button.addUIEvent('mouseup');
 	button.addUIEvent('touchend');
-	
+
 	let engine = new PhysicsEngine();
 	let box = new Box({
 		mass: .25,
 		size: [1, 1, 1]
 	});
 	engine.add(box);
-	
+
 	let anchor = new Quaternion();
 	let rotationalSpring = new RotationalSpring(null, box, {
         period: 0.5,
@@ -57,7 +57,7 @@ function test_physics() {
         anchor: anchor
     });
 	engine.add(rotationalSpring);
-	
+
 	let started = false;
 	let id = button.addComponent({
 		onUpdate: (time: number) => {
@@ -66,10 +66,10 @@ function test_physics() {
 			if (box.getAngularVelocity().length() < 1e-7) {
 				return;
 			}
-			
+
 			let t = engine.getTransform(box);
 			button.setRotation(t.rotation[0], t.rotation[1], t.rotation[2], t.rotation[3]);
-			
+
 			button.requestUpdateOnNextTick(id);
 		},
 		onReceive: (event: string) => {
@@ -78,10 +78,10 @@ function test_physics() {
 				started = true;
 				button.requestUpdate(id);
 			}
-			
+
 			if (event == 'mouseup' || event == 'touchend') {
 				anchor.fromEuler(0, 0, 0);
-				started = false;					
+				started = false;
 			}
 		}
 	});

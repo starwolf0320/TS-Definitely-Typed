@@ -6,9 +6,9 @@
 
 
 interface ICredentials {
-    awsId: string,
-    awsSecret: string,
-    awsTag: string
+    awsId: string;
+    awsSecret: string;
+    awsTag: string;
 }
 
 interface IAmazonProductQueryCallback {

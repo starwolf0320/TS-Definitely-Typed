@@ -4,10 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 interface BytesOptions {
-    decimalPlaces?: number,
-    thousandsSeparator?: string,
-    unitSeparator?: string,
-    fixedDecimals?: boolean
+    decimalPlaces?: number;
+    thousandsSeparator?: string;
+    unitSeparator?: string;
+    fixedDecimals?: boolean;
 }
 /**
  *Convert the given value in bytes into a string.

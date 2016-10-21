@@ -14,7 +14,7 @@ declare namespace angular.material {
         controller?: string|Function;
         locals?: {[index: string]: any};
         targetEvent?: MouseEvent;
-        resolve?: {[index: string]: angular.IPromise<any>}
+        resolve?: {[index: string]: angular.IPromise<any>};
         controllerAs?: string;
         parent?: string|Element|JQuery; // default: root node
         disableParentScroll?: boolean; // default: true
@@ -47,14 +47,14 @@ declare namespace angular.material {
         scope?: angular.IScope; // default: new child scope
         preserveScope?: boolean; // default: false
         disableParentScroll?: boolean; // default: true
-        hasBackdrop?: boolean // default: true
+        hasBackdrop?: boolean; // default: true
         clickOutsideToClose?: boolean; // default: false
         escapeToClose?: boolean; // default: true
         focusOnOpen?: boolean; // default: true
         controller?: string|Function;
         locals?: {[index: string]: any};
         bindToController?: boolean; // default: false
-        resolve?: {[index: string]: angular.IPromise<any>}
+        resolve?: {[index: string]: angular.IPromise<any>};
         controllerAs?: string;
         parent?: string|Element|JQuery; // default: root node
         onComplete?: Function;
@@ -118,7 +118,7 @@ declare namespace angular.material {
         controller?: string|Function;
         locals?: {[index: string]: any};
         bindToController?: boolean; // default: false
-        resolve?: {[index: string]: angular.IPromise<any>}
+        resolve?: {[index: string]: angular.IPromise<any>};
         controllerAs?: string;
         parent?: string|Element|JQuery; // default: root node
     }

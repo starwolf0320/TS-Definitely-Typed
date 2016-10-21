@@ -28,11 +28,11 @@ declare namespace ObjectPathGlobal {
         /**
          * @see objectPath.del
          */
-        del<T extends {}>(object: T):T;
+        del<T extends {}>(object: T): T;
         /**
          * @see objectPath.del
          */
-        del():void;
+        del(): void;
 
         /*======== Has =========*/
         /**
@@ -66,7 +66,7 @@ declare namespace ObjectPathGlobal {
         /**
          * @see objectPath.get
          */
-        get():void;
+        get(): void;
 
         /*======== Set =========*/
         /**
@@ -77,7 +77,7 @@ declare namespace ObjectPathGlobal {
          * @param {boolean} [doNotReplace=false]
          * @return Any existing value on the path if any
          */
-        set<T extends {}, TExisting>(object: T, path: IPath, value: any, doNotReplace?:boolean): TExisting;
+        set<T extends {}, TExisting>(object: T, path: IPath, value: any, doNotReplace?: boolean): TExisting;
         /**
          * @see objectPath.set
          */
@@ -85,18 +85,18 @@ declare namespace ObjectPathGlobal {
         /**
          * @see objectPath.set
          */
-        set():void;
+        set(): void;
 
         /*======== Push =========*/
         /**
          * Create (if path isn't an array) and push the value to it. Can push unlimited number of values
          * @param {object} object
          */
-        push<T extends {}>(object: T, path: IPath, ...args:any[]):void;
+        push<T extends {}>(object: T, path: IPath, ...args: any[]): void;
         /**
          * @see objectPath.push
          */
-        push():void;
+        push(): void;
 
         /*======== Coalesce =========*/
         /**
@@ -106,7 +106,7 @@ declare namespace ObjectPathGlobal {
          * @param {*} defaultValue
          * @return {*}
          */
-        coalesce<T extends {}, TResult>(object: T, paths: IMultiArray, defaultValue?: TResult):TResult;
+        coalesce<T extends {}, TResult>(object: T, paths: IMultiArray, defaultValue?: TResult): TResult;
 
         /*======== Empty =========*/
         /**
@@ -115,15 +115,15 @@ declare namespace ObjectPathGlobal {
          * @param {object} object
          * @param {string|string[]|number[]} path
          */
-        empty<T extends {}, TResult>(object: T, path: IPath):TResult;
+        empty<T extends {}, TResult>(object: T, path: IPath): TResult;
         /**
          * @see objectPath.empty
          */
-        empty<T extends {}>(object: T):T;
+        empty<T extends {}>(object: T): T;
         /**
          * @see objectPath.empty
          */
-        empty():void;
+        empty(): void;
 
         /*======== EnsureExists =========*/
         /**
@@ -131,7 +131,7 @@ declare namespace ObjectPathGlobal {
          * @param {object} object
          * @param {string|string[]|number|number[]} path
          */
-        ensureExists<T extends {}, TExisting>(object: T, path: IPath, value: any):TExisting;
+        ensureExists<T extends {}, TExisting>(object: T, path: IPath, value: any): TExisting;
         /**
          * @see objectPath.ensureExists
          */
@@ -139,7 +139,7 @@ declare namespace ObjectPathGlobal {
         /**
          * @see objectPath.ensureExists
          */
-        ensureExists():void;
+        ensureExists(): void;
 
         /*======== Insert =========*/
         /**
@@ -149,7 +149,7 @@ declare namespace ObjectPathGlobal {
          * @param {*} value
          * @param {number} [at=0]
          */
-        insert<T extends {}>(object: T, path: IPath, value: any, at?: number):void;
+        insert<T extends {}>(object: T, path: IPath, value: any, at?: number): void;
     }
 
     interface IObjectPathBound<T extends {}> {
@@ -188,7 +188,7 @@ declare namespace ObjectPathGlobal {
         /**
          * @see objectPath.ensureExists
          */
-        set<TExisting>(path: IPath, value: any, doNotReplace?:boolean): TExisting;
+        set<TExisting>(path: IPath, value: any, doNotReplace?: boolean): TExisting;
         /**
          * @see objectPath.set
          */
@@ -198,33 +198,33 @@ declare namespace ObjectPathGlobal {
         /**
          * @see objectPath.ensureExists
          */
-        push(path: IPath, ...args:any[]):void;
+        push(path: IPath, ...args: any[]): void;
         /**
          * @see objectPath.push
          */
-        push():void;
+        push(): void;
 
         /*======== Coalesce =========*/
         /**
          * @see objectPath.ensureExists
          */
-        coalesce<TResult>(paths: IMultiArray, defaultValue?: TResult):TResult;
+        coalesce<TResult>(paths: IMultiArray, defaultValue?: TResult): TResult;
 
         /*======== Empty =========*/
         /**
          * @see objectPath.ensureExists
          */
-        empty(path: IPath):T;
+        empty(path: IPath): T;
         /**
          * @see objectPath.empty
          */
-        empty():T;
+        empty(): T;
 
         /*======== EnsureExists =========*/
         /**
          * @see objectPath.ensureExists
          */
-        ensureExists<TExisting>(path: IPath, value: any):TExisting;
+        ensureExists<TExisting>(path: IPath, value: any): TExisting;
         /**
          * @see objectPath.ensureExists
          */
@@ -234,7 +234,7 @@ declare namespace ObjectPathGlobal {
         /**
          * @see objectPath.insert
          */
-        insert(path: IPath, value: any, at?: number):void;
+        insert(path: IPath, value: any, at?: number): void;
     }
 }
 

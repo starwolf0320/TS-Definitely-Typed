@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 interface VimeoParams {
-	name:string;
-	value:any;
+	name: string;
+	value: any;
 }
 
 interface VimeoPlayerAPI {
@@ -19,7 +19,7 @@ interface VimeoPlayer {
     api: VimeoPlayerAPI;
     addEvent(eventName: string, callback: (e: any) => void): any;
     removeEvent(eventName: string): void;
-    postMessage(method: string, params:VimeoParams[], target: any): void;
+    postMessage(method: string, params: VimeoParams[], target: any): void;
     onMessageReceived(event: any): any;
     storeCallback(eventName: string, callback: any, target_id: string): any;
     getCallback(eventName: string, target_id: string): any;
@@ -27,4 +27,5 @@ interface VimeoPlayer {
     getDomainFromUrl(url: string): string;
 }
 
-declare var $f: VimeoPlayerAPI;declare var Froogaloop: VimeoPlayerAPI;
+declare var $f: VimeoPlayerAPI;
+declare var Froogaloop: VimeoPlayerAPI;

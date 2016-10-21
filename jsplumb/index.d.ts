@@ -38,7 +38,7 @@ interface jsPlumbInstance {
     	getInstance(): jsPlumbInstance;
 	getInstance(defaults: Defaults): jsPlumbInstance;
 	getInstanceIndex(): number;
-	
+
     SVG: string;
     CANVAS: string;
     VML: string;

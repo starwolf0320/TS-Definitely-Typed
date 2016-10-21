@@ -12,31 +12,31 @@ interface IFirebaseSimpleLoginError {
 
 interface IFirebaseSimpleLoginOptions {
     // general options
-    debug?: boolean
-    rememberMe?: boolean
+    debug?: boolean;
+    rememberMe?: boolean;
 
     // email
-    email?: string
-    password?: string
+    email?: string;
+    password?: string;
 
     // facebook / github / google / twitter
-    preferRedirect?: boolean
+    preferRedirect?: boolean;
 
     // facebook / github / google
-    scope?: string
+    scope?: string;
 
     // facebook
-    access_token?: string
+    access_token?: string;
 
     // twitter
-    oauth_token?: string
+    oauth_token?: string;
 
     // persona
-    backgroundColor?: string
-    privacyPolicy?: string
-    siteLogo?: string
-    siteName?: string
-    termsOfService?: string
+    backgroundColor?: string;
+    privacyPolicy?: string;
+    siteLogo?: string;
+    siteName?: string;
+    termsOfService?: string;
 }
 
 interface IFirebaseSimpleLoginUser {
@@ -53,15 +53,15 @@ interface IFirebaseSimpleLoginUser {
     email?: string;
 
     // facebook / github / google / twitter
-    accessToken?: string
-    displayName?: string
-    thirdPartyUserData?: Object
+    accessToken?: string;
+    displayName?: string;
+    thirdPartyUserData?: Object;
 
     // github / twitter
-    username?: string
+    username?: string;
 
     // twitter
-    accessTokenSecret?: string
+    accessTokenSecret?: string;
 }
 
 declare class FirebaseSimpleLogin {

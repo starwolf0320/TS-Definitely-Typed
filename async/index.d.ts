@@ -36,7 +36,7 @@ interface AsyncQueue<T> {
     empty: () => any;
     drain: () => any;
     paused: boolean;
-    pause(): void
+    pause(): void;
     resume(): void;
     kill(): void;
     workersList(): {
@@ -76,8 +76,8 @@ interface AsyncPriorityQueue<T> {
 interface AsyncCargo {
     length(): number;
     payload: number;
-    push(task: any, callback? : Function): void;
-    push(task: any[], callback? : Function): void;
+    push(task: any, callback?: Function): void;
+    push(task: any[], callback?: Function): void;
     saturated(): void;
     empty(): void;
     drain(): void;

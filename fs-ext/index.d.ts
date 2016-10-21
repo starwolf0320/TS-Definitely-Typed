@@ -9,7 +9,7 @@
 export * from "fs";
 
 /**
-* Asynchronous flock(2). No arguments other than a possible error are passed to the callback. 
+* Asynchronous flock(2). No arguments other than a possible error are passed to the callback.
 * @param fd File Descriptor
 * @param flags Flags can be 'sh', 'ex', 'shnb', 'exnb', 'un' and correspond to the various LOCK_SH, LOCK_EX, LOCK_SH|LOCK_NB, etc.
 **/
@@ -53,9 +53,9 @@ export declare function fcntlSync(fd: number, cmd: string, arg?: number): number
 * Asynchronous lseek(2).
 * @param fd File Descriptor
 * @param offset Offset
-* @param whence 
-* Whence can be 0 (SEEK_SET) to set the new position in bytes to offset, 1 (SEEK_CUR) to set the new 
-* position to the current position plus offset bytes (can be negative), or 2 (SEEK_END) to set to the end 
+* @param whence
+* Whence can be 0 (SEEK_SET) to set the new position in bytes to offset, 1 (SEEK_CUR) to set the new
+* position to the current position plus offset bytes (can be negative), or 2 (SEEK_END) to set to the end
 * of the file plus offset bytes (usually negative or zero to seek to the end of the file).
 **/
 export declare function seek(fd: number, offset: number, whence: number, callback: (err: Error, currFilePos: number) => void): void;
@@ -64,9 +64,9 @@ export declare function seek(fd: number, offset: number, whence: number, callbac
 * Synchronous lseek(2). Throws an exception on error. Returns current file position.
 * @param fd File Descriptor
 * @param offset Offset
-* @param whence 
-* Whence can be 0 (SEEK_SET) to set the new position in bytes to offset, 1 (SEEK_CUR) to set the new 
-* position to the current position plus offset bytes (can be negative), or 2 (SEEK_END) to set to the end 
+* @param whence
+* Whence can be 0 (SEEK_SET) to set the new position in bytes to offset, 1 (SEEK_CUR) to set the new
+* position to the current position plus offset bytes (can be negative), or 2 (SEEK_END) to set to the end
 * of the file plus offset bytes (usually negative or zero to seek to the end of the file).
 * @returns Returns current file position.
 **/

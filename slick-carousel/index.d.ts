@@ -297,7 +297,7 @@ interface JQuerySlickOptions {
      * Default: 1000
      */
     zIndex?: number;
-    
+
 }
 
 
@@ -378,14 +378,14 @@ interface JQuery {
      * @param methodName The name of the method
      * @param selector
      */
-    slick(methodName : "slickFilter", selector: string): JQuery;
+    slick(methodName: "slickFilter", selector: string): JQuery;
 
     /**
      * Filters slides using jQuery .filter()
      * @param methodName The name of the method
      * @param func
      */
-    slick(methodName : "slickFilter", func: (index: number, element: Element) => any): JQuery;
+    slick(methodName: "slickFilter", func: (index: number, element: Element) => any): JQuery;
 
     /**
      * Removes applied filtering

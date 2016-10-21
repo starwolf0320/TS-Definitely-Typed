@@ -196,8 +196,8 @@ declare namespace jquery.flot {
 
     interface axis extends axisOptions {
         options: axisOptions;
-        p2c(point: point):canvasPoint;
-        c2p(canvasPoint: canvasPoint):point;
+        p2c(point: point): canvasPoint;
+        c2p(canvasPoint: canvasPoint): point;
     }
 
     interface plugin {

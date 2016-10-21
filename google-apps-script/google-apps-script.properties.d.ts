@@ -6,7 +6,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Properties {
+  export namespace Properties {
     /**
      * The properties object acts as the interface to access user, document, or script properties.
      *  The specific property type depends on which of the three methods of

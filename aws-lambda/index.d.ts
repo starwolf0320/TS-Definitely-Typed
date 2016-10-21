@@ -17,7 +17,7 @@ interface Context {
     logStreamName: string;
     identity?: CognitoIdentity;
     clientContext?: ClientContext;
-    
+
     // Functions
     getRemainingTimeInMillis(): number;
 
@@ -28,7 +28,7 @@ interface Context {
     fail(message: string): void;
     succeed(message: string): void;
     succeed(object: any): void;
-    succeed(message: string, object: any): void; 
+    succeed(message: string, object: any): void;
 }
 
 interface CognitoIdentity {

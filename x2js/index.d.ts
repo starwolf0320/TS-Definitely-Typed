@@ -33,4 +33,3 @@ interface IX2JSOption {
 }
 
 declare var X2JS: IX2JS;
-

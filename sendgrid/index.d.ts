@@ -27,7 +27,7 @@ declare namespace Sendgrid {
         proxy?: string;
         web?: {
             pool?: any;
-        }
+        };
     }
 
     export interface OptionsExport {
@@ -37,7 +37,7 @@ declare namespace Sendgrid {
         proxy?: string;
         web?: {
             pool?: any;
-        }
+        };
     }
 
     //#endregion
@@ -166,7 +166,7 @@ declare namespace Sendgrid {
 
     interface Constructor {
         (api_user: string, api_key: string, options?: Options): Instance;
-        (api_key: string, option?: Options): Instance
+        (api_key: string, option?: Options): Instance;
         new (api_user: string, api_key: string, options?: Options): Instance;
         new (api_key: string, options?: Options): Instance;
     }

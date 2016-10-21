@@ -13,7 +13,7 @@ var template = dust.compileFn("template", "template name");
 dust.register("template name", template);
 dust.loadSource("template source");
 
-// context 
+// context
 var context = dust.makeBase({ anyProperty: "anyvalue" });
 context = dust.makeBase(context);
 

@@ -4517,8 +4517,8 @@ declare namespace BABYLON {
         static ExtrudeShapeCustom(name: string, options: {
             shape: Vector3[];
             path: Vector3[];
-            scaleFunction?:any;
-            rotationFunction?:any;
+            scaleFunction?: any;
+            rotationFunction?: any;
             ribbonCloseArray?: boolean;
             ribbonClosePath?: boolean;
             cap?: number;

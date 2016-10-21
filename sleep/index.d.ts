@@ -3,24 +3,22 @@
 // Definitions by: Jeongho Nam <http://samchon.org>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare namespace __node_sleep
-{
+declare namespace __node_sleep {
 	/**
 	 * Sleep for <i>n</i> seconds.
-	 * 
+	 *
 	 * @param n Number of seconds to sleep.
 	 */
 	function sleep(n: number): void;
 
 	/**
 	 * Sleep for n microseconds.
-	 * 
+	 *
 	 * @param n Number of microseconds to sleep; 1 second is 1,000,000 microseconds.
 	 */
 	function usleep(n: number): void;
 }
 
-declare module "sleep"
-{
+declare module "sleep" {
 	export = __node_sleep;
 }

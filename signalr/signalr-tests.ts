@@ -103,11 +103,11 @@ interface MyHubConnection extends SignalR.Hub.Connection {
     someState: string;
     SomeFunction: Function;
 
-    // My Hubs Client functions: 
+    // My Hubs Client functions:
     client: {
         addMessage: (message: string) => void;
     };
-    // My Hubs Server function: 
+    // My Hubs Server function:
     server: {
         send(message: string): any;
     };
@@ -177,12 +177,12 @@ function test_hubs() {
     proxy.off('listenerWithMoreParams', listenerWithMoreParams);
 }
 
-// Sample from : https://github.com/SignalR/SignalR/wiki/QuickStart-Hubs#javascript--html 
+// Sample from : https://github.com/SignalR/SignalR/wiki/QuickStart-Hubs#javascript--html
 $(function () {
-    // Proxy created on the fly          
+    // Proxy created on the fly
     var chat = $.connection.chat;
 
-    // Declare a function on the chat hub so the server can invoke it          
+    // Declare a function on the chat hub so the server can invoke it
     chat.client.addMessage = function (message) {
         $('#messages').append('<li>' + message + '</li>');
     };

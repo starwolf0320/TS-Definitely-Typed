@@ -16,7 +16,7 @@ declare function Minilog(namespace: string): Minilog;
 
 declare namespace Minilog {
     export function enable(): Minilog;
-    export function disable() : Minilog;
+    export function disable(): Minilog;
     export function pipe(dest: any): Transform;
 
     export var suggest: Filter;
@@ -26,7 +26,7 @@ declare namespace Minilog {
     export var defaultFormatter: string;
 
 
-    export class Filter extends Transform{
+    export class Filter extends Transform {
 
         /**
         * Adds an entry to the whitelist
@@ -44,7 +44,7 @@ declare namespace Minilog {
         */
         clear(): Filter;
 
-        test(name:any, level:any): boolean;
+        test(name: any, level: any): boolean;
 
         /**
         * specifies the behavior when a log line doesn't match either the whitelist or the blacklist.
@@ -68,7 +68,7 @@ declare namespace Minilog {
         jQuery: any;
     }
 
-    export class Console extends Transform{
+    export class Console extends Transform {
 
         /**
         * List of available formatters

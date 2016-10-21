@@ -25,7 +25,7 @@ interface RedisStatic {
 declare var IORedis: RedisStatic;
 export = IORedis;
 
-declare module IORedis {
+declare namespace IORedis {
     interface Commander {
         new (): Commander;
         getBuiltinCommands(): string[];

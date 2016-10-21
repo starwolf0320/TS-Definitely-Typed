@@ -429,7 +429,7 @@ interface JQuery {
     button(command: string): JQuery;
     button(options?: ButtonOptions): JQuery;
     button(events: ButtonEvents): JQuery;
-    
+
     buttonMarkup(options?: ButtonOptions): JQuery;
 
     collapsible(): JQuery;

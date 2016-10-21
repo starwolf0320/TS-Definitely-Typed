@@ -11,7 +11,7 @@ import http = require("http");
 /**
  * This will add the listener to fire when headers are emitted for res.
  * The listener is passed the response object as its context (this).
- * Headers are considered emitted only once, right before they 
+ * Headers are considered emitted only once, right before they
  * are sent to the client.
  *
  * When this is called multiple times on the same res, the listeners

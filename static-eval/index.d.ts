@@ -13,4 +13,4 @@ import * as ESTree from 'estree';
 * @param vars Named variables, objects or functions which may be referenced in the expression.
 */
 declare function evaluate(ast: ESTree.Expression, vars: { [name: string]: any }): any;
-export =evaluate;
+export = evaluate;

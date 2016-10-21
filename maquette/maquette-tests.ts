@@ -15,7 +15,7 @@ function handleNameInput(evt: MouseEvent) {
     you = (<HTMLInputElement>evt.target).value;
 }
 
-// This function uses the 'hyperscript' notation to create the virtual DOM. 
+// This function uses the 'hyperscript' notation to create the virtual DOM.
 // The 'you' variable is used twice here
 function renderMaquette() {
     return h("div", [

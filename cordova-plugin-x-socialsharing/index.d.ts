@@ -11,8 +11,7 @@ interface Plugins {
 	socialsharing: SocialSharingPlugin.SocialSharing;
 }
 
-declare module SocialSharingPlugin {
-
+declare namespace SocialSharingPlugin {
 	interface ShareOptions {
 		message: string;
 		subject?: string;

@@ -20,7 +20,7 @@ declare namespace Sammy {
 
 	export function Cache(app, options);
     export function DataCacheProxy(initial, $element);
-    export var DataLocationProxy:DataLocationProxy;
+    export var DataLocationProxy: DataLocationProxy;
     export function DefaultLocationProxy(app, run_interval_every);
     export function EJS(app, method_alias);
 
@@ -50,7 +50,7 @@ declare namespace Sammy {
     export function Template(app, method_alias);
     export function Tmpl(app, method_alias);
     export function addLogger(logger);
-    export function log(...args:any[]);
+    export function log(...args: any[]);
 
     export class Object {
 
@@ -125,7 +125,7 @@ declare namespace Sammy {
         // Features provided by oauth2 plugin
         oauthorize: string;
         requireOAuth();
-        requireOAuth(path?:string);
+        requireOAuth(path?: string);
         requireOAuth(callback?: Function);
     }
 
@@ -159,7 +159,7 @@ declare namespace Sammy {
         params: any;
         redirect(...params: any[]): void;
         render(location: string, data?: any, callback?: Function, partials?): RenderContext;
-        renderEach(location: any, data?: { name: string;data?:any}[],callback?: Function): RenderContext;
+        renderEach(location: any, data?: { name: string; data?: any}[], callback?: Function): RenderContext;
         send(...params: any[]): RenderContext;
         swap(contents: any, callback: Function): string;
         toString(): string;
@@ -251,7 +251,7 @@ declare namespace Sammy {
 
         stores: any;
 
-        new (options?:any);
+        new (options?: any);
 
         clear(key: string): any;
         clearAll(): void;

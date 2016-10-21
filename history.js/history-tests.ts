@@ -1,9 +1,9 @@
 
 
-// Since History is defined in lib.d.ts as well 
+// Since History is defined in lib.d.ts as well
 // the name for our interfaces was chosen to be Historyjs
 // However at runtime you would need to do
-// https://github.com/DefinitelyTyped/DefinitelyTyped/issues/277 
+// https://github.com/DefinitelyTyped/DefinitelyTyped/issues/277
 var Historyjs: Historyjs = <any>History;
 
 function tests() {

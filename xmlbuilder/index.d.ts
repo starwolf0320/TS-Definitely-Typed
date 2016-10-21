@@ -3,7 +3,6 @@
 // Definitions by: Wallymathieu <http://github.com/wallymathieu>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
 export = xmlbuilder;
 declare class XMLDocType {
     clone(): XMLDocType;

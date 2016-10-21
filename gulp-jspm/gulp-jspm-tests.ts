@@ -26,7 +26,7 @@ gulp.src('src/main.jsx')
 gulp.src('src/main.jsx')
     .pipe(gulpJspm({plugin: 'jsx'})) // `jspm bundle main.jsx!jsx`
     .pipe(gulp.dest('build/'));
- 
+
 // all other options given to gulp-jspm are passed on to jspm, e.g.
 gulp.src('src/main.js')
     .pipe(gulpJspm({inject: true})) // `jspm bundle main --inject`

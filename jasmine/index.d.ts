@@ -58,7 +58,7 @@ declare namespace jasmine {
     function addMatchers(matchers: CustomMatcherFactories): void;
     function stringMatching(str: string): Any;
     function stringMatching(str: RegExp): Any;
-    function formatErrorMsg(domain: string, usage: string) : (msg: string) => string
+    function formatErrorMsg(domain: string, usage: string): (msg: string) => string;
 
     interface Any {
 
@@ -240,7 +240,7 @@ declare namespace jasmine {
         new (options: {random: boolean, seed: string}): any;
         random: boolean;
         seed: string;
-        sort<T>(items: T[]) : T[];
+        sort<T>(items: T[]): T[];
     }
 
     namespace errors {
@@ -253,7 +253,7 @@ declare namespace jasmine {
     interface TreeProcessor {
         new (attrs: any): any;
         execute: (done: Function) => void;
-        processTree() : any;
+        processTree(): any;
     }
 
     interface Trace {
@@ -552,7 +552,7 @@ declare namespace jasmine {
         runDetails: {
             failedExpectations: ExpectationResult[];
             order: jasmine.Order
-        }
+        };
 
         new (): any;
 

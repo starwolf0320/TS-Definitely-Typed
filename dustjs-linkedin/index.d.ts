@@ -5,11 +5,11 @@
 
 //
 // Due to a lack of documentation it's not possible
-// to know which methods are intended to be public and which 
+// to know which methods are intended to be public and which
 // are intended to be used internally by the framework.
-// All the interfaces definitions here exposes only the methods 
+// All the interfaces definitions here exposes only the methods
 // that are documented in some way (tutorials, guides, references, etc.).
-// 
+//
 // Fell free to include other methods. If possible let me know about.
 //
 
@@ -24,7 +24,7 @@ export interface Template {
 
 export interface Chunk {
     /**
-    * Writes data to this chunk's buffer. 
+    * Writes data to this chunk's buffer.
     */
     write(data: string): Chunk;
 
@@ -96,8 +96,8 @@ export interface Stream {
 
 /**
 * register a template into the cache.
-* @param name the unique template name. 
-* @param tmpl the template function. 
+* @param name the unique template name.
+* @param tmpl the template function.
 */
 export declare function register(name: string, tmpl: Template): void;
 
@@ -112,12 +112,12 @@ export declare function compile(source: string, name: string, strip?: boolean): 
 /**
 * Compiles source directly into a JavaScript function that takes a context and an optional callback (see dust.renderSource). Registers the template under [name] if this argument is supplied.
 * @param source the template string
-* @param name the template name (optional). 
+* @param name the template name (optional).
 */
 export declare function compileFn(source: string, name?: string): Template;
 
 /**
-* Evaluates a compiled source string. 
+* Evaluates a compiled source string.
 */
 export declare function loadSource(compiled: string): Template;
 

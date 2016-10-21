@@ -21,9 +21,9 @@ myApp.config((
         .dark(true);
 
     var browserColors: ng.material.IBrowserColors = {
-      theme: 'default', 
-      palette: 'neonRed', 
-      hue: '500'  
+      theme: 'default',
+      palette: 'neonRed',
+      hue: '500'
     };
     $mdThemingProvider.enableBrowserColor(browserColors);
 
@@ -185,7 +185,7 @@ myApp.controller('PanelController', ($scope: ng.IScope, $mdPanel: ng.material.IP
             disableParentScroll: true,
             zIndex: 150
         };
-        
+
         $mdPanel.create(config);
 
         var panelRef = $mdPanel.create(config);

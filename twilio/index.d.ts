@@ -872,7 +872,7 @@ declare namespace twilio {
   export interface TrunkInstance extends InstanceResource {
     ipAccessControlLists: IPAccessControlListResource;
     credentialLists: CredentialListResource;
-    phoneNumbers:  PhoneNumberResource;
+    phoneNumbers: PhoneNumberResource;
     originationUrls: OriginationURLResource;
   }
   export interface TrunkResource extends ListMappedResource<TrunkInstance> {}

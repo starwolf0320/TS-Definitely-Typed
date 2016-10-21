@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace THREE {
-    export interface SpriteCanvasMaterialParameters extends MaterialParameters{
+    export interface SpriteCanvasMaterialParameters extends MaterialParameters {
         color?: number;
         program?: (context: any, color: Color) => void;
     }

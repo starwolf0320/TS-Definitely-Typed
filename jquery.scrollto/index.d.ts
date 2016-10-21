@@ -23,7 +23,7 @@ interface ScrollToOptions {
     */
     margin?: boolean;
     /**
-    * Add/deduct from the end position. 
+    * Add/deduct from the end position.
     * One number for both axes or { top:x, left:y }.
     */
     offset?: any;
@@ -31,14 +31,14 @@ interface ScrollToOptions {
     * Add/deduct the height/width multiplied by 'over'.
     * Can be { top:x, left:y } when using both axes.
     */
-    over? : any;
+    over?: any;
     /**
     * If true, and both axis are given.
     * The 2nd axis will only be animated after the first one ends.
     */
     queue?: boolean;
     /**
-    * Function to be called after the scrolling ends. 
+    * Function to be called after the scrolling ends.
     */
     onAfter?: () => void;
     /**

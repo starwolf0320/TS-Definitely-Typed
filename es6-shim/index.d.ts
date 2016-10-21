@@ -103,10 +103,10 @@ interface String {
     bold(): string;
 
     /** Returns a <tt> HTML element */
-    fixed(): string
+    fixed(): string;
 
     /** Returns a <font> HTML element and sets the color attribute value */
-    fontcolor(color: string): string
+    fontcolor(color: string): string;
 
     /** Returns a <font> HTML element and sets the size attribute value */
     fontsize(size: number): string;

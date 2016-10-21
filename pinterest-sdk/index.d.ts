@@ -16,7 +16,7 @@ declare namespace PDK {
     accessToken?: string;
     scope?: string;
     error?: string;
-  }
+  };
 
   interface LoginOptions {
     scope: string|OAuthScopes;

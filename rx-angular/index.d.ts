@@ -13,7 +13,7 @@ declare namespace Rx {
     }
 
     export interface ScopeScheduler extends IScheduler {
-        constructor(scope: ng.IScope) : ScopeScheduler;
+        constructor(scope: ng.IScope): ScopeScheduler;
     }
 
     export interface ScopeSchedulerStatic extends SchedulerStatic {

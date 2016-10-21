@@ -3,7 +3,7 @@
 // Definitions by: Maxime LUCE <https://github.com/SomaticIT>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-declare module Sendgrid {
+declare namespace Sendgrid {
     //#region Options
 
     export interface UriParts {
@@ -22,7 +22,7 @@ declare module Sendgrid {
         proxy?: string;
         web?: {
             pool?: any;
-        }
+        };
     }
 
     export interface OptionsExport {
@@ -32,7 +32,7 @@ declare module Sendgrid {
         proxy?: string;
         web?: {
             pool?: any;
-        }
+        };
     }
 
     //#endregion

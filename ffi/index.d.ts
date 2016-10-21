@@ -71,7 +71,7 @@ export var ForeignFunction: {
     new (ptr: Buffer, retType: string, argTypes: any[], abi?: number): ForeignFunction;
     (ptr: Buffer, retType: ref.Type, argTypes: any[], abi?: number): ForeignFunction;
     (ptr: Buffer, retType: string, argTypes: any[], abi?: number): ForeignFunction;
-}
+};
 
 export interface VariadicForeignFunction {
     /**
@@ -144,7 +144,7 @@ export var Callback: {
     new (retType: any, argTypes: any[], fn: any): Buffer;
     (retType: any, argTypes: any[], abi: number, fn: any): Buffer;
     (retType: any, argTypes: any[], fn: any): Buffer;
-}
+};
 
 export var ffiType: {
     /** Get a `ffi_type *` Buffer appropriate for the given type. */
@@ -152,9 +152,9 @@ export var ffiType: {
     /** Get a `ffi_type *` Buffer appropriate for the given type. */
     (type: string): Buffer
     FFI_TYPE: StructType;
-}
+};
 
-export var CIF: (retType: any, types: any[], abi?: any) => Buffer
+export var CIF: (retType: any, types: any[], abi?: any) => Buffer;
 export var CIF_var: (retType: any, types: any[], numFixedArgs: number, abi?: any) => Buffer;
 export var HAS_OBJC: boolean;
 export var FFI_TYPES: {[key: string]: Buffer};

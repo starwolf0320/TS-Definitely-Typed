@@ -13,7 +13,7 @@ declare namespace GravatarModule {
     rating?: string
     s?: string
     size?: string
-  }
+  };
 
   function url(email: string, options?: Options, forceProtocol?: boolean): string;
 }

@@ -177,7 +177,7 @@ interface Date {
    * @param {string=} mask
    * @param {boolean=} utc
    */
-  format(mask?: string, utc?: boolean) : string;
+  format(mask?: string, utc?: boolean): string;
 }
 
 // Some common format strings
@@ -213,6 +213,6 @@ interface DateFormatI18n {
  */
 declare var dateFormat: {
   (date?: any, mask?: string, utc?: boolean ): string;
-  masks : DateFormatMasks;
-  i18n  : DateFormatI18n;
+  masks: DateFormatMasks;
+  i18n: DateFormatI18n;
 };

@@ -34,7 +34,7 @@ declare module "webpack-dev-server" {
             new (
                 webpack: webpack.compiler.Compiler,
                 config: Configuration
-            ):WebpackDevServer;
+            ): WebpackDevServer;
 
             listen(port: number,
                 hostname: string,

@@ -1526,7 +1526,7 @@ declare namespace SFS2X {
             //#region AdminMessageRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.AdminMessageRequest.html
-            export class AdminMessageRequest{
+            export class AdminMessageRequest {
 
                 /**
                  * Creates a new AdminMessageRequest instance.
@@ -1541,7 +1541,7 @@ declare namespace SFS2X {
             //#region BanUserRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.BanUserRequest.html
-            export class BanUserRequest{
+            export class BanUserRequest {
 
                 /**
                  * Creates a new BanUserRequest instance.
@@ -1558,7 +1558,7 @@ declare namespace SFS2X {
             //#region ChangeRoomCapacityRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.ChangeRoomCapacityRequest.html
-            export class ChangeRoomCapacityRequest{
+            export class ChangeRoomCapacityRequest {
 
                 /**
                  * Creates a new ChangeRoomCapacityRequest instance.
@@ -1573,7 +1573,7 @@ declare namespace SFS2X {
             //#region ChangeRoomNameRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.ChangeRoomNameRequest.html
-            export class ChangeRoomNameRequest{
+            export class ChangeRoomNameRequest {
 
                 /**
                  * Creates a new ChangeRoomNameRequest instance.
@@ -1587,7 +1587,7 @@ declare namespace SFS2X {
             //#region ChangeRoomPasswordStateRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.ChangeRoomPasswordStateRequest.html
-            export class ChangeRoomPasswordStateRequest{
+            export class ChangeRoomPasswordStateRequest {
 
                 /**
                  * Creates a new ChangeRoomPasswordStateRequest instance.
@@ -1601,7 +1601,7 @@ declare namespace SFS2X {
             //#region CreateRoomRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.CreateRoomRequest.html
-            export class CreateRoomRequest{
+            export class CreateRoomRequest {
 
                 /**
                  * Creates a new CreateRoomRequest instance.
@@ -1616,7 +1616,7 @@ declare namespace SFS2X {
             //#region ExtensionRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.ExtensionRequest.html
-            export class ExtensionRequest{
+            export class ExtensionRequest {
 
                 /**
                  * Creates a new ExtensionRequest instance.
@@ -1631,7 +1631,7 @@ declare namespace SFS2X {
             //#region FindRoomsRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.FindRoomsRequest.html
-            export class FindRoomsRequest{
+            export class FindRoomsRequest {
 
                 /**
                  * Creates a new FindRoomsRequest instance.
@@ -1646,7 +1646,7 @@ declare namespace SFS2X {
             //#region FindUsersRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.FindUsersRequest.html
-            export class FindUsersRequest{
+            export class FindUsersRequest {
 
                 /**
                  * Creates a new FindUsersRequest instance.
@@ -1661,7 +1661,7 @@ declare namespace SFS2X {
             //#region JoinRoomRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.JoinRoomRequest.html
-            export class JoinRoomRequest{
+            export class JoinRoomRequest {
 
                 /**
                  * Creates a new JoinRoomRequest instance.
@@ -1677,7 +1677,7 @@ declare namespace SFS2X {
             //#region KickUserRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.KickUserRequest.html
-            export class KickUserRequest{
+            export class KickUserRequest {
 
                 /**
                  * Creates a new KickUserRequest instance.
@@ -1692,7 +1692,7 @@ declare namespace SFS2X {
             //#region LeaveRoomRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.LeaveRoomRequest.html
-            export class LeaveRoomRequest{
+            export class LeaveRoomRequest {
 
                 /**
                  * Creates a new LeaveRoomRequest instance.
@@ -1705,7 +1705,7 @@ declare namespace SFS2X {
             //#region LoginRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.LoginRequest.html
-            export class LoginRequest{
+            export class LoginRequest {
 
                 /**
                  * Creates a new LoginRequest instance.
@@ -1721,7 +1721,7 @@ declare namespace SFS2X {
             //#region LogoutRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.LogoutRequest.html
-            export class LogoutRequest{
+            export class LogoutRequest {
 
                 /**
                  * Creates a new LogoutRequest instance.
@@ -1733,7 +1733,7 @@ declare namespace SFS2X {
             //#region ModeratorMessageRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.ModeratorMessageRequest.html
-            export class ModeratorMessageRequest{
+            export class ModeratorMessageRequest {
 
                 /**
                  * Creates a new ModeratorMessageRequest instance.
@@ -1748,7 +1748,7 @@ declare namespace SFS2X {
             //#region ObjectMessageRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.ObjectMessageRequest.html
-            export class ObjectMessageRequest{
+            export class ObjectMessageRequest {
 
                 /**
                  * Creates a new ObjectMessageRequest instance.
@@ -1763,7 +1763,7 @@ declare namespace SFS2X {
             //#region PlayerToSpectatorRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.PlayerToSpectatorRequest.html
-            export class PlayerToSpectatorRequest{
+            export class PlayerToSpectatorRequest {
 
                 /**
                  * Creates a new SpectatorToPlayerRequest instance.
@@ -1776,7 +1776,7 @@ declare namespace SFS2X {
             //#region PrivateMessageRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.PrivateMessageRequest.html
-            export class PrivateMessageRequest{
+            export class PrivateMessageRequest {
 
                 /**
                  * Creates a new PrivateMessageRequest instance.
@@ -1791,7 +1791,7 @@ declare namespace SFS2X {
             //#region PublicMessageRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.PublicMessageRequest.html
-            export class PublicMessageRequest{
+            export class PublicMessageRequest {
 
                 /**
                  * Creates a new PublicMessageRequest instance.
@@ -1806,7 +1806,7 @@ declare namespace SFS2X {
             //#region SetRoomVariablesRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.SetRoomVariablesRequest.html
-            export class SetRoomVariablesRequest{
+            export class SetRoomVariablesRequest {
 
                 /**
                  * Creates a new SetRoomVariablesRequest instance.
@@ -1820,7 +1820,7 @@ declare namespace SFS2X {
             //#region SetUserVariablesRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.SetUserVariablesRequest.html
-            export class SetUserVariablesRequest{
+            export class SetUserVariablesRequest {
 
                 /**
                  * Creates a new SetUserVariablesRequest instance.
@@ -1833,7 +1833,7 @@ declare namespace SFS2X {
             //#region SpectatorToPlayerRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.SpectatorToPlayerRequest.html
-            export class SpectatorToPlayerRequest{
+            export class SpectatorToPlayerRequest {
 
                 /**
                  * Creates a new SpectatorToPlayerRequest instance.
@@ -1846,7 +1846,7 @@ declare namespace SFS2X {
             //#region SubscribeRoomGroupRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.SubscribeRoomGroupRequest.html
-            export class SubscribeRoomGroupRequest{
+            export class SubscribeRoomGroupRequest {
 
                 /**
                  * Creates a new SubscribeRoomGroupRequest instance.
@@ -1859,7 +1859,7 @@ declare namespace SFS2X {
             //#region UnsubscribeRoomGroupRequest
 
             // http://docs2x.smartfoxserver.com/api-docs/jsdoc/symbols/SFS2X.Requests.System.UnsubscribeRoomGroupRequest.html
-            export class UnsubscribeRoomGroupRequest{
+            export class UnsubscribeRoomGroupRequest {
 
                 /**
                  * Creates a new UnsubscribeRoomGroupRequest instance.

@@ -1354,13 +1354,13 @@ interface ZeptoCollection {
 	**/
 	on(type: string, fn: (e: Event) => boolean): ZeptoCollection;
 	// todo: v0.9 will introduce string literals
-	//on(type: 'ajaxStart', fn: ZeptoAjaxStartEvent): ZeptoCollection;
-	//on(type: 'ajaxBeforeSend', fn: ZeptoAjaxBeforeSendEvent): ZeptoCollection;
-	//on(type: 'ajaxSend', fn: ZeptoAjaxSendEvent): ZeptoCollection;
-	//on(type: 'ajaxSuccess', fn: ZeptoAjaxSuccessEvent): ZeptoCollection;
-	//on(type: 'ajaxError', fn: ZeptoAjaxErrorEvent): ZeptoCollection;
-	//on(type: 'ajaxComplete', fn: ZeptoAjaxCompleteEvent): ZeptoCollection;
-	//on(type: 'ajaxStop', fn: ZeptoAjaxStopEvent): ZeptoCollection;
+	// on(type: 'ajaxStart', fn: ZeptoAjaxStartEvent): ZeptoCollection;
+	// on(type: 'ajaxBeforeSend', fn: ZeptoAjaxBeforeSendEvent): ZeptoCollection;
+	// on(type: 'ajaxSend', fn: ZeptoAjaxSendEvent): ZeptoCollection;
+	// on(type: 'ajaxSuccess', fn: ZeptoAjaxSuccessEvent): ZeptoCollection;
+	// on(type: 'ajaxError', fn: ZeptoAjaxErrorEvent): ZeptoCollection;
+	// on(type: 'ajaxComplete', fn: ZeptoAjaxCompleteEvent): ZeptoCollection;
+	// on(type: 'ajaxStop', fn: ZeptoAjaxStopEvent): ZeptoCollection;
 
 	/**
 	* @see ZeptoCollection.on
@@ -1427,6 +1427,19 @@ interface ZeptoCollection {
     load(): ZeptoCollection;
     load(fn: (e: Event) => any): ZeptoCollection;
 
+	/**
+	* Set the html contents of the current collection to the result of a GET Ajax call to the given URL. Optionally, a CSS selector can be specified in the URL, like so, to use only the HTML content matching the selector for updating the collection:
+	* $('#some_element').load('/foo.html #bar')
+	* If no CSS selector is given, the complete response text is used instead.
+	* Note that any JavaScript blocks found are only executed in case no selector is given.
+	* @param url URL to send the HTTP GET request to.
+	* @param fn Callback function when the HTTP GET request is completed.
+	* @return Self object.
+	* @example
+	*	$('#some_element').load('/foo.html #bar')
+	**/
+	load(url: string, fn?: (data: any, status: string, xhr: XMLHttpRequest) => void ): ZeptoCollection;
+
     resize(): ZeptoCollection;
     resize(fn: (e: Event) => any): ZeptoCollection;
 
@@ -1486,23 +1499,6 @@ interface ZeptoCollection {
 
     blur(): ZeptoCollection;
     blur(fn: (e: Event) => any): ZeptoCollection;
-
-	/**
-	* Ajax
-	**/
-
-	/**
-	* Set the html contents of the current collection to the result of a GET Ajax call to the given URL. Optionally, a CSS selector can be specified in the URL, like so, to use only the HTML content matching the selector for updating the collection:
-	* $('#some_element').load('/foo.html #bar')
-	* If no CSS selector is given, the complete response text is used instead.
-	* Note that any JavaScript blocks found are only executed in case no selector is given.
-	* @param url URL to send the HTTP GET request to.
-	* @param fn Callback function when the HTTP GET request is completed.
-	* @return Self object.
-	* @example
-	*	$('#some_element').load('/foo.html #bar')
-	**/
-	load(url: string, fn?: (data: any, status: string, xhr: XMLHttpRequest) => void ): ZeptoCollection;
 
 	/**
 	* Form

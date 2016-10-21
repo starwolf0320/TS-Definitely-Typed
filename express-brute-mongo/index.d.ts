@@ -18,4 +18,4 @@ export = class MongoStore {
      * @param {Object}   options       The otpions.
      */
     constructor(getCollection: (collection: any) => void, options?: Object);
-}
+};

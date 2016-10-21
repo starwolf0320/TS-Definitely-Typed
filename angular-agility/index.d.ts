@@ -8,29 +8,29 @@
 declare namespace aa {
 
 	export interface ILabelStrategies  {
-		[strategyName: string]: (element:ng.IAugmentedJQueryStatic, labelText:string, isRequired:boolean)=>void;
+		[strategyName: string]: (element: ng.IAugmentedJQueryStatic, labelText: string, isRequired: boolean) => void;
 	}
 
 	export interface IFieldGroupStrategies {
-		[strategyName: string]: (element:ng.IAugmentedJQueryStatic)=>void;
+		[strategyName: string]: (element: ng.IAugmentedJQueryStatic) => void;
 	}
 
 	export interface IValMsgPlacementStrategies {
-		[strategyName: string]: (formFieldElement:ng.IAugmentedJQueryStatic, formName:string, formFieldName:string)=>void;
+		[strategyName: string]: (formFieldElement: ng.IAugmentedJQueryStatic, formName: string, formFieldName: string) => void;
 	}
 
 	export interface IValidIconStrategy {
-		validIcon:string;
-		invalidIcon:string;
-		getContainer(element:ng.IAugmentedJQueryStatic):void;
+		validIcon: string;
+		invalidIcon: string;
+		getContainer(element: ng.IAugmentedJQueryStatic): void;
 	}
 
 	export interface ISpinnerClickStrategies {
-		[strategyName: string]: (element:ng.IAugmentedJQueryStatic)=>void;
+		[strategyName: string]: (element: ng.IAugmentedJQueryStatic) => void;
 	}
 
 	export interface IOnNavigateAwayStrategies {
-		[strategyName: string]: (rootFormScope:ng.IScope, rootForm:ng.IAugmentedJQueryStatic, $injector:ng.auto.IInjectorService)=>void;
+		[strategyName: string]: (rootFormScope: ng.IScope, rootForm: ng.IAugmentedJQueryStatic, $injector: ng.auto.IInjectorService) => void;
 	}
 
 	export interface IValidationMessages {
@@ -42,27 +42,27 @@ declare namespace aa {
 	}
 
 	export interface IFormExtensionsProvider extends ng.IServiceProvider {
-		defaultLabelStrategy:string;
-		defaultFieldGroupStrategy:string;
-		defaultValMsgPlacementStrategy:string;
-		validIconStrategy:IValidIconStrategy;
-		defaultSpinnerClickStrategy:string;
-		defaultNotifyTarget:string;
-		defaultOnNavigateAwayStrategy:string;
-		validationMessages:IValidationMessages;
-		valMsgForTemplate:string;
-		confirmResetStrategy:()=>boolean;
-		globalSettings:IGlobalSettings;
+		defaultLabelStrategy: string;
+		defaultFieldGroupStrategy: string;
+		defaultValMsgPlacementStrategy: string;
+		validIconStrategy: IValidIconStrategy;
+		defaultSpinnerClickStrategy: string;
+		defaultNotifyTarget: string;
+		defaultOnNavigateAwayStrategy: string;
+		validationMessages: IValidationMessages;
+		valMsgForTemplate: string;
+		confirmResetStrategy: () => boolean;
+		globalSettings: IGlobalSettings;
 
-		labelStrategies:ILabelStrategies;
-		fieldGroupStrategies:IFieldGroupStrategies;
-		valMsgPlacementStrategies:IValMsgPlacementStrategies;
-		spinnerClickStrategies:ISpinnerClickStrategies;
-		onNavigateAwayStrategies:IOnNavigateAwayStrategies;
+		labelStrategies: ILabelStrategies;
+		fieldGroupStrategies: IFieldGroupStrategies;
+		valMsgPlacementStrategies: IValMsgPlacementStrategies;
+		spinnerClickStrategies: ISpinnerClickStrategies;
+		onNavigateAwayStrategies: IOnNavigateAwayStrategies;
 	}
 
 	export interface INotifyPredicate {
-		(message:string, options:any, notifier:any):any;
+		(message: string, options: any, notifier: any): any;
 	}
 
 	export interface INotifyDefaults {
@@ -74,33 +74,33 @@ declare namespace aa {
 	}
 
 	export interface INotifyConfig {
-		name:string;
-		template?:string;
-		templateName?:string;
-		options:INotifyOptions;
-		namedDefaults:INotifyDefaults;
+		name: string;
+		template?: string;
+		templateName?: string;
+		options: INotifyOptions;
+		namedDefaults: INotifyDefaults;
 	}
 
 	export interface INotifyOptions {
-		cssClasses?:string;
-		messageType:string;
-		allowHtml:boolean;
-		message:string;
+		cssClasses?: string;
+		messageType: string;
+		allowHtml: boolean;
+		message: string;
 	}
 
 	export interface INotifyConfigProvider extends ng.IServiceProvider {
-		notifyConfigs:any;
-		defaultTargetContainerName:string;
-		defaultNotifyConfig:string;
-		addOrUpdateNotifyConfig(name:string, opts:INotifyConfig):void;
-		optionsTransformer(options:INotifyOptions, $sce:ng.ISCEService):void;
+		notifyConfigs: any;
+		defaultTargetContainerName: string;
+		defaultNotifyConfig: string;
+		addOrUpdateNotifyConfig(name: string, opts: INotifyConfig): void;
+		optionsTransformer(options: INotifyOptions, $sce: ng.ISCEService): void;
 	}
 
 	export interface IExternalFormValidationConfig {
-		validations:any;
-		ignore?:any;
-		globals?:any;
-		resolve?:any;
-		resolveFn?:(modelValue:string)=>string;
+		validations: any;
+		ignore?: any;
+		globals?: any;
+		resolve?: any;
+		resolveFn?: (modelValue: string) => string;
 	}
 }

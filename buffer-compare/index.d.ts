@@ -6,7 +6,7 @@
 
 interface List {
     [index: number]: any;
-    length: number
+    length: number;
 }
 
 declare function compare(cmp: List, to: List): number;

@@ -15,7 +15,7 @@ interface ReactHolderProp extends React.HTMLAttributes<ReactHolder> {
     // config args
     theme?: string;
     random?: boolean;
-    bg?: string
+    bg?: string;
     fg?: string;
     text?: string;
     size?: number;

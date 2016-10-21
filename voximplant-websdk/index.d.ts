@@ -89,7 +89,7 @@ declare namespace VoxImplant {
 			/**
 			*	Auth error code, possible values are: 301 - code for 'code' auth type was sent, 302 - key for 'onetimekey' auth type received, 401 - invalid password, 404 - invalid username, 403 - user account is frozen, 500 - internal error
 			*/
-			code? : number;
+			code?: number;
 			/**
 			*	Authorized user's display name
 			*/
@@ -2005,23 +2005,23 @@ declare namespace VoxImplant {
 		/**
 		*	Groups this roster item belongs to
 		*/
-		groups: string[],
+		groups: string[];
 		/**
 		*	User id
 		*/
-		id: string,
+		id: string;
 		/**
 		*	User display name
 		*/
-		name: string,
+		name: string;
 		/**
 		*	Resources
 		*/
-		resources: string[],
+		resources: string[];
 		/**
 		*	Subscription type
 		*/
-		subscription_type: number
+		subscription_type: number;
 	}
 
 	/**

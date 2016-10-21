@@ -36,34 +36,34 @@ declare namespace JsDiff {
     }
 
     class Diff {
-        ignoreWhitespace:boolean;
+        ignoreWhitespace: boolean;
 
-        constructor(ignoreWhitespace?:boolean);
+        constructor(ignoreWhitespace?: boolean);
 
-        diff(oldString:string, newString:string):IDiffResult[];
+        diff(oldString: string, newString: string): IDiffResult[];
 
-        pushComponent(components:IDiffResult[], value:string, added:boolean, removed:boolean):void;
+        pushComponent(components: IDiffResult[], value: string, added: boolean, removed: boolean): void;
 
-        extractCommon(basePath:IBestPath, newString:string, oldString:string, diagonalPath:number):number;
+        extractCommon(basePath: IBestPath, newString: string, oldString: string, diagonalPath: number): number;
 
-        equals(left:string, right:string):boolean;
+        equals(left: string, right: string): boolean;
 
-        join(left:string, right:string):string;
+        join(left: string, right: string): string;
 
-        tokenize(value:string):any; // return types are string or string[]
+        tokenize(value: string): any; // return types are string or string[]
     }
 
-    function diffChars(oldStr:string, newStr:string):IDiffResult[];
+    function diffChars(oldStr: string, newStr: string): IDiffResult[];
 
-    function diffWords(oldStr:string, newStr:string):IDiffResult[];
+    function diffWords(oldStr: string, newStr: string): IDiffResult[];
 
-    function diffWordsWithSpace(oldStr:string, newStr:string):IDiffResult[];
+    function diffWordsWithSpace(oldStr: string, newStr: string): IDiffResult[];
 
     function diffJson(oldObj: Object, newObj: Object): IDiffResult[];
 
-    function diffLines(oldStr:string, newStr:string):IDiffResult[];
+    function diffLines(oldStr: string, newStr: string): IDiffResult[];
 
-    function diffCss(oldStr:string, newStr:string):IDiffResult[];
+    function diffCss(oldStr: string, newStr: string): IDiffResult[];
 
     function createPatch(fileName: string, oldStr: string, newStr: string, oldHeader: string, newHeader: string, options?: {context: number}): string;
 
@@ -81,7 +81,7 @@ declare namespace JsDiff {
 
     function parsePatch(diffStr: string, options?: {strict: boolean}): IUniDiff[];
 
-    function convertChangesToXML(changes:IDiffResult[]):string;
+    function convertChangesToXML(changes: IDiffResult[]): string;
 
-    function convertChangesToDMP(changes:IDiffResult[]):{0: number; 1:string;}[];
+    function convertChangesToDMP(changes: IDiffResult[]): {0: number; 1: string}[];
 }

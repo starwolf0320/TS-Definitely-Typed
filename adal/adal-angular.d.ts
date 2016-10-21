@@ -13,16 +13,16 @@ declare namespace adal {
     }
 
     interface UserInfo {
-        isAuthenticated: boolean,
-        userName: string,
-        loginError: string,
-        profile: any
+        isAuthenticated: boolean;
+        userName: string;
+        loginError: string;
+        profile: any;
     }
 
     interface AdalAuthenticationService {
 
         config: Config;
-        userInfo: UserInfo,
+        userInfo: UserInfo;
 
         login(): void;
         loginInProgress(): boolean;
@@ -30,7 +30,7 @@ declare namespace adal {
         getCachedToken(resource: string): string;
         acquireToken(resource: string): angular.IPromise<string>;
         getUser(): angular.IPromise<User>;
-        getResourceForEndpoint(endpoint: string): string,
+        getResourceForEndpoint(endpoint: string): string;
         clearCache(): void;
         clearCacheForResource(resource: string): void;
         info(message: string): void;

@@ -10,13 +10,13 @@ declare namespace ElectronNotifications {
   interface NotifierOptions {
 
     /** A message to display under the title. */
-    message?: string,
+    message?: string;
 
     /** The absolute URL of a icon displayed to the left of the text. */
-    icon?: string,
+    icon?: string;
 
     /** One or two buttons to display on the right of the notification. */
-    buttons?: string[]
+    buttons?: string[];
   }
 
   class NotificationWindow extends Electron.BrowserWindow {

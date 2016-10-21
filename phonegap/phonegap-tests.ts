@@ -231,7 +231,7 @@ function test_contacts() {
     contact.remove(onSuccess, onError);
 }
 function test_contacts2() {
-    
+
     function onSuccess(contacts) {
         for (var i = 0; i < contacts.length; i++) {
             console.log("Display Name = " + contacts[i].displayName);

@@ -51,6 +51,7 @@ type RTCIceProtocol = 'udp' | 'tcp';
 // https://www.w3.org/TR/webrtc/#dom-rtcicecandidatetype
 type RTCIceCandidateType = 'host' | 'srflx' | 'prflx' | 'relay';
 
+<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
 // https://www.w3.org/TR/webrtc/#dom-rtcicetcpcandidatetype
 type RTCIceTcpCandidateType = 'active' | 'passive' | 'so';
 
@@ -59,6 +60,56 @@ interface RTCIceCandidateInit {
     candidate: string;
     sdpMid?: string; // default = null
     sdpMLineIndex?: number; // default = null
+=======
+// https://www.w3.org/TR/webrtc/#idl-def-RTCIceServer
+interface RTCIceServer {
+  urls?: any;
+  username?: string;
+  credential?: string;
+  credentialType?: RTCIceCredentialType; // default = 'password'
+}
+declare var RTCIceServer: {
+  prototype: RTCIceServer;
+  new (): RTCIceServer;
+};
+
+// moz (Firefox) specific prefixes.
+interface mozRTCPeerConnection extends RTCPeerConnection {
+}
+declare var mozRTCPeerConnection: {
+  prototype: mozRTCPeerConnection;
+  new (settings?: RTCConfiguration,
+       constraints?: RTCMediaConstraints): mozRTCPeerConnection;
+};
+// webkit (Chrome) specific prefixes.
+interface webkitRTCPeerConnection extends RTCPeerConnection {
+}
+declare var webkitRTCPeerConnection: {
+  prototype: webkitRTCPeerConnection;
+  new (settings?: RTCConfiguration,
+       constraints?: RTCMediaConstraints): webkitRTCPeerConnection;
+};
+
+// For Chrome, look at the code here:
+// https://code.google.com/p/chromium/codesearch#chromium/src/third_party/libjingle/source/talk/app/webrtc/webrtcsession.cc&sq=package:chromium&dr=C&l=63
+interface RTCOptionalMediaConstraint {
+  // When true, will use DTLS/SCTP data channels
+  DtlsSrtpKeyAgreement?: boolean;
+  // When true will use Rtp-based data channels (depreicated)
+  RtpDataChannels?: boolean;
+}
+
+// ks 12/20/12 - There's more here that doesn't seem to be documented very well yet.
+// http://www.w3.org/TR/2013/WD-webrtc-20130910/
+interface RTCMediaConstraints {
+  mandatory?: RTCMediaOfferConstraints;
+  optional?: RTCOptionalMediaConstraint[];
+}
+
+interface RTCMediaOfferConstraints {
+  OfferToReceiveAudio: boolean;
+  OfferToReceiveVideo: boolean;
+>>>>>>> WIP
 }
 
 // https://www.w3.org/TR/webrtc/#idl-def-rtcicecandidate
@@ -86,6 +137,7 @@ interface RTCIceCandidatePair {
     //remote: RTCIceCandidate;
 }
 
+<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
 // https://www.w3.org/TR/webrtc/#idl-def-rtcsignalingstate
 type RTCSignalingState = 'stable' | 'have-local-offer' | 'have-remote-offer' | 'have-local-pranswer' | 'have-remote-pranswer';
 
@@ -107,8 +159,14 @@ interface RTCIceServer {
     username?: string;
     credential?: string;
     credentialType?: RTCIceCredentialType; // default = 'password'
+=======
+interface webkitRTCSessionDescription extends RTCSessionDescription {
+  type?: string;
+  sdp?: string;
+>>>>>>> WIP
 }
 
+<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
 // https://www.w3.org/TR/webrtc/#idl-def-rtcicetransportpolicy
 type RTCIceTransportPolicy = 'relay' | 'all';
 
@@ -131,6 +189,11 @@ type RTCIceTransportState = 'new' | 'checking' | 'connected' | 'completed' | 'fa
 interface RTCIceParameters {
     //usernameFragment: string;
     //password: string;
+=======
+interface mozRTCSessionDescription extends RTCSessionDescription {
+  type?: string;
+  sdp?: string;
+>>>>>>> WIP
 }
 
 // https://www.w3.org/TR/webrtc/#idl-def-rtcicetransport

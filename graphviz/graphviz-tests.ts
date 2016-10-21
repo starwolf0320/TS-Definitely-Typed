@@ -15,7 +15,7 @@ var e: graphviz.Edge = g.addEdge( n1, "World" );
 e.set( "color", "red" );
 
 // Print the dot script
-console.log( g.to_dot() ); 
+console.log( g.to_dot() );
 
 // Set GraphViz path (if not in your path)
 g.setGraphVizPath( "/usr/local/bin" );

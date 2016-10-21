@@ -16,7 +16,7 @@ myComputed.extend({ deferred: false });
 
 
 //
-// Examples 
+// Examples
 //
 
 function nestedComputedNoPlugin() {

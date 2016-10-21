@@ -26,7 +26,7 @@ class UploadController {
 			ngfValidateForce: true
 		});
 	}
-	
+
 	onFileSelect(files: Array<File>) {
 
 		this.Upload
@@ -72,16 +72,16 @@ class UploadController {
 		this.Upload.isResizeSupported();
 		this.Upload.isResumeSupported();
 		this.Upload.isUploadInProgress();
-		
+
 		let json = this.Upload.json({ test: true }),
 			jsonBlob = this.Upload.jsonBlob({ test: true }),
 			fileWithNewName = this.Upload.rename(files[0], "newName.jpg");
 
 		this.Upload
-			.resize(files[0], { 
+			.resize(files[0], {
 				height: 1024,
 				width: 1024,
-				quality: 0.7, 
+				quality: 0.7,
 				ratio: 0.9,
 				centerCrop: true,
 				restoreExif: true,

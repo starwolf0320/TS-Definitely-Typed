@@ -723,7 +723,7 @@ declare namespace sequelize {
     }
 
     interface TransactionIsolationLevels {
-        READ_UNCOMMITTED: string;// "READ UNCOMMITTED"
+        READ_UNCOMMITTED: string; // "READ UNCOMMITTED"
         READ_COMMITTED: string;  // "READ COMMITTED"
         REPEATABLE_READ: string; // "REPEATABLE READ"
         SERIALIZABLE: string;    // "SERIALIZABLE"

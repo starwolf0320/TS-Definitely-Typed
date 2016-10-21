@@ -4,15 +4,15 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 
-declare module TemporaryName {
-	
+declare namespace TemporaryName {
+
 	export interface Engine {
 
 	}
 
-	export interface MT19937 extends Engine{
+	export interface MT19937 extends Engine {
 		seed (value: number): Engine;
-		seedWithArray(array: Array<number>): Engine
+		seedWithArray(array: Array<number>): Engine;
 		autoSeed(): Engine;
 		discard(count: number): Engine;
 		getUseCount(): Engine;
@@ -27,7 +27,7 @@ declare class TemporaryName {
 		nativeMath: TemporaryName.Engine,
 		browserCrypto: TemporaryName.Engine,
 		mt19937: () => TemporaryName.MT19937
-	}
+	};
 
     static Engine(): number;
     static MT19937 (): number;

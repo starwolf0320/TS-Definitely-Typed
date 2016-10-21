@@ -9,11 +9,11 @@
 
 declare var webkitAudioContext: {
     new (): AudioContext;
-}
+};
 
 declare var webkitOfflineAudioContext: {
     new (numberOfChannels: number, length: number, sampleRate: number): OfflineAudioContext;
-}
+};
 
 declare enum ChannelCountMode {
     'max',
@@ -204,5 +204,5 @@ interface AudioContext {
     suspend(): Promise<void>;
     resume(): Promise<void>;
     close(): Promise<void>;
-    createMediaStreamDestination(): MediaStreamAudioDestinationNode; 
+    createMediaStreamDestination(): MediaStreamAudioDestinationNode;
 }

@@ -9,10 +9,10 @@ export declare function write(data: any, opts?: IParsingOptions): any;
 export declare var utils: IUtils;
 
 export interface IProperties {
-    LastAuthor?: string
+    LastAuthor?: string;
     Author?: string;
     CreatedDate?: Date;
-    ModifiedDate?: Date
+    ModifiedDate?: Date;
     Application?: string;
     AppVersion?: string;
     Company?: string;

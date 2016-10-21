@@ -12,18 +12,18 @@ declare module "react-fontawesome" {
 
   interface FontAwesomeProps {
 
-    border?: boolean,
-    className?: string,
-    fixedWidth?: boolean,
-    flip?: boolean,
-    inverse?: boolean
-    name: string,
-    pulse?: boolean,
-    rotate?: number,
-    size?: FontAwesomeSize,
-    spin?: boolean,
-    stack?: string,
-    style?: React.CSSProperties
+    border?: boolean;
+    className?: string;
+    fixedWidth?: boolean;
+    flip?: boolean;
+    inverse?: boolean;
+    name: string;
+    pulse?: boolean;
+    rotate?: number;
+    size?: FontAwesomeSize;
+    spin?: boolean;
+    stack?: string;
+    style?: React.CSSProperties;
   }
 
   class FontAwesome extends React.Component<FontAwesomeProps, {}> {}

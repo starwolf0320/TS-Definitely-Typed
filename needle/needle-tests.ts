@@ -14,7 +14,7 @@ function Usage() {
 
 function ResponsePipeline() {
     needle.get('http://stackoverflow.com/feeds', { compressed: true }, function (err, resp) {
-        console.log(resp.body); // this little guy won't be a Gzipped binary blob 
+        console.log(resp.body); // this little guy won't be a Gzipped binary blob
         // but a nice object containing all the latest entries
     });
 
@@ -24,7 +24,7 @@ function ResponsePipeline() {
         rejectUnauthorized: true
     };
 
-    // in this case, we'll ask Needle to follow redirects (disabled by default), 
+    // in this case, we'll ask Needle to follow redirects (disabled by default),
     // but also to verify their SSL certificates when connecting.
     var stream = needle.get('https://backend.server.com/everything.html', options);
 

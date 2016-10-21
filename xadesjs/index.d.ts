@@ -9,9 +9,8 @@
  */
 
 declare namespace xadesjs {
-    
     type PromiseType = any;
-    
+
     const APPLICATION_XML: string;
 
     class XmlError extends Error {

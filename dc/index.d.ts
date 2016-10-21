@@ -180,7 +180,7 @@ declare namespace DC {
     }
 
     export interface MarginMixin<T> {
-        margins: IGetSet<Margins, T>
+        margins: IGetSet<Margins, T>;
     }
 
     export interface ColorMixin<T> {

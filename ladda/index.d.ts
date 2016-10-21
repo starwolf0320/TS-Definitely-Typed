@@ -7,7 +7,7 @@
 
 interface ILaddaButton {
     start(): ILaddaButton;
-    startAfter(delay: number): ILaddaButton
+    startAfter(delay: number): ILaddaButton;
     stop(): ILaddaButton;
     toggle(): ILaddaButton;
     setProgress(progress: number): ILaddaButton;
@@ -45,7 +45,7 @@ interface JQuery {
     ladda(): JQuery;
 
     /**
-    * The action controls or checks the state of the ladda button.  
+    * The action controls or checks the state of the ladda button.
     * Possible actions are 'start', 'stop', 'toggle', 'stopAll'
     * Possible check 'isLoading'
     */
@@ -55,7 +55,7 @@ interface JQuery {
     * When the action is 'setProgress' you can pass a number between
     * 0 and 1 for the options to represent the progress.  For example .5 would be 50%
     * When the action is 'bind' you can pass an object with a property
-    * called timeout with the timeout value in milliseconds. 
+    * called timeout with the timeout value in milliseconds.
     * For example { timeout: 2000 }
     */
     ladda(action: string, options: any): JQuery;

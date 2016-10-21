@@ -44,7 +44,7 @@ declare namespace KiiCloud {
     } | {
         oauth_token: string,
         oauth_token_secret: string
-    }
+    };
 
     interface KiiSocialAccountInfo {
         createdAt: number;

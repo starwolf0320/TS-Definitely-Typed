@@ -34,7 +34,7 @@ interface StaticRendererResult {
     css: {
         content: string;
         renderedClassNames: string[];
-    }
+    };
 }
 
 /**

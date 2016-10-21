@@ -4,7 +4,7 @@
 // Do not include the file separately.
 
 declare namespace Rx {
-	export module internals {
+	export namespace internals {
 		function isEqual(left: any, right: any): boolean;
 		function addRef<T>(xs: Observable<T>, r: { getDisposable(): IDisposable; }): Observable<T>;
 
@@ -43,11 +43,11 @@ declare namespace Rx {
 		}
 	}
 
-	export module config {
+	export namespace config {
 		export var Promise: { new <T>(resolver: (resolvePromise: (value: T) => void, rejectPromise: (reason: any) => void) => void): IPromise<T>; };
 	}
 
-	export module helpers {
+	export namespace helpers {
 		function noop(): void;
 		function notDefined(value: any): boolean;
 		function identity<T>(value: T): T;
@@ -121,16 +121,16 @@ declare namespace Rx {
 		schedule(action: () => void): IDisposable;
 		scheduleWithState<TState>(state: TState, action: (scheduler: IScheduler, state: TState) => IDisposable): IDisposable;
 		scheduleWithAbsolute(dueTime: number, action: () => void): IDisposable;
-		scheduleWithAbsoluteAndState<TState>(state: TState, dueTime: number, action: (scheduler: IScheduler, state: TState) =>IDisposable): IDisposable;
+		scheduleWithAbsoluteAndState<TState>(state: TState, dueTime: number, action: (scheduler: IScheduler, state: TState) => IDisposable): IDisposable;
 		scheduleWithRelative(dueTime: number, action: () => void): IDisposable;
-		scheduleWithRelativeAndState<TState>(state: TState, dueTime: number, action: (scheduler: IScheduler, state: TState) =>IDisposable): IDisposable;
+		scheduleWithRelativeAndState<TState>(state: TState, dueTime: number, action: (scheduler: IScheduler, state: TState) => IDisposable): IDisposable;
 
-		scheduleRecursive(action: (action: () =>void ) =>void ): IDisposable;
-		scheduleRecursiveWithState<TState>(state: TState, action: (state: TState, action: (state: TState) =>void ) =>void ): IDisposable;
+		scheduleRecursive(action: (action: () => void ) => void ): IDisposable;
+		scheduleRecursiveWithState<TState>(state: TState, action: (state: TState, action: (state: TState) => void ) => void ): IDisposable;
 		scheduleRecursiveWithAbsolute(dueTime: number, action: (action: (dueTime: number) => void) => void): IDisposable;
 		scheduleRecursiveWithAbsoluteAndState<TState>(state: TState, dueTime: number, action: (state: TState, action: (state: TState, dueTime: number) => void) => void): IDisposable;
-		scheduleRecursiveWithRelative(dueTime: number, action: (action: (dueTime: number) =>void ) =>void ): IDisposable;
-		scheduleRecursiveWithRelativeAndState<TState>(state: TState, dueTime: number, action: (state: TState, action: (state: TState, dueTime: number) =>void ) =>void ): IDisposable;
+		scheduleRecursiveWithRelative(dueTime: number, action: (action: (dueTime: number) => void ) => void ): IDisposable;
+		scheduleRecursiveWithRelativeAndState<TState>(state: TState, dueTime: number, action: (state: TState, action: (state: TState, dueTime: number) => void ) => void ): IDisposable;
 
 		schedulePeriodic(period: number, action: () => void): IDisposable;
 		schedulePeriodicWithState<TState>(state: TState, period: number, action: (state: TState) => TState): IDisposable;
@@ -477,7 +477,7 @@ declare namespace Rx {
 		* @param [thisArg] The context to use calling the mapFn if provided.
 		* @param [scheduler] Optional scheduler to use for scheduling.  If not provided, defaults to Scheduler.currentThread.
 		*/
-		from<T, TResult>(array: { length: number;[index: number]: T; }, mapFn: (value: T, index: number) => TResult, thisArg?: any, scheduler?: IScheduler): Observable<TResult>;
+		from<T, TResult>(array: { length: number; [index: number]: T }, mapFn: (value: T, index: number) => TResult, thisArg?: any, scheduler?: IScheduler): Observable<TResult>;
 		/**
 		* This method creates a new Observable sequence from an array-like object.
 		* @param array An array-like or iterable object to convert to an Observable sequence.
@@ -485,7 +485,7 @@ declare namespace Rx {
 		* @param [thisArg] The context to use calling the mapFn if provided.
 		* @param [scheduler] Optional scheduler to use for scheduling.  If not provided, defaults to Scheduler.currentThread.
 		*/
-		from<T>(array: { length: number;[index: number]: T; }, mapFn?: (value: T, index: number) => T, thisArg?: any, scheduler?: IScheduler): Observable<T>;
+		from<T>(array: { length: number; [index: number]: T }, mapFn?: (value: T, index: number) => T, thisArg?: any, scheduler?: IScheduler): Observable<T>;
 
 		/**
 		* This method creates a new Observable sequence from an array-like or iterable object.
@@ -497,7 +497,7 @@ declare namespace Rx {
 		from<T>(iterable: any, mapFn?: (value: any, index: number) => T, thisArg?: any, scheduler?: IScheduler): Observable<T>;
 
 		fromArray<T>(array: T[], scheduler?: IScheduler): Observable<T>;
-		fromArray<T>(array: { length: number;[index: number]: T; }, scheduler?: IScheduler): Observable<T>;
+		fromArray<T>(array: { length: number; [index: number]: T }, scheduler?: IScheduler): Observable<T>;
 
 		generate<TState, TResult>(initialState: TState, condition: (state: TState) => boolean, iterate: (state: TState) => TState, resultSelector: (state: TState) => TResult, scheduler?: IScheduler): Observable<TResult>;
 		never<T>(): Observable<T>;

@@ -65,15 +65,13 @@ interface StripeCardData {
     createToken(data: StripeTokenData, responseHandler: (status: number, response: StripeTokenResponse) => void): void;
 }
 
-interface StripeBankAccount
-{
-    createToken(params: StripeBankTokenParams, stripeResponseHandler: (status:number, response: StripeBankTokenResponse) => void): void;
+interface StripeBankAccount {
+    createToken(params: StripeBankTokenParams, stripeResponseHandler: (status: number, response: StripeBankTokenResponse) => void): void;
     validateRoutingNumber(routingNumber: number | string, countryCode: string): boolean;
     validateAccountNumber(accountNumber: number | string, countryCode: string): boolean;
 }
 
-interface StripeBankTokenParams
-{
+interface StripeBankTokenParams {
     country: string;
     currency: string;
     account_number: number | string;
@@ -82,8 +80,7 @@ interface StripeBankTokenParams
     account_holder_type: string;
 }
 
-interface StripeBankTokenResponse
-{
+interface StripeBankTokenResponse {
     id: string;
     bank_account: {
         country: string;

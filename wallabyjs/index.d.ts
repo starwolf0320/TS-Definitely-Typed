@@ -44,7 +44,7 @@ declare module 'wallabyjs' {
    * @see {@link https://wallabyjs.com/docs/config/compilers.html} for details.
    */
   export interface IWallabyCompilers {
-    [pattern: string]: any
+    [pattern: string]: any;
   }
 
   /**

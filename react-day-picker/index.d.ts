@@ -51,7 +51,7 @@ declare namespace ReactDayPicker {
         locale?: string;
 
     }
-    
+
     interface WeekdayElementProps extends React.Props<any> {
         weekday?: number;
         className?: string;
@@ -59,7 +59,7 @@ declare namespace ReactDayPicker {
         locale?: string;
     }
 
-    interface Props extends React.Props<DayPicker>{
+    interface Props extends React.Props<DayPicker> {
         modifiers?: Modifiers;
         initialMonth?: Date;
         numberOfMonths?: number;
@@ -107,6 +107,6 @@ declare namespace ReactDayPicker {
             function isDayBetween(day: Date, startDate: Date, endDate: Date): boolean;
             function addDayToRange(day: Date, range: { from?: Date, to?: Date }): { from?: Date, to?: Date };
             function isDayInRange(day: Date, range: { from?: Date, to?: Date }): boolean;
-        }  
+        }
     }
 }

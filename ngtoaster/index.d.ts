@@ -10,45 +10,45 @@ export as namespace toaster;
 
 declare namespace ngtoaster {
   interface IToasterService {
-    pop(params:IPopParams): void
+    pop(params: IPopParams): void;
     /**
      * @param {string} type Type of toaster  -- 'error', 'info', 'wait', 'success', and 'warning'
      */
-    pop(type?:string, title?:string, body?:string, timeout?:number, bodyOutputType?:string, clickHandler?:EventListener,
-        toasterId?:number, showCloseButton?:boolean): void
-    error(params: IPopParams): void
-    error(title?:string, body?:string, timeout?:number, bodyOutputType?:string, clickHandler?:EventListener,
-        toasterId?:number): void
-    info(params: IPopParams): void
-    info(title?:string, body?:string, timeout?:number, bodyOutputType?:string, clickHandler?:EventListener,
-        toasterId?:number): void
-    wait(params: IPopParams): void
-    wait(title?:string, body?:string, timeout?:number, bodyOutputType?:string, clickHandler?:EventListener,
-        toasterId?:number): void
-    success(params: IPopParams): void
-    success(title?:string, body?:string, timeout?:number, bodyOutputType?:string, clickHandler?:EventListener,
-        toasterId?:number): void
-    warning(params: IPopParams): void
-    warning(title?:string, body?:string, timeout?:number, bodyOutputType?:string, clickHandler?:EventListener,
-        toasterId?:number): void
-    clear(): void
-    toast:IToast;
+    pop(type?: string, title?: string, body?: string, timeout?: number, bodyOutputType?: string, clickHandler?: EventListener,
+        toasterId?: number, showCloseButton?: boolean): void;
+    error(params: IPopParams): void;
+    error(title?: string, body?: string, timeout?: number, bodyOutputType?: string, clickHandler?: EventListener,
+        toasterId?: number): void;
+    info(params: IPopParams): void;
+    info(title?: string, body?: string, timeout?: number, bodyOutputType?: string, clickHandler?: EventListener,
+        toasterId?: number): void;
+    wait(params: IPopParams): void;
+    wait(title?: string, body?: string, timeout?: number, bodyOutputType?: string, clickHandler?: EventListener,
+        toasterId?: number): void;
+    success(params: IPopParams): void;
+    success(title?: string, body?: string, timeout?: number, bodyOutputType?: string, clickHandler?: EventListener,
+        toasterId?: number): void;
+    warning(params: IPopParams): void;
+    warning(title?: string, body?: string, timeout?: number, bodyOutputType?: string, clickHandler?: EventListener,
+        toasterId?: number): void;
+    clear(): void;
+    toast: IToast;
   }
 
   interface IToasterEventRegistry {
-    setup(): void
-    subscribeToNewToastEvent(onNewToast:IToastEventListener): void
-    subscribeToClearToastsEvent(onClearToasts:IToastEventListener): void
-    unsubscribeToNewToastEvent(onNewToast:IToastEventListener): void
-    unsubscribeToClearToastsEvent(onClearToasts:IToastEventListener): void
+    setup(): void;
+    subscribeToNewToastEvent(onNewToast: IToastEventListener): void;
+    subscribeToClearToastsEvent(onClearToasts: IToastEventListener): void;
+    unsubscribeToNewToastEvent(onNewToast: IToastEventListener): void;
+    unsubscribeToClearToastsEvent(onClearToasts: IToastEventListener): void;
   }
 
-  interface IPopParams extends IToast{
+  interface IPopParams extends IToast {
     toasterId?: number;
   }
 
   interface IToastEventListener {
-    (event:Event, toasterId: number): void;
+    (event: Event, toasterId: number): void;
   }
 
   interface IToast {

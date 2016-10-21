@@ -25,7 +25,7 @@ declare namespace harmonyProxy {
 
     interface ProxyConstructor {
         revocable<T>(target: T, handler: ProxyHandler<T>): { proxy: T; revoke: () => void; };
-        new <T>(target: T, handler: ProxyHandler<T>): T
+        new <T>(target: T, handler: ProxyHandler<T>): T;
     }
 }
 

@@ -456,7 +456,7 @@ declare namespace JsMockito {
      * @param Obj {function} the constructor for the object to be mocked
      * @return {object} a mock object
      */
-    export function mock<T>(Obj: { new(): T ;}): T;
+    export function mock<T>(Obj: { new(): T }): T;
 
     namespace Verifiers {
 
@@ -666,7 +666,7 @@ declare function mockFunction(funcName: string, delegate: Function): Function;
  * @param Obj {function} the constructor for the object to be mocked
  * @return {object} a mock object
  */
-declare function mock<T>(Obj: { new(): T ;}): T;
+declare function mock<T>(Obj: { new(): T }): T;
 
 /**
  * Test that a invocation never occurred. For example:

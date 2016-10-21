@@ -120,7 +120,7 @@ interface GoogleApiPageSpeedOnlineResource {
          * Number of CSS resources referenced by the page.
          */
         numberCssResources: number;
-    }
+    };
     /**
      * Localized PageSpeed results. Contains a ruleResults entry for each PageSpeed rule instantiated and run by the server.
      */
@@ -162,7 +162,7 @@ interface GoogleApiPageSpeedOnlineResource {
             SpecifyImageDimensions: GoogleApiPageSpeedOnlineRuleResource;
             SpriteImages: GoogleApiPageSpeedOnlineRuleResource;
         }
-    }
+    };
     /**
      * The version of the PageSpeed SDK used to generate these results.
      */
@@ -175,7 +175,7 @@ interface GoogleApiPageSpeedOnlineResource {
          * The minor version number of the PageSpeed SDK used to generate these results.
          */
         minor: number;
-    }
+    };
     /**
      * List of rules that were specified in the request, but which the server did not know how to instantiate.
      */

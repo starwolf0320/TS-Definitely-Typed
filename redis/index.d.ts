@@ -253,8 +253,8 @@ export interface RedisClient extends NodeJS.EventEmitter {
     hmget(...args: any[]): boolean;
     hincrby(args: any[], callback?: ResCallbackT<any>): boolean;
     hincrby(...args: any[]): boolean;
-    hincrbyfloat(args:any[], callback?:ResCallbackT<any>): boolean;
-    hincrbyfloat(...args:any[]): boolean;
+    hincrbyfloat(args: any[], callback?: ResCallbackT<any>): boolean;
+    hincrbyfloat(...args: any[]): boolean;
     hdel(args: any[], callback?: ResCallbackT<any>): boolean;
     hdel(...args: any[]): boolean;
     hlen(args: any[], callback?: ResCallbackT<any>): boolean;

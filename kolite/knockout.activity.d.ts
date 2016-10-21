@@ -29,13 +29,13 @@ interface KoLiteActivity {
 }
 
 interface KoLiteActivityDefaultOptions {
-    activityClass?: string,
-    container?: string,
-    inactiveClass?: string
+    activityClass?: string;
+    container?: string;
+    inactiveClass?: string;
 }
 
 interface KoLiteActivityBindingHandler extends KnockoutBindingHandler {
-    defaultOptions: KoLiteActivityDefaultOptions
+    defaultOptions: KoLiteActivityDefaultOptions;
 }
 
 interface KnockoutBindingHandlers {

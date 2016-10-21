@@ -6,8 +6,8 @@
 /// <reference types="node" />
 
 
-import http = require('http');
-import stream = require('stream');
+import http = require("http");
+import stream = require("stream");
 
 
 interface WreckObject {

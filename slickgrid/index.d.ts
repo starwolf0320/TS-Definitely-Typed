@@ -401,7 +401,7 @@ declare namespace Slick {
 		* @param colDef
 		* @return
 		**/
-		asyncPostRender?: (cellNode:any, row:any, dataContext:any, colDef:any) => void;
+		asyncPostRender?: (cellNode: any, row: any, dataContext: any, colDef: any) => void;
 
 		/**
 		* Used by the the slick.rowMoveManager.js plugin for moving rows. Has no effect without the plugin installed.
@@ -742,7 +742,7 @@ declare namespace Slick {
 			 * Metadata indexed by column index
 			 */
 			[index: number]: ColumnMetadata<T>;
-		}
+		};
 	}
 
 	export interface ColumnMetadata<T extends SlickData> {
@@ -1246,7 +1246,7 @@ declare namespace Slick {
 		// #region Editors
 
 		public getEditorLock(): EditorLock<any>;
-		public getEditController(): { commitCurrentEdit():boolean; cancelCurrentEdit():boolean; };
+		public getEditController(): { commitCurrentEdit(): boolean; cancelCurrentEdit(): boolean; };
 
 		// #endregion Editors
 	}
@@ -1441,7 +1441,7 @@ declare namespace Slick {
 	export interface CellCssStylesHash {
 		[index: number]: {
 			[id: string]: string;
-		}
+		};
 	}
 
 	export interface Viewport {
@@ -1456,7 +1456,7 @@ declare namespace Slick {
 		msg: string;
 	}
 
-	export module Editors {
+	export namespace Editors {
 
 		export interface EditorOptions<T extends Slick.SlickData> {
 			column: Column<T>;
@@ -1469,8 +1469,8 @@ declare namespace Slick {
 			public init(): void;
 			public destroy(): void;
 			public focus(): void;
-			public loadValue(item:any): void; // todo: typeof(item)
-			public applyValue(item:any, state: string): void; // todo: typeof(item)
+			public loadValue(item: any): void; // todo: typeof(item)
+			public applyValue(item: any, state: string): void; // todo: typeof(item)
 			public isValueChanged(): boolean;
 			public serializeValue(): any;
 			public validate(): ValidateResults;
@@ -1534,14 +1534,14 @@ declare namespace Slick {
         (row: number, cell: number, value: any, columnDef: Column<T>, dataContext: SlickData): string;
 	}
 
-	export module Formatters {
+	export namespace Formatters {
 		var PercentComplete: Formatter<Slick.SlickData>;
 		var PercentCompleteBar: Formatter<Slick.SlickData>;
 		var YesNo: Formatter<Slick.SlickData>;
 		var Checkmark: Formatter<Slick.SlickData>;
 	}
 
-	export module Data {
+	export namespace Data {
 
 		export interface DataViewOptions<T extends Slick.SlickData> {
 			groupItemMetadataProvider?: GroupItemMetadataProvider<T>;
@@ -1562,7 +1562,7 @@ declare namespace Slick {
 			public getPagingInfo(): PagingOptions;
 			public getItems(): T[];
 			public setItems(data: T[], objectIdProperty?: string): void;
-			public setFilter(filterFn: (item: T, args:any) => boolean): void;	// todo: typeof(args)
+			public setFilter(filterFn: (item: T, args: any) => boolean): void;	// todo: typeof(args)
 			public sort(comparer: Function, ascending: boolean): void;		// todo: typeof(comparer), should be the same callback as Array.sort
 			public fastSort(field: string, ascending: boolean): void;
 			public fastSort(field: Function, ascending: boolean): void;		// todo: typeof(field), should be the same callback as Array.sort
@@ -1573,12 +1573,12 @@ declare namespace Slick {
 			/**
 			* @deprecated
 			**/
-			public groupBy(valueGetter:any, valueFormatter:any, sortComparer:any): void;
+			public groupBy(valueGetter: any, valueFormatter: any, sortComparer: any): void;
 
 			/**
 			* @deprecated
 			**/
-			public setAggregators(groupAggregators:any, includeCollapsed:any): void;
+			public setAggregators(groupAggregators: any, includeCollapsed: any): void;
 
 			/**
 			* @param level Optional level to collapse.  If not specified, applies to all levels.
@@ -1668,7 +1668,7 @@ declare namespace Slick {
 
 		}
 
-		export module Aggregators {
+		export namespace Aggregators {
 			export class Aggregator<T extends Slick.SlickData> {
 				public field: string;
 				public init(): void;

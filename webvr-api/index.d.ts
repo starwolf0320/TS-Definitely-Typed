@@ -40,7 +40,7 @@ declare class VRDisplay extends EventTarget {
    * The VRPose will contain the position, orientation, velocity,
    * and acceleration of each of these properties.
    */
-  getPose() : VRPose;
+  getPose(): VRPose;
 
   /**
    * Return the current instantaneous pose of the VRDisplay, with no

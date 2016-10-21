@@ -2,7 +2,7 @@
 // Project: https://github.com/apache/cordova-plugin-splashscreen
 // Definitions by: Microsoft Open Technologies Inc <http://msopentech.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// 
+//
 // Copyright (c) Microsoft Open Technologies Inc
 // Licensed under the MIT license.
 
@@ -13,5 +13,5 @@ interface Navigator {
         hide(): void;
         /** Displays the splash screen. */
         show(): void;
-    }
+    };
 }

@@ -337,7 +337,7 @@ declare namespace asana {
             auth: {
                 username: string;
                 password: string;
-            }
+            };
         }
 
         var OauthAuthenticator: OauthAuthenticatorStatic;
@@ -388,7 +388,7 @@ declare namespace asana {
              */
             headers: {
                 Authorization: string;
-            }
+            };
         }
 
         /**
@@ -2422,7 +2422,7 @@ declare namespace asana {
                 retryOnRateLimit: boolean;
                 requestTimeout: number;
                 _cachedVersionInfo: VersionInfo;
-            }
+            };
         }
 
         type SimpleResourceList = ResourceList<Resource>;

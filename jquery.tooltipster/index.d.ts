@@ -130,7 +130,7 @@ interface JQueryTooltipsterOptions {
     /**
     * Called after the tooltip has been repositioned by the position tracker (if enabled). Default: A function that will close the tooltip if the trigger is 'hover' and autoClose is false.
     */
-    positionTrackerCallback?:  (origin: JQuery) => void;
+    positionTrackerCallback?: (origin: JQuery) => void;
     /**
     * Specify if a TITLE attribute should be restored on the HTML element after a call to the 'destroy' method. This attribute may be omitted, or be restored with the value that existed before Tooltipster was initialized, or be restored with the stringified value of the current content. Note: in case of multiple tooltips on a single element, only the last destroyed tooltip may trigger a restoration. Default: 'current'
     */
@@ -166,7 +166,7 @@ interface JQuery {
 
     /**
     * Initiate the Tooltipster plugin
-    */ 
+    */
     tooltipster(): JQuery;
 
     /**

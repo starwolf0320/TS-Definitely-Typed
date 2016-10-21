@@ -6,7 +6,7 @@
 declare namespace Simple {
   type Fn<T> = {
     (...args: any[]): T
-  }
+  };
 
   export interface Static {
     /**

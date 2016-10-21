@@ -270,8 +270,8 @@ declare module "avoscloud-sdk" {
     class Object extends BaseObject {
 
         id: any;
-        createdAt:any;
-        updatedAt:any;
+        createdAt: any;
+        updatedAt: any;
         attributes: any;
         cid: string;
         changed: boolean;
@@ -645,18 +645,14 @@ declare module "avoscloud-sdk" {
     }
 
     namespace Analytics {
-
-        function track<T>(name: string, dimensions: any):Promise<T>;
+        function track<T>(name: string, dimensions: any): Promise<T>;
     }
 
-
     class Error {
-
         code: ErrorCode;
         message: string;
 
         constructor(code: ErrorCode, message: string);
-
     }
 
     enum ErrorCode {

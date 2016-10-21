@@ -61,7 +61,7 @@ export declare namespace OsmJSON {
     export interface Element {
         type: string;
         id: number;
-        tags?: { [name: string]: string; }
+        tags?: { [name: string]: string; };
         timestamp?: string;
         version?: number;
         changeset?: number;

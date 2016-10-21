@@ -17,4 +17,4 @@ queryExpression.addCondition( "account", "accountname", Sdk.Query.ConditionOpera
 Sdk.Q.retrieveMultiple( queryExpression ).then( entityCollection =>
 {
 	console.log( "Query matches " + entityCollection.getTotalRecordCount() + " records." );
-} ); 
+} );

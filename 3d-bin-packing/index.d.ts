@@ -9,8 +9,7 @@
 /// <reference types="react-data-grid" />
 /// <reference types="three" />
 
-declare module "3d-bin-packing"
-{
+declare module "3d-bin-packing" {
         export = bws.packer;
 }
 declare var ReactDataGrid: typeof AdazzleReactDataGrid.ReactDataGrid;

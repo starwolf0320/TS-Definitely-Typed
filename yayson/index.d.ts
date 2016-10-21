@@ -3,7 +3,7 @@
 // Definitions by: David Wood <https://github.com/Codesleuth>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module 'yayson' {
+declare module "yayson" {
   class Store {
     sync(obj: {}): any;
     find(type: string, id: string): any;
@@ -42,7 +42,7 @@ declare module 'yayson' {
   }
 
   interface YaysonOptions {
-    adapter?: 'default' | 'sequelize';
+    adapter?: "default" | "sequelize";
   }
 
   function y(arg?: YaysonOptions): Yayson;

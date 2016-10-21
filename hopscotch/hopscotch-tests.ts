@@ -38,7 +38,7 @@ var tourDefinition: TourDefinition = {
     {
       target: '.buttons',
       placement: 'top',
-      
+
       title: 'Another title',
       content: "A message",
 

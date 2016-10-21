@@ -95,7 +95,7 @@ declare namespace wrapper {
             STANZAS: string;
             XHTML_IM: string;
             XHTML: string;
-        }
+        };
 
         /** Constants: Connection Status Constants
          *  Connection status constants for use by the connection handler
@@ -447,7 +447,7 @@ declare namespace wrapper {
              */
             new (name: string, attrs?: any): Builder;
             prototype: any;
-        }
+        };
 
 
         /** Class: Strophe.Builder
@@ -641,7 +641,7 @@ declare namespace wrapper {
              */
             new (service: string, options?: ConnectionOptions): Connection;
             prototype: any;
-        }
+        };
 
         /** Class: Strophe.Connection
          *  XMPP Connection manager.

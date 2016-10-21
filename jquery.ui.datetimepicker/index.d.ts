@@ -22,7 +22,7 @@ interface DateTimePickerOptions extends JQueryUI.DatepickerOptions {
     defaultValue?: string; //Default: null - String of the default time value placed in the input on focus when the input is empty.
     minDateTime?: Date; //Default: null - Date object of the minimum datetime allowed.Also available as minDate.
     maxDateTime?: Date; //Default: null - Date object of the maximum datetime allowed.Also Available as maxDate.
-    parse?: string; //Default: 'strict' - How to parse the time string. Two methods are provided: 'strict' which must match the timeFormat exactly, and 'loose' which uses javascript's new Date(timeString) to guess the time. You may also pass in a function(timeFormat, timeString, options) to handle the parsing yourself, returning a simple object:      
+    parse?: string; //Default: 'strict' - How to parse the time string. Two methods are provided: 'strict' which must match the timeFormat exactly, and 'loose' which uses javascript's new Date(timeString) to guess the time. You may also pass in a function(timeFormat, timeString, options) to handle the parsing yourself, returning a simple object:
 
     // Alt field options
     altFieldTimeOnly?: boolean;  //Default: true - When altField is used from datepicker altField will only receive the formatted time and the original field only receives date.
@@ -45,7 +45,7 @@ interface DateTimePickerOptions extends JQueryUI.DatepickerOptions {
     millisecText?: string;   //Default: "Millisecond", A Localization Setting - Label used to identify the millisecond slider.
     microsecText?: string;   //Default: "Microsecond", A Localization Setting - Label used to identify the microsecond slider.
     timezoneText?: string;   //Default: "Timezone", A Localization Setting - Label used to identify the timezone slider.
-    isRTL?: boolean;         //Default: false, A Localization Setting - Right to Left support. 
+    isRTL?: boolean;         //Default: false, A Localization Setting - Right to Left support.
 
     // Timefield options
     controlType?: string;    //Default: 'slider' - Whether to use 'slider' or 'select'.If 'slider' is unavailable through jQueryUI, 'select' will be used.For advanced usage you may pass an object which implements "create", "options", "value" methods to use controls other than sliders or selects.See the _controls property in the source code for more details.
@@ -84,7 +84,7 @@ interface DateTimePickerOptions extends JQueryUI.DatepickerOptions {
     microsecGrid?: number;   //Default: 0 - When greater than 0 a label grid will be genereated under the slider.This number represents the units (in microseconds) between labels.
 
     // Timezone options
-    timezoneList?: Array<TimezoneOptions> //Default: [generated timezones] - An array of timezones used to populate the timezone select.Can be an array of values or an array of objects: { label: "EDT", value: -240 }. The value should be the offset number in minutes.So "-0400" which is the format "-hhmm", would equate to - 240 minutes.
+    timezoneList?: Array<TimezoneOptions>; //Default: [generated timezones] - An array of timezones used to populate the timezone select.Can be an array of values or an array of objects: { label: "EDT", value: -240 }. The value should be the offset number in minutes.So "-0400" which is the format "-hhmm", would equate to - 240 minutes.
 }
 
 interface TimezoneOptions {
@@ -122,7 +122,7 @@ interface parseDateTimeOptions {
 
 interface JQuery {
     datetimepicker(): JQuery;
-    datetimepicker(options?: DateTimePickerOptions): JQuery;            
+    datetimepicker(options?: DateTimePickerOptions): JQuery;
     datetimepicker(method: string, methodParameter: any): any;
     datetimepicker(method: 'formatTime', methodParameter: formatTimeOptions): string;
     datetimepicker(method: 'parseTime', methodParameter: parseTimeOptions): Time;

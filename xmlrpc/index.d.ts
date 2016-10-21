@@ -83,7 +83,7 @@ declare module 'xmlrpc' {
 
             decodeIso8601(time: string): Date;
             encodeIso8601(date: Date): string;
-        }
+        };
     }
 
     export = xmlrpc;

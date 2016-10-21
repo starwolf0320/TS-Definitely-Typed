@@ -9,9 +9,7 @@
 
 
 declare namespace bson {
-
-    export module BSONPure {
-
+    export namespace BSONPure {
         export interface DeserializeOptions {
             /** {Boolean, default:false}, evaluate functions in the BSON document scoped to the object deserialized. */
             evalFunctions?: boolean;

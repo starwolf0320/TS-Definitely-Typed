@@ -17,14 +17,14 @@ interface _IMobservableStatic {
      * @param properties the properties that should be added and made reactive
      * @returns targer
      */
-    extendReactive(target: Object, properties: Object):Object;
+    extendReactive(target: Object, properties: Object): Object;
 
     /**
      * Returns true if the provided value is reactive.
      * @param value object, function or array
      * @param propertyName if propertyName is specified, checkes whether value.propertyName is reactive.
      */
-    isReactive(value: any, propertyName?:string): boolean;
+    isReactive(value: any, propertyName?: string): boolean;
 
     /**
      * Can be used in combination with makeReactive / extendReactive.
@@ -33,12 +33,12 @@ interface _IMobservableStatic {
      * Future assignments to the same property will inherit this behavior.
      * @param value initial value of the reactive property that is being defined.
      */
-    asReference<T>(value: any):{value:T};
+    asReference<T>(value: any): {value: T};
 
     /**
      * ES6 / Typescript decorator which can to make class properties and getter functions reactive.
      */
-    observable(target: Object, key: string):any; // decorator / annotation
+    observable(target: Object, key: string): any; // decorator / annotation
 
     /**
      * Creates a reactive view and keeps it alive, so that the view is always
@@ -62,7 +62,7 @@ interface _IMobservableStatic {
      * @param scope (optional)
      * @returns disposer function to prematurely end the observer.
      */
-    observeUntil(predicate: ()=>boolean, effect: Mobservable.Lambda, scope?: any): Mobservable.Lambda;
+    observeUntil(predicate: () => boolean, effect: Mobservable.Lambda, scope?: any): Mobservable.Lambda;
 
     /**
      * During a transaction no views are updated until the end of the transaction.
@@ -70,7 +70,7 @@ interface _IMobservableStatic {
      * @param action a function that updates some reactive state
      * @returns any value that was returned by the 'action' parameter.
      */
-    transaction<T>(action: ()=>T): T;
+    transaction<T>(action: () => T): T;
 
     /**
      * Converts a reactive structure into a non-reactive structure.
@@ -81,20 +81,20 @@ interface _IMobservableStatic {
     /**
      * Sets the reporting level Defaults to 1. Use 0 for production or 2 for increased verbosity.
      */
-    logLevel:  number;  // 0 = production, 1 = development, 2 = debugging
+    logLevel: number;  // 0 = production, 1 = development, 2 = debugging
 
     extras: {
-        getDependencyTree(thing:any, property?:string): Mobservable.IDependencyTree;
+        getDependencyTree(thing: any, property?: string): Mobservable.IDependencyTree;
 
-        getObserverTree(thing:any, property?:string): Mobservable.IObserverTree;
+        getObserverTree(thing: any, property?: string): Mobservable.IObserverTree;
 
-        trackTransitions(extensive?:boolean, onReport?:(lines:Mobservable.ITransitionEvent) => void) : Mobservable.Lambda;
-    }
+        trackTransitions(extensive?: boolean, onReport?: (lines: Mobservable.ITransitionEvent) => void): Mobservable.Lambda;
+    };
 }
 
 interface IMakeReactive {
     <T>(value: T[], opts?: Mobservable.IMakeReactiveOptions): Mobservable.IObservableArray<T>;
-    <T>(value: ()=>T, opts?: Mobservable.IMakeReactiveOptions): Mobservable.IObservableValue<T>;
+    <T>(value: () => T, opts?: Mobservable.IMakeReactiveOptions): Mobservable.IObservableValue<T>;
     <T extends string|number|boolean|Date|RegExp|Function|void>(value: T, opts?: Mobservable.IMakeReactiveOptions): Mobservable.IObservableValue<T>;
     <T extends Object>(value: Object, opts?: Mobservable.IMakeReactiveOptions): T;
 }
@@ -104,12 +104,12 @@ interface IMobservableStatic extends _IMobservableStatic, IMakeReactive {
 
 declare namespace Mobservable {
     interface IMakeReactiveOptions {
-        as?:  string /* "auto" | "reference" | TODO:  see #8 "structure" */
-        scope?:  Object,
-        context?: Object,
-        recurse?:  boolean;
+        as?: string; /* "auto" | "reference" | TODO: see #8 "structure" */
+        scope?: Object;
+        context?: Object;
+        recurse?: boolean;
         name?: string;
-        // protected:  boolean TODO:  see #9
+        // protected: boolean TODO:  see #9
     }
 
     export interface IContextInfoStruct {
@@ -125,37 +125,37 @@ declare namespace Mobservable {
     }
 
     interface IObservable {
-        observe(callback: (...args: any[])=>void, fireImmediately?: boolean): Lambda;
+        observe(callback: (...args: any[]) => void, fireImmediately?: boolean): Lambda;
     }
 
     interface IObservableValue<T> extends IObservable {
         (): T;
-        (value: T):void;
-        observe(callback: (newValue: T, oldValue: T)=>void, fireImmediately?: boolean): Lambda;
+        (value: T): void;
+        observe(callback: (newValue: T, oldValue: T) => void, fireImmediately?: boolean): Lambda;
     }
 
     interface IObservableArray<T> extends IObservable, Array<T> {
         spliceWithArray(index: number, deleteCount?: number, newItems?: T[]): T[];
-        observe(listener: (changeData: IArrayChange<T>|IArraySplice<T>)=>void, fireImmediately?: boolean): Lambda;
+        observe(listener: (changeData: IArrayChange<T>|IArraySplice<T>) => void, fireImmediately?: boolean): Lambda;
         clear(): T[];
         replace(newItems: T[]): T[];
-        find(predicate: (item: T,index: number,array: IObservableArray<T>)=>boolean,thisArg?: any,fromIndex?: number): T;
+        find(predicate: (item: T, index: number, array: IObservableArray<T>) => boolean, thisArg?: any, fromIndex?: number): T;
         remove(value: T): boolean;
     }
 
     interface IArrayChange<T> {
-        type:  string; // Always:  'update'
-        object:  IObservableArray<T>;
-        index:  number;
-        oldValue:  T;
+        type: string; // Always: 'update'
+        object: IObservableArray<T>;
+        index: number;
+        oldValue: T;
     }
 
     interface IArraySplice<T> {
-        type:  string; // Always:  'splice'
-        object:  IObservableArray<T>;
-        index:  number;
-        removed:  T[];
-        addedCount:  number;
+        type: string; // Always: 'splice'
+        object: IObservableArray<T>;
+        index: number;
+        removed: T[];
+        addedCount: number;
     }
 
     interface IDependencyTree {
@@ -184,6 +184,6 @@ declare namespace Mobservable {
 }
 
 declare module "mobservable" {
-	var m : IMobservableStatic;
+	var m: IMobservableStatic;
 	export = m;
 }

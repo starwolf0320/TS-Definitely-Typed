@@ -17,7 +17,7 @@ declare namespace RRule {
         freq: RRule.Frequency;
         dtstart?: Date;
         interval?: number;
-        wkst?: number | Weekday
+        wkst?: number | Weekday;
         count?: number;
         until?: Date;
         bysetpos?: number | number[];

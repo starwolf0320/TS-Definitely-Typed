@@ -45,7 +45,7 @@ interface System {
 }
 
 interface WebPage {
-	
+
 	// Properties
 	canGoBack: boolean;
 	canGoForward: boolean;
@@ -205,13 +205,13 @@ interface WebPageSettings {
 }
 
 interface FileSystem {
-	
+
 	// Properties
 	separator: string;
 	workingDirectory: string;
-	
+
 	// Functions
-	
+
 	// Query Functions
 	list(path: string): string[];
 	absolute(path: string): string;

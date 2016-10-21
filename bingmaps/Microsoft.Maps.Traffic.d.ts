@@ -16,7 +16,7 @@ declare namespace Microsoft.Maps.Traffic {
         show(): void;
         showFlow(): void;
         showIncidents(): void;
-        showLegend():void;
+        showLegend(): void;
     }
 
 }

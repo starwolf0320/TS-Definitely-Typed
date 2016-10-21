@@ -25,6 +25,6 @@ interface KnockoutDirtyFlagStatic {
 
 // AMD
 declare var kodirtyflag: KnockoutDirtyFlagStatic;
-declare module 'kodirtyflag'{
+declare module 'kodirtyflag' {
     export = kodirtyflag;
 }

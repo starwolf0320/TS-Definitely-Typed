@@ -41,7 +41,7 @@ declare module "memwatch-next" {
          * End date.
          * @type {Date}
          */
-        end: Date,
+        end: Date;
 
         /**
          * Growth.

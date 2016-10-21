@@ -1,4 +1,4 @@
-﻿// Tests for prettyPhoto library 
+﻿// Tests for prettyPhoto library
 
 /// <reference types="jquery" />
 

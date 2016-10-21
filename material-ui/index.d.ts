@@ -876,8 +876,8 @@ declare namespace __MaterialUI {
             inputStyle?: React.CSSProperties;
             onBlur?: React.FocusEventHandler<{}>;
             onKeyDown?: React.KeyboardEventHandler<{}>;
-            rows?: number,
-            rowsMax?: number,
+            rows?: number;
+            rowsMax?: number;
             name?: string;
             type?: string;
             underlineDisabledStyle?: React.CSSProperties;
@@ -1750,8 +1750,8 @@ declare namespace __MaterialUI {
         onEnterKeyDown?: React.KeyboardEventHandler<{}>;
         onFocus?: React.FocusEventHandler<{}>;
         onKeyDown?: React.KeyboardEventHandler<{}>;
-        rows?: number,
-        rowsMax?: number,
+        rows?: number;
+        rowsMax?: number;
         style?: React.CSSProperties;
         textareaStyle?: React.CSSProperties;
         type?: string;
@@ -1811,8 +1811,8 @@ declare namespace __MaterialUI {
         name?: string;
         onBlur?: React.FocusEventHandler<{}>;
         onKeyDown?: React.KeyboardEventHandler<{}>;
-        rows?: number,
-        rowsMax?: number,
+        rows?: number;
+        rowsMax?: number;
         textareaStyle?: React.CSSProperties;
         type?: string;
         underlineDisabledStyle?: React.CSSProperties;
@@ -8494,32 +8494,32 @@ declare module 'material-ui/internal/AppCanvas' {
     export default AppCanvas;
 }
 declare module 'material-ui/internal/AutoLockScrolling' {
-  interface AutoLockScrollingProps extends React.Props<AutoLockScrolling> {
+    interface AutoLockScrollingProps extends React.Props<AutoLockScrolling> {
         lock: boolean;
     }
-  class AutoLockScrolling extends React.Component<AutoLockScrollingProps, {}> { }
+    class AutoLockScrolling extends React.Component<AutoLockScrollingProps, {}> { }
     export default AutoLockScrolling;
 }
 declare module 'material-ui/internal/BeforeAfterWrapper' {
-  interface BeforeAfterWrapperProps extends React.Props<BeforeAfterWrapper> {
-        afterElementType?: string,
-    afterStyle?: React.CSSProperties,
-        beforeElementType?: string,
-    beforeStyle?: React.CSSProperties,
-        elementType?: string,
-    style?: React.CSSProperties,
+    interface BeforeAfterWrapperProps extends React.Props<BeforeAfterWrapper> {
+        afterElementType?: string;
+        afterStyle?: React.CSSProperties;
+        beforeElementType?: string;
+        beforeStyle?: React.CSSProperties;
+        elementType?: string;
+        style?: React.CSSProperties;
     }
-  class BeforeAfterWrapper extends React.Component<BeforeAfterWrapperProps, {}> { }
+    class BeforeAfterWrapper extends React.Component<BeforeAfterWrapperProps, {}> { }
     export default BeforeAfterWrapper;
 }
 declare module 'material-ui/internal/CircleRipple' {
-  interface CircleRippleProps extends React.Props<CircleRipple> {
+    interface CircleRippleProps extends React.Props<CircleRipple> {
         aborted?: boolean;
         color?: string;
         opacity?: number;
-    style?: React.CSSProperties;
+        style?: React.CSSProperties;
     }
-  class CircleRipple extends React.Component<CircleRippleProps, {}> { }
+    class CircleRipple extends React.Component<CircleRippleProps, {}> { }
     export default CircleRipple;
 }
 declare module 'material-ui/internal/ClearFix' {
@@ -8530,10 +8530,10 @@ declare module 'material-ui/internal/ClearFix' {
     export default ClearFix;
 }
 declare module 'material-ui/internal/ClickAwayListener' {
-  interface ClickAwayListenerProps extends React.Props<ClickAwayListener> {
-        onClickAway?: any,
+    interface ClickAwayListenerProps extends React.Props<ClickAwayListener> {
+        onClickAway?: any;
     }
-  class ClickAwayListener extends React.Component<ClickAwayListenerProps, {}> { }
+    class ClickAwayListener extends React.Component<ClickAwayListenerProps, {}> { }
     export default ClickAwayListener;
 }
 declare module 'material-ui/internal/EnhancedButton' {
@@ -8571,24 +8571,24 @@ declare module 'material-ui/internal/ExpandTransitionChild' {
     export default ExpandTransitionChild;
 }
 declare module 'material-ui/internal/FocusRipple' {
-  interface FocusRippleProps extends React.Props<FocusRipple> {
+    interface FocusRippleProps extends React.Props<FocusRipple> {
         color?: string,
-    innerStyle?: React.CSSProperties,
+        innerStyle?: React.CSSProperties,
         opacity?: number,
         show?: boolean,
-    style?: React.CSSProperties
+        style?: React.CSSProperties
     }
-  class FocusRipple extends React.Component<FocusRippleProps, {}> { }
+    class FocusRipple extends React.Component<FocusRippleProps, {}> { }
     export default FocusRipple;
 }
 declare module 'material-ui/internal/Overlay' {
-  interface OverlayProps extends React.Props<Overlay> {
+    interface OverlayProps extends React.Props<Overlay> {
         autoLockScrolling?: boolean;
         show: boolean;
-    style?: React.CSSProperties;
+        style?: React.CSSProperties;
         transitionEnabled?: boolean;
     }
-  class Overlay extends React.Component<OverlayProps, {}> { }
+    class Overlay extends React.Component<OverlayProps, {}> { }
     export default Overlay;
 }
 declare module 'material-ui/internal/RenderToLayer' {
@@ -8632,13 +8632,13 @@ declare module 'material-ui/internal/SlideIn' {
     export default SlideIn;
 }
 declare module 'material-ui/internal/SlideInChild' {
-  interface SlideInChildProps extends React.Props<SlideInChild> {
+    interface SlideInChildProps extends React.Props<SlideInChild> {
         direction?: string,
         enterDelay?: number;
         getLeaveDirection: Function;
-    style?: React.CSSProperties;
+        style?: React.CSSProperties;
     }
-  class SlideInChild extends React.Component<SlideInChildProps, {}> { }
+    class SlideInChild extends React.Component<SlideInChildProps, {}> { }
     export default SlideInChild;
 }
 declare module 'material-ui/internal/Tooltip' {
@@ -8656,12 +8656,12 @@ declare module 'material-ui/internal/Tooltip' {
 }
 declare module 'material-ui/internal/TouchRipple' {
   interface TouchRippleProps extends React.Props<TouchRipple> {
-        abortOnScroll?: boolean,
+        abortOnScroll?: boolean;
         centerRipple?: boolean;
         color?: string;
         opacity?: number;
-    style?: React.CSSProperties
+        style?: React.CSSProperties;
     }
-  class TouchRipple extends React.Component<TouchRippleProps, {}> { }
+    class TouchRipple extends React.Component<TouchRippleProps, {}> { }
     export default TouchRipple;
 }

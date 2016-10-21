@@ -122,8 +122,8 @@ interface Cheerio {
     add(elements: CheerioElement[]): Cheerio;
     add(selection: Cheerio): Cheerio;
 
-    addBack():Cheerio;
-    addBack(filter: string):Cheerio;
+    addBack(): Cheerio;
+    addBack(filter: string): Cheerio;
 
     // Manipulation
 
@@ -262,7 +262,7 @@ interface CheerioAPI extends CheerioSelector {
   load(element: CheerioElement, options?: CheerioOptionsInterface): CheerioStatic;
 }
 
-declare var cheerio:CheerioAPI;
+declare var cheerio: CheerioAPI;
 
 declare module "cheerio" {
     export = cheerio;

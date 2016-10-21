@@ -10,8 +10,8 @@ var deflate = new pako.Deflate({ level: 3});
 deflate.push(chunk1, false);
 deflate.push(chunk2, true);  // true -> last chunk
 
-if (deflate.err) { 
-	throw new Error( deflate.err.toString() ); 
+if (deflate.err) {
+	throw new Error( deflate.err.toString() );
 }
 
 console.log(deflate.result);

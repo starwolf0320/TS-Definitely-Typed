@@ -81,7 +81,7 @@ interface SliderOptions {
      * formatter callback. Return the value wanted to be displayed in the tooltip
      * @param val the current value to display
      */
-    formatter?(val:number): string;
+    formatter?(val: number): string;
     /**
      * Default: false
      * The natural order is used for the arrow keys. Arrow up select the upper slider value for vertical sliders, arrow right the righter slider value for a horizontal slider - no matter if the slider was reversed or not. By default the arrow keys are oriented by arrow up/right to the higher slider value, arrow down/left to the lower slider value.
@@ -124,8 +124,8 @@ interface JQuery {
      * Creates a slider from the current element.
      * @param options
      */
-    slider(options?:SliderOptions): JQuery;
-    slider(methodName:string, ...args:any[]): JQuery;
+    slider(options?: SliderOptions): JQuery;
+    slider(methodName: string, ...args: any[]): JQuery;
 }
 
 interface ChangeValue {
@@ -160,7 +160,7 @@ interface Slider extends JQuery {
      * @param triggerSlideEvent
      * @param triggerChangeEvent
      */
-    setValue(newValue:number, triggerSlideEvent?:boolean, triggerChangeEvent?:boolean): void;
+    setValue(newValue: number, triggerSlideEvent?: boolean, triggerChangeEvent?: boolean): void;
     /**
      * Properly clean up and remove the slider instance
      */
@@ -182,12 +182,12 @@ interface Slider extends JQuery {
      * @param attribute
      * @param value
      */
-    setAttribute(attribute:string, value:any): void;
+    setAttribute(attribute: string, value: any): void;
     /**
      * Get the slider's attributes
      * @param attribute
      */
-    getAttribute(attribute:string): any;
+    getAttribute(attribute: string): any;
     /**
      * Refreshes the current slider
      */
@@ -197,11 +197,11 @@ interface Slider extends JQuery {
      */
     relayout(): void;
     on: {
-        (eventType:string, callback:(eventObject:JQueryEventObject, ...args:any[]) => any): Slider;
-        (eventType:string, data:any, callback:(eventObject:JQueryEventObject, ...args:any[]) => any): Slider;
-        (eventType:string, selector:string, callback:(eventObject:JQueryEventObject, ...eventData:any[]) => any): Slider;
-        (eventType:string, selector:string, data:any, callback:(eventObject:JQueryEventObject, ...eventData:any[]) => any): Slider;
-        (eventType:{ [key: string]: any; }, selector?:string, data?:any): Slider;
-        (eventType:{ [key: string]: any; }, data?:any): Slider;
-    }
+        (eventType: string, callback: (eventObject: JQueryEventObject, ...args: any[]) => any): Slider;
+        (eventType: string, data: any, callback: (eventObject: JQueryEventObject, ...args: any[]) => any): Slider;
+        (eventType: string, selector: string, callback: (eventObject: JQueryEventObject, ...eventData: any[]) => any): Slider;
+        (eventType: string, selector: string, data: any, callback: (eventObject: JQueryEventObject, ...eventData: any[]) => any): Slider;
+        (eventType: { [key: string]: any; }, selector?: string, data?: any): Slider;
+        (eventType: { [key: string]: any; }, data?: any): Slider;
+    };
 }

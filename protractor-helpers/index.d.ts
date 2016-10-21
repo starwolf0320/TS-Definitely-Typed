@@ -11,19 +11,19 @@
 
 declare namespace protractor {
   interface ElementArrayFinder {
-    getByText(text: string) : protractor.ElementFinder;
-    $$data(hook: string) : protractor.ElementArrayFinder;
+    getByText(text: string): protractor.ElementFinder;
+    $$data(hook: string): protractor.ElementArrayFinder;
   }
 
   interface ElementFinder {
-    $data(hook: string) : protractor.ElementFinder;
+    $data(hook: string): protractor.ElementFinder;
   }
 }
 
 // Globals
 
-declare function $data(hook: string) : protractor.ElementFinder;
-declare function $$data(hook: string) : protractor.ElementArrayFinder;
+declare function $data(hook: string): protractor.ElementFinder;
+declare function $$data(hook: string): protractor.ElementArrayFinder;
 
 
 // Locators
@@ -32,8 +32,8 @@ declare function $$data(hook: string) : protractor.ElementArrayFinder;
 //        Are they Locator s?
 declare namespace protractor {
 	interface IProtractorLocatorStrategy {
-		dataHook(hook: string, optParentElement?: protractor.ElementFinder, optRootSelector?: string) : webdriver.Locator;
-		dataHookAll(hook: string, optParentElement?: protractor.ElementFinder, optRootSelector?: string) : webdriver.Locator;
+		dataHook(hook: string, optParentElement?: protractor.ElementFinder, optRootSelector?: string): webdriver.Locator;
+		dataHookAll(hook: string, optParentElement?: protractor.ElementFinder, optRootSelector?: string): webdriver.Locator;
 	}
 }
 
@@ -45,66 +45,66 @@ declare namespace protractor {
 
 declare namespace jasmine {
   interface Matchers {
-    toBePresent() : boolean;
-    toBeDisplayed() : boolean;
-    toHaveCountOf(expectedCount : number) : boolean;
-    toHaveText(expectedText : string) : boolean;
-    toMatchRegex(regex : RegExp) : boolean;
-    toMatchMoney(expectedValue : number, currencySymbol? : string) : boolean;
-    toMatchMoneyWithFraction(expectedValue : number, currencySymbol?: string) : boolean;
-    toHaveValue(actual: string | number) : boolean;
-    toHaveClass(className : string) : boolean;
-    toHaveUrl(url : string) : boolean;
-    toBeDisabled() : boolean;
-    toBeChecked() : boolean;
-    toBeValid() : boolean;
-    toBeInvalid() : boolean;
-    toBeInvalidRequired() : boolean;
+    toBePresent(): boolean;
+    toBeDisplayed(): boolean;
+    toHaveCountOf(expectedCount: number): boolean;
+    toHaveText(expectedText: string): boolean;
+    toMatchRegex(regex: RegExp): boolean;
+    toMatchMoney(expectedValue: number, currencySymbol?: string): boolean;
+    toMatchMoneyWithFraction(expectedValue: number, currencySymbol?: string): boolean;
+    toHaveValue(actual: string | number): boolean;
+    toHaveClass(className: string): boolean;
+    toHaveUrl(url: string): boolean;
+    toBeDisabled(): boolean;
+    toBeChecked(): boolean;
+    toBeValid(): boolean;
+    toBeInvalid(): boolean;
+    toBeInvalidRequired(): boolean;
     // Copied definitions from angular-translate.
-    toMatchTranslated(translationId : string, interpolateParams? : any) : boolean;
-    toMatchTranslated(translationId : string[], interpolateParams? : any) : boolean;
+    toMatchTranslated(translationId: string, interpolateParams?: any): boolean;
+    toMatchTranslated(translationId: string[], interpolateParams?: any): boolean;
   }
 }
 
 
 declare module "protractor-helpers" {
 
-  function not(arg: webdriver.promise.IThenable<any>) : webdriver.promise.IThenable<boolean>;
+  function not(arg: webdriver.promise.IThenable<any>): webdriver.promise.IThenable<boolean>;
 
   // Copied definitions from angular-translate.
   function translate(translationId: string, interpolateParams?: any): webdriver.promise.IThenable<string>;
   function translate(translationId: string[], interpolateParams?: any): webdriver.promise.IThenable<{ [key: string]: string }>;
 
-  function safeGet(url: string) : void;
+  function safeGet(url: string): void;
 
-  function maximizeWindow(width?: number, height?: number) : void; // TODO
-  function resetPosition() : void;
-  function moveToElement(hook: string) : void;
-  function displayHover(element: protractor.ElementFinder) : void;
+  function maximizeWindow(width?: number, height?: number): void; // TODO
+  function resetPosition(): void;
+  function moveToElement(hook: string): void;
+  function displayHover(element: protractor.ElementFinder): void;
 
-  function waitForElement(element: protractor.ElementFinder, timeout?: number) : void;
-  function waitForElementToDisappear(element: protractor.ElementFinder, timeout?: number) : void;
+  function waitForElement(element: protractor.ElementFinder, timeout?: number): void;
+  function waitForElementToDisappear(element: protractor.ElementFinder, timeout?: number): void;
 
-  function selectOptionByText(select: protractor.ElementFinder, text: string) : void;
-  function selectOptionByIndex(select: protractor.ElementFinder, index: number) : void;
+  function selectOptionByText(select: protractor.ElementFinder, text: string): void;
+  function selectOptionByIndex(select: protractor.ElementFinder, index: number): void;
 
-  function selectOption(option: protractor.ElementFinder) : void
+  function selectOption(option: protractor.ElementFinder): void;
 
-  function isFirefox() : boolean;
-  function isIE() : boolean;
+  function isFirefox(): boolean;
+  function isIE(): boolean;
 
-  function createMessage(actual : string, message : string, isNot : any) : string; // isNot : boolean too inflexible
-  function createMessage(actual : protractor.ElementFinder, message : string, isNot : any) : string; // isNot : boolean too inflexible
-  function createMessage(actual : protractor.ElementArrayFinder, message : string, isNot : any) : string; // isNot : boolean too inflexible
+  function createMessage(actual: string, message: string, isNot: any): string; // isNot: boolean too inflexible
+  function createMessage(actual: protractor.ElementFinder, message: string, isNot: any): string; // isNot: boolean too inflexible
+  function createMessage(actual: protractor.ElementArrayFinder, message: string, isNot: any): string; // isNot: boolean too inflexible
 
-  function clearAndSetValue(input : protractor.ElementFinder, value : string) : void; // TODO - sendKeys(value)
+  function clearAndSetValue(input: protractor.ElementFinder, value: string): void; // TODO - sendKeys(value)
 
-  function hasClass(element: protractor.ElementFinder, className: string) : webdriver.promise.IThenable<boolean>;
-  function hasValue(element: protractor.ElementFinder, expectedValue: string) : webdriver.promise.IThenable<boolean>;
-  function hasValue(element: protractor.ElementFinder, expectedValue: number) : webdriver.promise.IThenable<boolean>;
-  function hasLink(element: protractor.ElementFinder, url: string) : webdriver.promise.IThenable<boolean>;
-  function isDisabled(element: protractor.ElementFinder) : webdriver.promise.IThenable<boolean>;
-  function isChecked(element: protractor.ElementFinder) : webdriver.promise.IThenable<boolean>;
-  function getFilteredConsoleErrors() : webdriver.promise.IThenable<string[]>; // TODO - discuss handling in IE
+  function hasClass(element: protractor.ElementFinder, className: string): webdriver.promise.IThenable<boolean>;
+  function hasValue(element: protractor.ElementFinder, expectedValue: string): webdriver.promise.IThenable<boolean>;
+  function hasValue(element: protractor.ElementFinder, expectedValue: number): webdriver.promise.IThenable<boolean>;
+  function hasLink(element: protractor.ElementFinder, url: string): webdriver.promise.IThenable<boolean>;
+  function isDisabled(element: protractor.ElementFinder): webdriver.promise.IThenable<boolean>;
+  function isChecked(element: protractor.ElementFinder): webdriver.promise.IThenable<boolean>;
+  function getFilteredConsoleErrors(): webdriver.promise.IThenable<string[]>; // TODO - discuss handling in IE
 
 }

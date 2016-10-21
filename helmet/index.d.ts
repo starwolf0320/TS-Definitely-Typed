@@ -10,16 +10,16 @@ export = helmet;
 
 declare namespace helmet {
     export interface IHelmetConfiguration {
-        contentSecurityPolicy?: boolean | IHelmetContentSecurityPolicyConfiguration,
-        dnsPrefetchControl?: boolean | IHelmetDnsPrefetchControlConfiguration,
-        frameguard?: boolean | IHelmetFrameguardConfiguration,
-        hidePoweredBy?: boolean | IHelmetHidePoweredByConfiguration,
-        hpkp?: boolean | IHelmetHpkpConfiguration,
-        hsts?: boolean | IHelmetHstsConfiguration,
-        ieNoOpen?: boolean,
-        noCache?: boolean,
-        noSniff?: boolean,
-        xssFilter?: boolean | IHelmetXssFilterConfiguration
+        contentSecurityPolicy?: boolean | IHelmetContentSecurityPolicyConfiguration;
+        dnsPrefetchControl?: boolean | IHelmetDnsPrefetchControlConfiguration;
+        frameguard?: boolean | IHelmetFrameguardConfiguration;
+        hidePoweredBy?: boolean | IHelmetHidePoweredByConfiguration;
+        hpkp?: boolean | IHelmetHpkpConfiguration;
+        hsts?: boolean | IHelmetHstsConfiguration;
+        ieNoOpen?: boolean;
+        noCache?: boolean;
+        noSniff?: boolean;
+        xssFilter?: boolean | IHelmetXssFilterConfiguration;
     }
 
     export interface IHelmetContentSecurityPolicyDirectiveFunction {
@@ -28,22 +28,22 @@ declare namespace helmet {
     export type HelmetCspDirectiveValue = string | IHelmetContentSecurityPolicyDirectiveFunction;
 
     export interface IHelmetContentSecurityPolicyDirectives {
-        baseUri?: HelmetCspDirectiveValue[],
-        childSrc?: HelmetCspDirectiveValue[],
-        connectSrc?: HelmetCspDirectiveValue[],
-        defaultSrc?: HelmetCspDirectiveValue[],
-        fontSrc?: HelmetCspDirectiveValue[],
-        formAction?: HelmetCspDirectiveValue[],
-        frameAncestors?: HelmetCspDirectiveValue[],
-        frameSrc?: HelmetCspDirectiveValue[],
-        imgSrc?: HelmetCspDirectiveValue[],
-        mediaSrc?: HelmetCspDirectiveValue[],
-        objectSrc?: HelmetCspDirectiveValue[],
-        pluginTypes?: HelmetCspDirectiveValue[],
-        reportUri?: string,
-        sandbox?: HelmetCspDirectiveValue[],
-        scriptSrc?: HelmetCspDirectiveValue[],
-        styleSrc?: HelmetCspDirectiveValue[]
+        baseUri?: HelmetCspDirectiveValue[];
+        childSrc?: HelmetCspDirectiveValue[];
+        connectSrc?: HelmetCspDirectiveValue[];
+        defaultSrc?: HelmetCspDirectiveValue[];
+        fontSrc?: HelmetCspDirectiveValue[];
+        formAction?: HelmetCspDirectiveValue[];
+        frameAncestors?: HelmetCspDirectiveValue[];
+        frameSrc?: HelmetCspDirectiveValue[];
+        imgSrc?: HelmetCspDirectiveValue[];
+        mediaSrc?: HelmetCspDirectiveValue[];
+        objectSrc?: HelmetCspDirectiveValue[];
+        pluginTypes?: HelmetCspDirectiveValue[];
+        reportUri?: string;
+        sandbox?: HelmetCspDirectiveValue[];
+        scriptSrc?: HelmetCspDirectiveValue[];
+        styleSrc?: HelmetCspDirectiveValue[];
     }
 
     export interface IHelmetContentSecurityPolicyConfiguration {
@@ -51,7 +51,7 @@ declare namespace helmet {
         setAllHeaders?: boolean;
         disableAndroid?: boolean;
         browserSniff?: boolean;
-        directives?: IHelmetContentSecurityPolicyDirectives
+        directives?: IHelmetContentSecurityPolicyDirectives;
     }
 
     export interface IHelmetDnsPrefetchControlConfiguration {
@@ -59,12 +59,12 @@ declare namespace helmet {
     }
 
     export interface IHelmetFrameguardConfiguration {
-        action?: string,
-        domain?: string
+        action?: string;
+        domain?: string;
     }
 
     export interface IHelmetHidePoweredByConfiguration {
-        setTo?: string
+        setTo?: string;
     }
 
     export interface IHelmetSetIfFunction {
@@ -77,14 +77,14 @@ declare namespace helmet {
         includeSubdomains?: boolean;
         reportUri?: string;
         reportOnly?: boolean;
-        setIf?: IHelmetSetIfFunction
+        setIf?: IHelmetSetIfFunction;
     }
 
     export interface IHelmetHstsConfiguration {
         maxAge: number;
         includeSubdomains?: boolean;
         preload?: boolean;
-        setIf?: IHelmetSetIfFunction,
+        setIf?: IHelmetSetIfFunction;
         force?: boolean;
     }
 

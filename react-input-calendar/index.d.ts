@@ -83,7 +83,7 @@ declare namespace reactInputCalendar {
     export class ReactInputCalendar extends React.Component<ReactInputCalendarProps, ReactInputCalendarState> {
     }
 }
-declare var ReactInputCalendar: typeof reactInputCalendar.ReactInputCalendar
+declare var ReactInputCalendar: typeof reactInputCalendar.ReactInputCalendar;
 declare module "react-input-calendar" {
     export = ReactInputCalendar;
 }

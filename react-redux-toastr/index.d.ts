@@ -14,41 +14,41 @@ declare module "react-redux-toastr" {
         /**
          * Timeout in miliseconds.
          */
-        timeOut?: number,
+        timeOut?: number;
         /**
          * Show newest on top or bottom.
          */
-        newestOnTop?: boolean,
+        newestOnTop?: boolean;
         /**
          * Position of the toastr: top-left, top-center, top-right, bottom-left, bottom-center and bottom-right
          */
-        position?: string,
-        confirmText?: ConfirmText
+        position?: string;
+        confirmText?: ConfirmText;
     }
 
     interface ConfirmText {
-        okText: string,
-        cancelText: string
+        okText: string;
+        cancelText: string;
     }
 
     /**
      * Toastr react component.
      */
-    export default class ReduxToastr extends R.Component<ToastrOptions, any>{ }
+    export default class ReduxToastr extends R.Component<ToastrOptions, any> { }
 
     interface EmitterOptions {
         /**
          * Notification popup icon.
          * icon-close-round, icon-information-circle, icon-check-1, icon-exclamation-triangle, icon-exclamation-alert
          */
-        icon?: string,
+        icon?: string;
         /**
          * Timeout in miliseconds.
          */
-        timeOut?: number,
-        removeOnHover?: boolean,
-        removeOnClick?: boolean,
-        component?: R.Component<any, any>,
+        timeOut?: number;
+        removeOnHover?: boolean;
+        removeOnClick?: boolean;
+        component?: R.Component<any, any>;
         onShowComplete?(): void;
         onHideComplete?(): void;
     }
@@ -82,15 +82,15 @@ declare module "react-redux-toastr" {
      * Possible actions to dispatch.
      */
     interface Actions {
-        addToastrAction: Redux.Action,
-        clean: Redux.Action,
-        remove: Redux.Action,
-        success: Redux.Action,
-        info: Redux.Action,
-        warning: Redux.Action,
-        error: Redux.Action,
-        showConfirm: Redux.Action,
-        hideConfirm: Redux.Action
+        addToastrAction: Redux.Action;
+        clean: Redux.Action;
+        remove: Redux.Action;
+        success: Redux.Action;
+        info: Redux.Action;
+        warning: Redux.Action;
+        error: Redux.Action;
+        showConfirm: Redux.Action;
+        hideConfirm: Redux.Action;
     }
 
     /**

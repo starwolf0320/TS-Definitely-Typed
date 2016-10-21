@@ -51,26 +51,25 @@ interface ICordovaPluginBackgroundModeNotificationItem {
   /**
    * The title of the notification displayed in background mode
    */
-  title?: string,
+  title?: string;
   /**
    * The ticker of the notification displayed in background mode
    */
-  ticker?: string,
+  ticker?: string;
   /**
    * The body of the notification displayed in background mode
    */
-  text?: string,
+  text?: string;
   /**
    * Handles if app is coming to foreground when tapping on the notification
    */
-  resume?: boolean,
+  resume?: boolean;
   /**
    * Handles if there is a notification when background is activated
    */
-  silent?: boolean
+  silent?: boolean;
 }
 
 interface CordovaPlugins {
-
-  backgroundMode: CordovaPluginBackgroundMode
+  backgroundMode: CordovaPluginBackgroundMode;
 }

@@ -6,7 +6,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Mail {
+  export namespace Mail {
     /**
      * Sends email.
      *

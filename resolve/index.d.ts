@@ -76,7 +76,7 @@ declare namespace resolve {
     // require.paths array to use if nothing is found on the normal node_modules recursive walk (probably don't use this)
     paths?: string | string[];
     // directory (or directories) in which to recursively look for modules. (default to 'node_modules')
-    moduleDirectory?: string | string[]
+    moduleDirectory?: string | string[];
   }
 
   export interface AsyncOpts extends Opts {

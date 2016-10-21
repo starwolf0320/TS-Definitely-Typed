@@ -7,7 +7,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Drive {
+  export namespace Drive {
     /**
      * An enum representing classes of users who can access a file or folder, besides any individual
      *  users who have been explicitly given access. These properties can be accessed from
@@ -32,8 +32,8 @@ declare namespace GoogleAppsScript {
      *      }
      */
     export interface DriveApp {
-      Access: Access
-      Permission: Permission
+      Access: Access;
+      Permission: Permission;
       addFile(child: File): Folder;
       addFolder(child: Folder): Folder;
       continueFileIterator(continuationToken: string): FileIterator;

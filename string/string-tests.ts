@@ -117,7 +117,7 @@ S('My name is JP').left(-2).s; //'JP', same as right(2)
 
 var stuff = "My name is JP\nJavaScript is my fav language\r\nWhat is your fav language?"
 var lines = S(stuff).lines()
-console.dir(lines) 
+console.dir(lines)
 /*
 [ 'My name is JP',
   'JavaScript is my fav language',

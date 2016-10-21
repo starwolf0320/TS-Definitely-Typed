@@ -13,7 +13,7 @@ declare namespace phonegapBarcode {
         format: string;
         cancelled: boolean;
     }
-    
+
     interface BarcodeScanOptions {
         preferFrontCamera?: boolean;
         showFlipCameraButton?: boolean;

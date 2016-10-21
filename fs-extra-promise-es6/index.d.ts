@@ -11,7 +11,7 @@
 import stream = require("stream");
 import fs = require("fs");
 
-export type Stats = fs.Stats
+export type Stats = fs.Stats;
 
 export interface FSWatcher {
     close(): void;

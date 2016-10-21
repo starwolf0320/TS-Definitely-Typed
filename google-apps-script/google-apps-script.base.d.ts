@@ -6,7 +6,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Base {
+  export namespace Base {
     /**
      * A data interchange object for Apps Script services.
      */
@@ -76,7 +76,7 @@ declare namespace GoogleAppsScript {
      * ButtonSet
      */
     export interface Browser {
-      Buttons: ButtonSet
+      Buttons: ButtonSet;
       inputBox(prompt: string): string;
       inputBox(prompt: string, buttons: ButtonSet): string;
       inputBox(title: string, prompt: string, buttons: ButtonSet): string;
@@ -244,8 +244,8 @@ declare namespace GoogleAppsScript {
      *      }
      */
     export interface Ui {
-      Button: Button
-      ButtonSet: ButtonSet
+      Button: Button;
+      ButtonSet: ButtonSet;
       alert(prompt: string): Button;
       alert(prompt: string, buttons: ButtonSet): Button;
       alert(title: string, prompt: string, buttons: ButtonSet): Button;

@@ -23,22 +23,22 @@ declare namespace Match {
 	var undefined: any;
 	//function null();  // not allowed in TypeScript
 	var Object: any;
-	function Optional(pattern: any):boolean;
-	function ObjectIncluding(dico: any):boolean;
+	function Optional(pattern: any): boolean;
+	function ObjectIncluding(dico: any): boolean;
 	function OneOf(...patterns: any[]): any;
 	function Where(condition: any): any;
 }
 
 declare namespace Meteor {
 	interface UserEmail {
-		address:string;
-		verified:boolean;
+		address: string;
+		verified: boolean;
 	}
 
 	interface User {
-		_id?:string;
-		username?:string;
-		emails?:Meteor.UserEmail[];
+		_id?: string;
+		username?: string;
+		emails?: Meteor.UserEmail[];
 		createdAt?: number;
 		profile?: any;
 		services?: any;
@@ -60,10 +60,10 @@ declare namespace Meteor {
 declare namespace DDP {
 	interface DDPStatic {
 		subscribe(name: string, ...rest: any[]): Meteor.SubscriptionHandle;
-		call(method: string, ...parameters: any[]):void;
-		apply(method: string, ...parameters: any[]):void;
+		call(method: string, ...parameters: any[]): void;
+		apply(method: string, ...parameters: any[]): void;
 		methods(IMeteorMethodsDictionary: any): any;
-		status():DDPStatus;
+		status(): DDPStatus;
 		reconnect(): void;
 		disconnect(): void;
 		onReconnect(): void;
@@ -81,7 +81,7 @@ declare namespace DDP {
 
 declare namespace Mongo {
 	interface Selector {
-		[key: string]:any;
+		[key: string]: any;
 	}
 	interface Selector extends Object {}
 	interface Modifier {}
@@ -94,24 +94,24 @@ declare namespace Mongo {
 declare namespace HTTP {
 
 	interface HTTPRequest {
-		content?:string;
-		data?:any;
-		query?:string;
-		params?:{[id:string]:string};
-		auth?:string;
-		headers?:{[id:string]:string};
-		timeout?:number;
-		followRedirects?:boolean;
+		content?: string;
+		data?: any;
+		query?: string;
+		params?: {[id: string]: string};
+		auth?: string;
+		headers?: {[id: string]: string};
+		timeout?: number;
+		followRedirects?: boolean;
 	}
 
 	interface HTTPResponse {
-		statusCode?:number;
-		headers?:{[id:string]: string};
-		content?:string;
-		data?:any;
+		statusCode?: number;
+		headers?: {[id: string]: string};
+		content?: string;
+		data?: any;
 	}
 
-	function call(method: string, url: string, options?: HTTP.HTTPRequest, asyncCallback?:Function):HTTP.HTTPResponse;
+	function call(method: string, url: string, options?: HTTP.HTTPRequest, asyncCallback?: Function): HTTP.HTTPResponse;
 	function del(url: string, callOptions?: HTTP.HTTPRequest, asyncCallback?: Function): HTTP.HTTPResponse;
 	function get(url: string, callOptions?: HTTP.HTTPRequest, asyncCallback?: Function): HTTP.HTTPResponse;
 	function post(url: string, callOptions?: HTTP.HTTPRequest, asyncCallback?: Function): HTTP.HTTPResponse;
@@ -121,10 +121,10 @@ declare namespace HTTP {
 declare namespace Random {
 	function id(numberOfChars?: number): string;
 	function secret(numberOfChars?: number): string;
-	function fraction():number;
-	function hexString(numberOfDigits:number):string; // @param numberOfDigits, @returns a random hex string of the given length
-	function choice(array:any[]):string; // @param array, @return a random element in array
-	function choice(str:string):string; // @param str, @return a random char in str
+	function fraction(): number;
+	function hexString(numberOfDigits: number): string; // @param numberOfDigits, @returns a random hex string of the given length
+	function choice(array: any[]): string; // @param array, @return a random element in array
+	function choice(str: string): string; // @param str, @return a random char in str
 }
 
 declare namespace Accounts {
@@ -139,31 +139,31 @@ declare namespace Accounts {
 declare namespace Meteor {
 	/** Start definitions for Template **/
 	export interface Event {
-		type:string;
-		target:HTMLElement;
-		currentTarget:HTMLElement;
+		type: string;
+		target: HTMLElement;
+		currentTarget: HTMLElement;
 		which: number;
-		stopPropagation():void;
-		stopImmediatePropagation():void;
-		preventDefault():void;
-		isPropagationStopped():boolean;
-		isImmediatePropagationStopped():boolean;
-		isDefaultPrevented():boolean;
+		stopPropagation(): void;
+		stopImmediatePropagation(): void;
+		preventDefault(): void;
+		isPropagationStopped(): boolean;
+		isImmediatePropagationStopped(): boolean;
+		isDefaultPrevented(): boolean;
 	}
 
 	interface EventHandlerFunction extends Function {
-		(event?:Meteor.Event, templateInstance?: Blaze.TemplateInstance):void;
+		(event?: Meteor.Event, templateInstance?: Blaze.TemplateInstance): void;
 	}
 
 	interface EventMap {
-		[id:string]:Meteor.EventHandlerFunction;
+		[id: string]: Meteor.EventHandlerFunction;
 	}
 	/** End definitions for Template **/
 
 	interface LoginWithExternalServiceOptions {
 		requestPermissions?: string[];
 		requestOfflineToken?: boolean;
-		loginUrlParameters?: {[param: string]: any}
+		loginUrlParameters?: {[param: string]: any};
 		loginHint?: string;
 		loginStyle?: string;
 		redirectUrl?: "popup" | "redirect";
@@ -213,31 +213,31 @@ declare namespace Blaze {
 declare namespace BrowserPolicy {
 
 	interface framing {
-		disallow():void;
-		restrictToOrigin(origin:string):void;
-		allowAll():void;
+		disallow(): void;
+		restrictToOrigin(origin: string): void;
+		allowAll(): void;
 	}
 	interface content {
-		allowEval():void;
-		allowInlineStyles():void;
-		allowInlineScripts():void;
-		allowSameOriginForAll():void;
-		allowDataUrlForAll():void;
-		allowOriginForAll(origin:string):void;
-		allowImageOrigin(origin:string):void;
-		allowFrameOrigin(origin:string):void;
-		allowContentTypeSniffing():void;
-		allowAllContentOrigin():void;
-		allowAllContentDataUrl():void;
-		allowAllContentSameOrigin():void;
+		allowEval(): void;
+		allowInlineStyles(): void;
+		allowInlineScripts(): void;
+		allowSameOriginForAll(): void;
+		allowDataUrlForAll(): void;
+		allowOriginForAll(origin: string): void;
+		allowImageOrigin(origin: string): void;
+		allowFrameOrigin(origin: string): void;
+		allowContentTypeSniffing(): void;
+		allowAllContentOrigin(): void;
+		allowAllContentDataUrl(): void;
+		allowAllContentSameOrigin(): void;
 
-		disallowAll():void;
-		disallowInlineStyles():void;
-		disallowEval():void;
-		disallowInlineScripts():void;
-		disallowFont():void;
-		disallowObject():void;
-		disallowAllContent():void;
+		disallowAll(): void;
+		disallowInlineStyles(): void;
+		disallowEval(): void;
+		disallowInlineScripts(): void;
+		disallowFont(): void;
+		disallowObject(): void;
+		disallowAllContent(): void;
 		//TODO: add the basic content types
 		// allow<content type>Origin(origin)
 		// allow<content type>DataUrl()
@@ -264,8 +264,8 @@ declare namespace Meteor {
 		siteName?: string;
 		headers?: { [id: string]: string };  // TODO: should define IHeaders interface
 		resetPassword?: Meteor.EmailFields;
-		enrollAccount?:  Meteor.EmailFields;
-		verifyEmail?:  Meteor.EmailFields;
+		enrollAccount?: Meteor.EmailFields;
+		verifyEmail?: Meteor.EmailFields;
 	}
 
 	interface Connection {
@@ -342,10 +342,10 @@ interface ITinytestAssertions {
 	runId(): string;
 	equal<T>(actual: T, expected: T, message?: string, not?: boolean): void;
 	notEqual<T>(actual: T, expected: T, message?: string): void;
-	instanceOf(obj : Object, klass: Function, message?: string): void;
-	notInstanceOf(obj : Object, klass: Function, message?: string): void;
-	matches(actual : any, regexp: RegExp, message?: string): void;
-	notMatches(actual : any, regexp: RegExp, message?: string): void;
+	instanceOf(obj: Object, klass: Function, message?: string): void;
+	notInstanceOf(obj: Object, klass: Function, message?: string): void;
+	matches(actual: any, regexp: RegExp, message?: string): void;
+	notMatches(actual: any, regexp: RegExp, message?: string): void;
 	throws(f: Function, expected?: string|RegExp): void;
 	isTrue(v: boolean, msg?: string): void;
 	isFalse(v: boolean, msg?: string): void;
@@ -363,15 +363,15 @@ interface ITinytestAssertions {
 }
 
 declare namespace Tinytest {
-	function add(description : string , func : (test : ITinytestAssertions) => void) : void;
-	function addAsync(description : string , func : (test : ITinytestAssertions) => void) : void;
+	function add(description: string , func: (test: ITinytestAssertions) => void): void;
+	function addAsync(description: string , func: (test: ITinytestAssertions) => void): void;
 }
 
 // Kept in for backwards compatibility
 declare namespace Meteor {
 	interface Tinytest {
-		add(description : string , func : (test : ITinytestAssertions) => void) : void;
-		addAsync(description : string , func : (test : ITinytestAssertions) => void) : void;
+		add(description: string , func: (test: ITinytestAssertions) => void): void;
+		addAsync(description: string , func: (test: ITinytestAssertions) => void): void;
 	}
 }
 
@@ -465,9 +465,9 @@ declare namespace Blaze {
 		// It should be [templateName: string]: TemplateInstance but this is not possible -- user will need to cast to TemplateInstance
 		[templateName: string]: any | Template; // added "any" to make it work
 		head: Template;
-		find(selector:string):Blaze.Template;
-		findAll(selector:string):Blaze.Template[];
-		$:any;
+		find(selector: string): Blaze.Template;
+		findAll(selector: string): Blaze.Template[];
+		$: any;
 	}
 	interface Template {
 	}
@@ -510,7 +510,7 @@ declare namespace Blaze {
 }
 
 declare namespace Cordova {
-	function depends(dependencies:{[id:string]:string}): void;
+	function depends(dependencies: {[id: string]: string}): void;
 }
 
 declare namespace DDP {
@@ -535,7 +535,7 @@ declare namespace EJSON {
 	}
 
 	function addType(name: string, factory: (val: JSONable) => EJSON.CustomType): void;
-	function clone<T>(val:T): T;
+	function clone<T>(val: T): T;
 	function equals(a: EJSON, b: EJSON, options?: {
 		keyOrderSensitive?: boolean;
 	}): boolean;
@@ -602,7 +602,7 @@ declare namespace Meteor {
 	var release: string;
 	function setInterval(func: Function, delay: number): number;
 	function setTimeout(func: Function, delay: number): number;
-	var settings: { public: {[id:string]: any}, private: {[id:string]: any}, [id:string]: any};
+	var settings: { public: {[id: string]: any}, private: {[id: string]: any}, [id: string]: any};
 	function startup(func: Function): void;
 	function status(): Meteor.StatusEnum;
 	function subscribe(name: string, ...args: any[]): Meteor.SubscriptionHandle;
@@ -664,7 +664,7 @@ declare namespace Mongo {
 		}, callback?: Function): number;
 		upsert(selector: Mongo.Selector | Mongo.ObjectID | string, modifier: Mongo.Modifier, options?: {
 			multi?: boolean;
-		}, callback?: Function): {numberAffected?: number; insertedId?: string;};
+		}, callback?: Function): {numberAffected?: number; insertedId?: string};
 		_ensureIndex(indexName: string, options?: {[key: string]: any}): void;
 	}
 
@@ -693,7 +693,7 @@ declare namespace Mongo {
 }
 
 declare namespace Npm {
-	function depends(dependencies:{[id:string]:string}): void;
+	function depends(dependencies: {[id: string]: string}): void;
 	function require(name: string): any;
 }
 
@@ -875,9 +875,9 @@ interface TemplateStatic {
 	// It should be [templateName: string]: TemplateInstance but this is not possible -- user will need to cast to TemplateInstance
 	[templateName: string]: any | Template; // added "any" to make it work
 	head: Template;
-	find(selector:string):Blaze.Template;
-	findAll(selector:string):Blaze.Template[];
-	$:any;
+	find(selector: string): Blaze.Template;
+	findAll(selector: string): Blaze.Template[];
+	$: any;
 	body: Template;
 	currentData(): {};
 	deregisterHelper(name: string): void;
@@ -889,7 +889,7 @@ interface Template {
 	created: Function;
 	destroyed: Function;
 	events(eventMap: Meteor.EventMap): void;
-	helpers(helpers:{[id:string]: any}): void;
+	helpers(helpers: {[id: string]: any}): void;
 	onCreated: Function;
 	onDestroyed: Function;
 	onRendered: Function;

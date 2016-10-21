@@ -24,7 +24,6 @@ declare class ZeroClipboard {
     clip(elements: Element | { [index: number]: Element }): void;
     unclip(elements: Element | { [index: number]: Element }): void;
 
-
     static config(options: ZeroClipboardOptions): void;
     static destroy(): void;
     static emit(eventName: string, args: any): void;

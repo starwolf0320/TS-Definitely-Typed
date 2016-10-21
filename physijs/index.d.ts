@@ -6,10 +6,10 @@
 /// <reference types="three" />
 
 declare namespace Physijs {
-    export function noConflict():Object;
+    export function noConflict(): Object;
     export function createMaterial(material: THREE.Material, friction?: number, restitution?: number): Material;
 
-    export interface Material extends THREE.Material{
+    export interface Material extends THREE.Material {
         _physijs: {
             id: number;
             friction: number;
@@ -139,15 +139,15 @@ declare namespace Physijs {
     export class Scene extends THREE.Scene {
         constructor(param?: SceneParameters);
 
-        addConstraint(constraint:Constraint, show_marker?:boolean):void;
-        onSimulationResume():void;
-        removeConstraint(constraint:Constraint):void;
-        execute(cmd:string, params:any):void;
-        add(object:THREE.Object3D):void;
-        remove(object:THREE.Object3D):void;
-        setFixedTimeStep(fixedTimeStep:number):void;
-        setGravity(gravity:THREE.Vector3):void;
-        simulate(timeStep?:number, maxSubSteps?:number):boolean;
+        addConstraint(constraint: Constraint, show_marker?: boolean): void;
+        onSimulationResume(): void;
+        removeConstraint(constraint: Constraint): void;
+        execute(cmd: string, params: any): void;
+        add(object: THREE.Object3D): void;
+        remove(object: THREE.Object3D): void;
+        setFixedTimeStep(fixedTimeStep: number): void;
+        setGravity(gravity: THREE.Vector3): void;
+        simulate(timeStep?: number, maxSubSteps?: number): boolean;
 
 
         // Eventable mixins
@@ -160,21 +160,21 @@ declare namespace Physijs {
     }
 
     export class Mesh extends THREE.Mesh {
-        constructor(geometry:THREE.Geometry, material?:THREE.Material, mass?:number);
+        constructor(geometry: THREE.Geometry, material?: THREE.Material, mass?: number);
 
-        applyCentralImpulse(force:THREE.Vector3):void;
-        applyImpulse(force:THREE.Vector3, offset:THREE.Vector3):void;
-        applyCentralForce(force:THREE.Vector3):void;
-        applyForce(force:THREE.Vector3, offset:THREE.Vector3):void;
-        getAngularVelocity():THREE.Vector3;
-        setAngularVelocity(velocity:THREE.Vector3):void;
-        getLinearVelocity():THREE.Vector3;
-        setLinearVelocity(velocity:THREE.Vector3):void;
-        setAngularFactor(factor:THREE.Vector3):void;
-        setLinearFactor(factor:THREE.Vector3):void;
-        setDamping(linear:number, angular:number):void;
-        setCcdMotionThreshold(threshold:number):void;
-        setCcdSweptSphereRadius(radius:number):void;
+        applyCentralImpulse(force: THREE.Vector3): void;
+        applyImpulse(force: THREE.Vector3, offset: THREE.Vector3): void;
+        applyCentralForce(force: THREE.Vector3): void;
+        applyForce(force: THREE.Vector3, offset: THREE.Vector3): void;
+        getAngularVelocity(): THREE.Vector3;
+        setAngularVelocity(velocity: THREE.Vector3): void;
+        getLinearVelocity(): THREE.Vector3;
+        setLinearVelocity(velocity: THREE.Vector3): void;
+        setAngularFactor(factor: THREE.Vector3): void;
+        setLinearFactor(factor: THREE.Vector3): void;
+        setDamping(linear: number, angular: number): void;
+        setCcdMotionThreshold(threshold: number): void;
+        setCcdSweptSphereRadius(radius: number): void;
 
 
         // Eventable mixins
@@ -187,63 +187,63 @@ declare namespace Physijs {
     }
 
     export class PlaneMesh extends Mesh {
-        constructor(geometry:THREE.Geometry, material:THREE.Material, mass?:number);
+        constructor(geometry: THREE.Geometry, material: THREE.Material, mass?: number);
 
     }
 
     export class HeightfieldMesh extends Mesh {
-        constructor(geometry:THREE.Geometry, material:THREE.Material, mass?:number, xdiv?:number, ydiv?:number);
+        constructor(geometry: THREE.Geometry, material: THREE.Material, mass?: number, xdiv?: number, ydiv?: number);
     }
 
     export class BoxMesh extends Mesh {
-        constructor(geometry:THREE.Geometry, material:THREE.Material, mass?:number);
+        constructor(geometry: THREE.Geometry, material: THREE.Material, mass?: number);
     }
 
     export class SphereMesh extends Mesh {
-        constructor(geometry:THREE.Geometry, material:THREE.Material, mass?:number);
+        constructor(geometry: THREE.Geometry, material: THREE.Material, mass?: number);
     }
 
     export class CylinderMesh extends Mesh {
-        constructor(geometry:THREE.Geometry, material:THREE.Material, mass?:number);
+        constructor(geometry: THREE.Geometry, material: THREE.Material, mass?: number);
     }
 
     export class CapsuleMesh extends Mesh {
-        constructor(geometry:THREE.Geometry, material:THREE.Material, mass?:number);
+        constructor(geometry: THREE.Geometry, material: THREE.Material, mass?: number);
     }
 
     export class ConeMesh extends Mesh {
-        constructor(geometry:THREE.Geometry, material:THREE.Material, mass?:number);
+        constructor(geometry: THREE.Geometry, material: THREE.Material, mass?: number);
     }
 
     export class ConcaveMesh extends Mesh {
-        constructor(geometry:THREE.Geometry, material:THREE.Material, mass?:number);
+        constructor(geometry: THREE.Geometry, material: THREE.Material, mass?: number);
     }
 
     export class ConvexMesh extends Mesh {
-        constructor(geometry:THREE.Geometry, material:THREE.Material, mass?:number);
+        constructor(geometry: THREE.Geometry, material: THREE.Material, mass?: number);
     }
 
     export class Vehicle {
-        constructor(mesh:Mesh, tuning?:VehicleTuning);
+        constructor(mesh: Mesh, tuning?: VehicleTuning);
 
-        mesh:THREE.Mesh;
-        wheels:THREE.Mesh[];
+        mesh: THREE.Mesh;
+        wheels: THREE.Mesh[];
 
-        addWheel(wheel_geometry:THREE.Geometry, wheel_material:THREE.Material, connection_point:THREE.Vector3, wheel_direction:THREE.Vector3, wheel_axle:THREE.Vector3, suspension_rest_length:number, wheel_radius:number, is_front_wheel:boolean, tuning?:VehicleTuning): void;
+        addWheel(wheel_geometry: THREE.Geometry, wheel_material: THREE.Material, connection_point: THREE.Vector3, wheel_direction: THREE.Vector3, wheel_axle: THREE.Vector3, suspension_rest_length: number, wheel_radius: number, is_front_wheel: boolean, tuning?: VehicleTuning): void;
         setSteering(amount: number, wheel?: THREE.Mesh): void;
         setBrake(amount: number, wheel?: THREE.Mesh): void;
         applyEngineForce(amount: number, wheel?: THREE.Mesh): void;
     }
 
     export class VehicleTuning {
-        constructor(suspension_stiffness?:number, suspension_compression?:number, suspension_damping?:number, max_suspension_travel?:number, friction_slip?:number, max_suspension_force?:number);
+        constructor(suspension_stiffness?: number, suspension_compression?: number, suspension_damping?: number, max_suspension_travel?: number, friction_slip?: number, max_suspension_force?: number);
 
-        suspension_stiffness:number;
-        suspension_compression:number;
-        suspension_damping:number;
-        max_suspension_travel:number;
-        friction_slip:number;
-        max_suspension_force:number;
+        suspension_stiffness: number;
+        suspension_compression: number;
+        suspension_damping: number;
+        max_suspension_travel: number;
+        friction_slip: number;
+        max_suspension_force: number;
     }
 }
 

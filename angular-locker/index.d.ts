@@ -10,7 +10,7 @@ import * as angular from 'angular';
 declare module 'angular' {
     export namespace locker {
         interface ILockerServicePutFunction {
-            (current: any): any
+            (current: any): any;
         }
 
         interface ILockerService {
@@ -46,7 +46,7 @@ declare module 'angular' {
             *
             * @param  {String|Function}  key  -  The key to remove
             */
-            has(key: string): boolean
+            has(key: string): boolean;
             /**
             * Get the storage keys as an array
             */

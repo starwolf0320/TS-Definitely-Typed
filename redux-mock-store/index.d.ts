@@ -6,7 +6,7 @@
 ///<reference types="redux" />
 
 declare module 'redux-mock-store' {
-    import * as Redux from 'redux'
+    import * as Redux from 'redux';
 
     function createMockStore<T>(middlewares?: Redux.Middleware[]): mockStore<T>;
 
@@ -20,5 +20,5 @@ declare module 'redux-mock-store' {
         subscribe(listener: Function): Function;
     }
 
-    export default createMockStore
+    export default createMockStore;
 }

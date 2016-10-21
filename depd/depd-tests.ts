@@ -38,12 +38,12 @@ interface ITestDeprecatedFunction {
 
 var obj2 = <ITestDeprecatedFunction>{};
 
-// message automatically derived from function name 
+// message automatically derived from function name
 obj2.func1 = deprecate.function(function func1() {
     console.log('all calls to [func1] are deprecated ');
 });
 
-// specific message 
+// specific message
 obj2.func2 = deprecate.function(function () {
     console.log('all calls to [func2] are deprecated ');
 }, 'func2');

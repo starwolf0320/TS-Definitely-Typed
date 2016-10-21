@@ -6,7 +6,7 @@
 declare module 'transducers-js' {
   export interface IteratorResult<T> {
     done: boolean;
-    value?: T
+    value?: T;
   }
 
   export interface Iterator<T> {
@@ -45,7 +45,7 @@ declare module 'transducers-js' {
   /**
    * Check if a value is reduced.
    */
-  export function isReduced (x : any) : Boolean;
+  export function isReduced (x: any): Boolean;
 
   /**
    * Function composition. Take N function and return their composition.
@@ -106,7 +106,7 @@ declare module 'transducers-js' {
   export function keep<TResult, TInput> (f: (x: TInput) => any): Transducer<TResult, TInput, TInput>;
 
   export class KeepIndexed<TResult, TInput> implements Transformer<TResult, TInput> {
-    constructor (f: (i: number, x:TInput) => any, xf: Transformer<TResult, TInput>);
+    constructor (f: (i: number, x: TInput) => any, xf: Transformer<TResult, TInput>);
     ['@@transducer/init'] (): TResult;
     ['@@transducer/step'] (result: TResult, input: TInput): TResult;
     ['@@transducer/result'] (result: TResult): TResult;
@@ -262,7 +262,7 @@ declare module 'transducers-js' {
   export function reduce<TResult, TInput, TOutput> (
     xf: Transducer<TResult, TInput, TOutput>,
     init: TResult,
-    coll: TInput[] | Iterator<TInput> | string | Object): TResult
+    coll: TInput[] | Iterator<TInput> | string | Object): TResult;
 
   /**
    * Reduce a value into the given empty value using a transducer.

@@ -18,24 +18,24 @@ declare namespace valdr {
         /**
          * Method to be called to perform custom validation over given value.
          */
-        validate(value: any, validationArguments?: {[argumentName:string]: any}): boolean;
+        validate(value: any, validationArguments?: {[argumentName: string]: any}): boolean;
     }
 
     interface ValdrConstraintValidator {
-        [argumentName:string]: any;
+        [argumentName: string]: any;
         message: string;
     }
 
     interface ValdrConstraintFieldName {
-        [validatorName:string]: ValdrConstraintValidator;
+        [validatorName: string]: ValdrConstraintValidator;
     }
 
     interface ValdrConstraintTypeName {
-        [fieldName:string]: ValdrConstraintFieldName;
+        [fieldName: string]: ValdrConstraintFieldName;
     }
 
     interface ValdrConstraints {
-        [typeName:string]: ValdrConstraintTypeName;
+        [typeName: string]: ValdrConstraintTypeName;
     }
 
     interface ValdrViolation extends ValdrConstraintValidator {

@@ -103,10 +103,10 @@ declare namespace L {
       * Bulk methods for adding and removing markers and should be favoured over the
       * single versions when doing bulk addition/removal of markers.
       */
-      addLayers(layers:ILayer[]):MarkerClusterGroup;
-      removeLayers(layers:ILayer[]):MarkerClusterGroup;
+      addLayers(layers: ILayer[]): MarkerClusterGroup;
+      removeLayers(layers: ILayer[]): MarkerClusterGroup;
 
-      clearLayers():MarkerClusterGroup;
+      clearLayers(): MarkerClusterGroup;
 
       /*
       * If you have a marker in your MarkerClusterGroup and you want to get the visible
@@ -118,10 +118,10 @@ declare namespace L {
       * If you have customized the clusters icon to use some data from the contained markers,
       * and later that data changes, use this method to force a refresh of the cluster icons.
       */
-      refreshClusters():MarkerClusterGroup;
-      refreshClusters(layerGroup:LayerGroup<ILayer>):MarkerClusterGroup;
-      refreshClusters(marker: Marker):MarkerClusterGroup;
-      refreshClusters(markers: Marker[]):MarkerClusterGroup;
+      refreshClusters(): MarkerClusterGroup;
+      refreshClusters(layerGroup: LayerGroup<ILayer>): MarkerClusterGroup;
+      refreshClusters(marker: Marker): MarkerClusterGroup;
+      refreshClusters(markers: Marker[]): MarkerClusterGroup;
 
       /*
       * Returns the total number of markers contained within that cluster.

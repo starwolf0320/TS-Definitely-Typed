@@ -4,8 +4,6 @@
 //                 Johannes Fahrenkrug <https://github.com/jfahrenkrug>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-
-
 declare function OuterXRegExp(pattern: string, flags?: string): RegExp;
 declare function OuterXRegExp(pattern: RegExp): RegExp;
 

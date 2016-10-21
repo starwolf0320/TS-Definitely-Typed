@@ -6,7 +6,7 @@ var element: HTMLElement | HTMLElement[];
 
 if (!WordCloud.isSupported)
   console.log('WordCloud is not supported.');
-  
+
 WordCloud.miniumFontSize = 20;
 
 var list = (function () {

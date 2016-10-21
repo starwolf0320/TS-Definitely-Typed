@@ -12,8 +12,8 @@ declare namespace ReactSwipeableViews {
         containerStyle?: React.CSSProperties;
         disabled?: boolean;
         index?: number;
-        onChangeIndex?: (indexNew:number, indexLatest:number) => void;
-        onSwitching?: (index:number) => void;
+        onChangeIndex?: (indexNew: number, indexLatest: number) => void;
+        onSwitching?: (index: number) => void;
         resistance?: boolean;
         slideStyle?: React.CSSProperties;
         style?: React.CSSProperties;

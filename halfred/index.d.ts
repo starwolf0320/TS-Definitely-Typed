@@ -72,7 +72,7 @@ declare module "halfred" {
     embeddedResource(key: string): Resource;
 
     /** Alias for embeddedResource(key) */
-    embedded(key: string): Resource;  
+    embedded(key: string): Resource;
 
     /**
      * Returns the unmodified, original object that was parsed to this resource. This is rather
@@ -140,7 +140,7 @@ declare module "halfred" {
 
   /** @see https://github.com/basti1302/halfred#links-and-embedded-resources */
   interface LinkCollection {
-    [rel: string]: Link[]
+    [rel: string]: Link[];
   }
 
   /**
@@ -187,7 +187,7 @@ declare module "halfred" {
 
     /**
      * The "deprecation" property is OPTIONAL.
-     * 
+     *
      * Its presence indicates that the link is to be deprecated (i.e.
      * removed) at a future date.  Its value is a URL that SHOULD provide
      * further information about the deprecation.

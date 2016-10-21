@@ -12,7 +12,7 @@ declare namespace graphqlHTTP {
      * Used to configure the graphQLHTTP middleware by providing a schema
      * and other configuration options.
      */
-    export type Options = ((req: Request) => OptionsObj) | OptionsObj
+    export type Options = ((req: Request) => OptionsObj) | OptionsObj;
     export type OptionsObj = {
         /**
          * A GraphQL schema from graphql-js.

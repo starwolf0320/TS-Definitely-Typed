@@ -3,7 +3,7 @@
 
 function test_cases() {
 	$('#switch').bootstrapSwitch();
-	
+
 	$('#switch').bootstrapSwitch({
 		state: false
 	});
@@ -15,7 +15,7 @@ function test_cases() {
 
 	//var mySwitch = $('#switch').get(0);
 	//mySwitch.toggleAnimate();
-	
+
 	$('#switch').bootstrapSwitch('state', true, true);
 
 

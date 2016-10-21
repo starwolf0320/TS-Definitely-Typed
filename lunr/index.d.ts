@@ -9,9 +9,8 @@
  * MIT Licensed
  * @license
  */
-declare namespace lunr
-{
-    var version:string;
+declare namespace lunr {
+    var version: string;
 
 
     /**
@@ -32,7 +31,7 @@ declare namespace lunr
         (obj: any): string[];
     }
 
-    module tokenizer {
+    namespace tokenizer {
         /**
          * The sperator used to split a string into tokens. Override this property to change the behaviour of
          * `lunr.tokenizer` behaviour when tokenizing strings. By default this splits on whitespace and hyphens.
@@ -81,7 +80,7 @@ declare namespace lunr
      *
      * @param token  The string to stem
      */
-    function stemmer(token:string):string;
+    function stemmer(token: string): string;
 
 
     /**
@@ -93,10 +92,10 @@ declare namespace lunr
      *
      * @param token  The token to pass through the filter
      */
-    function stopWordFilter(token:string):string;
+    function stopWordFilter(token: string): string;
 
     namespace stopWordFilter {
-        var stopWords:SortedSet<string>;
+        var stopWords: SortedSet<string>;
     }
 
 
@@ -108,15 +107,14 @@ declare namespace lunr
      * be removed or adapted for use with languages with non-latin characters.
      * @param token  The token to pass through the filter
      */
-    function trimmer(token:string):string;
+    function trimmer(token: string): string;
 
 
     /**
      * lunr.EventEmitter is an event emitter for lunr. It manages adding and removing event handlers
      * and triggering events and their handlers.
      */
-    class EventEmitter
-    {
+    class EventEmitter {
         /**
          * Can bind a single function to many different events in one call.
          *
@@ -124,11 +122,11 @@ declare namespace lunr
          * @param handler    The function to call when an event is fired. Binds a handler
          *                   function to a specific event(s).
          */
-        addListener(eventName:string, handler:Function):void;
-        addListener(eventName:string, eventName2:string, handler:Function):void;
-        addListener(eventName:string, eventName2:string, eventName3:string, handler:Function):void;
-        addListener(eventName:string, eventName2:string, eventName3:string, eventName4:string, handler:Function):void;
-        addListener(eventName:string, eventName2:string, eventName3:string, eventName4:string, eventName5:string, handler:Function):void;
+        addListener(eventName: string, handler: Function): void;
+        addListener(eventName: string, eventName2: string, handler: Function): void;
+        addListener(eventName: string, eventName2: string, eventName3: string, handler: Function): void;
+        addListener(eventName: string, eventName2: string, eventName3: string, eventName4: string, handler: Function): void;
+        addListener(eventName: string, eventName2: string, eventName3: string, eventName4: string, eventName5: string, handler: Function): void;
 
 
         /**
@@ -137,7 +135,7 @@ declare namespace lunr
          * @param eventName  The name of the event to remove this function from.
          * @param handler    The function to remove from an event.
          */
-        removeListener(eventName:string, handler:Function):void;
+        removeListener(eventName: string, handler: Function): void;
 
 
         /**
@@ -148,7 +146,7 @@ declare namespace lunr
          * @param eventName The name of the event to emit.
          * @param args
          */
-        emit(eventName:string, ...args:any[]):void;
+        emit(eventName: string, ...args: any[]): void;
 
 
         /**
@@ -156,14 +154,14 @@ declare namespace lunr
          *
          * @param eventName  The name of the event to check.
          */
-        hasHandler(eventName:string):boolean;
+        hasHandler(eventName: string): boolean;
     }
 
 
     interface IPipelineFunction {
-        (token:string):string;
-        (token:string, tokenIndex:number):string;
-        (token:string, tokenIndex:number, tokens:string[]):string;
+        (token: string): string;
+        (token: string, tokenIndex: number): string;
+        (token: string, tokenIndex: number, tokens: string[]): string;
     }
 
 
@@ -188,9 +186,8 @@ declare namespace lunr
      *
      * If not planning on serialising the pipeline then registering pipeline functions is not necessary.
      */
-    class Pipeline
-    {
-        registeredFunctions:{[label:string]:Function};
+    class Pipeline {
+        registeredFunctions: {[label: string]: Function};
 
 
         /**
@@ -205,7 +202,7 @@ declare namespace lunr
          * @param fn     The function to check for.
          * @param label  The label to register this function with
          */
-        registerFunction(fn:IPipelineFunction, label:string):void;
+        registerFunction(fn: IPipelineFunction, label: string): void;
 
 
         /**
@@ -213,7 +210,7 @@ declare namespace lunr
          *
          * @param fn  The function to check for.
          */
-        warnIfFunctionNotRegistered(fn:IPipelineFunction):void;
+        warnIfFunctionNotRegistered(fn: IPipelineFunction): void;
 
 
         /**
@@ -223,7 +220,7 @@ declare namespace lunr
          *
          * @param functions  Any number of functions to add to the pipeline.
          */
-        add(...functions:IPipelineFunction[]):void;
+        add(...functions: IPipelineFunction[]): void;
 
 
         /**
@@ -234,7 +231,7 @@ declare namespace lunr
          * @param existingFn  A function that already exists in the pipeline.
          * @param newFn       The new function to add to the pipeline.
          */
-        after(existingFn:IPipelineFunction, newFn:IPipelineFunction):void;
+        after(existingFn: IPipelineFunction, newFn: IPipelineFunction): void;
 
 
         /**
@@ -245,7 +242,7 @@ declare namespace lunr
          * @param existingFn  A function that already exists in the pipeline.
          * @param newFn       The new function to add to the pipeline.
          */
-        before(existingFn:IPipelineFunction, newFn:IPipelineFunction):void;
+        before(existingFn: IPipelineFunction, newFn: IPipelineFunction): void;
 
 
         /**
@@ -253,7 +250,7 @@ declare namespace lunr
          *
          * @param fn  The function to remove from the pipeline.
          */
-        remove(fn:IPipelineFunction):void;
+        remove(fn: IPipelineFunction): void;
 
 
         /**
@@ -262,19 +259,19 @@ declare namespace lunr
          *
          * @param tokens  The tokens to run through the pipeline.
          */
-        run(tokens:string[]):string[];
+        run(tokens: string[]): string[];
 
 
         /**
          * Resets the pipeline by removing any existing processors.
          */
-        reset():void;
+        reset(): void;
 
 
         /**
          * Returns a representation of the pipeline ready for serialisation.
          */
-        toJSON():any;
+        toJSON(): any;
 
 
         /**
@@ -285,29 +282,28 @@ declare namespace lunr
          *
          * @param serialised  The serialised pipeline to load.
          */
-        static load(serialised:any):Pipeline;
+        static load(serialised: any): Pipeline;
     }
 
 
     /**
      * lunr.Vectors implement vector related operations for a series of elements.
      */
-    class Vector
-    {
-        list:Node;
+    class Vector {
+        list: Node;
 
 
         /**
          * Calculates the magnitude of this vector.
          */
-        magnitude():number;
+        magnitude(): number;
 
 
         /**
          * Calculates the dot product of this vector and another vector.
          * @param otherVector  The vector to compute the dot product with.
          */
-        dot(otherVector:Vector):number;
+        dot(otherVector: Vector): number;
 
 
         /**
@@ -315,29 +311,28 @@ declare namespace lunr
          *
          * @param otherVector  The other vector to calculate the
          */
-        similarity(otherVector:Vector):number;
+        similarity(otherVector: Vector): number;
     }
 
 
     /**
      * lunr.Vector.Node is a simple struct for each node in a lunr.Vector.
      */
-    class Node
-    {
+    class Node {
         /**
          * The index of the node in the vector.
          */
-        idx:number;
+        idx: number;
 
         /**
          * The data at this node in the vector.
          */
-        val:number;
+        val: number;
 
         /**
          * The node directly after this node in the vector.
          */
-        next:Node;
+        next: Node;
 
 
         /**
@@ -345,18 +340,17 @@ declare namespace lunr
          * @param val   The data at this node in the vector.
          * @param next  The node directly after this node in the vector.
          */
-        constructor(idx:number, val:number, next:Node);
+        constructor(idx: number, val: number, next: Node);
     }
 
 
     /**
      * lunr.SortedSets are used to maintain an array of unique values in a sorted order.
      */
-    class SortedSet<T>
-    {
-        elements:T[];
+    class SortedSet<T> {
+        elements: T[];
 
-        length:number;
+        length: number;
 
 
         /**
@@ -364,13 +358,13 @@ declare namespace lunr
          *
          * @param values  The objects to add to this set.
          */
-        add(...values:T[]):void;
+        add(...values: T[]): void;
 
 
         /**
          * Converts this sorted set into an array.
          */
-        toArray():T[];
+        toArray(): T[];
 
 
         /**
@@ -382,7 +376,7 @@ declare namespace lunr
          * @param fn   The function that is called on each element of the
          * @param ctx  An optional object that can be used as the context
          */
-        map(fn:Function, ctx:any):T[];
+        map(fn: Function, ctx: any): T[];
 
 
         /**
@@ -393,7 +387,7 @@ declare namespace lunr
          * @param fn   The function that is called on each element of the
          * @param ctx  An optional object that can be used as the context
          */
-        forEach(fn:Function, ctx:any):any;
+        forEach(fn: Function, ctx: any): any;
 
 
         /**
@@ -404,7 +398,7 @@ declare namespace lunr
          * @param start  An optional index at which to start searching from
          * @param end    An optional index at which to stop search from within
          */
-        indexOf(elem:T, start?:number, end?:number):number;
+        indexOf(elem: T, start?: number, end?: number): number;
 
 
         /**
@@ -418,7 +412,7 @@ declare namespace lunr
          * @param start - An optional index at which to start searching from
          * @param end - An optional index at which to stop search from within
          */
-        locationFor(elem:T, start?:number, end?:number):number;
+        locationFor(elem: T, start?: number, end?: number): number;
 
 
         /**
@@ -427,7 +421,7 @@ declare namespace lunr
          *
          * @param otherSet  The set to intersect with this set.
          */
-        intersect(otherSet:SortedSet<T>):SortedSet<T>;
+        intersect(otherSet: SortedSet<T>): SortedSet<T>;
 
 
         /**
@@ -436,19 +430,19 @@ declare namespace lunr
          *
          * @param otherSet  The set to union with this set.
          */
-        union(otherSet:SortedSet<T>):SortedSet<T>;
+        union(otherSet: SortedSet<T>): SortedSet<T>;
 
 
         /**
          * Makes a copy of this set
          */
-        clone():SortedSet<T>;
+        clone(): SortedSet<T>;
 
 
         /**
          * Returns a representation of the sorted set ready for serialisation.
          */
-        toJSON():any;
+        toJSON(): any;
 
 
         /**
@@ -456,29 +450,27 @@ declare namespace lunr
          *
          * @param serialisedData  The serialised set to load.
          */
-        static load<T>(serialisedData:T[]):SortedSet<T>;
+        static load<T>(serialisedData: T[]): SortedSet<T>;
     }
 
 
-    interface IIndexField
-    {
+    interface IIndexField {
         /**
          * The name of the field within the document that
          */
-        name:string;
+        name: string;
 
         /**
          * An optional boost that can be applied to terms in this field.
          */
-        boost:number;
+        boost: number;
     }
 
 
-    interface IIndexSearchResult
-    {
-        ref:any;
+    interface IIndexSearchResult {
+        ref: any;
 
-        score:number;
+        score: number;
     }
 
 
@@ -487,23 +479,22 @@ declare namespace lunr
      * all the tokens and document lookups. It also provides the main user facing API for
      * the library.
      */
-    class Index
-    {
-        eventEmitter:EventEmitter;
+    class Index {
+        eventEmitter: EventEmitter;
 
-        documentStore:Store<string>;
+        documentStore: Store<string>;
 
-        tokenStore:TokenStore;
+        tokenStore: TokenStore;
 
-        corpusTokens:SortedSet<string>;
+        corpusTokens: SortedSet<string>;
 
-        pipeline:Pipeline;
+        pipeline: Pipeline;
 
-        _fields:IIndexField[];
+        _fields: IIndexField[];
 
-        _ref:string;
+        _ref: string;
 
-        _idfCache:{[key:string]:string};
+        _idfCache: {[key: string]: string};
 
 
         /**
@@ -515,11 +506,11 @@ declare namespace lunr
          * @param handler    The function to call when an event is fired. Binds a handler
          *                   function to a specific event(s).
          */
-        on(eventName:string, handler:Function):void;
-        on(eventName:string, eventName2:string, handler:Function):void;
-        on(eventName:string, eventName2:string, eventName3:string, handler:Function):void;
-        on(eventName:string, eventName2:string, eventName3:string, eventName4:string, handler:Function):void;
-        on(eventName:string, eventName2:string, eventName3:string, eventName4:string, eventName5:string, handler:Function):void;
+        on(eventName: string, handler: Function): void;
+        on(eventName: string, eventName2: string, handler: Function): void;
+        on(eventName: string, eventName2: string, eventName3: string, handler: Function): void;
+        on(eventName: string, eventName2: string, eventName3: string, eventName4: string, handler: Function): void;
+        on(eventName: string, eventName2: string, eventName3: string, eventName4: string, eventName5: string, handler: Function): void;
 
 
         /**
@@ -528,7 +519,7 @@ declare namespace lunr
          * @param eventName  The name of events to remove the function from.
          * @param handler    The serialised set to load.
          */
-        off(eventName:string, handler:Function):void;
+        off(eventName: string, handler: Function): void;
 
 
         /**
@@ -543,7 +534,7 @@ declare namespace lunr
          * @param fieldName  The name of the field within the document that
          * @param options    An optional boost that can be applied to terms in this field.
          */
-        field(fieldName:string, options?:{boost?:number}):Index;
+        field(fieldName: string, options?: {boost?: number}): Index;
 
 
         /**
@@ -555,7 +546,7 @@ declare namespace lunr
          *
          * @refName  The property to use to uniquely identify the
          */
-        ref(refName:string):Index;
+        ref(refName: string): Index;
 
 
         /**
@@ -571,7 +562,7 @@ declare namespace lunr
          * @param doc        The document to add to the index.
          * @param emitEvent  Whether or not to emit events, default true.
          */
-        add(doc:any, emitEvent?:boolean):void;
+        add(doc: any, emitEvent?: boolean): void;
 
 
         /**
@@ -590,7 +581,7 @@ declare namespace lunr
          * @param doc        The document to remove from the index.
          * @param emitEvent  Whether to emit remove events, defaults to true
          */
-        remove(doc:any, emitEvent?:boolean):void;
+        remove(doc: any, emitEvent?: boolean): void;
 
 
         /**
@@ -609,7 +600,7 @@ declare namespace lunr
          * @param doc        The document to update in the index.
          * @param emitEvent  Whether to emit update events, defaults to true
          */
-        update(doc:any, emitEvent?:boolean):void;
+        update(doc: any, emitEvent?: boolean): void;
 
 
         /**
@@ -617,7 +608,7 @@ declare namespace lunr
          *
          * @param token  The token to calculate the idf of.
          */
-        idf(token:string):string;
+        idf(token: string): string;
 
 
         /**
@@ -639,7 +630,7 @@ declare namespace lunr
          *
          * @param query  The query to search the index with.
          */
-        search(query:string):IIndexSearchResult[];
+        search(query: string): IIndexSearchResult[];
 
 
         /**
@@ -652,13 +643,13 @@ declare namespace lunr
          *
          * @param documentRef  The ref to find the document with.
          */
-        documentVector(documentRef:string):Vector;
+        documentVector(documentRef: string): Vector;
 
 
         /**
          * Returns a representation of the index ready for serialisation.
          */
-        toJSON():any;
+        toJSON(): any;
 
 
         /**
@@ -688,7 +679,7 @@ declare namespace lunr
          * @param plugin  The plugin to apply.
          * @param args
          */
-        use(plugin:Function, ...args:any[]):void;
+        use(plugin: Function, ...args: any[]): void;
 
 
         /**
@@ -699,7 +690,7 @@ declare namespace lunr
          *
          * @param serialisedData  The serialised set to load.
          */
-        static load(serialisedData:any):Index;
+        static load(serialisedData: any): Index;
     }
 
 
@@ -707,11 +698,10 @@ declare namespace lunr
      * lunr.Store is a simple key-value store used for storing sets of tokens for documents
      * stored in index.
      */
-    class Store<T>
-    {
-        store:{[id:string]:SortedSet<T>};
+    class Store<T> {
+        store: {[id: string]: SortedSet<T>};
 
-        length:number;
+        length: number;
 
 
         /**
@@ -720,7 +710,7 @@ declare namespace lunr
          * @param id      The key used to store the tokens against.
          * @param tokens  The tokens to store against the key.
          */
-        set(id:string, tokens:SortedSet<T>):void;
+        set(id: string, tokens: SortedSet<T>): void;
 
 
         /**
@@ -728,7 +718,7 @@ declare namespace lunr
          *
          * @param id  The key to lookup and retrieve from the store.
          */
-        get(id:string):SortedSet<T>;
+        get(id: string): SortedSet<T>;
 
 
         /**
@@ -736,7 +726,7 @@ declare namespace lunr
          *
          * @param id  The id to look up in the store.
          */
-        has(id:string):boolean;
+        has(id: string): boolean;
 
 
         /**
@@ -744,13 +734,13 @@ declare namespace lunr
          *
          * @param id  The id to remove from the store.
          */
-        remove(id:string):void;
+        remove(id: string): void;
 
 
         /**
          * Returns a representation of the store ready for serialisation.
          */
-        toJSON():any;
+        toJSON(): any;
 
 
         /**
@@ -758,15 +748,14 @@ declare namespace lunr
          *
          * @param serialisedData  The serialised store to load.
          */
-        static load<T>(serialisedData:any):Store<T>;
+        static load<T>(serialisedData: any): Store<T>;
     }
 
 
-    interface ITokenDocument
-    {
-        ref:number;
+    interface ITokenDocument {
+        ref: number;
 
-        tf:number;
+        tf: number;
     }
 
 
@@ -774,13 +763,12 @@ declare namespace lunr
      * lunr.TokenStore is used for efficient storing and lookup of the reverse index of token
      * to document ref.
      */
-    class TokenStore
-    {
-        root:{[token:string]:TokenStore};
+    class TokenStore {
+        root: {[token: string]: TokenStore};
 
-        docs:{[ref:string]:ITokenDocument};
+        docs: {[ref: string]: ITokenDocument};
 
-        length:number;
+        length: number;
 
 
         /**
@@ -793,7 +781,7 @@ declare namespace lunr
          * @param doc    The doc to store against the token
          * @param root   An optional node at which to start looking for the
          */
-        add(token:string, doc:ITokenDocument, root?:TokenStore):void;
+        add(token: string, doc: ITokenDocument, root?: TokenStore): void;
 
 
         /**
@@ -801,7 +789,7 @@ declare namespace lunr
          *
          * @param token  The token to check for
          */
-        has(token:string):boolean;
+        has(token: string): boolean;
 
 
         /**
@@ -809,7 +797,7 @@ declare namespace lunr
          *
          * @param token  The token to get the node for.
          */
-        getNode(token:string):TokenStore;
+        getNode(token: string): TokenStore;
 
 
         /**
@@ -821,10 +809,10 @@ declare namespace lunr
          * @param token  The token to get the documents for.
          * @param root   An optional node at which to start.
          */
-        get(token:string, root:TokenStore):{[ref:string]:ITokenDocument};
+        get(token: string, root: TokenStore): {[ref: string]: ITokenDocument};
 
 
-        count(token:string, root:TokenStore):number;
+        count(token: string, root: TokenStore): number;
 
 
         /**
@@ -833,7 +821,7 @@ declare namespace lunr
          * @param token  The token to get the documents for.
          * @param ref    The ref of the document to remove from this token.
          */
-        remove(token:string, ref:string):void;
+        remove(token: string, ref: string): void;
 
 
         /**
@@ -843,13 +831,13 @@ declare namespace lunr
          * @param token  The token to expand.
          * @param memo
          */
-        expand(token:string, memo?:string[]):string[];
+        expand(token: string, memo?: string[]): string[];
 
 
         /**
          * Returns a representation of the token store ready for serialisation.
          */
-        toJSON():any;
+        toJSON(): any;
 
 
         /**
@@ -857,13 +845,13 @@ declare namespace lunr
          *
          * @param serialisedData  The serialised token store to load.
          */
-        static load(serialisedData:any):TokenStore;
+        static load(serialisedData: any): TokenStore;
     }
 
     /**
      * A namespace containing utils for the rest of the lunr library
      */
-    module utils {
+    namespace utils {
         /**
          * Print a warning message to the console.
          *
@@ -915,4 +903,4 @@ declare namespace lunr
  * });
  * ```
  */
-declare function lunr(config:Function):lunr.Index;
+declare function lunr(config: Function): lunr.Index;

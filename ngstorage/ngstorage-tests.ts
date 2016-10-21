@@ -12,11 +12,11 @@ app.controller('LocalCtrl', function ($localStorage: angular.storage.IStorageSer
     $localStorage.$reset({
         counter: 1
     });
-    
+
     $localStorage.$reset();
 
     $localStorage.$apply();
-    
+
     $localStorage.$sync();
 });
 
@@ -29,11 +29,11 @@ app.controller('SessionCtrl', function ($sessionStorage: angular.storage.IStorag
     $sessionStorage.$reset({
         counter: 1
     });
-    
+
     $sessionStorage.$reset();
 
     $sessionStorage.$apply();
-    
+
     $sessionStorage.$sync();
 });
 

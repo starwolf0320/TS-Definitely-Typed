@@ -12,15 +12,15 @@ gulp.src('./src/*.ext')
 		console.log(error);
 	}))
     .pipe(gulp.dest('./dist'));
-	
+
 gulp.src('./src/*.ext')
     .pipe(plumber({}))
     .pipe(gulp.dest('./dist'));
-    
+
 gulp.src('./src/*.ext')
     .pipe(plumber({ inherit: false }))
     .pipe(gulp.dest('./dist'));
-    
+
 gulp.src('./src/*.ext')
     .pipe(plumber({ errorHandler: (error) => console.log(error) }))
     .pipe(gulp.dest('./dist'));

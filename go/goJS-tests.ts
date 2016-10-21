@@ -15,7 +15,7 @@ class CustomLink extends go.Link {
         if (isNaN(this.curviness)) return true;
         return super.hasCurviness();
     }
- 
+
     computeCurviness(): number {
         if (isNaN(this.curviness)) {
             var links = this.fromNode.findLinksTo(this.toNode);

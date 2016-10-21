@@ -61,12 +61,12 @@ declare namespace Draft {
                 // the default `TextEditorBlock` is used.
                 blockRendererFn?(block: ContentBlock): any;
 
-                // Function that allows to define class names to apply to the given block when it is rendered. 
+                // Function that allows to define class names to apply to the given block when it is rendered.
                 blockStyleFn?(block: ContentBlock): string;
 
                 // Provide a map of inline style names corresponding to CSS style objects
                 // that will be rendered for matching ranges.
-                customStyleMap?: any,
+                customStyleMap?: any;
 
                 // A function that accepts a synthetic key event and returns
                 // the matching DraftEditorCommand constant, or null if no command should
@@ -77,28 +77,28 @@ declare namespace Draft {
                 // Set whether the `DraftEditor` component should be editable. Useful for
                 // temporarily disabling edit behavior or allowing `DraftEditor` rendering
                 // to be used for consumption purposes.
-                readOnly?: boolean,
+                readOnly?: boolean;
 
                 // Note: spellcheck is always disabled for IE. If enabled in Safari, OSX
                 // autocorrect is enabled as well.
-                spellCheck?: boolean,
+                spellCheck?: boolean;
 
                 // Set whether to remove all style information from pasted content. If your
                 // use case should not have any block or inline styles, it is recommended
                 // that you set this to `true`.
-                stripPastedStyles?: boolean,
+                stripPastedStyles?: boolean;
 
-                tabIndex?: number,
+                tabIndex?: number;
 
-                ariaActiveDescendantID?: string,
-                ariaAutoComplete?: string,
-                ariaDescribedBy?: string,
-                ariaExpanded?: boolean,
-                ariaHasPopup?: boolean,
-                ariaLabel?: string,
-                ariaOwneeID?: string,
+                ariaActiveDescendantID?: string;
+                ariaAutoComplete?: string;
+                ariaDescribedBy?: string;
+                ariaExpanded?: boolean;
+                ariaHasPopup?: boolean;
+                ariaLabel?: string;
+                ariaOwneeID?: string;
 
-                webDriverTestID?: string,
+                webDriverTestID?: string;
 
                 /**
                  * Cancelable event handlers, handled from the top level down. A handler
@@ -107,12 +107,12 @@ declare namespace Draft {
 
                 // Useful for managing special behavior for pressing the `Return` key. E.g.
                 // removing the style from an empty list item.
-                handleReturn?(e: SyntheticKeyboardEvent): boolean,
+                handleReturn?(e: SyntheticKeyboardEvent): boolean;
 
                 // Map a key command string provided by your key binding function to a
-                // specified behavior.                
-                handleKeyCommand?(command: DraftEditorCommand): boolean,
-                handleKeyCommand?(command: string): boolean,
+                // specified behavior.
+                handleKeyCommand?(command: DraftEditorCommand): boolean;
+                handleKeyCommand?(command: string): boolean;
 
 
                 // Handle intended text insertion before the insertion occurs. This may be
@@ -120,33 +120,33 @@ declare namespace Draft {
                 // to trigger some special behavior. E.g. immediately converting `:)` to an
                 // emoji Unicode character, or replacing ASCII quote characters with smart
                 // quotes.
-                handleBeforeInput?(chars: string): boolean,
+                handleBeforeInput?(chars: string): boolean;
 
-                handlePastedText?(text: string, html?: string): boolean,
+                handlePastedText?(text: string, html?: string): boolean;
 
-                handlePastedFiles?(files: Array<Blob>): boolean,
+                handlePastedFiles?(files: Array<Blob>): boolean;
 
                 // Handle dropped files
-                handleDroppedFiles?(selection: SelectionState, files: Array<Blob>): boolean,
+                handleDroppedFiles?(selection: SelectionState, files: Array<Blob>): boolean;
 
                 // Handle other drops to prevent default text movement/insertion behaviour
-                handleDrop?(selection: SelectionState, dataTransfer: Object, isInternal: DraftDragType): boolean,
+                handleDrop?(selection: SelectionState, dataTransfer: Object, isInternal: DraftDragType): boolean;
 
                 /**
                  * Non-cancelable event triggers.
                  */
-                onEscape?(e: SyntheticKeyboardEvent): void,
-                onTab?(e: SyntheticKeyboardEvent): void,
-                onUpArrow?(e: SyntheticKeyboardEvent): void,
-                onDownArrow?(e: SyntheticKeyboardEvent): void,
+                onEscape?(e: SyntheticKeyboardEvent): void;
+                onTab?(e: SyntheticKeyboardEvent): void;
+                onUpArrow?(e: SyntheticKeyboardEvent): void;
+                onDownArrow?(e: SyntheticKeyboardEvent): void;
 
-                onBlur?(e: SyntheticEvent): void,
-                onFocus?(e: SyntheticEvent): void,
+                onBlur?(e: SyntheticEvent): void;
+                onFocus?(e: SyntheticEvent): void;
 
                 // Provide a map of block rendering configurations. Each block type maps to
                 // an element tag and an optional react element wrapper. This configuration
                 // is used for both rendering and paste processing.
-                blockRenderMap?: DraftBlockRenderMap
+                blockRenderMap?: DraftBlockRenderMap;
             }
 
             type DraftTextAlignment = "left" | "center" | "right";
@@ -159,12 +159,12 @@ declare namespace Draft {
 
         namespace Selection {
             interface FakeClientRect {
-                left: number,
-                width: number,
-                right: number,
-                top: number,
-                bottom: number,
-                height: number,
+                left: number;
+                width: number;
+                right: number;
+                top: number;
+                bottom: number;
+                height: number;
             }
 
             /**
@@ -394,9 +394,9 @@ declare namespace Draft {
              * a `ComposedText` object, not for use with `DraftEntity.get()`.
              */
             interface EntityRange {
-                key: number,
-                offset: number,
-                length: number,
+                key: number;
+                offset: number;
+                length: number;
             }
 
             /**
@@ -751,7 +751,7 @@ declare namespace Draft {
                 entity?: string;
             }
 
-            type EditorChangeType = (
+            type EditorChangeType =
                 "adjust-depth" |
                 "apply-entity" |
                 "backspace-character" |
@@ -765,8 +765,7 @@ declare namespace Draft {
                 "remove-range" |
                 "spellcheck-change" |
                 "split-block" |
-                "undo"
-            )
+                "undo";
 
             interface BlockMapBuilder {
                 createFromArray(blocks: Array<ContentBlock>): BlockMap;

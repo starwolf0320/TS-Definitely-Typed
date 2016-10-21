@@ -61,7 +61,7 @@ declare namespace angularScenario {
         toBeGreaterThan(value: any): void;
     }
 
-    export interface CustomMatchers extends Matchers{
+    export interface CustomMatchers extends Matchers {
     }
 
     export interface Expect extends CustomMatchers {
@@ -97,7 +97,7 @@ declare namespace angularScenario {
     export interface Element {
         count(): Future;
         click(): any;
-        query(callback: (selectedDOMElements: any[], callbackWhenDone: (objNull: any, futureValue: any) => any) =>any): any;
+        query(callback: (selectedDOMElements: any[], callbackWhenDone: (objNull: any, futureValue: any) => any) => any): any;
         val(): Future;
         text(): Future;
         html(): Future;

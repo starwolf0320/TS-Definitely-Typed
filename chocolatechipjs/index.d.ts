@@ -45,7 +45,7 @@ interface ChocolateChipStatic {
    * @return document[]
    */
   (document: Document): Document[];
-  
+
   /**
    * If no argument is provided, return the document as a ChocolateChipElementArray.
    * @return Document[]
@@ -503,12 +503,12 @@ interface ChocolateChipStatic {
      * The repeater method used to rendering iterable template data.
      */
     repeater: {
-      
+
       /**
        * Use this method to render declarative temlate repeaters. This expects a "data-repeater" attribute whose value points to data stored on $.template.data.
        */
       (): void;
-      
+
       /**
       * A method to repeated output a template.
       *
@@ -536,7 +536,7 @@ interface ChocolateChipStatic {
 
   /**
    * ATENTION: DO NOT TOUCH! This is the ChocolateChipJS cache. This is used to store details about registered events and data. You should not touch any of these values, even though they are exposed, as this can seriously impair the behavior of your app.
-   * 
+   *
    * data: this is used by $(element).data() to store data.
    * events: this is used by the event system.
    */
@@ -545,7 +545,7 @@ interface ChocolateChipStatic {
      * DO NOT TOUCH! This hold data stored by $(element).data().
      */
     data: {};
-    
+
     /**
      * DO NOT TOUCH! This stores information about registered events.
      */
@@ -556,7 +556,7 @@ interface ChocolateChipStatic {
       hasKey: Function;
       _delete: Function;
     }
-  }
+  };
 
 }
 
@@ -652,7 +652,7 @@ interface ChocolateChipElementArray extends Array<HTMLElement> {
    * @ return HTMLElement[]
    */
   has(selector: string): ChocolateChipElementArray;
-  
+
   /**
    * Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.
    *
@@ -668,7 +668,7 @@ interface ChocolateChipElementArray extends Array<HTMLElement> {
    * @ return HTMLElement[]
    */
   hasnt(selector: string): ChocolateChipElementArray;
-  
+
   /**
    * Reduce the set of matched elements to those that have a descendant that does not match the selector or DOM element.
    *
@@ -857,10 +857,10 @@ interface ChocolateChipElementArray extends Array<HTMLElement> {
    * @return HTMLElement[]
    */
   prop(propertyName: string, value: any | boolean): ChocolateChipElementArray;
-  
+
   /**
    * Remove an element property.
-   * 
+   *
    * @param property The property to remove.
    * @return HTMLElement[]
    */
@@ -1220,7 +1220,7 @@ interface ChocolateChipElementArray extends Array<HTMLElement> {
 
   /**
   * Trigger an event on an element.
-  * 
+  *
   * @param eventType The event to trigger.
   * @return void
   */
@@ -1337,7 +1337,7 @@ interface fetch {
     method?: string;
     headers?: {};
     body?: any;
-    mode?:  {
+    mode?: {
       cors: string;
       "no-cors": string;
       "same-origin": string;
@@ -1404,7 +1404,7 @@ interface Request {
 }
 
 interface URLSearchParams {
-  ():URLSearchParams;
+  (): URLSearchParams;
 }
 
 /**
@@ -1440,14 +1440,14 @@ interface Response {
 }
 
 interface ChocolateChipStatic {
-  
+
   /**
    * A cache to hold callbacks execute by the response from a JSONP request. This is an array of strings. By default these values get purged when the callback execute and exposes the data returned by the request.
    */
   JSONPCallbacks: string[];
   /**
-   * Method to perform JSONP request. 
-   * 
+   * Method to perform JSONP request.
+   *
    * @param url A string defining the url to target.
    * @param options And object literal of properties: {timeout? number, callbackName?: string, clear?: boolean}
    */
@@ -1456,17 +1456,17 @@ interface ChocolateChipStatic {
      * A number representing milliseconds to express when to refect a JSONP request.
      */
     timeout?: number;
-    
+
     /**
-     * The optional name for the callback when the server response will execute. The default value is "callback". However some sites may use a different name for their JSONP function. Consult the documentation on the site to ascertain the correct value for this callback. 
+     * The optional name for the callback when the server response will execute. The default value is "callback". However some sites may use a different name for their JSONP function. Consult the documentation on the site to ascertain the correct value for this callback.
      */
     callbackName?: string;
-    
+
     /**
      * This value determines whether the callbacks and script associate with JSONP persist or are purged after the request returns. By default this is set to true, meaning that they will be purged.
      */
     clear?: boolean;
-  }): any
+  }): any;
 }
 
 interface Window {

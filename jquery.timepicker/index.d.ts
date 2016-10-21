@@ -25,7 +25,7 @@ interface TimePickerMinutes {
 interface TimePickerOptions {
     /** 'focus' for popup on focus, */
     showOn?: string;
-    
+
     /**
      * 'button' element that will trigger the timepicker.
      *

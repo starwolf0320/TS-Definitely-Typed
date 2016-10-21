@@ -3,8 +3,7 @@
 // Definitions by: Chris Wrench <https://github.com/cgwrench>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare class jo
-{
+declare class jo {
     constructor(baseUri: string);
 
     baseUri: string;
@@ -156,7 +155,7 @@ declare namespace jo {
         // Math functions
         round(): jo.FilterClause;
         floor(): jo.FilterClause;
-        ceiling() : jo.FilterClause;
+        ceiling(): jo.FilterClause;
     }
 
     // Precedence groups
@@ -185,7 +184,7 @@ declare namespace jo {
     interface OrderBySettings extends ISettings {
         Property: string;
         Order: string;
-        DefaultProperty:string;
+        DefaultProperty: string;
         DefaultOrder: string;
     }
 

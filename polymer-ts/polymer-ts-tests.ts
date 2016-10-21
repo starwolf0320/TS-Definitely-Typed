@@ -3,7 +3,7 @@ namespace Components {
 
 		public field: string = 'foo';
 		public is: string;
-		
+
 		constructor() {
 			super();
 			this.is = 'test-test';
@@ -12,7 +12,7 @@ namespace Components {
         public ready(): void {
 			console.log('ready');
 			this.async(() => {
-				console.log('delayed');	
+				console.log('delayed');
 			}, 500);
         }
 	}

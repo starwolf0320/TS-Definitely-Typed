@@ -19,7 +19,7 @@ declare namespace Chroma {
 
         /**
          * Creates a color from a number representation [0; 16777215]
-         * 
+         *
          * @param color The number to convert to a color.
          * @return the color object.
          */
@@ -67,13 +67,13 @@ declare namespace Chroma {
 
         rgb(r: number, g: number, b: number): Color;
 
-        /** 
+        /**
          * GL is a variant of RGB(A), with the only difference that the components are normalized to the range of 0..1.
         */
         gl(red: number, green: number, blue: number, alpha?: number): Color;
 
-        /** 
-         * light 2000K, bright sunlight 6000K. Based on Neil Bartlett's implementation. 
+        /**
+         * light 2000K, bright sunlight 6000K. Based on Neil Bartlett's implementation.
          * https://github.com/neilbartlett/color-temperature
         */
         temperature(t: number): Color;
@@ -93,7 +93,7 @@ declare namespace Chroma {
         random(): Color;
 
         /**
-         * Computes the WCAG contrast ratio between two colors. 
+         * Computes the WCAG contrast ratio between two colors.
          * A minimum contrast of 4.5:1 is recommended to ensure that text is still readable against a background color.
          *
          * @param color1 The first color.
@@ -105,7 +105,7 @@ declare namespace Chroma {
         bezier(colors: string[]): Scale;
 
         /**
-         * chroma.brewer is an map of ColorBrewer scales that are included in chroma.js for convenience. 
+         * chroma.brewer is an map of ColorBrewer scales that are included in chroma.js for convenience.
          * chroma.scale uses the colors to construct.
          */
         brewer: {
@@ -147,7 +147,7 @@ declare namespace Chroma {
         };
 
         /**
-         * Helper function that computes class breaks for you, based on actual data. 
+         * Helper function that computes class breaks for you, based on actual data.
          * Supports three different modes: equidistant breaks, quantiles breaks and breaks based on k-means clusting.
          */
         limits(data: number[], mode: string, c: number): number[];
@@ -159,7 +159,7 @@ declare namespace Chroma {
         cubehelix(): Cubehelix;
 
         cmyk(c: number, m: number, y: number, k: number): Color;
-        
+
         /**
          * Create a color from a hex or string representation (as supported in CSS).
          *

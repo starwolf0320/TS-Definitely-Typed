@@ -1078,7 +1078,7 @@ interface JQueryStatic {
     data: {
         repeaterName?: any;
     };
-  
+
     /**
      * Use this value to output an index value in a template repeater.
      */
@@ -1371,7 +1371,7 @@ interface JQuery {
    * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
    * @return JQuery
   */
-  on(events: string | ChUIEventInterface, data : any, handler: (eventObject: JQueryEventObject, ...args: any[]) => any): JQuery;
+  on(events: string | ChUIEventInterface, data: any, handler: (eventObject: JQueryEventObject, ...args: any[]) => any): JQuery;
   /**
    * Attach an event handler function for one or more events to the selected elements.
    *

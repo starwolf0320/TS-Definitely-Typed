@@ -16,7 +16,7 @@ declare namespace ngSignalr {
         /**
          * Creates a new Hub connection
          */
-        new (hubName: string, options: HubOptions): Hub
+        new (hubName: string, options: HubOptions): Hub;
     }
 
     class Hub {

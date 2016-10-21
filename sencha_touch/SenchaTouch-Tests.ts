@@ -3,14 +3,14 @@ Ext.application({
     name: 'Sencha',
 
     launch: function() {
-        
+
         Ext.Viewport.add( <Ext.tab.IPanel>{
             xtype: 'tabpanel',
             fullscreen: true,
             tabBarPosition: 'bottom',
 
             items: [
-            
+
                 <Ext.IComponent>{
                     title: 'Home',
                     iconCls: 'home',
@@ -97,7 +97,7 @@ Ext.application({
                                 }
                             ]
                         },
-                        
+
                         <Ext.IButton>{
                             xtype: 'button',
                             text: 'Send',

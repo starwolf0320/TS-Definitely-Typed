@@ -12,11 +12,11 @@ $(function() {
    $.forEach([1,2,3], function(ctx: number, idx: number) {
       return idx;
    });
-   
+
    var isiPhone = $.isiPhone;
    var isAndroid = $.isAndroid;
    var isWinPhone = $.isWinPhone;
-   
+
    $('li').on($.eventStart, function(){
       return;
    });
@@ -29,7 +29,7 @@ $(function() {
    $('li').on($.eventCancel, function(){
       return;
    });
-   
+
    var browserVersion = $.browserVersion();
    $.UIHideNavBar();
    $.UIShowNavBar();
@@ -65,7 +65,7 @@ $(function() {
    $.UIBindData("#myBoundData");
    $.UIUnBindData();
    $.UIUnBindData("#myBoundData");
-   
+
    /**
     * Test plugin methods:
     */
@@ -93,5 +93,5 @@ $(function() {
    $('#myStepper').UIStepper({ start: 1, end: 10, defaultValue: 5 });
    $('#mySwitch').UISwitch();
    $('#myRangeControl').UIRange();
-   
+
 });

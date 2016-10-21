@@ -9,7 +9,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Spreadsheet {
+  export namespace Spreadsheet {
     /**
      * The chart's position within a sheet.  Can be updated using the EmbeddedChart.modify()
      *  function.
@@ -893,8 +893,8 @@ declare namespace GoogleAppsScript {
      *  the parent class for the Spreadsheet service.
      */
     export interface SpreadsheetApp {
-      DataValidationCriteria: DataValidationCriteria
-      ProtectionType: ProtectionType
+      DataValidationCriteria: DataValidationCriteria;
+      ProtectionType: ProtectionType;
       create(name: string): Spreadsheet;
       create(name: string, rows: Integer, columns: Integer): Spreadsheet;
       flush(): void;

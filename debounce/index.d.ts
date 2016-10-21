@@ -6,5 +6,5 @@
 
 // Overload on boolean constants would allow us to narrow further,
 // but it is not implemented for TypeScript yet
-declare function f<A extends Function>(f: A, interval?: number, immediate?: boolean): A
+declare function f<A extends Function>(f: A, interval?: number, immediate?: boolean): A;
 export default f;

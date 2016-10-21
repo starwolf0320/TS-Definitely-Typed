@@ -12,7 +12,7 @@ var sjisArray = Encoding.convert(utf8Array_3, 'EUCJP', 'UTF8');
 // Convert character encoding by automatic detection (AUTO detect).
 var utf8Array = utf8Array_1;
 var sjisArray1 = Encoding.convert(utf8Array, 'SJIS');
-// or  
+// or
 var sjisArray2 = Encoding.convert(utf8Array, 'SJIS', 'AUTO');
 
 // Detect the character encoding.

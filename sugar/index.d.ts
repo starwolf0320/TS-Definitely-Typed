@@ -4132,7 +4132,7 @@ interface DateConstructor {
 
 	/**
 	* @see create
-	* @param timestamp 	
+	* @param timestamp
 	create(timestamp?: number): Date;
 
 	/**

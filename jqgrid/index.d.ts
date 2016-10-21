@@ -22,7 +22,7 @@ interface JQueryJqGridColumn {
      * @param rowObject  the raw object of the data row - i.e if datatype is json - array, if datatype is xml xml node.
      * @param cm all the properties of this column listed in the colModel
      * @param rdata the data row which will be inserted in the row. This parameter is array of type name:value, where name is the name in colModel
-     * @returns {} 
+     * @returns {}
      */
     cellattr?: (rowId: any, val: any, rowObject: any, cm: any, rdata: any) => string;
 
@@ -113,29 +113,29 @@ interface IJqGridJsonReader {
 
     /**
      * Name of the root property
-     * @param obj 
-     * @returns {} 
+     * @param obj
+     * @returns {}
      */
     root: string | ((obj: any) => any);
 
     /**
      * current page of the query
-     * @param obj 
-     * @returns {} 
+     * @param obj
+     * @returns {}
      */
     page: string | ((obj: any) => number);
 
     /**
      * total pages for the query
-     * @param obj 
-     * @returns {} 
+     * @param obj
+     * @returns {}
      */
     total: string | ((obj: any) => number);
 
     /**
      * total number of records for the query
-     * @param obj 
-     * @returns {} 
+     * @param obj
+     * @returns {}
      */
     records: string | ((obj: {data: any[]}) => number);
 }
@@ -314,7 +314,7 @@ interface JQueryJqGridOptions {
     /**
      * This fires after all the data is loaded into the grid and all other processes are complete.
      * Also the event fires independent from the datatype parameter and after sorting paging and etc.
-     * @returns {} 
+     * @returns {}
      */
     gridComplete?: () => void;
 
@@ -324,7 +324,7 @@ interface JQueryJqGridOptions {
      * @param iRow is the index of the row (do not mix this with the rowid)
      * @param iCol is the index of the cell
      * @param e  is the event object
-     * @returns {} 
+     * @returns {}
      */
     onRightClickRow?: (rowid: any, iRow: number, iCol: number, e: Event) => void;
 
@@ -333,7 +333,7 @@ interface JQueryJqGridOptions {
      * @param id  is the id of the row
      * @param status is the status of the selection
      * @param e  is the event object. Can be used when multiselect is set to true. true if the row is selected, false if the row is deselected.
-     * @returns {} 
+     * @returns {}
      */
     onSelectRow?: (id: string, status: any, e: Event) => void;
 }
@@ -356,8 +356,8 @@ interface JQuery {
 
     /**
      * Populates a grid with the passed data (an array)
-     * @param data 
-     * @returns {} 
+     * @param data
+     * @returns {}
      */
     addJSONData(data: any[]): void;
 
@@ -366,14 +366,14 @@ interface JQuery {
      * keys is a boolean value, indicating if to use the Enter key to accept the value ane Esc to cancel the edit, or not.
      * @param rowid the id of the row to edit
      * @param keys when set to true we can use [Enter] key to save the row and [Esc] to cancel editing
-     * @returns {} 
+     * @returns {}
      */
     editRow(rowid: any, keys?: boolean): void;
 
     /**
      * Returns the value of the requested parameter. name is the name from the options array. If the name is not set, the entry options are returned.
-     * @param name 
-     * @returns {} 
+     * @param name
+     * @returns {}
      */
     getGridParam(name: string): any;
 
@@ -381,27 +381,27 @@ interface JQuery {
      * This method restores the data to original values before the editing of the row
      * @param rowId the row to restore
      * @param afterRestoreFunc if defined this function is called in after the row is restored.
-     * @returns {} 
+     * @returns {}
      */
     restoreRow(rowId: any, afterRestoreFunc?: (response: any) => void): void;
 
     /**
      * Saves the edited row.
      * @param rowid the id of the row to save
-     * @param successfunc 
+     * @param successfunc
      * @param url if defined, this parameter replaces the editurl parameter from the options array. If set to 'clientArray', the data is not posted to the server but rather is saved only to the grid (presumably for later manual saving).
      * @param extraparam an array of type name: value. When set these values are posted along with the other values to the server.
-     * @returns {} 
+     * @returns {}
      */
     saveRow(rowid: string, successfunc?: (response: any) => boolean, url?: string, extraparam?: any): void;
 
     /**
      * Saves the edited row.
      * @param rowid the id of the row to save
-     * @param successfunc 
-     * @param url 
-     * @param extraparam 
-     * @returns {} 
+     * @param successfunc
+     * @param url
+     * @param extraparam
+     * @returns {}
      */
     saveRow(rowid: string, successfunc?: boolean, url?: string, extraparam?: any): void;
 
@@ -410,8 +410,8 @@ interface JQuery {
      * Note - for some parameters to take effect a trigger("reloadGrid") should be executed.
      * Note that with this method we can override events.
      * The name (in the name:value pair) is the name from options array
-     * @param obj 
-     * @returns {} 
+     * @param obj
+     * @returns {}
      */
     setGridParam(obj: any): void;
 }

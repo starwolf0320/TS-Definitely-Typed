@@ -14,7 +14,7 @@ declare namespace MailcheckModule {
     }
 
     export interface ISuggestFunction {
-        (email: string, domains?: string[], topLevelDomains?: string[], distanceFunction?: IDistanceFunction):void;
+        (email: string, domains?: string[], topLevelDomains?: string[], distanceFunction?: IDistanceFunction): void;
     }
 
     export interface IJQuerySuggested {
@@ -61,7 +61,7 @@ declare namespace MailcheckModule {
         defaultTopLevelDomains: string[];
         domainThreshold: number;
         topLevelThreshold: number;
-        run(opts: IOptions):void;
+        run(opts: IOptions): void;
         suggest: ISuggestFunction;
         encodeEmail(email: string): string;
         splitEmail(email: string): ISplitEmail;

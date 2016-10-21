@@ -90,7 +90,7 @@ declare namespace UglifyJS {
         fromString?: boolean;
         warnings?: boolean;
         mangle?: Object;
-        output?: MinifyOutput,
+        output?: MinifyOutput;
         compress?: Object;
     }
 
@@ -206,7 +206,7 @@ declare namespace UglifyJS {
         indentation(): number;
 
         // return the width of the current line text minus indentation.
-        current_width(): number
+        current_width(): number;
 
         // Return true if current_width() is bigger than options.width (assuming options.width is non-null, non-zero).
         should_break(): boolean;

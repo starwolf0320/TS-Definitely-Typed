@@ -25,7 +25,7 @@ interface JoyrideTemplate {
 	* Tip template
 	* @member {string}
 	*/
-	tip?: string;    
+	tip?: string;
 
 	/**
 	* Wrapper template
@@ -59,7 +59,7 @@ interface JoyrideOptions {
 	*/
 	version?: string;
 
-	/** 
+	/**
 	* 'top' or 'bottom' in relation to parent
 	* @member {string}
 	*/
@@ -237,8 +237,7 @@ interface JoyrideOptions {
 	template?: JoyrideTemplate;
 }
 
-interface Joyride
-{
+interface Joyride {
 	/**
 	* Default function, no options
 	* @method

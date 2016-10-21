@@ -5,12 +5,12 @@
 
 ///<reference types="node" />
 
-declare module 'logat'{
+declare module 'logat' {
 
   interface LogOptionsI {
-    logLevel?: number,
-    logMethod?: number,
-    logFileName?: string
+    logLevel?: number;
+    logMethod?: number;
+    logFileName?: string;
   }
 
   class Logger extends NodeJS.EventEmitter {

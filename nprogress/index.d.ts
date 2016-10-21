@@ -71,7 +71,7 @@ interface NProgressConfigureOptions {
     /**
      * CSS selector to change the parent DOM element of the progress. Default is body.
      */
-    parent?: string
+    parent?: string;
 
     /**
      * The minimum progress percentage. Default is 0.08.

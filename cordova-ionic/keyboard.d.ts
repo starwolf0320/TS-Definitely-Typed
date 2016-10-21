@@ -11,7 +11,7 @@ declare namespace Ionic {
      *
      * @param hide
      */
-    hideKeyboardAccessoryBar(hide:boolean): void;
+    hideKeyboardAccessoryBar(hide: boolean): void;
 
     /**
      * Close the keyboard if it is open.
@@ -31,7 +31,7 @@ declare namespace Ionic {
      *
      * @param disbale
      */
-    disableScroll(disbale:boolean): void;
+    disableScroll(disbale: boolean): void;
 
     /**
      * Whether or not the keyboard is currently visible.

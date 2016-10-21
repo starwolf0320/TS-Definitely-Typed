@@ -462,19 +462,19 @@ declare namespace VisionResponses {
         "categories": [{
             "name": string;
             "score": number;
-        }],
+        }];
         "adult": {
             "isAdultContent": boolean;
             "isRacyContent": boolean;
             "adultScore": number;
             "racyScore": number;
-        },
+        };
         "requestId": string;
         "metadata": {
             "width": number;
             "height": number;
             "format": string;
-        },
+        };
         "faces": [
             {
                 "age": number;
@@ -486,18 +486,18 @@ declare namespace VisionResponses {
                     "height": number;
                 }
             }
-        ],
+        ];
         "color": {
             "dominantColorForeground": string;
             "dominantColorBackground": string;
             "dominantColors": string[];
             "accentColor": string;
             "isBWImg": boolean;
-        },
+        };
         "imageType": {
             "clipArtType": number;
             "lineDrawingType": number;
-        }
+        };
     }
 
 
@@ -514,6 +514,6 @@ declare namespace VisionResponses {
                     "text": string;
                 }]
             }]
-        }]
+        }];
     }
 }

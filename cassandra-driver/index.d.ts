@@ -100,8 +100,8 @@ export namespace policies {
     }
 
     interface RequestInfo {
-      request: any,
-      nbRetry: number
+      request: any;
+      nbRetry: number;
     }
 
     enum retryDecision {
@@ -437,25 +437,25 @@ export var HostMap: HostMapStatic;
 export var Encoder: EncoderStatic;
 
 export interface ClientOptions {
-  contactPoints: Array<string>,
-  keyspace: string,
+  contactPoints: Array<string>;
+  keyspace: string;
   policies?: {
     addressResolution?: policies.addressResolution.AddressTranslator,
     loadBalancing?: policies.loadBalancing.LoadBalancingPolicy,
     reconnection?: policies.reconnection.ReconnectionPolicy,
     retry?: policies.retry.RetryPolicy
-  },
-  queryOptions?: QueryOptions,
+  };
+  queryOptions?: QueryOptions;
   pooling?: {
     heartBeatInterval: number,
     coreConnectionsPerHost: { [key: number]: number; },
     warmup: boolean;
-  },
+  };
   protocolOptions?: {
     port: number,
     maxSchemaAgreementWaitSeconds: number,
     maxVersion: number
-  },
+  };
   socketOptions?: {
     connectTimeout: number,
     defunctReadTimeoutThreshold: number,
@@ -464,15 +464,15 @@ export interface ClientOptions {
     readTimeout: number,
     tcpNoDelay: boolean,
     coalescingThreshold: number
-  },
-  authProvider?: auth.AuthProvider,
-  sslOptions?: any,
+  };
+  authProvider?: auth.AuthProvider;
+  sslOptions?: any;
   encoding?: {
     map: Function,
     set: Function,
     copyBuffer: boolean,
     useUndefinedAsUnset: boolean
-  }
+  };
 }
 
 export interface QueryOptions {
@@ -632,7 +632,7 @@ export namespace metadata {
     argumentTypes: Array<{ code: number, info: any }>;
     finalFunction: string;
     initCondition: string;
-    keyspaceName: string,
+    keyspaceName: string;
     returnType: string;
     signature: Array<string>;
     stateFunction: string;
@@ -640,17 +640,17 @@ export namespace metadata {
   }
 
   interface DataTypeInfo {
-    code: number,
-    info: string | DataTypeInfo | Array<DataTypeInfo>,
+    code: number;
+    info: string | DataTypeInfo | Array<DataTypeInfo>;
     options: {
       frozen: boolean,
       reversed: boolean
-    }
+    };
   }
 
   interface ColumnInfo {
-    name: string,
-    type: DataTypeInfo
+    name: string;
+    type: DataTypeInfo;
   }
 
   interface DataCollection {
@@ -672,7 +672,7 @@ export namespace metadata {
     maxIndexInterval?: number;
     minIndexInterval?: number;
     name: string;
-    partitionKeys: Array<{ c: ColumnInfo, index: number }>
+    partitionKeys: Array<{ c: ColumnInfo, index: number }>;
     populateCacheOnFlush: boolean;
     readRepairChance: number;
     speculateRetry: string;
@@ -737,7 +737,7 @@ export namespace metadata {
     argumentTypes: Array<{ code: number, info: any }>;
     body: string;
     calledOnNullInput: boolean;
-    keyspaceName: string,
+    keyspaceName: string;
     language: string;
     name: string;
     returnType: string;

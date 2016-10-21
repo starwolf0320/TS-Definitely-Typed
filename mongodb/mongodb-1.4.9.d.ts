@@ -225,7 +225,7 @@ export interface DbCreateOptions {
     numberOfRetries?: number;
 
     // an object representing a logger that you want to use, needs to support functions debug, log, error. default:null.
-    logger?: Object
+    logger?: Object;
 
     // force setting of SlaveOk flag on queries (only use when explicitly connecting to a secondary server). default:null.
     slaveOk?: number;

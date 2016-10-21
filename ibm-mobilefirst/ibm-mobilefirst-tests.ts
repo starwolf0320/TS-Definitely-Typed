@@ -126,7 +126,7 @@ WL.SimpleDialog.show(
             WL.Logger.debug("First button pressed");
         }
     }]);
-    
+
 // Test WL.TabBar
 // iOS
 var creditTab = WL.TabBar.addItem("CREDIT", function() {

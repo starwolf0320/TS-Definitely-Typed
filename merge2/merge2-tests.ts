@@ -2,7 +2,7 @@
 
 
 import gulp = require('gulp');
-import * as merge2 from "merge2"; 
+import * as merge2 from "merge2";
 
 gulp.task('app-js', () =>
   merge2(

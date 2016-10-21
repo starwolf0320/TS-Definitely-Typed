@@ -264,18 +264,18 @@ declare namespace tabris {
     /**
      * Returns a (possibly empty) collection of all descendants of this widget.
      */
-    find (): WidgetCollection
+    find (): WidgetCollection;
 
     /**
      * Returns a (possibly empty) collection of all descendants of this widget that match the selector.
      * @param selector
      */
-    find (selector: string): WidgetCollection
+    find (selector: string): WidgetCollection;
 
     /**
      * Returns `true` if the widget has been disposed, otherwise `false`.
      */
-    isDisposed (): boolean
+    isDisposed (): boolean;
 
     /**
      * Returns the parent of this widget.
@@ -644,7 +644,7 @@ declare namespace tabris {
      * If set to a function, this function will be called for every item, providing the item as a parameter,
      * and must return a name for the cell type to use for the given item.
      */
-    cellType?: (item : any) => string | string;
+    cellType?: (item: any) => string | string;
 
     /**
      * A callback used to initialize a collection cell by attaching widget and *change:item* listener.
@@ -1335,7 +1335,7 @@ declare namespace tabris {
      * the parsed content of the file `patch.json` from the installed patch.
      * @provisional
      */
-    installPatch (url : string, callback : (error: Error, patch: Object) => any): void;
+    installPatch (url: string, callback: (error: Error, patch: Object) => any): void;
 
     /**
      * Forces the running application to reload the main module and start over.

@@ -41,7 +41,7 @@ declare namespace e {
          * See https://github.com/expressjs/compression#filter regarding the usage.
          */
         filter?: Function;
-        
+
         /**
          * See https://nodejs.org/api/zlib.html#zlib_class_options regarding the usage.
          */

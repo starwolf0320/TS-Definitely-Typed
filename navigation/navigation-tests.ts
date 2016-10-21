@@ -9,7 +9,7 @@ namespace NavigationTests {
 			super.addHistory(url, false);
 	    }
 	}
-	
+
 	// Configuration
 	var config = [
         { key: 'people', route: ['people/{page}', 'people/{page}/sort/{sort}'], defaults: { page: 1 }, help: 'people.htm' },
@@ -17,7 +17,7 @@ namespace NavigationTests {
 	];
     var stateNavigator = new Navigation.StateNavigator(config);
     stateNavigator.configure(config, new LogHistoryManager());
-	
+
 	// States
 	var states = stateNavigator.states;
 	var people = states['people'];
@@ -25,7 +25,7 @@ namespace NavigationTests {
     var help = people['help'];
 	var pageDefault = people.defaults.page;
 	var idDefaultType = person.defaultTypes.id;
-	
+
 	// State Controller
 	people.dispose = () => {};
 	people.navigating = (data, url, navigate) => {
@@ -43,13 +43,13 @@ namespace NavigationTests {
         return queryString ? val.replace(/\+/g, ' ') : decodeURIComponent(val);
     };
 	person.validate = (data: any) => data.id > 0;
-	
+
 	// Navigation Event
 	var navigationListener = (oldState: Navigation.State, state: Navigation.State, data: any, asyncData: any) => {
 		stateNavigator.offNavigate(navigationListener);
 	};
 	stateNavigator.onNavigate(navigationListener);
-	
+
 	// Navigation
 	stateNavigator.navigate('people');
 	stateNavigator.navigate('people', null, 'add');
@@ -60,7 +60,7 @@ namespace NavigationTests {
 	var canGoBack: boolean = stateNavigator.canNavigateBack(1);
 	stateNavigator.navigateBack(1);
 	stateNavigator.stateContext.clear();
-	
+
 	// Navigation Link
 	var link = stateNavigator.getNavigationLink('people');
 	link = stateNavigator.getRefreshLink();
@@ -72,7 +72,7 @@ namespace NavigationTests {
 	var crumb = stateNavigator.stateContext.crumbs[0];
 	link = crumb.url;
 	stateNavigator.navigateLink(link, 'none', true);
-	
+
 	// State Context
 	var state: Navigation.State = stateNavigator.stateContext.state;
 	var url: string = stateNavigator.stateContext.url;
@@ -82,7 +82,7 @@ namespace NavigationTests {
 	page = stateNavigator.stateContext.oldData.page;
 	state = stateNavigator.stateContext.previousState;
 	page = stateNavigator.stateContext.previousData.page;
-	
+
 	// Navigation Data
 	var data = stateNavigator.stateContext.includeCurrentData({ sort: 'name' }, ['page']);
 	stateNavigator.refresh(data);

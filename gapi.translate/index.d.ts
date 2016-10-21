@@ -39,7 +39,7 @@ declare namespace gapi.client.language {
 			 * Selector specifying which fields to include in a partial response.
 			 */
 			fields?: string;
-		}): HttpRequest<GoogleApiTranslateLanguageListResponse>
+		}): HttpRequest<GoogleApiTranslateLanguageListResponse>;
 
 	}
 
@@ -90,7 +90,7 @@ interface GoogleApiTranslateTranslationListResponse {
 			translatedText: string;
 			detectedSourceLanguage: string;
 		}[];
-	}
+	};
 
 }
 
@@ -101,7 +101,7 @@ interface GoogleApiTranslateLanguageListResponse {
 			language: string;
 			name: string;
 		}[];
-	}
+	};
 
 }
 
@@ -112,6 +112,6 @@ interface GoogleApiTranslateDetectionListResponse {
 			language: string;
 			confidence: number;
 		}[][];
-	}
+	};
 
 }

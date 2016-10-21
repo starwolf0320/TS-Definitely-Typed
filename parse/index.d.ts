@@ -801,7 +801,7 @@ declare namespace Parse {
 
     namespace Analytics {
 
-        function track<T>(name: string, dimensions: any):Promise<T>;
+        function track<T>(name: string, dimensions: any): Promise<T>;
     }
 
     /**
@@ -1095,5 +1095,5 @@ declare module "parse/node" {
 
 declare module "parse" {
     import * as parse from "parse/node";
-    export = parse
+    export = parse;
 }

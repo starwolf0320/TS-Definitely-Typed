@@ -3,7 +3,7 @@
 // Definitions by: Kamil Szostak <https://github.com/kamilszostak>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module AI {
+declare namespace AI {
     enum SeverityLevel {
         Verbose = 0,
         Information = 1,
@@ -127,7 +127,7 @@ declare module AI {
     }
 }
 
-declare module Microsoft.ApplicationInsights.Context {
+declare namespace Microsoft.ApplicationInsights.Context {
     interface IApplication {
         /**
          * The application version.
@@ -288,7 +288,7 @@ declare module Microsoft.ApplicationInsights.Context {
     }
 }
 
-declare module Microsoft.Telemetry {
+declare namespace Microsoft.Telemetry {
     class Domain {
         constructor();
     }
@@ -305,7 +305,7 @@ declare module Microsoft.Telemetry {
     }
 }
 
-declare module Microsoft.ApplicationInsights.Telemetry {
+declare namespace Microsoft.ApplicationInsights.Telemetry {
 
     class Event implements Microsoft.ApplicationInsights.ISerializable {
         static envelopeType: string;
@@ -481,7 +481,7 @@ declare module Microsoft.ApplicationInsights.Telemetry {
     }
 }
 
-declare module Microsoft.ApplicationInsights.Telemetry.Common {
+declare namespace Microsoft.ApplicationInsights.Telemetry.Common {
     class Base extends Microsoft.Telemetry.Base implements Microsoft.ApplicationInsights.ISerializable {
         /**
          * The data contract for serializing this object.
@@ -543,7 +543,7 @@ declare module Microsoft.ApplicationInsights.Telemetry.Common {
     }
 }
 
-declare module Microsoft.ApplicationInsights {
+declare namespace Microsoft.ApplicationInsights {
     interface IConfig {
         instrumentationKey?: string;
         endpointUrl?: string;

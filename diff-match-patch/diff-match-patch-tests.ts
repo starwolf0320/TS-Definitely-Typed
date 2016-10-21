@@ -14,7 +14,7 @@ var pattern = "";
 diffs.forEach(function(diff) {
     var operation = diff[0]; // Operation (insert, delete, equal)
     var text = diff[1]; // Text of change
-    
+
     switch (operation) {
         case DiffMatchPatch.DIFF_INSERT:
             pattern += "I";

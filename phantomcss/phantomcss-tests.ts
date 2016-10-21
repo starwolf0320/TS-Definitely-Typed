@@ -39,8 +39,8 @@ var options: PhantomCSS.PhantomCSSOptions = {
         });
     },
 
-    fileNameGetter: function(root:string,filename:string){ 
-       
+    fileNameGetter: function(root:string,filename:string){
+
        return root+filename;
     },
 
@@ -65,7 +65,7 @@ declare var phantomcss:PhantomCSS.PhantomCSS;
 phantomcss.turnOffAnimations();
 phantomcss.init(options);
 
-phantomcss.compareAll('exclude.test'); 
+phantomcss.compareAll('exclude.test');
 phantomcss.compareMatched('include.test', 'exclude.test');
 phantomcss.compareMatched( new RegExp('include.test'), new RegExp('exclude.test'));
 phantomcss.compareSession();

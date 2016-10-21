@@ -7,7 +7,7 @@ import * as React from 'react';
 import { Component, SyntheticEvent, FormEventHandler } from 'react';
 import { Dispatch, ActionCreator, Reducer } from 'redux';
 
-export const actionTypes: {[actionName:string]: string};
+export const actionTypes: {[actionName: string]: string};
 
 export type FieldValue = any;
 
@@ -472,5 +472,5 @@ export declare const reducer: {
      * form.
      */
     plugin(reducers: { [formName: string]: Reducer<any> }): Reducer<any>;
-}
+};
 

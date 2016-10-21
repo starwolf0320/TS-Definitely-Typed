@@ -81,7 +81,7 @@ export declare class Connection extends events.EventEmitter {
     constructor(options: ConnectionOptions);
     /**
      * This is the business end of the module. Create a `Notification` object and pass it in, along with a single recipient or an array of them and node-apn will take care of the rest, delivering the notification to each recipient.
-     * 
+     *
      * A "recipient" is either a `Device` object, a `String`, or a `Buffer` containing the device token. `Device` objects are used internally and will be created if necessary. Where applicable, all events will return a `Device` regardless of the type passed to this method.
      */
     pushNotification(notification: Notification, recipient: Device | string | Buffer | (Device | string | Buffer)[]): void;
@@ -111,7 +111,7 @@ export declare class Connection extends events.EventEmitter {
     on(event: "completed", listener: () => void): this;
     /**
      * Emitted when Apple returns a notification as invalid but the notification has already been expunged from the cache - usually due to high throughput and indicates that notifications will be getting lost. The parameter is an estimate of how many notifications have been lost. You should experiment with increasing the cache size or enabling ```autoAdjustCache``` if you see this frequently.
-     * 
+     *
      * **Note**: With ```autoAdjustCache``` enabled this event will still be emitted when an adjustment is triggered.
      */
     on(event: "cacheTooSmall", listener: (sizeDifference: number) => void): this;
@@ -157,7 +157,7 @@ export declare class Notification {
     public expiry: number;
     /**
      * From Apple's Documentation, Provide one of the following values:
-     * 
+     *
      * - 10 - The push message is sent immediately. (Default)
      *   > The push notification must trigger an alert, sound, or badge on the device. It is an error use this priority for a push that contains only the content-available key.
      * - 5 - The push message is sent at a time that conserves power on the device receiving it.

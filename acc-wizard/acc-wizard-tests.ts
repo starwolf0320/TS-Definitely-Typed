@@ -31,6 +31,6 @@ function testWithOptions() {
         onInit:         function() {},
         onDestroy:      function() {}
     };
-    
+
     $('#test').accwizard(options);
 }

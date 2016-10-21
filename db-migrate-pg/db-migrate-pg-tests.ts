@@ -23,7 +23,7 @@ db.createTable('pets', {
   ifNotExists: true
 }, callback);
 
-db.createTable('product_variant', 
+db.createTable('product_variant',
 {
   id: {
     type: 'int',
@@ -50,7 +50,7 @@ db.createTable('product_variant',
   }
 }, callback);
 
-db.createTable('product_variant', 
+db.createTable('product_variant',
 {
   id: {
     type: 'int',
@@ -182,7 +182,7 @@ db.createTableAsync('pets', {
   ifNotExists: true
 }).then(onResolve);
 
-db.createTableAsync('product_variant', 
+db.createTableAsync('product_variant',
 {
   id: {
     type: 'int',
@@ -209,7 +209,7 @@ db.createTableAsync('product_variant',
   }
 }).then(onResolve);
 
-db.createTableAsync('product_variant', 
+db.createTableAsync('product_variant',
 {
   id: {
     type: 'int',

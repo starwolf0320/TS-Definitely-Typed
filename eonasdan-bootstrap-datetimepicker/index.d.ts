@@ -712,11 +712,11 @@ export interface Datetimepicker {
      * Returns the components current options object.
      * Note that the changing the values of the returned object does not change the components actual configuration.
      */
-    options(): GetOptions
+    options(): GetOptions;
     /**
      * Takes an object variable with option key:value properties and configures the component. Use this to update multiple options on the component.
      */
-    options(options: SetOptions): Datetimepicker
+    options(options: SetOptions): Datetimepicker;
 
     //////////////////////////////////////////////////////////////////////////////////////
     //// Below are the getters/setters for the properties of the 'options(): Options' ////

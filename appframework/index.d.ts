@@ -431,7 +431,7 @@ interface appFrameworkStatic {
         cssPrefix: string;
         cssTransformStart: string;
         cssTransformEnd: string;
-    }
+    };
 }
 
 interface appFrameworkCollection {

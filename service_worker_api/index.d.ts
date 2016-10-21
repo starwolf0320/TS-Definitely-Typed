@@ -91,7 +91,7 @@ interface Header {
      * from the Headers object. If the given name is not the name of an
      * HTTP header, this method throws a TypeError.
      */
-    getAll(name:string): Array<string>;
+    getAll(name: string): Array<string>;
 
     /**
      * Returns a boolean stating whether a Headers object contains a

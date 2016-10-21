@@ -62,8 +62,6 @@ declare namespace SinonChrome.alarms {
 declare namespace SinonChrome.app {
     export var getDetails: Sinon.SinonStub;
     export var getDetailsForFrame: Sinon.SinonStub;
-    export var getDetails: Sinon.SinonStub;
-    export var getDetailsForFrame: Sinon.SinonStub;
     export var getIsInstalled: Sinon.SinonStub;
     export var installState: Sinon.SinonStub;
     export var runningState: Sinon.SinonStub;
@@ -167,7 +165,7 @@ declare namespace SinonChrome.cookies {
 }
 
 /* TODO: Uncomment once https://github.com/Microsoft/TypeScript/issues/7840 is fixed
-declare module SinonChrome.debugger {
+declare namespace SinonChrome.debugger {
     export var attach: Sinon.SinonStub;
     export var detach: Sinon.SinonStub;
     export var getTargets: Sinon.SinonStub;

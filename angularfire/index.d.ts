@@ -24,7 +24,7 @@ interface AngularFire {
 	$update(key: string, data: Object): ng.IPromise<Firebase>;
 	$update(data: any): ng.IPromise<Firebase>;
 	$transaction(updateFn: (currentData: any) => any, applyLocally?: boolean): ng.IPromise<FirebaseDataSnapshot>;
-	$transaction(key:string, updateFn: (currentData: any) => any, applyLocally?: boolean): ng.IPromise<FirebaseDataSnapshot>;
+	$transaction(key: string, updateFn: (currentData: any) => any, applyLocally?: boolean): ng.IPromise<FirebaseDataSnapshot>;
 }
 
 /**
@@ -111,7 +111,7 @@ interface AngularFireObject extends AngularFireSimpleObject {
 	 * @param {object} scope
 	 * @param {string} varName
 	 * @returns a promise which resolves to an unbind method after data is set in scope
-	 */	
+	 */
 	$bindTo(scope: ng.IScope, varName: string): ng.IPromise<any>;
 
 	/**
@@ -124,7 +124,7 @@ interface AngularFireObject extends AngularFireSimpleObject {
 	 * @param {Function} cb
 	 * @param {Object} [context]
 	 * @returns {Function} invoke to stop observing events
-	 */	
+	 */
 	$watch(callback: Function, context?: any): Function;
 
 	/**

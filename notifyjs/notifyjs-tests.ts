@@ -4,11 +4,11 @@ function test_Notify_constructor() {
     //Min
     var n = new Notify("hoge")
     n.show();
-    
+
     //With option
     n = new Notify("hoge", {body : "fuga"});
     n.show();
-    
+
     //With Full option
     n = new Notify("hoge", {
         body : "fuga",

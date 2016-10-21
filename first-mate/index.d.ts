@@ -30,7 +30,7 @@ declare namespace AtomFirstMate {
 		 * The tokenized state at the end of the line. This should be passed back into `tokenizeLine`
 		 * when tokenizing the next line in the file/buffer.
 		 */
-		ruleStack: Rule[]
+		ruleStack: Rule[];
 	}
 
 	/** Instance side of Rule class. */

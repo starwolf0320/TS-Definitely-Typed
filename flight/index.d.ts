@@ -218,7 +218,7 @@ declare namespace Flight {
             logByAction(action: string): void;
             logByName(name: string): void;
             logNone(): void;
-        }
+        };
     }
 
     export interface UtilsStatic {

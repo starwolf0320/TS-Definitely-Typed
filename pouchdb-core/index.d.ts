@@ -63,7 +63,7 @@ declare namespace PouchDB {
             _revisions?: {
                 ids: RevisionId[];
                 start: number;
-            }
+            };
         }
         type NewDocument<Content extends Encodable> = Content;
         type Document<Content extends Encodable> = Content & IdMeta;
@@ -222,7 +222,7 @@ declare namespace PouchDB {
              */
             headers?: {
                 [name: string]: string;
-            }
+            };
             username?: string;
             password?: string;
             /**

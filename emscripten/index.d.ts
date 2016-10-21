@@ -49,7 +49,7 @@ declare namespace Module {
     var HEAP8: Int8Array;
     var HEAP16: Int16Array;
     var HEAP32: Int32Array;
-    var HEAPU8:  Uint8Array;
+    var HEAPU8: Uint8Array;
     var HEAPU16: Uint16Array;
     var HEAPU32: Uint32Array;
     var HEAPF32: Float32Array;
@@ -172,8 +172,8 @@ declare namespace FS {
     function createLazyFile(parent: string, name: string, url: string, canRead: boolean, canWrite: boolean): FSNode;
     function createLazyFile(parent: FSNode, name: string, url: string, canRead: boolean, canWrite: boolean): FSNode;
 
-    function createPreloadedFile(parent: string, name: string, url: string, canRead: boolean, canWrite: boolean, onload?: ()=> void, onerror?: ()=>void, dontCreateFile?:boolean, canOwn?: boolean): void;
-    function createPreloadedFile(parent: FSNode, name: string, url: string, canRead: boolean, canWrite: boolean, onload?: ()=> void, onerror?: ()=>void, dontCreateFile?:boolean, canOwn?: boolean): void;
+    function createPreloadedFile(parent: string, name: string, url: string, canRead: boolean, canWrite: boolean, onload?: () => void, onerror?: () => void, dontCreateFile?: boolean, canOwn?: boolean): void;
+    function createPreloadedFile(parent: FSNode, name: string, url: string, canRead: boolean, canWrite: boolean, onload?: () => void, onerror?: () => void, dontCreateFile?: boolean, canOwn?: boolean): void;
 }
 
 declare var MEMFS: Emscripten.FileSystemType;

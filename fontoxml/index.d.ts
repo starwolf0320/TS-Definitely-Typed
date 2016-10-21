@@ -3,13 +3,11 @@
 // Definitions by: Roland Zwaga <https://github.com/rolandzwaga>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare namespace com.fontoxml
-{
+declare namespace com.fontoxml {
 	//This is a description of how to invoke the FontoXML editor, and instruct it to load (a) document(s).
 	//Please keep in mind that the URL length may be limited in certain browsers, so a safe limit of 2000 characters
 	//for the whole URL including query parameters should be used.
-	export interface IInvocator
-	{
+	export interface IInvocator {
 		//The document id's of the documents to load from the CMS.
 		documentIds: string[];
 		//The base URL where the CMS endpoints are exposed.
@@ -26,15 +24,13 @@ declare namespace com.fontoxml
 		heartbeat?: number;
 	}
 
-	export interface IWorkflowInfo
-	{
-		id:string;
-		displayName:string;
+	export interface IWorkflowInfo {
+		id: string;
+		displayName: string;
 	}
 
-	export interface IUserInfo extends IWorkflowInfo
-	{
-		roleId:string;
+	export interface IUserInfo extends IWorkflowInfo {
+		roleId: string;
 	}
 
 	//This is describes the object that is assigned to the MessageEvent.data

@@ -280,7 +280,7 @@ declare namespace karma {
          * but your interactive debugging does not.
          *
          */
-        preprocessors?: { [name: string]: string | string[] }
+        preprocessors?: { [name: string]: string | string[] };
         /**
          * @default 'http:'
          * Possible Values:
@@ -297,7 +297,7 @@ declare namespace karma {
          * @default {}
          * @description A map of path-proxy pairs.
          */
-        proxies?: { [path: string]: string }
+        proxies?: { [path: string]: string };
         /**
          * @default true
          * @description Whether or not Karma or any browsers should raise an error when an inavlid SSL certificate is found.

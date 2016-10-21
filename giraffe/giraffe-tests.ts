@@ -4,7 +4,7 @@ class User extends Giraffe.Model {
 }
 
 class MainView extends Giraffe.View<User> {
-  
+
   constructor(options?) {
     super(options);
     this.appEvents = {

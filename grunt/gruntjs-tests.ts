@@ -1,6 +1,6 @@
 
 
-// Official code sample from 
+// Official code sample from
 // http://gruntjs.com/getting-started#an-example-gruntfile
 
 interface MyTaskData {
@@ -11,7 +11,7 @@ interface MyOptions {
     sourceRoot: string;
 }
 
-// exports should work same as module.exports 
+// exports should work same as module.exports
 exports = (grunt: IGrunt) => {
 
     // Project configuration.

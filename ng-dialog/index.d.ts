@@ -60,7 +60,7 @@ declare module 'angular' {
 			 * May be useful in some rare cases when you're dependant on DOM changes, defaults to false.
 			 * @param {boolean} force
 			 */
-			setForceHtmlReload(force: boolean) : void;
+			setForceHtmlReload(force: boolean): void;
 
 			/**
 			 * Adds additional listener on every $locationChangeSuccess event and gets updated version of body into dialog.
@@ -68,7 +68,7 @@ declare module 'angular' {
 			 * config as provider instance:
 			 * @param {boolean} force
 			 */
-			setForceBodyReload(force: boolean) : void;
+			setForceBodyReload(force: boolean): void;
 		}
 
 		/**
@@ -86,12 +86,12 @@ declare module 'angular' {
 			 * Any serializable data that you want to be stored in the controller's dialog scope.
 			 * From version 0.3.6 $scope.ngDialogData keeps references to the objects instead of copying them.
 			 */
-			ngDialogData : string | {} | any[];
+			ngDialogData: string | {} | any[];
 
 			/**
 			 * The id of the dialog. If you you ngDialogData, it'll be also available under ngDialogData.ngDialogId
 			 */
-			ngDialogId : string;
+			ngDialogId: string;
 		}
 
 		interface IDialogConfirmScope extends IDialogScope {
@@ -101,7 +101,7 @@ declare module 'angular' {
 			 * The function accepts a single optional parameter which is used as the value of the resolved promise.
 			 * @param {any} [value] - The value with which the promise will resolve
 			 */
-			confirm(value?:any) : void;
+			confirm(value?: any): void;
 		}
 
 		interface IDialogOptions {
@@ -139,7 +139,7 @@ declare module 'angular' {
 
 			/**
 			 * Listens for $locationChangeSuccess event and closes open dialogs if true (also handles the ui.router $stateChangeSuccess event if ui.router is used)
-			 * default : false
+			 * default: false
 			 */
 			closeByNavigation?: boolean;
 
@@ -188,7 +188,7 @@ declare module 'angular' {
 			/**
 			 * When true, automatically selects appropriate values for any unspecified accessibility attributes. Default value is true
 			 */
-			ariaAuto? : boolean;
+			ariaAuto?: boolean;
 
 			/**
 			 * Specifies the value for the role attribute that should be applied to the dialog element. Default value is null (unspecified)
@@ -249,7 +249,7 @@ declare module 'angular' {
 			 * are promises, ngDialog will wait for them all to be resolved or one to be rejected before the controller
 			 * is instantiated.
 			 */
-			resolve?: {[key : string] : string | Function};
+			resolve?: {[key: string]: string | Function};
 
 			/**
 			 * Any serializable data that you want to be stored in the controller's dialog scope. ($scope.ngDialogData).

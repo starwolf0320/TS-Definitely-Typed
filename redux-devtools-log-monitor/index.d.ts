@@ -3,8 +3,8 @@
 // Definitions by: Petryshyn Sergii <https://github.com/mc-petry>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import * as React from 'react'
-import {ColorScheme} from 'base16'
+import * as React from 'react';
+import {ColorScheme} from 'base16';
 
 interface ILogMonitorProps {
     /**
@@ -13,7 +13,7 @@ interface ILogMonitorProps {
      *
      * @see https://github.com/gaearon/redux-devtools-themes
      */
-    theme?: string | ColorScheme
+    theme?: string | ColorScheme;
 
     /**
      * A function that selects the slice of the state for DevTools to show.
@@ -21,7 +21,7 @@ interface ILogMonitorProps {
      * @example state => state.thePart.iCare.about.
      * @default state => state.
      */
-    select?: (state: any) => any
+    select?: (state: any) => any;
 
     /**
      * When true, records the current scroll top every second so it
@@ -30,21 +30,21 @@ interface ILogMonitorProps {
      *
      * @default true
      */
-    preserveScrollTop?: boolean
+    preserveScrollTop?: boolean;
 
     /**
      * When true, displays the action object expanded rather than collapsed.
      *
      * @default true
      */
-    expandActionRoot?: boolean
+    expandActionRoot?: boolean;
 
     /**
      * When true, displays the state object expanded rather than collapsed.
      *
      * @default true
      */
-    expandStateRoot?: boolean
+    expandStateRoot?: boolean;
 }
 
 export default class LogMonitor extends React.Component<ILogMonitorProps, any> { }

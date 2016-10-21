@@ -75,7 +75,7 @@ declare namespace ImgurRestApi {
         parent_id: number;
         deleted: boolean;
         vote?: string;
-        children: Array<Comment>
+        children: Array<Comment>;
     }
 
     interface Conversation {
@@ -93,7 +93,7 @@ declare namespace ImgurRestApi {
     interface CustomGallery {
         account_url: string;
         link: string;
-        tags: Array<string>
+        tags: Array<string>;
         item_count: number;
         items: Array<GalleryItem>;
     }
@@ -223,7 +223,7 @@ declare namespace ImgurRestApi {
         followers: number;
         total_items: number;
         following?: boolean;
-        items: Array<GalleryItem>
+        items: Array<GalleryItem>;
     }
 
     interface TagVote {

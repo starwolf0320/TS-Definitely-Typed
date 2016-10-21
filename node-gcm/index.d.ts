@@ -55,11 +55,11 @@ export interface ISenderSendOptions {
 }
 
 export interface IRecipient {
-    to?: string,
-    topic?: string,
-    notificationKey?: string,
-    registrationIds?: string[],
-    registrationTokens?: string[]
+    to?: string;
+    topic?: string;
+    notificationKey?: string;
+    registrationIds?: string[];
+    registrationTokens?: string[];
 }
 
 export declare class Sender {

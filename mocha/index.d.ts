@@ -50,7 +50,7 @@ interface MochaDone {
 }
 
 interface ActionFunction {
-    (done: MochaDone): any | PromiseLike<any>
+    (done: MochaDone): any | PromiseLike<any>;
 }
 
 declare function setup(action: ActionFunction): void;
@@ -156,7 +156,7 @@ declare namespace Mocha {
         state: "failed" | "passed";
     }
 
-    export module reporters {
+    export namespace reporters {
         export class Base {
             stats: {
                 suites: number;

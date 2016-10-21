@@ -11,7 +11,7 @@ declare namespace MicrosoftJQueryUnobtrusiveValidation {
     interface Adapter {
         name: string;
         params: string[];
-        adapt: Function
+        adapt: Function;
     }
 
     interface Adapters extends Array<Adapter> {

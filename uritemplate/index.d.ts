@@ -11,7 +11,6 @@
 declare namespace uritemplate {
 
     interface UriTemplate {
-        
         /**
          * Expands template into a string using parameter
          * supplied
@@ -20,13 +19,13 @@ declare namespace uritemplate {
     }
 
     interface UriTemplateErrorOptions {
-        expressionText: string
-        message: string
-        position: number
+        expressionText: string;
+        message: string;
+        position: number;
     }
 
     interface UriTemplateError {
-        new (options: UriTemplateErrorOptions): UriTemplateError
+        new (options: UriTemplateErrorOptions): UriTemplateError;
     }
 
 

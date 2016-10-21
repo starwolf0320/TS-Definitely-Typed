@@ -54,7 +54,7 @@ declare namespace kg {
       beforeSelectionChange?(row: Row<EntityType>): boolean;
 
       /** To be able to have selectable rows in grid. */
-      canSelectRows?:boolean;
+      canSelectRows?: boolean;
 
       /** definitions of columns as an array [], if not defined columns are auto-generated. See github wiki for more details. */
       columnDefs?: ColumnDef[] | KnockoutObservable<ColumnDef[]>;
@@ -172,26 +172,26 @@ declare namespace kg {
       /** Which direction to sort */
       direction: Direction;
    }
-   
+
    interface SortColumn {
       /** The string name of the property in your data model you want that column to represent. Can also be a property path on your data model. 'foo.bar.myField', 'Name.First', etc.. */
       field: string;
 
       /** Sets the sort function for the column. Useful when you have data that is formatted in an unusal way or if you want to sort on an underlying data type. Example: function(a,b){return a > b} */
-      sortingAlgorithm?: ((a:any, b:any) => number);
+      sortingAlgorithm?: ((a: any, b: any) => number);
    }
 
    interface ColumnDef {
       /** Appends a css class for the column cells */
-      cellClass?:string;
+      cellClass?: string;
 
       /**
        * A function which takes the value of the cell and returns the display value. Useful when your data model has an underlying value which you need to convert to a human readable format.
-       * @param val 
+       * @param val
        * @returns the display value
        * @example function(unixTimeTicks) { return new Date(unixTimeTicks); }
        */
-      cellFormatter?(val:any): string;
+      cellFormatter?(val: any): string;
 
       /**Sets the cell template for the column. See github wiki for more details.*/
       cellTemplate?: string | JQueryGenericPromise<string>;
@@ -254,7 +254,7 @@ interface IKg {
    domUtilityService: kg.DomUtilityService;
 
    /** Default grid template */
-   defaultGridTemplate():string;
+   defaultGridTemplate(): string;
 
    /** Default row template. Can be overriden in GridOptions.rowTemplate */
    defaultRowTemplate(): string;
@@ -269,7 +269,7 @@ interface IKg {
    defaultHeaderRowTemplate(): string;
 
    /** Default headercell template. Can be overriden in GridOptions.headerCellTemplate */
-   defaultHeaderCellTemplate():string;
+   defaultHeaderCellTemplate(): string;
 }
 
 declare var kg: IKg;

@@ -30,7 +30,7 @@ interface requestAuthorization {
     basic?: {
         username: string;
         password: string;
-    }
+    };
 }
 
 interface Request extends http.IncomingMessage {
@@ -603,7 +603,7 @@ export function fullResponse(): RequestHandler;
 export var defaultResponseHeaders: any;
 export var CORS: CORS;
 
-export module pre {
+export namespace pre {
     export function pause(): RequestHandler;
     export function sanitizePath(options?: any): RequestHandler;
     export function userAgentConnection(options?: any): RequestHandler;

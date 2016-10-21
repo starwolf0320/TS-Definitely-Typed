@@ -58,7 +58,7 @@ declare namespace JQueryAjaxFile {
 		DataType: typeof DataType;
 		send<T>(option: IOption): IAjaxFilePromise<T>;
 	}
-	
+
 	interface IJQueryXHR {
         readyState: any;
         status: number;

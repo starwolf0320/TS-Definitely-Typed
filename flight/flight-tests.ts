@@ -4,12 +4,12 @@ declare var els: Element[];
 declare var mixinFn: Function;
 
 function TestComponent() {
-    var self: Flight.Component = this;      
-	
+    var self: Flight.Component = this;
+
     self.attributes({
        fooSelector: '.bar'
-    });    
-	
+    });
+
     self.defaultAttrs({
        fooSelector: '.bar'
     });
@@ -43,8 +43,8 @@ function TestComponent() {
     });
 }
 
-flight.component(TestComponent, mixinFn).attachTo(el);  
-flight.component(TestComponent, mixinFn).attachTo($(els));  
+flight.component(TestComponent, mixinFn).attachTo(el);
+flight.component(TestComponent, mixinFn).attachTo($(els));
 flight.component(TestComponent, mixinFn).attachTo('.test');
 flight.component(TestComponent, mixinFn).attachTo('.test', {
     some: 'data'

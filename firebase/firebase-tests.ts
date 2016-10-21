@@ -723,8 +723,8 @@ wilmaRef.transaction(function(currentData) {
  * FirebaseQuery.orderByKey()
  */
 () => {
-	// For example, using our sample Firebase of dinosaur facts, 
-	// we can read all dinosaurs in alphabetical order, ignoring their priority, 
+	// For example, using our sample Firebase of dinosaur facts,
+	// we can read all dinosaurs in alphabetical order, ignoring their priority,
 	// using the following query:
 	var ref = new Firebase("https://dinosaur-facts.firebaseio.com/");
 	ref.orderByKey().on("child_added", function (snapshot) {
@@ -736,7 +736,7 @@ wilmaRef.transaction(function(currentData) {
  * FirebaseQuery.orderByPriority()
  */
 () => {
-	// For example, using our sample Firebase of dinosaur facts, 
+	// For example, using our sample Firebase of dinosaur facts,
 	// we can read all dinosaurs in priority order using the following query:
 	var ref = new Firebase("https://dinosaur-facts.firebaseio.com/");
 	ref.orderByPriority().on("child_added", function (snapshot) {
@@ -748,8 +748,8 @@ wilmaRef.transaction(function(currentData) {
  * FirebaseQuery.startAt()
  */
 () => {
-	// For example, using our sample Firebase of dinosaur facts, 
-	// we can find all dinosaurs that are at least three meters tall 
+	// For example, using our sample Firebase of dinosaur facts,
+	// we can find all dinosaurs that are at least three meters tall
 	// by combining orderByChild() and startAt():
 	var ref = new Firebase("https://dinosaur-facts.firebaseio.com/");
 	ref.orderByChild("height").startAt(3).on("child_added", function (snapshot) {
@@ -761,8 +761,8 @@ wilmaRef.transaction(function(currentData) {
  * FirebaseQuery.endAt()
  */
 () => {
-	// For example, using our sample Firebase of dinosaur facts, 
-	// we can find all dinosaurs whose names come before Pterodactyl lexicographically 
+	// For example, using our sample Firebase of dinosaur facts,
+	// we can find all dinosaurs whose names come before Pterodactyl lexicographically
 	// by combining orderByKey() and endAt():
 	var ref = new Firebase("https://dinosaur-facts.firebaseio.com/");
 	ref.orderByKey().endAt("pterodactyl").on("child_added", function (snapshot) {
@@ -774,8 +774,8 @@ wilmaRef.transaction(function(currentData) {
  * FirebaseQuery.equalTo()
  */
 () => {
-	// For example, using our sample Firebase of dinosaur facts, 
-	// we can find all dinosaurs whose height is exactly 25 meters 
+	// For example, using our sample Firebase of dinosaur facts,
+	// we can find all dinosaurs whose height is exactly 25 meters
 	// by combining orderByChild() and equalTo():
 	var ref = new Firebase("https://dinosaur-facts.firebaseio.com/");
 	ref.orderByChild("height").equalTo(25).on("child_added", function (snapshot) {
@@ -787,7 +787,7 @@ wilmaRef.transaction(function(currentData) {
  * FirebaseQuery.limitToFirst
  */
 () => {
-	// Using our sample Firebase of dinosaur facts, 
+	// Using our sample Firebase of dinosaur facts,
 	// we can find the two shortest dinosaurs with this query:
 	var ref = new Firebase("https://dinosaur-facts.firebaseio.com/");
 	ref.orderByChild("height").limitToFirst(2).on("child_added", function (snapshot) {
@@ -799,7 +799,7 @@ wilmaRef.transaction(function(currentData) {
  * FirebaseQuery.limitToLast
  */
 () => {
-	// Using our sample Firebase of dinosaur facts, 
+	// Using our sample Firebase of dinosaur facts,
 	// we can find the two heaviest dinosaurs with this query:
 	var ref = new Firebase("https://dinosaur-facts.firebaseio.com/");
 	ref.orderByChild("weight").limitToLast(2).on("child_added", function (snapshot) {
@@ -956,7 +956,7 @@ wilmaRef.transaction(function(currentData) {
  * DataSnapshot.key()
  */
 () => {
-	// Calling key() on any DataSnapshot (except for one which represents the root of a Firebase) 
+	// Calling key() on any DataSnapshot (except for one which represents the root of a Firebase)
 	// will return the key name of the location that generated it:
 	var fredRef = new Firebase("https://samplechat.firebaseio-demo.com/users/fred");
 	fredRef.on("value", function (fredSnapshot) {

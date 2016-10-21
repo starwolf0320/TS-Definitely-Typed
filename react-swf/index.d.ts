@@ -20,7 +20,7 @@ declare namespace rswf {
         /**
         *  Identifies the location of the Flash Player plug-in so that the user can download it if it is not already installed.
         */
-        pluginspage?:string
+        pluginspage?: string;
         /**
         * Specifies the width of the SWF content in either pixels or percentage of browser window.
         */
@@ -108,9 +108,9 @@ declare namespace rswf {
         * Browsers support string sizes of up to 64 KB (65535 bytes) in length.
         * For more information on using flashvars, see Using FlashVars to pass variables to a SWF (tn_16417).
         */
-        flashVars?: Object | string
+        flashVars?: Object | string;
     }
-    export class ReactSWF extends React.Component<Props, State>{
+    export class ReactSWF extends React.Component<Props, State> {
         /**
         * Returns the Flash Player object DOM node.
         * Should be prefered over `React.findDOMNode`.

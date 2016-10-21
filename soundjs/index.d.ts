@@ -17,8 +17,7 @@
 
 declare namespace createjs {
 
-    export class AbstractPlugin
-        {
+    export class AbstractPlugin {
         // methods
         create(src: string, startTime: number, duration: number): AbstractSoundInstance;
         getVolume(): number;
@@ -31,10 +30,9 @@ declare namespace createjs {
         removeSound(src: string): void;
         setMute(value: boolean): boolean;
         setVolume(value: number): boolean;
-        }
+    }
 
-    export class AbstractSoundInstance extends EventDispatcher
-        {
+    export class AbstractSoundInstance extends EventDispatcher {
         constructor(src: string, startTime: number, duration: number, playbackResource: Object);
 
         // properties
@@ -68,19 +66,17 @@ declare namespace createjs {
         setPosition(value: number): AbstractSoundInstance;
         setVolume(value: number): AbstractSoundInstance;
         stop(): AbstractSoundInstance;
-        }
+    }
 
-    export class FlashAudioLoader extends AbstractLoader
-        {
+    export class FlashAudioLoader extends AbstractLoader {
         // properties
         flashId: string;
 
         // methods
         setFlash(flash: Object): void;
-        }
+    }
 
-    export class FlashAudioPlugin extends AbstractPlugin
-        {
+    export class FlashAudioPlugin extends AbstractPlugin {
         // properties
         flashReady: boolean;
         showOutput: boolean;
@@ -88,12 +84,11 @@ declare namespace createjs {
 
         // methods
         static isSupported(): boolean;
-        }
+    }
 
-    export class FlashAudioSoundInstance extends AbstractSoundInstance
-        {
+    export class FlashAudioSoundInstance extends AbstractSoundInstance {
         constructor(src: string, startTime: number, duration: number, playbackResource: Object);
-        }
+    }
 
     /**
      * @deprecated - use FlashAudioPlugin
@@ -121,8 +116,7 @@ declare namespace createjs {
         setVolume(value: number): boolean;
     }
 
-    export class HTMLAudioPlugin extends AbstractPlugin
-        {
+    export class HTMLAudioPlugin extends AbstractPlugin {
         constructor();
 
         // properties
@@ -132,34 +126,28 @@ declare namespace createjs {
 
         // methods
         static isSupported(): boolean;
-        }
+    }
 
-    export class HTMLAudioSoundInstance extends AbstractSoundInstance
-        {
+    export class HTMLAudioSoundInstance extends AbstractSoundInstance {
         constructor(src: string, startTime: number, duration: number, playbackResource: Object);
-        }
+    }
 
-    export class HTMLAudioTagPool
-        {
+    export class HTMLAudioTagPool { }
 
-        }
-
-    export class PlayPropsConfig
-	{
-	delay:number;
-	duration:number;
-	interrupt:string;
-	loop:number;
-	offset:number;
-	pan:number;
-	startTime:number;
-	volume:number;
-	static create( value:PlayPropsConfig|any ): PlayPropsConfig;
-	set ( props:any ): PlayPropsConfig;
+    export class PlayPropsConfig {
+        delay: number;
+        duration: number;
+        interrupt: string;
+        loop: number;
+        offset: number;
+        pan: number;
+        startTime: number;
+        volume: number;
+        static create( value: PlayPropsConfig|any ): PlayPropsConfig;
+        set ( props: any ): PlayPropsConfig;
 	}
 
-    export class Sound extends EventDispatcher
-        {
+    export class Sound extends EventDispatcher {
         // properties
         static activePlugin: Object;
         static alternateExtensions: any[];
@@ -175,8 +163,8 @@ declare namespace createjs {
         static PLAY_INTERRUPTED: string;
         static PLAY_SUCCEEDED: string;
         static SUPPORTED_EXTENSIONS: string[];
-	static muted: boolean;
-	static volume: number;
+	    static muted: boolean;
+	    static volume: number;
         static capabilities: any;
 
         // methods
@@ -231,13 +219,11 @@ declare namespace createjs {
         static version: string;
     }
 
-    export class WebAudioLoader
-        {
+    export class WebAudioLoader {
         static context: AudioContext;
-        }
+    }
 
-    export class WebAudioPlugin extends AbstractPlugin
-        {
+    export class WebAudioPlugin extends AbstractPlugin {
         constructor();
 
         // properties
@@ -249,10 +235,9 @@ declare namespace createjs {
         // methods
         static isSupported(): boolean;
         static playEmptySound(): void;
-        }
+    }
 
-    export class WebAudioSoundInstance extends AbstractSoundInstance
-        {
+    export class WebAudioSoundInstance extends AbstractSoundInstance {
         constructor(src: string, startTime: number, duration: number, playbackResource: Object);
 
         // properties
@@ -261,5 +246,5 @@ declare namespace createjs {
         gainNode: GainNode;
         panNode: PannerNode;
         sourceNode: AudioNode;
-        }
+    }
 }

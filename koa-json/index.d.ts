@@ -7,7 +7,7 @@
 
     import * as Koa from 'koa';
     import * as json from 'koa-json';
-    
+
     const app = new Koa();
     app.use(json());
 
@@ -17,7 +17,7 @@ import * as Koa from "koa";
 
 declare function json(opts?: {
 
-    /** 
+    /**
      * default to pretty response [true]
     */
     pretty?: boolean,

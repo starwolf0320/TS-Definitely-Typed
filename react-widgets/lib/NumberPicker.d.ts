@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface NumberPickerProps extends React.Props<NumberPickerClass>{
+interface NumberPickerProps extends React.Props<NumberPickerClass> {
     /**
      * The current value of the NumberPicker.
      */

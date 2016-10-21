@@ -117,7 +117,7 @@ slider.appendSlide($('div'), 4);
 slider.removeSlide();
 slider.removeSlide(4);
 
-slider.updateSliderSize(); // updates size of slider. Use after you resize slider with js. 
+slider.updateSliderSize(); // updates size of slider. Use after you resize slider with js.
 slider.updateSliderSize(true); // Function has "forceResize" Boolean paramater.
 
 // Thumbnails public methods
@@ -189,7 +189,7 @@ slider.ev.on('rsBeforeDestroy', function () {
     // triggers before slider in destroyed
 });
 slider.ev.on('rsOnCreateVideoElement', function (e: JQueryEventObject, url?: string) {
-    // triggers before video element is created, after click on play button. 
+    // triggers before video element is created, after click on play button.
     // Read more in Tips&Tricks section
 });
 slider.ev.on('rsSlideClick', function () {
@@ -197,10 +197,10 @@ slider.ev.on('rsSlideClick', function () {
     // doesn't trigger after click and drag
 });
 slider.ev.on('rsEnterFullscreen', function () {
-    // enter fullscreen mode 
+    // enter fullscreen mode
 });
 slider.ev.on('rsExitFullscreen', function () {
-    // exit fullscreen mode 
+    // exit fullscreen mode
 });
 
 slider.ev.on('rsVideoPlay', function () {
@@ -222,7 +222,7 @@ slider.ev.on('rsAfterContentSet', function (e: JQueryEventObject, slideObject?: 
 // if you bind them after slider init they'll not fire
 // used for module development
 slider.ev.on('rsAfterInit', function () {
-    // after slider is initialized, 
+    // after slider is initialized,
 });
 slider.ev.on('rsBeforeParseNode', function (e: JQueryEventObject, content?: any, obj?: any) {
     // before slide node is parsed

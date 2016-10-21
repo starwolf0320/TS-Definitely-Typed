@@ -293,8 +293,8 @@ declare namespace angular {
          * @param name The name of the service to decorate
          * @param decorator This function will be invoked when the service needs to be instantiated and should return the decorated service instance. The function is called using the injector.invoke method and is therefore fully injectable. Local injection arguments: $delegate - The original service instance, which can be monkey patched, configured, decorated or delegated to.
          */
-        decorator(name:string, decoratorConstructor: Function): IModule;
-        decorator(name:string, inlineAnnotatedConstructor: any[]): IModule;
+        decorator(name: string, decoratorConstructor: Function): IModule;
+        decorator(name: string, inlineAnnotatedConstructor: any[]): IModule;
 
         // Properties
         name: string;
@@ -1504,7 +1504,7 @@ declare namespace angular {
          * @returns {boolean|Object} If a value is specified, returns the $httpProvider for chaining.
          *    otherwise, returns the current configured value.
          */
-        useLegacyPromiseExtensions(value:boolean) : boolean | IHttpProvider;
+        useLegacyPromiseExtensions(value: boolean): boolean | IHttpProvider;
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -1715,7 +1715,7 @@ declare namespace angular {
          * Whether transclusion is enabled. Enabled by default.
          */
         transclude?: boolean;
-        require? : Object;
+        require?: Object;
         $canActivate?: () => boolean;
         $routeConfig?: RouteDefinition[];
     }
@@ -1766,7 +1766,7 @@ declare namespace angular {
         name?: string;
         priority?: number;
         replace?: boolean;
-        require? : any;
+        require?: any;
         restrict?: string;
         scope?: any;
         template?: string | Function;
@@ -1814,7 +1814,7 @@ declare namespace angular {
     ///////////////////////////////////////////////////////////////////////////
     // AUTO module (angular.js)
     ///////////////////////////////////////////////////////////////////////////
-    export module auto {
+    export namespace auto {
 
         ///////////////////////////////////////////////////////////////////////
         // InjectorService

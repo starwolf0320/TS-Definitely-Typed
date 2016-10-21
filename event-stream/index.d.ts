@@ -10,7 +10,7 @@ import * as stream from 'stream';
 
 /**
  * Create a through stream from an asynchronous function
- * 
+ *
  * @param asyncFunction
  */
 export declare function map(asyncFunction: Function): stream.Stream;
@@ -23,14 +23,14 @@ export declare function mapSync(syncFunction: Function): stream.Stream;
 
 /**
  * Break up a stream and reassemble it so that each line is a chunk. matcher may be a String, or a RegExp
- * 
+ *
  * @param matcher
  */
 export declare function split(matcher: string | RegExp): stream.Stream;
 
 /**
  * Create a through stream that emits separator between each chunk, just like Array#join
- * 
+ *
  * @param separator
  */
 export declare function join(separator: string): stream.Stream;
@@ -39,7 +39,7 @@ export declare function join(separator: string): stream.Stream;
  * Merges streams into one and returns it. Incoming data will be emitted as soon it comes into - no ordering will be applied
  * (for example: data1 data1 data2 data1 data2 - where data1 and data2 is data from two streams).
  * Counts how many streams were passed to it and emits end only when all streams emitted end.
- * 
+ *
  * @param stream
  */
 export declare function concat(...stream: stream.Stream[]): stream.Stream;
@@ -48,7 +48,7 @@ export declare function concat(...stream: stream.Stream[]): stream.Stream;
  * Merges streams into one and returns it. Incoming data will be emitted as soon it comes into - no ordering will be applied
  * (for example: data1 data1 data2 data1 data2 - where data1 and data2 is data from two streams).
  * Counts how many streams were passed to it and emits end only when all streams emitted end.
- * 
+ *
  * @param stream
  */
 export declare function concat(streamArray: stream.Stream[]): stream.Stream;
@@ -57,7 +57,7 @@ export declare function concat(streamArray: stream.Stream[]): stream.Stream;
  * Merges streams into one and returns it. Incoming data will be emitted as soon it comes into - no ordering will be applied
  * (for example: data1 data1 data2 data1 data2 - where data1 and data2 is data from two streams).
  * Counts how many streams were passed to it and emits end only when all streams emitted end.
- * 
+ *
  * @param stream
  */
 export declare function merge(...stream: stream.Stream[]): stream.Stream;
@@ -66,7 +66,7 @@ export declare function merge(...stream: stream.Stream[]): stream.Stream;
  * Merges streams into one and returns it. Incoming data will be emitted as soon it comes into - no ordering will be applied
  * (for example: data1 data1 data2 data1 data2 - where data1 and data2 is data from two streams).
  * Counts how many streams were passed to it and emits end only when all streams emitted end.
- * 
+ *
  * @param stream
  */
 export declare function merge(streamArray: stream.Stream[]): stream.Stream;
@@ -92,21 +92,21 @@ export declare function stringify(): stream.Stream;
 
 /**
  * create a readable stream (that respects pause) from an async function.
- * 
+ *
  * @param asyncFunction
  */
 export declare function readable(asyncFunction: Function): stream.Stream;
 
 /**
  * Create a readable stream from an Array.
- * 
+ *
  * @param array
  */
 export declare function readArray(array: any[]): stream.Stream;
 
 /**
  * create a writeable stream from a callback
- * 
+ *
  * @param callback
  */
 export declare function writeArray(callback: Function): stream.Stream;
@@ -118,7 +118,7 @@ export declare function pause(): stream.Stream | void;
 
 /**
  * Takes a writable stream and a readable stream and makes them appear as a readable writable stream.
- * 
+ *
  * @param writeStream
  * @param readStream
  */
@@ -126,7 +126,7 @@ export declare function duplex(writeStream: stream.Writable, readStream: stream.
 
 /**
  * Create a through stream from a child process
- * 
+ *
  * @param child_process
  */
 export declare function child(child_process: any): stream.Stream;
@@ -134,7 +134,7 @@ export declare function child(child_process: any): stream.Stream;
 /**
  * waits for stream to emit 'end'. joins chunks of a stream into a single string or buffer.
  * Takes an optional callback, which will be passed the complete string/buffer when it receives the 'end' event.
- * 
+ *
  * @param callback
  */
 export declare function wait(callback: Function): stream.Stream;

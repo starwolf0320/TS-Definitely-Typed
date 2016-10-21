@@ -21,7 +21,7 @@ query
     .setOrderByDefault('p1', 'desc')
     .orderBy('p2')
     .asc();
-	
+
 // Top
 query.top(10);
 query.resetTop();
@@ -67,7 +67,7 @@ query
     .atom()
     .format()
     .json();
-	
+
 query.resetFormat();
 
 // Inlinecount
@@ -81,7 +81,7 @@ query
     .allPages()
     .inlineCount()
     .none();
-	
+
 query.resetInlineCount();
 
 // Filter
@@ -92,11 +92,11 @@ query.filter(clause);
 query
     .andFilter(new jo.FilterClause('Property1').eq(5))
     .andFilter(new jo.FilterClause('Property2').eq(10));
-	
+
 query
     .orFilter(new jo.FilterClause('Property1').eq(5))
     .orFilter(new jo.FilterClause('Property2').eq(10));
-	
+
 query
     .filter(new jo.FilterClause('p1').eq(1))
     .andFilter(new jo.FilterClause('p2').eq(5))
@@ -139,7 +139,7 @@ query
     .filter(new jo.FilterClause('Id').eq(1))
     .andFilter(new jo.PrecedenceGroup(new jo.FilterClause('Name').startswith('a').eq(true))
         .orFilter(new jo.FilterClause('Name').startswith('b').eq(true)));
-		
+
 // Setting filter defaults
 query.defaultFilter(new jo.FilterClause('Id').eq(1));
 query

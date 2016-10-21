@@ -7,7 +7,7 @@ declare var _: _.UnderscoreStatic;
 export = _;
 export as namespace _;
 
-declare module _ {
+declare namespace _ {
     /**
     * underscore.js _.throttle options.
     **/
@@ -1089,7 +1089,7 @@ declare module _ {
         * @param array The array to split
         * @param count The maximum size of the inner arrays.
         */
-        chunk<T>(array: _.Collection<T>, count: number): (_.Collection<T>)[]
+        chunk<T>(array: _.Collection<T>, count: number): (_.Collection<T>)[];
 
         /*************
          * Functions *
@@ -4753,7 +4753,7 @@ declare module _ {
         * Wrapped type `object`.
         * @see _.extend
         **/
-        findKey(predicate: _.ObjectIterator<any, boolean>, context?: any): any
+        findKey(predicate: _.ObjectIterator<any, boolean>, context?: any): any;
 
         /**
         * Wrapped type `object`.
@@ -5713,7 +5713,7 @@ declare module _ {
         * Wrapped type `object`.
         * @see _.extend
         **/
-        findKey(predicate: _.ObjectIterator<any, boolean>, context?: any): _Chain<T>
+        findKey(predicate: _.ObjectIterator<any, boolean>, context?: any): _Chain<T>;
 
         /**
         * Wrapped type `object`.

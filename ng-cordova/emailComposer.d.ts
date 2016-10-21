@@ -20,8 +20,8 @@ declare namespace ngCordova {
   export interface IEmailComposerService {
 
     isAvailable(): ng.IPromise<boolean>;
-    open(properties: IEmailComposerOptions) : ng.IPromise<any>;
-    addAlias(app: string, schema: string) : void;
+    open(properties: IEmailComposerOptions): ng.IPromise<any>;
+    addAlias(app: string, schema: string): void;
 
   }
 

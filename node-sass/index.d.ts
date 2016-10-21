@@ -48,7 +48,7 @@ interface Result {
         end: number;
         duration: number;
         includedFiles: string[];
-    }
+    };
 }
 
 export declare function render(options: Options, callback: (err: SassError, result: Result) => any): void;

@@ -11,31 +11,31 @@ interface Button extends React.ClassicComponentClass<any> {}
 interface DirectLink extends React.ClassicComponentClass<any> {}
 
 interface scrollEvnt {
-    register(evtName: string, callback: Function): void,
-    remove(evtName: string): void
+    register(evtName: string, callback: Function): void;
+    remove(evtName: string): void;
 }
 
 interface Events {
-    scrollEvent: scrollEvnt
+    scrollEvent: scrollEvnt;
 }
 
 interface scroller {
-    scrollTo(to: any, animate?: any, duration?: any, offset?: any): void
+    scrollTo(to: any, animate?: any, duration?: any, offset?: any): void;
 }
 
 interface scrollSpy {
-    update() : void
+    update(): void;
 }
 
 interface animateScroll {
-    scrollToTop(options?: any) : void,
-    scrollToBottom(options?: any) : void,
-    scrollTo(toY: number, options?: any) : void,
-    scrollMore(toY: number, options?: any) : void,
+    scrollToTop(options?: any): void;
+    scrollToBottom(options?: any): void;
+    scrollTo(toY: number, options?: any): void;
+    scrollMore(toY: number, options?: any): void;
 }
 
 interface directScroller {
-    get() : any
+    get(): any;
 }
 
 interface Helpers {

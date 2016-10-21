@@ -24,7 +24,7 @@ $(window).load(function() {
     itemMargin: 5,
     asNavFor: '#slider'
   });
-   
+
   $('#slider').flexslider({
     animation: "slide",
     controlNav: false,

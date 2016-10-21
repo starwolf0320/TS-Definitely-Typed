@@ -40,20 +40,20 @@ interface FlexSliderOptions {
 	animationSpeed?: number;            //Integer: Set the speed of animations, in milliseconds
 	initDelay?: number;                   //{NEW} Integer: Set an initialization delay, in milliseconds
 	randomize?: boolean;               //Boolean: Randomize slide order
-	 
+
 	// Usability features
 	pauseOnAction?: boolean;            //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
 	pauseOnHover?: boolean;            //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
 	useCSS?: boolean;                   //{NEW} Boolean: Slider will use CSS3 transitions if available
 	touch?: boolean;                    //{NEW} Boolean: Allow touch swipe navigation of the slider on touch-enabled devices
 	video?: boolean;                   //{NEW} Boolean: If using video in the slider, will prevent CSS3 3D Transforms to avoid graphical glitches
-	 
+
 	// Primary Controls
 	controlNav?: any;               //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
 	directionNav?: boolean;             //Boolean: Create navigation for previous/next navigation? (true/false)
 	prevText?: string;           //String: Set the text for the "previous" directionNav item
 	nextText?: string;               //String: Set the text for the "next" directionNav item
-	 
+
 	// Secondary Navigation
 	keyboard?: boolean;                 //Boolean: Allow slider navigating via keyboard left/right keys
 	multipleKeyboard?: boolean;        //{NEW} Boolean: Allow keyboard navigation to affect multiple sliders. Default behavior cuts out keyboard navigation with more than one slider present.
@@ -61,20 +61,20 @@ interface FlexSliderOptions {
 	pausePlay?: boolean;               //Boolean: Create pause/play dynamic element
 	pauseText?: string;             //String: Set the text for the "pause" pausePlay item
 	playText?: string;               //String: Set the text for the "play" pausePlay item
-	 
+
 	// Special properties
 	controlsContainer?: string;          //{UPDATED} Selector: USE CLASS SELECTOR. Declare which container the navigation elements should be appended too. Default container is the FlexSlider element. Example use would be ".flexslider-container". Property is ignored if given element is not found.
 	manualControls?: string;             //Selector: Declare custom control navigation. Examples would be ".flex-control-nav li" or "#tabs-nav li img", etc. The number of elements in your controlNav should match the number of slides/tabs.
 	sync?: string;                       //{NEW} Selector: Mirror the actions performed on this slider with another slider. Use with care.
 	asNavFor?: string;                   //{NEW} Selector: Internal property exposed for turning the slider into a thumbnail navigation for another slider
-	 
+
 	// Carousel Options
 	itemWidth?: number;                   //{NEW} Integer: Box-model width of individual carousel items, including horizontal borders and padding.
 	itemMargin?: number;                  //{NEW} Integer: Margin between carousel items.
 	minItems?: number;                    //{NEW} Integer: Minimum number of carousel items that should be visible. Items will resize fluidly when below this.
 	maxItems?: number;                    //{NEW} Integer: Maxmimum number of carousel items that should be visible. Items will resize fluidly when above this limit.
 	move?: number;                        //{NEW} Integer: Number of carousel items that should move on animation. If number; slider will move all visible items.
-	 
+
 	// Callback API
 	start?: (slider: SliderObject) => any;            //Callback: function(slider) - Fires when the slider loads the first slide
 	before?: (slider: SliderObject) => any;           //Callback: function(slider) - Fires asynchronously with each slider animation

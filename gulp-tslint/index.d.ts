@@ -16,15 +16,15 @@ declare namespace gulpTsLint {
     }
 
     interface Options {
-        configuration?: {},
-        rulesDirectory?: string,
-        tslint?: GulpTsLint
+        configuration?: {};
+        rulesDirectory?: string;
+        tslint?: GulpTsLint;
     }
 
     interface ReportOptions {
-        emitError?: boolean,
-        reportLimit?: number,
-        summarizeFailureOutput?: boolean
+        emitError?: boolean;
+        reportLimit?: number;
+        summarizeFailureOutput?: boolean;
     }
 
     interface Position {

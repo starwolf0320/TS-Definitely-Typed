@@ -10,20 +10,20 @@ export as namespace debug;
 
 declare namespace debug {
     export interface IDebug {
-        (namespace: string): debug.IDebugger,
-        coerce: (val: any) => any,
-        disable: () => void,
-        enable: (namespaces: string) => void,
-        enabled: (namespaces: string) => boolean,
+        (namespace: string): debug.IDebugger;
+        coerce: (val: any) => any;
+        disable: () => void;
+        enable: (namespaces: string) => void;
+        enabled: (namespaces: string) => boolean;
 
-        names: string[],
-        skips: string[],
+        names: string[];
+        skips: string[];
 
-        formatters: IFormatters
+        formatters: IFormatters;
     }
 
     export interface IFormatters {
-        [formatter: string]: Function
+        [formatter: string]: Function;
     }
 
     export interface IDebugger {

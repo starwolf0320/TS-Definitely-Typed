@@ -15,7 +15,7 @@ declare namespace rosie {
      * @param {function(object): *=} constructor
      * @return {Factory}
      */
-    define(name: String, constructor?: Function):  IFactory;
+    define(name: String, constructor?: Function): IFactory;
 
     /**
      * Locates a factory by name and calls #build on it.
@@ -138,7 +138,7 @@ declare namespace rosie {
      * @param {function(number): *=} builder
      * @return {Factory}
      */
-    sequence(name: string, dependenciesOrBuilder?: Function | string[], builder?: Function) : IFactory;
+    sequence(name: string, dependenciesOrBuilder?: Function | string[], builder?: Function): IFactory;
 
     /**
      * Sets a post-processor callback that will receive built objects and the
@@ -168,7 +168,7 @@ declare namespace rosie {
      * @param {object=} options
      * @return {object}
      */
-    attributes(attributes:Object, options: Object): Object;
+    attributes(attributes: Object, options: Object): Object;
 
     /**
      * Generates values for all the registered options using the values given.

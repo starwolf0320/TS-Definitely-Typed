@@ -121,7 +121,7 @@ export interface ReferenceOptions {
 
 export interface IPOptions {
     version?: Array<string>;
-    cidr?: string
+    cidr?: string;
 }
 
 export interface ValidationError extends Error {

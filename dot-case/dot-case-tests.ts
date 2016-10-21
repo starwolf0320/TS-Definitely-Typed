@@ -5,4 +5,4 @@ console.log(dotCase('string')); 	 // => "string"
 console.log(dotCase('camelCase'));	 // => "camel.case"
 console.log(dotCase('sentence case'));   // => "sentence.case"
 
-console.log(dotCase('MY STRING', 'tr')); // => "my.strıng" 
+console.log(dotCase('MY STRING', 'tr')); // => "my.strıng"

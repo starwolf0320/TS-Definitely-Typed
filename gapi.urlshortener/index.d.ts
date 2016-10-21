@@ -104,7 +104,7 @@ interface GoogleApiUrlShortenerUrlResource {
          * Click analytics over the last two hours.
          */
         twoHours: GoogleApiUrlShortenerUrlResourceAnalyticsObject;
-    }
+    };
 }
 
 interface GoogleApiUrlShortenerUrlResourceAnalyticsObject {

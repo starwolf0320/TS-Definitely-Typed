@@ -52,7 +52,7 @@ declare module 'vso-node-api/Serialization' {
 	* Module for handling serialization and deserialization of data contracts
 	* (contracts sent from the server using the VSO default REST api serialization settings)
 	*/
-	export module ContractSerializer {
+	export namespace ContractSerializer {
 	    /**
 	     * Process a contract in its raw form (e.g. date fields are Dates, and Enums are numbers) and
 	     * return a pure JSON object that can be posted to REST endpoint.

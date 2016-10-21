@@ -12,7 +12,7 @@ interface PjaxPopStateEventObject extends JQueryEventObject {
     /**
      * Navigation direction. Could be "back" or "forward".
      */
-    direction: string
+    direction: string;
 }
 
 interface PjaxSettings extends JQueryAjaxSettings {
@@ -32,7 +32,7 @@ interface PjaxSettings extends JQueryAjaxSettings {
      * Whether to replaceState the URL. Defaults to false.
      */
     replace?: boolean;
-    
+
     /**
      * How many requests to cache. Defaults to 20.
      */

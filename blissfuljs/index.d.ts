@@ -22,7 +22,7 @@ declare namespace BlissNS {
 
         create(tag: "a"): HTMLAnchorElement;
         create(tag: "applet"): HTMLAppletElement;
-        create(tag: "area"):HTMLAreaElement;
+        create(tag: "area"): HTMLAreaElement;
         create(tag: "audio"): HTMLAudioElement;
         create(tag: "base"): HTMLBaseElement;
         create(tag: "basefont"): HTMLBaseFontElement;
@@ -126,39 +126,39 @@ declare namespace BlissNS {
         create(tag: "video", options: Object): HTMLVideoElement;
         create<T>(tag: string, options: Object): BlissDecoratedElement<T>;
 
-        create<T>(...args:any[]): BlissDecoratedElement<T>;
+        create<T>(...args: any[]): BlissDecoratedElement<T>;
 
         set<T>(subject: BlissDecoratedElement<T>, options: Object): BlissDecoratedElement<T>;
         contents<T>(subject: BlissDecoratedElement<T> , elements: Object | Array<any> | string | Number | Node): BlissDecoratedElement<T>;
         contents<T>(subject: BlissDecoratedElement<T>[], elements: Object | Array<any> | string | Number | Node): BlissDecoratedElement<T>[];
-        clone<T>(subject:BlissDecoratedElement<T>) : BlissDecoratedElement<T>;
-        after<T>(subject:BlissDecoratedElement<T>, element: Element) : BlissDecoratedElement<T>;
-        around<T>(subject:BlissDecoratedElement<T>, element: Element) : BlissDecoratedElement<T>;
-        attributes<T>(subject:BlissDecoratedElement<T>, attrs: Object) : BlissDecoratedElement<T>;
-        attributes<T>(subject:BlissDecoratedElement<T>[], attrs: Object) : BlissDecoratedElement<T>[];
-        before<T>(subject:BlissDecoratedElement<T>, element: Element) : BlissDecoratedElement<T>;
-        inside<T>(subject:BlissDecoratedElement<T>, element: Element) : BlissDecoratedElement<T>;
-        properties<T>(subject:BlissDecoratedElement<T>, props: Object) : BlissDecoratedElement<T>;
-        properties<T>(subject:BlissDecoratedElement<T>[], props: Object) : BlissDecoratedElement<T>[];
-        start<T>(subject:BlissDecoratedElement<T>, element: Element) : BlissDecoratedElement<T>;
-        style<T>(subject:BlissDecoratedElement<T>, properties: Object) : BlissDecoratedElement<T>;
-        style<T>(subject:BlissDecoratedElement<T>[], properties: Object) : BlissDecoratedElement<T>[];
-        transition<T>(subject:BlissDecoratedElement<T> | BlissDecoratedElement<T>[], properties: Object, duration?: number) : Promise<T>;
-        delegate<T>(subject:BlissDecoratedElement<T> , type: string, selector: string, callback: (event: Event) => void): BlissDecoratedElement<T>;
+        clone<T>(subject: BlissDecoratedElement<T>): BlissDecoratedElement<T>;
+        after<T>(subject: BlissDecoratedElement<T>, element: Element): BlissDecoratedElement<T>;
+        around<T>(subject: BlissDecoratedElement<T>, element: Element): BlissDecoratedElement<T>;
+        attributes<T>(subject: BlissDecoratedElement<T>, attrs: Object): BlissDecoratedElement<T>;
+        attributes<T>(subject: BlissDecoratedElement<T>[], attrs: Object): BlissDecoratedElement<T>[];
+        before<T>(subject: BlissDecoratedElement<T>, element: Element): BlissDecoratedElement<T>;
+        inside<T>(subject: BlissDecoratedElement<T>, element: Element): BlissDecoratedElement<T>;
+        properties<T>(subject: BlissDecoratedElement<T>, props: Object): BlissDecoratedElement<T>;
+        properties<T>(subject: BlissDecoratedElement<T>[], props: Object): BlissDecoratedElement<T>[];
+        start<T>(subject: BlissDecoratedElement<T>, element: Element): BlissDecoratedElement<T>;
+        style<T>(subject: BlissDecoratedElement<T>, properties: Object): BlissDecoratedElement<T>;
+        style<T>(subject: BlissDecoratedElement<T>[], properties: Object): BlissDecoratedElement<T>[];
+        transition<T>(subject: BlissDecoratedElement<T> | BlissDecoratedElement<T>[], properties: Object, duration?: number): Promise<T>;
+        delegate<T>(subject: BlissDecoratedElement<T> , type: string, selector: string, callback: (event: Event) => void): BlissDecoratedElement<T>;
         delegate<T>(subject: BlissDecoratedElement<T>[], type: string, selector: string, callback: (event: Event) => void): BlissDecoratedElement<T>[];
-        delegate<T>(subject:BlissDecoratedElement<T> , type: string, selectorsToCallbacks: {[selector: string] : (event: Event) => void}): BlissDecoratedElement<T>;
-        delegate<T>(subject:BlissDecoratedElement<T>[], type: string, selectorsToCallbacks: {[selector: string] : (event: Event) => void}): BlissDecoratedElement<T>[];
-        delegate<T>(subject:BlissDecoratedElement<T> , typesToSelectorsToCallbacks: {[type: string] : {[selector: string] : (event: Event) => void}}): BlissDecoratedElement<T>;
-        delegate<T>(subject:BlissDecoratedElement<T>[], typesToSelectorsToCallbacks: {[type: string] : {[selector: string] : (event: Event) => void}}): BlissDecoratedElement<T>[];
-        events<T>(subject:BlissDecoratedElement<T> , handlers: {[eventName:string] : (event: Event) => void} | Element): BlissDecoratedElement<T>;
-        events<T>(subject: BlissDecoratedElement<T>[], handlers: {[eventName:string] : (event: Event) => void} | Element): BlissDecoratedElement<T>[];
-        fire<T>(subject:BlissDecoratedElement<T>, type: string, properties?: {[propertyName: string] : any}): BlissDecoratedElement<T>;
-        fire<T>(subject:BlissDecoratedElement<T>[], type: string, properties?: {[propertyName: string] : any}): BlissDecoratedElement<T>[];
-        once<T>(subject:BlissDecoratedElement<T>, handlers: {[eventName:string] : (event: Event) => void} | Element): BlissDecoratedElement<T>;
-        once<T>(subject:BlissDecoratedElement<T>[], handlers: {[eventName:string] : (event: Event) => void} | Element): BlissDecoratedElement<T>[];
+        delegate<T>(subject: BlissDecoratedElement<T> , type: string, selectorsToCallbacks: {[selector: string]: (event: Event) => void}): BlissDecoratedElement<T>;
+        delegate<T>(subject: BlissDecoratedElement<T>[], type: string, selectorsToCallbacks: {[selector: string]: (event: Event) => void}): BlissDecoratedElement<T>[];
+        delegate<T>(subject: BlissDecoratedElement<T> , typesToSelectorsToCallbacks: {[type: string]: {[selector: string]: (event: Event) => void}}): BlissDecoratedElement<T>;
+        delegate<T>(subject: BlissDecoratedElement<T>[], typesToSelectorsToCallbacks: {[type: string]: {[selector: string]: (event: Event) => void}}): BlissDecoratedElement<T>[];
+        events<T>(subject: BlissDecoratedElement<T> , handlers: {[eventName: string]: (event: Event) => void} | Element): BlissDecoratedElement<T>;
+        events<T>(subject: BlissDecoratedElement<T>[], handlers: {[eventName: string]: (event: Event) => void} | Element): BlissDecoratedElement<T>[];
+        fire<T>(subject: BlissDecoratedElement<T>, type: string, properties?: {[propertyName: string]: any}): BlissDecoratedElement<T>;
+        fire<T>(subject: BlissDecoratedElement<T>[], type: string, properties?: {[propertyName: string]: any}): BlissDecoratedElement<T>[];
+        once<T>(subject: BlissDecoratedElement<T>, handlers: {[eventName: string]: (event: Event) => void} | Element): BlissDecoratedElement<T>;
+        once<T>(subject: BlissDecoratedElement<T>[], handlers: {[eventName: string]: (event: Event) => void} | Element): BlissDecoratedElement<T>[];
         ready(context?: Document): Promise<any>;
 
-        remove(subject:Element | BlissStatic): void;
+        remove(subject: Element | BlissStatic): void;
 
         all(array: Array<any>, method: string, ...args: Array<any>): Array<any>;
         all<T>(array: Array<T>, method: string, ...args: Array<any>): Array<T>;
@@ -170,7 +170,7 @@ declare namespace BlissNS {
             lazy?: Object;
             live?: Object;
             static?: Object;
-            [propertyName: string]:any;
+            [propertyName: string]: any;
         }): T;
 
         Class(options: {
@@ -180,20 +180,20 @@ declare namespace BlissNS {
             lazy?: Object;
             live?: Object;
             static?: Object;
-            [propertyName: string]:any;
+            [propertyName: string]: any;
         }): Object;
 
-        each<T>(obj: {[propertyName: string] : any}, callback: Function, ret?: Object): T;
-        each(obj: {[propertyName: string] : any}, callback: Function, ret?: Object): Object;
+        each<T>(obj: {[propertyName: string]: any}, callback: Function, ret?: Object): T;
+        each(obj: {[propertyName: string]: any}, callback: Function, ret?: Object): Object;
 
-        extend(target: Object, source: any, whitelist? : string[] | string | Function | RegExp): Object;
-        extend<T>(target: Object, source: any, whitelist? : string[] | string | Function | RegExp): T;
+        extend(target: Object, source: any, whitelist?: string[] | string | Function | RegExp): Object;
+        extend<T>(target: Object, source: any, whitelist?: string[] | string | Function | RegExp): T;
 
         lazy(object: Object, property: string, getter: () => any): Object;
-        lazy<T>(object:Object, property: string, getter:() => any): T;
+        lazy<T>(object: Object, property: string, getter: () => any): T;
 
-        lazy(object: Object, properties: {[propertyName:string]: () => any}): Object;
-        lazy<T>(object: Object, properties: {[propertyName:string]: () => any}): T;
+        lazy(object: Object, properties: {[propertyName: string]: () => any}): Object;
+        lazy<T>(object: Object, properties: {[propertyName: string]: () => any}): T;
 
         live(object: Object, property: string, descriptor: Object | Function): Object;
         live<T>(object: Object, property: string, descriptor: Object | Function): T;
@@ -212,7 +212,7 @@ declare namespace BlissNS {
         fetch(url: string, options?: {
             method?: string;
             data?: string;
-            headers?:{[key:string]:string};
+            headers?: {[key: string]: string};
 
             onreadystatechange?: (ev: ProgressEvent) => any;
             readyState?: number;
@@ -234,7 +234,7 @@ declare namespace BlissNS {
         include(url: string ): Promise<void>;
 
         add(name: string, callback: Function, on?: BlissStatic | BlissStaticCollection | Element | Array<any>): void;
-        add(callbacks:{[callbackName: string]: Function}, on?: BlissStatic | BlissStaticCollection | Element | Array<any>): void;
+        add(callbacks: {[callbackName: string]: Function}, on?: BlissStatic | BlissStaticCollection | Element | Array<any>): void;
 
         hooks: {
             add(name: string, callback: Function): void;
@@ -612,24 +612,24 @@ declare namespace BlissNS {
     }
 
     interface BlissBindedElement<T> extends BlissNativeExtentions<T> {
-        set(options: Object): BlissDecoratedElement<T>
-        contents(elements: Object | Array<any> | string | Number | Node): BlissDecoratedElement<T>
+        set(options: Object): BlissDecoratedElement<T>;
+        contents(elements: Object | Array<any> | string | Number | Node): BlissDecoratedElement<T>;
         clone(): BlissDecoratedElement<T>;
-        after(element:Element) : BlissDecoratedElement<T>;
-        around(element:Element) : BlissDecoratedElement<T>;
-        attributes(attrs: Object) : BlissDecoratedElement<T>;
-        before(element:Element) : BlissDecoratedElement<T>;
-        inside(element:Element) : BlissDecoratedElement<T>;
-        properties(props: Object) : BlissDecoratedElement<T>;
-        start(element:Element) : BlissDecoratedElement<T>;
-        style(properties: Object) : BlissDecoratedElement<T>;
-        transition(properties: Object, duration?: number) : Promise<T>;
+        after(element: Element): BlissDecoratedElement<T>;
+        around(element: Element): BlissDecoratedElement<T>;
+        attributes(attrs: Object): BlissDecoratedElement<T>;
+        before(element: Element): BlissDecoratedElement<T>;
+        inside(element: Element): BlissDecoratedElement<T>;
+        properties(props: Object): BlissDecoratedElement<T>;
+        start(element: Element): BlissDecoratedElement<T>;
+        style(properties: Object): BlissDecoratedElement<T>;
+        transition(properties: Object, duration?: number): Promise<T>;
         delegate(type: string, selector: string, callback: (event: Event) => void): BlissDecoratedElement<T>;
-        delegate(type: string, selectorsToCallbacks: {[selector: string] : (event: Event) => void}): BlissDecoratedElement<T>;
-        delegate(typesToSelectorsToCallbacks: {[type: string] : {[selector: string] : (event: Event) => void}}): BlissDecoratedElement<T>;
-        events(handlers: {[eventName:string] : (event: Event) => void} | Element): BlissDecoratedElement<T>;
-        fire(type: string, properties?: {[propertyName: string] : any}): BlissDecoratedElement<T>;
-        once(handlers: {[eventName:string] : (event: Event) => void} | Element): BlissDecoratedElement<T>;
+        delegate(type: string, selectorsToCallbacks: {[selector: string]: (event: Event) => void}): BlissDecoratedElement<T>;
+        delegate(typesToSelectorsToCallbacks: {[type: string]: {[selector: string]: (event: Event) => void}}): BlissDecoratedElement<T>;
+        events(handlers: {[eventName: string]: (event: Event) => void} | Element): BlissDecoratedElement<T>;
+        fire(type: string, properties?: {[propertyName: string]: any}): BlissDecoratedElement<T>;
+        once(handlers: {[eventName: string]: (event: Event) => void} | Element): BlissDecoratedElement<T>;
 
         remove(): BlissDecoratedElement<T>;
     }
@@ -640,24 +640,24 @@ declare namespace BlissNS {
     }
 
     interface BlissCollectionArray<T> {
-        set(options: Object): BlissCollectionArray<T>
-        contents(elements: Object | Array<any> | string | Number | Node): BlissCollectionArray<T>
+        set(options: Object): BlissCollectionArray<T>;
+        contents(elements: Object | Array<any> | string | Number | Node): BlissCollectionArray<T>;
         clone(): BlissCollectionArray<T>;
-        after(element:Element) : BlissCollectionArray<T>;
-        around(element:Element) : BlissCollectionArray<T>;
-        attributes(attrs: Object) : BlissCollectionArray<T>;
-        before(element:Element) : BlissCollectionArray<T>;
-        inside(element:Element) : BlissCollectionArray<T>;
-        properties(props: Object) : BlissCollectionArray<T>;
-        start(element:Element) : BlissCollectionArray<T>;
-        style(properties: Object) : BlissCollectionArray<T>;
-        transition(properties: Object, duration?: number) : Promise<T>[];
+        after(element: Element): BlissCollectionArray<T>;
+        around(element: Element): BlissCollectionArray<T>;
+        attributes(attrs: Object): BlissCollectionArray<T>;
+        before(element: Element): BlissCollectionArray<T>;
+        inside(element: Element): BlissCollectionArray<T>;
+        properties(props: Object): BlissCollectionArray<T>;
+        start(element: Element): BlissCollectionArray<T>;
+        style(properties: Object): BlissCollectionArray<T>;
+        transition(properties: Object, duration?: number): Promise<T>[];
         delegate(type: string, selector: string, callback: (event: Event) => void): BlissCollectionArray<T>;
-        delegate(type: string, selectorsToCallbacks: {[selector: string] : (event: Event) => void}): BlissCollectionArray<T>;
-        delegate(typesToSelectorsToCallbacks: {[type: string] : {[selector: string] : (event: Event) => void}}): BlissCollectionArray<T>;
-        events(handlers: {[eventName:string] : (event: Event) => void} | Element): BlissCollectionArray<T>;
-        fire(type: string, properties?: {[propertyName: string] : any}): BlissCollectionArray<T>;
-        once(handlers: {[eventName:string] : (event: Event) => void} | Element): BlissCollectionArray<T>;
+        delegate(type: string, selectorsToCallbacks: {[selector: string]: (event: Event) => void}): BlissCollectionArray<T>;
+        delegate(typesToSelectorsToCallbacks: {[type: string]: {[selector: string]: (event: Event) => void}}): BlissCollectionArray<T>;
+        events(handlers: {[eventName: string]: (event: Event) => void} | Element): BlissCollectionArray<T>;
+        fire(type: string, properties?: {[propertyName: string]: any}): BlissCollectionArray<T>;
+        once(handlers: {[eventName: string]: (event: Event) => void} | Element): BlissCollectionArray<T>;
 
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, useCapture?: boolean): BlissCollectionArray<T>;
 

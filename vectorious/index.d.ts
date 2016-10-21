@@ -4,7 +4,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export class Vector {
-    
     /**
      * @method constructor
      * @desc Creates a two-dimensional `Vector` from the supplied arguments.

@@ -176,7 +176,7 @@ declare namespace Axios {
         /**
          * intercept response of request when it is received.
          */
-        response: ResponseInterceptor
+        response: ResponseInterceptor;
     }
 
     type InterceptorId = number;
@@ -189,8 +189,8 @@ declare namespace Axios {
         use<U>(fulfilledFn: (config: AxiosXHRConfig<U>) => AxiosXHRConfig<U>): InterceptorId;
 
         use<U>(fulfilledFn: (config: AxiosXHRConfig<U>) => AxiosXHRConfig<U>,
-               rejectedFn: (error: any) => any)
-            : InterceptorId;
+               rejectedFn: (error: any) => any
+        ): InterceptorId;
 
         eject(interceptorId: InterceptorId): void;
     }
@@ -203,8 +203,8 @@ declare namespace Axios {
         use<T>(fulfilledFn: (config: Axios.AxiosXHR<T>) => Axios.AxiosXHR<T>): InterceptorId;
 
         use<T>(fulfilledFn: (config: Axios.AxiosXHR<T>) => Axios.AxiosXHR<T>,
-               rejectedFn: (error: any) => any)
-            : InterceptorId;
+               rejectedFn: (error: any) => any
+        ): InterceptorId;
 
         eject(interceptorId: InterceptorId): void;
     }

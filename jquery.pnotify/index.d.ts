@@ -37,7 +37,7 @@ interface PNotifyconfirmButton {
      *  Whether to trigger this button when the user hits enter in a single line prompt.
      */
     promptTrigger?: boolean;
-    click: (notice: PNotify, value: any) => void
+    click: (notice: PNotify, value: any) => void;
 }
 
 interface PNotifyconfirm {
@@ -53,12 +53,12 @@ interface PNotifyconfirm {
     /**
      * Classes to add to the input element of the prompt.
      */
-    prompt_class?: string
+    prompt_class?: string;
 
     /**
      * The default value of the prompt.
      */
-    prompt_default?: string
+    prompt_default?: string;
 
     /**
      * Whether the prompt should accept multiple lines of text.
@@ -225,7 +225,7 @@ interface PNotifyOptions {
          * Only show the sticker button on hover.
          */
         sticker_hover?: boolean;
-    }
+    };
 
     /**
      * After a delay, remove the notice, set to false for sticky note.

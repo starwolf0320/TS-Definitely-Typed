@@ -6,20 +6,20 @@
 declare module 'i18next-xhr-backend' {
 
     interface Interpolator {
-        interpolate: () => string
+        interpolate: () => string;
     }
     interface Services {
-        interpolator: Interpolator
+        interpolator: Interpolator;
     }
 
     interface BackendOptions {
-        loadPath?: string | Function,
-        addPath?:  string,
-        allowMultiLoading?: boolean,
-        parse?: Function,
-        crossDomain?: boolean,
-        withCredentials?: boolean,
-        ajax?: Function
+        loadPath?: string | Function;
+        addPath?: string;
+        allowMultiLoading?: boolean;
+        parse?: Function;
+        crossDomain?: boolean;
+        withCredentials?: boolean;
+        ajax?: Function;
     }
 
     export default class Backend {

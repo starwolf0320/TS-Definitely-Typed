@@ -7,7 +7,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Contacts {
+  export namespace Contacts {
     /**
      * Address field in a contact.
      */
@@ -136,12 +136,12 @@ declare namespace GoogleAppsScript {
      *  contacts listed therein.
      */
     export interface ContactsApp {
-      ExtendedField: ExtendedField
-      Field: Field
-      Gender: Gender
-      Month: Base.Month
-      Priority: Priority
-      Sensitivity: Sensitivity
+      ExtendedField: ExtendedField;
+      Field: Field;
+      Gender: Gender;
+      Month: Base.Month;
+      Priority: Priority;
+      Sensitivity: Sensitivity;
       createContact(givenName: string, familyName: string, email: string): Contact;
       createContactGroup(name: string): ContactGroup;
       deleteContact(contact: Contact): void;

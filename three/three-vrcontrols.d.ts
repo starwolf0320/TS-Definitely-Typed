@@ -8,7 +8,7 @@
 
 declare namespace THREE {
     export class VRControls {
-        constructor(camera: Camera, callback?: (param: string)=>void);
+        constructor(camera: Camera, callback?: (param: string) => void);
 
         /**
          * Update VR Instance Tracking

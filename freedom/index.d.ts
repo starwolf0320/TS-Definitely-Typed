@@ -7,7 +7,7 @@ declare namespace freedom {
     // Common on/emit for message passing interfaces.
     interface EventDispatchFn<T> { (eventType: string, value?: T): void; }
     interface EventHandlerFn<T> {
-        (eventType: string, handler: (eventData:T) => void): void;
+        (eventType: string, handler: (eventData: T) => void): void;
     }
 
     interface Error {
@@ -16,7 +16,7 @@ declare namespace freedom {
     }
 
     // TODO: replace OnAndEmit with EventHandler and EventEmitter;
-    interface OnAndEmit<T,T2> {
+    interface OnAndEmit<T, T2> {
         on: EventHandlerFn<T>;
         emit: EventDispatchFn<T2>;
     }
@@ -38,7 +38,7 @@ declare namespace freedom {
     interface ModuleSelfConstructor {
         // Identifies a named API's provider class.
         provideSynchronous: (classFn?: Function) => void;
-        provideAsynchronous :(classFn?: Function) => void;
+        provideAsynchronous: (classFn?: Function) => void;
         providePromises: (classFn?: Function) => void;
     }
 
@@ -66,7 +66,7 @@ declare namespace freedom {
     }
 
     // Channels are ways that freedom modules can send each other messages.
-    interface Channel extends OnAndEmit<any,any> {
+    interface Channel extends OnAndEmit<any, any> {
         close(): void;
     }
 
@@ -110,7 +110,7 @@ declare namespace freedom {
         logger?: string;  // string to json for logging provider.
     }
 
-    interface FreedomInCoreEnv extends OnAndEmit<any,any> {
+    interface FreedomInCoreEnv extends OnAndEmit<any, any> {
         // Represents the call to freedom when you create a root module. Returns a
         // promise to a factory constructor for the freedom module. The
         // |manifestPath| should be a path to a json string that specifies the
@@ -155,7 +155,7 @@ declare namespace freedom {
         reckless: (a: T) => void;
     }
     interface Method2<T, U, R> {
-        (a: T, b: U) : Promise<R>;
+        (a: T, b: U): Promise<R>;
         reckless: (a: T, b: U) => void;
     }
     interface Method3<T, U, V, R> {
@@ -241,7 +241,7 @@ declare namespace freedom.RTCPeerConnection {
     }
 
     interface OnIceCandidateEvent {
-        candidate: RTCIceCandidate
+        candidate: RTCIceCandidate;
     }
 
     interface RTCDataChannelInit {
@@ -355,7 +355,7 @@ declare namespace freedom.TcpSocket {
         close(): Promise<void>;
         // TcpSockets have 3 types of events:
         on(type: 'onConnection', f: (i: ConnectInfo) => void): void;
-        on(type: 'onData', f: (i:ReadInfo) => void): void;
+        on(type: 'onData', f: (i: ReadInfo) => void): void;
         off(type: 'onData', f: (i: ReadInfo) => void): void;
         on(type: 'onDisconnect', f: (i: DisconnectInfo) => void): void;
         on(eventType: string, f: (i: Object) => void): void;
@@ -384,7 +384,7 @@ declare namespace freedom.UdpSocket {
     }
 
     interface Implementation {
-        bind(address: string, port: number, continuation: () => void) : void;
+        bind(address: string, port: number, continuation: () => void): void;
         sendTo(data: ArrayBuffer, address: string, port: number,
                continuation: (bytesWritten: number) => void): void;
         destroy(continuation: () => void): void;
@@ -546,7 +546,7 @@ declare namespace freedom.Social {
         //
         // Message type |onMessage| happens when the user receives a message from
         // another contact.
-        on(eventType: string, f: Function) : void;
+        on(eventType: string, f: Function): void;
         on(eventType: 'onMessage', f: (message: IncomingMessage) => void): void;
         // Message type |onRosterProfile| events are received when another user's
         // profile is received or when a client changes status.
@@ -577,4 +577,4 @@ declare namespace freedom.Social {
         // userId.
         clearCachedCredentials(): Promise<void>;
     }
-} // declare module Social
+} // declare namespace Social

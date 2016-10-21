@@ -6,20 +6,19 @@
 export = hljs;
 export as namespace hljs;
 
-declare  namespace hljs
-{
+declare  namespace hljs {
 	export function highlight(
 		name: string,
 		value: string,
 		ignore_illegals?: boolean,
-		continuation?: boolean) : IHighlightResult;
+		continuation?: boolean): IHighlightResult;
 	export function highlightAuto(
 		value: string,
-		languageSubset?: string[]) : IAutoHighlightResult;
+		languageSubset?: string[]): IAutoHighlightResult;
 
-	export function fixMarkup(value: string) : string;
+	export function fixMarkup(value: string): string;
 
-	export function highlightBlock(block: Node) : void;
+	export function highlightBlock(block: Node): void;
 
 	export function configure(options: IOptions): void;
 
@@ -48,40 +47,36 @@ declare  namespace hljs
 	export var RE_STARTERS_RE: string;
 
 	// Common modes
-	export var BACKSLASH_ESCAPE : IMode;
-	export var APOS_STRING_MODE : IMode;
-	export var QUOTE_STRING_MODE : IMode;
-	export var PHRASAL_WORDS_MODE : IMode;
-	export var C_LINE_COMMENT_MODE : IMode;
-	export var C_BLOCK_COMMENT_MODE : IMode;
-	export var HASH_COMMENT_MODE : IMode;
-	export var NUMBER_MODE : IMode;
-	export var C_NUMBER_MODE : IMode;
-	export var BINARY_NUMBER_MODE : IMode;
-	export var CSS_NUMBER_MODE : IMode;
-	export var REGEX_MODE : IMode;
-	export var TITLE_MODE : IMode;
-	export var UNDERSCORE_TITLE_MODE : IMode;
+	export var BACKSLASH_ESCAPE: IMode;
+	export var APOS_STRING_MODE: IMode;
+	export var QUOTE_STRING_MODE: IMode;
+	export var PHRASAL_WORDS_MODE: IMode;
+	export var C_LINE_COMMENT_MODE: IMode;
+	export var C_BLOCK_COMMENT_MODE: IMode;
+	export var HASH_COMMENT_MODE: IMode;
+	export var NUMBER_MODE: IMode;
+	export var C_NUMBER_MODE: IMode;
+	export var BINARY_NUMBER_MODE: IMode;
+	export var CSS_NUMBER_MODE: IMode;
+	export var REGEX_MODE: IMode;
+	export var TITLE_MODE: IMode;
+	export var UNDERSCORE_TITLE_MODE: IMode;
 
-	export interface IHighlightResultBase
-	{
+	export interface IHighlightResultBase {
 		relevance: number;
 		language: string;
 		value: string;
 	}
 
-	export interface IAutoHighlightResult extends IHighlightResultBase
-	{
+	export interface IAutoHighlightResult extends IHighlightResultBase {
 		second_best?: IAutoHighlightResult;
 	}
 
-	export interface IHighlightResult extends IHighlightResultBase
-	{
+	export interface IHighlightResult extends IHighlightResultBase {
 		top: ICompiledMode;
 	}
 
-	export interface HLJSStatic
-	{
+	export interface HLJSStatic {
 		inherit(parent: Object, obj: Object): Object;
 
 		// Common regexps
@@ -93,26 +88,25 @@ declare  namespace hljs
 		RE_STARTERS_RE: string;
 
 		// Common modes
-		BACKSLASH_ESCAPE : IMode;
-		APOS_STRING_MODE : IMode;
-		QUOTE_STRING_MODE : IMode;
-		PHRASAL_WORDS_MODE : IMode;
-		C_LINE_COMMENT_MODE : IMode;
-		C_BLOCK_COMMENT_MODE : IMode;
-		HASH_COMMENT_MODE : IMode;
-		NUMBER_MODE : IMode;
-		C_NUMBER_MODE : IMode;
-		BINARY_NUMBER_MODE : IMode;
-		CSS_NUMBER_MODE : IMode;
-		REGEX_MODE : IMode;
-		TITLE_MODE : IMode;
-		UNDERSCORE_TITLE_MODE : IMode;
+		BACKSLASH_ESCAPE: IMode;
+		APOS_STRING_MODE: IMode;
+		QUOTE_STRING_MODE: IMode;
+		PHRASAL_WORDS_MODE: IMode;
+		C_LINE_COMMENT_MODE: IMode;
+		C_BLOCK_COMMENT_MODE: IMode;
+		HASH_COMMENT_MODE: IMode;
+		NUMBER_MODE: IMode;
+		C_NUMBER_MODE: IMode;
+		BINARY_NUMBER_MODE: IMode;
+		CSS_NUMBER_MODE: IMode;
+		REGEX_MODE: IMode;
+		TITLE_MODE: IMode;
+		UNDERSCORE_TITLE_MODE: IMode;
 	}
 
 	// Reference:
 	// https://github.com/isagalaev/highlight.js/blob/master/docs/reference.rst
-	export interface IModeBase
-	{
+	export interface IModeBase {
 		className?: string;
 		aliases?: string[];
 		begin?: (string|RegExp);
@@ -133,14 +127,12 @@ declare  namespace hljs
 		variants?: IMode[];
 	}
 
-	export interface IMode extends IModeBase
-	{
+	export interface IMode extends IModeBase {
 		keywords?: any;
 		contains?: IMode[];
 	}
 
-	export interface ICompiledMode extends IModeBase
-	{
+	export interface ICompiledMode extends IModeBase {
 		compiled: boolean;
 		contains?: ICompiledMode[];
 		keywords?: Object;
@@ -148,8 +140,7 @@ declare  namespace hljs
 		terminator_end?: string;
 	}
 
-	export interface IOptions
-	{
+	export interface IOptions {
 		classPrefix?: string;
 		tabReplace?: string;
 		useBR?: boolean;

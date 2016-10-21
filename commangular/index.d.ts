@@ -7,7 +7,7 @@
 
 declare var commangular: commangular.ICommAngularStatic;
 
-declare module commangular {
+declare namespace commangular {
 
 	///////////////////////////////////////////////////////////////////////////
     // Commangular Static
@@ -23,8 +23,8 @@ declare module commangular {
 		 * 				It has to be something that implements ICommand. Same as angular syntax
          * @param commandConfig It's and object with paramaters to configure the command execution.
          */
-		create (commandName: string, commandFunction: Function, commandConfig?:ICommandConfig) : void;
-		command (commandName: string, commandFunction: Function, commandConfig?:ICommandConfig) : void;
+		create (commandName: string, commandFunction: Function, commandConfig?: ICommandConfig): void;
+		command (commandName: string, commandFunction: Function, commandConfig?: ICommandConfig): void;
 
 		/**
 		 * This function allows you to hijack the execution before or after and
@@ -48,7 +48,7 @@ declare module commangular {
 		 * @param order You can chain any number of interceptors to the same command, so if you need to executed
 		 * 		the interceptor in a specific order you can indicate it here. An order of 0 is assigned by default.
 		 */
-		aspect ( aspectDescriptor: string, aspectFunction: ICommand, order: number ) : void;
+		aspect ( aspectDescriptor: string, aspectFunction: ICommand, order: number ): void;
 
 		/**
 		 * Event aspects work the same way command aspects do, but they intercept all the command groups instead,
@@ -68,27 +68,27 @@ declare module commangular {
 		 * @param order You can chain any number of interceptors to the same command, so if you need to executed
 		 * 		the interceptor in a specific order you can indicate it here. An order of 0 is assigned by default.
 		 */
-		eventAspect( aspectDescriptor: string, aspectFunction: ICommand, order: number ) : void;
+		eventAspect( aspectDescriptor: string, aspectFunction: ICommand, order: number ): void;
 
 		/**
 		 * TBD
 		 */
-		resolver( commandName: string, resolverFunction : Function ) : void;
+		resolver( commandName: string, resolverFunction: Function ): void;
 
 		/**
 		 * Clears all commands and aspects registered with commangular.
 		 */
-		reset() : void;
+		reset(): void;
 
 		/**
 		 * Can be used to enable/disable debug
 		 */
-		debug( enableDebug : boolean ) : void;
+		debug( enableDebug: boolean ): void;
 
 		/**
 		 * TBD
 		 */
-		build() : void;
+		build(): void;
 	}
 
 	/**
@@ -100,24 +100,24 @@ declare module commangular {
 		 * This function is what gets called when the command executes.
 		 * It can take parameters in as injected by angular
 		 */
-		execute() : any;
+		execute(): any;
 
 	}
 
-	interface IResultCommand extends ICommand{
+	interface IResultCommand extends ICommand {
 		/**
 		 * Is executed after the execute method and the interception chain and can receive
 		 * the result from the execute method of the same command.
 		 *
 		 * @param result Value/object returned by the execution.
 		 */
-		onResult ( result: any ) : void;
+		onResult ( result: any ): void;
 
 		/**
 		 * Is executed when the executed method ends with an error. Can receive the error throw by the execute method.
 		 * @param error The error that occured during execution
 		 */
-		onError ( error: Error ) : void;
+		onError ( error: Error ): void;
 	}
 
 	/**
@@ -129,7 +129,7 @@ declare module commangular {
 		/**
 		 * By defualt the result of the command will be found in this property
 		 */
-		lastResult : any;
+		lastResult: any;
 	}
 
 	/**
@@ -142,7 +142,7 @@ declare module commangular {
 		 * key passed in 'resultKey'. It has to be a string. It means that after the execution of this
 		 * commands you will be able to inject on the next command using that key and the result of the command will be injected.
 		 */
-		resultKey : string;
+		resultKey: string;
 	}
 
 	/**
@@ -158,7 +158,7 @@ declare module commangular {
 		 * This function lets you map a even name to a command sequence
 		 * @param eventName An event that will be watched by commangular
 		 */
-		mapTo( eventName: string ) : ICommAngularDescriptor;
+		mapTo( eventName: string ): ICommAngularDescriptor;
 
 		/**
 		 * Used along with mapTo function. Creates a sequence of commands that
@@ -196,7 +196,7 @@ declare module commangular {
 		 * @param eventName Name of the even that will trigger a command sequence
 		 * @param data Data of any type that will be passed to the command.
 		 */
-		dispatch( eventName: string, data?: any ) : ng.IPromise<any>;
+		dispatch( eventName: string, data?: any ): ng.IPromise<any>;
 	}
 
 	interface ICommAngularDescriptor {
@@ -257,7 +257,7 @@ declare module commangular {
 /**
  * Extending the angular rootScope to include the dispatch function in all scopes.
  */
-declare module angular {
+declare namespace angular {
 
 	interface IRootScopeService {
 
@@ -266,7 +266,7 @@ declare module angular {
 		 * @param eventName Name of the even that will trigger a command sequence
 		 * @param data Data of any type that will be passed to the command.
 		 */
-		dispatch( eventName: string, data?: any ) : ng.IPromise<any>;
+		dispatch( eventName: string, data?: any ): ng.IPromise<any>;
 
 	}
 

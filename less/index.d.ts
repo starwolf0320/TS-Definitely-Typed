@@ -78,7 +78,7 @@ declare namespace Less {
 
 interface LessStatic {
     options: Less.StaticOptions;
-    
+
     render(input: string, callback: (error: Less.RenderError, output: Less.RenderOutput) => void): void;
     render(input: string, options: Less.Options, callback: (error: Less.RenderError, output: Less.RenderOutput) => void): void;
 

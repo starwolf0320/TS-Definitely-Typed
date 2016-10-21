@@ -1,4 +1,4 @@
-// These tests are copied more or less directly from http://dygraphs.com/tests/ 
+// These tests are copied more or less directly from http://dygraphs.com/tests/
 
 function demo() {
     const g14 = new Dygraph(
@@ -44,7 +44,7 @@ function twoAxes() {
                 y2label: 'Secondary y-axis',
             }
     );
-    
+
     var g2 = new Dygraph(
             document.getElementById("demodiv_y2_primary"),
             data,
@@ -75,7 +75,7 @@ function twoAxes() {
                 }
             }
     );
-    
+
     var g3 = new Dygraph(
             document.getElementById("demodiv_two_grids"),
             data,
@@ -113,7 +113,7 @@ function twoAxes() {
             y2label: 'Secondary y-axis',
         }
     );
-    
+
     var g5 = new Dygraph(
         document.getElementById("demodiv_one_right"),
         data,
@@ -150,7 +150,7 @@ function twoAxes() {
             }
         }
     );
-    
+
     function update(el: HTMLInputElement) {
         g.updateOptions( { fillGraph: el.checked } );
         g2.updateOptions( { fillGraph: el.checked } );

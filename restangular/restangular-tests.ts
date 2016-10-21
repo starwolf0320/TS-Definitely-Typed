@@ -81,7 +81,7 @@ myApp.controller('TestCtrl', (
   Restangular.one('accounts', 123).one('buildings', 456).get<String>();
   Restangular.one('accounts', 123).getList('buildings');
   Restangular.one('accounts', 123).getList<String>('buildings');
-  
+
   Restangular.setBaseUrl('/api/v1');
   Restangular.setExtraFields(['name']);
   Restangular.setResponseExtractor(function (response, operation) {

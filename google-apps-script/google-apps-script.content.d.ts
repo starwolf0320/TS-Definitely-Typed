@@ -6,7 +6,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Content {
+  export namespace Content {
     /**
      * Service for returning text content from a script.
      *
@@ -17,7 +17,7 @@ declare namespace GoogleAppsScript {
      *      }
      */
     export interface ContentService {
-      MimeType: MimeType
+      MimeType: MimeType;
       createTextOutput(): TextOutput;
       createTextOutput(content: string): TextOutput;
     }

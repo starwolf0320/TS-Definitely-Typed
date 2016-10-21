@@ -23,10 +23,10 @@ declare module "seneca" {
             // Register (true) default plugins. Set false to not register when
             // using custom versions.
             default_plugins?: {
-                basic?:       boolean;
+                basic?: boolean;
                 'mem-store'?: boolean;
-                transport?:   boolean;
-                web?:         boolean;
+                transport?: boolean;
+                web?: boolean;
             };
             // Settings for network REPL.
             repl?: {
@@ -36,9 +36,9 @@ declare module "seneca" {
             // Debug settings.
             debug?: {
                 // Throw (some) errors from seneca.act.
-                fragile?:    boolean;
+                fragile?: boolean;
                 // Fatal errors ... aren't fatal. Not for production!
-                undead?:     boolean;
+                undead?: boolean;
                 // Print debug info to console
                 print?: {
                     // Print options. Best used via --seneca.print.options.
@@ -63,14 +63,14 @@ declare module "seneca" {
             // Action cache. Makes inbound messages idempotent.
             actcache?: {
                 active?: boolean;
-                size?:   number;
+                size?: number;
             };
             // Action executor tracing. See gate-executor module.
             trace?: {
                 act?: boolean;
                 stack?: boolean;
                 unknown?: string;
-            },
+            };
             // Action statistics settings. See rolling-stats module.
             stats?: {
                 size?: number;
@@ -105,7 +105,7 @@ declare module "seneca" {
                 interval?: number;
                 // By default, does not run.
                 running?: boolean;
-            },
+            };
             // zig module settings for seneca.start() chaining.
             zig?: any;
             log?: {
@@ -218,7 +218,7 @@ declare module "seneca" {
             remove$(id: DatabaseID | EntityDataWithQuery, callback: EntityRemoveCallback): void;
             list$(query: EntityDataWithQuery, callback: EntityListCallback): void;
         }
-        
+
     }
 
     export = SNS;

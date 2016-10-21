@@ -20,6 +20,6 @@ interface KnockoutObservableArrayFunctions<T> {
         disposeItem?: (mappedItem: TResult) => void;
     }): KnockoutMappedObservableArray<TResult>;
     map<TResult>(mappingOptions: (value: T) => TResult): KnockoutMappedObservableArray<TResult>;
-    
+
     filter(predicate: (value: T) => boolean): KnockoutMappedObservableArray<T>;
 }

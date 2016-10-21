@@ -57,7 +57,7 @@ let dictOfAny: Dict<any>;
 
 // #############################################################################################
 // ECMAScript 6: Object & Function
-// Modules: es6.object.assign, es6.object.is, es6.object.set-prototype-of, 
+// Modules: es6.object.assign, es6.object.is, es6.object.set-prototype-of,
 //          es6.object.to-string, es6.function.name and es6.function.has-instance.
 // #############################################################################################
 
@@ -88,8 +88,8 @@ arrayOfPoint = Array.of(point, point);
 
 // #############################################################################################
 // ECMAScript 6: String & RegExp
-// Modules: es6.string.from-code-point, es6.string.raw, es6.string.code-point-at, 
-//          es6.string.ends-with, es6.string.includes, es6.string.repeat, 
+// Modules: es6.string.from-code-point, es6.string.raw, es6.string.code-point-at,
+//          es6.string.ends-with, es6.string.includes, es6.string.repeat,
 //          es6.string.starts-with, and es6.regexp
 // #############################################################################################
 
@@ -334,7 +334,7 @@ b = Reflect.setPrototypeOf(a, a);
 
 // #############################################################################################
 // ECMAScript 7
-// Modules: es7.array.includes, es7.string.at, es7.string.lpad, es7.string.rpad, 
+// Modules: es7.array.includes, es7.string.at, es7.string.lpad, es7.string.rpad,
 //          es7.object.to-array, es7.object.get-own-property-descriptors, es7.regexp.escape,
 //          es7.map.to-json, and es7.set.to-json
 // #############################################################################################

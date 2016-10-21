@@ -15,7 +15,7 @@ declare module "node-7z" {
   // Options are mapped to the 7z program so there is no idea to define all possible types here
   interface CommandLineSwitches {
     raw?: Array<string>;
-    [key: string]: any
+    [key: string]: any;
   }
 
   interface FileSpec {

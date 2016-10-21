@@ -54,6 +54,6 @@ declare var StructType: {
     new (fields?: any[]): StructType;
     (fields?: {}): StructType;
     (fields?: any[]): StructType;
-}
+};
 
 export = StructType;

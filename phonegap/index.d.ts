@@ -16,7 +16,7 @@ interface Acceleration {
 }
 declare var Acceleration: {
     new(): Acceleration;
-}
+};
 
 interface AccelerometerOptions {
     frequency?: number;
@@ -37,7 +37,7 @@ interface CameraPopoverOptions {
 }
 declare var CameraPopoverOptions: {
     new(x: number, y: number, width: number, height: number, arrowDir: number): CameraPopoverOptions;
-}
+};
 
 interface CameraOptions {
     quality?: number;
@@ -121,9 +121,9 @@ interface CaptureError {
 }
 
 interface Capture {
-    captureAudio(captureSuccess: (mediaFiles: MediaFile[]) => void , captureError: (error: CaptureError) =>void , options?: CaptureAudioOptions): void;
-    captureImage(captureSuccess: (mediaFiles: MediaFile[]) => void , captureError: (error: CaptureError) =>void , options?: CaptureImageOptions): void;
-    captureVideo(captureSuccess: (mediaFiles: MediaFile[]) => void , captureError: (error: CaptureError) =>void , options?: CaptureImageOptions): void;
+    captureAudio(captureSuccess: (mediaFiles: MediaFile[]) => void, captureError: (error: CaptureError) => void, options?: CaptureAudioOptions): void;
+    captureImage(captureSuccess: (mediaFiles: MediaFile[]) => void, captureError: (error: CaptureError) => void, options?: CaptureImageOptions): void;
+    captureVideo(captureSuccess: (mediaFiles: MediaFile[]) => void, captureError: (error: CaptureError) => void, options?: CaptureImageOptions): void;
 }
 
 interface Connection {
@@ -156,7 +156,7 @@ interface CompassError {
 declare var CompassError: {
     COMPASS_INTERNAL_ERR: number;
     COMPASS_NOT_SUPPORTED: number;
-}
+};
 
 interface Compass {
     getCurrentHeading(compassSuccess: (heading: CompassHeading) => void , compassError: (error: CompassError) => void , compassOptions?: CompassOptions): void;
@@ -186,7 +186,7 @@ interface ContactField {
 }
 declare var ContactField: {
     new(type: string, calue: string, perf: boolean): ContactField;
-}
+};
 
 interface Contact {
     id: string;
@@ -213,9 +213,9 @@ interface ContactFindOptions {
     filter?: string;
     multiple?: boolean;
 }
-declare var ContactFindOptions : {
+declare var ContactFindOptions: {
     new(): ContactFindOptions;
-}
+};
 
 interface ContactName {
     formatted: string;
@@ -227,7 +227,7 @@ interface ContactName {
 }
 declare var ContactName: {
     new(): ContactName;
-}
+};
 
 interface ContactOrganization {
     pref: boolean;
@@ -249,7 +249,7 @@ declare var ContactError: {
     IO_ERROR: number;
     NOT_SUPPORTED_ERROR: number;
     PERMISSION_DENIED_ERROR: number;
-}
+};
 
 interface Contacts {
     create(properties?: any): Contact;
@@ -301,7 +301,7 @@ interface FileSystem {
 }
 declare var DirectoryEntry: {
     new(name: string, root: DirectoryEntry): DirectoryEntry;
-}
+};
 
 interface FileSystemEntry {
     isFile: boolean;
@@ -345,7 +345,7 @@ interface FileTransfer {
 }
 declare var FileTransfer: {
     new(): FileTransfer;
-}
+};
 
 interface FileUploadOptions {
     fileKey?: string;
@@ -357,7 +357,7 @@ interface FileUploadOptions {
 }
 declare var FileUploadOptions: {
     new(): FileUploadOptions;
-}
+};
 
 interface FileUploadResult {
     bytesSent: number;
@@ -402,7 +402,7 @@ declare var FileError: {
     QUOTA_EXCEEDED_ERR: number;
     TYPE_MISMATCH_ERR: number;
     PATH_EXISTS_ERR: number;
-}
+};
 
 interface FileTransferError {
     code: number;
@@ -415,7 +415,7 @@ declare var FileTransferError: {
     INVALID_URL_ERR: number;
     CONNECTION_ERR: number;
     ABORT_ERR: number;
-}
+};
 
 interface GeolocationOptions {
     enableHighAccuracy?: boolean;
@@ -433,7 +433,7 @@ declare var GlobalizationError: {
     FORMATTING_ERROR: number;
     PARSING_ERROR: number;
     PATTERN_ERROR: number;
-}
+};
 
 interface GlobalizationDate {
     year: number;
@@ -524,7 +524,7 @@ interface Media {
 }
 declare var Media: {
     new(src: string, onSuccess: (arg: any) => any, onError: (error: any) => any): Media;
-}
+};
 
 interface Notification {
     alert(message: string, alertCallback: Function, title?: string, buttonName?: string): void;

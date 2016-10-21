@@ -72,7 +72,7 @@ declare namespace OData {
     // Also, static calls always return the IResource (or IResourceArray) retrieved
     // https://github.com/angular/angular.js/blob/v1.2.0/src/ngResource/resource.js#L538-L549
     interface IResourceClass<T> {
-        new(dataOrParams? : any) : IResource<T>;
+        new(dataOrParams?: any): IResource<T>;
         get(): IResource<T>;
         get(params: Object): IResource<T>;
         get(success: Function, error?: Function): IResource<T>;
@@ -266,7 +266,7 @@ declare namespace OData {
         (queryString: string, success: () => any, error: () => any, isSingleElement?: boolean, forceSingleElement?: boolean): T;
     }
 
-    interface ICountResult{
+    interface ICountResult {
         result: number;
         $promise: angular.IPromise<any>;
     }
@@ -281,18 +281,18 @@ declare namespace OData {
         constructor(callback: ProviderCallback<T>);
         filter(operand1: any, operand2?: any, operand3?: any): Provider<T>;
         orderBy(arg1: string, arg2?: string): Provider<T>;
-        transformUrl(transformMethod : (url:string)=>string): Provider<T>;
+        transformUrl(transformMethod: (url: string) => string): Provider<T>;
         take(amount: number): Provider<T>;
         skip(amount: number): Provider<T>;
         private execute();
-        query(success?: ((p:T[])=>void), error?: (()=>void)): T[];
-        single(success?: ((p:T)=>void), error?: (()=>void)): T;
-        get(key: any, success?: ((p:T)=>void), error?: (()=>void)): T;
+        query(success?: ((p: T[]) => void), error?: (() => void)): T[];
+        single(success?: ((p: T) => void), error?: (() => void)): T;
+        get(key: any, success?: ((p: T) => void), error?: (() => void)): T;
         expand(...params: string[]): Provider<T>;
         expand(params: string[]): Provider<T>;
         select(...params: string[]): Provider<T>;
         select(params: string[]): Provider<T>;
-        count(success?: (result: ICountResult) => any, error?: () => any):ICountResult;
+        count(success?: (result: ICountResult) => any, error?: () => any): ICountResult;
         withInlineCount(): Provider<T>;
     }
 

@@ -7,7 +7,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Utilities {
+  export namespace Utilities {
     /**
      * A typesafe enum for character sets.
      */
@@ -28,9 +28,9 @@ declare namespace GoogleAppsScript {
      *  and other miscellaneous tasks.
      */
     export interface Utilities {
-      Charset: Charset
-      DigestAlgorithm: DigestAlgorithm
-      MacAlgorithm: MacAlgorithm
+      Charset: Charset;
+      DigestAlgorithm: DigestAlgorithm;
+      MacAlgorithm: MacAlgorithm;
       base64Decode(encoded: string): Byte[];
       base64Decode(encoded: string, charset: Charset): Byte[];
       base64DecodeWebSafe(encoded: string): Byte[];

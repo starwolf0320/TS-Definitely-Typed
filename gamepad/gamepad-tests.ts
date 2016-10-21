@@ -48,15 +48,15 @@
                 var pad: Gamepad.Gamepad = gamepads[i];
                 if(pad && pad.connected){
                     for (var k = 0; k < pad.buttons.length; k++)
-                    {   
+                    {
                         var button: Gamepad.GamepadButton = pad.buttons[k];
                         if(button.pressed){
                             console.log('pad[' + pad.index + ']: ' + 'time=' + pad.timestamp + ' id="' + pad.id + '" button[' + k + '] = ' + button.value);
                         }
                     }
                     for (var k = 0; k < pad.axes.length; k++)
-                    {   
-                        var axis = pad.axes[k]; 
+                    {
+                        var axis = pad.axes[k];
                         if(Math.abs(axis) > 0.1){
                             console.log('pad[' + pad.index + ']: ' + 'time=' + pad.timestamp + ' id="' + pad.id + '" axis[' + k + '] = ' + axis);
                         }

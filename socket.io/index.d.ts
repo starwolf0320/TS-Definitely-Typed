@@ -71,7 +71,7 @@ declare namespace SocketIO {
 		 * which will be null if there was no problem, and one parameter, success,
 		 * of type boolean
 		 */
-		checkRequest( req:any, fn:( err: any, success: boolean ) => void ):void;
+		checkRequest( req: any, fn: ( err: any, success: boolean ) => void ): void;
 
 		/**
 		 * Gets whether we're serving the client.js file or not
@@ -123,7 +123,7 @@ declare namespace SocketIO {
 
 		/**
 		 * Sets the allowed origins for requests
-		 * @param v The allowed origins, in host:port form
+		 * @param v The allowed origins, in host: port form
 		 * @default "*:*"
 		 * return This Server
 		 */
@@ -180,7 +180,7 @@ declare namespace SocketIO {
 		/**
 		 * Closes the server connection
 		 */
-		close():void;
+		close(): void;
 
 		/**
 		 * The event fired when we get a new connection
@@ -226,7 +226,7 @@ declare namespace SocketIO {
 		 * are sent as special 'error' packets to clients
 		 * @return The default '/' Namespace
 		 */
-		use( fn: ( socket:Socket, fn: ( err?: any ) => void ) =>void ): Namespace;
+		use( fn: ( socket: Socket, fn: ( err?: any ) => void ) => void ): Namespace;
 
 		/**
 		 * Emits an event to the default Namespace
@@ -319,7 +319,7 @@ declare namespace SocketIO {
 		 * value where false means that the request is rejected, and err is an error code (engine.io)
 		 * @default null
 		 */
-		allowRequest?: (request:any, callback: (err: number, success: boolean) => void) => void;
+		allowRequest?: (request: any, callback: (err: number, success: boolean) => void) => void;
 
 		/**
 		 * Transports to allow connections to (engine.io)
@@ -404,7 +404,7 @@ declare namespace SocketIO {
 		 * are sent as special 'error' packets to clients
 		 * @return This Namespace
 		 */
-		use( fn: ( socket:Socket, fn: ( err?: any ) => void ) =>void ): Namespace;
+		use( fn: ( socket: Socket, fn: ( err?: any ) => void ) => void ): Namespace;
 
 		/**
 		 * Targets a room when emitting
@@ -729,7 +729,7 @@ declare namespace SocketIO {
 		 * @param event The event that we're looking for the callbacks of
 		 * @return An array of callback Functions, or an empty array if we don't have any
 		 */
-		listeners( event: string ):Function[];
+		listeners( event: string ): Function[];
 
 		/**
 		 * Sets the compress flag
@@ -784,7 +784,7 @@ declare namespace SocketIO {
 		 * Removes a socket from all the rooms that it's joined
 		 * @param id The ID of the socket that we're removing
 		 */
-		delAll( id: string ):void;
+		delAll( id: string ): void;
 
 		/**
 		 * Broadcasts a packet
@@ -794,7 +794,7 @@ declare namespace SocketIO {
 		 * 	- except: A list of Socket IDs to exclude
 		 * 	- flags: Any flags that we want to send along ('json', 'volatile', 'broadcast')
 		 */
-		broadcast( packet: any, opts: { rooms?: string[]; except?: string[]; flags?: {[flag: string]: boolean} } ):void;
+		broadcast( packet: any, opts: { rooms?: string[]; except?: string[]; flags?: {[flag: string]: boolean} } ): void;
 	}
 
 	/**

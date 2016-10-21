@@ -15,7 +15,7 @@ declare class FastSimplexNoise {
   min: number;
   octaves: number;
   persistence: number;
-  random: ()=>number;
+  random: () => number;
 
   /**
    * Options is an optional object that can contain:
@@ -35,7 +35,7 @@ declare class FastSimplexNoise {
     min?: number;
     octaves?: number;
     persistence?: number;
-    random?: ()=>number;
+    random?: () => number;
   });
 
   /**

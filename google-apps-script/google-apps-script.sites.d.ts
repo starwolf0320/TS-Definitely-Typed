@@ -7,7 +7,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Sites {
+  export namespace Sites {
     /**
      * A Sites Attachment such as a file attached to a page.
      *
@@ -217,8 +217,8 @@ declare namespace GoogleAppsScript {
      * Create and access Google Sites.
      */
     export interface SitesApp {
-      AttachmentType: AttachmentType
-      PageType: PageType
+      AttachmentType: AttachmentType;
+      PageType: PageType;
       copySite(domain: string, name: string, title: string, summary: string, site: Site): Site;
       createSite(domain: string, name: string, title: string, summary: string): Site;
       getActivePage(): Page;

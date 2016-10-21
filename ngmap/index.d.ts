@@ -79,7 +79,7 @@ declare namespace angular.map {
              * with lower markers appearing in front of markers further up the screen.
              */
             zIndex?: number;
-        }
+        };
     }
 
     interface IObserveAndSetFunc {
@@ -104,13 +104,13 @@ declare namespace angular.map {
 		 * @param  {PositionOptions}                      options optional
 		 * @return {angular.IPromise<google.maps.LatLng>}         Latitude ang longitude of the address
 		 */
-        getGeoLocation(address: string, options?: PositionOptions): ng.IPromise<google.maps.LatLng>
+        getGeoLocation(address: string, options?: PositionOptions): ng.IPromise<google.maps.LatLng>;
     	/**
     	 * Get map from the pool of all shown maps.
     	 * @param  {IGetMapOptions}                    options optional
     	 * @return {angular.IPromise<google.maps.Map>}         promise
     	 */
-        getMap(options?: IGetMapOptions): ng.IPromise<google.maps.Map>
+        getMap(options?: IGetMapOptions): ng.IPromise<google.maps.Map>;
         /**
          * Initialize map from mapId or the current first shown map
          * @param  {string}          mapId id of the map. default 0

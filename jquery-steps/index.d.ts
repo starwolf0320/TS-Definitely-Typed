@@ -7,7 +7,7 @@ interface JQuery {
     JQuerySteps(param?: JQuerySteps.Settings): JQuerySteps.JQuerySteps;
 }
 
-declare module JQuerySteps {
+declare namespace JQuerySteps {
 
     //#region "JQuerySteps"
 
@@ -194,7 +194,7 @@ declare module JQuerySteps {
 
         /**
         * The animation effect which will be used for step transitions. Default value is none or 0.
-        * This can be none (0), fade (1), slide (2) or slideLeft (3). 
+        * This can be none (0), fade (1), slide (2) or slideLeft (3).
         */
         transitionEffect?: string|number;
 
@@ -343,7 +343,7 @@ declare module JQuerySteps {
 
         /**
         * Indicates how the content will be loaded.
-        * This can be html (0), iframe (1), or async (2). 
+        * This can be html (0), iframe (1), or async (2).
         */
         contentMode?: string|number;
 

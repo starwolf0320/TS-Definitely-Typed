@@ -6,7 +6,7 @@
 type DevTools = {
     open: boolean;
     orientation: "vertical" | "horizontal";
-}
+};
 interface DevToolsEvent extends Event {
     detail: DevTools;
 }

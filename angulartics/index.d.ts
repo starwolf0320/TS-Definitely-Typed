@@ -7,12 +7,12 @@
 declare namespace angulartics {
 
     interface IAngularticsStatic {
-        waitForVendorApi(objectName:string, delay:number, containsField?:any, registerFn?:any, onTimeout?:boolean): void;
+        waitForVendorApi(objectName: string, delay: number, containsField?: any, registerFn?: any, onTimeout?: boolean): void;
     }
 
     interface IAnalyticsService {
         eventTrack(eventName: string, properties?: any): any;
-        pageTrack(path:string, location?:angular.ILocationService): any;
+        pageTrack(path: string, location?: angular.ILocationService): any;
         setAlias(alias: string): any;
         setUsername(username: string): any;
         setUserProperties(properties: any): any;
@@ -27,12 +27,12 @@ declare namespace angulartics {
         withAutoBase(value: boolean): void;
         developerMode(value: boolean): void;
 
-        registerPageTrack(callback:(path:string, location?:angular.ILocationService) => any): void;
+        registerPageTrack(callback: (path: string, location?: angular.ILocationService) => any): void;
         registerEventTrack(callback: (eventName: string, properties?: any) => any): void;
-        registerSetAlias(callback: (alias: string) => any): void
-        registerSetUsername(callback: (username: string) => any): void
-        registerSetUserProperties(callback: (userProperties: any) => any): void
-        registerSetSuperProperties(callback: (superProperties: any) => any): void
+        registerSetAlias(callback: (alias: string) => any): void;
+        registerSetUsername(callback: (username: string) => any): void;
+        registerSetUserProperties(callback: (userProperties: any) => any): void;
+        registerSetSuperProperties(callback: (superProperties: any) => any): void;
 
         settings: {
             pageTracking: {
@@ -42,8 +42,8 @@ declare namespace angulartics {
                 autoBasePath: boolean
             },
             developerMode: boolean
-        }
+        };
     }
 }
 
-declare var angulartics:angulartics.IAngularticsStatic;
+declare var angulartics: angulartics.IAngularticsStatic;

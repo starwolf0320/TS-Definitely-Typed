@@ -44,7 +44,7 @@ declare module 'angular' {
             updateParams(newParams: { [key: string]: string }): void;
         }
 
-        type InlineAnnotatedFunction = Function | Array<string | Function>
+        type InlineAnnotatedFunction = Function | Array<string | Function>;
 
         /**
          * see http://docs.angularjs.org/api/ngRoute/provider/$routeProvider#when for API documentation
@@ -71,7 +71,7 @@ declare module 'angular' {
              *
              * {Array.<Object>} - route parameters extracted from the current $location.path() by applying the current route
              */
-            template?: string | { ($routeParams?: angular.route.IRouteParamsService): string; }
+            template?: string | { ($routeParams?: angular.route.IRouteParamsService): string; };
             /**
              * {string=|function()=}
              * Path or function that returns a path to an html template that should be used by ngView.
@@ -80,7 +80,7 @@ declare module 'angular' {
              *
              * {Array.<Object>} - route parameters extracted from the current $location.path() by applying the current route
              */
-            templateUrl?: string | { ($routeParams?: angular.route.IRouteParamsService): string; }
+            templateUrl?: string | { ($routeParams?: angular.route.IRouteParamsService): string; };
             /**
              * {Object.<string, function>=} - An optional map of dependencies which should be injected into the controller. If any of these dependencies are promises, the router will wait for them all to be resolved or one to be rejected before the controller is instantiated. If all the promises are resolved successfully, the values of the resolved promises are injected and $routeChangeSuccess event is fired. If any of the promises are rejected the $routeChangeError event is fired. The map object is:
              *

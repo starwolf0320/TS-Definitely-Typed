@@ -1,26 +1,26 @@
 
 
 function test_window() {
-	window.mochaPhantomJS();	
+	window.mochaPhantomJS();
 }
 
 function test_window_options() {
-	var mochaPhantomJSWindowOptions = window.mochaPhantomJS();	
-	
+	var mochaPhantomJSWindowOptions = window.mochaPhantomJS();
+
 	var env:any = mochaPhantomJSWindowOptions.env;
     var failures:number = mochaPhantomJSWindowOptions.failures;
     var ended:boolean = mochaPhantomJSWindowOptions.ended;
     var started:boolean = mochaPhantomJSWindowOptions.started;
-    
+
 	mochaPhantomJSWindowOptions.run();
 }
 
-function test_options() {	
+function test_options() {
 	mochaPhantomJS.url = 'http://www.test.com';
     mochaPhantomJS.columns = 6;
     mochaPhantomJS.mochaStartWait = 2;
     mochaPhantomJS.startTime = new Date(2014, 10, 3);
-    
+
 	mochaPhantomJS.output = 'null';
 	mochaPhantomJS.output = 6;
 	mochaPhantomJS.output = function(){};
@@ -54,7 +54,7 @@ function test_customizeMocha_file_option() {
 }
 
 function test_customizeMocha_all_options() {
-	mochaPhantomJS.customizeMocha({ 
+	mochaPhantomJS.customizeMocha({
 		headers: {'X-Test': 'foo', 'DNT': '1'},
 		cookies: [
 			{ 'name':  'foo1', 'value': 'bar1', 'path': 'baz1' },
@@ -62,6 +62,6 @@ function test_customizeMocha_all_options() {
 		],
 		viewportSize: 20,
 		timeout: 2,
-		file: 'test.txt' 
+		file: 'test.txt'
 	});
 }

@@ -36,7 +36,7 @@ declare namespace ProtoBuf {
     export function newBuilder(options?: {[key: string]: any}): ProtoBuilder;
 
     export interface LongStatic {
-      new(low?: number, high?: number, unsigned?:boolean): Long;
+      new(low?: number, high?: number, unsigned?: boolean): Long;
 
       MAX_UNSIGNED_VALUE: Long;
       MAX_VALUE: Long;
@@ -60,7 +60,7 @@ declare namespace ProtoBuf {
     export interface Long {
       high: number;
       low: number;
-      unsigned :boolean;
+      unsigned: boolean;
 
       add(other: Long | number | string): Long;
       and(other: Long | number | string): Long;
@@ -250,7 +250,7 @@ declare namespace ProtoBuf {
         enums: ProtoEnum[];
         messages: ProtoMessage[];
         options: {[key: string]: any};
-        oneofs: {[key: string]:number[]};
+        oneofs: {[key: string]: number[]};
     }
 
     export interface ProtoRpcService {
@@ -261,7 +261,7 @@ declare namespace ProtoBuf {
 
     export interface ProtoService {
         name: string;
-        rpc: {[key: string]:ProtoRpcService};
+        rpc: {[key: string]: ProtoRpcService};
         options: {[key: string]: any};
     }
 
@@ -269,7 +269,7 @@ declare namespace ProtoBuf {
     // protobufjs/src/ProtoBuf/Util.js
 
     export interface Util {
-        IS_NODE: boolean
+        IS_NODE: boolean;
         fetch(path: string, callback?: (data: string) => any): string;
         toCamelCase(str: string): string;
         XHR(): XMLHttpRequest;
@@ -333,7 +333,7 @@ declare namespace ProtoBuf {
         new(builder?: ProtoBuilder, parent?: ReflectT, name?: string,
             options?: {[key: string]: any}): ReflectEnum;
         Value: ReflectValue; // NOTE: only for new ProtoBuf.Reflect.Enum.Value();
-        object: {[key: string]:number};
+        object: {[key: string]: number};
         build(): {[key: string]: any};
     }
 

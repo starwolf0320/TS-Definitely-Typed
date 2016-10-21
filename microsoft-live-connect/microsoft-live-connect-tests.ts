@@ -1012,7 +1012,7 @@ function createContact() {
         }
     );
 }
- 
+
 function createEvent() {
     var startTime = new Date();
     var endTime = new Date(startTime.getTime() + (60 * 60 * 1000));

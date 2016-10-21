@@ -5,10 +5,8 @@
 
 declare var grecaptcha: ReCaptchaV2.ReCaptcha;
 
-declare namespace ReCaptchaV2
-{
-  class ReCaptcha
-  {
+declare namespace ReCaptchaV2 {
+  class ReCaptcha {
     /**
       * Renders the container as a reCAPTCHA widget and returns the ID of the newly created widget.
       * @param container The HTML element to render the reCAPTCHA widget. Specify either the ID of the container (string) or the DOM element itself.
@@ -33,8 +31,7 @@ declare namespace ReCaptchaV2
   type Type = "image" | "audio";
   type Size = "normal" | "compact";
 
-  interface Parameters
-  {
+  interface Parameters {
     /**
       * Your sitekey.
       **/

@@ -8,7 +8,7 @@
 declare namespace ReactIntl {
     interface Locale {
         locale: string;
-        fields?: { [key: string]: string },
+        fields?: { [key: string]: string };
         pluralRuleFunction?: (n: number, ord: boolean) => string;
     }
 
@@ -19,7 +19,7 @@ declare namespace ReactIntl {
     function hasLocaleData(localeName: string): boolean;
 
     interface Messages {
-        [key: string]: FormattedMessage.MessageDescriptor
+        [key: string]: FormattedMessage.MessageDescriptor;
     }
 
     function defineMessages<T extends Messages>(messages: T): T;
@@ -54,7 +54,7 @@ declare namespace ReactIntl {
             * one of "basic" (default) | "best fit"
             */
             formatMatcher?: string;
-            timeZone?: string,
+            timeZone?: string;
             hour12?: boolean;
             /*
             * one of "narrow" (default) | "short" | "long"
@@ -171,7 +171,7 @@ declare namespace ReactIntl {
             * one of "decimal" (default) | "currency" | "percent"
             */
             style?: string;
-            currency?: string,
+            currency?: string;
             /*
             * one of "symbol" (default) | "code" | "name"
             */
@@ -228,7 +228,7 @@ declare namespace ReactIntl {
 }
 
 declare module "react-intl" {
-    export = ReactIntl
+    export = ReactIntl;
 }
 
 declare module "react-intl/locale-data/af" {

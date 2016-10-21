@@ -10,7 +10,7 @@ export = jwt;
 
 declare function jwt(options: jwt.Options): jwt.RequestHandler;
 declare namespace jwt {
-    export type secretType = string | Buffer
+    export type secretType = string | Buffer;
     export interface SecretCallback {
         (req: express.Request, header: any, payload: any, done: (err: any, secret?: boolean) => void): void;
         (req: express.Request, payload: any, done: (err: any, secret?: secretType) => void): void;

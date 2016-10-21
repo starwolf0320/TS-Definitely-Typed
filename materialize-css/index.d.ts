@@ -22,7 +22,7 @@ declare namespace Materialize {
         /**
         * The delay before the tooltip shows (in milliseconds)
         */
-        delay:number;
+        delay: number;
     }
 
     /**
@@ -34,43 +34,43 @@ declare namespace Materialize {
          * The duration of the transition enter in milliseconds.
          * Default: 300
          */
-        inDuration?:number;
+        inDuration?: number;
 
         /**
          * The duration of the transition out in milliseconds.
          * Default: 225
          */
-        outDuration?:number;
+        outDuration?: number;
 
         // TODO: constrain_width
         /**
          * If true, constrainWidth to the size of the dropdown activator.
          * Default: true
          */
-        constrain_width?:boolean;
+        constrain_width?: boolean;
         /**
          * If true, the dropdown will open on hover.
          * Default: false
          */
-        hover?:boolean;
+        hover?: boolean;
 
         /**
          * This defines the spacing from the aligned edge.
          * Default: 0
          */
-        gutter?:number;
+        gutter?: number;
 
         /**
          * If true, the dropdown will show below the activator.
          * Default: false
          */
-        belowOrigin?:boolean;
+        belowOrigin?: boolean;
 
         /**
          * Defines the edge the menu is aligned to.
          * Default: 'left'
          */
-        alignment?:string;
+        alignment?: string;
     }
 
     /**
@@ -189,19 +189,19 @@ declare namespace Materialize {
          * The distance in pixels from the top of the page where the element becomes fixed.
          * Default: 0
          */
-        top?:number;
+        top?: number;
 
         /**
          * The distance in pixels from the top of the page where the elements stops being fixed.
          * Default: Infinity
          */
-        bottom?:number;
+        bottom?: number;
 
         /**
          * The offset from the top the element will be fixed at.
          * Default: 0
          */
-        offset?:number;
+        offset?: number;
     }
 
     /**
@@ -271,28 +271,28 @@ declare namespace Materialize {
         * @name className The className to use to format the message to display
         * @name completeCallback Callback function to call when the messages completes/hides.
         */
-        toast(message:string|JQuery, displayLength:number, className?:string, completeCallback?:Function): void;
+        toast(message: string|JQuery, displayLength: number, className?: string, completeCallback?: Function): void;
 
         /**
          * Fires an event when the page is scrolled to a certain area
          *
          * @name options optional parameter with scroll fire options
          */
-        scrollFire(options?:ScrollFireOptions): void;
+        scrollFire(options?: ScrollFireOptions): void;
 
         /**
          * A staggered reveal effect for any UL Tag with list items
          *
          * @name selector the selector for the list to show in staggered fasion
          */
-        showStaggeredList(selector:string): void;
+        showStaggeredList(selector: string): void;
 
         /**
          * Fade in images. It also animates grayscale and brightness to give it a unique effect.
          *
          * @name selector the selector for the image to fade in
          */
-        fadeInImage(selector:string): void;
+        fadeInImage(selector: string): void;
 
         /**
          * Update all text field to reinitialize all the Materialize labels on the page if dynamically adding inputs
@@ -301,7 +301,7 @@ declare namespace Materialize {
     }
 }
 
-declare var Materialize : Materialize.Materialize;
+declare var Materialize: Materialize.Materialize;
 
 interface JQuery {
 
@@ -448,5 +448,5 @@ interface JQuery {
      *
      * @name method, the method to call (always "select_tab") and a param containing the id of the tab to open
      */
-    tabs(method?:string, tab?:string): JQuery;
+    tabs(method?: string, tab?: string): JQuery;
 }

@@ -18,5 +18,5 @@ declare namespace CodeMirror {
      *               tokens will be converted to span elements as in an editor,
      *               and inserted into the node (through innerHTML).
      */
-    function runMode(text: string, modespec: any, callback: (HTMLElement | ((text: string, style: string) => void)), options? : { tabSize?: number; state?: any; }): void;
+    function runMode(text: string, modespec: any, callback: (HTMLElement | ((text: string, style: string) => void)), options?: { tabSize?: number; state?: any; }): void;
 }

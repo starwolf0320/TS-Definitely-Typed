@@ -258,7 +258,7 @@ declare namespace Pikaday {
          * Render the month after the year in the title. Default: false.
          */
         showMonthAfterYear?: boolean;
-		
+
         /**
          * Render days of the calendar grid that fall in the next or previous months to the current month instead of rendering an empty table cell. Default: false.
          */

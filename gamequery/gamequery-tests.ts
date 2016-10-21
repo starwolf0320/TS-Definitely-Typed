@@ -36,7 +36,7 @@ $(function () {
         .addSprite("callback", {
             animation: callbackAnim, posx: 414, callback: function () {
                 counter++;
-                if (counter > 1) { 
+                if (counter > 1) {
                     $("#callback").remove();
                 }
             }

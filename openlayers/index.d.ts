@@ -9,7 +9,7 @@ declare type GlobalObject = Object;
 /**
  * @namespace ol
  */
-declare module ol {
+declare namespace ol {
     /**
      * The animation static methods are designed to be used with the
      * {@link ol.Map#beforeRender} method.  For example:
@@ -23,7 +23,7 @@ declare module ol {
      *
      * @namespace ol.animation
      */
-    module animation {
+    namespace animation {
         /**
          * Generate an animated transition that will "bounce" the resolution as it
          * approaches the final value.
@@ -282,7 +282,7 @@ declare module ol {
 
     }
 
-    module Collection {
+    namespace Collection {
 
         type EventType = string;
 
@@ -354,7 +354,7 @@ declare module ol {
      * [CanvasRenderingContext2D.fillStyle](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle).
      * @namespace ol.colorlike
      */
-    module colorlike {
+    namespace colorlike {
         /**
          * @param {ol.Color|ol.ColorLike} color Color.
          * @return {ol.ColorLike} The color as an ol.ColorLike
@@ -815,7 +815,7 @@ declare module ol {
             setUnits(units: ol.control.ScaleLine.Units): void;
         }
 
-        module ScaleLine {
+        namespace ScaleLine {
             /**
              * @enum {string}
              * @api
@@ -2764,8 +2764,8 @@ declare module ol {
 
         }
 
-        module ogc {
-            module filter {
+        namespace ogc {
+            namespace filter {
                 interface Filter { }
             }
         }
@@ -3517,7 +3517,7 @@ declare module ol {
     /**
      * @namespace ol.geom
      */
-    module geom {
+    namespace geom {
         /**
          * @classdesc
          * Circle geometry.
@@ -7527,7 +7527,7 @@ declare module ol {
 
     }
 
-    module pointer {
+    namespace pointer {
 
         /**
          * @classdesc
@@ -8181,7 +8181,7 @@ declare module ol {
     /**
      * @namespace ol.source
      */
-    module source {
+    namespace source {
         /**
          * @classdesc
          * Layer source for Bing Maps tile data.
@@ -9599,7 +9599,7 @@ declare module ol {
         /**
          * @namespace ol.source.wms
          */
-        module wms {
+        namespace wms {
             /**
              * Available server types: `'carmentaserver'`, `'geoserver'`, `'mapserver'`,
              *     `'qgis'`. These are servers that have vendor parameters beyond the WMS
@@ -9939,7 +9939,7 @@ declare module ol {
      *
      * @namespace ol.style
      */
-    module style {
+    namespace style {
         /**
          * Manages the creation of image atlases.
          *
@@ -10760,14 +10760,14 @@ declare module ol {
 
     }
 
-    module Tile {
+    namespace Tile {
         type State = number;
     }
 
     /**
      * @namespace ol.tilegrid
      */
-    module tilegrid {
+    namespace tilegrid {
         /**
          * Creates a tile grid with a standard XYZ tiling scheme.
          * @param {olx.tilegrid.XYZOptions=} opt_options Tile grid options.
@@ -11679,12 +11679,12 @@ declare module ol {
 /**
  * @namespace olx
  */
-declare module olx {
+declare namespace olx {
 
     /**
      * @namespace olx.animation
      */
-    module animation {
+    namespace animation {
         /**
          * @typedef {{resolution: number,
          *     start: (number|undefined),
@@ -11748,7 +11748,7 @@ declare module olx {
     /**
      * @namespace olx.control
      */
-    module control {
+    namespace control {
         /**
          * @typedef {{className: (string|undefined),
          *     collapsible: (boolean|undefined),
@@ -11960,7 +11960,7 @@ declare module olx {
     /**
      * @namespace olx.format
      */
-    module format {
+    namespace format {
         /**
          * @typedef {{dataProjection: ol.ProjectionLike,
          *     featureProjection: ol.ProjectionLike,
@@ -12181,7 +12181,7 @@ declare module olx {
     /**
      * @namespace olx.interaction
      */
-    module interaction {
+    namespace interaction {
         /**
          * Object literal with config options for interactions.
          * @typedef {{handleEvent: function(ol.MapBrowserEvent):boolean}}
@@ -12478,7 +12478,7 @@ declare module olx {
     /**
      * @namespace olx.layer
      */
-    module layer {
+    namespace layer {
         /**
          * @typedef {{opacity: (number|undefined),
          *     visible: (boolean|undefined),
@@ -12681,7 +12681,7 @@ declare module olx {
     /**
      * @namespace olx.render
      */
-    module render {
+    namespace render {
         /**
          * @typedef {{size: (ol.Size|undefined),
          *     pixelRatio: (number|undefined)}}
@@ -12697,7 +12697,7 @@ declare module olx {
     /**
      * @namespace olx.source
      */
-    module source {
+    namespace source {
         /**
          * @typedef {{cacheSize: (number|undefined),
          *     culture: (string|undefined),

@@ -34,10 +34,10 @@ declare namespace commonmark {
     }
 
     export interface ListData {
-        type?: string,
-        tight?: boolean,
-        delimiter?: string,
-        bulletChar?: string
+        type?: string;
+        tight?: boolean;
+        delimiter?: string;
+        bulletChar?: string;
     }
 
     export class Node {

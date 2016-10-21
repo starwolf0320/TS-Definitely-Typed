@@ -145,7 +145,7 @@ declare namespace log4javascript {
 		 * Returns all appenders which will log a message.
 		 */
 		getEffectiveAppenders(): Appender[];
-	
+
 		/**
 		 * Sets the level. Log messages of a lower level than level will not be logged. Default value is DEBUG.
 		 */

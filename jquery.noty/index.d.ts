@@ -11,16 +11,16 @@ interface NotyOptions {
     theme?: string;
     type?: string;
     /** Text to show. Can be html or string. */
-    text?: string; 
+    text?: string;
     /** If you want to use queue feature set this true. */
-    dismissQueue?: boolean; 
+    dismissQueue?: boolean;
     /** The note`s optional template like '<div class="noty_message"><span class="noty_text"></span><div class="noty_close"></div></div>' */
-    template?: string; 
+    template?: string;
     animation?: NotyAnimationOptions;
     /** Delay for closing event. Set false for sticky notifications */
-    timeout?: any; 
+    timeout?: any;
     /** Adds notification to the beginning of queue when set to true */
-    force?: boolean; 
+    force?: boolean;
     modal?: boolean;
     /** You can set max visible notification for dismissQueue true option */
     maxVisible?: number;

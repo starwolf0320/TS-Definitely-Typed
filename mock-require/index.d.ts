@@ -9,7 +9,7 @@
 interface Mock {
     /**
      * @param {string} path The module you that you want to mock.
-     * @param {any} mockExport The function or object you want to be returned from require, instead of the path module's exports, or the module you want to be returned from require, instead of the path module's export.  
+     * @param {any} mockExport The function or object you want to be returned from require, instead of the path module's exports, or the module you want to be returned from require, instead of the path module's export.
      */
     (path: string, mockExport: any | Function | string): void;
 
@@ -22,7 +22,7 @@ interface Mock {
     stopAll(): void;
 
     /**
-     * @param {string} path The file whose cache you want to refresh. 
+     * @param {string} path The file whose cache you want to refresh.
      */
     reRequire(path: string): void;
 }

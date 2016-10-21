@@ -13,44 +13,44 @@
 /**
  * Encoding type
  */
-declare type Encoding = "ascii" | "utf8" | "utf16le" | "ucs2" | "utf16le" | "base64" | "binary" | "hex"
+declare type Encoding = "ascii" | "utf8" | "utf16le" | "ucs2" | "utf16le" | "base64" | "binary" | "hex";
 
 interface IBase64Url {
     /**
      * Encode input to base64url
-     * @param {string} input Incoming input 
+     * @param {string} input Incoming input
      * @param {Encoding} encoding Default 'utf8'
-     * @return {string} 
+     * @return {string}
      */
     (input: string, encoding?: Encoding): string;
     /**
      * Encode input to base64url
-     * @param {Buffer} input Incoming value 
+     * @param {Buffer} input Incoming value
      */
     (inout: Buffer): string;
     /**
      * Encode input to base64url
-     * 
-     * @param {string} input Incoming input 
+     *
+     * @param {string} input Incoming input
      * @param {Encoding} encoding Default 'utf8'
      * @returns {string}
      */
     encode(input: string, encoding?: Encoding): string;
     /**
      * Encode input to base64url
-     * @param {Buffer} input Incoming value 
+     * @param {Buffer} input Incoming value
      */
     encode(input: Buffer): string;
     /**
      * Convert a base64url encoded string into a raw string.
-     * @param {string} base64url base64url encoded string 
+     * @param {string} base64url base64url encoded string
      * @param {Encoding} encoding Encoding defaults to 'utf8'
      * @returns {string}
      */
     decode(base64url: string, encoding?: string): string;
     /**
      * Convert a base64url encoded string to a base64 encoded string
-     * @param {string | Buffer} base64url base64url encoded value 
+     * @param {string | Buffer} base64url base64url encoded value
      * @returns {string}
      */
     toBase64(base64url: string | Buffer): string;
@@ -62,7 +62,7 @@ interface IBase64Url {
     fromBase64(base64: string): string;
     /**
      * Convert a base64url encoded string to a Buffer
-     * @param {string} base64url encoded string 
+     * @param {string} base64url encoded string
      * @returns {Buffer}
      */
     toBuffer(base64url: string): Buffer;

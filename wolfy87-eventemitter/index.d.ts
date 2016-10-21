@@ -13,7 +13,7 @@ declare namespace Wolfy87EventEmitter {
      * Hash Object for manipulating multiple events.
      */
     interface MultipleEvents {
-        [event: string]: any //Function | Function[]
+        [event: string]: any; //Function | Function[]
     }
 
     /**
@@ -53,7 +53,7 @@ declare namespace Wolfy87EventEmitter {
          * @param {string|RegExp} event Name of the event to return the listeners from.
          * @return {Function[]|Object} All listener functions for the event.
          */
-        getListeners(event: RegExp): {[event:string]: Function};
+        getListeners(event: RegExp): {[event: string]: Function};
 
 
         /**
@@ -123,7 +123,7 @@ declare namespace Wolfy87EventEmitter {
          * @param event {string|RegExp} Name of the event to return the listeners from.
          * @return {Object} All listener functions for an event in object
          */
-        getListenersAsObject(event: string): {[event:string]: Function};
+        getListenersAsObject(event: string): {[event: string]: Function};
 
         /**
          * Fetches the requested listeners via getListeners but will always return the results inside an object.
@@ -132,7 +132,7 @@ declare namespace Wolfy87EventEmitter {
          * @param event {string|RegExp} Name of the event to return the listeners from.
          * @return {Object} All listener functions for an event in object
          */
-        getListenersAsObject(event: RegExp): {[event:string]: Function};
+        getListenersAsObject(event: RegExp): {[event: string]: Function};
 
         /**
          * Semi-alias of addListener. It will add a listener that will be

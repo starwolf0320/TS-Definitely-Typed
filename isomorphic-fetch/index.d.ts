@@ -3,10 +3,10 @@
 // Definitions by: Todd Lucas <https://github.com/toddlucas>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-type RequestType = "" | "audio" | "font" | "image" | "script" | "style" | 
+type RequestType = "" | "audio" | "font" | "image" | "script" | "style" |
     "track" | "video";
-type RequestDestination = "" | "document" | "embed" | "font" | "image" | 
-    "manifest" | "media" | "object" | "report" | "script" | "serviceworker" | 
+type RequestDestination = "" | "document" | "embed" | "font" | "image" |
+    "manifest" | "media" | "object" | "report" | "script" | "serviceworker" |
     "sharedworker" | "style" | "worker" | "xslt";
 type RequestMode = "navigate" | "same-origin" | "no-cors" | "cors";
 type RequestCredentials = "omit" | "same-origin" | "include";
@@ -15,11 +15,11 @@ type RequestCache =
     "only-if-cached";
 type RequestRedirect = "follow" | "error" | "manual";
 
-type ResponseType = "basic" | "cors" | "default" | "error" | "opaque" | 
+type ResponseType = "basic" | "cors" | "default" | "error" | "opaque" |
     "opaqueredirect";
 
-type ReferrerPolicy = "" | "no-referrer" | "no-referrer-when-downgrade" | 
-    "same-origin" | "origin" | "strict-origin" | "origin-when-cross-origin" | 
+type ReferrerPolicy = "" | "no-referrer" | "no-referrer-when-downgrade" |
+    "same-origin" | "origin" | "strict-origin" | "origin-when-cross-origin" |
     "strict-origin-when-cross-origin" | "unsafe-url";
 
 interface IHeaders {
@@ -35,7 +35,7 @@ interface IHeaders {
     // NOTE: The following are supported by whatwg-fetch but not node-fetch.
     // entries(): IterableIterator<[string, string]>;
     // keys(): IterableIterator<string>;
-    // values(): IterableIterator<string>;    
+    // values(): IterableIterator<string>;
 }
 
 type HeadersInit = Headers | Array<string> | { [index: string]: string };
@@ -80,13 +80,13 @@ interface IRequest extends IBody {
     type: RequestType;
     destination: RequestDestination;
     referrer?: string;
-    referrerPolicy?: ReferrerPolicy;    
+    referrerPolicy?: ReferrerPolicy;
     mode: RequestMode;
     credentials: RequestCredentials;
     cache: RequestCache;
     redirect?: RequestRedirect;
     integrity?: string;
-    
+
     clone(): IRequest;
 }
 
@@ -97,7 +97,7 @@ interface RequestInit {
     headers?: HeadersInit;
     body?: BodyInit;
     referrer?: string;
-    referrerPolicy?: ReferrerPolicy;    
+    referrerPolicy?: ReferrerPolicy;
     mode?: RequestMode;
     credentials?: RequestCredentials;
     cache?: RequestCache;
@@ -110,15 +110,15 @@ type RequestInfo = IRequest | string;
 
 declare class Request extends Body implements IRequest {
     constructor(input: RequestInfo, init?: RequestInit);
-    
+
     method: string;
     url: string;
     headers: IHeaders;
 
-    type: RequestType
+    type: RequestType;
     destination: RequestDestination;
     referrer: string;
-    referrerPolicy: ReferrerPolicy;    
+    referrerPolicy: ReferrerPolicy;
     mode: RequestMode;
     credentials: RequestCredentials;
     cache: RequestCache;
@@ -159,7 +159,7 @@ declare class Response extends Body implements IResponse {
     static redirect(url: string, status?: number): IResponse;
     static error(): IResponse;
 
-    type: ResponseType
+    type: ResponseType;
 
     url: string;
     redirected: boolean;

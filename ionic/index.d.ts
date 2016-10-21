@@ -21,7 +21,7 @@ interface IonicStatic {
          * Please remember that Cordova features (Camera, FileSystem, etc) still
          * will not work in a web browser.
          */
-        ready(callback: ()=>any): void;
+        ready(callback: () => any): void;
         /**
          * Set the grade of the device: ‘a’, ‘b’, or ‘c’. ‘a’ is the best
          * (most css features enabled), ‘c’ is the worst. By default, sets the grade
@@ -104,7 +104,7 @@ declare module 'ionic' {
 declare namespace ionic {
     namespace actionSheet {
         interface IonicActionSheetService {
-            show(options: IonicActionSheetOptions): ()=>void;
+            show(options: IonicActionSheetOptions): () => void;
         }
         interface IonicActionSheetButton {
             text: string;
@@ -114,9 +114,9 @@ declare namespace ionic {
             titleText?: string;
             cancelText?: string;
             destructiveText?: string;
-            cancel?: ()=>any;
-            buttonClicked?: (index: number)=>boolean;
-            destructiveButtonClicked?: ()=>boolean;
+            cancel?: () => any;
+            buttonClicked?: (index: number) => boolean;
+            destructiveButtonClicked?: () => boolean;
             cancelOnStateChange?: boolean;
             cssClass?: string;
         }
@@ -129,8 +129,8 @@ declare namespace ionic {
     }
     namespace gestures {
         interface IonicGestureService {
-            on(eventType: string, callback: (e: any)=>any, $element: angular.IAugmentedJQuery, options: any): IonicGesture;
-            off(gesture: IonicGesture, eventType: string, callback: (e: any)=>any): void;
+            on(eventType: string, callback: (e: any) => any, $element: angular.IAugmentedJQuery, options: any): IonicGesture;
+            off(gesture: IonicGesture, eventType: string, callback: (e: any) => any): void;
         }
 
         interface IonicGesture {

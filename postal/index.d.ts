@@ -16,7 +16,7 @@ interface IResolver {
 }
 
 interface ICallback<T> {
-	(data: T, envelope: IEnvelope<T>): void
+	(data: T, envelope: IEnvelope<T>): void;
 }
 
 interface ISubscriptionDefinition<T> {

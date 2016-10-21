@@ -14,9 +14,9 @@ declare namespace AceAjax {
 
     export interface EditorCommand {
 
-        name:string;
+        name: string;
 
-        bindKey:any;
+        bindKey: any;
 
         exec: Function;
 
@@ -31,9 +31,9 @@ declare namespace AceAjax {
 
         platform: string;
 
-        addCommands(commands:EditorCommand[]): void;
+        addCommands(commands: EditorCommand[]): void;
 
-        addCommand(command:EditorCommand): void;
+        addCommand(command: EditorCommand): void;
 
         exec(name: string, editor: Editor, args: any): void;
     }
@@ -191,7 +191,7 @@ declare namespace AceAjax {
          * @param column The starting column position
         **/
         new(doc: Document, row: number, column: number): Anchor;
-    }
+    };
 
     ////////////////////////////////
     /// BackgroundTokenizer
@@ -254,7 +254,7 @@ declare namespace AceAjax {
          * @param editor The editor to associate with
         **/
         new(tokenizer: Tokenizer, editor: Editor): BackgroundTokenizer;
-    }
+    };
 
     ////////////////
     /// Document
@@ -445,7 +445,7 @@ declare namespace AceAjax {
          * @param text The starting text
         **/
         new(text?: string[]): Document;
-    }
+    };
 
     ////////////////////////////////
     /// EditSession
@@ -1021,7 +1021,7 @@ declare namespace AceAjax {
         new(content: string, mode?: string): IEditSession;
 
         new (text: string[], mode?: string): IEditSession;
-    }
+    };
 
     ////////////////////////////////
     /// Editor
@@ -1063,7 +1063,7 @@ declare namespace AceAjax {
 
         onChangeMode(e?: any): void;
 
-        execCommand(command:string, args?: any): void;
+        execCommand(command: string, args?: any): void;
 
         /**
          * Sets a Configuration Option
@@ -1078,17 +1078,17 @@ declare namespace AceAjax {
         /**
          * Get a Configuration Option
          **/
-        getOption(name: any):any;
+        getOption(name: any): any;
 
         /**
          * Get Configuration Options
          **/
-        getOptions():any;
+        getOptions(): any;
 
         /**
          * Get rid of console warning by setting this to Infinity
          **/
-        $blockScrolling:number;
+        $blockScrolling: number;
 
         /**
          * Sets a new key handler, such as "vim" or "windows".
@@ -1591,7 +1591,7 @@ declare namespace AceAjax {
          * @param row The new row number
          * @param column The new column number
         **/
-        moveCursorTo(row: number, column?: number, animate?:boolean): void;
+        moveCursorTo(row: number, column?: number, animate?: boolean): void;
 
         /**
          * Moves the cursor to the position indicated by `pos.row` and `pos.column`.
@@ -1738,7 +1738,7 @@ declare namespace AceAjax {
          * @param session The `EditSession` to refer to
         **/
         new(renderer: VirtualRenderer, session?: IEditSession): Editor;
-    }
+    };
 
     interface EditorChangeEvent {
         start: Position;
@@ -1809,7 +1809,7 @@ declare namespace AceAjax {
         new (session: Document, length: number, pos: number, others: string, mainClass: string, othersClass: string): PlaceHolder;
 
         new (session: IEditSession, length: number, pos: Position, positions: Position[]): PlaceHolder;
-    }
+    };
 
     ////////////////
     /// RangeList
@@ -1830,7 +1830,7 @@ declare namespace AceAjax {
     }
     export var RangeList: {
         new (): IRangeList;
-    }
+    };
 
     ////////////////
     /// Range
@@ -1841,13 +1841,13 @@ declare namespace AceAjax {
     **/
     export interface Range {
 
-        startRow:number;
+        startRow: number;
 
-        startColumn:number;
+        startColumn: number;
 
-        endRow:number;
+        endRow: number;
 
-        endColumn:number;
+        endColumn: number;
 
         start: Position;
 
@@ -2034,7 +2034,7 @@ declare namespace AceAjax {
     var Range: {
         fromPoints(pos1: Position, pos2: Position): Range;
         new(startRow: number, startColumn: number, endRow: number, endColumn: number): Range;
-    }
+    };
 
     ////////////////
     /// RenderLoop
@@ -2043,7 +2043,7 @@ declare namespace AceAjax {
     export interface RenderLoop { }
     var RenderLoop: {
         new(): RenderLoop;
-    }
+    };
 
     ////////////////
     /// ScrollBar
@@ -2089,7 +2089,7 @@ declare namespace AceAjax {
          * @param parent A DOM element
         **/
         new(parent: HTMLElement): ScrollBar;
-    }
+    };
 
     ////////////////
     /// Search
@@ -2152,7 +2152,7 @@ declare namespace AceAjax {
          * - `skipCurrent`: Whether or not to include the current line in the search. Default to `false`.
         **/
         new(): Search;
-    }
+    };
 
     ////////////////
     /// Search
@@ -2413,7 +2413,7 @@ declare namespace AceAjax {
          * @param session The session to use
         **/
         new(session: IEditSession): Selection;
-    }
+    };
 
     ////////////////
     /// Split
@@ -2497,7 +2497,7 @@ declare namespace AceAjax {
     }
     var Split: {
         new(): Split;
-    }
+    };
 
     //////////////////
     /// TokenIterator
@@ -2541,7 +2541,7 @@ declare namespace AceAjax {
          * @param initialColumn The column to start the tokenizing at
         **/
         new(session: IEditSession, initialRow: number, initialColumn: number): TokenIterator;
-    }
+    };
 
     //////////////////
     /// Tokenizer
@@ -2565,7 +2565,7 @@ declare namespace AceAjax {
          * @param flag Any additional regular expression flags to pass (like "i" for case insensitive)
         **/
         new(rules: any, flag: string): Tokenizer;
-    }
+    };
 
     //////////////////
     /// UndoManager
@@ -2627,7 +2627,7 @@ declare namespace AceAjax {
          * Resets the current undo state and creates a new `UndoManager`.
         **/
         new(): UndoManager;
-    }
+    };
 
     ////////////////////
     /// VirtualRenderer
@@ -2977,7 +2977,7 @@ declare namespace AceAjax {
          * @param theme The starting theme
         **/
         new(container: HTMLElement, theme?: string): VirtualRenderer;
-    }
+    };
 }
 
 declare var ace: AceAjax.Ace;

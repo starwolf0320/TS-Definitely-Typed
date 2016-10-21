@@ -9,7 +9,7 @@ declare namespace Atmosphere {
          * The atmosphere API is a little bit special here: the first parameter can either be
          * a URL string or a Request object. If it is a URL string, then the additional parameters are expected.
          */
-        subscribe?: (requestOrUrl:any, callback?:Function, request?:Request) => Request;
+        subscribe?: (requestOrUrl: any, callback?: Function, request?: Request) => Request;
         unsubscribe?: () => void;
 
         AtmosphereRequest?: AtmosphereRequest;
@@ -63,26 +63,26 @@ declare namespace Atmosphere {
         enableProtocol?: boolean;
         pollingInterval?: number;
 
-        onError?: (response?:Response) => void;
-        onClose?:  (response?:Response)  => void;
-        onOpen?:  (response?:Response)  => void;
-        onMessage?:  (response:Response)  => void;
-        onReopen?:  (request?:Request, response?:Response) => void;
-        onReconnect?:  (request?:Request, response?:Response)  => void;
-        onMessagePublished?:  (response?:Response)  => void;
-        onTransportFailure?:  (reason?:string, response?:Response)  => void;
-        onLocalMessage?:  (request?:Request) => void;
-        onFailureToReconnect?:  (request?:Request, response?:Response) => void;
-        onClientTimeout?: (request?:Request) => void;
+        onError?: (response?: Response) => void;
+        onClose?: (response?: Response) => void;
+        onOpen?: (response?: Response) => void;
+        onMessage?: (response: Response) => void;
+        onReopen?: (request?: Request, response?: Response) => void;
+        onReconnect?: (request?: Request, response?: Response) => void;
+        onMessagePublished?: (response?: Response) => void;
+        onTransportFailure?: (reason?: string, response?: Response) => void;
+        onLocalMessage?: (request?: Request) => void;
+        onFailureToReconnect?: (request?: Request, response?: Response) => void;
+        onClientTimeout?: (request?: Request) => void;
 
-        subscribe?: (options:Request) => void;
+        subscribe?: (options: Request) => void;
         execute?: () => void;
         close?: () => void;
         disconnect?: () => void;
         getUrl?: () => string;
-        push?: (message:string, dispatchUrl?:string) => void;
+        push?: (message: string, dispatchUrl?: string) => void;
         getUUID?: () => void;
-        pushLocal?: (message:string) => void;
+        pushLocal?: (message: string) => void;
     }
 
     interface Response {
@@ -101,7 +101,7 @@ declare namespace Atmosphere {
     }
 }
 
-declare var atmosphere:Atmosphere.Atmosphere;
+declare var atmosphere: Atmosphere.Atmosphere;
 declare module 'atmosphere' {
     export = atmosphere;
 }

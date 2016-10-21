@@ -6,7 +6,7 @@
 /// <reference types="express" />
 /// <reference types="mysql" />
 
-declare namespace mysql{
+declare namespace mysql {
   export interface IConnection {}
   export interface IError {}
 }

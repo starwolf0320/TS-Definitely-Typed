@@ -33,7 +33,7 @@ export declare function verify_response(args: VerifyResponseArgs): boolean;
 
 /**
  * {@link https://github.com/retailnext/node-radius#radiusadd_dictionarypath} for more info.
- * 
+ *
  * @param path Can be either a path to a file or a directory.
  **/
 export declare function add_dictionary(path: string): void;
@@ -67,10 +67,10 @@ interface EncodeArgs {
     secret: string;
     identifier?: number;
     /**
-     * This can be an object: { attribute_name: attribute_value, ... }, 
+     * This can be an object: { attribute_name: attribute_value, ... },
      * an array within an array: [ [ attribute_name, attribute_value ], ... ],
      * or if you haven't loaded a dictionary for the attributes: [ [ attribute_id, Buffer ], ... ].
-     * 
+     *
      * Tag field-attributes can be specified like so: [ [ attribute_name, tag_number, attribute_value ] ... ]
      **/
     attributes?: any;
@@ -101,5 +101,5 @@ interface RadiusPacket {
     identifier: number;
     length: number;
     attributes: any;
-    raw_attributes: Array<Array<any>>
+    raw_attributes: Array<Array<any>>;
 }

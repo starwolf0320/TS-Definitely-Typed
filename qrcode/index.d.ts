@@ -5,7 +5,7 @@
 
 type QRCodeOptions = {
     errorCorrectLevel?: "minimum" | "medium" | "high" | "max";
-}
+};
 
 declare module "qrcode" {
     var qrcode: {

@@ -8,11 +8,11 @@
 
 import events = require('events');
 
-type sqlTypeWithNoParams = { type: sqlTypeFactoryWithNoParams }
-type sqlTypeWithLength = { type: sqlTypeFactoryWithLength, length: number }
-type sqlTypeWithScale = { type: sqlTypeFactoryWithScale, scale: number }
-type sqlTypeWithPrecisionScale = { type: sqlTypeFactoryWithPrecisionScale, precision: number, scale: number }
-type sqlTypeWithTvpType = { type: sqlTypeFactoryWithTvpType, tvpType: any }
+type sqlTypeWithNoParams = { type: sqlTypeFactoryWithNoParams };
+type sqlTypeWithLength = { type: sqlTypeFactoryWithLength, length: number };
+type sqlTypeWithScale = { type: sqlTypeFactoryWithScale, scale: number };
+type sqlTypeWithPrecisionScale = { type: sqlTypeFactoryWithPrecisionScale, precision: number, scale: number };
+type sqlTypeWithTvpType = { type: sqlTypeFactoryWithTvpType, tvpType: any };
 
 type sqlTypeFactoryWithNoParams = () => sqlTypeWithNoParams;
 type sqlTypeFactoryWithLength = (length?: number) => sqlTypeWithLength;
@@ -110,7 +110,7 @@ export declare var ISOLATION_LEVEL: {
     REPEATABLE_READ: IIsolationLevel
     SERIALIZABLE: IIsolationLevel
     SNAPSHOT: IIsolationLevel
-}
+};
 
 export interface IOptions {
     encrypt: boolean;
@@ -183,7 +183,7 @@ interface IRequestParameters {
         scale: number;
         precision: number;
         tvpType: any;
-    }
+    };
 }
 
 export declare class Request extends events.EventEmitter {

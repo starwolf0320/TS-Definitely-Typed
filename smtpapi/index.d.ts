@@ -41,8 +41,8 @@ declare namespace SmtpApi {
       addCategory(cat: string): void;
       addCategory(cat: string[]): void;
       addSection(sec: string, val: string): void;
-      addFilter(filter: string, setting:string , val: number): void;
-      addFilter(filter: string, setting:string , val: string): void;
+      addFilter(filter: string, setting: string , val: number): void;
+      addFilter(filter: string, setting: string , val: string): void;
       addSendEachAt(send_each_at: number): void;
       addSendEachAt(send_each_at: number[]): void;
 

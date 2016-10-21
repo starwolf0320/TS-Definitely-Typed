@@ -4,26 +4,26 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare module "cheap-ruler" {
-    type BBox = [number, number, number, number] | number[]
-    type Point = [number, number] | number[]
-    type Line = Array<Point>
-    type Points = Array<Point>
-    type Polygon = Array<Array<Point>>
+    type BBox = [number, number, number, number] | number[];
+    type Point = [number, number] | number[];
+    type Line = Array<Point>;
+    type Points = Array<Point>;
+    type Polygon = Array<Array<Point>>;
 
     interface TemplateUnits {
-        kilometers: number
-        miles: number
-        nauticalmiles: number
-        meters: number
-        metres: number
-        yards: number
-        feet: number
-        inches: number
+        kilometers: number;
+        miles: number;
+        nauticalmiles: number;
+        meters: number;
+        metres: number;
+        yards: number;
+        feet: number;
+        inches: number;
     }
     interface InterfacePointOnLine {
-        point: Point
-        index: number
-        t: number
+        point: Point;
+        index: number;
+        t: number;
     }
     class CheapRuler {
         /**
@@ -197,7 +197,7 @@ declare module "cheap-ruler" {
          * // convert 50 meters to yards
          * 50 * cheapRuler.units.yards / cheapRuler.units.meters;
          */
-        const units: TemplateUnits
+        const units: TemplateUnits;
 
         /**
          * Creates a ruler object from tile coordinates (y and z). Convenient in tile-reduce scripts.
@@ -212,5 +212,5 @@ declare module "cheap-ruler" {
          */
         function fromTile(y: number, z: number, units?: string): CheapRuler;
     }
-    export = cheapRuler
+    export = cheapRuler;
 }

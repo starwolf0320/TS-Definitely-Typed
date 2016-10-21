@@ -23,7 +23,7 @@ declare namespace GalleriaJS {
         run(selector: String): GalleriaFactory;
         run(selector: String, options: GalleriaOptions): GalleriaFactory;
 
-		loadTheme(url : String): GalleriaFactory;
+		loadTheme(url: String): GalleriaFactory;
 		configure(options: GalleriaOptions): GalleriaFactory;
 
         ready( method: () => any): void;

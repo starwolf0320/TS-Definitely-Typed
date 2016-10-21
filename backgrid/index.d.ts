@@ -55,7 +55,7 @@ declare namespace Backgrid {
 
     class SelectFormatter extends CellFormatter {}
 
-    class CellEditor extends Backbone.View<Backbone.Model>{
+    class CellEditor extends Backbone.View<Backbone.Model> {
         initialize(options?: any);
         postRender(model: Backbone.Model, column: Backbone.Model);
     }
@@ -65,7 +65,7 @@ declare namespace Backgrid {
         saveOrCancel(event: any);
     }
 
-    class Cell extends Backbone.View<Backbone.Model>{
+    class Cell extends Backbone.View<Backbone.Model> {
         tagName: string;
         formatter: CellFormatter;
         editor: InputCellEditor;

@@ -19,7 +19,7 @@ declare module 'mitm' {
 	}
 
 	interface BypassableSocket extends net.Socket {
-		bypass(): void
+		bypass(): void;
 	}
 
 	type SocketConnectCallback = (socket: BypassableSocket, opts: SocketOptions) => void;

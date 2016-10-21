@@ -46,7 +46,7 @@ export declare class Date {
     getTimezoneOffset(): number;
     setTime(time: number): number;
 
-    // Note the setters have a non-void return type. Date has them as well, according to TypeScript 
+    // Note the setters have a non-void return type. Date has them as well, according to TypeScript
     setMilliseconds(ms: number): number;
     setUTCMilliseconds(ms: number): number;
     setSeconds(sec: number, ms?: number): number;

@@ -587,7 +587,7 @@ interface IsStaticApi {
      * Checks if the given value type is arguments.
      */
     arguments(...value: any[]): boolean;
-    
+
     /**
      * Checks if the given value type is arguments.
      */
@@ -1234,12 +1234,12 @@ interface Is extends IsStatic {
      * Override RegExps if you think they suck.
      */
     setRegexp(value: RegExp, regexp: 'url'): boolean;
-    
+
     /**
      * Override RegExps if you think they suck.
      */
     setRegexp(value: RegExp, regexp: 'email'): boolean;
-    
+
     /**
      * Override RegExps if you think they suck.
      */

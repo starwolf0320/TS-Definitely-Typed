@@ -31,7 +31,7 @@ class TestComponent extends React.Component<{ test: string },{}> {
 {
     let c2Factory = React.createFactory(TestComponent);
     ReactDOM.render(c2Factory({
-        test: "hello" 
+        test: "hello"
     }) , null);
 }
 
@@ -55,6 +55,6 @@ class TestComponent2 extends React.Component<{ test: string },{}> {
     // Type 'void' is not assignable to type 'ComponentClass<{ test: string; }>'.
     let c4Factory = React.createFactory(<React.ClassicComponentClass<{test:string}>><any> reactiveComponent(TestComponent2));
     ReactDOM.render(c4Factory({
-        test: "hello" 
+        test: "hello"
     }) , null);
 }

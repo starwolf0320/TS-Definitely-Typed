@@ -99,7 +99,7 @@ declare module 'angular' {
             controller?: string | Function;
             locals?: { [index: string]: any };
             bindToController?: boolean; // default: false
-            resolve?: { [index: string]: () => angular.IPromise<any> }
+            resolve?: { [index: string]: () => angular.IPromise<any> };
             controllerAs?: string;
             parent?: string | Element | JQuery; // default: root node
             onShowing?: Function;
@@ -176,7 +176,7 @@ declare module 'angular' {
             controller?: string | Function;
             locals?: { [index: string]: any };
             bindToController?: boolean; // default: false
-            resolve?: { [index: string]: () => angular.IPromise<any> }
+            resolve?: { [index: string]: () => angular.IPromise<any> };
             controllerAs?: string;
             parent?: string | Element | JQuery; // default: root node
         }
@@ -318,7 +318,7 @@ declare module 'angular' {
             controllerAs?: string;
             bindToController?: boolean; // default: true
             locals?: { [index: string]: any };
-            resolve?: { [index: string]: () => angular.IPromise<any> }
+            resolve?: { [index: string]: () => angular.IPromise<any> };
             attachTo?: string | JQuery | Element;
             propagateContainerEvents?: boolean;
             panelClass?: string;

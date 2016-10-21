@@ -32,8 +32,8 @@ declare module "easy-xapi" {
         log: {
             name: string;
             level: string
-        }
-        mount: (app: express.Application) => void
+        };
+        mount: (app: express.Application) => void;
     }
 
     interface Result {

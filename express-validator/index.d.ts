@@ -18,7 +18,7 @@ declare module "express-validator" {
 	 *
 	 * @middlewareOptions see: https://github.com/ctavan/express-validator#middleware-options
 	 */
-	function ExpressValidator(middlewareOptions?:any):express.RequestHandler;
+	function ExpressValidator(middlewareOptions?: any): express.RequestHandler;
 
 	export = ExpressValidator;
 }
@@ -45,14 +45,14 @@ declare namespace ExpressValidator {
 		checkHeaders: ValidatorFunction;
 		checkParams: ValidatorFunction;
 		checkQuery: ValidatorFunction;
-		
+
 		filter: SanitizerFunction;
 		sanitize: SanitizerFunction;
 		sanitizeBody: SanitizerFunction;
 		sanitizeQuery: SanitizerFunction;
 		sanitizeParams: SanitizerFunction;
 		sanitizeHeaders: SanitizerFunction;
-		
+
 		onValidationError(errback: (msg: string) => void): void;
 		validationErrors(mapped?: boolean): Dictionary<MappedError> | MappedError[];
 		validationErrors<T>(mapped?: boolean): Dictionary<T> | T[];
@@ -69,13 +69,13 @@ declare namespace ExpressValidator {
 		 * Alias for notRegex()
 		 */
 		not(): Validator;
-		isEmail(options?:{}): Validator;
+		isEmail(options?: {}): Validator;
 		/**
 		 * Accepts http, https, ftp
 		 */
 		isURL(): Validator;
 		isFQDN(options?: MinMaxOptions): Validator;
-		
+
 		/**
 		 * Combines isIPv4 and isIPv6
 		 */
@@ -126,23 +126,23 @@ declare namespace ExpressValidator {
 		 * Not just whitespace (input.trim().length !== 0)
 		 */
 		notEmpty(): Validator;
-		equals(equals:any): Validator;
-		contains(str:string): Validator;
+		equals(equals: any): Validator;
+		contains(str: string): Validator;
 
 		/**
 		 * Usage: matches(/[a-z]/i) or matches('[a-z]','i')
 		 */
-		matches(pattern:string, modifiers?:string): Validator;
+		matches(pattern: string, modifiers?: string): Validator;
 		matches(pattern: RegExp): Validator;
-		
+
 		/**
 		 * max is optional
 		 */
-		len(min:number, max?:number): Validator;
+		len(min: number, max?: number): Validator;
 		/**
 		 * Version can be 3, 4 or 5 or empty, see http://en.wikipedia.org/wiki/Universally_unique_identifier
 		 */
-		isUUID(version?:number): Validator;
+		isUUID(version?: number): Validator;
 		/**
 		 * Alias for isUUID(3)
 		 */
@@ -162,17 +162,17 @@ declare namespace ExpressValidator {
 		/**
 		 * Argument is optional and defaults to today. Comparison is non-inclusive
 		 */
-		isAfter(date?:Date): Validator;
+		isAfter(date?: Date): Validator;
 		/**
 		 * Argument is optional and defaults to today. Comparison is non-inclusive
 		 */
-		isBefore(date?:Date): Validator;
-		isIn(options:string): Validator;
-		isIn(options:string[]): Validator;
-		notIn(options:string): Validator;
-		notIn(options:string[]): Validator;
-		max(val:string): Validator;
-		min(val:string): Validator;
+		isBefore(date?: Date): Validator;
+		isIn(options: string): Validator;
+		isIn(options: string[]): Validator;
+		notIn(options: string): Validator;
+		notIn(options: string[]): Validator;
+		max(val: string): Validator;
+		min(val: string): Validator;
 		isJSON(): Validator;
 		isLength(options: MinMaxOptions): Validator;
 		isWhitelisted(chars: string): Validator;
@@ -184,7 +184,7 @@ declare namespace ExpressValidator {
 		 * Check an input only when the input exists
 		 */
 		isSurrogatePar(): Validator;
-		
+
 		optional(options?: { checkFalsy?: boolean }): Validator;
 		withMessage(message: string): Validator;
 	}
@@ -193,9 +193,9 @@ declare namespace ExpressValidator {
 		/**
 		 * Trim optional `chars`, default is to trim whitespace (\r\n\t )
 		 */
-		trim(...chars:string[]): Sanitizer;
-		ltrim(...chars:string[]): Sanitizer;
-		rtrim(...chars:string[]): Sanitizer;
+		trim(...chars: string[]): Sanitizer;
+		ltrim(...chars: string[]): Sanitizer;
+		rtrim(...chars: string[]): Sanitizer;
 		stripLow(keep_new_lines?: boolean): Sanitizer;
 		toFloat(): Sanitizer;
 		toInt(radix?: number): Sanitizer;
@@ -203,40 +203,40 @@ declare namespace ExpressValidator {
 		 * True unless str = '0', 'false', or str.length == 0. In strict mode only '1' and 'true' return true.
 		 */
 		toBoolean(strict?: boolean): Sanitizer;
-		
+
 		/**
 		* Convert the input string to a date, or null if the input is not a date.
 		*/
 		toDate(): Sanitizer;
-		
+
 		/**
 		 * Escape &, <, >, and "
 		 */
 		escape(): Sanitizer;
-		
+
 		/**
 		 * Replaces HTML encoded entities with <, >, &, ', " and /.
 		 */
 		unescape(): Sanitizer;
-		
+
 		blacklist(chars: string): Sanitizer;
 		blacklist(chars: string[]): Sanitizer;
 		whitelist(chars: string): Sanitizer;
 		whitelist(chars: string[]): Sanitizer;
-		
+
 		normalizeEmail(options?: { lowercase?: boolean; remove_dots?: boolean; remove_extensions?: boolean }): Sanitizer;
-		
+
 		/**
 		 * !!! XSS sanitization was removed from the library (see: https://github.com/chriso/validator.js#xss-sanitization)
 		 */
 	}
-	
+
 	interface MappedError {
 		param: string;
 		msg: string;
 		value: string;
 	}
-	
+
 	interface MinMaxOptions {
 		min?: number;
 		max?: number;

@@ -62,7 +62,7 @@ interface SafariEvent {
 		* Prevents the event from any further propagation.
 		* Propagation can be stopped only fon cancelable events. After propagation is stopped, the event is not sent to any other targets.
 		*/
-	stopPropagation() : void;
+	stopPropagation(): void;
 
 	/**
 		* Prevents the browser from performing the default action for an event.
@@ -325,7 +325,7 @@ interface SafariExtensionContextMenu {
 		* @param command The command identifier that the context menu item sends when activated.
 		* @returns The context menu item that was appended.
 		*/
-	appendContextMenuItem (identifier: string, title: string, command?: string) : SafariExtensionContextMenuItem;
+	appendContextMenuItem (identifier: string, title: string, command?: string): SafariExtensionContextMenuItem;
 
 	/**
 		* Inserts a menu item at a specific index in the contextual menu.

@@ -3,7 +3,7 @@
 // Definitions by: Andrew Telnov <https://github.com/andrewtelnov/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module Survey {
+declare namespace Survey {
     interface HashTable<T> {
         [key: string]: T;
     }
@@ -59,7 +59,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class dxSurveyService {
         static serviceUrl: string;
         constructor();
@@ -70,7 +70,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     var surveyLocalization: {
         currentLocale: string;
         locales: {};
@@ -102,7 +102,7 @@ declare module Survey {
 
 /// <reference path="base.d.ts" />
 /// <reference path="surveyStrings.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class AnswerRequiredError extends SurveyError {
         constructor();
         getText(): string;
@@ -119,7 +119,7 @@ declare module Survey {
 }
 
 /// <reference path="base.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class JsonObjectProperty {
         name: string;
         private typeValue;
@@ -232,7 +232,7 @@ declare module Survey {
 
 /// <reference path="base.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class QuestionBase extends Base implements IQuestion {
         name: string;
         protected data: ISurvey;
@@ -258,7 +258,7 @@ declare module Survey {
 
 /// <reference path="questionbase.d.ts" />
 /// <reference path="base.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class QuestionFactory {
         static Instance: QuestionFactory;
         static DefaultChoices: (string | {
@@ -275,7 +275,7 @@ declare module Survey {
 /// <reference path="questionbase.d.ts" />
 /// <reference path="questionfactory.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class PageModel extends Base implements IPage {
         name: string;
         questions: Array<QuestionBase>;
@@ -302,7 +302,7 @@ declare module Survey {
 /// <reference path="base.d.ts" />
 /// <reference path="error.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class ValidatorResult {
         value: any;
         error: SurveyError;
@@ -367,7 +367,7 @@ declare module Survey {
 /// <reference path="validator.d.ts" />
 /// <reference path="jsonobject.d.ts" />
 /// <reference path="questionbase.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class Question extends QuestionBase implements IValidatorOwner {
         name: string;
         private titleValue;
@@ -409,7 +409,7 @@ declare module Survey {
 
 /// <reference path="jsonobject.d.ts" />
 /// <reference path="surveyStrings.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class QuestionSelectBase extends Question {
         otherItem: ItemValue;
         choicesValues: Array<ItemValue>;
@@ -439,7 +439,7 @@ declare module Survey {
 
 /// <reference path="questionfactory.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class QuestionCheckboxModel extends QuestionCheckboxBase {
         name: string;
         constructor(name: string);
@@ -450,7 +450,7 @@ declare module Survey {
 
 /// <reference path="questionfactory.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class QuestionCommentModel extends Question {
         name: string;
         rows: number;
@@ -463,7 +463,7 @@ declare module Survey {
 
 /// <reference path="questionfactory.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class QuestionDropdownModel extends QuestionSelectBase {
         name: string;
         private optionsCaptionValue;
@@ -475,7 +475,7 @@ declare module Survey {
 
 /// <reference path="questionfactory.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class QuestionHtmlModel extends QuestionBase {
         name: string;
         private htmlValue;
@@ -488,7 +488,7 @@ declare module Survey {
 
 /// <reference path="questionfactory.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     interface IMatrixData {
         onMatrixRowChanged(row: MatrixRowModel): any;
     }
@@ -522,7 +522,7 @@ declare module Survey {
 
 /// <reference path="questionfactory.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class QuestionRadiogroupModel extends QuestionCheckboxBase {
         name: string;
         constructor(name: string);
@@ -532,7 +532,7 @@ declare module Survey {
 
 /// <reference path="questionfactory.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class QuestionTextModel extends Question {
         name: string;
         size: number;
@@ -550,7 +550,7 @@ declare module Survey {
 /// <reference path="question_radiogroup.d.ts" />
 /// <reference path="question_text.d.ts" />
 /// <reference path="question_comment.d.ts" />
-declare module Survey {
+declare namespace Survey {
     interface IMatrixDropdownData {
         onCellChanged(cell: MatrixDropdownCellModel): any;
         columns: Array<MatrixDropdownColumn>;
@@ -629,7 +629,7 @@ declare module Survey {
 
 /// <reference path="questionfactory.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     interface IMultipleTextData {
         getMultipleTextValue(name: string): any;
         setMultipleTextValue(name: string, value: any): any;
@@ -671,7 +671,7 @@ declare module Survey {
 
 /// <reference path="questionfactory.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class QuestionRatingModel extends Question {
         name: string;
         static defaultRateValues: ItemValue[];
@@ -690,7 +690,7 @@ declare module Survey {
 
 /// <reference path="base.d.ts" />
 /// <reference path="jsonobject.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class Trigger extends Base {
         static operatorsValue: HashTable<Function>;
         static operators: HashTable<Function>;
@@ -741,7 +741,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class TextPreProcessor {
         onProcess: (name: string) => any;
         onHasValue: (name: string) => boolean;
@@ -759,7 +759,7 @@ declare module Survey {
 /// <reference path="jsonobject.d.ts" />
 /// <reference path="dxSurveyService.d.ts" />
 /// <reference path="textPreProcessor.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class SurveyModel extends Base implements ISurvey, ISurveyTriggerOwner {
         surveyId: string;
         surveyPostId: string;
@@ -887,7 +887,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class SurveyWindowModel extends Base {
         static surveyElementName: string;
         surveyValue: SurveyModel;
@@ -909,16 +909,16 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
 }
 
-declare module Survey {
+declare namespace Survey {
 }
 
-declare module Survey {
+declare namespace Survey {
 }
 
-declare module Survey {
+declare namespace Survey {
     class Page extends PageModel {
         koNo: any;
         constructor(name?: string);
@@ -927,7 +927,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class QuestionImplementorBase {
         question: QuestionBase;
         koVisible: any;
@@ -940,7 +940,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class QuestionImplementor extends QuestionImplementorBase {
         question: Question;
         private isUpdating;
@@ -961,7 +961,7 @@ declare module Survey {
 }
 
 /// <reference path="koquestion.d.ts" />
-declare module Survey {
+declare namespace Survey {
     class QuestionSelectBaseImplementor extends QuestionImplementor {
         koOtherVisible: any;
         constructor(question: Question);
@@ -976,35 +976,35 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class QuestionCheckbox extends QuestionCheckboxModel {
         name: string;
         constructor(name: string);
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class QuestionComment extends QuestionCommentModel {
         name: string;
         constructor(name: string);
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class QuestionDropdown extends QuestionDropdownModel {
         name: string;
         constructor(name: string);
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class QuestionHtml extends QuestionHtmlModel {
         name: string;
         constructor(name: string);
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class MatrixRow extends MatrixRowModel {
         name: any;
         text: string;
@@ -1021,21 +1021,21 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class QuestionRadiogroup extends QuestionRadiogroupModel {
         name: string;
         constructor(name: string);
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class QuestionText extends QuestionTextModel {
         name: string;
         constructor(name: string);
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class MatrixDropdownCell extends MatrixDropdownCellModel {
         column: MatrixDropdownColumn;
         row: MatrixDropdownRowModel;
@@ -1059,7 +1059,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class MultipleTextItem extends MultipleTextItemModel {
         name: any;
         private isKOValueUpdating;
@@ -1079,7 +1079,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class QuestionRating extends QuestionRatingModel {
         name: string;
         itemCss: string;
@@ -1088,7 +1088,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class SurveyBase extends SurveyModel {
         private renderedElement;
         private cssValue;
@@ -1117,7 +1117,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class SurveyWindowBase extends SurveyWindowModel {
         koExpanded: any;
         doExpand: any;
@@ -1133,7 +1133,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class SurveyTemplateTextBase {
         constructor();
         replaceText(replaceText: string, id: string, questionType?: string): void;
@@ -1142,11 +1142,11 @@ declare module Survey {
     }
 }
 
-declare module template.ko {
+declare namespace template.ko {
     var html: string;
 }
 
-declare module Survey {
+declare namespace Survey {
     class Survey extends SurveyBase {
         constructor(jsonObj?: any, renderedElement?: any, css?: any);
         protected getTemplate(): string;
@@ -1154,7 +1154,7 @@ declare module Survey {
     }
 }
 
-declare module Survey {
+declare namespace Survey {
     class SurveyWindow extends SurveyWindowBase {
         koExpanded: any;
         doExpand: any;
@@ -1164,12 +1164,12 @@ declare module Survey {
     }
 }
 
-declare module template.window.ko {
+declare namespace template.window.ko {
     var html: string;
 }
 
 
-declare module Survey {
+declare namespace Survey {
     class SurveyTemplateText extends SurveyTemplateTextBase {
         protected text: string;
     }

@@ -54,11 +54,11 @@ interface MyHubConnection extends HubConnection {
 	someState: string;
 	SomeFunction: Function;
 
-	// My Hubs Client functions: 
+	// My Hubs Client functions:
 	client: {
 		addMessage: (message: string) => void;
 	};
-	// My Hubs Server function: 
+	// My Hubs Server function:
 	server: {
 		send(message: string): any;
 	};
@@ -113,14 +113,14 @@ function test_hubs() {
     proxy.on('addMessage', function (msg?) {
         console.log(msg);
     });
-        
+
     //a listener may have more than 1 parameter, and you should be able to subscribe and unsubscribe
     function listenerWithMoreParams(id: number, anything: string){
     	console.log('listenerWithMoreParams -> ', arguments);
     };
     //subscribe
     proxy.on('listenerWithMoreParams', listenerWithMoreParams);
-    
+
     var connection = $.hubConnection('http://localhost:8081/');
     connection.start({ jsonp: true });
 
@@ -128,12 +128,12 @@ function test_hubs() {
     proxy.off('listenerWithMoreParams', listenerWithMoreParams);
 }
 
-// Sample from : https://github.com/SignalR/SignalR/wiki/QuickStart-Hubs#javascript--html 
+// Sample from : https://github.com/SignalR/SignalR/wiki/QuickStart-Hubs#javascript--html
 $(function () {
-    // Proxy created on the fly          
+    // Proxy created on the fly
     var chat = $.connection.chat;
 
-    // Declare a function on the chat hub so the server can invoke it          
+    // Declare a function on the chat hub so the server can invoke it
     chat.client.addMessage = function (message) {
         $('#messages').append('<li>' + message + '</li>');
     };

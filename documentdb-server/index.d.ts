@@ -130,14 +130,14 @@ interface IQueryAPI {
     value<T>(options?: IFeedOptions,
         callback?: (error: IFeedCallbackError, resources: Array<T>, options: IFeedCallbackOptions) => void): IQueryResponse;
 }
-	
+
 /**
  * Stored procedures and triggers are registered for a particular collection. The Collection object supports create, read, update and delete (CRUD) and query operations on documents and attachments in the current collection.
  * All collection operations are completed asynchronously. You can provide a callback to handle the result of the operation, and to perform error handling if necessary.
  * Stored procedures and triggers are executed in a time-limited manner. Long-running stored procedures and triggers are defensively timed out and all transactions performed are rolled back.
  * We stop queuing collection operations if the stored procedure is close to timing out. You can inspect the boolean return value of all collection operations to see if an operation was not queued and handle this situation gracefully.
  */
-interface ICollection extends IQueryAPI {		
+interface ICollection extends IQueryAPI {
     /** Opening call to start a chained query. Should be used in conjunction with the closing value call to perform chained queries. */
     chain(): IQueryResponse;
 
@@ -152,7 +152,7 @@ interface ICollection extends IQueryAPI {
         body: IAttachment,
         options?: ICreateOptions,
         callback?: (error: IRequestCallbackError, resources: Object, options: IRequestCallbackOptions) => void): boolean;
-			
+
 	/**
 	 * Create a document under the collection.
 	 * @param collectionLink resource link of the collection under which the document will be created
@@ -164,7 +164,7 @@ interface ICollection extends IQueryAPI {
         body: Object,
         options?: ICreateOptions,
         callback?: (error: IRequestCallbackError, resources: Object, options: IRequestCallbackOptions) => void): boolean;
-		
+
 	/**
 	 * Delete an attachment.
 	 * @param attachmentLink resource link of the attachment to be deleted
@@ -174,7 +174,7 @@ interface ICollection extends IQueryAPI {
     deleteAttachment(attachmentLink: string,
         options?: IDeleteOptions,
         callback?: (error: IRequestCallbackError, resources: Object, options: IRequestCallbackOptions) => void): boolean;
-		
+
 	/**
 	 * Delete a document.
 	 * @param documentLink resource link of the document to delete
@@ -184,13 +184,13 @@ interface ICollection extends IQueryAPI {
     deleteDocument(documentLink: string,
         options?: IDeleteOptions,
         callback?: (error: IRequestCallbackError, resources: Object, options: IRequestCallbackOptions) => void): boolean;
-		
+
     /** Get alt link (name-based link) of current collection. */
     getAltLink(): string;
 
     /** Get self link of current collection. */
     getSelfLink(): string;
-		
+
 	/**
 	 * Execute a SQL query on the attachments for the document.
 	 * @param documentLink resource link of the document whose attachments are being queried
@@ -206,7 +206,7 @@ interface ICollection extends IQueryAPI {
         query: IParameterizedQuery,
         options?: IFeedOptions,
         callback?: (error: IFeedCallbackError, resources: Array<Object>, options: IFeedCallbackOptions) => void): boolean;
-		
+
 	/**
 	 * Execute a SQL query on the documents of the collection.
 	 * @param collectionLink resource link of the collection whose documents are being queried
@@ -230,7 +230,7 @@ interface ICollection extends IQueryAPI {
         filterQuery: IParameterizedQuery,
         options?: IFeedOptions,
         callback?: (error: IFeedCallbackError, resources: Array<T>, options: IFeedCallbackOptions) => void): boolean;
-			
+
 	/**
 	 * Read an Attachment.
 	 * @param attachmenLink resource link of the attachment to read
@@ -240,7 +240,7 @@ interface ICollection extends IQueryAPI {
     readAttachment(attachmenLink: string,
         options?: IReadOptions,
         callback?: (error: IRequestCallbackError, resources: Object, options: IRequestCallbackOptions) => void): boolean;
-			
+
 	/**
 	 * Get all attachments for the document.
 	 * @param documentLink resource link of the document whose attachments are being read
@@ -250,7 +250,7 @@ interface ICollection extends IQueryAPI {
     readAttachments(documentLink: string,
         options?: IFeedOptions,
         callback?: (error: IFeedCallbackError, resources: Array<Object>, options: IFeedCallbackOptions) => void): boolean;
-		
+
 	/**
 	 * Read a document.
 	 * @param documentLink resource link of the document to read
@@ -263,7 +263,7 @@ interface ICollection extends IQueryAPI {
     readDocument<T>(documentLink: string,
         options?: IReadOptions,
         callback?: (error: IRequestCallbackError, resources: T, options: IRequestCallbackOptions) => void): boolean;
-		
+
 	/**
 	 * Get all documents for the collection.
 	 * @param collectionLink resource link of the collection whose documents are being read
@@ -276,7 +276,7 @@ interface ICollection extends IQueryAPI {
     readDocuments<T>(collectionLink: string,
         options?: IFeedOptions,
         callback?: (error: IFeedCallbackError, resources: Array<T>, options: IFeedCallbackOptions) => void): boolean;
-			
+
 	/**
 	 * Replace an attachment.
 	 * @param attachmentLink resource link of the attachment to be replaced
@@ -288,7 +288,7 @@ interface ICollection extends IQueryAPI {
         attachment: Object,
         options?: IReplaceOptions,
         callback?: (error: IRequestCallbackError, resources: Object, options: IRequestCallbackOptions) => void): boolean;
-			
+
 	/**
 	 * Replace a document.
 	 * @param documentLink resource link of the document
@@ -301,7 +301,7 @@ interface ICollection extends IQueryAPI {
         options?: IReplaceOptions,
         callback?: (error: IRequestCallbackError, resources: Object, options: IRequestCallbackOptions) => void): boolean;
 }
-	
+
 /** Options associated with a create operation. */
 interface ICreateOptions {
     /** Specifies indexing directives. */
@@ -309,7 +309,7 @@ interface ICreateOptions {
     /** Disables automatic generation of "id" field of the document to be created (if it is not provided) */
     disableAutomaticIdGeneration?: string;
 }
-	
+
 /** Options associated with a delete operation. */
 interface IDeleteOptions {
 	/**
@@ -318,7 +318,7 @@ interface IDeleteOptions {
 	 */
     etag?: string;
 }
-	
+
 /** Will contain error information if an error occurs, undefined otherwise. */
 interface IFeedCallbackError {
     /** The HTTP response code corresponding to the error. */
@@ -326,7 +326,7 @@ interface IFeedCallbackError {
     /** A string containing the error information. */
     body: string;
 }
-	
+
 /** Information associated with the response to the operation. */
 interface IFeedCallbackOptions {
     /** Opaque token for continuing the read feed or query. */
@@ -336,7 +336,7 @@ interface IFeedCallbackOptions {
     /** Comma delimited string containing the collection's maximum quota metrics (storage, number of stored procedure, triggers and UDFs). */
     maxCollectionSizeInMB: string;
 }
-	
+
 /** Options associated with a read feed or query operation. */
 interface IFeedOptions {
 	/**
@@ -360,13 +360,13 @@ interface IQueryResponse extends IQueryAPI {
     /** True if the query has been queued, false if it is not queued because of a pending timeout. */
     isAccepted: boolean;
 }
-	
+
 /** Options associated with a read operation. */
 interface IReadOptions {
     /** The conditional HTTP method ifNoneMatch value. */
     ifNoneMatch?: string;
 }
-	
+
 /** Options associated with a replace operation. */
 interface IReplaceOptions {
     /** Specifies indexing directives. */
@@ -377,7 +377,7 @@ interface IReplaceOptions {
 	 */
     etag?: string;
 }
-	
+
 /** Will contain error information if an error occurs, undefined otherwise. */
 interface IRequestCallbackError {
     /** The HTTP response code corresponding to the error. */
@@ -385,7 +385,7 @@ interface IRequestCallbackError {
     /** A string containing the error information. */
     body: string;
 }
-	
+
 /** Information associated with the response to the operation. */
 interface IRequestCallbackOptions {
     /** Comma delimited string containing the collection's current quota metrics (storage, number of stored procedure, triggers and UDFs) after completion of the operation. */
@@ -411,7 +411,7 @@ interface IDocumentMeta extends Object {
     _etag?: string;
     _attachments?: string;
 }
-	
+
 /**
  * The Request object represents the request message that was sent to the server. This includes information about HTTP headers and the body of the HTTP request sent to the server.
  * For triggers, the request represents the operation that is executing when the trigger is run. For example, if the trigger is being run ("triggered") on the creation of a document, then
@@ -445,7 +445,7 @@ interface IRequest {
 	 */
     setValue(key: string, value: string): void;
 }
-	
+
 /**
  * The Response object represents the response message that will be sent from the server in response to the requested operation. This includes information about the HTTP headers and body of the response from the server.
  * The Response object is not present in pre-triggers because they are run before the response is generated.

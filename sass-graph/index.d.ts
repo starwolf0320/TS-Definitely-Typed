@@ -16,7 +16,7 @@ declare namespace SassGraph {
       importedBy: string[];
       modified: string;
     }
-  }
+  };
 
   /**
    * @class Graph

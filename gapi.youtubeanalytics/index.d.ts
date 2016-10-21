@@ -53,7 +53,7 @@ declare namespace gapi.client.youtubeAnalytics {
              * Selector specifying which fields to include in a partial response.
              */
             fields?: string;
-        }): HttpRequest<any>
+        }): HttpRequest<any>;
 
     }
 

@@ -16,7 +16,7 @@ declare namespace JQuerySortable {
 
 	interface ContainerGroup {
 		$document: JQuery;
-		containerDimensions: Dimensions[]
+		containerDimensions: Dimensions[];
 		containers: Container[];
 		delayMet: boolean;
 		dragInitDone: boolean;

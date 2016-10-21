@@ -128,7 +128,7 @@ interface FileObject {
     /**
      * path to file that was injected
      */
-    path: string
+    path: string;
 }
 
 interface FileTypes {

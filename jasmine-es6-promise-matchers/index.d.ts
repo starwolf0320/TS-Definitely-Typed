@@ -6,8 +6,8 @@
 /// <reference types="jasmine" />
 
 declare namespace JasminePromiseMatchers  {
-	export function install():void;
-	export function uninstall():void;
+	export function install(): void;
+	export function uninstall(): void;
 }
 
 declare namespace jasmine {

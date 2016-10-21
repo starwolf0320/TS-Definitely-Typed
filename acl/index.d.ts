@@ -41,7 +41,7 @@ interface Acl {
     allow: {
         (roles: Values, resources: strings, permissions: strings, cb?: Callback): Promise<void>;
         (aclSets: AclSet | AclSet[]): Promise<void>;
-    }
+    };
     removeAllow: (role: string, resources: strings, permissions: strings, cb?: Callback) => Promise<void>;
     removePermissions: (role: string, resources: strings, permissions: strings, cb?: Function) => Promise<void>;
     allowedPermissions: (userId: Value, resources: strings, cb?: AnyCallback) => Promise<void>;

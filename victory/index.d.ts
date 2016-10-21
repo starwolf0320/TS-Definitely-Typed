@@ -833,7 +833,7 @@ declare module "victory" {
          * The tickValues prop explicitly specifies which tick values to draw on the axis.
          * @example ["apples", "bananas", "oranges"], [2, 4, 6, 8]
          */
-        tickValues?: any[]
+        tickValues?: any[];
     }
 
     /**

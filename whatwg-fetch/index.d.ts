@@ -41,12 +41,12 @@ interface Body {
 declare type RequestInfo = Request | string;
 declare class Request {
 	constructor(input: RequestInfo, init?: RequestInit);
-	
+
     method: string;
     url: string;
     headers: Headers;
 
-    type: RequestType
+    type: RequestType;
     destination: RequestDestination;
     referrer: string;
     referrerPolicy: ReferrerPolicy;

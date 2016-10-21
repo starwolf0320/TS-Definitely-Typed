@@ -313,7 +313,7 @@ declare namespace o {
          * @param error - Truthy to indicate an error
          * @param authCode - The authorization code retrieved form storage or falsey to indicate invalid code
          */
-        (error: String, authCode: AuthCode): void
+        (error: String, authCode: AuthCode): void;
     }
 
     interface SaveAccessTokenCallback {

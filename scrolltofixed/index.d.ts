@@ -7,11 +7,11 @@
 
 declare namespace ScrollToFixed {
 	interface ScrollToFixedOptions {
-		marginTop? : number | (() => number);
-		limit? : number | (() => number);
+		marginTop?: number | (() => number);
+		limit?: number | (() => number);
 		bottom?: number;
-		zIndex? : number;
-		spacerClass? : string;
+		zIndex?: number;
+		spacerClass?: string;
 		preFixed?: () => void;
 		postFixed?: () => void;
 		fixed?: () => void;
@@ -20,30 +20,30 @@ declare namespace ScrollToFixed {
 		postUnfixed?: () => void;
 		preAbsolute?: () => void;
 		postAbsolute?: () => void;
-		offsets? : boolean;
-		minWidth? : number;
-		maxWidth? : number;
-		dontCheckForPositionFixedSupport? : boolean;
-		dontSetWidth? : boolean;
-		removeOffsets? : boolean;
+		offsets?: boolean;
+		minWidth?: number;
+		maxWidth?: number;
+		dontCheckForPositionFixedSupport?: boolean;
+		dontSetWidth?: boolean;
+		removeOffsets?: boolean;
 		baseClassName?: string;
 		className?: string;
 	}
 }
 
 interface JQuery {
-    scrollToFixed : (options? : ScrollToFixed.ScrollToFixedOptions) => JQuery[];
+    scrollToFixed: (options?: ScrollToFixed.ScrollToFixedOptions) => JQuery[];
 }
 
 interface JQueryStatic {
-	isScrollToFixed(el: Element) : JQuery;
-	isScrollToFixed(el: Element[]) : JQuery;
-	isScrollToFixed(el: {}) : JQuery;
-	isScrollToFixed(el: JQuery) : JQuery;
+	isScrollToFixed(el: Element): JQuery;
+	isScrollToFixed(el: Element[]): JQuery;
+	isScrollToFixed(el: {}): JQuery;
+	isScrollToFixed(el: JQuery): JQuery;
 
     ScrollToFixed(el: Element, options: ScrollToFixed.ScrollToFixedOptions): void;
-	ScrollToFixed(el : Element, options : ScrollToFixed.ScrollToFixedOptions) : JQuery;
-	ScrollToFixed(el: Element[], options : ScrollToFixed.ScrollToFixedOptions) : JQuery;
-	ScrollToFixed(el: {}, options : ScrollToFixed.ScrollToFixedOptions) : JQuery;
-	ScrollToFixed(el: JQuery, options : ScrollToFixed.ScrollToFixedOptions) : JQuery;
+	ScrollToFixed(el: Element, options: ScrollToFixed.ScrollToFixedOptions): JQuery;
+	ScrollToFixed(el: Element[], options: ScrollToFixed.ScrollToFixedOptions): JQuery;
+	ScrollToFixed(el: {}, options: ScrollToFixed.ScrollToFixedOptions): JQuery;
+	ScrollToFixed(el: JQuery, options: ScrollToFixed.ScrollToFixedOptions): JQuery;
 }

@@ -6,7 +6,7 @@
 ///<reference path="rx-lite.d.ts"/>
 
 declare namespace Rx {
-	export module config {
+	export namespace config {
 		/**
 		* Configuration option to determine whether to use native events only
 		*/
@@ -68,6 +68,6 @@ declare namespace Rx {
 		fromEvent<T>(element: NodeList, eventName: string, selector?: (arguments: any[]) => T): Observable<T>;
 		fromEvent<T>(element: Node, eventName: string, selector?: (arguments: any[]) => T): Observable<T>;
 		fromEvent<T>(element: {on: (name: string, cb: (e: any) => any) => void; off: (name: string, cb: (e: any) => any) => void}, eventName: string, selector?: (arguments: any[]) => T): Observable<T>;
-		fromEventPattern<T>(addHandler: (handler: Function) => void, removeHandler: (handler: Function) => void, selector?: (arguments: any[])=>T): Observable<T>;
+		fromEventPattern<T>(addHandler: (handler: Function) => void, removeHandler: (handler: Function) => void, selector?: (arguments: any[]) => T): Observable<T>;
 	}
 }

@@ -3,12 +3,19 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
+// tslint:disable
+
 
 
 
 declare namespace dojox {
 
     namespace calendar {
+        type Callback<T> = (property: string, oldValue: T, newValue: T) => void
+        interface Unwatchable {
+            unwatch(): void
+        }
+
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/calendar/_RendererMixin.html
          *
@@ -24,7 +31,7 @@ declare namespace dojox {
             "edited": boolean;
             set(property:"edited", value: boolean): void;
             get(property:"edited"): boolean;
-            watch(property:"edited", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"edited", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is focused.
              *
@@ -32,7 +39,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is hovered.
              *
@@ -40,7 +47,7 @@ declare namespace dojox {
             "hovered": boolean;
             set(property:"hovered", value: boolean): void;
             get(property:"hovered"): boolean;
-            watch(property:"hovered", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"hovered", callback: Callback<boolean>): Unwatchable
             /**
              * The layout item displayed by this renderer.
              *
@@ -48,7 +55,7 @@ declare namespace dojox {
             "item": Object;
             set(property:"item", value: Object): void;
             get(property:"item"): Object;
-            watch(property:"item", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"item", callback: Callback<Object>): Unwatchable
             /**
              * Whether the event displayed by this renderer can be moved.
              *
@@ -56,7 +63,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The view that contains this renderer.
              *
@@ -64,7 +71,7 @@ declare namespace dojox {
             "owner": Object;
             set(property:"owner", value: Object): void;
             get(property:"owner"): Object;
-            watch(property:"owner", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"owner", callback: Callback<Object>): Unwatchable
             /**
              * Whether the event displayed by this renderer can be resized.
              *
@@ -72,7 +79,7 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is selected.
              *
@@ -80,7 +87,7 @@ declare namespace dojox {
             "selected": boolean;
             set(property:"selected", value: boolean): void;
             get(property:"selected"): boolean;
-            watch(property:"selected", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"selected", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is not in the store, being saved to the store or in the store.
              *
@@ -88,14 +95,14 @@ declare namespace dojox {
             "storeState": boolean;
             set(property:"storeState", value: boolean): void;
             get(property:"storeState"): boolean;
-            watch(property:"storeState", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"storeState", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "visibilityLimits": Object;
             set(property:"visibilityLimits", value: Object): void;
             get(property:"visibilityLimits"): Object;
-            watch(property:"visibilityLimits", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"visibilityLimits", callback: Callback<Object>): Unwatchable
             /**
              * Get a property on a Stateful instance.
              * Get a named property on a Stateful object. The property may
@@ -137,7 +144,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
         }
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/calendar/_ScrollBarBase.html
@@ -193,7 +200,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
              * widget state.
@@ -202,14 +209,14 @@ declare namespace dojox {
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -236,14 +243,14 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              *
              */
             "containerSize": number;
             set(property:"containerSize", value: number): void;
             get(property:"containerSize"): number;
-            watch(property:"containerSize", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"containerSize", callback: Callback<number>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -253,7 +260,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * Direction of the scroll bar. Valid values are "vertical" or "horizontal".
              *
@@ -261,7 +268,7 @@ declare namespace dojox {
             "direction": string;
             set(property:"direction", value: string): void;
             get(property:"direction"): string;
-            watch(property:"direction", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"direction", callback: Callback<string>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -272,7 +279,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -281,7 +288,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -292,7 +299,7 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -303,7 +310,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * The maximum value of the scroll bar.
              *
@@ -311,7 +318,7 @@ declare namespace dojox {
             "maximum": number;
             set(property:"maximum", value: number): void;
             get(property:"maximum"): number;
-            watch(property:"maximum", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"maximum", callback: Callback<number>): Unwatchable
             /**
              * The minimum value of the scroll bar.
              *
@@ -319,7 +326,7 @@ declare namespace dojox {
             "minimum": number;
             set(property:"minimum", value: number): void;
             get(property:"minimum"): number;
-            watch(property:"minimum", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"minimum", callback: Callback<number>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -328,7 +335,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -336,7 +343,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -344,7 +351,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -359,7 +366,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -368,7 +375,7 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              * The value of the scroll bar in pixel offset.
              *
@@ -376,7 +383,7 @@ declare namespace dojox {
             "value": number;
             set(property:"value", value: number): void;
             get(property:"value"): number;
-            watch(property:"value", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"value", callback: Callback<number>): Unwatchable
             /**
              *
              */
@@ -807,7 +814,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Called when the widget stops being "active" because
              * focus moved to something outside of it, or the user
@@ -852,7 +859,7 @@ declare namespace dojox {
             "allDayAttr": string;
             set(property:"allDayAttr", value: string): void;
             get(property:"allDayAttr"): string;
-            watch(property:"allDayAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"allDayAttr", callback: Callback<string>): Unwatchable
             /**
              * Indicates that the previous/next range method will be animated.
              *
@@ -860,7 +867,7 @@ declare namespace dojox {
             "animateRange": boolean;
             set(property:"animateRange", value: boolean): void;
             get(property:"animateRange"): boolean;
-            watch(property:"animateRange", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"animateRange", callback: Callback<boolean>): Unwatchable
             /**
              * The duration of the next/previous range animation.
              *
@@ -868,7 +875,7 @@ declare namespace dojox {
             "animationRangeDuration": number;
             set(property:"animationRangeDuration", value: number): void;
             get(property:"animationRangeDuration"): number;
-            watch(property:"animationRangeDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"animationRangeDuration", callback: Callback<number>): Unwatchable
             /**
              * Object to which attach points and events will be scoped.  Defaults
              * to 'this'.
@@ -877,7 +884,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -923,21 +930,21 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * The column view is displaying one day to seven days time intervals.
              *
@@ -945,7 +952,7 @@ declare namespace dojox {
             "columnView": Object;
             set(property:"columnView", value: Object): void;
             get(property:"columnView"): Object;
-            watch(property:"columnView", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"columnView", callback: Callback<Object>): Unwatchable
             /**
              * Map of property/value passed to the constructor of the column view.
              *
@@ -953,7 +960,7 @@ declare namespace dojox {
             "columnViewProps": Object;
             set(property:"columnViewProps", value: Object): void;
             get(property:"columnViewProps"): Object;
-            watch(property:"columnViewProps", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"columnViewProps", callback: Callback<Object>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -980,7 +987,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Used to provide a context require to the dojo/parser in order to be
              * able to use relative MIDs (e.g. ./Widget) in the widget's template.
@@ -989,7 +996,7 @@ declare namespace dojox {
             "contextRequire": Function;
             set(property:"contextRequire", value: Function): void;
             get(property:"contextRequire"): Function;
-            watch(property:"contextRequire", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"contextRequire", callback: Callback<Function>): Unwatchable
             /**
              * A user supplied function that creates a new event.
              * This function is used when createOnGridClick is set to true and the user is clicking and dragging on the grid.
@@ -1002,7 +1009,7 @@ declare namespace dojox {
             "createItemFunc": Function;
             set(property:"createItemFunc", value: Function): void;
             get(property:"createItemFunc"): Function;
-            watch(property:"createItemFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"createItemFunc", callback: Callback<Function>): Unwatchable
             /**
              * Indicates whether the user can create new event by clicking and dragging the grid.
              * A createItem function must be defined on the view or the calendar object.
@@ -1011,7 +1018,7 @@ declare namespace dojox {
             "createOnGridClick": boolean;
             set(property:"createOnGridClick", value: boolean): void;
             get(property:"createOnGridClick"): boolean;
-            watch(property:"createOnGridClick", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"createOnGridClick", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function that returns a css class name to apply to item renderers that are displaying the specified item in parameter.
              *
@@ -1019,7 +1026,7 @@ declare namespace dojox {
             "cssClassFunc": Function;
             set(property:"cssClassFunc", value: Function): void;
             get(property:"cssClassFunc"): Function;
-            watch(property:"cssClassFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"cssClassFunc", callback: Callback<Function>): Unwatchable
             /**
              * The current view displayed by the Calendar object.
              * The currentViewChange event can be used to react on a view change.
@@ -1028,7 +1035,7 @@ declare namespace dojox {
             "currentView": Object;
             set(property:"currentView", value: Object): void;
             get(property:"currentView"): Object;
-            watch(property:"currentView", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"currentView", callback: Callback<Object>): Unwatchable
             /**
              * The reference date used to determine along with the dateInterval
              * and dateIntervalSteps properties the time interval to display.
@@ -1037,7 +1044,7 @@ declare namespace dojox {
             "date": Date;
             set(property:"date", value: Date): void;
             get(property:"date"): Date;
-            watch(property:"date", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"date", callback: Callback<Date>): Unwatchable
             /**
              * The date interval used to compute along with the date and
              * dateIntervalSteps the time interval to display.
@@ -1047,7 +1054,7 @@ declare namespace dojox {
             "dateInterval": string;
             set(property:"dateInterval", value: string): void;
             get(property:"dateInterval"): string;
-            watch(property:"dateInterval", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dateInterval", callback: Callback<string>): Unwatchable
             /**
              * The number of date intervals used to compute along with the date and
              * dateInterval the time interval to display.
@@ -1057,7 +1064,7 @@ declare namespace dojox {
             "dateIntervalSteps": number;
             set(property:"dateIntervalSteps", value: number): void;
             get(property:"dateIntervalSteps"): number;
-            watch(property:"dateIntervalSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"dateIntervalSteps", callback: Callback<number>): Unwatchable
             /**
              * JavaScript namespace to find Calendar routines. Uses Gregorian Calendar routines at dojo.date by default.
              *
@@ -1065,7 +1072,7 @@ declare namespace dojox {
             "datePackage": Object;
             set(property:"datePackage", value: Object): void;
             get(property:"datePackage"): Object;
-            watch(property:"datePackage", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"datePackage", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to transform store date into Date objects. Default is null.
              *
@@ -1073,7 +1080,7 @@ declare namespace dojox {
             "decodeDate": Object;
             set(property:"decodeDate", value: Object): void;
             get(property:"decodeDate"): Object;
-            watch(property:"decodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"decodeDate", callback: Callback<Object>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -1083,7 +1090,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * Whether the data items displayed must be recomputed, usually after the displayed
              * time range has changed.
@@ -1092,7 +1099,7 @@ declare namespace dojox {
             "displayedItemsInvalidated": boolean;
             set(property:"displayedItemsInvalidated", value: boolean): void;
             get(property:"displayedItemsInvalidated"): boolean;
-            watch(property:"displayedItemsInvalidated", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"displayedItemsInvalidated", callback: Callback<boolean>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -1103,7 +1110,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * A flag that indicates whether or not the user can edit
              * items in the data provider.
@@ -1114,7 +1121,7 @@ declare namespace dojox {
             "editable": boolean;
             set(property:"editable", value: boolean): void;
             get(property:"editable"): boolean;
-            watch(property:"editable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"editable", callback: Callback<boolean>): Unwatchable
             /**
              * An optional function to transform Date objects into store date. Default is null.
              *
@@ -1122,7 +1129,7 @@ declare namespace dojox {
             "encodeDate": Object;
             set(property:"encodeDate", value: Object): void;
             get(property:"encodeDate"): Object;
-            watch(property:"encodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"encodeDate", callback: Callback<Object>): Unwatchable
             /**
              * The end date of the displayed time interval (included).
              *
@@ -1130,7 +1137,7 @@ declare namespace dojox {
             "endDate": Date;
             set(property:"endDate", value: Date): void;
             get(property:"endDate"): Date;
-            watch(property:"endDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"endDate", callback: Callback<Date>): Unwatchable
             /**
              * The attribute of the store item that contains the end time of
              * the events represented by this item.    Default is "endTime".
@@ -1139,7 +1146,7 @@ declare namespace dojox {
             "endTimeAttr": string;
             set(property:"endTimeAttr", value: string): void;
             get(property:"endTimeAttr"): string;
-            watch(property:"endTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"endTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * (Optional) The first day of week override. By default the first day of week is determined
              * for the current locale (extracted from the CLDR).
@@ -1149,7 +1156,7 @@ declare namespace dojox {
             "firstDayOfWeek": number;
             set(property:"firstDayOfWeek", value: number): void;
             get(property:"firstDayOfWeek"): number;
-            watch(property:"firstDayOfWeek", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"firstDayOfWeek", callback: Callback<number>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -1158,7 +1165,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function to format the time of day of the item renderers.
              * The function takes the date and render data object as arguments and returns a String.
@@ -1167,7 +1174,7 @@ declare namespace dojox {
             "formatItemTimeFunc": Object;
             set(property:"formatItemTimeFunc", value: Object): void;
             get(property:"formatItemTimeFunc"): Object;
-            watch(property:"formatItemTimeFunc", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"formatItemTimeFunc", callback: Callback<Object>): Unwatchable
             /**
              * Current render item which is under the mouse cursor.
              *
@@ -1175,7 +1182,7 @@ declare namespace dojox {
             "hoveredItem": Object;
             set(property:"hoveredItem", value: Object): void;
             get(property:"hoveredItem"): Object;
-            watch(property:"hoveredItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"hoveredItem", callback: Callback<Object>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -1186,21 +1193,21 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "invalidatingProperties": Object;
             set(property:"invalidatingProperties", value: Object): void;
             get(property:"invalidatingProperties"): Object;
-            watch(property:"invalidatingProperties", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"invalidatingProperties", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "invalidRendering": boolean;
             set(property:"invalidRendering", value: boolean): void;
             get(property:"invalidRendering"): boolean;
-            watch(property:"invalidRendering", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"invalidRendering", callback: Callback<boolean>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -1211,7 +1218,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * The column view is displaying time intervals that lasts more than seven days.
              *
@@ -1219,7 +1226,7 @@ declare namespace dojox {
             "matrixView": Object;
             set(property:"matrixView", value: Object): void;
             get(property:"matrixView"): Object;
-            watch(property:"matrixView", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"matrixView", callback: Callback<Object>): Unwatchable
             /**
              * Map of property/value passed to the constructor of the matrix view.
              *
@@ -1227,7 +1234,7 @@ declare namespace dojox {
             "matrixViewProps": Object;
             set(property:"matrixViewProps", value: Object): void;
             get(property:"matrixViewProps"): Object;
-            watch(property:"matrixViewProps", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"matrixViewProps", callback: Callback<Object>): Unwatchable
             /**
              * The maximum date.
              * If date is set, the displayed time interval the most in the future
@@ -1238,7 +1245,7 @@ declare namespace dojox {
             "maxDate": Date;
             set(property:"maxDate", value: Date): void;
             get(property:"maxDate"): Date;
-            watch(property:"maxDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"maxDate", callback: Callback<Date>): Unwatchable
             /**
              * The minimum date.
              * If date property is set, the displayed time interval the most in the past
@@ -1249,7 +1256,7 @@ declare namespace dojox {
             "minDate": Date;
             set(property:"minDate", value: Date): void;
             get(property:"minDate"): Date;
-            watch(property:"minDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"minDate", callback: Callback<Date>): Unwatchable
             /**
              * A flag that indicates whether the user can move items displayed.
              * If true, the user can move the items.
@@ -1258,7 +1265,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -1267,7 +1274,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * A query that can be passed to when querying the store.
              *
@@ -1275,7 +1282,7 @@ declare namespace dojox {
             "query": Object;
             set(property:"query", value: Object): void;
             get(property:"query"): Object;
-            watch(property:"query", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"query", callback: Callback<Object>): Unwatchable
             /**
              * Options to be applied when querying the store.
              *
@@ -1283,7 +1290,7 @@ declare namespace dojox {
             "queryOptions": Object;
             set(property:"queryOptions", value: Object): void;
             get(property:"queryOptions"): Object;
-            watch(property:"queryOptions", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"queryOptions", callback: Callback<Object>): Unwatchable
             /**
              * A flag that indicates whether the items can be resized.
              * If true, the control supports resizing of items.
@@ -1292,14 +1299,14 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * In single selection mode, the selected item or in multiple selection mode the last selected item.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -1308,7 +1315,7 @@ declare namespace dojox {
             "selectedItem": Object;
             set(property:"selectedItem", value: Object): void;
             get(property:"selectedItem"): Object;
-            watch(property:"selectedItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItem", callback: Callback<Object>): Unwatchable
             /**
              * The list of selected items.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -1317,7 +1324,7 @@ declare namespace dojox {
             "selectedItems": Object;
             set(property:"selectedItems", value: Object): void;
             get(property:"selectedItems"): Object;
-            watch(property:"selectedItems", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItems", callback: Callback<Object>): Unwatchable
             /**
              * Valid values are:
              *
@@ -1330,7 +1337,7 @@ declare namespace dojox {
             "selectionMode": string;
             set(property:"selectionMode", value: string): void;
             get(property:"selectionMode"): string;
-            watch(property:"selectionMode", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"selectionMode", callback: Callback<string>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -1338,7 +1345,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The start date of the displayed time interval.
              *
@@ -1346,7 +1353,7 @@ declare namespace dojox {
             "startDate": Date;
             set(property:"startDate", value: Date): void;
             get(property:"startDate"): Date;
-            watch(property:"startDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"startDate", callback: Callback<Date>): Unwatchable
             /**
              * The attribute of the store item that contains the start time of
              * the events represented by this item.    Default is "startTime".
@@ -1355,7 +1362,7 @@ declare namespace dojox {
             "startTimeAttr": string;
             set(property:"startTimeAttr", value: string): void;
             get(property:"startTimeAttr"): string;
-            watch(property:"startTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"startTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * The store that contains the events to display.
              *
@@ -1363,7 +1370,7 @@ declare namespace dojox {
             "store": Object;
             set(property:"store", value: Object): void;
             get(property:"store"): Object;
-            watch(property:"store", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"store", callback: Callback<Object>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -1371,7 +1378,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the sub column name of
              * the events represented by this item.    Default is "calendar".
@@ -1380,7 +1387,7 @@ declare namespace dojox {
             "subColumnAttr": string;
             set(property:"subColumnAttr", value: string): void;
             get(property:"subColumnAttr"): string;
-            watch(property:"subColumnAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"subColumnAttr", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the summary of
              * the events represented by this item.    Default is "summary".
@@ -1389,7 +1396,7 @@ declare namespace dojox {
             "summaryAttr": string;
             set(property:"summaryAttr", value: string): void;
             get(property:"summaryAttr"): string;
-            watch(property:"summaryAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"summaryAttr", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -1398,14 +1405,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -1420,7 +1427,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -1429,14 +1436,14 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "viewChangeDuration": number;
             set(property:"viewChangeDuration", value: number): void;
             get(property:"viewChangeDuration"): number;
-            watch(property:"viewChangeDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"viewChangeDuration", callback: Callback<number>): Unwatchable
             /**
              * The DOM node that will contains the views.
              *
@@ -1444,7 +1451,7 @@ declare namespace dojox {
             "viewContainer": HTMLElement;
             set(property:"viewContainer", value: HTMLElement): void;
             get(property:"viewContainer"): HTMLElement;
-            watch(property:"viewContainer", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"viewContainer", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The views displayed by the widget.
              * To add/remove only one view, prefer, respectively, the addView() or removeView() methods.
@@ -1453,7 +1460,7 @@ declare namespace dojox {
             "views": Object;
             set(property:"views", value: Object): void;
             get(property:"views"): Object;
-            watch(property:"views", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"views", callback: Callback<Object>): Unwatchable
             /**
              * Should we parse the template to find widgets that might be
              * declared in markup inside it?  (Remove for 2.0 and assume true)
@@ -1462,7 +1469,7 @@ declare namespace dojox {
             "widgetsInTemplate": boolean;
             set(property:"widgetsInTemplate", value: boolean): void;
             get(property:"widgetsInTemplate"): boolean;
-            watch(property:"widgetsInTemplate", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"widgetsInTemplate", callback: Callback<boolean>): Unwatchable
             /**
              * Add properties to the watched properties to trigger invalidation. This method must be called in
              * the constructor. It is typically used by subclasses of a _Invalidating class to add more properties
@@ -2174,7 +2181,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * The action triggered when the week button is clicked.
              * By default, sets the dateInterval property to "week" and
@@ -2381,7 +2388,7 @@ declare namespace dojox {
             "allDayAttr": string;
             set(property:"allDayAttr", value: string): void;
             get(property:"allDayAttr"): string;
-            watch(property:"allDayAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"allDayAttr", callback: Callback<string>): Unwatchable
             /**
              * Indicates that the previous/next range method will be animated.
              *
@@ -2389,7 +2396,7 @@ declare namespace dojox {
             "animateRange": boolean;
             set(property:"animateRange", value: boolean): void;
             get(property:"animateRange"): boolean;
-            watch(property:"animateRange", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"animateRange", callback: Callback<boolean>): Unwatchable
             /**
              * The duration of the next/previous range animation.
              *
@@ -2397,7 +2404,7 @@ declare namespace dojox {
             "animationRangeDuration": number;
             set(property:"animationRangeDuration", value: number): void;
             get(property:"animationRangeDuration"): number;
-            watch(property:"animationRangeDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"animationRangeDuration", callback: Callback<number>): Unwatchable
             /**
              * Object to which attach points and events will be scoped.  Defaults
              * to 'this'.
@@ -2406,7 +2413,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -2452,21 +2459,21 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * The column view is displaying one day to seven days time intervals.
              *
@@ -2474,7 +2481,7 @@ declare namespace dojox {
             "columnView": Object;
             set(property:"columnView", value: Object): void;
             get(property:"columnView"): Object;
-            watch(property:"columnView", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"columnView", callback: Callback<Object>): Unwatchable
             /**
              * Map of property/value passed to the constructor of the column view.
              *
@@ -2482,7 +2489,7 @@ declare namespace dojox {
             "columnViewProps": Object;
             set(property:"columnViewProps", value: Object): void;
             get(property:"columnViewProps"): Object;
-            watch(property:"columnViewProps", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"columnViewProps", callback: Callback<Object>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -2509,7 +2516,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Used to provide a context require to the dojo/parser in order to be
              * able to use relative MIDs (e.g. ./Widget) in the widget's template.
@@ -2518,7 +2525,7 @@ declare namespace dojox {
             "contextRequire": Function;
             set(property:"contextRequire", value: Function): void;
             get(property:"contextRequire"): Function;
-            watch(property:"contextRequire", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"contextRequire", callback: Callback<Function>): Unwatchable
             /**
              * A user supplied function that creates a new event.
              * This function is used when createOnGridClick is set to true and the user is clicking and dragging on the grid.
@@ -2531,7 +2538,7 @@ declare namespace dojox {
             "createItemFunc": Function;
             set(property:"createItemFunc", value: Function): void;
             get(property:"createItemFunc"): Function;
-            watch(property:"createItemFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"createItemFunc", callback: Callback<Function>): Unwatchable
             /**
              * Indicates whether the user can create new event by clicking and dragging the grid.
              * A createItem function must be defined on the view or the calendar object.
@@ -2540,7 +2547,7 @@ declare namespace dojox {
             "createOnGridClick": boolean;
             set(property:"createOnGridClick", value: boolean): void;
             get(property:"createOnGridClick"): boolean;
-            watch(property:"createOnGridClick", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"createOnGridClick", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function that returns a css class name to apply to item renderers that are displaying the specified item in parameter.
              *
@@ -2548,7 +2555,7 @@ declare namespace dojox {
             "cssClassFunc": Function;
             set(property:"cssClassFunc", value: Function): void;
             get(property:"cssClassFunc"): Function;
-            watch(property:"cssClassFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"cssClassFunc", callback: Callback<Function>): Unwatchable
             /**
              * The current view displayed by the Calendar object.
              * The currentViewChange event can be used to react on a view change.
@@ -2557,7 +2564,7 @@ declare namespace dojox {
             "currentView": Object;
             set(property:"currentView", value: Object): void;
             get(property:"currentView"): Object;
-            watch(property:"currentView", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"currentView", callback: Callback<Object>): Unwatchable
             /**
              * The reference date used to determine along with the dateInterval
              * and dateIntervalSteps properties the time interval to display.
@@ -2566,7 +2573,7 @@ declare namespace dojox {
             "date": Date;
             set(property:"date", value: Date): void;
             get(property:"date"): Date;
-            watch(property:"date", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"date", callback: Callback<Date>): Unwatchable
             /**
              * The date interval used to compute along with the date and
              * dateIntervalSteps the time interval to display.
@@ -2576,7 +2583,7 @@ declare namespace dojox {
             "dateInterval": string;
             set(property:"dateInterval", value: string): void;
             get(property:"dateInterval"): string;
-            watch(property:"dateInterval", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dateInterval", callback: Callback<string>): Unwatchable
             /**
              * The number of date intervals used to compute along with the date and
              * dateInterval the time interval to display.
@@ -2586,7 +2593,7 @@ declare namespace dojox {
             "dateIntervalSteps": number;
             set(property:"dateIntervalSteps", value: number): void;
             get(property:"dateIntervalSteps"): number;
-            watch(property:"dateIntervalSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"dateIntervalSteps", callback: Callback<number>): Unwatchable
             /**
              * JavaScript namespace to find Calendar routines. Uses Gregorian Calendar routines at dojo.date by default.
              *
@@ -2594,7 +2601,7 @@ declare namespace dojox {
             "datePackage": Object;
             set(property:"datePackage", value: Object): void;
             get(property:"datePackage"): Object;
-            watch(property:"datePackage", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"datePackage", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to transform store date into Date objects. Default is null.
              *
@@ -2602,7 +2609,7 @@ declare namespace dojox {
             "decodeDate": Object;
             set(property:"decodeDate", value: Object): void;
             get(property:"decodeDate"): Object;
-            watch(property:"decodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"decodeDate", callback: Callback<Object>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -2612,7 +2619,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * Whether the data items displayed must be recomputed, usually after the displayed
              * time range has changed.
@@ -2621,7 +2628,7 @@ declare namespace dojox {
             "displayedItemsInvalidated": boolean;
             set(property:"displayedItemsInvalidated", value: boolean): void;
             get(property:"displayedItemsInvalidated"): boolean;
-            watch(property:"displayedItemsInvalidated", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"displayedItemsInvalidated", callback: Callback<boolean>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -2632,7 +2639,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * A flag that indicates whether or not the user can edit
              * items in the data provider.
@@ -2643,7 +2650,7 @@ declare namespace dojox {
             "editable": boolean;
             set(property:"editable", value: boolean): void;
             get(property:"editable"): boolean;
-            watch(property:"editable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"editable", callback: Callback<boolean>): Unwatchable
             /**
              * An optional function to transform Date objects into store date. Default is null.
              *
@@ -2651,7 +2658,7 @@ declare namespace dojox {
             "encodeDate": Object;
             set(property:"encodeDate", value: Object): void;
             get(property:"encodeDate"): Object;
-            watch(property:"encodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"encodeDate", callback: Callback<Object>): Unwatchable
             /**
              * The end date of the displayed time interval (included).
              *
@@ -2659,7 +2666,7 @@ declare namespace dojox {
             "endDate": Date;
             set(property:"endDate", value: Date): void;
             get(property:"endDate"): Date;
-            watch(property:"endDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"endDate", callback: Callback<Date>): Unwatchable
             /**
              * The attribute of the store item that contains the end time of
              * the events represented by this item.    Default is "endTime".
@@ -2668,7 +2675,7 @@ declare namespace dojox {
             "endTimeAttr": string;
             set(property:"endTimeAttr", value: string): void;
             get(property:"endTimeAttr"): string;
-            watch(property:"endTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"endTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * (Optional) The first day of week override. By default the first day of week is determined
              * for the current locale (extracted from the CLDR).
@@ -2678,7 +2685,7 @@ declare namespace dojox {
             "firstDayOfWeek": number;
             set(property:"firstDayOfWeek", value: number): void;
             get(property:"firstDayOfWeek"): number;
-            watch(property:"firstDayOfWeek", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"firstDayOfWeek", callback: Callback<number>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -2687,7 +2694,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function to format the time of day of the item renderers.
              * The function takes the date and render data object as arguments and returns a String.
@@ -2696,7 +2703,7 @@ declare namespace dojox {
             "formatItemTimeFunc": Object;
             set(property:"formatItemTimeFunc", value: Object): void;
             get(property:"formatItemTimeFunc"): Object;
-            watch(property:"formatItemTimeFunc", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"formatItemTimeFunc", callback: Callback<Object>): Unwatchable
             /**
              * Current render item which is under the mouse cursor.
              *
@@ -2704,7 +2711,7 @@ declare namespace dojox {
             "hoveredItem": Object;
             set(property:"hoveredItem", value: Object): void;
             get(property:"hoveredItem"): Object;
-            watch(property:"hoveredItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"hoveredItem", callback: Callback<Object>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -2715,21 +2722,21 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "invalidatingProperties": Object;
             set(property:"invalidatingProperties", value: Object): void;
             get(property:"invalidatingProperties"): Object;
-            watch(property:"invalidatingProperties", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"invalidatingProperties", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "invalidRendering": boolean;
             set(property:"invalidRendering", value: boolean): void;
             get(property:"invalidRendering"): boolean;
-            watch(property:"invalidRendering", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"invalidRendering", callback: Callback<boolean>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -2740,7 +2747,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * The column view is displaying time intervals that lasts more than seven days.
              *
@@ -2748,7 +2755,7 @@ declare namespace dojox {
             "matrixView": Object;
             set(property:"matrixView", value: Object): void;
             get(property:"matrixView"): Object;
-            watch(property:"matrixView", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"matrixView", callback: Callback<Object>): Unwatchable
             /**
              * Map of property/value passed to the constructor of the matrix view.
              *
@@ -2756,7 +2763,7 @@ declare namespace dojox {
             "matrixViewProps": Object;
             set(property:"matrixViewProps", value: Object): void;
             get(property:"matrixViewProps"): Object;
-            watch(property:"matrixViewProps", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"matrixViewProps", callback: Callback<Object>): Unwatchable
             /**
              * The maximum date.
              * If date is set, the displayed time interval the most in the future
@@ -2767,7 +2774,7 @@ declare namespace dojox {
             "maxDate": Date;
             set(property:"maxDate", value: Date): void;
             get(property:"maxDate"): Date;
-            watch(property:"maxDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"maxDate", callback: Callback<Date>): Unwatchable
             /**
              * The minimum date.
              * If date property is set, the displayed time interval the most in the past
@@ -2778,7 +2785,7 @@ declare namespace dojox {
             "minDate": Date;
             set(property:"minDate", value: Date): void;
             get(property:"minDate"): Date;
-            watch(property:"minDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"minDate", callback: Callback<Date>): Unwatchable
             /**
              * A flag that indicates whether the user can move items displayed.
              * If true, the user can move the items.
@@ -2787,7 +2794,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -2796,7 +2803,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * A query that can be passed to when querying the store.
              *
@@ -2804,7 +2811,7 @@ declare namespace dojox {
             "query": Object;
             set(property:"query", value: Object): void;
             get(property:"query"): Object;
-            watch(property:"query", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"query", callback: Callback<Object>): Unwatchable
             /**
              * Options to be applied when querying the store.
              *
@@ -2812,7 +2819,7 @@ declare namespace dojox {
             "queryOptions": Object;
             set(property:"queryOptions", value: Object): void;
             get(property:"queryOptions"): Object;
-            watch(property:"queryOptions", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"queryOptions", callback: Callback<Object>): Unwatchable
             /**
              * A flag that indicates whether the items can be resized.
              * If true, the control supports resizing of items.
@@ -2821,14 +2828,14 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * In single selection mode, the selected item or in multiple selection mode the last selected item.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -2837,7 +2844,7 @@ declare namespace dojox {
             "selectedItem": Object;
             set(property:"selectedItem", value: Object): void;
             get(property:"selectedItem"): Object;
-            watch(property:"selectedItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItem", callback: Callback<Object>): Unwatchable
             /**
              * The list of selected items.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -2846,7 +2853,7 @@ declare namespace dojox {
             "selectedItems": Object;
             set(property:"selectedItems", value: Object): void;
             get(property:"selectedItems"): Object;
-            watch(property:"selectedItems", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItems", callback: Callback<Object>): Unwatchable
             /**
              * Valid values are:
              *
@@ -2859,7 +2866,7 @@ declare namespace dojox {
             "selectionMode": string;
             set(property:"selectionMode", value: string): void;
             get(property:"selectionMode"): string;
-            watch(property:"selectionMode", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"selectionMode", callback: Callback<string>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -2867,7 +2874,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The start date of the displayed time interval.
              *
@@ -2875,7 +2882,7 @@ declare namespace dojox {
             "startDate": Date;
             set(property:"startDate", value: Date): void;
             get(property:"startDate"): Date;
-            watch(property:"startDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"startDate", callback: Callback<Date>): Unwatchable
             /**
              * The attribute of the store item that contains the start time of
              * the events represented by this item.    Default is "startTime".
@@ -2884,7 +2891,7 @@ declare namespace dojox {
             "startTimeAttr": string;
             set(property:"startTimeAttr", value: string): void;
             get(property:"startTimeAttr"): string;
-            watch(property:"startTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"startTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * The store that contains the events to display.
              *
@@ -2892,7 +2899,7 @@ declare namespace dojox {
             "store": Object;
             set(property:"store", value: Object): void;
             get(property:"store"): Object;
-            watch(property:"store", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"store", callback: Callback<Object>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -2900,7 +2907,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the sub column name of
              * the events represented by this item.    Default is "calendar".
@@ -2909,7 +2916,7 @@ declare namespace dojox {
             "subColumnAttr": string;
             set(property:"subColumnAttr", value: string): void;
             get(property:"subColumnAttr"): string;
-            watch(property:"subColumnAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"subColumnAttr", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the summary of
              * the events represented by this item.    Default is "summary".
@@ -2918,7 +2925,7 @@ declare namespace dojox {
             "summaryAttr": string;
             set(property:"summaryAttr", value: string): void;
             get(property:"summaryAttr"): string;
-            watch(property:"summaryAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"summaryAttr", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -2927,7 +2934,7 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              * A string that represents the widget template.
              * Use in conjunction with dojo.cache() to load from a file.
@@ -2936,7 +2943,7 @@ declare namespace dojox {
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -2951,7 +2958,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -2960,14 +2967,14 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "viewChangeDuration": number;
             set(property:"viewChangeDuration", value: number): void;
             get(property:"viewChangeDuration"): number;
-            watch(property:"viewChangeDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"viewChangeDuration", callback: Callback<number>): Unwatchable
             /**
              * The DOM node that will contains the views.
              *
@@ -2975,7 +2982,7 @@ declare namespace dojox {
             "viewContainer": HTMLElement;
             set(property:"viewContainer", value: HTMLElement): void;
             get(property:"viewContainer"): HTMLElement;
-            watch(property:"viewContainer", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"viewContainer", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The views displayed by the widget.
              * To add/remove only one view, prefer, respectively, the addView() or removeView() methods.
@@ -2984,7 +2991,7 @@ declare namespace dojox {
             "views": Object;
             set(property:"views", value: Object): void;
             get(property:"views"): Object;
-            watch(property:"views", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"views", callback: Callback<Object>): Unwatchable
             /**
              * Should we parse the template to find widgets that might be
              * declared in markup inside it?  (Remove for 2.0 and assume true)
@@ -2993,7 +3000,7 @@ declare namespace dojox {
             "widgetsInTemplate": boolean;
             set(property:"widgetsInTemplate", value: boolean): void;
             get(property:"widgetsInTemplate"): boolean;
-            watch(property:"widgetsInTemplate", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"widgetsInTemplate", callback: Callback<boolean>): Unwatchable
             /**
              * Add properties to the watched properties to trigger invalidation. This method must be called in
              * the constructor. It is typically used by subclasses of a _Invalidating class to add more properties
@@ -3696,7 +3703,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * The action triggered when the week button is clicked.
              * By default, sets the dateInterval property to "week" and
@@ -3904,7 +3911,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -3950,21 +3957,21 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * Column index where this renderer is used.
              *
@@ -3972,7 +3979,7 @@ declare namespace dojox {
             "columnIndex": number;
             set(property:"columnIndex", value: number): void;
             get(property:"columnIndex"): number;
-            watch(property:"columnIndex", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"columnIndex", callback: Callback<number>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -3999,7 +4006,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The date displayed by the cell where this renderer is used.
              *
@@ -4007,7 +4014,7 @@ declare namespace dojox {
             "date": Date;
             set(property:"date", value: Date): void;
             get(property:"date"): Date;
-            watch(property:"date", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"date", callback: Callback<Date>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -4017,7 +4024,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -4028,7 +4035,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates that the renderer is pressed.
              *
@@ -4036,7 +4043,7 @@ declare namespace dojox {
             "down": boolean;
             set(property:"down", value: boolean): void;
             get(property:"down"): boolean;
-            watch(property:"down", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"down", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the renderer is focused.
              *
@@ -4044,7 +4051,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -4055,7 +4062,7 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              * List of items that are not displayed in the cell because of the size constraints.
              *
@@ -4063,7 +4070,7 @@ declare namespace dojox {
             "items": Object;
             set(property:"items", value: Object): void;
             get(property:"items"): Object;
-            watch(property:"items", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"items", callback: Callback<Object>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -4074,7 +4081,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * The view that contains this renderer.
              *
@@ -4082,7 +4089,7 @@ declare namespace dojox {
             "owner": Object;
             set(property:"owner", value: Object): void;
             get(property:"owner"): Object;
-            watch(property:"owner", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"owner", callback: Callback<Object>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -4091,7 +4098,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * Row index where this renderer is used.
              *
@@ -4099,14 +4106,14 @@ declare namespace dojox {
             "rowIndex": number;
             set(property:"rowIndex", value: number): void;
             get(property:"rowIndex"): number;
-            watch(property:"rowIndex", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"rowIndex", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -4114,7 +4121,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -4122,7 +4129,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -4131,14 +4138,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -4153,7 +4160,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -4162,7 +4169,7 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              * Indicates that the mouse cursor is over renderer.
              *
@@ -4170,7 +4177,7 @@ declare namespace dojox {
             "up": boolean;
             set(property:"up", value: boolean): void;
             get(property:"up"): boolean;
-            watch(property:"up", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"up", callback: Callback<boolean>): Unwatchable
             /**
              * Construct the UI for this widget, setting this.domNode.
              * Most widgets will mixin dijit._TemplatedMixin, which implements this method.
@@ -4603,7 +4610,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Static method to get a template based on the templatePath or
              * templateString key
@@ -4642,7 +4649,7 @@ declare namespace dojox {
             "arrowPadding": number;
             set(property:"arrowPadding", value: number): void;
             get(property:"arrowPadding"): number;
-            watch(property:"arrowPadding", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"arrowPadding", callback: Callback<number>): Unwatchable
             /**
              * Object to which attach points and events will be scoped.  Defaults
              * to 'this'.
@@ -4651,7 +4658,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -4697,7 +4704,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
              * widget state.
@@ -4706,14 +4713,14 @@ declare namespace dojox {
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -4740,7 +4747,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -4750,7 +4757,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -4761,7 +4768,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is in editing mode.
              *
@@ -4769,7 +4776,7 @@ declare namespace dojox {
             "edited": boolean;
             set(property:"edited", value: boolean): void;
             get(property:"edited"): boolean;
-            watch(property:"edited", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"edited", callback: Callback<boolean>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -4778,7 +4785,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is hovered.
              *
@@ -4786,7 +4793,7 @@ declare namespace dojox {
             "hovered": boolean;
             set(property:"hovered", value: boolean): void;
             get(property:"hovered"): boolean;
-            watch(property:"hovered", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"hovered", callback: Callback<boolean>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -4797,7 +4804,7 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              * The layout item displayed by this renderer.
              *
@@ -4805,7 +4812,7 @@ declare namespace dojox {
             "item": Object;
             set(property:"item", value: Object): void;
             get(property:"item"): Object;
-            watch(property:"item", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"item", callback: Callback<Object>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -4816,7 +4823,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * Whether the event displayed by this renderer can be moved.
              *
@@ -4824,7 +4831,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The view that contains this renderer.
              *
@@ -4832,7 +4839,7 @@ declare namespace dojox {
             "owner": Object;
             set(property:"owner", value: Object): void;
             get(property:"owner"): Object;
-            watch(property:"owner", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"owner", callback: Callback<Object>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -4841,7 +4848,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * Whether the event displayed by this renderer can be resized.
              *
@@ -4849,14 +4856,14 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is selected.
              *
@@ -4864,7 +4871,7 @@ declare namespace dojox {
             "selected": boolean;
             set(property:"selected", value: boolean): void;
             get(property:"selected"): boolean;
-            watch(property:"selected", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"selected", callback: Callback<boolean>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -4872,7 +4879,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is not in the store, being saved to the store or in the store.
              *
@@ -4880,7 +4887,7 @@ declare namespace dojox {
             "storeState": boolean;
             set(property:"storeState", value: boolean): void;
             get(property:"storeState"): boolean;
-            watch(property:"storeState", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"storeState", callback: Callback<boolean>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -4888,7 +4895,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -4897,14 +4904,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -4919,7 +4926,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -4928,14 +4935,14 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "visibilityLimits": Object;
             set(property:"visibilityLimits", value: Object): void;
             get(property:"visibilityLimits"): Object;
-            watch(property:"visibilityLimits", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"visibilityLimits", callback: Callback<Object>): Unwatchable
             /**
              * Construct the UI for this widget, setting this.domNode.
              * Most widgets will mixin dijit._TemplatedMixin, which implements this method.
@@ -5376,7 +5383,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Static method to get a template based on the templatePath or
              * templateString key
@@ -5500,7 +5507,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -5546,7 +5553,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
              * widget state.
@@ -5555,14 +5562,14 @@ declare namespace dojox {
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -5589,7 +5596,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -5599,7 +5606,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -5610,7 +5617,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is in editing mode.
              *
@@ -5618,7 +5625,7 @@ declare namespace dojox {
             "edited": boolean;
             set(property:"edited", value: boolean): void;
             get(property:"edited"): boolean;
-            watch(property:"edited", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"edited", callback: Callback<boolean>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -5627,7 +5634,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is hovered.
              *
@@ -5635,7 +5642,7 @@ declare namespace dojox {
             "hovered": boolean;
             set(property:"hovered", value: boolean): void;
             get(property:"hovered"): boolean;
-            watch(property:"hovered", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"hovered", callback: Callback<boolean>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -5646,7 +5653,7 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              * The layout item displayed by this renderer.
              *
@@ -5654,7 +5661,7 @@ declare namespace dojox {
             "item": Object;
             set(property:"item", value: Object): void;
             get(property:"item"): Object;
-            watch(property:"item", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"item", callback: Callback<Object>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -5665,7 +5672,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * Whether the event displayed by this renderer can be moved.
              *
@@ -5673,7 +5680,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The view that contains this renderer.
              *
@@ -5681,7 +5688,7 @@ declare namespace dojox {
             "owner": Object;
             set(property:"owner", value: Object): void;
             get(property:"owner"): Object;
-            watch(property:"owner", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"owner", callback: Callback<Object>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -5690,21 +5697,21 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is selected.
              *
@@ -5712,7 +5719,7 @@ declare namespace dojox {
             "selected": boolean;
             set(property:"selected", value: boolean): void;
             get(property:"selected"): boolean;
-            watch(property:"selected", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"selected", callback: Callback<boolean>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -5720,7 +5727,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is not in the store, being saved to the store or in the store.
              *
@@ -5728,7 +5735,7 @@ declare namespace dojox {
             "storeState": boolean;
             set(property:"storeState", value: boolean): void;
             get(property:"storeState"): boolean;
-            watch(property:"storeState", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"storeState", callback: Callback<boolean>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -5736,7 +5743,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -5745,14 +5752,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -5767,7 +5774,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -5776,14 +5783,14 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "visibilityLimits": Object;
             set(property:"visibilityLimits", value: Object): void;
             get(property:"visibilityLimits"): Object;
-            watch(property:"visibilityLimits", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"visibilityLimits", callback: Callback<Object>): Unwatchable
             /**
              * Construct the UI for this widget, setting this.domNode.
              * Most widgets will mixin dijit._TemplatedMixin, which implements this method.
@@ -6224,7 +6231,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Static method to get a template based on the templatePath or
              * templateString key
@@ -6263,7 +6270,7 @@ declare namespace dojox {
             "allDayAttr": string;
             set(property:"allDayAttr", value: string): void;
             get(property:"allDayAttr"): string;
-            watch(property:"allDayAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"allDayAttr", callback: Callback<string>): Unwatchable
             /**
              * Indicates that the previous/next range method will be animated.
              *
@@ -6271,7 +6278,7 @@ declare namespace dojox {
             "animateRange": boolean;
             set(property:"animateRange", value: boolean): void;
             get(property:"animateRange"): boolean;
-            watch(property:"animateRange", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"animateRange", callback: Callback<boolean>): Unwatchable
             /**
              * The duration of the next/previous range animation.
              *
@@ -6279,7 +6286,7 @@ declare namespace dojox {
             "animationRangeDuration": number;
             set(property:"animationRangeDuration", value: number): void;
             get(property:"animationRangeDuration"): number;
-            watch(property:"animationRangeDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"animationRangeDuration", callback: Callback<number>): Unwatchable
             /**
              * Object to which attach points and events will be scoped.  Defaults
              * to 'this'.
@@ -6288,7 +6295,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -6334,21 +6341,21 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * The column view is displaying one day to seven days time intervals.
              *
@@ -6356,7 +6363,7 @@ declare namespace dojox {
             "columnView": Object;
             set(property:"columnView", value: Object): void;
             get(property:"columnView"): Object;
-            watch(property:"columnView", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"columnView", callback: Callback<Object>): Unwatchable
             /**
              * Map of property/value passed to the constructor of the column view.
              *
@@ -6364,7 +6371,7 @@ declare namespace dojox {
             "columnViewProps": Object;
             set(property:"columnViewProps", value: Object): void;
             get(property:"columnViewProps"): Object;
-            watch(property:"columnViewProps", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"columnViewProps", callback: Callback<Object>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -6391,7 +6398,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Used to provide a context require to the dojo/parser in order to be
              * able to use relative MIDs (e.g. ./Widget) in the widget's template.
@@ -6400,7 +6407,7 @@ declare namespace dojox {
             "contextRequire": Function;
             set(property:"contextRequire", value: Function): void;
             get(property:"contextRequire"): Function;
-            watch(property:"contextRequire", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"contextRequire", callback: Callback<Function>): Unwatchable
             /**
              * A user supplied function that creates a new event.
              * This function is used when createOnGridClick is set to true and the user is clicking and dragging on the grid.
@@ -6413,7 +6420,7 @@ declare namespace dojox {
             "createItemFunc": Function;
             set(property:"createItemFunc", value: Function): void;
             get(property:"createItemFunc"): Function;
-            watch(property:"createItemFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"createItemFunc", callback: Callback<Function>): Unwatchable
             /**
              * Indicates whether the user can create new event by clicking and dragging the grid.
              * A createItem function must be defined on the view or the calendar object.
@@ -6422,7 +6429,7 @@ declare namespace dojox {
             "createOnGridClick": boolean;
             set(property:"createOnGridClick", value: boolean): void;
             get(property:"createOnGridClick"): boolean;
-            watch(property:"createOnGridClick", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"createOnGridClick", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function that returns a css class name to apply to item renderers that are displaying the specified item in parameter.
              *
@@ -6430,7 +6437,7 @@ declare namespace dojox {
             "cssClassFunc": Function;
             set(property:"cssClassFunc", value: Function): void;
             get(property:"cssClassFunc"): Function;
-            watch(property:"cssClassFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"cssClassFunc", callback: Callback<Function>): Unwatchable
             /**
              * The current view displayed by the Calendar object.
              * The currentViewChange event can be used to react on a view change.
@@ -6439,7 +6446,7 @@ declare namespace dojox {
             "currentView": Object;
             set(property:"currentView", value: Object): void;
             get(property:"currentView"): Object;
-            watch(property:"currentView", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"currentView", callback: Callback<Object>): Unwatchable
             /**
              * The reference date used to determine along with the dateInterval
              * and dateIntervalSteps properties the time interval to display.
@@ -6448,7 +6455,7 @@ declare namespace dojox {
             "date": Date;
             set(property:"date", value: Date): void;
             get(property:"date"): Date;
-            watch(property:"date", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"date", callback: Callback<Date>): Unwatchable
             /**
              * The date interval used to compute along with the date and
              * dateIntervalSteps the time interval to display.
@@ -6458,7 +6465,7 @@ declare namespace dojox {
             "dateInterval": string;
             set(property:"dateInterval", value: string): void;
             get(property:"dateInterval"): string;
-            watch(property:"dateInterval", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dateInterval", callback: Callback<string>): Unwatchable
             /**
              * The number of date intervals used to compute along with the date and
              * dateInterval the time interval to display.
@@ -6468,7 +6475,7 @@ declare namespace dojox {
             "dateIntervalSteps": number;
             set(property:"dateIntervalSteps", value: number): void;
             get(property:"dateIntervalSteps"): number;
-            watch(property:"dateIntervalSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"dateIntervalSteps", callback: Callback<number>): Unwatchable
             /**
              * JavaScript namespace to find Calendar routines. Uses Gregorian Calendar routines at dojo.date by default.
              *
@@ -6476,7 +6483,7 @@ declare namespace dojox {
             "datePackage": Object;
             set(property:"datePackage", value: Object): void;
             get(property:"datePackage"): Object;
-            watch(property:"datePackage", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"datePackage", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to transform store date into Date objects. Default is null.
              *
@@ -6484,7 +6491,7 @@ declare namespace dojox {
             "decodeDate": Object;
             set(property:"decodeDate", value: Object): void;
             get(property:"decodeDate"): Object;
-            watch(property:"decodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"decodeDate", callback: Callback<Object>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -6494,7 +6501,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * Whether the data items displayed must be recomputed, usually after the displayed
              * time range has changed.
@@ -6503,7 +6510,7 @@ declare namespace dojox {
             "displayedItemsInvalidated": boolean;
             set(property:"displayedItemsInvalidated", value: boolean): void;
             get(property:"displayedItemsInvalidated"): boolean;
-            watch(property:"displayedItemsInvalidated", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"displayedItemsInvalidated", callback: Callback<boolean>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -6514,7 +6521,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * A flag that indicates whether or not the user can edit
              * items in the data provider.
@@ -6525,7 +6532,7 @@ declare namespace dojox {
             "editable": boolean;
             set(property:"editable", value: boolean): void;
             get(property:"editable"): boolean;
-            watch(property:"editable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"editable", callback: Callback<boolean>): Unwatchable
             /**
              * An optional function to transform Date objects into store date. Default is null.
              *
@@ -6533,7 +6540,7 @@ declare namespace dojox {
             "encodeDate": Object;
             set(property:"encodeDate", value: Object): void;
             get(property:"encodeDate"): Object;
-            watch(property:"encodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"encodeDate", callback: Callback<Object>): Unwatchable
             /**
              * The end date of the displayed time interval (included).
              *
@@ -6541,7 +6548,7 @@ declare namespace dojox {
             "endDate": Date;
             set(property:"endDate", value: Date): void;
             get(property:"endDate"): Date;
-            watch(property:"endDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"endDate", callback: Callback<Date>): Unwatchable
             /**
              * The attribute of the store item that contains the end time of
              * the events represented by this item.    Default is "endTime".
@@ -6550,7 +6557,7 @@ declare namespace dojox {
             "endTimeAttr": string;
             set(property:"endTimeAttr", value: string): void;
             get(property:"endTimeAttr"): string;
-            watch(property:"endTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"endTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * (Optional) The first day of week override. By default the first day of week is determined
              * for the current locale (extracted from the CLDR).
@@ -6560,7 +6567,7 @@ declare namespace dojox {
             "firstDayOfWeek": number;
             set(property:"firstDayOfWeek", value: number): void;
             get(property:"firstDayOfWeek"): number;
-            watch(property:"firstDayOfWeek", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"firstDayOfWeek", callback: Callback<number>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -6569,7 +6576,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function to format the time of day of the item renderers.
              * The function takes the date and render data object as arguments and returns a String.
@@ -6578,7 +6585,7 @@ declare namespace dojox {
             "formatItemTimeFunc": Object;
             set(property:"formatItemTimeFunc", value: Object): void;
             get(property:"formatItemTimeFunc"): Object;
-            watch(property:"formatItemTimeFunc", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"formatItemTimeFunc", callback: Callback<Object>): Unwatchable
             /**
              * Current render item which is under the mouse cursor.
              *
@@ -6586,7 +6593,7 @@ declare namespace dojox {
             "hoveredItem": Object;
             set(property:"hoveredItem", value: Object): void;
             get(property:"hoveredItem"): Object;
-            watch(property:"hoveredItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"hoveredItem", callback: Callback<Object>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -6597,21 +6604,21 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "invalidatingProperties": Object;
             set(property:"invalidatingProperties", value: Object): void;
             get(property:"invalidatingProperties"): Object;
-            watch(property:"invalidatingProperties", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"invalidatingProperties", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "invalidRendering": boolean;
             set(property:"invalidRendering", value: boolean): void;
             get(property:"invalidRendering"): boolean;
-            watch(property:"invalidRendering", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"invalidRendering", callback: Callback<boolean>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -6622,7 +6629,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * The column view is displaying time intervals that lasts more than seven days.
              *
@@ -6630,7 +6637,7 @@ declare namespace dojox {
             "matrixView": Object;
             set(property:"matrixView", value: Object): void;
             get(property:"matrixView"): Object;
-            watch(property:"matrixView", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"matrixView", callback: Callback<Object>): Unwatchable
             /**
              * Map of property/value passed to the constructor of the matrix view.
              *
@@ -6638,7 +6645,7 @@ declare namespace dojox {
             "matrixViewProps": Object;
             set(property:"matrixViewProps", value: Object): void;
             get(property:"matrixViewProps"): Object;
-            watch(property:"matrixViewProps", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"matrixViewProps", callback: Callback<Object>): Unwatchable
             /**
              * The maximum date.
              * If date is set, the displayed time interval the most in the future
@@ -6649,7 +6656,7 @@ declare namespace dojox {
             "maxDate": Date;
             set(property:"maxDate", value: Date): void;
             get(property:"maxDate"): Date;
-            watch(property:"maxDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"maxDate", callback: Callback<Date>): Unwatchable
             /**
              * The minimum date.
              * If date property is set, the displayed time interval the most in the past
@@ -6660,7 +6667,7 @@ declare namespace dojox {
             "minDate": Date;
             set(property:"minDate", value: Date): void;
             get(property:"minDate"): Date;
-            watch(property:"minDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"minDate", callback: Callback<Date>): Unwatchable
             /**
              * A flag that indicates whether the user can move items displayed.
              * If true, the user can move the items.
@@ -6669,7 +6676,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -6678,7 +6685,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * A query that can be passed to when querying the store.
              *
@@ -6686,7 +6693,7 @@ declare namespace dojox {
             "query": Object;
             set(property:"query", value: Object): void;
             get(property:"query"): Object;
-            watch(property:"query", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"query", callback: Callback<Object>): Unwatchable
             /**
              * Options to be applied when querying the store.
              *
@@ -6694,7 +6701,7 @@ declare namespace dojox {
             "queryOptions": Object;
             set(property:"queryOptions", value: Object): void;
             get(property:"queryOptions"): Object;
-            watch(property:"queryOptions", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"queryOptions", callback: Callback<Object>): Unwatchable
             /**
              * A flag that indicates whether the items can be resized.
              * If true, the control supports resizing of items.
@@ -6703,14 +6710,14 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * In single selection mode, the selected item or in multiple selection mode the last selected item.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -6719,7 +6726,7 @@ declare namespace dojox {
             "selectedItem": Object;
             set(property:"selectedItem", value: Object): void;
             get(property:"selectedItem"): Object;
-            watch(property:"selectedItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItem", callback: Callback<Object>): Unwatchable
             /**
              * The list of selected items.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -6728,7 +6735,7 @@ declare namespace dojox {
             "selectedItems": Object;
             set(property:"selectedItems", value: Object): void;
             get(property:"selectedItems"): Object;
-            watch(property:"selectedItems", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItems", callback: Callback<Object>): Unwatchable
             /**
              * Valid values are:
              *
@@ -6741,7 +6748,7 @@ declare namespace dojox {
             "selectionMode": string;
             set(property:"selectionMode", value: string): void;
             get(property:"selectionMode"): string;
-            watch(property:"selectionMode", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"selectionMode", callback: Callback<string>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -6749,7 +6756,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The start date of the displayed time interval.
              *
@@ -6757,7 +6764,7 @@ declare namespace dojox {
             "startDate": Date;
             set(property:"startDate", value: Date): void;
             get(property:"startDate"): Date;
-            watch(property:"startDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"startDate", callback: Callback<Date>): Unwatchable
             /**
              * The attribute of the store item that contains the start time of
              * the events represented by this item.    Default is "startTime".
@@ -6766,7 +6773,7 @@ declare namespace dojox {
             "startTimeAttr": string;
             set(property:"startTimeAttr", value: string): void;
             get(property:"startTimeAttr"): string;
-            watch(property:"startTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"startTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * The store that contains the events to display.
              *
@@ -6774,7 +6781,7 @@ declare namespace dojox {
             "store": Object;
             set(property:"store", value: Object): void;
             get(property:"store"): Object;
-            watch(property:"store", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"store", callback: Callback<Object>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -6782,7 +6789,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the sub column name of
              * the events represented by this item.    Default is "calendar".
@@ -6791,7 +6798,7 @@ declare namespace dojox {
             "subColumnAttr": string;
             set(property:"subColumnAttr", value: string): void;
             get(property:"subColumnAttr"): string;
-            watch(property:"subColumnAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"subColumnAttr", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the summary of
              * the events represented by this item.    Default is "summary".
@@ -6800,7 +6807,7 @@ declare namespace dojox {
             "summaryAttr": string;
             set(property:"summaryAttr", value: string): void;
             get(property:"summaryAttr"): string;
-            watch(property:"summaryAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"summaryAttr", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -6809,14 +6816,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -6831,7 +6838,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -6840,14 +6847,14 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "viewChangeDuration": number;
             set(property:"viewChangeDuration", value: number): void;
             get(property:"viewChangeDuration"): number;
-            watch(property:"viewChangeDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"viewChangeDuration", callback: Callback<number>): Unwatchable
             /**
              * The DOM node that will contains the views.
              *
@@ -6855,7 +6862,7 @@ declare namespace dojox {
             "viewContainer": HTMLElement;
             set(property:"viewContainer", value: HTMLElement): void;
             get(property:"viewContainer"): HTMLElement;
-            watch(property:"viewContainer", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"viewContainer", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The views displayed by the widget.
              * To add/remove only one view, prefer, respectively, the addView() or removeView() methods.
@@ -6864,7 +6871,7 @@ declare namespace dojox {
             "views": Object;
             set(property:"views", value: Object): void;
             get(property:"views"): Object;
-            watch(property:"views", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"views", callback: Callback<Object>): Unwatchable
             /**
              * Should we parse the template to find widgets that might be
              * declared in markup inside it?  (Remove for 2.0 and assume true)
@@ -6873,7 +6880,7 @@ declare namespace dojox {
             "widgetsInTemplate": boolean;
             set(property:"widgetsInTemplate", value: boolean): void;
             get(property:"widgetsInTemplate"): boolean;
-            watch(property:"widgetsInTemplate", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"widgetsInTemplate", callback: Callback<boolean>): Unwatchable
             /**
              * Add properties to the watched properties to trigger invalidation. This method must be called in
              * the constructor. It is typically used by subclasses of a _Invalidating class to add more properties
@@ -7585,7 +7592,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * The action triggered when the week button is clicked.
              * By default, sets the dateInterval property to "week" and
@@ -7792,7 +7799,7 @@ declare namespace dojox {
             "arrowPadding": number;
             set(property:"arrowPadding", value: number): void;
             get(property:"arrowPadding"): number;
-            watch(property:"arrowPadding", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"arrowPadding", callback: Callback<number>): Unwatchable
             /**
              * Object to which attach points and events will be scoped.  Defaults
              * to 'this'.
@@ -7801,7 +7808,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -7847,7 +7854,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
              * widget state.
@@ -7856,14 +7863,14 @@ declare namespace dojox {
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -7890,7 +7897,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -7900,7 +7907,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -7911,7 +7918,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is in editing mode.
              *
@@ -7919,7 +7926,7 @@ declare namespace dojox {
             "edited": boolean;
             set(property:"edited", value: boolean): void;
             get(property:"edited"): boolean;
-            watch(property:"edited", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"edited", callback: Callback<boolean>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -7928,7 +7935,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is hovered.
              *
@@ -7936,7 +7943,7 @@ declare namespace dojox {
             "hovered": boolean;
             set(property:"hovered", value: boolean): void;
             get(property:"hovered"): boolean;
-            watch(property:"hovered", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"hovered", callback: Callback<boolean>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -7947,7 +7954,7 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              * The layout item displayed by this renderer.
              *
@@ -7955,7 +7962,7 @@ declare namespace dojox {
             "item": Object;
             set(property:"item", value: Object): void;
             get(property:"item"): Object;
-            watch(property:"item", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"item", callback: Callback<Object>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -7966,14 +7973,14 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "mobile": boolean;
             set(property:"mobile", value: boolean): void;
             get(property:"mobile"): boolean;
-            watch(property:"mobile", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"mobile", callback: Callback<boolean>): Unwatchable
             /**
              * Whether the event displayed by this renderer can be moved.
              *
@@ -7981,7 +7988,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The view that contains this renderer.
              *
@@ -7989,7 +7996,7 @@ declare namespace dojox {
             "owner": Object;
             set(property:"owner", value: Object): void;
             get(property:"owner"): Object;
-            watch(property:"owner", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"owner", callback: Callback<Object>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -7998,7 +8005,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * Whether the event displayed by this renderer can be resized.
              *
@@ -8006,14 +8013,14 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is selected.
              *
@@ -8021,7 +8028,7 @@ declare namespace dojox {
             "selected": boolean;
             set(property:"selected", value: boolean): void;
             get(property:"selected"): boolean;
-            watch(property:"selected", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"selected", callback: Callback<boolean>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -8029,7 +8036,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is not in the store, being saved to the store or in the store.
              *
@@ -8037,7 +8044,7 @@ declare namespace dojox {
             "storeState": boolean;
             set(property:"storeState", value: boolean): void;
             get(property:"storeState"): boolean;
-            watch(property:"storeState", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"storeState", callback: Callback<boolean>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -8045,7 +8052,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -8054,14 +8061,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -8076,7 +8083,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -8085,14 +8092,14 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "visibilityLimits": Object;
             set(property:"visibilityLimits", value: Object): void;
             get(property:"visibilityLimits"): Object;
-            watch(property:"visibilityLimits", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"visibilityLimits", callback: Callback<Object>): Unwatchable
             /**
              * Construct the UI for this widget, setting this.domNode.
              * Most widgets will mixin dijit._TemplatedMixin, which implements this method.
@@ -8533,7 +8540,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Static method to get a template based on the templatePath or
              * templateString key
@@ -8573,7 +8580,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -8619,7 +8626,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
              * widget state.
@@ -8628,14 +8635,14 @@ declare namespace dojox {
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -8662,7 +8669,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -8672,7 +8679,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -8683,7 +8690,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is in editing mode.
              *
@@ -8691,7 +8698,7 @@ declare namespace dojox {
             "edited": boolean;
             set(property:"edited", value: boolean): void;
             get(property:"edited"): boolean;
-            watch(property:"edited", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"edited", callback: Callback<boolean>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -8700,7 +8707,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is hovered.
              *
@@ -8708,7 +8715,7 @@ declare namespace dojox {
             "hovered": boolean;
             set(property:"hovered", value: boolean): void;
             get(property:"hovered"): boolean;
-            watch(property:"hovered", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"hovered", callback: Callback<boolean>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -8719,7 +8726,7 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              * The layout item displayed by this renderer.
              *
@@ -8727,7 +8734,7 @@ declare namespace dojox {
             "item": Object;
             set(property:"item", value: Object): void;
             get(property:"item"): Object;
-            watch(property:"item", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"item", callback: Callback<Object>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -8738,14 +8745,14 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "mobile": boolean;
             set(property:"mobile", value: boolean): void;
             get(property:"mobile"): boolean;
-            watch(property:"mobile", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"mobile", callback: Callback<boolean>): Unwatchable
             /**
              * Whether the event displayed by this renderer can be moved.
              *
@@ -8753,7 +8760,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The view that contains this renderer.
              *
@@ -8761,7 +8768,7 @@ declare namespace dojox {
             "owner": Object;
             set(property:"owner", value: Object): void;
             get(property:"owner"): Object;
-            watch(property:"owner", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"owner", callback: Callback<Object>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -8770,7 +8777,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * Whether the event displayed by this renderer can be resized.
              *
@@ -8778,14 +8785,14 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is selected.
              *
@@ -8793,7 +8800,7 @@ declare namespace dojox {
             "selected": boolean;
             set(property:"selected", value: boolean): void;
             get(property:"selected"): boolean;
-            watch(property:"selected", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"selected", callback: Callback<boolean>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -8801,7 +8808,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is not in the store, being saved to the store or in the store.
              *
@@ -8809,7 +8816,7 @@ declare namespace dojox {
             "storeState": boolean;
             set(property:"storeState", value: boolean): void;
             get(property:"storeState"): boolean;
-            watch(property:"storeState", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"storeState", callback: Callback<boolean>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -8817,7 +8824,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -8826,14 +8833,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -8848,7 +8855,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -8857,14 +8864,14 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "visibilityLimits": Object;
             set(property:"visibilityLimits", value: Object): void;
             get(property:"visibilityLimits"): Object;
-            watch(property:"visibilityLimits", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"visibilityLimits", callback: Callback<Object>): Unwatchable
             /**
              * Construct the UI for this widget, setting this.domNode.
              * Most widgets will mixin dijit._TemplatedMixin, which implements this method.
@@ -9305,7 +9312,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Static method to get a template based on the templatePath or
              * templateString key
@@ -9374,7 +9381,7 @@ declare namespace dojox {
             "allDayAttr": string;
             set(property:"allDayAttr", value: string): void;
             get(property:"allDayAttr"): string;
-            watch(property:"allDayAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"allDayAttr", callback: Callback<string>): Unwatchable
             /**
              * Optional function that returns a css class name to apply to item renderers that are displaying the specified item in parameter.
              *
@@ -9382,7 +9389,7 @@ declare namespace dojox {
             "cssClassFunc": Function;
             set(property:"cssClassFunc", value: Function): void;
             get(property:"cssClassFunc"): Function;
-            watch(property:"cssClassFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"cssClassFunc", callback: Callback<Function>): Unwatchable
             /**
              * An optional function to transform store date into Date objects. Default is null.
              *
@@ -9390,7 +9397,7 @@ declare namespace dojox {
             "decodeDate": Object;
             set(property:"decodeDate", value: Object): void;
             get(property:"decodeDate"): Object;
-            watch(property:"decodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"decodeDate", callback: Callback<Object>): Unwatchable
             /**
              * Whether the data items displayed must be recomputed, usually after the displayed
              * time range has changed.
@@ -9399,7 +9406,7 @@ declare namespace dojox {
             "displayedItemsInvalidated": boolean;
             set(property:"displayedItemsInvalidated", value: boolean): void;
             get(property:"displayedItemsInvalidated"): boolean;
-            watch(property:"displayedItemsInvalidated", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"displayedItemsInvalidated", callback: Callback<boolean>): Unwatchable
             /**
              * An optional function to transform Date objects into store date. Default is null.
              *
@@ -9407,7 +9414,7 @@ declare namespace dojox {
             "encodeDate": Object;
             set(property:"encodeDate", value: Object): void;
             get(property:"encodeDate"): Object;
-            watch(property:"encodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"encodeDate", callback: Callback<Object>): Unwatchable
             /**
              * The attribute of the store item that contains the end time of
              * the events represented by this item.    Default is "endTime".
@@ -9416,7 +9423,7 @@ declare namespace dojox {
             "endTimeAttr": string;
             set(property:"endTimeAttr", value: string): void;
             get(property:"endTimeAttr"): string;
-            watch(property:"endTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"endTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * A query that can be passed to when querying the store.
              *
@@ -9424,7 +9431,7 @@ declare namespace dojox {
             "query": Object;
             set(property:"query", value: Object): void;
             get(property:"query"): Object;
-            watch(property:"query", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"query", callback: Callback<Object>): Unwatchable
             /**
              * Options to be applied when querying the store.
              *
@@ -9432,7 +9439,7 @@ declare namespace dojox {
             "queryOptions": Object;
             set(property:"queryOptions", value: Object): void;
             get(property:"queryOptions"): Object;
-            watch(property:"queryOptions", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"queryOptions", callback: Callback<Object>): Unwatchable
             /**
              * The attribute of the store item that contains the start time of
              * the events represented by this item.    Default is "startTime".
@@ -9441,7 +9448,7 @@ declare namespace dojox {
             "startTimeAttr": string;
             set(property:"startTimeAttr", value: string): void;
             get(property:"startTimeAttr"): string;
-            watch(property:"startTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"startTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * The store that contains the events to display.
              *
@@ -9449,7 +9456,7 @@ declare namespace dojox {
             "store": Object;
             set(property:"store", value: Object): void;
             get(property:"store"): Object;
-            watch(property:"store", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"store", callback: Callback<Object>): Unwatchable
             /**
              * The attribute of the store item that contains the sub column name of
              * the events represented by this item.    Default is "calendar".
@@ -9458,7 +9465,7 @@ declare namespace dojox {
             "subColumnAttr": string;
             set(property:"subColumnAttr", value: string): void;
             get(property:"subColumnAttr"): string;
-            watch(property:"subColumnAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"subColumnAttr", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the summary of
              * the events represented by this item.    Default is "summary".
@@ -9467,7 +9474,7 @@ declare namespace dojox {
             "summaryAttr": string;
             set(property:"summaryAttr", value: string): void;
             get(property:"summaryAttr"): string;
-            watch(property:"summaryAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"summaryAttr", callback: Callback<string>): Unwatchable
             /**
              * Get a property on a Stateful instance.
              * Get a named property on a Stateful object. The property may
@@ -9549,7 +9556,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
         }
         /**
          * Permalink: http://dojotoolkit.org/api/1.9/dojox/calendar/Touch.html
@@ -9597,7 +9604,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -9643,7 +9650,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
              * widget state.
@@ -9652,14 +9659,14 @@ declare namespace dojox {
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -9686,7 +9693,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -9696,7 +9703,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -9707,7 +9714,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is in editing mode.
              *
@@ -9715,7 +9722,7 @@ declare namespace dojox {
             "edited": boolean;
             set(property:"edited", value: boolean): void;
             get(property:"edited"): boolean;
-            watch(property:"edited", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"edited", callback: Callback<boolean>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -9724,7 +9731,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is hovered.
              *
@@ -9732,7 +9739,7 @@ declare namespace dojox {
             "hovered": boolean;
             set(property:"hovered", value: boolean): void;
             get(property:"hovered"): boolean;
-            watch(property:"hovered", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"hovered", callback: Callback<boolean>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -9743,7 +9750,7 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              * The layout item displayed by this renderer.
              *
@@ -9751,7 +9758,7 @@ declare namespace dojox {
             "item": Object;
             set(property:"item", value: Object): void;
             get(property:"item"): Object;
-            watch(property:"item", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"item", callback: Callback<Object>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -9762,7 +9769,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * Whether the event displayed by this renderer can be moved.
              *
@@ -9770,7 +9777,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The view that contains this renderer.
              *
@@ -9778,7 +9785,7 @@ declare namespace dojox {
             "owner": Object;
             set(property:"owner", value: Object): void;
             get(property:"owner"): Object;
-            watch(property:"owner", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"owner", callback: Callback<Object>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -9787,7 +9794,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * Whether the event displayed by this renderer can be resized.
              *
@@ -9795,14 +9802,14 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is selected.
              *
@@ -9810,7 +9817,7 @@ declare namespace dojox {
             "selected": boolean;
             set(property:"selected", value: boolean): void;
             get(property:"selected"): boolean;
-            watch(property:"selected", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"selected", callback: Callback<boolean>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -9818,7 +9825,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates that the item displayed by this renderer is not in the store, being saved to the store or in the store.
              *
@@ -9826,7 +9833,7 @@ declare namespace dojox {
             "storeState": boolean;
             set(property:"storeState", value: boolean): void;
             get(property:"storeState"): boolean;
-            watch(property:"storeState", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"storeState", callback: Callback<boolean>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -9834,7 +9841,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -9843,14 +9850,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -9865,7 +9872,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -9874,14 +9881,14 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "visibilityLimits": Object;
             set(property:"visibilityLimits", value: Object): void;
             get(property:"visibilityLimits"): Object;
-            watch(property:"visibilityLimits", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"visibilityLimits", callback: Callback<Object>): Unwatchable
             /**
              * Construct the UI for this widget, setting this.domNode.
              * Most widgets will mixin dijit._TemplatedMixin, which implements this method.
@@ -10322,7 +10329,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Static method to get a template based on the templatePath or
              * templateString key
@@ -10361,7 +10368,7 @@ declare namespace dojox {
             "allDayAttr": string;
             set(property:"allDayAttr", value: string): void;
             get(property:"allDayAttr"): string;
-            watch(property:"allDayAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"allDayAttr", callback: Callback<string>): Unwatchable
             /**
              * If an event has a duration greater than 24 hours, indicates if using a resize gesture, it can be resized to last less than 24 hours.
              * This flag is usually used when two different kind of renderers are used (MatrixView) to prevent changing the kind of renderer during an editing gesture.
@@ -10370,7 +10377,7 @@ declare namespace dojox {
             "allowResizeLessThan24H": boolean;
             set(property:"allowResizeLessThan24H", value: boolean): void;
             get(property:"allowResizeLessThan24H"): boolean;
-            watch(property:"allowResizeLessThan24H", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowResizeLessThan24H", callback: Callback<boolean>): Unwatchable
             /**
              * Specifies if the start and end time of an item can be swapped during an editing gesture. Note that using the keyboard this property is ignored.
              *
@@ -10378,7 +10385,7 @@ declare namespace dojox {
             "allowStartEndSwap": boolean;
             set(property:"allowStartEndSwap", value: boolean): void;
             get(property:"allowStartEndSwap"): boolean;
-            watch(property:"allowStartEndSwap", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowStartEndSwap", callback: Callback<boolean>): Unwatchable
             /**
              * If several sub columns are displayed, indicated if the data item can be reassigned to another sub column by an editing gesture.
              *
@@ -10386,7 +10393,7 @@ declare namespace dojox {
             "allowSubColumnMove": boolean;
             set(property:"allowSubColumnMove", value: boolean): void;
             get(property:"allowSubColumnMove"): boolean;
-            watch(property:"allowSubColumnMove", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowSubColumnMove", callback: Callback<boolean>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -10432,7 +10439,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Indicates whether the view can be scrolled automatically.
              * Auto scrolling is used when moving focus to a non visible renderer using keyboard
@@ -10442,7 +10449,7 @@ declare namespace dojox {
             "autoScroll": boolean;
             set(property:"autoScroll", value: boolean): void;
             get(property:"autoScroll"): boolean;
-            watch(property:"autoScroll", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"autoScroll", callback: Callback<boolean>): Unwatchable
             /**
              * Root CSS class of the widget (ex: dijitTextBox), used to construct CSS classes to indicate
              * widget state.
@@ -10451,14 +10458,14 @@ declare namespace dojox {
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -10485,7 +10492,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates whether the user can create new event by clicking and dragging the grid.
              * A createItem function must be defined on the view or the calendar object.
@@ -10494,7 +10501,7 @@ declare namespace dojox {
             "createOnGridClick": boolean;
             set(property:"createOnGridClick", value: boolean): void;
             get(property:"createOnGridClick"): boolean;
-            watch(property:"createOnGridClick", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"createOnGridClick", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function that returns a css class name to apply to item renderers that are displaying the specified item in parameter.
              *
@@ -10502,7 +10509,7 @@ declare namespace dojox {
             "cssClassFunc": Function;
             set(property:"cssClassFunc", value: Function): void;
             get(property:"cssClassFunc"): Function;
-            watch(property:"cssClassFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"cssClassFunc", callback: Callback<Function>): Unwatchable
             /**
              * JavaScript namespace to find Calendar routines. Uses Gregorian Calendar routines at dojo.date by default.
              *
@@ -10510,7 +10517,7 @@ declare namespace dojox {
             "datePackage": Object;
             set(property:"datePackage", value: Object): void;
             get(property:"datePackage"): Object;
-            watch(property:"datePackage", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"datePackage", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to transform store date into Date objects. Default is null.
              *
@@ -10518,7 +10525,7 @@ declare namespace dojox {
             "decodeDate": Object;
             set(property:"decodeDate", value: Object): void;
             get(property:"decodeDate"): Object;
-            watch(property:"decodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"decodeDate", callback: Callback<Object>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -10528,7 +10535,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * Whether the data items displayed must be recomputed, usually after the displayed
              * time range has changed.
@@ -10537,7 +10544,7 @@ declare namespace dojox {
             "displayedItemsInvalidated": boolean;
             set(property:"displayedItemsInvalidated", value: boolean): void;
             get(property:"displayedItemsInvalidated"): boolean;
-            watch(property:"displayedItemsInvalidated", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"displayedItemsInvalidated", callback: Callback<boolean>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -10548,7 +10555,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The maximum delay between two taps needed to trigger an "itemDoubleClick" event, in touch context.
              *
@@ -10556,7 +10563,7 @@ declare namespace dojox {
             "doubleTapDelay": number;
             set(property:"doubleTapDelay", value: number): void;
             get(property:"doubleTapDelay"): number;
-            watch(property:"doubleTapDelay", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"doubleTapDelay", callback: Callback<number>): Unwatchable
             /**
              * A flag that indicates whether or not the user can edit
              * items in the data provider.
@@ -10567,7 +10574,7 @@ declare namespace dojox {
             "editable": boolean;
             set(property:"editable", value: boolean): void;
             get(property:"editable"): boolean;
-            watch(property:"editable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"editable", callback: Callback<boolean>): Unwatchable
             /**
              * An optional function to transform Date objects into store date. Default is null.
              *
@@ -10575,7 +10582,7 @@ declare namespace dojox {
             "encodeDate": Object;
             set(property:"encodeDate", value: Object): void;
             get(property:"encodeDate"): Object;
-            watch(property:"encodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"encodeDate", callback: Callback<Object>): Unwatchable
             /**
              * The attribute of the store item that contains the end time of
              * the events represented by this item.    Default is "endTime".
@@ -10584,7 +10591,7 @@ declare namespace dojox {
             "endTimeAttr": string;
             set(property:"endTimeAttr", value: string): void;
             get(property:"endTimeAttr"): string;
-            watch(property:"endTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"endTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -10593,7 +10600,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function to format the time of day of the item renderers.
              * The function takes the date and render data object as arguments and returns a String.
@@ -10602,7 +10609,7 @@ declare namespace dojox {
             "formatItemTimeFunc": Function;
             set(property:"formatItemTimeFunc", value: Function): void;
             get(property:"formatItemTimeFunc"): Function;
-            watch(property:"formatItemTimeFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"formatItemTimeFunc", callback: Callback<Function>): Unwatchable
             /**
              * The currently hovered data item.
              *
@@ -10610,7 +10617,7 @@ declare namespace dojox {
             "hoveredItem": Object;
             set(property:"hoveredItem", value: Object): void;
             get(property:"hoveredItem"): Object;
-            watch(property:"hoveredItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"hoveredItem", callback: Callback<Object>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -10621,21 +10628,21 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "invalidatingProperties": Object;
             set(property:"invalidatingProperties", value: Object): void;
             get(property:"invalidatingProperties"): Object;
-            watch(property:"invalidatingProperties", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"invalidatingProperties", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "invalidRendering": boolean;
             set(property:"invalidRendering", value: boolean): void;
             get(property:"invalidRendering"): boolean;
-            watch(property:"invalidRendering", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"invalidRendering", callback: Callback<boolean>): Unwatchable
             /**
              * The associated array item to renderer list.
              *
@@ -10643,7 +10650,7 @@ declare namespace dojox {
             "itemToRenderer": Object;
             set(property:"itemToRenderer", value: Object): void;
             get(property:"itemToRenderer"): Object;
-            watch(property:"itemToRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"itemToRenderer", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to associate a kind of renderer ("horizontal", "label" or null) with the specified item.
              * By default, if an item is lasting more that 24 hours an horizontal item is used, otherwise a label is used.
@@ -10652,7 +10659,7 @@ declare namespace dojox {
             "itemToRendererKindFunc": Function;
             set(property:"itemToRendererKindFunc", value: Function): void;
             get(property:"itemToRendererKindFunc"): Function;
-            watch(property:"itemToRendererKindFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"itemToRendererKindFunc", callback: Callback<Function>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -10663,7 +10670,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * An optional comparison function use to determine the order the item will be laid out
              * The function is used to sort an array and must, as any sorting function, take two items
@@ -10674,7 +10681,7 @@ declare namespace dojox {
             "layoutPriorityFunction": Function;
             set(property:"layoutPriorityFunction", value: Function): void;
             get(property:"layoutPriorityFunction"): Function;
-            watch(property:"layoutPriorityFunction", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"layoutPriorityFunction", callback: Callback<Function>): Unwatchable
             /**
              * If true, all the events are laid out during the editing gesture. If false, only the edited event is laid out.
              *
@@ -10682,7 +10689,7 @@ declare namespace dojox {
             "liveLayout": boolean;
             set(property:"liveLayout", value: boolean): void;
             get(property:"liveLayout"): boolean;
-            watch(property:"liveLayout", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"liveLayout", callback: Callback<boolean>): Unwatchable
             /**
              * The number of units used to define the minimal duration of the edited item.
              *
@@ -10690,7 +10697,7 @@ declare namespace dojox {
             "minDurationSteps": number;
             set(property:"minDurationSteps", value: number): void;
             get(property:"minDurationSteps"): number;
-            watch(property:"minDurationSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"minDurationSteps", callback: Callback<number>): Unwatchable
             /**
              * The unit used to define the minimal duration of the edited item.
              * "day", "hour" and "minute" are valid values.
@@ -10699,7 +10706,7 @@ declare namespace dojox {
             "minDurationUnit": string;
             set(property:"minDurationUnit", value: string): void;
             get(property:"minDurationUnit"): string;
-            watch(property:"minDurationUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"minDurationUnit", callback: Callback<string>): Unwatchable
             /**
              * A flag that indicates whether the user can move items displayed.
              * If true, the user can move the items.
@@ -10708,7 +10715,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -10717,7 +10724,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * A query that can be passed to when querying the store.
              *
@@ -10725,7 +10732,7 @@ declare namespace dojox {
             "query": Object;
             set(property:"query", value: Object): void;
             get(property:"query"): Object;
-            watch(property:"query", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"query", callback: Callback<Object>): Unwatchable
             /**
              * Options to be applied when querying the store.
              *
@@ -10733,7 +10740,7 @@ declare namespace dojox {
             "queryOptions": Object;
             set(property:"queryOptions", value: Object): void;
             get(property:"queryOptions"): Object;
-            watch(property:"queryOptions", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"queryOptions", callback: Callback<Object>): Unwatchable
             /**
              * The list of used renderers
              *
@@ -10757,7 +10764,7 @@ declare namespace dojox {
             "resizeCursor": string;
             set(property:"resizeCursor", value: string): void;
             get(property:"resizeCursor"): string;
-            watch(property:"resizeCursor", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"resizeCursor", callback: Callback<string>): Unwatchable
             /**
              * A flag that indicates whether the items can be resized.
              * If true, the control supports resizing of items.
@@ -10766,7 +10773,7 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates whether the view can be scrolled or not.
              *
@@ -10774,7 +10781,7 @@ declare namespace dojox {
             "scrollable": boolean;
             set(property:"scrollable", value: boolean): void;
             get(property:"scrollable"): boolean;
-            watch(property:"scrollable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"scrollable", callback: Callback<boolean>): Unwatchable
             /**
              * Method used to scroll the view, for example the scroll of column view.
              * Valid value are:
@@ -10787,7 +10794,7 @@ declare namespace dojox {
             "scrollMethod": string;
             set(property:"scrollMethod", value: string): void;
             get(property:"scrollMethod"): string;
-            watch(property:"scrollMethod", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"scrollMethod", callback: Callback<string>): Unwatchable
             /**
              * In single selection mode, the selected item or in multiple selection mode the last selected item.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -10796,7 +10803,7 @@ declare namespace dojox {
             "selectedItem": Object;
             set(property:"selectedItem", value: Object): void;
             get(property:"selectedItem"): Object;
-            watch(property:"selectedItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItem", callback: Callback<Object>): Unwatchable
             /**
              * The list of selected items.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -10805,7 +10812,7 @@ declare namespace dojox {
             "selectedItems": Object;
             set(property:"selectedItems", value: Object): void;
             get(property:"selectedItems"): Object;
-            watch(property:"selectedItems", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItems", callback: Callback<Object>): Unwatchable
             /**
              * Valid values are:
              *
@@ -10818,7 +10825,7 @@ declare namespace dojox {
             "selectionMode": string;
             set(property:"selectionMode", value: string): void;
             get(property:"selectionMode"): string;
-            watch(property:"selectionMode", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"selectionMode", callback: Callback<string>): Unwatchable
             /**
              * The number of units used to compute the snapping of the edited item.
              *
@@ -10826,7 +10833,7 @@ declare namespace dojox {
             "snapSteps": number;
             set(property:"snapSteps", value: number): void;
             get(property:"snapSteps"): number;
-            watch(property:"snapSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"snapSteps", callback: Callback<number>): Unwatchable
             /**
              * The unit of the snapping to apply during the editing of an event.
              * "day", "hour" and "minute" are valid values.
@@ -10835,7 +10842,7 @@ declare namespace dojox {
             "snapUnit": string;
             set(property:"snapUnit", value: string): void;
             get(property:"snapUnit"): string;
-            watch(property:"snapUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"snapUnit", callback: Callback<string>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -10843,7 +10850,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The attribute of the store item that contains the start time of
              * the events represented by this item.    Default is "startTime".
@@ -10852,7 +10859,7 @@ declare namespace dojox {
             "startTimeAttr": string;
             set(property:"startTimeAttr", value: string): void;
             get(property:"startTimeAttr"): string;
-            watch(property:"startTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"startTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * Specifies during editing, if the item is already in view, if the item must stay in the time range defined by the view or not.
              *
@@ -10860,7 +10867,7 @@ declare namespace dojox {
             "stayInView": boolean;
             set(property:"stayInView", value: boolean): void;
             get(property:"stayInView"): boolean;
-            watch(property:"stayInView", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"stayInView", callback: Callback<boolean>): Unwatchable
             /**
              * The store that contains the events to display.
              *
@@ -10868,7 +10875,7 @@ declare namespace dojox {
             "store": Object;
             set(property:"store", value: Object): void;
             get(property:"store"): Object;
-            watch(property:"store", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"store", callback: Callback<Object>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -10876,7 +10883,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the sub column name of
              * the events represented by this item.    Default is "calendar".
@@ -10885,7 +10892,7 @@ declare namespace dojox {
             "subColumnAttr": string;
             set(property:"subColumnAttr", value: string): void;
             get(property:"subColumnAttr"): string;
-            watch(property:"subColumnAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"subColumnAttr", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the summary of
              * the events represented by this item.    Default is "summary".
@@ -10894,7 +10901,7 @@ declare namespace dojox {
             "summaryAttr": string;
             set(property:"summaryAttr", value: string): void;
             get(property:"summaryAttr"): string;
-            watch(property:"summaryAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"summaryAttr", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -10909,7 +10916,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -10918,7 +10925,7 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              * Kind of the view. Used by the calendar widget to determine how to configure the view.
              *
@@ -10926,7 +10933,7 @@ declare namespace dojox {
             "viewKind": string;
             set(property:"viewKind", value: string): void;
             get(property:"viewKind"): string;
-            watch(property:"viewKind", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"viewKind", callback: Callback<string>): Unwatchable
             /**
              * Add properties to the watched properties to trigger invalidation. This method must be called in
              * the constructor. It is typically used by subclasses of a _Invalidating class to add more properties
@@ -11735,7 +11742,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Called when the widget stops being "active" because
              * focus moved to something outside of it, or the user
@@ -11870,21 +11877,21 @@ declare namespace dojox {
             "allDayAttr": string;
             set(property:"allDayAttr", value: string): void;
             get(property:"allDayAttr"): string;
-            watch(property:"allDayAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"allDayAttr", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "allowResizeLessThan24H": boolean;
             set(property:"allowResizeLessThan24H", value: boolean): void;
             get(property:"allowResizeLessThan24H"): boolean;
-            watch(property:"allowResizeLessThan24H", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowResizeLessThan24H", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "allowStartEndSwap": boolean;
             set(property:"allowStartEndSwap", value: boolean): void;
             get(property:"allowStartEndSwap"): boolean;
-            watch(property:"allowStartEndSwap", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowStartEndSwap", callback: Callback<boolean>): Unwatchable
             /**
              * If several sub columns are displayed, indicated if the data item can be reassigned to another sub column by an editing gesture.
              *
@@ -11892,7 +11899,7 @@ declare namespace dojox {
             "allowSubColumnMove": boolean;
             set(property:"allowSubColumnMove", value: boolean): void;
             get(property:"allowSubColumnMove"): boolean;
-            watch(property:"allowSubColumnMove", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowSubColumnMove", callback: Callback<boolean>): Unwatchable
             /**
              * Object to which attach points and events will be scoped.  Defaults
              * to 'this'.
@@ -11901,7 +11908,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -11947,7 +11954,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Indicates whether the view can be scrolled automatically.
              * Auto scrolling is used when moving focus to a non visible renderer using keyboard
@@ -11957,14 +11964,14 @@ declare namespace dojox {
             "autoScroll": boolean;
             set(property:"autoScroll", value: boolean): void;
             get(property:"autoScroll"): boolean;
-            watch(property:"autoScroll", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"autoScroll", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              * Custom date/time pattern for grid cell label to override default one coming from the CLDR.
              * The long pattern is used for the first day of month or the first displayed day of a month.
@@ -11974,7 +11981,7 @@ declare namespace dojox {
             "cellHeaderLongPattern": string;
             set(property:"cellHeaderLongPattern", value: string): void;
             get(property:"cellHeaderLongPattern"): string;
-            watch(property:"cellHeaderLongPattern", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"cellHeaderLongPattern", callback: Callback<string>): Unwatchable
             /**
              * Custom date/time pattern for grid cell label to override default one coming from the CLDR.
              * See dojo/date/locale documentation for format string.
@@ -11983,21 +11990,21 @@ declare namespace dojox {
             "cellHeaderShortPattern": string;
             set(property:"cellHeaderShortPattern", value: string): void;
             get(property:"cellHeaderShortPattern"): string;
-            watch(property:"cellHeaderShortPattern", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"cellHeaderShortPattern", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "cellPaddingTop": number;
             set(property:"cellPaddingTop", value: number): void;
             get(property:"cellPaddingTop"): number;
-            watch(property:"cellPaddingTop", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"cellPaddingTop", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * The number of column to display (from the startDate).
              *
@@ -12005,7 +12012,7 @@ declare namespace dojox {
             "columnCount": number;
             set(property:"columnCount", value: number): void;
             get(property:"columnCount"): number;
-            watch(property:"columnCount", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"columnCount", callback: Callback<number>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -12032,7 +12039,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates whether the user can create new event by clicking and dragging the grid.
              * A createItem function must be defined on the view or the calendar object.
@@ -12041,7 +12048,7 @@ declare namespace dojox {
             "createOnGridClick": boolean;
             set(property:"createOnGridClick", value: boolean): void;
             get(property:"createOnGridClick"): boolean;
-            watch(property:"createOnGridClick", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"createOnGridClick", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function that returns a css class name to apply to item renderers that are displaying the specified item in parameter.
              *
@@ -12049,7 +12056,7 @@ declare namespace dojox {
             "cssClassFunc": Function;
             set(property:"cssClassFunc", value: Function): void;
             get(property:"cssClassFunc"): Function;
-            watch(property:"cssClassFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"cssClassFunc", callback: Callback<Function>): Unwatchable
             /**
              * JavaScript namespace to find Calendar routines. Uses Gregorian Calendar routines at dojo.date by default.
              *
@@ -12057,7 +12064,7 @@ declare namespace dojox {
             "datePackage": Object;
             set(property:"datePackage", value: Object): void;
             get(property:"datePackage"): Object;
-            watch(property:"datePackage", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"datePackage", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to transform store date into Date objects. Default is null.
              *
@@ -12065,7 +12072,7 @@ declare namespace dojox {
             "decodeDate": Object;
             set(property:"decodeDate", value: Object): void;
             get(property:"decodeDate"): Object;
-            watch(property:"decodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"decodeDate", callback: Callback<Object>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -12075,7 +12082,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * Whether the data items displayed must be recomputed, usually after the displayed
              * time range has changed.
@@ -12084,7 +12091,7 @@ declare namespace dojox {
             "displayedItemsInvalidated": boolean;
             set(property:"displayedItemsInvalidated", value: boolean): void;
             get(property:"displayedItemsInvalidated"): boolean;
-            watch(property:"displayedItemsInvalidated", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"displayedItemsInvalidated", callback: Callback<boolean>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -12095,7 +12102,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The maximum delay between two taps needed to trigger an "itemDoubleClick" event, in touch context.
              *
@@ -12103,7 +12110,7 @@ declare namespace dojox {
             "doubleTapDelay": number;
             set(property:"doubleTapDelay", value: number): void;
             get(property:"doubleTapDelay"): number;
-            watch(property:"doubleTapDelay", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"doubleTapDelay", callback: Callback<number>): Unwatchable
             /**
              * A flag that indicates whether or not the user can edit
              * items in the data provider.
@@ -12114,7 +12121,7 @@ declare namespace dojox {
             "editable": boolean;
             set(property:"editable", value: boolean): void;
             get(property:"editable"): boolean;
-            watch(property:"editable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"editable", callback: Callback<boolean>): Unwatchable
             /**
              * An optional function to transform Date objects into store date. Default is null.
              *
@@ -12122,7 +12129,7 @@ declare namespace dojox {
             "encodeDate": Object;
             set(property:"encodeDate", value: Object): void;
             get(property:"encodeDate"): Object;
-            watch(property:"encodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"encodeDate", callback: Callback<Object>): Unwatchable
             /**
              * The attribute of the store item that contains the end time of
              * the events represented by this item.    Default is "endTime".
@@ -12131,7 +12138,7 @@ declare namespace dojox {
             "endTimeAttr": string;
             set(property:"endTimeAttr", value: string): void;
             get(property:"endTimeAttr"): string;
-            watch(property:"endTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"endTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * Duration of the animation when expanding or collapsing a row.
              *
@@ -12139,7 +12146,7 @@ declare namespace dojox {
             "expandDuration": number;
             set(property:"expandDuration", value: number): void;
             get(property:"expandDuration"): number;
-            watch(property:"expandDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"expandDuration", callback: Callback<number>): Unwatchable
             /**
              * Easing function of the animation when expanding or collapsing a row (null by default).
              *
@@ -12147,7 +12154,7 @@ declare namespace dojox {
             "expandEasing": Function;
             set(property:"expandEasing", value: Function): void;
             get(property:"expandEasing"): Function;
-            watch(property:"expandEasing", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"expandEasing", callback: Callback<Function>): Unwatchable
             /**
              * The class use to create drill down renderers.
              *
@@ -12155,7 +12162,7 @@ declare namespace dojox {
             "expandRenderer": Object;
             set(property:"expandRenderer", value: Object): void;
             get(property:"expandRenderer"): Object;
-            watch(property:"expandRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"expandRenderer", callback: Callback<Object>): Unwatchable
             /**
              * The height in pixels of the expand/collapse renderers that is applied by the layout.
              *
@@ -12163,7 +12170,7 @@ declare namespace dojox {
             "expandRendererHeight": number;
             set(property:"expandRendererHeight", value: number): void;
             get(property:"expandRendererHeight"): number;
-            watch(property:"expandRendererHeight", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"expandRendererHeight", callback: Callback<number>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -12172,7 +12179,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function to format the time of day of the item renderers.
              * The function takes the date and render data object as arguments and returns a String.
@@ -12181,7 +12188,7 @@ declare namespace dojox {
             "formatItemTimeFunc": Function;
             set(property:"formatItemTimeFunc", value: Function): void;
             get(property:"formatItemTimeFunc"): Function;
-            watch(property:"formatItemTimeFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"formatItemTimeFunc", callback: Callback<Function>): Unwatchable
             /**
              * The class use to create horizontal renderers.
              *
@@ -12189,7 +12196,7 @@ declare namespace dojox {
             "horizontalRenderer": Object;
             set(property:"horizontalRenderer", value: Object): void;
             get(property:"horizontalRenderer"): Object;
-            watch(property:"horizontalRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"horizontalRenderer", callback: Callback<Object>): Unwatchable
             /**
              * The height in pixels of the horizontal and label renderers that is applied by the layout.
              *
@@ -12197,7 +12204,7 @@ declare namespace dojox {
             "horizontalRendererHeight": number;
             set(property:"horizontalRendererHeight", value: number): void;
             get(property:"horizontalRendererHeight"): number;
-            watch(property:"horizontalRendererHeight", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"horizontalRendererHeight", callback: Callback<number>): Unwatchable
             /**
              * The currently hovered data item.
              *
@@ -12205,7 +12212,7 @@ declare namespace dojox {
             "hoveredItem": Object;
             set(property:"hoveredItem", value: Object): void;
             get(property:"hoveredItem"): Object;
-            watch(property:"hoveredItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"hoveredItem", callback: Callback<Object>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -12216,21 +12223,21 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "invalidatingProperties": Object;
             set(property:"invalidatingProperties", value: Object): void;
             get(property:"invalidatingProperties"): Object;
-            watch(property:"invalidatingProperties", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"invalidatingProperties", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "invalidRendering": boolean;
             set(property:"invalidRendering", value: boolean): void;
             get(property:"invalidRendering"): boolean;
-            watch(property:"invalidRendering", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"invalidRendering", callback: Callback<boolean>): Unwatchable
             /**
              * The associated array item to renderer list.
              *
@@ -12238,7 +12245,7 @@ declare namespace dojox {
             "itemToRenderer": Object;
             set(property:"itemToRenderer", value: Object): void;
             get(property:"itemToRenderer"): Object;
-            watch(property:"itemToRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"itemToRenderer", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to associate a kind of renderer ("horizontal", "label" or null) with the specified item.
              * By default, if an item is lasting more that 24 hours an horizontal item is used, otherwise a label is used.
@@ -12247,7 +12254,7 @@ declare namespace dojox {
             "itemToRendererKindFunc": Function;
             set(property:"itemToRendererKindFunc", value: Function): void;
             get(property:"itemToRendererKindFunc"): Function;
-            watch(property:"itemToRendererKindFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"itemToRendererKindFunc", callback: Callback<Function>): Unwatchable
             /**
              * The class use to create label renderers.
              *
@@ -12255,14 +12262,14 @@ declare namespace dojox {
             "labelRenderer": Object;
             set(property:"labelRenderer", value: Object): void;
             get(property:"labelRenderer"): Object;
-            watch(property:"labelRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"labelRenderer", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "labelRendererHeight": number;
             set(property:"labelRendererHeight", value: number): void;
             get(property:"labelRendererHeight"): number;
-            watch(property:"labelRendererHeight", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"labelRendererHeight", callback: Callback<number>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -12273,14 +12280,14 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "layoutDuringResize": boolean;
             set(property:"layoutDuringResize", value: boolean): void;
             get(property:"layoutDuringResize"): boolean;
-            watch(property:"layoutDuringResize", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"layoutDuringResize", callback: Callback<boolean>): Unwatchable
             /**
              * An optional comparison function use to determine the order the item will be laid out
              * The function is used to sort an array and must, as any sorting function, take two items
@@ -12291,28 +12298,28 @@ declare namespace dojox {
             "layoutPriorityFunction": Function;
             set(property:"layoutPriorityFunction", value: Function): void;
             get(property:"layoutPriorityFunction"): Function;
-            watch(property:"layoutPriorityFunction", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"layoutPriorityFunction", callback: Callback<Function>): Unwatchable
             /**
              *
              */
             "liveLayout": boolean;
             set(property:"liveLayout", value: boolean): void;
             get(property:"liveLayout"): boolean;
-            watch(property:"liveLayout", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"liveLayout", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "minDurationSteps": number;
             set(property:"minDurationSteps", value: number): void;
             get(property:"minDurationSteps"): number;
-            watch(property:"minDurationSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"minDurationSteps", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "minDurationUnit": string;
             set(property:"minDurationUnit", value: string): void;
             get(property:"minDurationUnit"): string;
-            watch(property:"minDurationUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"minDurationUnit", callback: Callback<string>): Unwatchable
             /**
              * A flag that indicates whether the user can move items displayed.
              * If true, the user can move the items.
@@ -12321,14 +12328,14 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "naturalRowsHeight": Object;
             set(property:"naturalRowsHeight", value: Object): void;
             get(property:"naturalRowsHeight"): Object;
-            watch(property:"naturalRowsHeight", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"naturalRowsHeight", callback: Callback<Object>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -12337,7 +12344,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * The percentage of the renderer width used to superimpose one item renderers on another
              * when two events are overlapping. By default 0.
@@ -12346,7 +12353,7 @@ declare namespace dojox {
             "percentOverlap": number;
             set(property:"percentOverlap", value: number): void;
             get(property:"percentOverlap"): number;
-            watch(property:"percentOverlap", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"percentOverlap", callback: Callback<number>): Unwatchable
             /**
              * A query that can be passed to when querying the store.
              *
@@ -12354,7 +12361,7 @@ declare namespace dojox {
             "query": Object;
             set(property:"query", value: Object): void;
             get(property:"query"): Object;
-            watch(property:"query", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"query", callback: Callback<Object>): Unwatchable
             /**
              * Options to be applied when querying the store.
              *
@@ -12362,14 +12369,14 @@ declare namespace dojox {
             "queryOptions": Object;
             set(property:"queryOptions", value: Object): void;
             get(property:"queryOptions"): Object;
-            watch(property:"queryOptions", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"queryOptions", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "refEndTime": Object;
             set(property:"refEndTime", value: Object): void;
             get(property:"refEndTime"): Object;
-            watch(property:"refEndTime", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"refEndTime", callback: Callback<Object>): Unwatchable
             /**
              * (Optional) Start of the time interval of interest.
              * It is used to style differently the displayed rows out of the
@@ -12379,7 +12386,7 @@ declare namespace dojox {
             "refStartTime": Object;
             set(property:"refStartTime", value: Object): void;
             get(property:"refStartTime"): Object;
-            watch(property:"refStartTime", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"refStartTime", callback: Callback<Object>): Unwatchable
             /**
              * The render data object contains all the data needed to render the widget.
              *
@@ -12387,7 +12394,7 @@ declare namespace dojox {
             "renderData": Object;
             set(property:"renderData", value: Object): void;
             get(property:"renderData"): Object;
-            watch(property:"renderData", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"renderData", callback: Callback<Object>): Unwatchable
             /**
              * The list of used renderers
              *
@@ -12411,14 +12418,14 @@ declare namespace dojox {
             "resizeAnimationDuration": number;
             set(property:"resizeAnimationDuration", value: number): void;
             get(property:"resizeAnimationDuration"): number;
-            watch(property:"resizeAnimationDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"resizeAnimationDuration", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "resizeCursor": string;
             set(property:"resizeCursor", value: string): void;
             get(property:"resizeCursor"): string;
-            watch(property:"resizeCursor", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"resizeCursor", callback: Callback<string>): Unwatchable
             /**
              * A flag that indicates whether the items can be resized.
              * If true, the control supports resizing of items.
@@ -12427,28 +12434,28 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "roundToDay": boolean;
             set(property:"roundToDay", value: boolean): void;
             get(property:"roundToDay"): boolean;
-            watch(property:"roundToDay", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"roundToDay", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "rowCount": number;
             set(property:"rowCount", value: number): void;
             get(property:"rowCount"): number;
-            watch(property:"rowCount", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"rowCount", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "scrollable": boolean;
             set(property:"scrollable", value: boolean): void;
             get(property:"scrollable"): boolean;
-            watch(property:"scrollable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"scrollable", callback: Callback<boolean>): Unwatchable
             /**
              * Method used to scroll the view, for example the scroll of column view.
              * Valid value are:
@@ -12461,14 +12468,14 @@ declare namespace dojox {
             "scrollMethod": string;
             set(property:"scrollMethod", value: string): void;
             get(property:"scrollMethod"): string;
-            watch(property:"scrollMethod", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"scrollMethod", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * In single selection mode, the selected item or in multiple selection mode the last selected item.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -12477,7 +12484,7 @@ declare namespace dojox {
             "selectedItem": Object;
             set(property:"selectedItem", value: Object): void;
             get(property:"selectedItem"): Object;
-            watch(property:"selectedItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItem", callback: Callback<Object>): Unwatchable
             /**
              * The list of selected items.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -12486,7 +12493,7 @@ declare namespace dojox {
             "selectedItems": Object;
             set(property:"selectedItems", value: Object): void;
             get(property:"selectedItems"): Object;
-            watch(property:"selectedItems", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItems", callback: Callback<Object>): Unwatchable
             /**
              * Valid values are:
              *
@@ -12499,7 +12506,7 @@ declare namespace dojox {
             "selectionMode": string;
             set(property:"selectionMode", value: string): void;
             get(property:"selectionMode"): string;
-            watch(property:"selectionMode", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"selectionMode", callback: Callback<string>): Unwatchable
             /**
              * Whether display or not the grid cells label (usually the day of month).
              *
@@ -12507,21 +12514,21 @@ declare namespace dojox {
             "showCellLabel": boolean;
             set(property:"showCellLabel", value: boolean): void;
             get(property:"showCellLabel"): boolean;
-            watch(property:"showCellLabel", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"showCellLabel", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "snapSteps": number;
             set(property:"snapSteps", value: number): void;
             get(property:"snapSteps"): number;
-            watch(property:"snapSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"snapSteps", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "snapUnit": string;
             set(property:"snapUnit", value: string): void;
             get(property:"snapUnit"): string;
-            watch(property:"snapUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"snapUnit", callback: Callback<string>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -12529,7 +12536,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The start date of the time interval displayed.
              * If not set at initialization time, will be set to current day.
@@ -12538,7 +12545,7 @@ declare namespace dojox {
             "startDate": Date;
             set(property:"startDate", value: Date): void;
             get(property:"startDate"): Date;
-            watch(property:"startDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"startDate", callback: Callback<Date>): Unwatchable
             /**
              * The attribute of the store item that contains the start time of
              * the events represented by this item.    Default is "startTime".
@@ -12547,14 +12554,14 @@ declare namespace dojox {
             "startTimeAttr": string;
             set(property:"startTimeAttr", value: string): void;
             get(property:"startTimeAttr"): string;
-            watch(property:"startTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"startTimeAttr", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "stayInView": boolean;
             set(property:"stayInView", value: boolean): void;
             get(property:"stayInView"): boolean;
-            watch(property:"stayInView", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"stayInView", callback: Callback<boolean>): Unwatchable
             /**
              * The store that contains the events to display.
              *
@@ -12562,7 +12569,7 @@ declare namespace dojox {
             "store": Object;
             set(property:"store", value: Object): void;
             get(property:"store"): Object;
-            watch(property:"store", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"store", callback: Callback<Object>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -12570,7 +12577,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * Custom function to customize the appearance of a grid cell by installing custom CSS class on the node.
              * The signature of the function must be the same then the styleGridCell one.
@@ -12580,7 +12587,7 @@ declare namespace dojox {
             "styleGridCellFunc": Function;
             set(property:"styleGridCellFunc", value: Function): void;
             get(property:"styleGridCellFunc"): Function;
-            watch(property:"styleGridCellFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"styleGridCellFunc", callback: Callback<Function>): Unwatchable
             /**
              * The attribute of the store item that contains the sub column name of
              * the events represented by this item.    Default is "calendar".
@@ -12589,7 +12596,7 @@ declare namespace dojox {
             "subColumnAttr": string;
             set(property:"subColumnAttr", value: string): void;
             get(property:"subColumnAttr"): string;
-            watch(property:"subColumnAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"subColumnAttr", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the summary of
              * the events represented by this item.    Default is "summary".
@@ -12598,7 +12605,7 @@ declare namespace dojox {
             "summaryAttr": string;
             set(property:"summaryAttr", value: string): void;
             get(property:"summaryAttr"): string;
-            watch(property:"summaryAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"summaryAttr", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -12607,14 +12614,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -12629,7 +12636,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -12638,14 +12645,14 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "triggerExtent": number;
             set(property:"triggerExtent", value: number): void;
             get(property:"triggerExtent"): number;
-            watch(property:"triggerExtent", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"triggerExtent", callback: Callback<number>): Unwatchable
             /**
              * The number of pixels between two item renderers that are overlapping each other if the percentOverlap property is 0.
              *
@@ -12653,7 +12660,7 @@ declare namespace dojox {
             "verticalGap": number;
             set(property:"verticalGap", value: number): void;
             get(property:"verticalGap"): number;
-            watch(property:"verticalGap", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"verticalGap", callback: Callback<number>): Unwatchable
             /**
              * Type of the view. Used by the calendar widget to determine how to configure the view.
              * This view kind is "matrix".
@@ -12662,7 +12669,7 @@ declare namespace dojox {
             "viewKind": string;
             set(property:"viewKind", value: string): void;
             get(property:"viewKind"): string;
-            watch(property:"viewKind", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"viewKind", callback: Callback<string>): Unwatchable
             /**
              * Add properties to the watched properties to trigger invalidation. This method must be called in
              * the constructor. It is typically used by subclasses of a _Invalidating class to add more properties
@@ -13522,7 +13529,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Static method to get a template based on the templatePath or
              * templateString key
@@ -13683,21 +13690,21 @@ declare namespace dojox {
             "allDayAttr": string;
             set(property:"allDayAttr", value: string): void;
             get(property:"allDayAttr"): string;
-            watch(property:"allDayAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"allDayAttr", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "allowResizeLessThan24H": boolean;
             set(property:"allowResizeLessThan24H", value: boolean): void;
             get(property:"allowResizeLessThan24H"): boolean;
-            watch(property:"allowResizeLessThan24H", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowResizeLessThan24H", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "allowStartEndSwap": boolean;
             set(property:"allowStartEndSwap", value: boolean): void;
             get(property:"allowStartEndSwap"): boolean;
-            watch(property:"allowStartEndSwap", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowStartEndSwap", callback: Callback<boolean>): Unwatchable
             /**
              * If several sub columns are displayed, indicated if the data item can be reassigned to another sub column by an editing gesture.
              *
@@ -13705,7 +13712,7 @@ declare namespace dojox {
             "allowSubColumnMove": boolean;
             set(property:"allowSubColumnMove", value: boolean): void;
             get(property:"allowSubColumnMove"): boolean;
-            watch(property:"allowSubColumnMove", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowSubColumnMove", callback: Callback<boolean>): Unwatchable
             /**
              * Object to which attach points and events will be scoped.  Defaults
              * to 'this'.
@@ -13714,7 +13721,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -13760,7 +13767,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Indicates whether the view can be scrolled automatically.
              * Auto scrolling is used when moving focus to a non visible renderer using keyboard
@@ -13770,21 +13777,21 @@ declare namespace dojox {
             "autoScroll": boolean;
             set(property:"autoScroll", value: boolean): void;
             get(property:"autoScroll"): boolean;
-            watch(property:"autoScroll", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"autoScroll", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * The number of column to display (from the startDate).
              *
@@ -13792,7 +13799,7 @@ declare namespace dojox {
             "columnCount": number;
             set(property:"columnCount", value: number): void;
             get(property:"columnCount"): number;
-            watch(property:"columnCount", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"columnCount", callback: Callback<number>): Unwatchable
             /**
              * Custom date/time pattern for column header labels to override default one coming from the CLDR.
              * See dojo/date/locale documentation for format string.
@@ -13801,7 +13808,7 @@ declare namespace dojox {
             "columnHeaderDatePattern": string;
             set(property:"columnHeaderDatePattern", value: string): void;
             get(property:"columnHeaderDatePattern"): string;
-            watch(property:"columnHeaderDatePattern", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"columnHeaderDatePattern", callback: Callback<string>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -13828,7 +13835,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates whether the user can create new event by clicking and dragging the grid.
              * A createItem function must be defined on the view or the calendar object.
@@ -13837,7 +13844,7 @@ declare namespace dojox {
             "createOnGridClick": boolean;
             set(property:"createOnGridClick", value: boolean): void;
             get(property:"createOnGridClick"): boolean;
-            watch(property:"createOnGridClick", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"createOnGridClick", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function that returns a css class name to apply to item renderers that are displaying the specified item in parameter.
              *
@@ -13845,7 +13852,7 @@ declare namespace dojox {
             "cssClassFunc": Function;
             set(property:"cssClassFunc", value: Function): void;
             get(property:"cssClassFunc"): Function;
-            watch(property:"cssClassFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"cssClassFunc", callback: Callback<Function>): Unwatchable
             /**
              * JavaScript namespace to find Calendar routines. Uses Gregorian Calendar routines at dojo.date by default.
              *
@@ -13853,7 +13860,7 @@ declare namespace dojox {
             "datePackage": Object;
             set(property:"datePackage", value: Object): void;
             get(property:"datePackage"): Object;
-            watch(property:"datePackage", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"datePackage", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to transform store date into Date objects. Default is null.
              *
@@ -13861,7 +13868,7 @@ declare namespace dojox {
             "decodeDate": Object;
             set(property:"decodeDate", value: Object): void;
             get(property:"decodeDate"): Object;
-            watch(property:"decodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"decodeDate", callback: Callback<Object>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -13871,7 +13878,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * Whether the data items displayed must be recomputed, usually after the displayed
              * time range has changed.
@@ -13880,7 +13887,7 @@ declare namespace dojox {
             "displayedItemsInvalidated": boolean;
             set(property:"displayedItemsInvalidated", value: boolean): void;
             get(property:"displayedItemsInvalidated"): boolean;
-            watch(property:"displayedItemsInvalidated", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"displayedItemsInvalidated", callback: Callback<boolean>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -13891,7 +13898,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The maximum delay between two taps needed to trigger an "itemDoubleClick" event, in touch context.
              *
@@ -13899,7 +13906,7 @@ declare namespace dojox {
             "doubleTapDelay": number;
             set(property:"doubleTapDelay", value: number): void;
             get(property:"doubleTapDelay"): number;
-            watch(property:"doubleTapDelay", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"doubleTapDelay", callback: Callback<number>): Unwatchable
             /**
              * A flag that indicates whether or not the user can edit
              * items in the data provider.
@@ -13910,7 +13917,7 @@ declare namespace dojox {
             "editable": boolean;
             set(property:"editable", value: boolean): void;
             get(property:"editable"): boolean;
-            watch(property:"editable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"editable", callback: Callback<boolean>): Unwatchable
             /**
              * An optional function to transform Date objects into store date. Default is null.
              *
@@ -13918,7 +13925,7 @@ declare namespace dojox {
             "encodeDate": Object;
             set(property:"encodeDate", value: Object): void;
             get(property:"encodeDate"): Object;
-            watch(property:"encodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"encodeDate", callback: Callback<Object>): Unwatchable
             /**
              * The attribute of the store item that contains the end time of
              * the events represented by this item.    Default is "endTime".
@@ -13927,7 +13934,7 @@ declare namespace dojox {
             "endTimeAttr": string;
             set(property:"endTimeAttr", value: string): void;
             get(property:"endTimeAttr"): string;
-            watch(property:"endTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"endTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -13936,7 +13943,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function to format the time of day of the item renderers.
              * The function takes the date and render data object as arguments and returns a String.
@@ -13945,7 +13952,7 @@ declare namespace dojox {
             "formatItemTimeFunc": Function;
             set(property:"formatItemTimeFunc", value: Function): void;
             get(property:"formatItemTimeFunc"): Function;
-            watch(property:"formatItemTimeFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"formatItemTimeFunc", callback: Callback<Function>): Unwatchable
             /**
              * Padding between the header (composed of the secondary sheet and the column header)
              * and the primary sheet.
@@ -13954,7 +13961,7 @@ declare namespace dojox {
             "headerPadding": number;
             set(property:"headerPadding", value: number): void;
             get(property:"headerPadding"): number;
-            watch(property:"headerPadding", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"headerPadding", callback: Callback<number>): Unwatchable
             /**
              * The number of pixels between two item renderers that are overlapping each other if the percentOverlap property is 0.
              *
@@ -13962,7 +13969,7 @@ declare namespace dojox {
             "horizontalGap": number;
             set(property:"horizontalGap", value: number): void;
             get(property:"horizontalGap"): number;
-            watch(property:"horizontalGap", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"horizontalGap", callback: Callback<number>): Unwatchable
             /**
              * The desired size in pixels of an hour on the screen.
              * Note that the effective size may be different as the time slot size must be an integer.
@@ -13971,7 +13978,7 @@ declare namespace dojox {
             "hourSize": number;
             set(property:"hourSize", value: number): void;
             get(property:"hourSize"): number;
-            watch(property:"hourSize", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"hourSize", callback: Callback<number>): Unwatchable
             /**
              * The currently hovered data item.
              *
@@ -13979,7 +13986,7 @@ declare namespace dojox {
             "hoveredItem": Object;
             set(property:"hoveredItem", value: Object): void;
             get(property:"hoveredItem"): Object;
-            watch(property:"hoveredItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"hoveredItem", callback: Callback<Object>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -13990,21 +13997,21 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "invalidatingProperties": Object;
             set(property:"invalidatingProperties", value: Object): void;
             get(property:"invalidatingProperties"): Object;
-            watch(property:"invalidatingProperties", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"invalidatingProperties", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "invalidRendering": boolean;
             set(property:"invalidRendering", value: boolean): void;
             get(property:"invalidRendering"): boolean;
-            watch(property:"invalidRendering", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"invalidRendering", callback: Callback<boolean>): Unwatchable
             /**
              * The associated array item to renderer list.
              *
@@ -14012,7 +14019,7 @@ declare namespace dojox {
             "itemToRenderer": Object;
             set(property:"itemToRenderer", value: Object): void;
             get(property:"itemToRenderer"): Object;
-            watch(property:"itemToRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"itemToRenderer", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to associate a kind of renderer ("horizontal", "label" or null) with the specified item.
              * By default, if an item is lasting more that 24 hours an horizontal item is used, otherwise a label is used.
@@ -14021,7 +14028,7 @@ declare namespace dojox {
             "itemToRendererKindFunc": Function;
             set(property:"itemToRendererKindFunc", value: Function): void;
             get(property:"itemToRendererKindFunc"): Function;
-            watch(property:"itemToRendererKindFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"itemToRendererKindFunc", callback: Callback<Function>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -14032,7 +14039,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * An optional comparison function use to determine the order the item will be laid out
              * The function is used to sort an array and must, as any sorting function, take two items
@@ -14043,14 +14050,14 @@ declare namespace dojox {
             "layoutPriorityFunction": Function;
             set(property:"layoutPriorityFunction", value: Function): void;
             get(property:"layoutPriorityFunction"): Function;
-            watch(property:"layoutPriorityFunction", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"layoutPriorityFunction", callback: Callback<Function>): Unwatchable
             /**
              *
              */
             "liveLayout": boolean;
             set(property:"liveLayout", value: boolean): void;
             get(property:"liveLayout"): boolean;
-            watch(property:"liveLayout", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"liveLayout", callback: Callback<boolean>): Unwatchable
             /**
              * The maximum hour to be displayed. It must be in the [1,36] interval and must be greater than the minHours.
              *
@@ -14058,7 +14065,7 @@ declare namespace dojox {
             "maxHours": number;
             set(property:"maxHours", value: number): void;
             get(property:"maxHours"): number;
-            watch(property:"maxHours", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"maxHours", callback: Callback<number>): Unwatchable
             /**
              * The minimum column width. If the number of columns and sub columns displayed makes the
              * width of a column greater than this property, a horizontal scroll bar is displayed.
@@ -14068,21 +14075,21 @@ declare namespace dojox {
             "minColumnWidth": number;
             set(property:"minColumnWidth", value: number): void;
             get(property:"minColumnWidth"): number;
-            watch(property:"minColumnWidth", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"minColumnWidth", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "minDurationSteps": number;
             set(property:"minDurationSteps", value: number): void;
             get(property:"minDurationSteps"): number;
-            watch(property:"minDurationSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"minDurationSteps", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "minDurationUnit": string;
             set(property:"minDurationUnit", value: string): void;
             get(property:"minDurationUnit"): string;
-            watch(property:"minDurationUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"minDurationUnit", callback: Callback<string>): Unwatchable
             /**
              * The minimum hour to be displayed. It must be in the [0,23] interval and must be lower than the maxHours.
              *
@@ -14090,7 +14097,7 @@ declare namespace dojox {
             "minHours": number;
             set(property:"minHours", value: number): void;
             get(property:"minHours"): number;
-            watch(property:"minHours", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"minHours", callback: Callback<number>): Unwatchable
             /**
              * A flag that indicates whether the user can move items displayed.
              * If true, the user can move the items.
@@ -14099,7 +14106,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -14108,7 +14115,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * The percentage of the renderer width used to superimpose one item renderer on another
              * when two events are overlapping.
@@ -14117,7 +14124,7 @@ declare namespace dojox {
             "percentOverlap": number;
             set(property:"percentOverlap", value: number): void;
             get(property:"percentOverlap"): number;
-            watch(property:"percentOverlap", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"percentOverlap", callback: Callback<number>): Unwatchable
             /**
              * A query that can be passed to when querying the store.
              *
@@ -14125,7 +14132,7 @@ declare namespace dojox {
             "query": Object;
             set(property:"query", value: Object): void;
             get(property:"query"): Object;
-            watch(property:"query", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"query", callback: Callback<Object>): Unwatchable
             /**
              * Options to be applied when querying the store.
              *
@@ -14133,7 +14140,7 @@ declare namespace dojox {
             "queryOptions": Object;
             set(property:"queryOptions", value: Object): void;
             get(property:"queryOptions"): Object;
-            watch(property:"queryOptions", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"queryOptions", callback: Callback<Object>): Unwatchable
             /**
              * The render data is the object that contains all the properties needed to render the component.
              *
@@ -14141,7 +14148,7 @@ declare namespace dojox {
             "renderData": Object;
             set(property:"renderData", value: Object): void;
             get(property:"renderData"): Object;
-            watch(property:"renderData", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"renderData", callback: Callback<Object>): Unwatchable
             /**
              * The list of used renderers
              *
@@ -14165,7 +14172,7 @@ declare namespace dojox {
             "resizeCursor": string;
             set(property:"resizeCursor", value: string): void;
             get(property:"resizeCursor"): string;
-            watch(property:"resizeCursor", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"resizeCursor", callback: Callback<string>): Unwatchable
             /**
              * A flag that indicates whether the items can be resized.
              * If true, the control supports resizing of items.
@@ -14174,7 +14181,7 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * Offset of the first row label from the top of the first row header cell in pixels.
              *
@@ -14182,7 +14189,7 @@ declare namespace dojox {
             "rowHeaderFirstLabelOffset": number;
             set(property:"rowHeaderFirstLabelOffset", value: number): void;
             get(property:"rowHeaderFirstLabelOffset"): number;
-            watch(property:"rowHeaderFirstLabelOffset", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"rowHeaderFirstLabelOffset", callback: Callback<number>): Unwatchable
             /**
              * Duration of the time slot in minutes in the row header. Must be a divisor of 60 and a multiple/divisor of timeSlotDuration.
              *
@@ -14190,7 +14197,7 @@ declare namespace dojox {
             "rowHeaderGridSlotDuration": number;
             set(property:"rowHeaderGridSlotDuration", value: number): void;
             get(property:"rowHeaderGridSlotDuration"): number;
-            watch(property:"rowHeaderGridSlotDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"rowHeaderGridSlotDuration", callback: Callback<number>): Unwatchable
             /**
              * Offset of the row label from the top of the row header cell in pixels.
              *
@@ -14198,7 +14205,7 @@ declare namespace dojox {
             "rowHeaderLabelOffset": number;
             set(property:"rowHeaderLabelOffset", value: number): void;
             get(property:"rowHeaderLabelOffset"): number;
-            watch(property:"rowHeaderLabelOffset", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"rowHeaderLabelOffset", callback: Callback<number>): Unwatchable
             /**
              * Duration of the time slot in minutes in the row header labels. Must be a divisor of 60 and a multiple/divisor of timeSlotDuration.
              *
@@ -14206,7 +14213,7 @@ declare namespace dojox {
             "rowHeaderLabelSlotDuration": number;
             set(property:"rowHeaderLabelSlotDuration", value: number): void;
             get(property:"rowHeaderLabelSlotDuration"): number;
-            watch(property:"rowHeaderLabelSlotDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"rowHeaderLabelSlotDuration", callback: Callback<number>): Unwatchable
             /**
              * Custom date/time pattern for the row header labels to override default one coming from the CLDR.
              * See dojo/date/locale documentation for format string.
@@ -14215,7 +14222,7 @@ declare namespace dojox {
             "rowHeaderTimePattern": string;
             set(property:"rowHeaderTimePattern", value: string): void;
             get(property:"rowHeaderTimePattern"): string;
-            watch(property:"rowHeaderTimePattern", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"rowHeaderTimePattern", callback: Callback<string>): Unwatchable
             /**
              * Indicates whether the view can be scrolled or not.
              *
@@ -14223,7 +14230,7 @@ declare namespace dojox {
             "scrollable": boolean;
             set(property:"scrollable", value: boolean): void;
             get(property:"scrollable"): boolean;
-            watch(property:"scrollable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"scrollable", callback: Callback<boolean>): Unwatchable
             /**
              * Position of the scroll bar in right-to-left display.
              * Valid values are "left" and "right", default value is "left".
@@ -14232,7 +14239,7 @@ declare namespace dojox {
             "scrollBarRTLPosition": string;
             set(property:"scrollBarRTLPosition", value: string): void;
             get(property:"scrollBarRTLPosition"): string;
-            watch(property:"scrollBarRTLPosition", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"scrollBarRTLPosition", callback: Callback<string>): Unwatchable
             /**
              * Method used to scroll the view, for example the scroll of column view.
              * Valid value are:
@@ -14245,14 +14252,14 @@ declare namespace dojox {
             "scrollMethod": string;
             set(property:"scrollMethod", value: string): void;
             get(property:"scrollMethod"): string;
-            watch(property:"scrollMethod", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"scrollMethod", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * Secondary sheet constructor parameters.
              *
@@ -14260,7 +14267,7 @@ declare namespace dojox {
             "secondarySheetProps": Object;
             set(property:"secondarySheetProps", value: Object): void;
             get(property:"secondarySheetProps"): Object;
-            watch(property:"secondarySheetProps", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"secondarySheetProps", callback: Callback<Object>): Unwatchable
             /**
              * In single selection mode, the selected item or in multiple selection mode the last selected item.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -14269,7 +14276,7 @@ declare namespace dojox {
             "selectedItem": Object;
             set(property:"selectedItem", value: Object): void;
             get(property:"selectedItem"): Object;
-            watch(property:"selectedItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItem", callback: Callback<Object>): Unwatchable
             /**
              * The list of selected items.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -14278,7 +14285,7 @@ declare namespace dojox {
             "selectedItems": Object;
             set(property:"selectedItems", value: Object): void;
             get(property:"selectedItems"): Object;
-            watch(property:"selectedItems", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItems", callback: Callback<Object>): Unwatchable
             /**
              * Valid values are:
              *
@@ -14291,7 +14298,7 @@ declare namespace dojox {
             "selectionMode": string;
             set(property:"selectionMode", value: string): void;
             get(property:"selectionMode"): string;
-            watch(property:"selectionMode", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"selectionMode", callback: Callback<string>): Unwatchable
             /**
              * Whether show or not an indicator (default a red line) at the current time.
              *
@@ -14299,21 +14306,21 @@ declare namespace dojox {
             "showTimeIndicator": boolean;
             set(property:"showTimeIndicator", value: boolean): void;
             get(property:"showTimeIndicator"): boolean;
-            watch(property:"showTimeIndicator", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"showTimeIndicator", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "snapSteps": number;
             set(property:"snapSteps", value: number): void;
             get(property:"snapSteps"): number;
-            watch(property:"snapSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"snapSteps", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "snapUnit": string;
             set(property:"snapUnit", value: string): void;
             get(property:"snapUnit"): string;
-            watch(property:"snapUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"snapUnit", callback: Callback<string>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -14321,7 +14328,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The start date of the time interval displayed.
              * If not set at initialization time, will be set to current day.
@@ -14330,7 +14337,7 @@ declare namespace dojox {
             "startDate": Date;
             set(property:"startDate", value: Date): void;
             get(property:"startDate"): Date;
-            watch(property:"startDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"startDate", callback: Callback<Date>): Unwatchable
             /**
              * The attribute of the store item that contains the start time of
              * the events represented by this item.    Default is "startTime".
@@ -14339,7 +14346,7 @@ declare namespace dojox {
             "startTimeAttr": string;
             set(property:"startTimeAttr", value: string): void;
             get(property:"startTimeAttr"): string;
-            watch(property:"startTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"startTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * First time (hour/minute) of day displayed, if reachable.
              * An object containing "hours" and "minutes" properties.
@@ -14348,14 +14355,14 @@ declare namespace dojox {
             "startTimeOfDay": Object;
             set(property:"startTimeOfDay", value: Object): void;
             get(property:"startTimeOfDay"): Object;
-            watch(property:"startTimeOfDay", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"startTimeOfDay", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "stayInView": boolean;
             set(property:"stayInView", value: boolean): void;
             get(property:"stayInView"): boolean;
-            watch(property:"stayInView", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"stayInView", callback: Callback<boolean>): Unwatchable
             /**
              * The store that contains the events to display.
              *
@@ -14363,7 +14370,7 @@ declare namespace dojox {
             "store": Object;
             set(property:"store", value: Object): void;
             get(property:"store"): Object;
-            watch(property:"store", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"store", callback: Callback<Object>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -14371,7 +14378,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * Custom function to customize the appearance of a grid cell by installing custom CSS class on the node.
              * The signature of the function must be the same then the styleGridCell one.
@@ -14381,7 +14388,7 @@ declare namespace dojox {
             "styleGridCellFunc": Function;
             set(property:"styleGridCellFunc", value: Function): void;
             get(property:"styleGridCellFunc"): Function;
-            watch(property:"styleGridCellFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"styleGridCellFunc", callback: Callback<Function>): Unwatchable
             /**
              * The attribute of the store item that contains the sub column name of
              * the events represented by this item.    Default is "calendar".
@@ -14390,14 +14397,14 @@ declare namespace dojox {
             "subColumnAttr": string;
             set(property:"subColumnAttr", value: string): void;
             get(property:"subColumnAttr"): string;
-            watch(property:"subColumnAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"subColumnAttr", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "subColumns": Object;
             set(property:"subColumns", value: Object): void;
             get(property:"subColumns"): Object;
-            watch(property:"subColumns", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"subColumns", callback: Callback<Object>): Unwatchable
             /**
              * The attribute of the store item that contains the summary of
              * the events represented by this item.    Default is "summary".
@@ -14406,7 +14413,7 @@ declare namespace dojox {
             "summaryAttr": string;
             set(property:"summaryAttr", value: string): void;
             get(property:"summaryAttr"): string;
-            watch(property:"summaryAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"summaryAttr", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -14415,14 +14422,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * Maximal interval between two refreshes of time indicator.
              *
@@ -14430,7 +14437,7 @@ declare namespace dojox {
             "timeIndicatorRefreshInterval": number;
             set(property:"timeIndicatorRefreshInterval", value: number): void;
             get(property:"timeIndicatorRefreshInterval"): number;
-            watch(property:"timeIndicatorRefreshInterval", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"timeIndicatorRefreshInterval", callback: Callback<number>): Unwatchable
             /**
              * Duration of the time slot in minutes. Must be a divisor of 60.
              *
@@ -14438,7 +14445,7 @@ declare namespace dojox {
             "timeSlotDuration": number;
             set(property:"timeSlotDuration", value: number): void;
             get(property:"timeSlotDuration"): number;
-            watch(property:"timeSlotDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"timeSlotDuration", callback: Callback<number>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -14453,7 +14460,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -14462,7 +14469,7 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              * The class use to create vertical renderers.
              *
@@ -14470,7 +14477,7 @@ declare namespace dojox {
             "verticalRenderer": Object;
             set(property:"verticalRenderer", value: Object): void;
             get(property:"verticalRenderer"): Object;
-            watch(property:"verticalRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"verticalRenderer", callback: Callback<Object>): Unwatchable
             /**
              * Type of the view. Used by the calendar widget to determine how to configure the view.
              * This view kind is "columns".
@@ -14479,7 +14486,7 @@ declare namespace dojox {
             "viewKind": string;
             set(property:"viewKind", value: string): void;
             get(property:"viewKind"): string;
-            watch(property:"viewKind", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"viewKind", callback: Callback<string>): Unwatchable
             /**
              * Add properties to the watched properties to trigger invalidation. This method must be called in
              * the constructor. It is typically used by subclasses of a _Invalidating class to add more properties
@@ -15381,7 +15388,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Static method to get a template based on the templatePath or
              * templateString key
@@ -15532,21 +15539,21 @@ declare namespace dojox {
             "allDayAttr": string;
             set(property:"allDayAttr", value: string): void;
             get(property:"allDayAttr"): string;
-            watch(property:"allDayAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"allDayAttr", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "allowResizeLessThan24H": boolean;
             set(property:"allowResizeLessThan24H", value: boolean): void;
             get(property:"allowResizeLessThan24H"): boolean;
-            watch(property:"allowResizeLessThan24H", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowResizeLessThan24H", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "allowStartEndSwap": boolean;
             set(property:"allowStartEndSwap", value: boolean): void;
             get(property:"allowStartEndSwap"): boolean;
-            watch(property:"allowStartEndSwap", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowStartEndSwap", callback: Callback<boolean>): Unwatchable
             /**
              * If several sub columns are displayed, indicated if the data item can be reassigned to another sub column by an editing gesture.
              *
@@ -15554,7 +15561,7 @@ declare namespace dojox {
             "allowSubColumnMove": boolean;
             set(property:"allowSubColumnMove", value: boolean): void;
             get(property:"allowSubColumnMove"): boolean;
-            watch(property:"allowSubColumnMove", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowSubColumnMove", callback: Callback<boolean>): Unwatchable
             /**
              * Object to which attach points and events will be scoped.  Defaults
              * to 'this'.
@@ -15563,7 +15570,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -15609,7 +15616,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Indicates whether the view can be scrolled automatically.
              * Auto scrolling is used when moving focus to a non visible renderer using keyboard
@@ -15619,14 +15626,14 @@ declare namespace dojox {
             "autoScroll": boolean;
             set(property:"autoScroll", value: boolean): void;
             get(property:"autoScroll"): boolean;
-            watch(property:"autoScroll", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"autoScroll", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              * Custom date/time pattern for grid cell label to override default one coming from the CLDR.
              * The long pattern is used for the first day of month or the first displayed day of a month.
@@ -15636,7 +15643,7 @@ declare namespace dojox {
             "cellHeaderLongPattern": string;
             set(property:"cellHeaderLongPattern", value: string): void;
             get(property:"cellHeaderLongPattern"): string;
-            watch(property:"cellHeaderLongPattern", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"cellHeaderLongPattern", callback: Callback<string>): Unwatchable
             /**
              * Custom date/time pattern for grid cell label to override default one coming from the CLDR.
              * See dojo/date/locale documentation for format string.
@@ -15645,7 +15652,7 @@ declare namespace dojox {
             "cellHeaderShortPattern": string;
             set(property:"cellHeaderShortPattern", value: string): void;
             get(property:"cellHeaderShortPattern"): string;
-            watch(property:"cellHeaderShortPattern", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"cellHeaderShortPattern", callback: Callback<string>): Unwatchable
             /**
              * The top offset in pixels of each cell applied by the layout.
              *
@@ -15653,14 +15660,14 @@ declare namespace dojox {
             "cellPaddingTop": number;
             set(property:"cellPaddingTop", value: number): void;
             get(property:"cellPaddingTop"): number;
-            watch(property:"cellPaddingTop", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"cellPaddingTop", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * The number of column to display (from the startDate).
              *
@@ -15668,7 +15675,7 @@ declare namespace dojox {
             "columnCount": number;
             set(property:"columnCount", value: number): void;
             get(property:"columnCount"): number;
-            watch(property:"columnCount", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"columnCount", callback: Callback<number>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -15695,7 +15702,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates whether the user can create new event by clicking and dragging the grid.
              * A createItem function must be defined on the view or the calendar object.
@@ -15704,7 +15711,7 @@ declare namespace dojox {
             "createOnGridClick": boolean;
             set(property:"createOnGridClick", value: boolean): void;
             get(property:"createOnGridClick"): boolean;
-            watch(property:"createOnGridClick", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"createOnGridClick", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function that returns a css class name to apply to item renderers that are displaying the specified item in parameter.
              *
@@ -15712,7 +15719,7 @@ declare namespace dojox {
             "cssClassFunc": Function;
             set(property:"cssClassFunc", value: Function): void;
             get(property:"cssClassFunc"): Function;
-            watch(property:"cssClassFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"cssClassFunc", callback: Callback<Function>): Unwatchable
             /**
              * JavaScript namespace to find Calendar routines. Uses Gregorian Calendar routines at dojo.date by default.
              *
@@ -15720,7 +15727,7 @@ declare namespace dojox {
             "datePackage": Object;
             set(property:"datePackage", value: Object): void;
             get(property:"datePackage"): Object;
-            watch(property:"datePackage", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"datePackage", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to transform store date into Date objects. Default is null.
              *
@@ -15728,7 +15735,7 @@ declare namespace dojox {
             "decodeDate": Object;
             set(property:"decodeDate", value: Object): void;
             get(property:"decodeDate"): Object;
-            watch(property:"decodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"decodeDate", callback: Callback<Object>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -15738,7 +15745,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * Whether the data items displayed must be recomputed, usually after the displayed
              * time range has changed.
@@ -15747,7 +15754,7 @@ declare namespace dojox {
             "displayedItemsInvalidated": boolean;
             set(property:"displayedItemsInvalidated", value: boolean): void;
             get(property:"displayedItemsInvalidated"): boolean;
-            watch(property:"displayedItemsInvalidated", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"displayedItemsInvalidated", callback: Callback<boolean>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -15758,7 +15765,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The maximum delay between two taps needed to trigger an "itemDoubleClick" event, in touch context.
              *
@@ -15766,7 +15773,7 @@ declare namespace dojox {
             "doubleTapDelay": number;
             set(property:"doubleTapDelay", value: number): void;
             get(property:"doubleTapDelay"): number;
-            watch(property:"doubleTapDelay", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"doubleTapDelay", callback: Callback<number>): Unwatchable
             /**
              * A flag that indicates whether or not the user can edit
              * items in the data provider.
@@ -15777,7 +15784,7 @@ declare namespace dojox {
             "editable": boolean;
             set(property:"editable", value: boolean): void;
             get(property:"editable"): boolean;
-            watch(property:"editable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"editable", callback: Callback<boolean>): Unwatchable
             /**
              * An optional function to transform Date objects into store date. Default is null.
              *
@@ -15785,7 +15792,7 @@ declare namespace dojox {
             "encodeDate": Object;
             set(property:"encodeDate", value: Object): void;
             get(property:"encodeDate"): Object;
-            watch(property:"encodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"encodeDate", callback: Callback<Object>): Unwatchable
             /**
              * The attribute of the store item that contains the end time of
              * the events represented by this item.    Default is "endTime".
@@ -15794,7 +15801,7 @@ declare namespace dojox {
             "endTimeAttr": string;
             set(property:"endTimeAttr", value: string): void;
             get(property:"endTimeAttr"): string;
-            watch(property:"endTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"endTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * Duration of the animation when expanding or collapsing a row.
              *
@@ -15802,7 +15809,7 @@ declare namespace dojox {
             "expandDuration": number;
             set(property:"expandDuration", value: number): void;
             get(property:"expandDuration"): number;
-            watch(property:"expandDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"expandDuration", callback: Callback<number>): Unwatchable
             /**
              * Easing function of the animation when expanding or collapsing a row (null by default).
              *
@@ -15810,7 +15817,7 @@ declare namespace dojox {
             "expandEasing": Function;
             set(property:"expandEasing", value: Function): void;
             get(property:"expandEasing"): Function;
-            watch(property:"expandEasing", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"expandEasing", callback: Callback<Function>): Unwatchable
             /**
              * The class use to create drill down renderers.
              *
@@ -15818,7 +15825,7 @@ declare namespace dojox {
             "expandRenderer": Object;
             set(property:"expandRenderer", value: Object): void;
             get(property:"expandRenderer"): Object;
-            watch(property:"expandRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"expandRenderer", callback: Callback<Object>): Unwatchable
             /**
              * The height in pixels of the expand/collapse renderers that is applied by the layout.
              *
@@ -15826,7 +15833,7 @@ declare namespace dojox {
             "expandRendererHeight": number;
             set(property:"expandRendererHeight", value: number): void;
             get(property:"expandRendererHeight"): number;
-            watch(property:"expandRendererHeight", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"expandRendererHeight", callback: Callback<number>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -15835,7 +15842,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function to format the time of day of the item renderers.
              * The function takes the date and render data object as arguments and returns a String.
@@ -15844,7 +15851,7 @@ declare namespace dojox {
             "formatItemTimeFunc": Function;
             set(property:"formatItemTimeFunc", value: Function): void;
             get(property:"formatItemTimeFunc"): Function;
-            watch(property:"formatItemTimeFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"formatItemTimeFunc", callback: Callback<Function>): Unwatchable
             /**
              * The class use to create horizontal renderers.
              *
@@ -15852,7 +15859,7 @@ declare namespace dojox {
             "horizontalRenderer": Object;
             set(property:"horizontalRenderer", value: Object): void;
             get(property:"horizontalRenderer"): Object;
-            watch(property:"horizontalRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"horizontalRenderer", callback: Callback<Object>): Unwatchable
             /**
              * The height in pixels of the horizontal and label renderers that is applied by the layout.
              *
@@ -15860,7 +15867,7 @@ declare namespace dojox {
             "horizontalRendererHeight": number;
             set(property:"horizontalRendererHeight", value: number): void;
             get(property:"horizontalRendererHeight"): number;
-            watch(property:"horizontalRendererHeight", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"horizontalRendererHeight", callback: Callback<number>): Unwatchable
             /**
              * The currently hovered data item.
              *
@@ -15868,7 +15875,7 @@ declare namespace dojox {
             "hoveredItem": Object;
             set(property:"hoveredItem", value: Object): void;
             get(property:"hoveredItem"): Object;
-            watch(property:"hoveredItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"hoveredItem", callback: Callback<Object>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -15879,21 +15886,21 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "invalidatingProperties": Object;
             set(property:"invalidatingProperties", value: Object): void;
             get(property:"invalidatingProperties"): Object;
-            watch(property:"invalidatingProperties", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"invalidatingProperties", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "invalidRendering": boolean;
             set(property:"invalidRendering", value: boolean): void;
             get(property:"invalidRendering"): boolean;
-            watch(property:"invalidRendering", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"invalidRendering", callback: Callback<boolean>): Unwatchable
             /**
              * The associated array item to renderer list.
              *
@@ -15901,7 +15908,7 @@ declare namespace dojox {
             "itemToRenderer": Object;
             set(property:"itemToRenderer", value: Object): void;
             get(property:"itemToRenderer"): Object;
-            watch(property:"itemToRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"itemToRenderer", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to associate a kind of renderer ("horizontal", "label" or null) with the specified item.
              * By default, if an item is lasting more that 24 hours an horizontal item is used, otherwise a label is used.
@@ -15910,7 +15917,7 @@ declare namespace dojox {
             "itemToRendererKindFunc": Function;
             set(property:"itemToRendererKindFunc", value: Function): void;
             get(property:"itemToRendererKindFunc"): Function;
-            watch(property:"itemToRendererKindFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"itemToRendererKindFunc", callback: Callback<Function>): Unwatchable
             /**
              * The class use to create label renderers.
              *
@@ -15918,14 +15925,14 @@ declare namespace dojox {
             "labelRenderer": Object;
             set(property:"labelRenderer", value: Object): void;
             get(property:"labelRenderer"): Object;
-            watch(property:"labelRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"labelRenderer", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "labelRendererHeight": number;
             set(property:"labelRendererHeight", value: number): void;
             get(property:"labelRendererHeight"): number;
-            watch(property:"labelRendererHeight", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"labelRendererHeight", callback: Callback<number>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -15936,7 +15943,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * Indicates if the item renderers' position and size is updated or if they are hidden during a resize of the widget.
              *
@@ -15944,7 +15951,7 @@ declare namespace dojox {
             "layoutDuringResize": boolean;
             set(property:"layoutDuringResize", value: boolean): void;
             get(property:"layoutDuringResize"): boolean;
-            watch(property:"layoutDuringResize", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"layoutDuringResize", callback: Callback<boolean>): Unwatchable
             /**
              * An optional comparison function use to determine the order the item will be laid out
              * The function is used to sort an array and must, as any sorting function, take two items
@@ -15955,28 +15962,28 @@ declare namespace dojox {
             "layoutPriorityFunction": Function;
             set(property:"layoutPriorityFunction", value: Function): void;
             get(property:"layoutPriorityFunction"): Function;
-            watch(property:"layoutPriorityFunction", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"layoutPriorityFunction", callback: Callback<Function>): Unwatchable
             /**
              *
              */
             "liveLayout": boolean;
             set(property:"liveLayout", value: boolean): void;
             get(property:"liveLayout"): boolean;
-            watch(property:"liveLayout", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"liveLayout", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "minDurationSteps": number;
             set(property:"minDurationSteps", value: number): void;
             get(property:"minDurationSteps"): number;
-            watch(property:"minDurationSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"minDurationSteps", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "minDurationUnit": string;
             set(property:"minDurationUnit", value: string): void;
             get(property:"minDurationUnit"): string;
-            watch(property:"minDurationUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"minDurationUnit", callback: Callback<string>): Unwatchable
             /**
              * A flag that indicates whether the user can move items displayed.
              * If true, the user can move the items.
@@ -15985,14 +15992,14 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "naturalRowsHeight": Object;
             set(property:"naturalRowsHeight", value: Object): void;
             get(property:"naturalRowsHeight"): Object;
-            watch(property:"naturalRowsHeight", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"naturalRowsHeight", callback: Callback<Object>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -16001,7 +16008,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * The percentage of the renderer width used to superimpose one item renderers on another
              * when two events are overlapping. By default 0.
@@ -16010,7 +16017,7 @@ declare namespace dojox {
             "percentOverlap": number;
             set(property:"percentOverlap", value: number): void;
             get(property:"percentOverlap"): number;
-            watch(property:"percentOverlap", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"percentOverlap", callback: Callback<number>): Unwatchable
             /**
              * A query that can be passed to when querying the store.
              *
@@ -16018,7 +16025,7 @@ declare namespace dojox {
             "query": Object;
             set(property:"query", value: Object): void;
             get(property:"query"): Object;
-            watch(property:"query", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"query", callback: Callback<Object>): Unwatchable
             /**
              * Options to be applied when querying the store.
              *
@@ -16026,14 +16033,14 @@ declare namespace dojox {
             "queryOptions": Object;
             set(property:"queryOptions", value: Object): void;
             get(property:"queryOptions"): Object;
-            watch(property:"queryOptions", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"queryOptions", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "refEndTime": Object;
             set(property:"refEndTime", value: Object): void;
             get(property:"refEndTime"): Object;
-            watch(property:"refEndTime", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"refEndTime", callback: Callback<Object>): Unwatchable
             /**
              * (Optional) Start of the time interval of interest.
              * It is used to style differently the displayed rows out of the
@@ -16043,7 +16050,7 @@ declare namespace dojox {
             "refStartTime": Object;
             set(property:"refStartTime", value: Object): void;
             get(property:"refStartTime"): Object;
-            watch(property:"refStartTime", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"refStartTime", callback: Callback<Object>): Unwatchable
             /**
              * The render data object contains all the data needed to render the widget.
              *
@@ -16051,7 +16058,7 @@ declare namespace dojox {
             "renderData": Object;
             set(property:"renderData", value: Object): void;
             get(property:"renderData"): Object;
-            watch(property:"renderData", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"renderData", callback: Callback<Object>): Unwatchable
             /**
              * The list of used renderers
              *
@@ -16075,14 +16082,14 @@ declare namespace dojox {
             "resizeAnimationDuration": number;
             set(property:"resizeAnimationDuration", value: number): void;
             get(property:"resizeAnimationDuration"): number;
-            watch(property:"resizeAnimationDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"resizeAnimationDuration", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "resizeCursor": string;
             set(property:"resizeCursor", value: string): void;
             get(property:"resizeCursor"): string;
-            watch(property:"resizeCursor", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"resizeCursor", callback: Callback<string>): Unwatchable
             /**
              * A flag that indicates whether the items can be resized.
              * If true, the control supports resizing of items.
@@ -16091,7 +16098,7 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * For horizontal renderers that are not filling entire days, whether fill the day or not.
              *
@@ -16099,7 +16106,7 @@ declare namespace dojox {
             "roundToDay": boolean;
             set(property:"roundToDay", value: boolean): void;
             get(property:"roundToDay"): boolean;
-            watch(property:"roundToDay", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"roundToDay", callback: Callback<boolean>): Unwatchable
             /**
              * The number of rows to display (from the startDate).
              *
@@ -16107,14 +16114,14 @@ declare namespace dojox {
             "rowCount": number;
             set(property:"rowCount", value: number): void;
             get(property:"rowCount"): number;
-            watch(property:"rowCount", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"rowCount", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "scrollable": boolean;
             set(property:"scrollable", value: boolean): void;
             get(property:"scrollable"): boolean;
-            watch(property:"scrollable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"scrollable", callback: Callback<boolean>): Unwatchable
             /**
              * Method used to scroll the view, for example the scroll of column view.
              * Valid value are:
@@ -16127,14 +16134,14 @@ declare namespace dojox {
             "scrollMethod": string;
             set(property:"scrollMethod", value: string): void;
             get(property:"scrollMethod"): string;
-            watch(property:"scrollMethod", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"scrollMethod", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * In single selection mode, the selected item or in multiple selection mode the last selected item.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -16143,7 +16150,7 @@ declare namespace dojox {
             "selectedItem": Object;
             set(property:"selectedItem", value: Object): void;
             get(property:"selectedItem"): Object;
-            watch(property:"selectedItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItem", callback: Callback<Object>): Unwatchable
             /**
              * The list of selected items.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -16152,7 +16159,7 @@ declare namespace dojox {
             "selectedItems": Object;
             set(property:"selectedItems", value: Object): void;
             get(property:"selectedItems"): Object;
-            watch(property:"selectedItems", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItems", callback: Callback<Object>): Unwatchable
             /**
              * Valid values are:
              *
@@ -16165,7 +16172,7 @@ declare namespace dojox {
             "selectionMode": string;
             set(property:"selectionMode", value: string): void;
             get(property:"selectionMode"): string;
-            watch(property:"selectionMode", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"selectionMode", callback: Callback<string>): Unwatchable
             /**
              * Whether display or not the grid cells label (usually the day of month).
              *
@@ -16173,21 +16180,21 @@ declare namespace dojox {
             "showCellLabel": boolean;
             set(property:"showCellLabel", value: boolean): void;
             get(property:"showCellLabel"): boolean;
-            watch(property:"showCellLabel", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"showCellLabel", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "snapSteps": number;
             set(property:"snapSteps", value: number): void;
             get(property:"snapSteps"): number;
-            watch(property:"snapSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"snapSteps", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "snapUnit": string;
             set(property:"snapUnit", value: string): void;
             get(property:"snapUnit"): string;
-            watch(property:"snapUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"snapUnit", callback: Callback<string>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -16195,7 +16202,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The start date of the time interval displayed.
              * If not set at initialization time, will be set to current day.
@@ -16204,7 +16211,7 @@ declare namespace dojox {
             "startDate": Date;
             set(property:"startDate", value: Date): void;
             get(property:"startDate"): Date;
-            watch(property:"startDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"startDate", callback: Callback<Date>): Unwatchable
             /**
              * The attribute of the store item that contains the start time of
              * the events represented by this item.    Default is "startTime".
@@ -16213,14 +16220,14 @@ declare namespace dojox {
             "startTimeAttr": string;
             set(property:"startTimeAttr", value: string): void;
             get(property:"startTimeAttr"): string;
-            watch(property:"startTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"startTimeAttr", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "stayInView": boolean;
             set(property:"stayInView", value: boolean): void;
             get(property:"stayInView"): boolean;
-            watch(property:"stayInView", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"stayInView", callback: Callback<boolean>): Unwatchable
             /**
              * The store that contains the events to display.
              *
@@ -16228,7 +16235,7 @@ declare namespace dojox {
             "store": Object;
             set(property:"store", value: Object): void;
             get(property:"store"): Object;
-            watch(property:"store", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"store", callback: Callback<Object>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -16236,7 +16243,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * Custom function to customize the appearance of a grid cell by installing custom CSS class on the node.
              * The signature of the function must be the same then the styleGridCell one.
@@ -16246,7 +16253,7 @@ declare namespace dojox {
             "styleGridCellFunc": Function;
             set(property:"styleGridCellFunc", value: Function): void;
             get(property:"styleGridCellFunc"): Function;
-            watch(property:"styleGridCellFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"styleGridCellFunc", callback: Callback<Function>): Unwatchable
             /**
              * The attribute of the store item that contains the sub column name of
              * the events represented by this item.    Default is "calendar".
@@ -16255,7 +16262,7 @@ declare namespace dojox {
             "subColumnAttr": string;
             set(property:"subColumnAttr", value: string): void;
             get(property:"subColumnAttr"): string;
-            watch(property:"subColumnAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"subColumnAttr", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the summary of
              * the events represented by this item.    Default is "summary".
@@ -16264,7 +16271,7 @@ declare namespace dojox {
             "summaryAttr": string;
             set(property:"summaryAttr", value: string): void;
             get(property:"summaryAttr"): string;
-            watch(property:"summaryAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"summaryAttr", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -16273,14 +16280,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -16295,7 +16302,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -16304,14 +16311,14 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "triggerExtent": number;
             set(property:"triggerExtent", value: number): void;
             get(property:"triggerExtent"): number;
-            watch(property:"triggerExtent", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"triggerExtent", callback: Callback<number>): Unwatchable
             /**
              * The number of pixels between two item renderers that are overlapping each other if the percentOverlap property is 0.
              *
@@ -16319,7 +16326,7 @@ declare namespace dojox {
             "verticalGap": number;
             set(property:"verticalGap", value: number): void;
             get(property:"verticalGap"): number;
-            watch(property:"verticalGap", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"verticalGap", callback: Callback<number>): Unwatchable
             /**
              * Type of the view. Used by the calendar widget to determine how to configure the view.
              * This view kind is "matrix".
@@ -16328,7 +16335,7 @@ declare namespace dojox {
             "viewKind": string;
             set(property:"viewKind", value: string): void;
             get(property:"viewKind"): string;
-            watch(property:"viewKind", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"viewKind", callback: Callback<string>): Unwatchable
             /**
              * Add properties to the watched properties to trigger invalidation. This method must be called in
              * the constructor. It is typically used by subclasses of a _Invalidating class to add more properties
@@ -17189,7 +17196,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Static method to get a template based on the templatePath or
              * templateString key
@@ -17346,21 +17353,21 @@ declare namespace dojox {
             "allDayAttr": string;
             set(property:"allDayAttr", value: string): void;
             get(property:"allDayAttr"): string;
-            watch(property:"allDayAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"allDayAttr", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "allowResizeLessThan24H": boolean;
             set(property:"allowResizeLessThan24H", value: boolean): void;
             get(property:"allowResizeLessThan24H"): boolean;
-            watch(property:"allowResizeLessThan24H", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowResizeLessThan24H", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "allowStartEndSwap": boolean;
             set(property:"allowStartEndSwap", value: boolean): void;
             get(property:"allowStartEndSwap"): boolean;
-            watch(property:"allowStartEndSwap", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowStartEndSwap", callback: Callback<boolean>): Unwatchable
             /**
              * If several sub columns are displayed, indicated if the data item can be reassigned to another sub column by an editing gesture.
              *
@@ -17368,7 +17375,7 @@ declare namespace dojox {
             "allowSubColumnMove": boolean;
             set(property:"allowSubColumnMove", value: boolean): void;
             get(property:"allowSubColumnMove"): boolean;
-            watch(property:"allowSubColumnMove", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowSubColumnMove", callback: Callback<boolean>): Unwatchable
             /**
              * Object to which attach points and events will be scoped.  Defaults
              * to 'this'.
@@ -17377,7 +17384,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -17423,7 +17430,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Indicates whether the view can be scrolled automatically.
              * Auto scrolling is used when moving focus to a non visible renderer using keyboard
@@ -17433,21 +17440,21 @@ declare namespace dojox {
             "autoScroll": boolean;
             set(property:"autoScroll", value: boolean): void;
             get(property:"autoScroll"): boolean;
-            watch(property:"autoScroll", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"autoScroll", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * The number of column to display (from the startDate).
              *
@@ -17455,7 +17462,7 @@ declare namespace dojox {
             "columnCount": number;
             set(property:"columnCount", value: number): void;
             get(property:"columnCount"): number;
-            watch(property:"columnCount", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"columnCount", callback: Callback<number>): Unwatchable
             /**
              * Length of the column labels. Valid values are "wide" or "abbr".
              *
@@ -17463,7 +17470,7 @@ declare namespace dojox {
             "columnHeaderFormatLength": string;
             set(property:"columnHeaderFormatLength", value: string): void;
             get(property:"columnHeaderFormatLength"): string;
-            watch(property:"columnHeaderFormatLength", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"columnHeaderFormatLength", callback: Callback<string>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -17490,7 +17497,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates whether the user can create new event by clicking and dragging the grid.
              * A createItem function must be defined on the view or the calendar object.
@@ -17499,7 +17506,7 @@ declare namespace dojox {
             "createOnGridClick": boolean;
             set(property:"createOnGridClick", value: boolean): void;
             get(property:"createOnGridClick"): boolean;
-            watch(property:"createOnGridClick", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"createOnGridClick", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function that returns a css class name to apply to item renderers that are displaying the specified item in parameter.
              *
@@ -17507,7 +17514,7 @@ declare namespace dojox {
             "cssClassFunc": Function;
             set(property:"cssClassFunc", value: Function): void;
             get(property:"cssClassFunc"): Function;
-            watch(property:"cssClassFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"cssClassFunc", callback: Callback<Function>): Unwatchable
             /**
              * JavaScript namespace to find Calendar routines. Uses Gregorian Calendar routines at dojo.date by default.
              *
@@ -17515,7 +17522,7 @@ declare namespace dojox {
             "datePackage": Object;
             set(property:"datePackage", value: Object): void;
             get(property:"datePackage"): Object;
-            watch(property:"datePackage", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"datePackage", callback: Callback<Object>): Unwatchable
             /**
              * The desired size in pixels of an hour on the screen.
              * Note that the effective size may be different as the time slot size must be an integer.
@@ -17524,7 +17531,7 @@ declare namespace dojox {
             "daySize": number;
             set(property:"daySize", value: number): void;
             get(property:"daySize"): number;
-            watch(property:"daySize", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"daySize", callback: Callback<number>): Unwatchable
             /**
              * An optional function to transform store date into Date objects. Default is null.
              *
@@ -17532,7 +17539,7 @@ declare namespace dojox {
             "decodeDate": Object;
             set(property:"decodeDate", value: Object): void;
             get(property:"decodeDate"): Object;
-            watch(property:"decodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"decodeDate", callback: Callback<Object>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -17542,7 +17549,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * Whether the data items displayed must be recomputed, usually after the displayed
              * time range has changed.
@@ -17551,7 +17558,7 @@ declare namespace dojox {
             "displayedItemsInvalidated": boolean;
             set(property:"displayedItemsInvalidated", value: boolean): void;
             get(property:"displayedItemsInvalidated"): boolean;
-            watch(property:"displayedItemsInvalidated", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"displayedItemsInvalidated", callback: Callback<boolean>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -17562,7 +17569,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The maximum delay between two taps needed to trigger an "itemDoubleClick" event, in touch context.
              *
@@ -17570,7 +17577,7 @@ declare namespace dojox {
             "doubleTapDelay": number;
             set(property:"doubleTapDelay", value: number): void;
             get(property:"doubleTapDelay"): number;
-            watch(property:"doubleTapDelay", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"doubleTapDelay", callback: Callback<number>): Unwatchable
             /**
              * A flag that indicates whether or not the user can edit
              * items in the data provider.
@@ -17581,7 +17588,7 @@ declare namespace dojox {
             "editable": boolean;
             set(property:"editable", value: boolean): void;
             get(property:"editable"): boolean;
-            watch(property:"editable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"editable", callback: Callback<boolean>): Unwatchable
             /**
              * An optional function to transform Date objects into store date. Default is null.
              *
@@ -17589,7 +17596,7 @@ declare namespace dojox {
             "encodeDate": Object;
             set(property:"encodeDate", value: Object): void;
             get(property:"encodeDate"): Object;
-            watch(property:"encodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"encodeDate", callback: Callback<Object>): Unwatchable
             /**
              * The attribute of the store item that contains the end time of
              * the events represented by this item.    Default is "endTime".
@@ -17598,7 +17605,7 @@ declare namespace dojox {
             "endTimeAttr": string;
             set(property:"endTimeAttr", value: string): void;
             get(property:"endTimeAttr"): string;
-            watch(property:"endTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"endTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -17607,7 +17614,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function to format the time of day of the item renderers.
              * The function takes the date and render data object as arguments and returns a String.
@@ -17616,7 +17623,7 @@ declare namespace dojox {
             "formatItemTimeFunc": Function;
             set(property:"formatItemTimeFunc", value: Function): void;
             get(property:"formatItemTimeFunc"): Function;
-            watch(property:"formatItemTimeFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"formatItemTimeFunc", callback: Callback<Function>): Unwatchable
             /**
              * Custom date/time pattern for cell labels to override default one coming from the CLDR.
              * See dojo/date/locale documentation for format string.
@@ -17625,7 +17632,7 @@ declare namespace dojox {
             "gridCellDatePattern": string;
             set(property:"gridCellDatePattern", value: string): void;
             get(property:"gridCellDatePattern"): string;
-            watch(property:"gridCellDatePattern", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"gridCellDatePattern", callback: Callback<string>): Unwatchable
             /**
              * The number of pixels between two item renderers.
              *
@@ -17633,7 +17640,7 @@ declare namespace dojox {
             "horizontalGap": number;
             set(property:"horizontalGap", value: number): void;
             get(property:"horizontalGap"): number;
-            watch(property:"horizontalGap", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"horizontalGap", callback: Callback<number>): Unwatchable
             /**
              * The currently hovered data item.
              *
@@ -17641,7 +17648,7 @@ declare namespace dojox {
             "hoveredItem": Object;
             set(property:"hoveredItem", value: Object): void;
             get(property:"hoveredItem"): Object;
-            watch(property:"hoveredItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"hoveredItem", callback: Callback<Object>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -17652,21 +17659,21 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "invalidatingProperties": Object;
             set(property:"invalidatingProperties", value: Object): void;
             get(property:"invalidatingProperties"): Object;
-            watch(property:"invalidatingProperties", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"invalidatingProperties", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "invalidRendering": boolean;
             set(property:"invalidRendering", value: boolean): void;
             get(property:"invalidRendering"): boolean;
-            watch(property:"invalidRendering", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"invalidRendering", callback: Callback<boolean>): Unwatchable
             /**
              * The associated array item to renderer list.
              *
@@ -17674,7 +17681,7 @@ declare namespace dojox {
             "itemToRenderer": Object;
             set(property:"itemToRenderer", value: Object): void;
             get(property:"itemToRenderer"): Object;
-            watch(property:"itemToRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"itemToRenderer", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to associate a kind of renderer ("horizontal", "label" or null) with the specified item.
              * By default, if an item is lasting more that 24 hours an horizontal item is used, otherwise a label is used.
@@ -17683,7 +17690,7 @@ declare namespace dojox {
             "itemToRendererKindFunc": Function;
             set(property:"itemToRendererKindFunc", value: Function): void;
             get(property:"itemToRendererKindFunc"): Function;
-            watch(property:"itemToRendererKindFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"itemToRendererKindFunc", callback: Callback<Function>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -17694,7 +17701,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * An optional comparison function use to determine the order the item will be laid out
              * The function is used to sort an array and must, as any sorting function, take two items
@@ -17705,28 +17712,28 @@ declare namespace dojox {
             "layoutPriorityFunction": Function;
             set(property:"layoutPriorityFunction", value: Function): void;
             get(property:"layoutPriorityFunction"): Function;
-            watch(property:"layoutPriorityFunction", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"layoutPriorityFunction", callback: Callback<Function>): Unwatchable
             /**
              *
              */
             "liveLayout": boolean;
             set(property:"liveLayout", value: boolean): void;
             get(property:"liveLayout"): boolean;
-            watch(property:"liveLayout", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"liveLayout", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "minDurationSteps": number;
             set(property:"minDurationSteps", value: number): void;
             get(property:"minDurationSteps"): number;
-            watch(property:"minDurationSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"minDurationSteps", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "minDurationUnit": string;
             set(property:"minDurationUnit", value: string): void;
             get(property:"minDurationUnit"): string;
-            watch(property:"minDurationUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"minDurationUnit", callback: Callback<string>): Unwatchable
             /**
              * A flag that indicates whether the user can move items displayed.
              * If true, the user can move the items.
@@ -17735,7 +17742,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -17744,7 +17751,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * The percentage of the renderer width used to superimpose one item renderer on another
              * when two events are overlapping.
@@ -17753,7 +17760,7 @@ declare namespace dojox {
             "percentOverlap": number;
             set(property:"percentOverlap", value: number): void;
             get(property:"percentOverlap"): number;
-            watch(property:"percentOverlap", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"percentOverlap", callback: Callback<number>): Unwatchable
             /**
              * A query that can be passed to when querying the store.
              *
@@ -17761,7 +17768,7 @@ declare namespace dojox {
             "query": Object;
             set(property:"query", value: Object): void;
             get(property:"query"): Object;
-            watch(property:"query", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"query", callback: Callback<Object>): Unwatchable
             /**
              * Options to be applied when querying the store.
              *
@@ -17769,7 +17776,7 @@ declare namespace dojox {
             "queryOptions": Object;
             set(property:"queryOptions", value: Object): void;
             get(property:"queryOptions"): Object;
-            watch(property:"queryOptions", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"queryOptions", callback: Callback<Object>): Unwatchable
             /**
              * The render data is the object that contains all the properties needed to render the component.
              *
@@ -17777,7 +17784,7 @@ declare namespace dojox {
             "renderData": Object;
             set(property:"renderData", value: Object): void;
             get(property:"renderData"): Object;
-            watch(property:"renderData", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"renderData", callback: Callback<Object>): Unwatchable
             /**
              * The list of used renderers
              *
@@ -17801,7 +17808,7 @@ declare namespace dojox {
             "resizeCursor": string;
             set(property:"resizeCursor", value: string): void;
             get(property:"resizeCursor"): string;
-            watch(property:"resizeCursor", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"resizeCursor", callback: Callback<string>): Unwatchable
             /**
              * A flag that indicates whether the items can be resized.
              * If true, the control supports resizing of items.
@@ -17810,14 +17817,14 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "roundToDay": boolean;
             set(property:"roundToDay", value: boolean): void;
             get(property:"roundToDay"): boolean;
-            watch(property:"roundToDay", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"roundToDay", callback: Callback<boolean>): Unwatchable
             /**
              * Indicates whether the view can be scrolled or not.
              *
@@ -17825,7 +17832,7 @@ declare namespace dojox {
             "scrollable": boolean;
             set(property:"scrollable", value: boolean): void;
             get(property:"scrollable"): boolean;
-            watch(property:"scrollable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"scrollable", callback: Callback<boolean>): Unwatchable
             /**
              * Position of the scroll bar in right-to-left display.
              * Valid values are "left" and "right", default value is "left".
@@ -17834,7 +17841,7 @@ declare namespace dojox {
             "scrollBarRTLPosition": string;
             set(property:"scrollBarRTLPosition", value: string): void;
             get(property:"scrollBarRTLPosition"): string;
-            watch(property:"scrollBarRTLPosition", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"scrollBarRTLPosition", callback: Callback<string>): Unwatchable
             /**
              * Method used to scroll the view, for example the scroll of column view.
              * Valid value are:
@@ -17847,7 +17854,7 @@ declare namespace dojox {
             "scrollMethod": string;
             set(property:"scrollMethod", value: string): void;
             get(property:"scrollMethod"): string;
-            watch(property:"scrollMethod", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"scrollMethod", callback: Callback<string>): Unwatchable
             /**
              * The scroll position of the view.
              *
@@ -17855,14 +17862,14 @@ declare namespace dojox {
             "scrollPosition": number;
             set(property:"scrollPosition", value: number): void;
             get(property:"scrollPosition"): number;
-            watch(property:"scrollPosition", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"scrollPosition", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * In single selection mode, the selected item or in multiple selection mode the last selected item.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -17871,7 +17878,7 @@ declare namespace dojox {
             "selectedItem": Object;
             set(property:"selectedItem", value: Object): void;
             get(property:"selectedItem"): Object;
-            watch(property:"selectedItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItem", callback: Callback<Object>): Unwatchable
             /**
              * The list of selected items.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -17880,7 +17887,7 @@ declare namespace dojox {
             "selectedItems": Object;
             set(property:"selectedItems", value: Object): void;
             get(property:"selectedItems"): Object;
-            watch(property:"selectedItems", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItems", callback: Callback<Object>): Unwatchable
             /**
              * Valid values are:
              *
@@ -17893,7 +17900,7 @@ declare namespace dojox {
             "selectionMode": string;
             set(property:"selectionMode", value: string): void;
             get(property:"selectionMode"): string;
-            watch(property:"selectionMode", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"selectionMode", callback: Callback<string>): Unwatchable
             /**
              * Whether display or not the grid cells label (usually the day of month).
              *
@@ -17901,7 +17908,7 @@ declare namespace dojox {
             "showCellLabel": boolean;
             set(property:"showCellLabel", value: boolean): void;
             get(property:"showCellLabel"): boolean;
-            watch(property:"showCellLabel", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"showCellLabel", callback: Callback<boolean>): Unwatchable
             /**
              * Whether show or not the hidden items.
              * By default the events that are shorter than a day are not displayed using vertical renderers by this widget.
@@ -17911,21 +17918,21 @@ declare namespace dojox {
             "showHiddenItems": boolean;
             set(property:"showHiddenItems", value: boolean): void;
             get(property:"showHiddenItems"): boolean;
-            watch(property:"showHiddenItems", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"showHiddenItems", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "snapSteps": number;
             set(property:"snapSteps", value: number): void;
             get(property:"snapSteps"): number;
-            watch(property:"snapSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"snapSteps", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "snapUnit": string;
             set(property:"snapUnit", value: string): void;
             get(property:"snapUnit"): string;
-            watch(property:"snapUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"snapUnit", callback: Callback<string>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -17933,7 +17940,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The start date of the time interval displayed.
              * If not set at initialization time, will be set to current day.
@@ -17942,7 +17949,7 @@ declare namespace dojox {
             "startDate": Date;
             set(property:"startDate", value: Date): void;
             get(property:"startDate"): Date;
-            watch(property:"startDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"startDate", callback: Callback<Date>): Unwatchable
             /**
              * The attribute of the store item that contains the start time of
              * the events represented by this item.    Default is "startTime".
@@ -17951,14 +17958,14 @@ declare namespace dojox {
             "startTimeAttr": string;
             set(property:"startTimeAttr", value: string): void;
             get(property:"startTimeAttr"): string;
-            watch(property:"startTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"startTimeAttr", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "stayInView": boolean;
             set(property:"stayInView", value: boolean): void;
             get(property:"stayInView"): boolean;
-            watch(property:"stayInView", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"stayInView", callback: Callback<boolean>): Unwatchable
             /**
              * The store that contains the events to display.
              *
@@ -17966,7 +17973,7 @@ declare namespace dojox {
             "store": Object;
             set(property:"store", value: Object): void;
             get(property:"store"): Object;
-            watch(property:"store", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"store", callback: Callback<Object>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -17974,7 +17981,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * Custom function to customize the appearance of a grid cell by installing custom CSS class on the node.
              * The signature of the function must be the same then the styleGridCell one.
@@ -17984,7 +17991,7 @@ declare namespace dojox {
             "styleGridCellFunc": Function;
             set(property:"styleGridCellFunc", value: Function): void;
             get(property:"styleGridCellFunc"): Function;
-            watch(property:"styleGridCellFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"styleGridCellFunc", callback: Callback<Function>): Unwatchable
             /**
              * The attribute of the store item that contains the sub column name of
              * the events represented by this item.    Default is "calendar".
@@ -17993,7 +18000,7 @@ declare namespace dojox {
             "subColumnAttr": string;
             set(property:"subColumnAttr", value: string): void;
             get(property:"subColumnAttr"): string;
-            watch(property:"subColumnAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"subColumnAttr", callback: Callback<string>): Unwatchable
             /**
              * The attribute of the store item that contains the summary of
              * the events represented by this item.    Default is "summary".
@@ -18002,7 +18009,7 @@ declare namespace dojox {
             "summaryAttr": string;
             set(property:"summaryAttr", value: string): void;
             get(property:"summaryAttr"): string;
-            watch(property:"summaryAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"summaryAttr", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -18011,14 +18018,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -18033,7 +18040,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -18042,7 +18049,7 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              * The class use to create vertical renderers.
              *
@@ -18050,7 +18057,7 @@ declare namespace dojox {
             "verticalRenderer": Object;
             set(property:"verticalRenderer", value: Object): void;
             get(property:"verticalRenderer"): Object;
-            watch(property:"verticalRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"verticalRenderer", callback: Callback<Object>): Unwatchable
             /**
              * Type of the view. Used by the calendar widget to determine how to configure the view.
              * This view kind is "columns".
@@ -18059,7 +18066,7 @@ declare namespace dojox {
             "viewKind": string;
             set(property:"viewKind", value: string): void;
             get(property:"viewKind"): string;
-            watch(property:"viewKind", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"viewKind", callback: Callback<string>): Unwatchable
             /**
              * Add properties to the watched properties to trigger invalidation. This method must be called in
              * the constructor. It is typically used by subclasses of a _Invalidating class to add more properties
@@ -18904,7 +18911,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Static method to get a template based on the templatePath or
              * templateString key
@@ -19049,21 +19056,21 @@ declare namespace dojox {
             "allDayAttr": string;
             set(property:"allDayAttr", value: string): void;
             get(property:"allDayAttr"): string;
-            watch(property:"allDayAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"allDayAttr", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "allowResizeLessThan24H": boolean;
             set(property:"allowResizeLessThan24H", value: boolean): void;
             get(property:"allowResizeLessThan24H"): boolean;
-            watch(property:"allowResizeLessThan24H", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowResizeLessThan24H", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "allowStartEndSwap": boolean;
             set(property:"allowStartEndSwap", value: boolean): void;
             get(property:"allowStartEndSwap"): boolean;
-            watch(property:"allowStartEndSwap", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowStartEndSwap", callback: Callback<boolean>): Unwatchable
             /**
              * If several sub columns are displayed, indicated if the data item can be reassigned to another sub column by an editing gesture.
              *
@@ -19071,7 +19078,7 @@ declare namespace dojox {
             "allowSubColumnMove": boolean;
             set(property:"allowSubColumnMove", value: boolean): void;
             get(property:"allowSubColumnMove"): boolean;
-            watch(property:"allowSubColumnMove", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"allowSubColumnMove", callback: Callback<boolean>): Unwatchable
             /**
              * Object to which attach points and events will be scoped.  Defaults
              * to 'this'.
@@ -19080,7 +19087,7 @@ declare namespace dojox {
             "attachScope": Object;
             set(property:"attachScope", value: Object): void;
             get(property:"attachScope"): Object;
-            watch(property:"attachScope", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attachScope", callback: Callback<Object>): Unwatchable
             /**
              * Deprecated. Instead of attributeMap, widget should have a _setXXXAttr attribute
              * for each XXX attribute to be mapped to the DOM.
@@ -19126,7 +19133,7 @@ declare namespace dojox {
             "attributeMap": Object;
             set(property:"attributeMap", value: Object): void;
             get(property:"attributeMap"): Object;
-            watch(property:"attributeMap", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"attributeMap", callback: Callback<Object>): Unwatchable
             /**
              * Indicates whether the view can be scrolled automatically.
              * Auto scrolling is used when moving focus to a non visible renderer using keyboard
@@ -19136,21 +19143,21 @@ declare namespace dojox {
             "autoScroll": boolean;
             set(property:"autoScroll", value: boolean): void;
             get(property:"autoScroll"): boolean;
-            watch(property:"autoScroll", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"autoScroll", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "baseClass": string;
             set(property:"baseClass", value: string): void;
             get(property:"baseClass"): string;
-            watch(property:"baseClass", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"baseClass", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "class": string;
             set(property:"class", value: string): void;
             get(property:"class"): string;
-            watch(property:"class", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"class", callback: Callback<string>): Unwatchable
             /**
              * The number of column to display (from the startDate).
              *
@@ -19158,7 +19165,7 @@ declare namespace dojox {
             "columnCount": number;
             set(property:"columnCount", value: number): void;
             get(property:"columnCount"): number;
-            watch(property:"columnCount", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"columnCount", callback: Callback<number>): Unwatchable
             /**
              * Custom date/time pattern for column header labels to override default one coming from the CLDR.
              * See dojo/date/locale documentation for format string.
@@ -19167,7 +19174,7 @@ declare namespace dojox {
             "columnHeaderDatePattern": string;
             set(property:"columnHeaderDatePattern", value: string): void;
             get(property:"columnHeaderDatePattern"): string;
-            watch(property:"columnHeaderDatePattern", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"columnHeaderDatePattern", callback: Callback<string>): Unwatchable
             /**
              * Designates where children of the source DOM node will be placed.
              * "Children" in this case refers to both DOM nodes and widgets.
@@ -19194,7 +19201,7 @@ declare namespace dojox {
             "containerNode": HTMLElement;
             set(property:"containerNode", value: HTMLElement): void;
             get(property:"containerNode"): HTMLElement;
-            watch(property:"containerNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"containerNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * Indicates whether the user can create new event by clicking and dragging the grid.
              * A createItem function must be defined on the view or the calendar object.
@@ -19203,7 +19210,7 @@ declare namespace dojox {
             "createOnGridClick": boolean;
             set(property:"createOnGridClick", value: boolean): void;
             get(property:"createOnGridClick"): boolean;
-            watch(property:"createOnGridClick", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"createOnGridClick", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function that returns a css class name to apply to item renderers that are displaying the specified item in parameter.
              *
@@ -19211,7 +19218,7 @@ declare namespace dojox {
             "cssClassFunc": Function;
             set(property:"cssClassFunc", value: Function): void;
             get(property:"cssClassFunc"): Function;
-            watch(property:"cssClassFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"cssClassFunc", callback: Callback<Function>): Unwatchable
             /**
              * JavaScript namespace to find Calendar routines. Uses Gregorian Calendar routines at dojo.date by default.
              *
@@ -19219,7 +19226,7 @@ declare namespace dojox {
             "datePackage": Object;
             set(property:"datePackage", value: Object): void;
             get(property:"datePackage"): Object;
-            watch(property:"datePackage", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"datePackage", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to transform store date into Date objects. Default is null.
              *
@@ -19227,7 +19234,7 @@ declare namespace dojox {
             "decodeDate": Object;
             set(property:"decodeDate", value: Object): void;
             get(property:"decodeDate"): Object;
-            watch(property:"decodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"decodeDate", callback: Callback<Object>): Unwatchable
             /**
              * Bi-directional support, as defined by the HTML DIR
              * attribute. Either left-to-right "ltr" or right-to-left "rtl".  If undefined, widgets renders in page's
@@ -19237,7 +19244,7 @@ declare namespace dojox {
             "dir": string;
             set(property:"dir", value: string): void;
             get(property:"dir"): string;
-            watch(property:"dir", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"dir", callback: Callback<string>): Unwatchable
             /**
              * Whether the data items displayed must be recomputed, usually after the displayed
              * time range has changed.
@@ -19246,7 +19253,7 @@ declare namespace dojox {
             "displayedItemsInvalidated": boolean;
             set(property:"displayedItemsInvalidated", value: boolean): void;
             get(property:"displayedItemsInvalidated"): boolean;
-            watch(property:"displayedItemsInvalidated", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"displayedItemsInvalidated", callback: Callback<boolean>): Unwatchable
             /**
              * This is our visible representation of the widget! Other DOM
              * Nodes may by assigned to other properties, usually through the
@@ -19257,7 +19264,7 @@ declare namespace dojox {
             "domNode": HTMLElement;
             set(property:"domNode", value: HTMLElement): void;
             get(property:"domNode"): HTMLElement;
-            watch(property:"domNode", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"domNode", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The maximum delay between two taps needed to trigger an "itemDoubleClick" event, in touch context.
              *
@@ -19265,7 +19272,7 @@ declare namespace dojox {
             "doubleTapDelay": number;
             set(property:"doubleTapDelay", value: number): void;
             get(property:"doubleTapDelay"): number;
-            watch(property:"doubleTapDelay", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"doubleTapDelay", callback: Callback<number>): Unwatchable
             /**
              * A flag that indicates whether or not the user can edit
              * items in the data provider.
@@ -19276,7 +19283,7 @@ declare namespace dojox {
             "editable": boolean;
             set(property:"editable", value: boolean): void;
             get(property:"editable"): boolean;
-            watch(property:"editable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"editable", callback: Callback<boolean>): Unwatchable
             /**
              * An optional function to transform Date objects into store date. Default is null.
              *
@@ -19284,7 +19291,7 @@ declare namespace dojox {
             "encodeDate": Object;
             set(property:"encodeDate", value: Object): void;
             get(property:"encodeDate"): Object;
-            watch(property:"encodeDate", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"encodeDate", callback: Callback<Object>): Unwatchable
             /**
              * The attribute of the store item that contains the end time of
              * the events represented by this item.    Default is "endTime".
@@ -19293,7 +19300,7 @@ declare namespace dojox {
             "endTimeAttr": string;
             set(property:"endTimeAttr", value: string): void;
             get(property:"endTimeAttr"): string;
-            watch(property:"endTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"endTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * This widget or a widget it contains has focus, or is "active" because
              * it was recently clicked.
@@ -19302,7 +19309,7 @@ declare namespace dojox {
             "focused": boolean;
             set(property:"focused", value: boolean): void;
             get(property:"focused"): boolean;
-            watch(property:"focused", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"focused", callback: Callback<boolean>): Unwatchable
             /**
              * Optional function to format the time of day of the item renderers.
              * The function takes the date and render data object as arguments and returns a String.
@@ -19311,7 +19318,7 @@ declare namespace dojox {
             "formatItemTimeFunc": Function;
             set(property:"formatItemTimeFunc", value: Function): void;
             get(property:"formatItemTimeFunc"): Function;
-            watch(property:"formatItemTimeFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"formatItemTimeFunc", callback: Callback<Function>): Unwatchable
             /**
              * The number of pixels between two item renderers that are overlapping each other if the percentOverlap property is 0.
              *
@@ -19319,7 +19326,7 @@ declare namespace dojox {
             "horizontalGap": number;
             set(property:"horizontalGap", value: number): void;
             get(property:"horizontalGap"): number;
-            watch(property:"horizontalGap", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"horizontalGap", callback: Callback<number>): Unwatchable
             /**
              * The desired size in pixels of an hour on the screen.
              * Note that the effective size may be different as the time slot size must be an integer.
@@ -19328,7 +19335,7 @@ declare namespace dojox {
             "hourSize": number;
             set(property:"hourSize", value: number): void;
             get(property:"hourSize"): number;
-            watch(property:"hourSize", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"hourSize", callback: Callback<number>): Unwatchable
             /**
              * The currently hovered data item.
              *
@@ -19336,7 +19343,7 @@ declare namespace dojox {
             "hoveredItem": Object;
             set(property:"hoveredItem", value: Object): void;
             get(property:"hoveredItem"): Object;
-            watch(property:"hoveredItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"hoveredItem", callback: Callback<Object>): Unwatchable
             /**
              * A unique, opaque ID string that can be assigned by users or by the
              * system. If the developer passes an ID which is known not to be
@@ -19347,21 +19354,21 @@ declare namespace dojox {
             "id": string;
             set(property:"id", value: string): void;
             get(property:"id"): string;
-            watch(property:"id", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"id", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "invalidatingProperties": Object;
             set(property:"invalidatingProperties", value: Object): void;
             get(property:"invalidatingProperties"): Object;
-            watch(property:"invalidatingProperties", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"invalidatingProperties", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "invalidRendering": boolean;
             set(property:"invalidRendering", value: boolean): void;
             get(property:"invalidRendering"): boolean;
-            watch(property:"invalidRendering", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"invalidRendering", callback: Callback<boolean>): Unwatchable
             /**
              * The associated array item to renderer list.
              *
@@ -19369,7 +19376,7 @@ declare namespace dojox {
             "itemToRenderer": Object;
             set(property:"itemToRenderer", value: Object): void;
             get(property:"itemToRenderer"): Object;
-            watch(property:"itemToRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"itemToRenderer", callback: Callback<Object>): Unwatchable
             /**
              * An optional function to associate a kind of renderer ("horizontal", "label" or null) with the specified item.
              * By default, if an item is lasting more that 24 hours an horizontal item is used, otherwise a label is used.
@@ -19378,7 +19385,7 @@ declare namespace dojox {
             "itemToRendererKindFunc": Function;
             set(property:"itemToRendererKindFunc", value: Function): void;
             get(property:"itemToRendererKindFunc"): Function;
-            watch(property:"itemToRendererKindFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"itemToRendererKindFunc", callback: Callback<Function>): Unwatchable
             /**
              * Rarely used.  Overrides the default Dojo locale used to render this widget,
              * as defined by the HTML LANG attribute.
@@ -19389,7 +19396,7 @@ declare namespace dojox {
             "lang": string;
             set(property:"lang", value: string): void;
             get(property:"lang"): string;
-            watch(property:"lang", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"lang", callback: Callback<string>): Unwatchable
             /**
              * An optional comparison function use to determine the order the item will be laid out
              * The function is used to sort an array and must, as any sorting function, take two items
@@ -19400,14 +19407,14 @@ declare namespace dojox {
             "layoutPriorityFunction": Function;
             set(property:"layoutPriorityFunction", value: Function): void;
             get(property:"layoutPriorityFunction"): Function;
-            watch(property:"layoutPriorityFunction", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"layoutPriorityFunction", callback: Callback<Function>): Unwatchable
             /**
              *
              */
             "liveLayout": boolean;
             set(property:"liveLayout", value: boolean): void;
             get(property:"liveLayout"): boolean;
-            watch(property:"liveLayout", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"liveLayout", callback: Callback<boolean>): Unwatchable
             /**
              * The maximum hour to be displayed. It must be in the [1,36] interval and must be greater than the minHours.
              *
@@ -19415,7 +19422,7 @@ declare namespace dojox {
             "maxHours": number;
             set(property:"maxHours", value: number): void;
             get(property:"maxHours"): number;
-            watch(property:"maxHours", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"maxHours", callback: Callback<number>): Unwatchable
             /**
              * The minimum column width. If the number of columns and sub columns displayed makes the
              * width of a column greater than this property, a horizontal scroll bar is displayed.
@@ -19425,21 +19432,21 @@ declare namespace dojox {
             "minColumnWidth": number;
             set(property:"minColumnWidth", value: number): void;
             get(property:"minColumnWidth"): number;
-            watch(property:"minColumnWidth", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"minColumnWidth", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "minDurationSteps": number;
             set(property:"minDurationSteps", value: number): void;
             get(property:"minDurationSteps"): number;
-            watch(property:"minDurationSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"minDurationSteps", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "minDurationUnit": string;
             set(property:"minDurationUnit", value: string): void;
             get(property:"minDurationUnit"): string;
-            watch(property:"minDurationUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"minDurationUnit", callback: Callback<string>): Unwatchable
             /**
              * The minimum hour to be displayed. It must be in the [0,23] interval and must be lower than the maxHours.
              *
@@ -19447,7 +19454,7 @@ declare namespace dojox {
             "minHours": number;
             set(property:"minHours", value: number): void;
             get(property:"minHours"): number;
-            watch(property:"minHours", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"minHours", callback: Callback<number>): Unwatchable
             /**
              * A flag that indicates whether the user can move items displayed.
              * If true, the user can move the items.
@@ -19456,7 +19463,7 @@ declare namespace dojox {
             "moveEnabled": boolean;
             set(property:"moveEnabled", value: boolean): void;
             get(property:"moveEnabled"): boolean;
-            watch(property:"moveEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"moveEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * The document this widget belongs to.  If not specified to constructor, will default to
              * srcNodeRef.ownerDocument, or if no sourceRef specified, then to the document global
@@ -19465,7 +19472,7 @@ declare namespace dojox {
             "ownerDocument": Object;
             set(property:"ownerDocument", value: Object): void;
             get(property:"ownerDocument"): Object;
-            watch(property:"ownerDocument", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"ownerDocument", callback: Callback<Object>): Unwatchable
             /**
              * The percentage of the renderer width used to superimpose one item renderer on another
              * when two events are overlapping.
@@ -19474,7 +19481,7 @@ declare namespace dojox {
             "percentOverlap": number;
             set(property:"percentOverlap", value: number): void;
             get(property:"percentOverlap"): number;
-            watch(property:"percentOverlap", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"percentOverlap", callback: Callback<number>): Unwatchable
             /**
              * A query that can be passed to when querying the store.
              *
@@ -19482,7 +19489,7 @@ declare namespace dojox {
             "query": Object;
             set(property:"query", value: Object): void;
             get(property:"query"): Object;
-            watch(property:"query", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"query", callback: Callback<Object>): Unwatchable
             /**
              * Options to be applied when querying the store.
              *
@@ -19490,7 +19497,7 @@ declare namespace dojox {
             "queryOptions": Object;
             set(property:"queryOptions", value: Object): void;
             get(property:"queryOptions"): Object;
-            watch(property:"queryOptions", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"queryOptions", callback: Callback<Object>): Unwatchable
             /**
              * The render data is the object that contains all the properties needed to render the component.
              *
@@ -19498,7 +19505,7 @@ declare namespace dojox {
             "renderData": Object;
             set(property:"renderData", value: Object): void;
             get(property:"renderData"): Object;
-            watch(property:"renderData", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"renderData", callback: Callback<Object>): Unwatchable
             /**
              * The list of used renderers
              *
@@ -19522,7 +19529,7 @@ declare namespace dojox {
             "resizeCursor": string;
             set(property:"resizeCursor", value: string): void;
             get(property:"resizeCursor"): string;
-            watch(property:"resizeCursor", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"resizeCursor", callback: Callback<string>): Unwatchable
             /**
              * A flag that indicates whether the items can be resized.
              * If true, the control supports resizing of items.
@@ -19531,7 +19538,7 @@ declare namespace dojox {
             "resizeEnabled": boolean;
             set(property:"resizeEnabled", value: boolean): void;
             get(property:"resizeEnabled"): boolean;
-            watch(property:"resizeEnabled", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"resizeEnabled", callback: Callback<boolean>): Unwatchable
             /**
              * Offset of the first row label from the top of the first row header cell in pixels.
              *
@@ -19539,7 +19546,7 @@ declare namespace dojox {
             "rowHeaderFirstLabelOffset": number;
             set(property:"rowHeaderFirstLabelOffset", value: number): void;
             get(property:"rowHeaderFirstLabelOffset"): number;
-            watch(property:"rowHeaderFirstLabelOffset", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"rowHeaderFirstLabelOffset", callback: Callback<number>): Unwatchable
             /**
              * Duration of the time slot in minutes in the row header. Must be a divisor of 60 and a multiple/divisor of timeSlotDuration.
              *
@@ -19547,7 +19554,7 @@ declare namespace dojox {
             "rowHeaderGridSlotDuration": number;
             set(property:"rowHeaderGridSlotDuration", value: number): void;
             get(property:"rowHeaderGridSlotDuration"): number;
-            watch(property:"rowHeaderGridSlotDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"rowHeaderGridSlotDuration", callback: Callback<number>): Unwatchable
             /**
              * Offset of the row label from the top of the row header cell in pixels.
              *
@@ -19555,7 +19562,7 @@ declare namespace dojox {
             "rowHeaderLabelOffset": number;
             set(property:"rowHeaderLabelOffset", value: number): void;
             get(property:"rowHeaderLabelOffset"): number;
-            watch(property:"rowHeaderLabelOffset", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"rowHeaderLabelOffset", callback: Callback<number>): Unwatchable
             /**
              * Duration of the time slot in minutes in the row header labels. Must be a divisor of 60 and a multiple/divisor of timeSlotDuration.
              *
@@ -19563,7 +19570,7 @@ declare namespace dojox {
             "rowHeaderLabelSlotDuration": number;
             set(property:"rowHeaderLabelSlotDuration", value: number): void;
             get(property:"rowHeaderLabelSlotDuration"): number;
-            watch(property:"rowHeaderLabelSlotDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"rowHeaderLabelSlotDuration", callback: Callback<number>): Unwatchable
             /**
              * Custom date/time pattern for the row header labels to override default one coming from the CLDR.
              * See dojo/date/locale documentation for format string.
@@ -19572,7 +19579,7 @@ declare namespace dojox {
             "rowHeaderTimePattern": string;
             set(property:"rowHeaderTimePattern", value: string): void;
             get(property:"rowHeaderTimePattern"): string;
-            watch(property:"rowHeaderTimePattern", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"rowHeaderTimePattern", callback: Callback<string>): Unwatchable
             /**
              * Indicates whether the view can be scrolled or not.
              *
@@ -19580,7 +19587,7 @@ declare namespace dojox {
             "scrollable": boolean;
             set(property:"scrollable", value: boolean): void;
             get(property:"scrollable"): boolean;
-            watch(property:"scrollable", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"scrollable", callback: Callback<boolean>): Unwatchable
             /**
              * Position of the scroll bar in right-to-left display.
              * Valid values are "left" and "right", default value is "left".
@@ -19589,7 +19596,7 @@ declare namespace dojox {
             "scrollBarRTLPosition": string;
             set(property:"scrollBarRTLPosition", value: string): void;
             get(property:"scrollBarRTLPosition"): string;
-            watch(property:"scrollBarRTLPosition", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"scrollBarRTLPosition", callback: Callback<string>): Unwatchable
             /**
              * Method used to scroll the view, for example the scroll of column view.
              * Valid value are:
@@ -19602,14 +19609,14 @@ declare namespace dojox {
             "scrollMethod": string;
             set(property:"scrollMethod", value: string): void;
             get(property:"scrollMethod"): string;
-            watch(property:"scrollMethod", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"scrollMethod", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "searchContainerNode": boolean;
             set(property:"searchContainerNode", value: boolean): void;
             get(property:"searchContainerNode"): boolean;
-            watch(property:"searchContainerNode", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"searchContainerNode", callback: Callback<boolean>): Unwatchable
             /**
              * In single selection mode, the selected item or in multiple selection mode the last selected item.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -19618,7 +19625,7 @@ declare namespace dojox {
             "selectedItem": Object;
             set(property:"selectedItem", value: Object): void;
             get(property:"selectedItem"): Object;
-            watch(property:"selectedItem", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItem", callback: Callback<Object>): Unwatchable
             /**
              * The list of selected items.
              * Warning: Do not use this property directly, make sure to call set() or get() methods.
@@ -19627,7 +19634,7 @@ declare namespace dojox {
             "selectedItems": Object;
             set(property:"selectedItems", value: Object): void;
             get(property:"selectedItems"): Object;
-            watch(property:"selectedItems", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"selectedItems", callback: Callback<Object>): Unwatchable
             /**
              * Valid values are:
              *
@@ -19640,7 +19647,7 @@ declare namespace dojox {
             "selectionMode": string;
             set(property:"selectionMode", value: string): void;
             get(property:"selectionMode"): string;
-            watch(property:"selectionMode", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"selectionMode", callback: Callback<string>): Unwatchable
             /**
              * Whether show or not an indicator (default a red line) at the current time.
              *
@@ -19648,21 +19655,21 @@ declare namespace dojox {
             "showTimeIndicator": boolean;
             set(property:"showTimeIndicator", value: boolean): void;
             get(property:"showTimeIndicator"): boolean;
-            watch(property:"showTimeIndicator", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"showTimeIndicator", callback: Callback<boolean>): Unwatchable
             /**
              *
              */
             "snapSteps": number;
             set(property:"snapSteps", value: number): void;
             get(property:"snapSteps"): number;
-            watch(property:"snapSteps", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"snapSteps", callback: Callback<number>): Unwatchable
             /**
              *
              */
             "snapUnit": string;
             set(property:"snapUnit", value: string): void;
             get(property:"snapUnit"): string;
-            watch(property:"snapUnit", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"snapUnit", callback: Callback<string>): Unwatchable
             /**
              * pointer to original DOM node
              *
@@ -19670,7 +19677,7 @@ declare namespace dojox {
             "srcNodeRef": HTMLElement;
             set(property:"srcNodeRef", value: HTMLElement): void;
             get(property:"srcNodeRef"): HTMLElement;
-            watch(property:"srcNodeRef", callback:{(property?:string, oldValue?:HTMLElement, newValue?: HTMLElement):void}) :{unwatch():void}
+            watch(property:"srcNodeRef", callback: Callback<HTMLElement>): Unwatchable
             /**
              * The start date of the time interval displayed.
              * If not set at initialization time, will be set to current day.
@@ -19679,7 +19686,7 @@ declare namespace dojox {
             "startDate": Date;
             set(property:"startDate", value: Date): void;
             get(property:"startDate"): Date;
-            watch(property:"startDate", callback:{(property?:string, oldValue?:Date, newValue?: Date):void}) :{unwatch():void}
+            watch(property:"startDate", callback: Callback<Date>): Unwatchable
             /**
              * The attribute of the store item that contains the start time of
              * the events represented by this item.    Default is "startTime".
@@ -19688,7 +19695,7 @@ declare namespace dojox {
             "startTimeAttr": string;
             set(property:"startTimeAttr", value: string): void;
             get(property:"startTimeAttr"): string;
-            watch(property:"startTimeAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"startTimeAttr", callback: Callback<string>): Unwatchable
             /**
              * First time (hour/minute) of day displayed, if reachable.
              * An object containing "hours" and "minutes" properties.
@@ -19697,14 +19704,14 @@ declare namespace dojox {
             "startTimeOfDay": Object;
             set(property:"startTimeOfDay", value: Object): void;
             get(property:"startTimeOfDay"): Object;
-            watch(property:"startTimeOfDay", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"startTimeOfDay", callback: Callback<Object>): Unwatchable
             /**
              *
              */
             "stayInView": boolean;
             set(property:"stayInView", value: boolean): void;
             get(property:"stayInView"): boolean;
-            watch(property:"stayInView", callback:{(property?:string, oldValue?:boolean, newValue?: boolean):void}) :{unwatch():void}
+            watch(property:"stayInView", callback: Callback<boolean>): Unwatchable
             /**
              * The store that contains the events to display.
              *
@@ -19712,7 +19719,7 @@ declare namespace dojox {
             "store": Object;
             set(property:"store", value: Object): void;
             get(property:"store"): Object;
-            watch(property:"store", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"store", callback: Callback<Object>): Unwatchable
             /**
              * HTML style attributes as cssText string or name/value hash
              *
@@ -19720,7 +19727,7 @@ declare namespace dojox {
             "style": string;
             set(property:"style", value: string): void;
             get(property:"style"): string;
-            watch(property:"style", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"style", callback: Callback<string>): Unwatchable
             /**
              * Custom function to customize the appearance of a grid cell by installing custom CSS class on the node.
              * The signature of the function must be the same then the styleGridCell one.
@@ -19730,7 +19737,7 @@ declare namespace dojox {
             "styleGridCellFunc": Function;
             set(property:"styleGridCellFunc", value: Function): void;
             get(property:"styleGridCellFunc"): Function;
-            watch(property:"styleGridCellFunc", callback:{(property?:string, oldValue?:Function, newValue?: Function):void}) :{unwatch():void}
+            watch(property:"styleGridCellFunc", callback: Callback<Function>): Unwatchable
             /**
              * The attribute of the store item that contains the sub column name of
              * the events represented by this item.    Default is "calendar".
@@ -19739,14 +19746,14 @@ declare namespace dojox {
             "subColumnAttr": string;
             set(property:"subColumnAttr", value: string): void;
             get(property:"subColumnAttr"): string;
-            watch(property:"subColumnAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"subColumnAttr", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "subColumns": Object;
             set(property:"subColumns", value: Object): void;
             get(property:"subColumns"): Object;
-            watch(property:"subColumns", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"subColumns", callback: Callback<Object>): Unwatchable
             /**
              * The attribute of the store item that contains the summary of
              * the events represented by this item.    Default is "summary".
@@ -19755,7 +19762,7 @@ declare namespace dojox {
             "summaryAttr": string;
             set(property:"summaryAttr", value: string): void;
             get(property:"summaryAttr"): string;
-            watch(property:"summaryAttr", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"summaryAttr", callback: Callback<string>): Unwatchable
             /**
              * Path to template (HTML file) for this widget relative to dojo.baseUrl.
              * Deprecated: use templateString with require([... "dojo/text!..."], ...) instead
@@ -19764,14 +19771,14 @@ declare namespace dojox {
             "templatePath": string;
             set(property:"templatePath", value: string): void;
             get(property:"templatePath"): string;
-            watch(property:"templatePath", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templatePath", callback: Callback<string>): Unwatchable
             /**
              *
              */
             "templateString": string;
             set(property:"templateString", value: string): void;
             get(property:"templateString"): string;
-            watch(property:"templateString", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"templateString", callback: Callback<string>): Unwatchable
             /**
              * Maximal interval between two refreshes of time indicator.
              *
@@ -19779,7 +19786,7 @@ declare namespace dojox {
             "timeIndicatorRefreshInterval": number;
             set(property:"timeIndicatorRefreshInterval", value: number): void;
             get(property:"timeIndicatorRefreshInterval"): number;
-            watch(property:"timeIndicatorRefreshInterval", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"timeIndicatorRefreshInterval", callback: Callback<number>): Unwatchable
             /**
              * Duration of the time slot in minutes. Must be a divisor of 60.
              *
@@ -19787,7 +19794,7 @@ declare namespace dojox {
             "timeSlotDuration": number;
             set(property:"timeSlotDuration", value: number): void;
             get(property:"timeSlotDuration"): number;
-            watch(property:"timeSlotDuration", callback:{(property?:string, oldValue?:number, newValue?: number):void}) :{unwatch():void}
+            watch(property:"timeSlotDuration", callback: Callback<number>): Unwatchable
             /**
              * HTML title attribute.
              *
@@ -19802,7 +19809,7 @@ declare namespace dojox {
             "title": string;
             set(property:"title", value: string): void;
             get(property:"title"): string;
-            watch(property:"title", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"title", callback: Callback<string>): Unwatchable
             /**
              * When this widget's title attribute is used to for a tab label, accordion pane title, etc.,
              * this specifies the tooltip to appear when the mouse is hovered over that text.
@@ -19811,7 +19818,7 @@ declare namespace dojox {
             "tooltip": string;
             set(property:"tooltip", value: string): void;
             get(property:"tooltip"): string;
-            watch(property:"tooltip", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"tooltip", callback: Callback<string>): Unwatchable
             /**
              * The class use to create vertical renderers.
              *
@@ -19819,7 +19826,7 @@ declare namespace dojox {
             "verticalRenderer": Object;
             set(property:"verticalRenderer", value: Object): void;
             get(property:"verticalRenderer"): Object;
-            watch(property:"verticalRenderer", callback:{(property?:string, oldValue?:Object, newValue?: Object):void}) :{unwatch():void}
+            watch(property:"verticalRenderer", callback: Callback<Object>): Unwatchable
             /**
              * Type of the view. Used by the calendar widget to determine how to configure the view.
              * This view kind is "columns".
@@ -19828,7 +19835,7 @@ declare namespace dojox {
             "viewKind": string;
             set(property:"viewKind", value: string): void;
             get(property:"viewKind"): string;
-            watch(property:"viewKind", callback:{(property?:string, oldValue?:string, newValue?: string):void}) :{unwatch():void}
+            watch(property:"viewKind", callback: Callback<string>): Unwatchable
             /**
              * Add properties to the watched properties to trigger invalidation. This method must be called in
              * the constructor. It is typically used by subclasses of a _Invalidating class to add more properties
@@ -20725,7 +20732,7 @@ declare namespace dojox {
              * @param name               OptionalIndicates the property to watch. This is optional (the callback may be theonly parameter), and if omitted, all the properties will be watched
              * @param callback The function to execute when the property changes. This will be called afterthe property has been changed. The callback will be called with the |this|set to the instance, the first argument as the name of the property, thesecond argument as the old value and the third argument as the new value.
              */
-            watch(property: string, callback:{(property?:string, oldValue?:any, newValue?: any):void}) :{unwatch():void};
+            watch(property: string, callback: Callback<any>): Unwatchable
             /**
              * Static method to get a template based on the templatePath or
              * templateString key

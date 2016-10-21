@@ -7,7 +7,7 @@
 
 /**
  * js function for hashing messages with MD5
- * 
+ *
  * @param {(string | Buffer)} message - a string or buffer to hash
  * @returns {string} the resultant MD5 hash of the given message
  */

@@ -640,7 +640,7 @@ declare namespace CanvasJS {
         */
         maximum?: number | Date;
 	}
-	
+
     interface ChartAxisYOptions extends ChartAxisOptions {
         /**
         * When includeZero is set to true, axisY sets the range in such a way that Zero is a part of it. It is set to true by default. But, whenever y values are very big and difference among dataPoints are hard to judge, setting includeZero to false makes axisY to set a range that makes the differences prominently visible.
@@ -648,7 +648,7 @@ declare namespace CanvasJS {
         * Example: true, false
         */
         includeZero?: boolean;
-		
+
 		/**
         * Sets the minimum value of Axis. Values smaller than minimum are clipped.
         * Default: Automatically Calculated based on the data

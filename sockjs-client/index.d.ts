@@ -27,7 +27,7 @@ declare namespace __SockJSClient {
   interface Options {
     server?: string;
     sessionId?: number | SessionGenerator;
-    transports?: string | string[]
+    transports?: string | string[];
   }
 
   enum State {

@@ -2,13 +2,13 @@
 // Project: https://github.com/apache/cordova-plugin-dialogs
 // Definitions by: Microsoft Open Technologies Inc <http://msopentech.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// 
+//
 // Copyright (c) Microsoft Open Technologies Inc
-// Licensed under the MIT license. 
+// Licensed under the MIT license.
 
 interface Navigator {
     /** This plugin provides access to some native dialog UI elements. */
-    notification: Notification
+    notification: Notification;
 }
 
 /** This plugin provides access to some native dialog UI elements. */
@@ -27,7 +27,7 @@ interface Notification {
         buttonName?: string): void;
     /**
      * The device plays a beep sound.
-     * @param times The number of times to repeat the beep. 
+     * @param times The number of times to repeat the beep.
      */
     beep(times: number): void;
     /**

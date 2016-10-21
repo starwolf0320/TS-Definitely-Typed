@@ -47,7 +47,7 @@ declare namespace autobahn {
 
     interface IInvocation {
         caller?: number;
-        progress?: (args : any[], kwargs : any) => void;
+        progress?: (args: any[], kwargs: any) => void;
         procedure: string;
     }
 
@@ -109,7 +109,7 @@ declare namespace autobahn {
     }
 
     class Subscription implements ISubscription {
-        constructor(topic? : string, handler?: SubscribeHandler, options?: ISubscribeOptions, session?: Session, id?: number);
+        constructor(topic?: string, handler?: SubscribeHandler, options?: ISubscribeOptions, session?: Session, id?: number);
 
         handler: SubscribeHandler;
 

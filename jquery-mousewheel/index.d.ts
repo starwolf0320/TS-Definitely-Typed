@@ -16,6 +16,6 @@ declare namespace JQueryMousewheel {
 }
 
 interface JQuery {
-    mousewheel(handler: (eventObject: JQueryMousewheel.JQueryMousewheelEventObject, ...args: any[]) => any): JQuery
+    mousewheel(handler: (eventObject: JQueryMousewheel.JQueryMousewheelEventObject, ...args: any[]) => any): JQuery;
     unmousewheel(): JQuery;
 }

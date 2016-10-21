@@ -30,7 +30,7 @@ declare namespace multiplex {
     * ES6 Iterable
     */
     interface Iterable<T> {
-        "@@iterator"(): Iterator<T>
+        "@@iterator"(): Iterator<T>;
     }
     interface Iterator<T> {
         next(): IteratorResult<T>;
@@ -189,7 +189,7 @@ declare namespace multiplex {
         * Returns a hash code for the specified object.
         * @param obj The Object for which a hash code is to be returned.
         */
-        hash(obj: T): number
+        hash(obj: T): number;
     }
     interface EqualityComparerConstructor {
 
@@ -225,21 +225,21 @@ declare namespace multiplex {
         * @param array The one-dimensional Array that is the destination of the elements copied from Dictionary keys.
         * @param arrayIndex The zero-based index in array at which copying begins.
         */
-        copyTo(array: T[], arrayIndex: number): void
+        copyTo(array: T[], arrayIndex: number): void;
     }
     interface CollectionConstructor {
 
         /**
         * Initializes a new instance of the Collection class that is empty.
         */
-        new <T>(): Collection<T>
+        new <T>(): Collection<T>;
 
 
         /**
         * Initializes a new instance of the Collection class that is wrapper around the specified Enumerable.
         * @param value The Iterable to wrap.
         */
-        new <T>(value: Iterable<T>): Collection<T>
+        new <T>(value: Iterable<T>): Collection<T>;
     }
 
 
@@ -260,21 +260,21 @@ declare namespace multiplex {
         * Gets the element at the specified index.
         * @param index The zero-based index of the element to get.
         */
-        get(index: number): T
+        get(index: number): T;
 
 
         /**
         * Determines whether the ReadOnlyCollection contains a specific value.
         * @param item The object to locate in the ReadOnlyCollection.
         */
-        contains(item: T): boolean
+        contains(item: T): boolean;
 
 
         /**
         * Searches for the specified object and returns the zero-based index of the first occurrence within the entire ReadOnlyCollection.
         * @param item The object to locate in the ReadOnlyCollection.
         */
-        indexOf(item: T): number
+        indexOf(item: T): number;
     }
     interface ReadOnlyCollectionConstructor {
 
@@ -282,7 +282,7 @@ declare namespace multiplex {
         * Initializes a new instance of the ReadOnlyCollection class that is a read-only wrapper around the specified list.
         * @param list The list to wrap.
         */
-        new <T>(list: List<T>): ReadOnlyCollection<T>
+        new <T>(list: List<T>): ReadOnlyCollection<T>;
     }
 
 
@@ -303,20 +303,20 @@ declare namespace multiplex {
         * Adds an object to the end of the List.
         * @param item The object to be added to the end of the List.
         */
-        add(item: T): void
+        add(item: T): void;
 
 
         /**
         * Adds the elements of the specified collection to the end of the List.
         * @param collection The collection whose elements should be added to the end of the List.
         */
-        addRange(collection: Iterable<T>): void
+        addRange(collection: Iterable<T>): void;
 
 
         /**
         * Returns a read-only wrapper for the current list.
         */
-        asReadOnly(): ReadOnlyCollection<T>
+        asReadOnly(): ReadOnlyCollection<T>;
 
 
         /**
@@ -326,7 +326,7 @@ declare namespace multiplex {
         * the bitwise complement of List.count().
         * @param item The object to locate. The value can be null for reference types.
         */
-        binarySearch(item: T): number
+        binarySearch(item: T): number;
 
 
         /**
@@ -337,7 +337,7 @@ declare namespace multiplex {
         * @param item The object to locate. The value can be null for reference types.
         * @param comparer The Comparer implementation to use when comparing elements.
         */
-        binarySearch(item: T, comparer: Comparer<T>): number
+        binarySearch(item: T, comparer: Comparer<T>): number;
 
 
         /**
@@ -350,34 +350,34 @@ declare namespace multiplex {
         * @param count The length of the range to search.
         * @param comparer The Comparer implementation to use when comparing elements.
         */
-        binarySearch(item: T, index: number, count: number, comparer: Comparer<T>): number
+        binarySearch(item: T, index: number, count: number, comparer: Comparer<T>): number;
 
 
         /**
         * Removes all items from the List.
         */
-        clear(): void
+        clear(): void;
 
 
         /**
         * Determines whether the List contains elements that match the conditions defined by the specified predicate.
         * @param match The predicate function that defines the conditions of the elements to search for.
         */
-        exists(match: (item: T) => boolean): boolean
+        exists(match: (item: T) => boolean): boolean;
 
 
         /**
         * Searches for an element that matches the conditions defined by the specified predicate, and returns the first occurrence within the entire List.
         * @param match The predicate function that defines the conditions of the elements to search for.
         */
-        find(match: (item: T) => boolean): T
+        find(match: (item: T) => boolean): T;
 
 
         /**
         * Retrieves all the elements that match the conditions defined by the specified predicate.
         * @param match The predicate function that defines the conditions of the elements to search for.
         */
-        findAll(match: (item: T) => boolean): List<T>
+        findAll(match: (item: T) => boolean): List<T>;
 
 
         /**
@@ -385,7 +385,7 @@ declare namespace multiplex {
         * and returns the zero-based index of the first occurrence within the entire List, if found; otherwise, –1.
         * @param match The predicate function that defines the conditions of the elements to search for.
         */
-        findIndex(match: (item: T) => boolean): number
+        findIndex(match: (item: T) => boolean): number;
 
 
         /**
@@ -395,7 +395,7 @@ declare namespace multiplex {
         * @param startIndex The zero-based starting index of the search.
         * @param match The predicate function that defines the conditions of the elements to search for.
         */
-        findIndex(startIndex: number, match: (item: T) => boolean): number
+        findIndex(startIndex: number, match: (item: T) => boolean): number;
 
 
         /**
@@ -406,7 +406,7 @@ declare namespace multiplex {
         * @param count The number of elements in the section to search.
         * @param match The predicate function that defines the conditions of the elements to search for.
         */
-        findIndex(startIndex: number, count: number, match: (item: T) => boolean): number
+        findIndex(startIndex: number, count: number, match: (item: T) => boolean): number;
 
 
         /**
@@ -414,7 +414,7 @@ declare namespace multiplex {
         * and returns the last occurrence within the entire List.
         * @param match The predicate function that defines the conditions of the elements to search for.
         */
-        findLast(match: (item: T) => boolean): T
+        findLast(match: (item: T) => boolean): T;
 
 
         /**
@@ -422,7 +422,7 @@ declare namespace multiplex {
         * and returns the zero-based index of the last occurrence within the entire List, if found; otherwise, –1.
         * @param match The predicate function that defines the conditions of the elements to search for.
         */
-        findLastIndex(match: (item: T) => boolean): number
+        findLastIndex(match: (item: T) => boolean): number;
 
 
         /**
@@ -432,7 +432,7 @@ declare namespace multiplex {
         * @param startIndex The zero-based starting index of the search.
         * @param match The predicate function that defines the conditions of the elements to search for.
         */
-        findLastIndex(startIndex: number, match: (item: T) => boolean): number
+        findLastIndex(startIndex: number, match: (item: T) => boolean): number;
 
 
         /**
@@ -443,21 +443,21 @@ declare namespace multiplex {
         * @param count The number of elements in the section to search.
         * @param match The predicate function that defines the conditions of the elements to search for.
         */
-        findLastIndex(startIndex: number, count: number, match: (item: T) => boolean): number
+        findLastIndex(startIndex: number, count: number, match: (item: T) => boolean): number;
 
 
         /**
         * Performs the specified action on each element of the List.
         * @param action The action function to perform on each element of the List.
         */
-        forEach(action: (item: T) => void): void
+        forEach(action: (item: T) => void): void;
 
 
         /**
         * Gets the element at the specified index.
         * @param index The zero-based index of the element to get.
         */
-        get(index: number): T
+        get(index: number): T;
 
 
         /**
@@ -465,14 +465,14 @@ declare namespace multiplex {
         * @param index The zero-based List index at which the range starts.
         * @param count The number of elements in the range.
         */
-        getRange(index: number, count: number): List<T>
+        getRange(index: number, count: number): List<T>;
 
 
         /**
         *   Searches for the specified object and returns the zero-based index of the first occurrence within the entire List, if found; otherwise, –1.
         *   @param item The object to locate in the List.
         */
-        indexOf(item: T): number
+        indexOf(item: T): number;
 
 
         /**
@@ -481,7 +481,7 @@ declare namespace multiplex {
         *   @param item The object to locate in the List.
         *   @param index The zero-based starting index of the search. 0 (zero) is valid in an empty list.
         */
-        indexOf(item: T, index: number): number
+        indexOf(item: T, index: number): number;
 
 
         /**
@@ -489,7 +489,7 @@ declare namespace multiplex {
         * @param index The zero-based index at which item should be inserted.
         * @param item The object to insert. The value can be null for reference types.
         */
-        insert(index: number, item: T): void
+        insert(index: number, item: T): void;
 
 
         /**
@@ -497,20 +497,20 @@ declare namespace multiplex {
         * @param index The zero-based index at which item should be inserted.
         * @param collection The collection whose elements should be inserted into the List.
         */
-        insertRange(index: number, collection: Iterable<T>): void
+        insertRange(index: number, collection: Iterable<T>): void;
 
 
         /**
         * Gets an Array wrapper around the List.
         */
-        items(): T[]
+        items(): T[];
 
 
         /**
         *   Searches for the specified object and returns the zero-based index of the last occurrence within the entire List, if found; otherwise, –1.
         *   @param item The object to locate in the List.
         */
-        lastIndexOf(item: T): number
+        lastIndexOf(item: T): number;
 
 
         /**
@@ -519,28 +519,28 @@ declare namespace multiplex {
         *   @param item The object to locate in the List.
         *   @param index The zero-based starting index of the search. 0 (zero) is valid in an empty list.
         */
-        lastIndexOf(item: T, index: number): number
+        lastIndexOf(item: T, index: number): number;
 
 
         /**
         * Removes the first occurrence of a specific object from the List.
         * @param item The object to remove from the List.
         */
-        remove(item: T): boolean
+        remove(item: T): boolean;
 
 
         /**
         * Removes all the elements that match the conditions defined by the specified predicate.
         * @param match The predicate function that defines the conditions of the elements to remove.
         */
-        removeAll(match: (item: T) => boolean): number
+        removeAll(match: (item: T) => boolean): number;
 
 
         /**
         * Removes the element at the specified index of the List.
         * @param index The zero-based index of the element to remove.
         */
-        removeAt(index: number): void
+        removeAt(index: number): void;
 
 
         /**
@@ -548,13 +548,13 @@ declare namespace multiplex {
         * @param index The zero-based index of the element to remove.
         * @param count The number of elements to remove.
         */
-        removeRange(index: number, count: number): void
+        removeRange(index: number, count: number): void;
 
 
         /**
         * Reverses the order of the elements in the entire List
         */
-        reverse(): any
+        reverse(): any;
 
 
         /**
@@ -562,7 +562,7 @@ declare namespace multiplex {
         * @param index The zero-based starting index of the range to reverse.
         * @param count The number of elements in the range to reverse.
         */
-        reverse(index: number, count: number): void
+        reverse(index: number, count: number): void;
 
 
         /**
@@ -570,27 +570,27 @@ declare namespace multiplex {
         * @param index The zero-based index of the element to set.
         * @param item The object to be added at the specified index.
         */
-        set(index: number, value: T): void
+        set(index: number, value: T): void;
 
 
         /**
         * Sorts the elements in the entire List using the default comparer.
         */
-        sort(): void
+        sort(): void;
 
 
         /**
         * Sorts the elements in the entire List using the specified Comparison.
         * @param comparison The comparison function to use when comparing elements.
         */
-        sort(comparison: (x: T, y: T) => number): void
+        sort(comparison: (x: T, y: T) => number): void;
 
 
         /**
         * Sorts the elements in the entire List using the specified comparer.
         * @param comparer The Comparer implementation to use when comparing elements.
         */
-        sort(comparer: Comparer<T>): void
+        sort(comparer: Comparer<T>): void;
 
 
         /**
@@ -599,41 +599,41 @@ declare namespace multiplex {
         * @param count The length of the range to sort.
         * @param comparer The Comparer implementation to use when comparing elements.
         */
-        sort(index: number, count: number, comparer: Comparer<T>): void
+        sort(index: number, count: number, comparer: Comparer<T>): void;
 
 
         /**
         * Copies the elements of the List to a new array.
         */
-        toArray(): T[]
+        toArray(): T[];
 
 
         /**
         * Determines whether every element in the List matches the conditions defined by the specified predicate.
         * @param match The Predicate function that defines the conditions to check against the elements.
         */
-        trueForAll(match: (item: T) => boolean): boolean
+        trueForAll(match: (item: T) => boolean): boolean;
     }
     interface ListConstructor {
 
         /**
         * Initializes a new instance of the List class that is empty.
         */
-        new <T>(): List<T>
+        new <T>(): List<T>;
 
 
         /**
         * Initializes a new instance of the List class that is empty and has the specified initial capacity.
         * @param capacity The number of elements that the new list can initially store.
         */
-        new <T>(capacity: number): List<T>
+        new <T>(capacity: number): List<T>;
 
 
         /**
         * Initializes a new instance of the List class that contains elements copied from the specified arguments
         * @param args Arbitrary number of arguments to copy to the new list.
         */
-        new <T>(...args: T[]): List<T>
+        new <T>(...args: T[]): List<T>;
 
 
         /**
@@ -641,7 +641,7 @@ declare namespace multiplex {
         * and has sufficient capacity to accommodate the number of elements copied.
         * @param collection The collection whose elements are copied to the new list.
         */
-        new <T>(collection: Iterable<T>): List<T>
+        new <T>(collection: Iterable<T>): List<T>;
     }
 
 
@@ -656,73 +656,73 @@ declare namespace multiplex {
         * @param key The key of the element to add.
         * @param value The value of the element to add. The value can be null for reference types.
         */
-        add(key: TKey, value: TValue): void
+        add(key: TKey, value: TValue): void;
 
 
         /**
         * Gets the value associated with the specified key.
         * @param key The key whose value to get.
         */
-        get(key: TKey): TValue
+        get(key: TKey): TValue;
 
 
         /**
         * Gets or sets the number of elements that the SortedList can contain.
         * @param value The number of elements that the SortedList can contain.
         */
-        capacity(value?: number): number
+        capacity(value?: number): number;
 
 
         /**
         * Removes all elements from the SortedList.
         */
-        clear(): void
+        clear(): void;
 
 
         /**
         * Gets the Comparer for the sorted list.
         */
-        comparer(): Comparer<TKey>
+        comparer(): Comparer<TKey>;
 
 
         /**
         * Determines whether the SortedList contains a specific key.
         * @param key The key to locate in the SortedList.
         */
-        containsKey(key: TKey): boolean
+        containsKey(key: TKey): boolean;
 
 
         /**
         * Determines whether the SortedList contains a specific value.
         * @param value The value to locate in the SortedList.
         */
-        containsValue(value: TValue): boolean
+        containsValue(value: TValue): boolean;
 
 
         /**
         * Gets a collection containing the keys in the SortedList, in sorted order.
         */
-        keys(): Collection<TKey>
+        keys(): Collection<TKey>;
 
 
         /**
         * Gets a collection containing the values in the SortedLis.
         */
-        values(): Collection<TValue>
+        values(): Collection<TValue>;
 
 
         /**
         * Searches for the specified key and returns the zero-based index within the entire SortedList.
         * @param key The key to locate in the SortedList.
         */
-        indexOfKey(key: TKey): number
+        indexOfKey(key: TKey): number;
 
 
         /**
         * Searches for the specified value and returns the zero-based index of the first occurrence within the entire SortedList.
         * @param value The value to locate in the SortedList.
         */
-        indexOfValue(value: TValue): number
+        indexOfValue(value: TValue): number;
 
 
         /**
@@ -730,14 +730,14 @@ declare namespace multiplex {
         * Returns true if the element is successfully removed; otherwise, false. This method also returns false if key was not found in the original SortedList.
         * @param key The key of the element to remove.
         */
-        remove(key: TKey): boolean
+        remove(key: TKey): boolean;
 
 
         /**
         * Removes the element at the specified index of the SortedList.
         * @param index The zero-based index of the element to remove.
         */
-        removeAt(index: number): void
+        removeAt(index: number): void;
 
 
         /**
@@ -745,13 +745,13 @@ declare namespace multiplex {
         * @param key The key whose value to get or set.
         * @param value The value associated with the specified key.
         */
-        set(key: TKey, value: TValue): void
+        set(key: TKey, value: TValue): void;
 
 
         /**
         * Sets the capacity to the actual number of elements in the SortedList, if that number is less than 90 percent of current capacity.
         */
-        trimExcess(): void
+        trimExcess(): void;
 
 
         /**
@@ -760,7 +760,7 @@ declare namespace multiplex {
         * @param callback When this method returns, callback method is called with the value
         * associated with the specified key, if the key is found; otherwise, null for the type of the value parameter.
         */
-        tryGetValue(key: TKey, callback: (value: TValue) => void): boolean
+        tryGetValue(key: TKey, callback: (value: TValue) => void): boolean;
     }
     interface SortedListConstructor {
 
@@ -768,7 +768,7 @@ declare namespace multiplex {
         * Initializes a new instance of the SortedList class that is empty,
         * has the default initial capacity, and uses the default Comparer.
         */
-        new <TKey, TValue>(): SortedList<TKey, TValue>
+        new <TKey, TValue>(): SortedList<TKey, TValue>;
 
 
         /**
@@ -776,7 +776,7 @@ declare namespace multiplex {
         * has sufficient capacity to accommodate the number of elements copied,  and uses the default Comparer.
         * @param dictionary The Dictionary whose elements are copied to the new SortedList.
         */
-        new <TKey, TValue>(dictionary: Dictionary<TKey, TValue>): SortedList<TKey, TValue>
+        new <TKey, TValue>(dictionary: Dictionary<TKey, TValue>): SortedList<TKey, TValue>;
 
 
         /**
@@ -784,7 +784,7 @@ declare namespace multiplex {
         * has the default initial capacity, and uses the specified Comparer.
         * @param comparer The Comparer implementation to use when comparing keys.-or-null to use the default Comparer for the type of the key.
         */
-        new <TKey, TValue>(comparer: Comparer<TKey>): SortedList<TKey, TValue>
+        new <TKey, TValue>(comparer: Comparer<TKey>): SortedList<TKey, TValue>;
 
 
         /**
@@ -792,7 +792,7 @@ declare namespace multiplex {
         * has the specified initial capacity, and uses the default Comparer.
         * @param capacity The initial number of elements that the SortedList can contain.
         */
-        new <TKey, TValue>(capacity: number): SortedList<TKey, TValue>
+        new <TKey, TValue>(capacity: number): SortedList<TKey, TValue>;
 
 
         /**
@@ -801,7 +801,7 @@ declare namespace multiplex {
         * @param dictionary The Dictionary whose elements are copied to the new SortedList.
         * @param comparer The Comparer implementation to use when comparing keys.-or-null to use the default Comparer for the type of the key.
         */
-        new <TKey, TValue>(dictionary: Dictionary<TKey, TValue>, comparer: Comparer<TKey>): SortedList<TKey, TValue>
+        new <TKey, TValue>(dictionary: Dictionary<TKey, TValue>, comparer: Comparer<TKey>): SortedList<TKey, TValue>;
 
 
         /**
@@ -810,7 +810,7 @@ declare namespace multiplex {
         * @param capacity The initial number of elements that the SortedList can contain.
         * @param comparer The Comparer implementation to use when comparing keys.-or-null to use the default Comparer for the type of the key.
         */
-        new <TKey, TValue>(capacity: number, comparer: Comparer<TKey>): SortedList<TKey, TValue>
+        new <TKey, TValue>(capacity: number, comparer: Comparer<TKey>): SortedList<TKey, TValue>;
     }
 
 
@@ -838,7 +838,7 @@ declare namespace multiplex {
         * @param key The object defined in each key/value pair.
         * @param value The definition associated with key.
         */
-        new <TKey, TValue>(key: TKey, value: TValue): KeyValuePair<TKey, TValue>
+        new <TKey, TValue>(key: TKey, value: TValue): KeyValuePair<TKey, TValue>;
     }
 
 
@@ -853,27 +853,27 @@ declare namespace multiplex {
         * @param key The object to use as the key of the element to add.
         * @param value The object to use as the value of the element to add.
         */
-        add(key: TKey, value: TValue): void
+        add(key: TKey, value: TValue): void;
 
 
         /**
         * Removes all keys and values from the Dictionary.
         */
-        clear(): void
+        clear(): void;
 
 
         /**
         * Determines whether the Dictionary contains the specified key.
         * @param key The key to locate in the Dictionary.
         */
-        containsKey(key: TKey): boolean
+        containsKey(key: TKey): boolean;
 
 
         /**
         * Determines whether the Dictionary contains a specific value.
         * @param value The value to locate in the Dictionary.
         */
-        containsValue(value: TValue): boolean
+        containsValue(value: TValue): boolean;
 
 
         /**
@@ -881,27 +881,27 @@ declare namespace multiplex {
         * @param array The one-dimensional Array that is the destination of the elements copied from Dictionary keys.
         * @param arrayIndex The zero-based index in array at which copying begins.
         */
-        copyTo(array: TKey[], arrayIndex: number): void
-        copyTo(array: KeyValuePair<TKey, TValue>[], arrayIndex: number): void
+        copyTo(array: TKey[], arrayIndex: number): void;
+        copyTo(array: KeyValuePair<TKey, TValue>[], arrayIndex: number): void;
 
 
         /**
         * Gets a Collection containing the keys of the Dictionary.
         */
-        keys(): Collection<TKey>
+        keys(): Collection<TKey>;
 
 
         /**
         * Gets a Collection containing the values in the Dictionary.
         */
-        values(): Collection<TValue>
+        values(): Collection<TValue>;
 
 
         /**
         * Gets element with the specified key.
         * @param key The key of the element to get.
         */
-        get(key: TKey): TValue
+        get(key: TKey): TValue;
 
 
         /**
@@ -909,7 +909,7 @@ declare namespace multiplex {
         * @param key The key of the element to set.
         * @param value The object to use as the value of the element to set.
         */
-        set(key: TKey, value: TValue): void
+        set(key: TKey, value: TValue): void;
 
 
         /**
@@ -918,21 +918,21 @@ declare namespace multiplex {
         * @param callback When this method returns, callback method is called with the value
         * associated with the specified key, if the key is found; otherwise, null for the type of the value parameter.
         */
-        tryGetValue(key: TKey, callback: (value: TValue) => void): boolean
+        tryGetValue(key: TKey, callback: (value: TValue) => void): boolean;
 
 
         /**
         * Removes the element with the specified key from the Dictionary.
         * @param key The key of the element to remove.
         */
-        remove(key: TKey): boolean
+        remove(key: TKey): boolean;
     }
     interface DictionaryConstructor {
 
         /**
         * Initializes a new instance of the Dictionary class that is empty,
         */
-        new <TKey, TValue>(): Dictionary<TKey, TValue>
+        new <TKey, TValue>(): Dictionary<TKey, TValue>;
 
 
         /**
@@ -940,21 +940,21 @@ declare namespace multiplex {
         * from the specified Dictionary and uses the default equality comparer for the key type.
         * @param dictionary The Dictionary whose elements are copied to the new Dictionary.
         */
-        new <TKey, TValue>(dictionary: Dictionary<TKey, TValue>): Dictionary<TKey, TValue>
+        new <TKey, TValue>(dictionary: Dictionary<TKey, TValue>): Dictionary<TKey, TValue>;
 
 
         /**
         * Initializes a new instance of the Dictionary class that is empty, and uses the specified EqualityComparer.
         * @param comparer The EqualityComparer implementation to use when comparing keys.
         */
-        new <TKey, TValue>(comparer: EqualityComparer<TKey>): Dictionary<TKey, TValue>
+        new <TKey, TValue>(comparer: EqualityComparer<TKey>): Dictionary<TKey, TValue>;
 
 
         /**
         * Initializes a new instance of the Dictionary class that is empty, has the specified initial capacity, and uses the default equality comparer for the key type.
         * @param capacity The initial number of elements that the Dictionary can contain.
         */
-        new <TKey, TValue>(capacity: number): Dictionary<TKey, TValue>
+        new <TKey, TValue>(capacity: number): Dictionary<TKey, TValue>;
 
 
         /**
@@ -962,7 +962,7 @@ declare namespace multiplex {
         * @param capacity The initial number of elements that the Dictionary can contain.
         * @param comparer The EqualityComparer implementation to use when comparing keys.
         */
-        new <TKey, TValue>(capacity: number, comparer: EqualityComparer<TKey>): Dictionary<TKey, TValue>
+        new <TKey, TValue>(capacity: number, comparer: EqualityComparer<TKey>): Dictionary<TKey, TValue>;
 
 
         /**
@@ -971,7 +971,7 @@ declare namespace multiplex {
         * @param dictionary The Dictionary whose elements are copied to the new Dictionary.
         * @param comparer The EqualityComparer implementation to use when comparing keys.
         */
-        new <TKey, TValue>(dictionary: Dictionary<TKey, TValue>, comparer: EqualityComparer<TKey>): Dictionary<TKey, TValue>
+        new <TKey, TValue>(dictionary: Dictionary<TKey, TValue>, comparer: EqualityComparer<TKey>): Dictionary<TKey, TValue>;
     }
 
 
@@ -985,20 +985,20 @@ declare namespace multiplex {
         * Adds an element to the current set.
         * @param item The element to add to the set.
         */
-        add(item: T): boolean
+        add(item: T): boolean;
 
 
         /**
         * Removes all elements from a HashSet object.
         */
-        clear(): void
+        clear(): void;
 
 
         /**
         * Copies the elements of a HashSet object to an array.
         * @param array The one-dimensional array that is the destination of the elements copied from the HashSet object.
         */
-        copyTo(array: T[]): void
+        copyTo(array: T[]): void;
 
 
         /**
@@ -1006,7 +1006,7 @@ declare namespace multiplex {
         * @param array The one-dimensional array that is the destination of the elements copied from the HashSet object.
         * @param arrayIndex The zero-based index in array at which copying begins.
         */
-        copyTo(array: T[], arrayIndex: number): void
+        copyTo(array: T[], arrayIndex: number): void;
 
 
         /**
@@ -1015,83 +1015,83 @@ declare namespace multiplex {
         * @param arrayIndex The zero-based index in array at which copying begins.
         * @param count The number of elements to copy to array.
         */
-        copyTo(array: T[], arrayIndex: number, count: number): void
+        copyTo(array: T[], arrayIndex: number, count: number): void;
 
 
         /**
         * Gets the EqualityComparer object that is used to determine equality for the values in the set.
         */
-        comparer(): EqualityComparer<T>
+        comparer(): EqualityComparer<T>;
 
 
         /**
         * Removes the specified element from a HashSet object.
         * @param item The element to remove.
         */
-        remove(item: T): boolean
+        remove(item: T): boolean;
 
 
         /**
         * Removes all elements that match the conditions defined by the specified predicate from a HashSet collection.
         * @param match The predicate function that defines the conditions of the elements to remove.
         */
-        removeWhere(match: (item: T) => boolean): number
+        removeWhere(match: (item: T) => boolean): number;
 
 
         /**
         * Removes all elements in the specified collection from the current set.
         * @param other The collection of items to remove from the set.
         */
-        exceptWith(other: Iterable<T>): void
+        exceptWith(other: Iterable<T>): void;
 
 
         /**
         * Modifies the current set so that it contains only elements that are also in a specified collection.
         * @param other The collection to compare to the current set.
         */
-        intersectWith(other: Iterable<T>): void
+        intersectWith(other: Iterable<T>): void;
 
 
         /**
         * Determines whether the current set is a proper (strict) subset of a specified collection.
         * @param other The collection to compare to the current set.
         */
-        isProperSubsetOf(other: Iterable<T>): boolean
+        isProperSubsetOf(other: Iterable<T>): boolean;
 
 
         /**
         * Determines whether the current set is a proper (strict) superset of a specified collection.
         * @param other The collection to compare to the current set.
         */
-        isProperSupersetOf(other: Iterable<T>): boolean
+        isProperSupersetOf(other: Iterable<T>): boolean;
 
 
         /**
         * Determines whether a set is a subset of a specified collection.
         * @param other The collection to compare to the current set.
         */
-        isSubsetOf(other: Iterable<T>): boolean
+        isSubsetOf(other: Iterable<T>): boolean;
 
 
         /**
         * Determines whether the current set is a superset of a specified collection.
         * @param other The collection to compare to the current set.
         */
-        isSupersetOf(other: Iterable<T>): boolean
+        isSupersetOf(other: Iterable<T>): boolean;
 
 
         /**
         * Determines whether the current set overlaps with the specified collection.
         * @param other The collection to compare to the current set.
         */
-        overlaps(other: Iterable<T>): boolean
+        overlaps(other: Iterable<T>): boolean;
 
 
         /**
         * Determines whether the current set and the specified collection contain the same elements.
         * @param other The collection to compare to the current set.
         */
-        setEquals(other: Iterable<T>): boolean
+        setEquals(other: Iterable<T>): boolean;
 
 
         /**
@@ -1099,7 +1099,7 @@ declare namespace multiplex {
         * either in the current set or in the specified collection, but not both.
         * @param other The collection to compare to the current set.
         */
-        symmetricExceptWith(other: Iterable<T>): void
+        symmetricExceptWith(other: Iterable<T>): void;
 
 
         /**
@@ -1107,7 +1107,7 @@ declare namespace multiplex {
         * in either the current set or the specified collection.
         * @param other The collection to compare to the current set.
         */
-        unionWith(other: Iterable<T>): void
+        unionWith(other: Iterable<T>): void;
 
     }
     interface HashSetConstructor {
@@ -1115,7 +1115,7 @@ declare namespace multiplex {
         /**
         * Initializes a new instance of the HashSet class that is empty and uses the default equality comparer for the set type.
         */
-        new <T>(): HashSet<T>
+        new <T>(): HashSet<T>;
 
 
         /**
@@ -1123,14 +1123,14 @@ declare namespace multiplex {
         * and contains elements copied from the specified collection.
         * @param collection The collection whose elements are copied to the new set.
         */
-        new <T>(collection: Iterable<T>): HashSet<T>
+        new <T>(collection: Iterable<T>): HashSet<T>;
 
 
         /**
         * Initializes a new instance of the HashSet class that is empty and uses the specified equality comparer for the set type.
         * @param comparer The EqualityComparer implementation to use when comparing values in the set.
         */
-        new <T>(comparer: EqualityComparer<T>): HashSet<T>
+        new <T>(comparer: EqualityComparer<T>): HashSet<T>;
 
 
         /**
@@ -1139,7 +1139,7 @@ declare namespace multiplex {
         * @param collection The collection whose elements are copied to the new set.
         * @param comparer The EqualityComparer implementation to use when comparing values in the set.
         */
-        new <T>(collection: Iterable<T>, comparer: EqualityComparer<T>): HashSet<T>
+        new <T>(collection: Iterable<T>, comparer: EqualityComparer<T>): HashSet<T>;
     }
 
 
@@ -1152,25 +1152,25 @@ declare namespace multiplex {
         /**
         * Gets the value contained in the node.
         */
-        value(): T
+        value(): T;
 
 
         /**
         * Gets the LinkedList that the LinkedListNode belongs to.
         */
-        list(): LinkedList<T>
+        list(): LinkedList<T>;
 
 
         /**
         * Gets the next node in the LinkedList.
         */
-        next(): LinkedListNode<T>
+        next(): LinkedListNode<T>;
 
 
         /**
         * Gets the previous node in the LinkedList.
         */
-        previous(): LinkedListNode<T>
+        previous(): LinkedListNode<T>;
     }
     interface LinkedListNodeConstructor {
 
@@ -1178,7 +1178,7 @@ declare namespace multiplex {
         * Initializes a new instance of the LinkedListNode class, containing the specified value.
         * @param value The value to contain in the LinkedListNode
         */
-        new <T>(value: T): LinkedListNode<T>
+        new <T>(value: T): LinkedListNode<T>;
     }
 
 
@@ -1192,32 +1192,32 @@ declare namespace multiplex {
         * Adds an item to the LinkedList.
         * @param item The object to add to the LinkedList.
         */
-        add(item: T): void
+        add(item: T): void;
 
 
         /**
         * Removes all nodes from the LinkedList.
         */
-        clear(): void
+        clear(): void;
 
 
         /**
         * Determines whether a value is in the LinkedList.
         * @param value The value to locate in the LinkedList. The value can be null for reference types.
         */
-        contains(item: T): boolean
+        contains(item: T): boolean;
 
 
         /**
         * Gets the first node of the LinkedList.
         */
-        getFirst(): LinkedListNode<T>
+        getFirst(): LinkedListNode<T>;
 
 
         /**
         * Gets the last node of the LinkedList.
         */
-        getLast(): LinkedListNode<T>
+        getLast(): LinkedListNode<T>;
 
 
         /**
@@ -1225,7 +1225,7 @@ declare namespace multiplex {
         * @param node The LinkedListNode after which to insert newNode.
         * @param newNode The new LinkedListNode to add to the LinkedList.
         */
-        addAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): LinkedListNode<T>
+        addAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): LinkedListNode<T>;
 
 
         /**
@@ -1234,7 +1234,7 @@ declare namespace multiplex {
         * @param node The LinkedListNode after which to insert newNode.
         * @param value The value to add to the LinkedList.
         */
-        addAfter(node: LinkedListNode<T>, value: T): LinkedListNode<T>
+        addAfter(node: LinkedListNode<T>, value: T): LinkedListNode<T>;
 
 
         /**
@@ -1243,7 +1243,7 @@ declare namespace multiplex {
         * @param node The LinkedListNode before which to insert newNode.
         * @param newNode The new LinkedListNode to add to the LinkedList.
         */
-        addBefore(node: LinkedListNode<T>, newNode: LinkedListNode<T>): LinkedListNode<T>
+        addBefore(node: LinkedListNode<T>, newNode: LinkedListNode<T>): LinkedListNode<T>;
 
 
         /**
@@ -1252,7 +1252,7 @@ declare namespace multiplex {
         * @param node The LinkedListNode before which to insert newNode.
         * @param value The value to add to the LinkedList.
         */
-        addBefore(node: LinkedListNode<T>, value: T): LinkedListNode<T>
+        addBefore(node: LinkedListNode<T>, value: T): LinkedListNode<T>;
 
 
         /**
@@ -1260,7 +1260,7 @@ declare namespace multiplex {
         * returns The new LinkedListNode.
         * @param node The new LinkedListNode to add at the start of the LinkedList.
         */
-        addFirst(node: LinkedListNode<T>): LinkedListNode<T>
+        addFirst(node: LinkedListNode<T>): LinkedListNode<T>;
 
 
         /**
@@ -1268,7 +1268,7 @@ declare namespace multiplex {
         * returns The new LinkedListNode containing value.
         * @param value The value to add at the start of the LinkedList.
         */
-        addFirst(value: T): LinkedListNode<T>
+        addFirst(value: T): LinkedListNode<T>;
 
 
         /**
@@ -1276,7 +1276,7 @@ declare namespace multiplex {
         * returns The new LinkedListNode.
         * @param node The new LinkedListNode to add at the end of the LinkedList.
         */
-        addLast(node: LinkedListNode<T>): LinkedListNode<T>
+        addLast(node: LinkedListNode<T>): LinkedListNode<T>;
 
 
         /**
@@ -1284,21 +1284,21 @@ declare namespace multiplex {
         * returns The new LinkedListNode containing value.
         * @param value The value to add at the end of the LinkedList.
         */
-        addLast(value: T): LinkedListNode<T>
+        addLast(value: T): LinkedListNode<T>;
 
 
         /**
         * Finds the first node that contains the specified value.
         * @param value The value to locate in the LinkedList.
         */
-        find(value: T): LinkedListNode<T>
+        find(value: T): LinkedListNode<T>;
 
 
         /**
         * Finds the last node that contains the specified value.
         * @param value The value to locate in the LinkedList.
         */
-        findLast(value: T): LinkedListNode<T>
+        findLast(value: T): LinkedListNode<T>;
 
         /**
         * Removes the node at the start of the LinkedList.
@@ -1306,7 +1306,7 @@ declare namespace multiplex {
         * This method also returns false if value was not found in the original LinkedList.
         * @param node
         */
-        remove(node: LinkedListNode<T>): boolean
+        remove(node: LinkedListNode<T>): boolean;
 
 
         /**
@@ -1315,33 +1315,33 @@ declare namespace multiplex {
         * This method also returns false if value was not found in the original LinkedList.
         * @param value The value to remove from the LinkedList.
         */
-        remove(value: T): boolean
+        remove(value: T): boolean;
 
 
         /**
         * Removes the node at the start of the LinkedList.
         */
-        removeFirst(): void
+        removeFirst(): void;
 
 
         /**
         * Removes the node at the end of the LinkedList.
         */
-        removeLast(): void
+        removeLast(): void;
     }
     interface LinkedListConstructor {
 
         /**
         * Initializes a new instance of the LinkedList class that is empty.
         */
-        new <T>(): LinkedList<T>
+        new <T>(): LinkedList<T>;
 
 
         /**
         * Initializes a new instance of the LinkedList class that contains elements copied from the specified Enumerable.
         * @param collection The collection to copy elements from.
         */
-        new <T>(collection: Iterable<T>): LinkedList<T>
+        new <T>(collection: Iterable<T>): LinkedList<T>;
     }
 
 
@@ -1354,52 +1354,52 @@ declare namespace multiplex {
         /**
         * Removes all objects from the Queue.
         */
-        clear(): void
+        clear(): void;
 
 
         /**
         * Determines whether an element is in the Queue.
         * @param item The object to locate in the Queue.
         */
-        contains(item: T): boolean
+        contains(item: T): boolean;
 
 
         /**
         * Removes and returns the object at the beginning of the Queue.
         */
-        dequeue(): T
+        dequeue(): T;
 
         /**
         * Adds an object to the end of the Queue.
         * @param item The object to add to the Queue.
         */
-        enqueue(item: T): void
+        enqueue(item: T): void;
 
 
         /**
         * Returns the object at the beginning of the Queue without removing it.
         */
-        peek(): T
+        peek(): T;
 
 
         /**
         * Copies the Queue to a new array.
         */
-        toArray(): T[]
+        toArray(): T[];
     }
     interface QueueConstructor {
 
         /**
         * Initializes a new instance of the Queue class that is empty.
         */
-        new <T>(): Queue<T>
+        new <T>(): Queue<T>;
 
 
         /**
         * Initializes a new instance of the Queue class that contains elements copied from the specified collection.
         * @param collection The collection to copy elements from.
         */
-        new <T>(collection: Iterable<T>): Queue<T>
+        new <T>(collection: Iterable<T>): Queue<T>;
     }
 
 
@@ -1412,53 +1412,53 @@ declare namespace multiplex {
         /**
         * Removes all objects from the Stack.
         */
-        clear(): void
+        clear(): void;
 
 
         /**
         * Determines whether an element is in the Stack.
         * @param item The object to locate in the Stack.
         */
-        contains(item: T): boolean
+        contains(item: T): boolean;
 
 
         /**
         * Returns the object at the top of the Stack without removing it.
         */
-        peek(): T
+        peek(): T;
 
 
         /**
         *   Removes and returns the object at the top of the Stack.
         */
-        pop(): T
+        pop(): T;
 
 
         /**
         * Inserts an object at the top of the Stack.
         * @param item The object to push onto the Stack.
         */
-        push(item: T): void
+        push(item: T): void;
 
 
         /**
         *   Copies the Stack to a new array.
         */
-        toArray(): T[]
+        toArray(): T[];
     }
     interface StackConstructor {
 
         /**
         * Initializes a new instance of the Stack class that is empty.
         */
-        new <T>(): Stack<T>
+        new <T>(): Stack<T>;
 
 
         /**
         * Initializes a new instance of the Stack class that contains elements copied from the specified collection.
         * @param collection The collection to copy elements from.
         */
-        new <T>(collection: Iterable<T>): Stack<T>
+        new <T>(collection: Iterable<T>): Stack<T>;
     }
 
 
@@ -1472,8 +1472,8 @@ declare namespace multiplex {
         * Determines whether a specified key exists in the Lookup.
         * @param key The key to search for in the Lookup.
         */
-        contains(key: TKey): boolean
-        contains(item: Grouping<TKey, TElement>): boolean
+        contains(key: TKey): boolean;
+        contains(item: Grouping<TKey, TElement>): boolean;
 
 
 
@@ -1481,7 +1481,7 @@ declare namespace multiplex {
         * Gets the value associated with the specified key.
         * @param key The key of the element to add.
         */
-        get(key: TKey): Enumerable<TElement>
+        get(key: TKey): Enumerable<TElement>;
     }
 
 
@@ -1494,7 +1494,7 @@ declare namespace multiplex {
         /**
         * Gets the key of the Grouping.
         */
-        key: TKey
+        key: TKey;
     }
 
 
@@ -1510,7 +1510,7 @@ declare namespace multiplex {
         * @param comparer The Comparer used to compare keys for placement in the returned sequence.
         * @param descending true to sort the elements in descending order; false to sort the elements in ascending order.
         */
-        createOrderedEnumerable<TKey>(keySelector: (item: TElement) => TKey, comparer: Comparer<TKey>, descending: boolean): OrderedEnumerable<TElement>
+        createOrderedEnumerable<TKey>(keySelector: (item: TElement) => TKey, comparer: Comparer<TKey>, descending: boolean): OrderedEnumerable<TElement>;
 
 
         /**
@@ -1518,7 +1518,7 @@ declare namespace multiplex {
         * Returns an OrderedEnumerable whose elements are sorted in descending order according to a key.
         * @param keySelector A function to extract a key from each element.
         */
-        thenBy<TKey>(keySelector: (item: TElement) => TKey): OrderedEnumerable<TElement>
+        thenBy<TKey>(keySelector: (item: TElement) => TKey): OrderedEnumerable<TElement>;
 
 
         /**
@@ -1527,7 +1527,7 @@ declare namespace multiplex {
         * @param keySelector A function to extract a key from each element.
         * @param comparer A Comparer to compare keys.
         */
-        thenBy<TKey>(keySelector: (item: TElement) => TKey, comparer: Comparer<TKey>): OrderedEnumerable<TElement>
+        thenBy<TKey>(keySelector: (item: TElement) => TKey, comparer: Comparer<TKey>): OrderedEnumerable<TElement>;
 
 
         /**
@@ -1535,7 +1535,7 @@ declare namespace multiplex {
         * Returns an OrderedEnumerable whose elements are sorted in descending order according to a key.
         * @param keySelector A function to extract a key from each element.
         */
-        thenByDescending<TKey>(keySelector: (item: TElement) => TKey): OrderedEnumerable<TElement>
+        thenByDescending<TKey>(keySelector: (item: TElement) => TKey): OrderedEnumerable<TElement>;
 
 
         /**
@@ -1544,7 +1544,7 @@ declare namespace multiplex {
         * @param keySelector A function to extract a key from each element.
         * @param comparer A Comparer to compare keys.
         */
-        thenByDescending<TKey>(keySelector: (item: TElement) => TKey, comparer: Comparer<TKey>): OrderedEnumerable<TElement>
+        thenByDescending<TKey>(keySelector: (item: TElement) => TKey, comparer: Comparer<TKey>): OrderedEnumerable<TElement>;
     }
 
 
@@ -1560,7 +1560,7 @@ declare namespace multiplex {
         * Returns the final accumulator value.
         * @param func An accumulator function to be invoked on each element.
         */
-        aggregate(func: (accumulate: T, item: T) => T): T
+        aggregate(func: (accumulate: T, item: T) => T): T;
 
 
         /**
@@ -1569,7 +1569,7 @@ declare namespace multiplex {
         * @param seed The initial accumulator value.
         * @param func An accumulator function to be invoked on each element.
         */
-        aggregate<TAccumulate>(seed: TAccumulate, func: (accumulate: TAccumulate, item: T) => TAccumulate): TAccumulate
+        aggregate<TAccumulate>(seed: TAccumulate, func: (accumulate: TAccumulate, item: T) => TAccumulate): TAccumulate;
 
 
         /**
@@ -1588,14 +1588,14 @@ declare namespace multiplex {
         * Returns true if every element of the source sequence passes the test in the specified predicate, or if the sequence is empty; otherwise, false.
         * @param predicate A function to test each element for a condition.
         */
-        all(predicate: (item: T) => boolean): boolean
+        all(predicate: (item: T) => boolean): boolean;
 
 
         /**
         * Determines whether a sequence contains any elements.
         * Returns true if the source sequence contains any elements; otherwise, false.
         */
-        any(): boolean
+        any(): boolean;
 
 
         /**
@@ -1603,40 +1603,40 @@ declare namespace multiplex {
         * Returns true if any elements in the source sequence pass the test in the specified predicate; otherwise, false.
         * @param predicate A function to test each element for a condition.
         */
-        any(predicate: (item: T) => boolean): boolean
+        any(predicate: (item: T) => boolean): boolean;
 
 
         /**
         * Returns the input typed as Enumerable.
         */
-        asEnumerable(): Enumerable<T>
+        asEnumerable(): Enumerable<T>;
 
 
         /**
         * Computes the average of a sequence of numeric values.
         */
-        average(): number
+        average(): number;
 
 
         /**
         * Computes the average of a sequence of numeric values that are obtained by invoking a transform function on each element of the input sequence.
         * @param selector A transform function to apply to each element.
         */
-        average(selector: (item: number) => number): number
+        average(selector: (item: number) => number): number;
 
 
         /**
         * Concatenates two sequences.
         * @param second The sequence to concatenate to the first sequence.
         */
-        concat(second: Iterable<T>): Enumerable<T>
+        concat(second: Iterable<T>): Enumerable<T>;
 
 
         /**
         * Determines whether a sequence contains a specified element by using the default equality comparer.
         * @param value The value to locate in the sequence.
         */
-        contains(value: T): boolean
+        contains(value: T): boolean;
 
 
         /**
@@ -1644,53 +1644,53 @@ declare namespace multiplex {
         * @param value The value to locate in the sequence.
         * @param comparer An equality comparer to compare values.
         */
-        contains(value: T, comparer: EqualityComparer<T>): boolean
+        contains(value: T, comparer: EqualityComparer<T>): boolean;
 
 
         /**
         * Returns the number of elements in a sequence.
         */
-        count(): number
+        count(): number;
 
 
         /**
         * Returns a number that represents how many elements in the specified sequence satisfy a condition.
         * @param predicate A function to test each element for a condition.
         */
-        count(predicate: (item: T) => boolean): number
+        count(predicate: (item: T) => boolean): number;
 
 
         /**
         * Returns the elements of the specified sequence or null if the sequence is empty.
         */
-        defaultIfEmpty(): Enumerable<T>
+        defaultIfEmpty(): Enumerable<T>;
 
 
         /**
         * Returns the elements of the specified sequence or the specified value in  a singleton collection if the sequence is empty.
         * @param defaultValue The value to return if the sequence is empty.
         */
-        defaultIfEmpty(defaultValue: T): Enumerable<T>
+        defaultIfEmpty(defaultValue: T): Enumerable<T>;
 
 
         /**
         * Returns distinct elements from a sequence by using the default equality comparer to compare values.
         */
-        distinct(): Enumerable<T>
+        distinct(): Enumerable<T>;
 
 
         /**
         * Produces the set difference of two sequences by using the EqualityComparer to compare values.
         * @param comparer An EqualityComparer to compare values.
         */
-        distinct(comparer: EqualityComparer<T>): Enumerable<T>
+        distinct(comparer: EqualityComparer<T>): Enumerable<T>;
 
 
         /**
         * Produces the set difference of two sequences by using the default equality comparer to compare values.
         * @param second An Iterable whose elements that also occur in the first sequence will cause those elements to be removed from the returned sequence.
         */
-        except(second: Iterable<T>): Enumerable<T>
+        except(second: Iterable<T>): Enumerable<T>;
 
 
         /**
@@ -1698,40 +1698,40 @@ declare namespace multiplex {
         * @param second An Iterable whose elements that also occur in the first sequence will cause those elements to be removed from the returned sequence.
         * @param comparer An EqualityComparer to compare values.
         */
-        except(second: Iterable<T>, comparer: EqualityComparer<T>): Enumerable<T>
+        except(second: Iterable<T>, comparer: EqualityComparer<T>): Enumerable<T>;
 
 
         /**
         * Returns the element at a specified index in a sequence. Throws an error if the index is less than 0 or greater than or equal to the number of elements in source.
         * @param index The zero-based index of the element to retrieve.
         */
-        elementAt(index: number): T
+        elementAt(index: number): T;
 
 
         /**
         * Returns the first element of a sequence. this method throws an exception if there is no element in the sequence.
         */
-        first(): T
+        first(): T;
 
 
         /**
         * Returns the first element in a sequence that satisfies a specified condition. this method throws an exception if there is no element in the sequence.
         * @param predicate A function to test each source element for a condition; the second parameter of the function represents the index of the source element.
         */
-        first(predicate: (item: T) => boolean): T
+        first(predicate: (item: T) => boolean): T;
 
 
         /**
         * Returns the first element of a sequence, or null if the sequence contains no elements.
         */
-        firstOrDefault(): T
+        firstOrDefault(): T;
 
 
         /**
         * Returns the first element of the sequence that satisfies a condition or null if no such element is found.
         * @param predicate A function to test each source element for a condition; the second parameter of the function represents the index of the source element.
         */
-        firstOrDefault(predicate: (item: T) => boolean): T
+        firstOrDefault(predicate: (item: T) => boolean): T;
 
 
         /**
@@ -1739,21 +1739,21 @@ declare namespace multiplex {
         * @param predicate A function to test each source element for a condition; the second parameter of the function represents the index of the source element.
         * @param defaultValue The value to return if no element exists with specified condition.
         */
-        firstOrDefault(predicate: (item: T) => boolean, defaultValue: T): T
+        firstOrDefault(predicate: (item: T) => boolean, defaultValue: T): T;
 
 
         /**
         * Performs the specified action on each element of an Enumerable.
         * @param action The action function to perform on each element of an Enumerable.
         */
-        forEach(action: (item: T) => void): void
+        forEach(action: (item: T) => void): void;
 
 
         /**
         * Performs the specified action on each element of an Enumerable.
         * @param action The action function to perform on each element of an Enumerable; the second parameter of the function represents the index of the source element.
         */
-        forEach(action: (item: T, index: number) => void): void
+        forEach(action: (item: T, index: number) => void): void;
 
 
         /**
@@ -1869,27 +1869,27 @@ declare namespace multiplex {
         /**
         * Returns the last element of a sequence.
         */
-        last(): T
+        last(): T;
 
 
         /**
         * Returns the last element of a sequence that satisfies a specified condition.
         * @param predicate A function to test each source element for a condition.
         */
-        last(predicate: (item: T) => boolean): T
+        last(predicate: (item: T) => boolean): T;
 
 
         /**
         * Returns the first element of a sequence, or null if the sequence contains no elements.
         */
-        lastOrDefault(): T
+        lastOrDefault(): T;
 
 
         /**
         * Returns the last element of a sequence, or null if the sequence contains no elements.
         * @param predicate A function to test each source element for a condition.
         */
-        lastOrDefault(predicate: (item: T) => boolean): T
+        lastOrDefault(predicate: (item: T) => boolean): T;
 
 
         /**
@@ -1897,47 +1897,47 @@ declare namespace multiplex {
         * @param predicate A function to test each source element for a condition.
         * @param defaultValue The value to return if no element exists with specified condition.
         */
-        lastOrDefault(predicate: (item: T) => boolean, defaultValue: T): T
+        lastOrDefault(predicate: (item: T) => boolean, defaultValue: T): T;
 
 
         /**
         * Returns the maximum value in a sequence of values.
         */
-        max(): T
+        max(): T;
 
 
         /**
         * Invokes a transform function on each element of a sequence and returns the maximum value.
         * @param selector A transform function to apply to each element.
         */
-        max<TResult>(selector: (item: T) => TResult): TResult
+        max<TResult>(selector: (item: T) => TResult): TResult;
 
 
         /**
         * Returns the minimum value in a sequence of values.
         */
-        min(): T
+        min(): T;
 
 
         /**
         * Invokes a transform function on each element of a sequence and returns the minimum value.
         * @param selector A transform function to apply to each element.
         */
-        min<TResult>(selector: (item: T) => TResult): TResult
+        min<TResult>(selector: (item: T) => TResult): TResult;
 
 
         /**
         * Filters the elements of an Enumerable based on a specified type.
         * @param type The type to filter the elements of the sequence on.
         */
-        ofType<TResult>(type: { new (...args: any[]): TResult }): Enumerable<TResult>
+        ofType<TResult>(type: { new (...args: any[]): TResult }): Enumerable<TResult>;
 
 
         /**
         * Sorts the elements of a sequence in ascending order by using a specified comparer.
         * @param keySelector A function to extract a key from each element.
         */
-        orderBy<TKey>(keySelector: (item: T) => TKey): OrderedEnumerable<T>
+        orderBy<TKey>(keySelector: (item: T) => TKey): OrderedEnumerable<T>;
 
 
         /**
@@ -1946,7 +1946,7 @@ declare namespace multiplex {
         * @param keySelector A function to extract a key from each element.
         * @param comparer A Comparer to compare keys.
         */
-        orderBy<TKey>(keySelector: (item: T) => TKey, comparer: EqualityComparer<TKey>): OrderedEnumerable<T>
+        orderBy<TKey>(keySelector: (item: T) => TKey, comparer: EqualityComparer<TKey>): OrderedEnumerable<T>;
 
 
         /**
@@ -1955,7 +1955,7 @@ declare namespace multiplex {
         * Returns an OrderedEnumerable whose elements are sorted in descending order according to a key.
         * @param keySelector A function to extract a key from each element.
         */
-        orderByDescending<TKey>(keySelector: (item: T) => TKey): OrderedEnumerable<T>
+        orderByDescending<TKey>(keySelector: (item: T) => TKey): OrderedEnumerable<T>;
 
 
         /**
@@ -1964,20 +1964,20 @@ declare namespace multiplex {
         * @param keySelector A function to extract a key from each element.
         * @param comparer A Comparer to compare keys.
         */
-        orderByDescending<TKey>(keySelector: (item: T) => TKey, comparer: EqualityComparer<TKey>): OrderedEnumerable<T>
+        orderByDescending<TKey>(keySelector: (item: T) => TKey, comparer: EqualityComparer<TKey>): OrderedEnumerable<T>;
 
 
         /**
         * Inverts the order of the elements in a sequence.
         */
-        reverse(): Enumerable<T>
+        reverse(): Enumerable<T>;
 
 
         /**
         * Determines whether two sequences are equal by comparing the elements by using the default equality comparer for their type.
         * @param second An Iterable to compare to the first sequence.
         */
-        sequenceEqual(second: Iterable<T>): boolean
+        sequenceEqual(second: Iterable<T>): boolean;
 
 
         /**
@@ -1985,7 +1985,7 @@ declare namespace multiplex {
         * @param second An Iterable to compare to the first sequence.
         * @param comparer The EqualityComparer to compare values.
         */
-        sequenceEqual(second: Iterable<T>, comparer: EqualityComparer<T>): boolean
+        sequenceEqual(second: Iterable<T>, comparer: EqualityComparer<T>): boolean;
 
 
         /**
@@ -2006,27 +2006,27 @@ declare namespace multiplex {
         /**
         * Returns the only element of a sequence, and throws an exception if there is not exactly one element in the sequence.
         */
-        single(): T
+        single(): T;
 
 
         /**
         * Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.
         * @param predicate A function to test each source element for a condition.
         */
-        single(predicate: (item: T) => boolean): T
+        single(predicate: (item: T) => boolean): T;
 
 
         /**
         * Returns the only element of a sequence, or a null if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
         */
-        singleOrDefault(): T
+        singleOrDefault(): T;
 
 
         /**
         * Returns the only element of a sequence that satisfies a specified condition or a null if no such element exists; this method throws an exception if more than one element satisfies the condition.
         * @param predicate A function to test each source element for a condition.
         */
-        singleOrDefault(predicate: (item: T) => boolean): T
+        singleOrDefault(predicate: (item: T) => boolean): T;
 
 
         /**
@@ -2034,68 +2034,68 @@ declare namespace multiplex {
         * @param predicate A function to test each source element for a condition.
         * @param defaultValue The value to return if no element exists with specified condition.
         */
-        singleOrDefault(predicate: (item: T) => boolean, defaultValue: T): T
+        singleOrDefault(predicate: (item: T) => boolean, defaultValue: T): T;
 
 
         /**
         * Bypasses a specified number of elements in a sequence and then returns the remaining elements.
         * @param count The number of elements to skip before returning the remaining elements.
         */
-        skip(count: number): Enumerable<T>
+        skip(count: number): Enumerable<T>;
 
 
         /**
         * Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements.
         * @param predicate A function to test each source element for a condition.
         */
-        skipWhile(predicate: (item: T) => boolean): Enumerable<T>
+        skipWhile(predicate: (item: T) => boolean): Enumerable<T>;
 
 
         /**
         * Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements. The element's index is used in the logic of the predicate function.
         * @param predicate A function to test each source element for a condition; the second parameter of the function represents the index of the source element.
         */
-        skipWhile(predicate: (item: T, index: number) => boolean): Enumerable<T>
+        skipWhile(predicate: (item: T, index: number) => boolean): Enumerable<T>;
 
 
         /**
         * Computes the sum of a sequence of values.
         */
-        sum(): number
+        sum(): number;
 
 
         /**
         * Computes the sum of the sequence of values that are obtained by invoking a transform function on each element of the input sequence.
         * @param selector A transform function to apply to each element.
         */
-        sum(selector: (item: T) => number): number
+        sum(selector: (item: T) => number): number;
 
 
         /**
         * Returns a specified number of contiguous elements from the start of a sequence.
         * @param count The number of elements to return.
         */
-        take(count: number): Enumerable<T>
+        take(count: number): Enumerable<T>;
 
 
         /**
         * Returns elements from a sequence as long as a specified condition is true.
         * @param predicate A function to test each source element for a condition.
         */
-        takeWhile(predicate: (item: T) => boolean): Enumerable<T>
+        takeWhile(predicate: (item: T) => boolean): Enumerable<T>;
 
 
         /**
         * Returns elements from a sequence as long as a specified condition is true. The element's index is used in the logic of the predicate function.
         * @param predicate A function to test each source element for a condition; the second parameter of the function represents the index of the source element.
         */
-        takeWhile(predicate: (item: T, index: number) => boolean): Enumerable<T>
+        takeWhile(predicate: (item: T, index: number) => boolean): Enumerable<T>;
 
 
         /**
         * Creates an array from an Enumerable.
         */
-        toArray(): T[]
+        toArray(): T[];
 
 
         /**
@@ -2133,7 +2133,7 @@ declare namespace multiplex {
         /**
         * Creates a List from an Enumerable.
         */
-        toList(): List<T>
+        toList(): List<T>;
 
 
         /**
@@ -2172,7 +2172,7 @@ declare namespace multiplex {
         * Produces the set union of two sequences by using the default equality comparer.
         * @param second An Iterable whose distinct elements form the second set for the union.
         */
-        union(second: Iterable<T>): Enumerable<T>
+        union(second: Iterable<T>): Enumerable<T>;
 
 
         /**
@@ -2180,7 +2180,7 @@ declare namespace multiplex {
         * @param second An Iterable whose distinct elements form the second set for the union.
         * @param comparer The EqualityComparer to compare values.
         */
-        union(second: Iterable<T>, comparer: EqualityComparer<T>): Enumerable<T>
+        union(second: Iterable<T>, comparer: EqualityComparer<T>): Enumerable<T>;
 
 
         /**
@@ -2325,14 +2325,14 @@ declare namespace multiplex {
         * Exposes the enumerator, which supports an iteration over the specified Enumerable object.
         * @param obj An Iterable object. eg. Enumerable, Array, String, Set, Map, Iterable & Generators
         */
-        <T>(obj: Iterable<T>): Enumerable<T>
+        <T>(obj: Iterable<T>): Enumerable<T>;
 
 
         /**
         * Defines an enumerator, which supports an iteration over the specified Generator function.
         * @param factory An Enumerator factory function.
         */
-        <T>(factory: () => Enumerator<T>): Enumerable<T>
+        <T>(factory: () => Enumerator<T>): Enumerable<T>;
 
 
         /**
@@ -2340,21 +2340,21 @@ declare namespace multiplex {
         * An Array-like object is an object which has the "length" property and indexed properties access, eg. jQuery
         * @param obj An Array-like object.
         */
-        <T>(obj: ArrayLike<T>): Enumerable<T>
+        <T>(obj: ArrayLike<T>): Enumerable<T>;
 
 
         /**
         * Defines an enumerator, which supports an iteration over the arguments local variable available within all functions.
         * @param obj arguments local variable available within all functions.
         */
-        (obj: IArguments): Enumerable<any>
+        (obj: IArguments): Enumerable<any>;
 
 
         /**
         * Defines an enumerator, which supports an iteration over the properties of the specified object.
         * @param obj A regular Object.
         */
-        (obj: Object): Enumerable<KeyValuePair<string, any>>
+        (obj: Object): Enumerable<KeyValuePair<string, any>>;
 
 
 
@@ -2442,81 +2442,81 @@ declare namespace multiplex {
         /**
         * Provides a set of static methods that provide support for internal operations.
         */
-        runtime: MultiplexRuntime
+        runtime: MultiplexRuntime;
 
         /**
         * Supports a simple iteration over a collection.
         */
-        Enumerator: EnumeratorConstructor
+        Enumerator: EnumeratorConstructor;
 
         /**
         * Exposes the enumerator, which supports a simple iteration over a collection of a specified type.
         */
-        Enumerable: EnumerableConstructor
+        Enumerable: EnumerableConstructor;
 
         /**
         * Provides a base class for implementations of Comparer<T> generic interface.
         */
-        Comparer: ComparerConstructor
+        Comparer: ComparerConstructor;
 
         /**
         * Provides a base class for implementations of the EqualityComparer.
         */
-        EqualityComparer: EqualityComparerConstructor
+        EqualityComparer: EqualityComparerConstructor;
 
         /**
         * Initializes a new instance of the abstract Collection class.
         */
-        Collection: CollectionConstructor
+        Collection: CollectionConstructor;
 
         /**
         * Initializes a new instance of the abstract Collection class.
         */
-        ReadOnlyCollection: ReadOnlyCollectionConstructor
+        ReadOnlyCollection: ReadOnlyCollectionConstructor;
 
         /**
         * Represents a strongly typed list of objects that can be accessed by index.
         */
-        List: ListConstructor
+        List: ListConstructor;
 
         /**
         * Represents a collection of key/value pairs that are sorted by key based on the associated Comparer implementation.
         */
-        SortedList: SortedListConstructor
+        SortedList: SortedListConstructor;
 
         /**
         * Defines a key/value pair that can be set or retrieved.
         */
-        KeyValuePair: KeyValuePairConstructor
+        KeyValuePair: KeyValuePairConstructor;
 
         /**
         * Represents a collection of keys and values.
         */
-        Dictionary: DictionaryConstructor
+        Dictionary: DictionaryConstructor;
 
         /**
         * Represents a set of values.
         */
-        HashSet: HashSetConstructor
+        HashSet: HashSetConstructor;
 
         /**
         * Represents a node in a LinkedList.
         */
-        LinkedListNode: LinkedListNodeConstructor
+        LinkedListNode: LinkedListNodeConstructor;
 
         /**
         * Represents a doubly linked list.
         */
-        LinkedList: LinkedListConstructor
+        LinkedList: LinkedListConstructor;
 
         /**
         * Represents a first-in, first-out collection of objects.
         */
-        Queue: QueueConstructor
+        Queue: QueueConstructor;
 
         /**
         * Represents a variable size last-in-first-out (LIFO) collection of instances of the same arbitrary type.
         */
-        Stack: StackConstructor
+        Stack: StackConstructor;
     }
 }

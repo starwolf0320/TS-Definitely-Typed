@@ -7,16 +7,16 @@
 declare namespace jsSHA {
 
     export interface EncodingOptions {
-        encoding? : string;
+        encoding?: string;
     }
 
     export interface Options extends EncodingOptions {
-        numRounds? : number;
+        numRounds?: number;
     }
 
     export interface OutputFormatOptions {
-        outputUpper? : boolean;
-        b64Pad? : string;
+        outputUpper?: boolean;
+        b64Pad?: string;
     }
 
     export interface jsSHA {
@@ -30,7 +30,7 @@ declare namespace jsSHA {
          * @param {{encoding: (string|undefined), numRounds: (string|undefined)}=}
          *   options Optional values
          */
-        new (variant:string, inputFormat:string, options?:Options):jsSHA;
+        new (variant: string, inputFormat: string, options?: Options): jsSHA;
 
         /**
 		 * Sets the HMAC key for an eventual getHMAC call.  Must be called
@@ -41,7 +41,7 @@ declare namespace jsSHA {
 		 * @param {{encoding : (string|undefined)}=} encodingOpts Associative array
 		 *   of input format options
 		 */
-        setHMACKey(key:string, inputFormat:string, encodingOpts?:EncodingOptions):void;
+        setHMACKey(key: string, inputFormat: string, encodingOpts?: EncodingOptions): void;
 
         /**
 		 * Takes strString and hashes as many blocks as possible.  Stores the
@@ -49,7 +49,7 @@ declare namespace jsSHA {
 		 *
 		 * @param {string} srcString The string to be hashed
 		 */
-        update(srcString:string):void;
+        update(srcString: string): void;
 
 
         /**
@@ -62,7 +62,7 @@ declare namespace jsSHA {
 		 * @return {string} The string representation of the hash in the format
 		 *   specified
 		 */
-        getHash(format:string, outputFormatOpts?:OutputFormatOptions):string;
+        getHash(format: string, outputFormatOpts?: OutputFormatOptions): string;
 
         /**
 		 * Returns the the HMAC in the specified format using the key given by
@@ -75,7 +75,7 @@ declare namespace jsSHA {
 		 * @return {string} The string representation of the hash in the format
 		 *   specified
 		 */
-        getHMAC(format:string, outputFormatOpts?:OutputFormatOptions):string;
+        getHMAC(format: string, outputFormatOpts?: OutputFormatOptions): string;
     }
 }
 

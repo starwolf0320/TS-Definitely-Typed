@@ -15,7 +15,7 @@ declare namespace dc {
   // helper for get/set situation
   interface IGetSet<T, V> {
     (): T;
-    (t:T): V;
+    (t: T): V;
   }
 export interface ILegendwidget {
     x: IGetSet<number, number>;
@@ -35,24 +35,24 @@ export interface ILegendwidget {
     group: IGetSet<any, T>; // not sure here
     transitionDuration: IGetSet<number, T>;
     colors: IGetSet<string[], T>;
-    keyAccessor: IGetSet<(d:any) => number, T>;
-    valueAccessor: IGetSet<(d:any) => number, T>;
-    label: IGetSet<(l:any) => string, T>;
+    keyAccessor: IGetSet<(d: any) => number, T>;
+    valueAccessor: IGetSet<(d: any) => number, T>;
+    label: IGetSet<(l: any) => string, T>;
     renderLabel: IGetSet<boolean, T>;
-    renderlet: (fnctn: (t:T) => void) => T;
-    title: IGetSet<(t:string) => string, T>;
+    renderlet: (fnctn: (t: T) => void) => T;
+    title: IGetSet<(t: string) => string, T>;
     filter: IGetSet<any, T>;
     filterAll: () => void;
     expireCache: () => void;
-    legend: (l:ILegendwidget) => T;
+    legend: (l: ILegendwidget) => T;
     chartID: () => number;
-    options: (o:Object)=>void ;
+    options: (o: Object) => void ;
     select: (selector: d3.Selection<any>) => d3.Selection<any>;
     selectAll: (selector: d3.Selection<any>) => d3.Selection<any>;
   }
 
   export interface IEvents {
-    trigger(fnctn: () => void, delay?: number):void;
+    trigger(fnctn: () => void, delay?: number): void;
   }
 
   export var events: IEvents;
@@ -86,7 +86,7 @@ export interface ILegendwidget {
     colorDomain: IGetSet<number[], T>;
   }
   export interface IAbstractStackableChart<T> {
-    stack: (group: IChartGroup, name?:string, retriever?: (d:Object)=>number) => T;
+    stack: (group: IChartGroup, name?: string, retriever?: (d: Object) => number) => T;
   }
 
   export interface IAbstractCoordinateGridChart<T> {
@@ -103,17 +103,17 @@ export interface ILegendwidget {
 
   export interface IAbstractBubblechart<T> {
     r: IGetSet<any, T>;
-    radiusValueAccessor: IGetSet<(d:any) => number, T>;
+    radiusValueAccessor: IGetSet<(d: any) => number, T>;
   }
 
 
 
   // function interfaces
   export interface columnFunction {
-    (rowinfo:any): string;
+    (rowinfo: any): string;
   }
   export interface sortbyFunction {
-    (rowinfo:any): any;
+    (rowinfo: any): any;
   }
   export interface orderFunction {
     <T>(a: T, b: T): number;
@@ -150,7 +150,7 @@ export interface ILegendwidget {
   IAbstractCoordinateGridChart<IBarchart>,
   IMarginable<IBarchart>,
   IListener<IBarchart> {
-    centerBar: (b:boolean) => IBarchart;
+    centerBar: (b: boolean) => IBarchart;
     gap: (gapBetweenBars: number) => IBarchart;
   }
 

@@ -15,7 +15,7 @@ app.use((err: Error, req: http.IncomingMessage, res: http.ServerResponse, next: 
     if (err) {
         return res.end(`Error: ${err}`);
     }
-    
+
     next();
 });
 

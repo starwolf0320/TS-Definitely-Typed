@@ -139,5 +139,5 @@ declare module "phoenix" {
     ): any;
 
     list(presences: any, chooser?: Function): any;
-  }
+  };
 }

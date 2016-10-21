@@ -13,21 +13,21 @@ declare namespace jasmine {
     }
 
     interface ExecuteSpecsOptions {
-        specFolders: string[],
-        onComplete?: (runner: jasmine.Runner) => void,
-        isVerbose?: boolean,
-        showColors?: boolean,
-        teamcity?: string | boolean,
-        useRequireJs?: boolean,
-        regExpSpec: RegExp,
+        specFolders: string[];
+        onComplete?: (runner: jasmine.Runner) => void;
+        isVerbose?: boolean;
+        showColors?: boolean;
+        teamcity?: string | boolean;
+        useRequireJs?: boolean;
+        regExpSpec: RegExp;
         junitreport?: {
             report: boolean,
             savePath: string,
             useDotNotation: boolean,
             consolidate: boolean
-        },
-        includeStackTrace?: boolean,
-        growl?: boolean
+        };
+        includeStackTrace?: boolean;
+        growl?: boolean;
     }
 
     interface JasmineNode {

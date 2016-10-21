@@ -80,12 +80,12 @@ type JSONEditorOptions<TValue> = {
      * If true, only required properties will be included by default.
      */
     display_required_only?: boolean;
-}
+};
 type JSONEditorError = {
     path: string;
     property: string;
     message: string;
-}
+};
 type JSONEditorObjectOptions = {
     /**
      * If set to true, the editor will start collapsed
@@ -103,7 +103,7 @@ type JSONEditorObjectOptions = {
      * If set to true, the Edit Properties button will be hidden
      */
     disable_properties?: boolean;
-}
+};
 type JSONEditorArrayOptions = {
     /**
      * If set to true, the editor will start collapsed
@@ -133,7 +133,7 @@ type JSONEditorArrayOptions = {
      * If set to true, the collapse button will be hidden
      */
     disable_collapse?: boolean;
-}
+};
 declare class JSONEditor<TValue> {
     public static defaults: {
         options: JSONEditorOptions<any>;

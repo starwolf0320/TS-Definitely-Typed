@@ -18,7 +18,7 @@ declare namespace OuralabsPlugin {
             WARN: number,
             ERROR: number,
             FATAL: number
-        }
+        };
 
         /**
          * Initialize the Ourlabs plugin with the given channel ID string value.

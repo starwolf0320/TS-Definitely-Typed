@@ -20,13 +20,13 @@ declare namespace LRU {
         set(key: any, value: T, maxAge?: number): void;
         get(key: any): T;
         peek(key: any): T;
-        has(key: any): boolean
+        has(key: any): boolean;
         del(key: any): void;
         reset(): void;
         prune(): void;
         forEach(iter: (value: T, key: any, cache: Cache<T>) => void, thisp?: any): void;
         itemCount: number;
-        length: number
+        length: number;
         keys(): any[];
         values(): T[];
     }

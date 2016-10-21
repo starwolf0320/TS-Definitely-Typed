@@ -103,40 +103,40 @@ export type Type =
      type.TypeApplication | type.UndefinedLiteral | type.UnionType |
      type.VoidLiteral);
 
-export module type {
-  export interface AllLiteral { type: 'AllLiteral' }
-  export interface ArrayType { type: 'ArrayType', elements: Type[] }
-  export interface FieldType { type: 'FieldType', key: string, value?: Type }
+export namespace type {
+  export interface AllLiteral { type: 'AllLiteral'; }
+  export interface ArrayType { type: 'ArrayType'; elements: Type[]; }
+  export interface FieldType { type: 'FieldType'; key: string; value?: Type; }
   export interface FunctionType {
     type: 'FunctionType';
     'this': Type;
-    'new': Type, params: Type[];
-    result: Type[]
+    'new': Type; params: Type[];
+    result: Type[];
   }
-  export interface NameExpression { type: 'NameExpression', name: string }
+  export interface NameExpression { type: 'NameExpression'; name: string; }
   export interface NonNullableType {
-    type: 'NonNullableType', prefix: boolean, expression: Type
+    type: 'NonNullableType'; prefix: boolean; expression: Type;
   }
-  export interface NullableLiteral { type: 'NullableLiteral' }
+  export interface NullableLiteral { type: 'NullableLiteral'; }
   export interface NullableType {
-    type: 'NullableType', prefix: boolean, expression: Type
+    type: 'NullableType'; prefix: boolean; expression: Type;
   }
-  export interface NullLiteral { type: 'NullLiteral' }
-  export interface OptionalType { type: 'OptionalType', expression: Type }
+  export interface NullLiteral { type: 'NullLiteral'; }
+  export interface OptionalType { type: 'OptionalType'; expression: Type; }
   export interface ParameterType {
-    type: 'ParameterType', name: string, expression: Type
+    type: 'ParameterType'; name: string; expression: Type;
   }
-  export interface RecordType { type: 'RecordType', fields: Type[] }
+  export interface RecordType { type: 'RecordType'; fields: Type[]; }
   export interface RestType {
     type: 'RestType';
     expression?: Type;
   }
   export interface TypeApplication {
-    type: 'TypeApplication', expression: Type, applications: Type[]
+    type: 'TypeApplication'; expression: Type; applications: Type[];
   }
-  export interface UndefinedLiteral { type: 'UndefinedLiteral' }
-  export interface UnionType { type: 'UnionType', elements: Type[] }
-  export interface VoidLiteral { type: 'VoidLiteral' }
+  export interface UndefinedLiteral { type: 'UndefinedLiteral'; }
+  export interface UnionType { type: 'UnionType'; elements: Type[]; }
+  export interface VoidLiteral { type: 'VoidLiteral'; }
 
   export function stringify(type: Type): string;
   export function parseType(src: string, options?: {midstream: boolean}): Type;
@@ -161,7 +161,7 @@ export module type {
     NullableType: 'NullableType',
     NameExpression: 'NameExpression',
     TypeApplication: 'TypeApplication'
-  }
+  };
 }
 
 export const version: string;

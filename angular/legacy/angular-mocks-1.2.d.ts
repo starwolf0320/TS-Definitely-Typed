@@ -209,7 +209,7 @@ declare namespace ng {
         whenPUT(url: RegExp, data?: Object, headers?: Object): mock.IRequestHandler;
     }
 
-    export module mock {
+    export namespace mock {
 
         // returned interface by the the mocked HttpBackendService expect/when methods
         interface IRequestHandler {

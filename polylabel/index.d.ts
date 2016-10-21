@@ -5,7 +5,7 @@
 
 /**
  * polylabel
- * 
+ *
  * A fast algorithm for finding polygon pole of inaccessibility, the most distant internal point from
  * the polygon outline (not to be confused with centroid), implemented as a JavaScript library.
  * Useful for optimal placement of a text label on a polygon.
@@ -18,12 +18,12 @@
 declare module "polylabel" {
     /**
      * Polylabel returns the pole of inaccessibility coordinate in [x, y] format.
-     * 
+     *
      * @name polylabel
      * @function
      * @param {Array<number>} polygon - Given polygon coordinates in GeoJSON-like format
      * @param {number} precision - Precision (1.0 by default)
-     * @param {boolean} debug - Debugging for Console 
+     * @param {boolean} debug - Debugging for Console
      * @return {Array<number>}
      * @example
      * var p = polylabel(polygon, 1.0);

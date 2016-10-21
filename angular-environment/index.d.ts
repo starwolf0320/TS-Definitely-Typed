@@ -18,24 +18,24 @@ declare namespace angular.environment {
      * Retrieves the correct version of a
      * variable for the current environment.
      */
-    read: (key: string) => any;    
+    read: (key: string) => any;
   }
   interface Service {
     /**
      * Retrieve the current environment
      */
-    get: () => string,
+    get: () => string;
 
     /**
      * Force sets the current environment
      */
-    set: (environment: string) => void,
+    set: (environment: string) => void;
 
     /**
      * Evaluates current environment against
      * environment parameter.
      */
-    is: (environment: string) => boolean,
+    is: (environment: string) => boolean;
 
     /**
      * Retrieves the correct version of a
@@ -48,10 +48,10 @@ declare namespace angular.environment {
     /**
      * Map of domains to their environments
      */
-    domains: { [environment: string]: Array<string> },
+    domains: { [environment: string]: Array<string> };
     /**
      * List of variables split by environment
      */
-    vars: { [environment: string]: { [variable: string]: any }},
+    vars: { [environment: string]: { [variable: string]: any }};
   }
 }

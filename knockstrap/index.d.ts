@@ -3,9 +3,9 @@
 // Definitions by: Adam Pluciński <https://github.com/adaskothebeast>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-///<reference types="jquery" /> 
-///<reference types="bootstrap" /> 
-///<reference types="knockout" /> 
+///<reference types="jquery" />
+///<reference types="bootstrap" />
+///<reference types="knockout" />
 
 interface KnockoutUtils {
     uniqueId(prefix: string): string;
@@ -28,7 +28,7 @@ interface KnockoutStatic {
         prototype: KnockstrapStringTemplateEngine;
         new (): KnockstrapStringTemplateEngine;
         instance: KnockstrapStringTemplateEngine;
-    }
+    };
 }
 
 interface KnockstrapStringTemplateEngine extends KnockoutNativeTemplateEngine {

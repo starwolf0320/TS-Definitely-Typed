@@ -14,16 +14,16 @@ interface KeymasterEvent {
 }
 
 interface KeyHandler {
-    (keyboardEvent: KeyboardEvent, keymasterEvent: KeymasterEvent) : void;
+    (keyboardEvent: KeyboardEvent, keymasterEvent: KeymasterEvent): void;
 }
 
 interface FilterEvent {
     target?: {
         tagName?: string;
-    }
+    };
     srcElement?: {
         tagName?: string;
-    }
+    };
 }
 
 interface Keymaster {
@@ -39,7 +39,7 @@ interface Keymaster {
     command: boolean;
 
     setScope(scopeName: string): void;
-    getScope():string;
+    getScope(): string;
     deleteScope(scopeName: string): void;
 
     noConflict(): void;

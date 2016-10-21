@@ -18,6 +18,6 @@ declare namespace BaseX {
 	}
 
 	interface Base {
-		(ALPHABET: string): BaseX.BaseConverter
+		(ALPHABET: string): BaseX.BaseConverter;
 	}
 }

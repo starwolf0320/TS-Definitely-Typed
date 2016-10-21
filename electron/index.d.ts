@@ -15,19 +15,19 @@ declare namespace Electron {
 	type Point = {
 		x: number;
 		y: number;
-	}
+	};
 
 	type Size = {
 		width: number;
 		height: number;
-	}
+	};
 
 	type Rectangle = {
 		x: number;
 		y: number;
 		width: number;
 		height: number;
-	}
+	};
 
 	interface Destroyable {
 		/**
@@ -1400,7 +1400,7 @@ declare namespace Electron {
 		[name: string]: {
 			name: string;
 			value: string;
-		}
+		};
 	}
 
 	interface WebPreferences {
@@ -4674,7 +4674,7 @@ declare namespace Electron {
 			 * If onlyDirty is set to true, frameBuffer will only contain the repainted area. onlyDirty defaults to false.
 			 */
 			dirtyRect?: Rectangle
-		): void
+		): void;
 	}
 
 	interface ContextMenuParams {
@@ -4747,7 +4747,7 @@ declare namespace Electron {
 			 * Whether the media element can be rotated.
 			 */
 			canRotate: boolean;
-		}
+		};
 		/**
 		 * Whether the context menu was invoked on an image which has non-empty contents.
 		 */
@@ -4788,7 +4788,7 @@ declare namespace Electron {
 			 * Whether the renderer believes it can select all.
 			 */
 			canSelectAll: boolean;
-		}
+		};
 		/**
 		 * Text of the selection that the context menu was invoked on.
 		 */
@@ -5477,7 +5477,7 @@ declare namespace Electron {
 		 * Sends an input event to the page.
 		 * See webContents.sendInputEvent for detailed description of event object.
 		 */
-		sendInputEvent(event: SendInputEvent): void
+		sendInputEvent(event: SendInputEvent): void;
 		/**
 		 * Changes the zoom factor to the specified factor.
 		 * Zoom factor is zoom percent divided by 100, so 300% = 3.0.

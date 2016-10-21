@@ -1064,8 +1064,8 @@ declare namespace Matter {
     }
 
     export interface IBound {
-        min: { x: number, y: number }
-        max: { x: number, y: number }
+        min: { x: number, y: number };
+        max: { x: number, y: number };
     }
 
     /**
@@ -2202,7 +2202,7 @@ declare namespace Matter {
         separation: number;
         isActive: boolean;
         timeCreated: number;
-        timeUpdated: number,
+        timeUpdated: number;
         inverseMass: number;
         friction: number;
         frictionStatic: number;
@@ -2505,7 +2505,7 @@ declare namespace Matter {
          * @method create
          * @param {} options
          */
-        static create(options:IRunnerOptions): Runner;
+        static create(options: IRunnerOptions): Runner;
         /**
          * Continuously ticks a `Matter.Engine` by calling `Runner.tick` on the `requestAnimationFrame` event.
          * @method run
@@ -2646,7 +2646,7 @@ declare namespace Matter {
          * @param {vector} vectorC
          * @return {number} The cross product of the three vectors
          */
-        static cross3(vectorA: Vector, vectorB: Vector, vectorC: Vector):number;
+        static cross3(vectorA: Vector, vectorB: Vector, vectorC: Vector): number;
 
         /**
          * Adds the two vectors.

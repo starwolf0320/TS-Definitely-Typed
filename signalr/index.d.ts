@@ -8,7 +8,7 @@
 
 
 declare namespace SignalR {
-    
+
     const enum ConnectionState {
         Connecting = 0,
         Connected = 1,
@@ -176,7 +176,7 @@ declare namespace SignalR {
         protocol: string;
         host: string;
     }
-    
+
     interface ConnectionErrorContext {
         readyState: number;
         responseText: string;

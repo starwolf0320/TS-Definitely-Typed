@@ -368,7 +368,7 @@ declare namespace BraintreeWeb {
     expirationDate: string;
     billingAddress: {
       postalCode?: string;
-    }
+    };
   }
 
   export interface Client {

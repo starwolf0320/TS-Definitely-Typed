@@ -26,7 +26,7 @@ class View extends Backbone.Layout<Backbone.Model> {
             "mouseleave": "removeElement"
         }
     }
-    
+
     wrapElement(): void {
         this.$el.wrap("<b>");
     }

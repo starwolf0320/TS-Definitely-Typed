@@ -10,7 +10,7 @@ export = ReactSelectClass;
 declare namespace ReactSelectClass {
     export interface AutocompleteResult {
         /** the search-results to be displayed  */
-        data: Option[],
+        data: Option[];
         /** Should be set to true, if and only if a longer query with the same prefix
          * would return a subset of the results
          * If set to true, more specific queries will not be sent to the server.
@@ -197,7 +197,7 @@ declare namespace ReactSelectClass {
         /**
          * optional style to apply to the menu container
          */
-        menuContainerStyle?: {}
+        menuContainerStyle?: {};
         /**
          * renders a custom menu with options
          */
@@ -205,7 +205,7 @@ declare namespace ReactSelectClass {
         /**
          * optional style to apply to the menu
          */
-        menuStyle?: {}
+        menuStyle?: {};
         /**
          * multi-value input
          * @default false

@@ -75,7 +75,7 @@ var xmlDocStr = x2js.json2xml_str(
 
 console.log(xmlDocStr);
 
-// XML string to JSON    
+// XML string to JSON
 var xmlText = "<MyOperation><test>Success</test><test2><item>ddsfg</item><item>dsdgfdgfd</item></test2></MyOperation>";
 var jsonObj = x2js.xml_str2json<any>(xmlText);
 console.log(jsonObj.MyOperation.test);
@@ -87,7 +87,7 @@ var x2jsOld = new X2JS({arrayAccessForm: "property"});
 jsonObj = x2jsOld.xml_str2json(xmlText);
 console.log("Old is " + jsonObj.MyOperation.test_asArray[0]);
 
-// XML/DOM to JSON    
+// XML/DOM to JSON
 var xmlText = " <MyOperation> <test>- Success -</test> <test2> TestText <item> ddsfg </item> TestText2 <item>dsdgfdgfd</item></test2></MyOperation>"
 xmlDoc = x2js.parseXmlString(xmlText);
 

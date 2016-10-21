@@ -10,7 +10,7 @@ declare module "jwt-simple" {
    * @param noVerify
    * @api public
    */
-  export function decode(token:any, key:string, noVerify?:boolean):any;
+  export function decode(token: any, key: string, noVerify?: boolean): any;
   /**
    * Encode jwt
    * @param payload
@@ -18,5 +18,5 @@ declare module "jwt-simple" {
    * @param algorithm default is HS256
    * @api public
    */
-  export function encode(payload:any, key:string, algorithm?:string):string;
+  export function encode(payload: any, key: string, algorithm?: string): string;
 }

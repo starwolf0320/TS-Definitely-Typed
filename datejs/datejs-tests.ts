@@ -15,7 +15,7 @@ function tests() {
 
 	// Number fun
 	(3).days().ago();
-    
+
 	// 6 months from now
 	var n = 6;
 	n.months().fromNow();

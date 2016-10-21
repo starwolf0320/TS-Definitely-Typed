@@ -59,9 +59,9 @@ declare module "durandal/app" {
       */
     export var start: () => JQueryPromise<any>;
     /**
-      * This sets the root view or view model and displays the composed application in the specified application host. 
-      * @param root parameter is required and can be anything that the composition module understands as a view or view model. This includes strings and objects. 
-      * @param transition If you have a splash screen, you may want to specify an optional transition to animate from the splash to your main shell. 
+      * This sets the root view or view model and displays the composed application in the specified application host.
+      * @param root parameter is required and can be anything that the composition module understands as a view or view model. This includes strings and objects.
+      * @param transition If you have a splash screen, you may want to specify an optional transition to animate from the splash to your main shell.
       * @param applicationHost parameter is optional. If provided it should be an element id for the node into which the UI should be composed. If it is not provided the default is to look for an element with an id of "applicationHost".
       */
     export var setRoot: (root: any, transition?: string, applicationHost?: string) => void;
@@ -347,10 +347,10 @@ interface IDurandalViewModelActiveItem {
   */
 declare module "durandal/plugins/router" {
     /**
-      * Parameters to the map function. or information on route url patterns, see the SammyJS documentation. But 
-      * basically, you can have simple routes my/route/, parameterized routes customers/:id or Regex routes. If you 
-      * have a parameter in your route, then the activation data passed to your module's activate function will have a 
-      * property for every parameter in the route (rather than the splat array, which is only present for automapped 
+      * Parameters to the map function. or information on route url patterns, see the SammyJS documentation. But
+      * basically, you can have simple routes my/route/, parameterized routes customers/:id or Regex routes. If you
+      * have a parameter in your route, then the activation data passed to your module's activate function will have a
+      * property for every parameter in the route (rather than the splat array, which is only present for automapped
       * routes).
       */
     interface IRouteInfo {
@@ -367,10 +367,10 @@ declare module "durandal/plugins/router" {
         isActive?: KnockoutComputed<boolean>;
     }
     /**
-      * Parameters to the map function. e only required parameter is url the rest can be derived. The derivation 
-      * happens by stripping parameters from the url and casing where appropriate. You can always explicitly provide 
-      * url, name, moduleId, caption, settings, hash and visible. In 99% of situations, you should not need to provide 
-      * hash; it's just there to simplify databinding for you. Most of the time you may want to teach the router how 
+      * Parameters to the map function. e only required parameter is url the rest can be derived. The derivation
+      * happens by stripping parameters from the url and casing where appropriate. You can always explicitly provide
+      * url, name, moduleId, caption, settings, hash and visible. In 99% of situations, you should not need to provide
+      * hash; it's just there to simplify databinding for you. Most of the time you may want to teach the router how
       * to properly derive the moduleId and name based on a url. If you want to do that, overwrite.
       */
     interface IRouteInfoParameters {
@@ -468,14 +468,14 @@ declare module "durandal/plugins/router" {
     export var mapRoute: {
         (route: IRouteInfoParameters): IRouteInfo;
         (url: string, moduleId?: string, name?: string, visible?: boolean): IRouteInfo;
-    }
+    };
     /**
       * This function takes an array of routeInfo objects or a single routeInfo object and uses it to configure the router. The finalized routeInfo (or array of infos) is returned.
       */
     export var map: {
         (routeOrRouteArray: IRouteInfoParameters): IRouteInfo;
         (routeOrRouteArray: IRouteInfoParameters[]): IRouteInfo[];
-    }
+    };
     /**
       * After you've configured the router, you need to activate it. This is usually done in your shell. The activate function of the router returns a promise that resolves when the router is ready to start. To use the router, you should add an activate function to your shell and return the result from that. The application startup infrastructure of Durandal will detect your shell's activate function and call it at the appropriate time, waiting for it's promise to resolve. This allows Durandal to properly orchestrate the timing of composition and databinding along with animations and splash screen display.
       */
@@ -513,8 +513,7 @@ declare module "durandal/widget" {
     export function convertKindToViewId(kind): string;
 }
 
-interface IEventSubscription
-{
+interface IEventSubscription {
     /**
       * This function adding callback to event subscription
       */

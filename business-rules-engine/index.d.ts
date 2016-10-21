@@ -129,23 +129,23 @@ declare namespace Validation {
         public Error: IError;
         public IsAsync: boolean;
         constructor(Error: IError, IsAsync: boolean);
-        public HasError : boolean;
-        public ErrorMessage : string;
-        public TranslateArgs : IErrorTranslateArgs;
+        public HasError: boolean;
+        public ErrorMessage: string;
+        public TranslateArgs: IErrorTranslateArgs;
     }
     class ValidationResult implements IValidationResult {
         public Name: string;
         constructor(Name: string);
         public IsDirty: boolean;
-        public Children : IValidationResult[];
+        public Children: IValidationResult[];
         public Add(error: IValidationResult): void;
         public Remove(index: number): void;
         public Optional: IOptional;
         public TranslateArgs: IErrorTranslateArgs[];
-        public HasErrorsDirty : boolean;
-        public HasErrors : boolean;
-        public ErrorCount : number;
-        public ErrorMessage : string;
+        public HasErrorsDirty: boolean;
+        public HasErrors: boolean;
+        public ErrorCount: number;
+        public ErrorMessage: string;
     }
     class CompositeValidationResult implements IValidationResult {
         public Name: string;
@@ -155,13 +155,13 @@ declare namespace Validation {
         public AddFirst(error: IValidationResult): void;
         public Add(error: IValidationResult): void;
         public Remove(index: number): void;
-        public HasErrorsDirty : boolean;
-        public HasErrors : boolean;
-        public ErrorCount : number;
-        public ErrorMessage : string;
-        public TranslateArgs : IErrorTranslateArgs[];
+        public HasErrorsDirty: boolean;
+        public HasErrors: boolean;
+        public ErrorCount: number;
+        public ErrorMessage: string;
+        public TranslateArgs: IErrorTranslateArgs[];
         public LogErrors(headerMessage?: string): void;
-        public Errors : {
+        public Errors: {
             [name: string]: IValidationResult;
         };
         private FlattenErros;

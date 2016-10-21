@@ -6,7 +6,7 @@
 window.Xrm.Utility.alertDialog( "message", () => {} );
 parent.Xrm.Page.context.getOrgLcid();
 
-/// Demonstrate clientglobalcontext.d.ts 
+/// Demonstrate clientglobalcontext.d.ts
 
 function _getContext()
 {
@@ -119,7 +119,7 @@ optionSetAttribute.controls.get(0).setFocus();
 
 var level: Xrm.Page.ui.FormNotificationLevel;
 level = "ERROR";
-Xrm.Page.ui.setFormNotification("Test", level, "uniqueId"); 
+Xrm.Page.ui.setFormNotification("Test", level, "uniqueId");
 
 /// Demonstrate Requirement Level and Submit Mode both via string parameters and String Literal Types
 
@@ -153,7 +153,7 @@ const resultSet: Xrm.Page.AutoCompleteResultSet = {
             // accounts in CRM.
             window.open("http://www.microsoft.com/en-us/dynamics/crm-customer-center/create-or-edit-an-account.aspx");
         }
-    } as Xrm.Page.AutoCompleteCommand 
+    } as Xrm.Page.AutoCompleteCommand
 };
 resultSet.results.push({
     id: 0,

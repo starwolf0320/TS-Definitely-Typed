@@ -29,6 +29,6 @@ declare function credential(defaultOptions?: defaultOptions): {
     verify(hash: hashObject | string, password: string, callback: VerifyCallback): void;
     verify(hash: hashObject | string, password: string): Promise<boolean>;
     expired(hash: string, days: number): boolean;
-}
+};
 
 export = credential;

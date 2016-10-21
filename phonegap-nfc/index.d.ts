@@ -15,49 +15,49 @@ declare namespace PhoneGapNfc {
     interface Window {
         nfc: Nfc;
         ndef: Ndef;
-        util:Util;
-        fireNfcTagEvent(event:TagEvent, tagAsJson:string):void;
+        util: Util;
+        fireNfcTagEvent(event: TagEvent, tagAsJson: string): void;
     }
 
     interface Tag {
-        id:Array<number>;
-        techTypes:Array<string>;
-        type:string;
-        date:string;
+        id: Array<number>;
+        techTypes: Array<string>;
+        type: string;
+        date: string;
     }
 
     interface NdefRecord {
         /**
          * 3-bit TNF (Type Name Format) - use one of the TNF_* constants
          */
-        tnf:number;
+        tnf: number;
         /**
          * byte array, containing zero to 255 bytes, must not be null
          */
-            type:Array<number>;
+            type: Array<number>;
         /**
          * byte array, containing zero to 255 bytes, must not be null
          */
-        id:Array<number>;
+        id: Array<number>;
         /**
          * byte array, containing zero to (2 ** 32 - 1) bytes, must not be null
          */
-        payload:Array<number>;
+        payload: Array<number>;
     }
 
     interface NdefTag extends Tag {
-        canMakeReadOnly:boolean;
-        isWritable:boolean;
-        maxSize:number;
-        ndefMessage:Array<NdefRecord>;
+        canMakeReadOnly: boolean;
+        isWritable: boolean;
+        maxSize: number;
+        ndefMessage: Array<NdefRecord>;
     }
 
     interface TagEvent extends Event {
-        tag:Tag;
+        tag: Tag;
     }
 
     interface NdefTagEvent extends TagEvent {
-        tag:NdefTag;
+        tag: NdefTag;
     }
 
     interface UriHelper {
@@ -65,19 +65,19 @@ declare namespace PhoneGapNfc {
          * URI identifier codes from URI Record Type Definition NFCForum-TS-RTD_URI_1.0 2006-07-24
          * index in array matches code in the spec
          */
-        protocols:Array<string>;
+        protocols: Array<string>;
 
         /**
          * Decode a URI payload bytes
          * @param data
          */
-        decodePayload(data:any):string;
+        decodePayload(data: any): string;
 
         /**
          * shorten a URI with standard prefix
          * @param uri
          */
-        encodePayload(uri:string):Array<number>;
+        encodePayload(uri: string): Array<number>;
     }
 
     interface TextHelper {
@@ -86,7 +86,7 @@ declare namespace PhoneGapNfc {
          * Decode a URI payload bytes
          * @param data
          */
-        decodePayload(data:any):string;
+        decodePayload(data: any): string;
 
         /**
          * Encode text payload
@@ -94,7 +94,7 @@ declare namespace PhoneGapNfc {
          * @param lang
          * @param encoding
          */
-        encodePayload(text:string, lang:string, encoding:string):Array<number>;
+        encodePayload(text: string, lang: string, encoding: string): Array<number>;
     }
 
     /**
@@ -102,7 +102,7 @@ declare namespace PhoneGapNfc {
      */
     interface Ndef {
 
-        TNF_EMPTY:number;
+        TNF_EMPTY: number;
         TNF_WELL_KNOWN: number;
         TNF_MIME_MEDIA: number;
         TNF_ABSOLUTE_URI: number;
@@ -119,8 +119,8 @@ declare namespace PhoneGapNfc {
         RTD_HANDOVER_REQUEST: Array<number>; // "Hr"
         RTD_HANDOVER_SELECT: Array<number>; // "Hs"
 
-        uriHelper:UriHelper;
-        textHelper:TextHelper;
+        uriHelper: UriHelper;
+        textHelper: TextHelper;
         /**
          * Creates a JSON representation of a NdefRecord.
          *
@@ -133,7 +133,7 @@ declare namespace PhoneGapNfc {
          *
          * @see Ndef.textRecord, Ndef.uriRecord and Ndef.mimeMediaRecord for examples
          */
-        record(tnf:number, type:Array<number>, id:Array<number>, payload:Array<number>):NdefRecord;
+        record(tnf: number, type: Array<number>, id: Array<number>, payload: Array<number>): NdefRecord;
 
         /**
          * Helper that creates an NdefRecord containing plain text.
@@ -144,7 +144,7 @@ declare namespace PhoneGapNfc {
          *
          * @return NdefRecord
          */
-        textRecord(text:string, languageCode:string, id:Array<number>):NdefRecord;
+        textRecord(text: string, languageCode: string, id: Array<number>): NdefRecord;
 
         /**
          * Helper that creates a NdefRecord containing a URI.
@@ -154,7 +154,7 @@ declare namespace PhoneGapNfc {
          *
          * @return NdefRecord
          */
-        uriRecord(uri:string, id:Array<number>):NdefRecord;
+        uriRecord(uri: string, id: Array<number>): NdefRecord;
 
         /**
          * Helper that creates a NdefRecord containing an absolute URI.
@@ -181,7 +181,7 @@ declare namespace PhoneGapNfc {
          *
          * @return NdefRecord
          */
-        absoluteUriRecord(uri:string, payload:Array<number>, id:Array<number>):NdefRecord;
+        absoluteUriRecord(uri: string, payload: Array<number>, id: Array<number>): NdefRecord;
 
         /**
          * Helper that creates a NdefRecordcontaining an mimeMediaRecord.
@@ -190,7 +190,7 @@ declare namespace PhoneGapNfc {
          * @param payload byte[]
          * @param id byte[] (optional)
          */
-        mimeMediaRecord(mimeType:string, payload:Array<number>, id:Array<number>):NdefRecord;
+        mimeMediaRecord(mimeType: string, payload: Array<number>, id: Array<number>): NdefRecord;
 
         /**
          * Helper that creates an NDEF record containing an Smart Poster.
@@ -200,13 +200,13 @@ declare namespace PhoneGapNfc {
          *
          * @return NdefRecord
          */
-        smartPoster(ndefRecords:Array<NdefRecord>, id:Array<number>):NdefRecord;
+        smartPoster(ndefRecords: Array<NdefRecord>, id: Array<number>): NdefRecord;
 
         /**
          * Helper that creates an empty NdefRecord.
          *
          */
-        emptyRecord():NdefRecord;
+        emptyRecord(): NdefRecord;
 
         /**
          * Helper that creates an Android Application Record (AAR).
@@ -214,7 +214,7 @@ declare namespace PhoneGapNfc {
          * @param packageName android package name
          *
          */
-        androidApplicationRecord(packageName:string):NdefRecord;
+        androidApplicationRecord(packageName: string): NdefRecord;
 
         /**
          * Encodes an NDEF Message into bytes that can be written to a NFC tag.
@@ -225,7 +225,7 @@ declare namespace PhoneGapNfc {
          *
          * @see NFC Data Exchange Format (NDEF) http://www.nfc-forum.org/specs/spec_list/
          */
-        encodeMessage(ndefRecords:Array<NdefRecord>):Array<number>;
+        encodeMessage(ndefRecords: Array<NdefRecord>): Array<number>;
 
         /**
          * Decodes an array bytes into an NDEF Message
@@ -236,7 +236,7 @@ declare namespace PhoneGapNfc {
          *
          * @see NFC Data Exchange Format (NDEF) http://www.nfc-forum.org/specs/spec_list/
          */
-        decodeMessage(bytes:Array<number>):Array<NdefRecord>;
+        decodeMessage(bytes: Array<number>): Array<NdefRecord>;
 
         /**
          * Decode the bit flags from a TNF Byte.
@@ -245,7 +245,7 @@ declare namespace PhoneGapNfc {
          *
          *  See NFC Data Exchange Format (NDEF) Specification Section 3.2 RecordLayout
          */
-        decodeTnf(tnf_byte:number):any;
+        decodeTnf(tnf_byte: number): any;
 
         /**
          * Encode NDEF bit flags into a TNF Byte.
@@ -254,14 +254,14 @@ declare namespace PhoneGapNfc {
          *
          *  See NFC Data Exchange Format (NDEF) Specification Section 3.2 RecordLayout
          */
-        encodeTnf(mb:number, me:number, cf:number, sr:number, il:number, tnf:number):number;
+        encodeTnf(mb: number, me: number, cf: number, sr: number, il: number, tnf: number): number;
 
         /**
          * Convert TNF to String for user friendly display
          *
          *@param tnf tnf byte
          */
-        tnfToString(tnf:number):string;
+        tnfToString(tnf: number): string;
     }
 
     interface Util {
@@ -269,19 +269,19 @@ declare namespace PhoneGapNfc {
          * Convert bytes to string
          * @param bytes
          */
-        bytesToString(bytes:Array<number>):string;
+        bytesToString(bytes: Array<number>): string;
 
         /**
          * Convert string to bytes
          * @param string
          */
-        stringToBytes(string:string):Array<number>;
+        stringToBytes(string: string): Array<number>;
 
         /**
          * Convert bytes to hexadecimal string
          * @param bytes
          */
-        bytesToHexString(bytes:Array<number>):string;
+        bytesToHexString(bytes: Array<number>): string;
     }
 
     /**
@@ -295,7 +295,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the listener is added.
          * @param fail The callback that is called if there was an error.
          */
-        addTagDiscoveredListener(callback:(event:TagEvent) => void, win?:() => void, fail?:() => void):void;
+        addTagDiscoveredListener(callback: (event: TagEvent) => void, win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.addMimeTypeListener registers the callback for ndef-mime events.
@@ -306,7 +306,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the listener is added.
          * @param fail The callback that is called if there was an error.
          */
-        addMimeTypeListener(mimeType:string, callback:() => void, win?:() => void, fail?:() => void):void;
+        addMimeTypeListener(mimeType: string, callback: () => void, win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.addNdefListener registers the callback for ndef events.
@@ -317,7 +317,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the listener is added.
          * @param fail The callback that is called if there was an error.
          */
-        addNdefListener(callback:(event:NdefTagEvent) => void, win?:() => void, fail?:() => void):void;
+        addNdefListener(callback: (event: NdefTagEvent) => void, win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.addNdefFormatableListener registers the callback for ndef-formatable events.
@@ -328,7 +328,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the listener is added.
          * @param fail The callback that is called if there was an error.
          */
-        addNdefFormatableListener(callback:(event:NdefTagEvent) => void, win?:() => void, fail?:() => void):void;
+        addNdefFormatableListener(callback: (event: NdefTagEvent) => void, win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.write writes an NdefMessage to a NFC tag.
@@ -340,7 +340,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the tag is written.
          * @param fail The callback that is called if there was an error.
          */
-        write(ndefMessage:Array<NdefRecord>, win?:() => void, fail?:() => void):void;
+        write(ndefMessage: Array<NdefRecord>, win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.makeReadOnly make a NFC tag read only.
@@ -349,7 +349,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the tag is locked.
          * @param fail The callback that is called if there was an error.
          */
-        makeReadOnly(win?:() => void, fail?:() => void):void;
+        makeReadOnly(win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.share writes an NdefMessage via peer-to-peer.
@@ -358,14 +358,14 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the message is pushed.
          * @param fail The callback that is called if there was an error.
          */
-        share(ndefMessage:Array<NdefRecord>, win?:() => void, fail?:() => void):void;
+        share(ndefMessage: Array<NdefRecord>, win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.unshare stops sharing data via peer-to-peer.
          * @param win The callback that is called when sharing stops.
          * @param fail The callback that is called if there was an error.
          */
-        unshare(win?:() => void, fail?:() => void):void;
+        unshare(win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.handover shares files to a NFC peer using handover. Files are sent by specifying a file:// or context:// URI or a list of URIs.
@@ -376,14 +376,14 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the message is pushed.
          * @param fail The callback that is called if there was an error.
          */
-        handover(uris:string|Array<string>, win?:() => void, fail?:() => void):void;
+        handover(uris: string|Array<string>, win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.stopHandover stops sharing data via peer-to-peer.
          * @param win The callback that is called when sharing stops.
          * @param fail The callback that is called if there was an error.
          */
-        stopHandover(win?:() => void, fail?:() => void):void;
+        stopHandover(win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.erase erases a tag by writing an empty message.
@@ -392,7 +392,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when sharing stops.
          * @param fail The callback that is called if there was an error.
          */
-        erase(win?:() => void, fail?:() => void):void;
+        erase(win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.enabled explicitly checks to see if the phone has NFC and if NFC is enabled.
@@ -406,7 +406,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when NFC is enabled.
          * @param fail The callback that is called when NFC is disabled or missing.
          */
-        enabled(win?:(status:String) => void, fail?:(status:String) => void):void;
+        enabled(win?: (status: String) => void, fail?: (status: String) => void): void;
 
         /**
          * Removes the previously registered event listener added via nfc.addTagDiscoveredListener
@@ -414,7 +414,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the listener is successfully removed.
          * @param fail The callback that is called if there was an error during removal.
          */
-        removeTagDiscoveredListener(callback:(event:TagEvent) => void, win?:() => void, fail?:() => void):void;
+        removeTagDiscoveredListener(callback: (event: TagEvent) => void, win?: () => void, fail?: () => void): void;
 
         /**
          * Removes the previously registered event listener added via nfc.addMimeTypeListener
@@ -423,7 +423,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the listener is successfully removed.
          * @param fail The callback that is called if there was an error during removal.
          */
-        removeMimeTypeListener(mimeType:string, callback:(event:TagEvent) => void, win?:() => void, fail?:() => void):void;
+        removeMimeTypeListener(mimeType: string, callback: (event: TagEvent) => void, win?: () => void, fail?: () => void): void;
 
         /**
          * Removes the previously registered event listener for NDEF tags added via nfc.addNdefListener.
@@ -431,20 +431,20 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the listener is successfully removed.
          * @param fail The callback that is called if there was an error during removal.
          */
-        removeNdefListener(callback:(event:TagEvent) => void, win?:() => void, fail?:() => void):void;
+        removeNdefListener(callback: (event: TagEvent) => void, win?: () => void, fail?: () => void): void;
 
         /**
          * Function showSettings opens the NFC settings for the operating system.
          * @param win Success callback function
          * @param fail Error callback function, invoked when error occurs.
          */
-        showSettings(win?:() => void, fail?:() => void):void;
+        showSettings(win?: () => void, fail?: () => void): void;
     }
 }
 
-declare var nfc:PhoneGapNfc.Nfc;
-declare var ndef:PhoneGapNfc.Ndef;
-declare var util:PhoneGapNfc.Util;
+declare var nfc: PhoneGapNfc.Nfc;
+declare var ndef: PhoneGapNfc.Ndef;
+declare var util: PhoneGapNfc.Util;
 
 declare module 'nfc' {
     export = nfc;

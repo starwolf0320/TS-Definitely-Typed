@@ -5,7 +5,7 @@
 
 /// <reference types="node" />
 
-declare module 'wiring-pi' {
+declare module "wiring-pi" {
     // Setup
     export function wiringPiSetup(): number;
     export function wiringPiSetupGpio(): number;
@@ -238,7 +238,7 @@ declare module 'wiring-pi' {
     export function lcd128x64getScreenSize(): number[];
     export function lcd128x64point(x: number, y: number, color: number): void;
     export function lcd128x64line(x0: number, y0: number, x1: number, y1: number, color: number): void;
-    export function lcd128x64lineTo(x: number, y: number, color:  number): void;
+    export function lcd128x64lineTo(x: number, y: number, color: number): void;
     export function lcd128x64rectangle(x1: number, y1: number, x2: number, y2: number, color: number, filled: number): void;
     export function lcd128x64circle(x: number, y: number, r: number, color: number, filled: number): void;
     export function lcd128x64ellipse(cx: number, cy: number, xRadius: number, yRadius: number, color: number, filled: number): void;

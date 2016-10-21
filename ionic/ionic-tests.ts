@@ -91,7 +91,7 @@ class IonicTestController {
             cancelText: "cancelText",
             destructiveText: "destructiveText",
             cancel: ()=>{ console.log("cancel"); },
-            buttonClicked: (index)=>{ 
+            buttonClicked: (index)=>{
                 console.log("buttonClicked");
                 return index === 0;
             },

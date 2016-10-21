@@ -112,8 +112,8 @@ interface KnockoutObservable<T> extends KnockoutSubscribable<T>, KnockoutObserva
 	(value: T | null): void;
 
 	peek(): T;
-	valueHasMutated?:{(): void;};
-	valueWillMutate?:{(): void;};
+	valueHasMutated?: {(): void};
+	valueWillMutate?: {(): void};
     extend(requestedExtenders: { [key: string]: any; }): KnockoutObservable<T>;
 }
 
@@ -210,7 +210,7 @@ interface KnockoutVirtualElements {
     insertAfter( container: KnockoutVirtualElement, nodeToInsert: Node, insertAfter: Node ): void;
     nextSibling(node: KnockoutVirtualElement): Node;
     prepend(node: KnockoutVirtualElement, toInsert: Node ): void;
-    setDomNodeChildren(node: KnockoutVirtualElement, newChildren: { length: number;[index: number]: Node; } ): void;
+    setDomNodeChildren(node: KnockoutVirtualElement, newChildren: { length: number; [index: number]: Node; } ): void;
     childNodes(node: KnockoutVirtualElement ): Node[];
 }
 
@@ -557,7 +557,7 @@ interface KnockoutStatic {
 	bindingProvider: {
 		instance: KnockoutBindingProvider;
 		new (): KnockoutBindingProvider;
-	}
+	};
 
     /////////////////////////////////
     // selectExtensions.js
@@ -676,7 +676,7 @@ interface KnockoutComponents {
     isRegistered(componentName: string): boolean;
     unregister(componentName: string): void;
     get(componentName: string, callback: (definition: KnockoutComponentTypes.Definition) => void): void;
-    clearCachedDefinition(componentName: string): void
+    clearCachedDefinition(componentName: string): void;
     defaultLoader: KnockoutComponentTypes.Loader;
     loaders: KnockoutComponentTypes.Loader[];
     getComponentNameForNode(node: Node): string;

@@ -1,7 +1,7 @@
 // Type definitions for EasyStar.js 0.1.6
 // Project: http://easystarjs.com/
 // Definitions by: Magnus Gustafsson <https://github.com/borundin>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped  
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /*
  easystarjs.d.ts may be freely distributed under the MIT license.
@@ -9,10 +9,8 @@
 
 export = easystarjs;
 
-declare namespace easystarjs
-{
-    class js
-    {
+declare namespace easystarjs {
+    class js {
         new (): js;
         setGrid(grid: number[][]): void;
         setAcceptableTiles(tiles: number[]): void;
@@ -27,8 +25,7 @@ declare namespace easystarjs
         setTileCost(tileType: number, multiplicativeCost: number): void;
     }
 
-    interface Position
-    {
+    interface Position {
         x: number;
         y: number;
     }

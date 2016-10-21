@@ -30,73 +30,73 @@ declare module "spectacle" {
 	 * Base props for many Spectacle components
 	 */
 	export interface BaseProps {
-		italic?:boolean,
-		bold?:boolean,
-		caps?:boolean,
-		margin?:number|string,
-		padding?:number|string,
-		textColor?:string,
-		textSize?:string,
-		textAlign?:string,
-		textFont?:string,
-		bgColor?:string,
-		bgImage?:string,
-		bgDarken?:number
+		italic?: boolean;
+		bold?: boolean;
+		caps?: boolean;
+		margin?: number|string;
+		padding?: number|string;
+		textColor?: string;
+		textSize?: string;
+		textAlign?: string;
+		textFont?: string;
+		bgColor?: string;
+		bgImage?: string;
+		bgDarken?: number;
 	}
 
 	export interface SpectacleProps {
-		theme?:{ [key: string ]: string | number }
+		theme?: { [key: string ]: string | number };
 	}
 
 	export interface DeckProps {
-		transition?:transitionType[],
-		transitionDuration?:number,
-		progress?:progressType,
-		controls?:boolean
+		transition?: transitionType[];
+		transitionDuration?: number;
+		progress?: progressType;
+		controls?: boolean;
 	}
 
 	export interface SlideProps extends BaseProps {
-		align?:alignType,
-		transition?:transitionType[],
-		transitionDuration?:number,
-		notes?:string,
-		id?:string
+		align?: alignType;
+		transition?: transitionType[];
+		transitionDuration?: number;
+		notes?: string;
+		id?: string;
 	}
 
 	export interface MarkdownProps {
-		source?:string,
-		mdastConfig?:{ [key: string ]: string | number }
+		source?: string;
+		mdastConfig?: { [key: string ]: string | number };
 	}
 
 	export interface CodePaneProps extends BaseProps {
-		lang?:string,
-		source?:string
+		lang?: string;
+		source?: string;
 	}
 
 	export interface HeadingProps extends BaseProps {
-		fit?:boolean,
-		lineHeight?:number
-		size?:number;
+		fit?: boolean;
+		lineHeight?: number;
+		size?: number;
 	}
 
 	export interface ImageProps extends BaseProps {
-		display?:string,
-		height?:number,
-		src?:string,
-		width?:number|string
+		display?: string;
+		height?: number;
+		src?: string;
+		width?: number|string;
 	}
 
 	export interface LinkProps extends BaseProps {
-		href?:string
+		href?: string;
 	}
 
 	export interface SProps extends BaseProps {
-		type?:string
+		type?: string;
 	}
 
 	export interface TextProps extends BaseProps {
-		fit?:boolean,
-		lineHeight?:number
+		fit?: boolean;
+		lineHeight?: number;
 	}
 
 	export class Spectacle extends React.Component<SpectacleProps, any> {}

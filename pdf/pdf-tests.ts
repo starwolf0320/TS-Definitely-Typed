@@ -25,7 +25,7 @@ function renderPage(pageNum: number) {
 		var context = canvas.getContext('2d');
 		canvas.height = viewport.height;
 		canvas.width = viewport.width;
-		
+
 		//
 		// test viewport conversion methods
 		// convertToViewportRectangle and normalizeRect are used in the acroforms example:

@@ -21,7 +21,7 @@ declare namespace WEBCL {
     }
 
     //2.5
-    interface WebCLCallback { (event: WebCLEvent): void }
+    interface WebCLCallback { (event: WebCLEvent): void; }
 
 
     // 3.5

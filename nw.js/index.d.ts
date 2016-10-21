@@ -8,7 +8,7 @@
 /**
  * Helpers class and interfaces defined here, to make `nw` module cleaner.
  */
-declare module NWJS_Helpers {
+declare namespace NWJS_Helpers {
 
     /**
      * Node.js v6.x EventEmitter Class
@@ -167,7 +167,7 @@ declare module NWJS_Helpers {
         /**
          * Unique id for a screen
          */
-        id: number,
+        id: number;
 
         /**
          * Physical screen resolution, can be negative, not necessarily start from 0,depending on screen arrangement
@@ -177,7 +177,7 @@ declare module NWJS_Helpers {
             y: number,
             width: number,
             height: number
-        },
+        };
 
         /**
          * Useable area within the screen bound
@@ -187,15 +187,15 @@ declare module NWJS_Helpers {
             y: number,
             width: number,
             height: number
-        },
+        };
 
-        scaleFactor: number,
+        scaleFactor: number;
 
-        isBuiltIn: boolean,
+        isBuiltIn: boolean;
 
-        rotation: number,
+        rotation: number;
 
-        touchSupport: number
+        touchSupport: number;
     }
 
     /**
@@ -388,12 +388,12 @@ declare module NWJS_Helpers {
         /**
          * (Optional) The image format used to generate the image. It supports two formats: "png" and "jpeg". If ignored, it’s "jpeg" by default.
          */
-        format?: string
+        format?: string;
 
         /**
          *  (Optional) It supports three types: "raw", "buffer" and "datauri". If ignored, it’s "datauri" by default.
          */
-        datatype?: string
+        datatype?: string;
     }
 
     /**
@@ -448,7 +448,7 @@ declare module NWJS_Helpers {
              * - (Optional) changeInfo {Objet} Contains details about the cookie that's been changed.
              */
             addListener( callback: ( changeInfo: CookiesOnChangedCallbackChangeInfo ) => void ): void;
-        }
+        };
     }
 
     /**
@@ -690,7 +690,7 @@ declare module NWJS_Helpers {
         /**
          * The underlying reason behind the cookie's change.
          */
-        cause: string | "evicted" | "expired" | "explicit" | "expired_overwrite" | "overwrite"
+        cause: string | "evicted" | "expired" | "explicit" | "expired_overwrite" | "overwrite";
     }
 
     /**

@@ -4,10 +4,10 @@
 var map = new google.maps.Map(document.querySelector("☺"));
 
 /***** Data *****/
- 
+
 new google.maps.Data();
 new google.maps.Data({ map: map });
- 
+
 var latLng = new google.maps.LatLng(52.201203, -1.724370),
     feature = new google.maps.Data.Feature(),
     geometry = new google.maps.Data.Geometry();
@@ -61,7 +61,7 @@ data.loadGeoJson("http://magicGeoJsonSource.com");
 data.loadGeoJson(
     "http://magicGeoJsonSource.com",
     { idPropertyName: "test" });
-    
+
 data.loadGeoJson(
     "http://magicGeoJsonSource.com",
     { idPropertyName: "test" },
@@ -99,7 +99,7 @@ var setPropertyEvent: google.maps.Data.SetPropertyEvent = {
     newValue: {},
     oldValue: {}
 };
- 
+
 var removePropertyEvent: google.maps.Data.RemovePropertyEvent = {
     feature: feature,
     name: "test",

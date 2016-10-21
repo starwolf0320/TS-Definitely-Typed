@@ -9,7 +9,7 @@ declare namespace THREE {
 
   class EditorControls extends EventDispatcher {
 
-    constructor(object: Camera, domElement?:HTMLElement);
+    constructor(object: Camera, domElement?: HTMLElement);
 
     enabled: boolean;
     center: THREE.Vector3;

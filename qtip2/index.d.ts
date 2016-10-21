@@ -66,8 +66,7 @@ declare namespace QTip2 {
 		modal?: boolean | Modal;
 	}
 
-	interface Modal
-	{
+	interface Modal {
 		on?: boolean;
 		blur?: boolean;
 		escape?: boolean;
@@ -237,7 +236,7 @@ declare namespace QTip2 {
 		set(propertyName: 'hide.fixed', value: boolean): Api;
 		set(propertyName: 'hide.leave', value: string | boolean): Api;
 		set(propertyName: 'hide.distance', value: number | boolean): Api;
-		set(propertyName: 'hide.effect', value: boolean | ((offset: any) => void)): Api
+		set(propertyName: 'hide.effect', value: boolean | ((offset: any) => void)): Api;
 		set(propertyName: 'style', value: Style): Api;
 		set(propertyName: 'style.classes', value: string | boolean): Api;
 		set(propertyName: 'style.def', value: boolean): Api;
@@ -368,7 +367,7 @@ interface JQuery {
 	qtip(methodName: 'option', propertyName: 'hide.fixed', value: boolean): QTip2.Api;
 	qtip(methodName: 'option', propertyName: 'hide.leave', value: string | boolean): QTip2.Api;
 	qtip(methodName: 'option', propertyName: 'hide.distance', value: number | boolean): QTip2.Api;
-	qtip(methodName: 'option', propertyName: 'hide.effect', value: boolean | ((offset: any) => void)): QTip2.Api
+	qtip(methodName: 'option', propertyName: 'hide.effect', value: boolean | ((offset: any) => void)): QTip2.Api;
 	qtip(methodName: 'option', propertyName: 'style', value: QTip2.Style): QTip2.Api;
 	qtip(methodName: 'option', propertyName: 'style.classes', value: string | boolean): QTip2.Api;
 	qtip(methodName: 'option', propertyName: 'style.def', value: boolean): QTip2.Api;
@@ -395,7 +394,7 @@ interface JQuery {
 
 	qtip(methodName: 'disable', state?: boolean): JQuery;
 
-	qtip(methodName: 'enable'): JQuery
+	qtip(methodName: 'enable'): JQuery;
 
 	qtip(methodName: 'reposition', event?: Event, effect?: boolean): JQuery;
 

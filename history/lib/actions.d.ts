@@ -6,4 +6,4 @@ export default {
     PUSH,
     REPLACE,
     POP
-}
+};

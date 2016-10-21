@@ -132,13 +132,13 @@ interface LaunchNavigator {
      * @returns {Promise<any>}
      */
     navigate: (
-        destination: string | number[], 
+        destination: string | number[],
         options?: LaunchNavigatorOptions
     ) => void;
-    
+
     logEvent: (name: string, params?: any, valueToSum?: number) => void;
 
-    
+
 
     /**
      * Determines if the given app is installed and available on the current device.

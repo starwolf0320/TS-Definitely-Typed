@@ -19,7 +19,7 @@ export interface BootstrapTableProps extends Props<BootstrapTable> {
 	/**
 	If set, data is remote (use also fetchInfo)
 	*/
-    remote?: boolean,
+    remote?: boolean;
 	/**
 	Use keyField to tell table which column is unique. This is same as isKey in <TableHeaderColumn>
 	Tips: You need choose one configuration to set key field: keyField or isKey in <TableHeaderColumn>
@@ -517,7 +517,7 @@ export interface TableHeaderColumnProps extends Props<TableHeaderColumn> {
     formatExtraData?: any;
 }
 export interface Editable {
-    type?: string;//edit type, avaiable value is textarea, select, checkbox
+    type?: string; //edit type, avaiable value is textarea, select, checkbox
 	/**
 	 function for validation and taking only one "cell value" as argument. This function should return Bool.
 	 */

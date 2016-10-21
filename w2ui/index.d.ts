@@ -15,8 +15,8 @@ interface JQuery {
     w2popup(options: Object): W2UI.W2Popup;
 }
 
-declare var w2popup: W2UI.W2Popup
-declare var w2ui: W2UI.W2UI
+declare var w2popup: W2UI.W2Popup;
+declare var w2ui: W2UI.W2UI;
 
 declare namespace W2UI {
 
@@ -25,7 +25,7 @@ declare namespace W2UI {
         target: string;
     }
 
-    type W2EventHandler = ((e: W2Event) => void) | ((id: string, e: W2Event) => void)
+    type W2EventHandler = ((e: W2Event) => void) | ((id: string, e: W2Event) => void);
 
     /* Primitives (first alphabetically, then by documentation order) */
 
@@ -41,7 +41,7 @@ declare namespace W2UI {
         type?: string;
     }
 
-    type W2Object = W2Layout | W2Grid | W2Toolbar | W2Sidebar | W2Tabs | W2Form | W2Popup
+    type W2Object = W2Layout | W2Grid | W2Toolbar | W2Sidebar | W2Tabs | W2Form | W2Popup;
 
     interface W2Panel {
         content?: string | JQuery;

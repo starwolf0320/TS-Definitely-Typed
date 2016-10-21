@@ -21,44 +21,44 @@ interface JQuery {
 }
 
 interface JQueryRatyOptions {
-  cancel?: boolean,
-  cancelClass?: string,
-  cancelHint?: string,
-  cancelOff?: string,
-  cancelOn?: string,
-  cancelPlace?: string,
-  click?: (score: number, event: JQueryEventObject) => void,
-  half?: boolean,
-  halfShow?: boolean,
-  hints?: string[],
-  iconRange?: any[][],
-  mouseout?: (score: number, event: JQueryEventObject) => void,
-  mouseover?: (score: number, event: JQueryEventObject) => void,
-  noRatedMsg?: string,
-  number?: number,
-  numberMax?: number,
-  path?: string,
-  precision?: boolean,
-  readOnly?: boolean,
-  round?: JQueryRatyRoundingOptions,
-  score?: number,
-  scoreName?: string,
-  single?: boolean,
-  space?: boolean,
-  starHalf?: string,
-  starOff?: string,
-  starOn?: string,
-  target?: string,
-  targetFormat?: string,
-  targetKeep?: boolean,
-  targetScore?: string,
-  targetText?: string,
-  targetType?: string,
-  starType?: string,
+  cancel?: boolean;
+  cancelClass?: string;
+  cancelHint?: string;
+  cancelOff?: string;
+  cancelOn?: string;
+  cancelPlace?: string;
+  click?: (score: number, event: JQueryEventObject) => void;
+  half?: boolean;
+  halfShow?: boolean;
+  hints?: string[];
+  iconRange?: any[][];
+  mouseout?: (score: number, event: JQueryEventObject) => void;
+  mouseover?: (score: number, event: JQueryEventObject) => void;
+  noRatedMsg?: string;
+  number?: number;
+  numberMax?: number;
+  path?: string;
+  precision?: boolean;
+  readOnly?: boolean;
+  round?: JQueryRatyRoundingOptions;
+  score?: number;
+  scoreName?: string;
+  single?: boolean;
+  space?: boolean;
+  starHalf?: string;
+  starOff?: string;
+  starOn?: string;
+  target?: string;
+  targetFormat?: string;
+  targetKeep?: boolean;
+  targetScore?: string;
+  targetText?: string;
+  targetType?: string;
+  starType?: string;
 }
 
 interface JQueryRatyRoundingOptions {
-  down: number,
-  full: number,
-  up: number,
+  down: number;
+  full: number;
+  up: number;
 }

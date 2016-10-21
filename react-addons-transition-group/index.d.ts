@@ -13,5 +13,5 @@ declare module 'react' {
     }
 }
 
-declare var ReactCSSTransitionGroup : ComponentClass<TransitionGroupProps>;
+declare var ReactCSSTransitionGroup: ComponentClass<TransitionGroupProps>;
 export = ReactCSSTransitionGroup;

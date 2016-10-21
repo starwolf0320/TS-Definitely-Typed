@@ -5,4 +5,4 @@
 
 
 
-declare var freedom :freedom.FreedomInModuleEnv;
+declare var freedom: freedom.FreedomInModuleEnv;

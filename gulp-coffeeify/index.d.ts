@@ -15,7 +15,7 @@ declare namespace coffeeify {
         options?: {
             debug?: boolean;
             paths?: string[];
-        },
+        };
         /**
          * [DEPRECATED]: You should use a 'paths' options of browserify.
          */

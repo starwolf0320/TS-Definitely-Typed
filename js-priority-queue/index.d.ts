@@ -53,10 +53,10 @@ declare module "js-priority-queue" {
              * Don't use BHeapStrategy, except as a lesson in how sometimes miracles in one programming language aren't great in other languages.
              */
             strategy?: typeof AbstractPriorityQueue;
-        }
-        class ArrayStrategy<T> extends AbstractPriorityQueue<T>{ }
-        class BinaryHeapStrategy<T> extends AbstractPriorityQueue<T>{ }
-        class BHeapStrategy<T> extends AbstractPriorityQueue<T>{ }
+        };
+        class ArrayStrategy<T> extends AbstractPriorityQueue<T> { }
+        class BinaryHeapStrategy<T> extends AbstractPriorityQueue<T> { }
+        class BHeapStrategy<T> extends AbstractPriorityQueue<T> { }
 
     }
     class PriorityQueue<T> extends AbstractPriorityQueue<T> { }

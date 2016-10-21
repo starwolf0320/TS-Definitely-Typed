@@ -24,13 +24,13 @@ declare namespace riot {
     interface TemplateError extends Error {
         riotData: {
             tagName: string;
-        }
+        };
     }
 
     interface Util {
         tmpl: {
             errorHandler(error: TemplateError): void;
-        }
+        };
     }
 
     const util: Util;
@@ -235,7 +235,7 @@ declare namespace riot {
          */
         attrs?: {
             [key: string]: any;
-        }
+        };
     }
 
     interface TagConfiguration {

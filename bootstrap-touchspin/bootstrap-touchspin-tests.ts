@@ -26,7 +26,7 @@ $(function () {
     $("input[name='demo_vertical']").TouchSpin({
         verticalbuttons: true
     });
-    
+
     // Example 4 from http://www.virtuosoft.eu/code/bootstrap-touchspin/
     $("input[name='demo_vertical2']").TouchSpin({
         verticalbuttons: true,

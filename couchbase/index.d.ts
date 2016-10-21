@@ -209,7 +209,7 @@ interface CreateBucketOptions {
      * The bucket name
      */
     name?: string;
-    authType?: string,
+    authType?: string;
     bucketType?: string;
     ramQuotaMB?: number;
     replicaNumber?: number;
@@ -1076,7 +1076,7 @@ declare namespace Bucket {
          *
          * @param doc The data from Couchbase to decode.
          */
-        (doc: Bucket.TranscoderDoc): any
+        (doc: Bucket.TranscoderDoc): any;
     }
 
     /**

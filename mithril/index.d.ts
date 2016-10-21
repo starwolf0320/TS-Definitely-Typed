@@ -81,7 +81,7 @@ declare namespace Mithril {
 		*
 		* @see m.withAttr
 		*/
-		prop<T>(promise: Thennable<T>) : Promise<T>;
+		prop<T>(promise: Thennable<T>): Promise<T>;
 
 		/**
 		* Creates a getter-setter function that wraps a simple value. Useful
@@ -202,7 +202,7 @@ declare namespace Mithril {
 			* @return The current strategy
 			*/
 			strategy: BasicProperty<"all" | "diff" | "none">;
-		}
+		};
 
 		route: {
 			/**
@@ -299,7 +299,7 @@ declare namespace Mithril {
 			* @return The parsed object data.
 			*/
 			parseQueryString(data: string): Object;
-		}
+		};
 
 		/**
 		* Send an XHR request to a server. Note that the `url` option is
@@ -310,7 +310,7 @@ declare namespace Mithril {
 		*
 		* @see XHROptions for the available options.
 		*/
-		request(options: XHROptions): Promise<any>
+		request(options: XHROptions): Promise<any>;
 
 		/**
 		* Send a JSONP request to a server. Note that the `url` option is
@@ -344,7 +344,7 @@ declare namespace Mithril {
 			* Promises/A+-compatible behavior. simply set this to a no-op.
 			*/
 			onerror(e: Error): void;
-		}
+		};
 
 		/**
 		* Takes a list of promises or thennables and returns a Mithril promise

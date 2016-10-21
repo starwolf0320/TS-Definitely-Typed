@@ -60,7 +60,7 @@ export interface GeneratorOptions {
     /**
      * Set to true to reduce whitespace (but not as much as opts.compact). Defaults to `false`.
      */
-    concise?: boolean;        
+    concise?: boolean;
 
     /**
      * The type of quote to use in the output. If omitted, autodetects based on `ast.tokens`.
@@ -70,7 +70,7 @@ export interface GeneratorOptions {
     /**
      * Used in warning messages
      */
-    filename?: string;        
+    filename?: string;
 
     /**
      * Enable generating source maps. Defaults to `false`.

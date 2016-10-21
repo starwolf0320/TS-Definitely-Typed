@@ -9,15 +9,15 @@ declare namespace TypeCheck {
   export interface CustomType {
     [typeName: string]: {
       typeOf: string;
-      validate: (x: any)=> any;
-    }
+      validate: (x: any) => any;
+    };
   }
 
   export interface Options {
     customTypes: CustomType;
   }
 
-  export interface TC{
+  export interface TC {
     VERSION: string;
     typeCheck: (typeDescription: string , inst: any, options?: Options) => boolean;
     parseType: (typeDescription: string) => Object;
@@ -29,5 +29,5 @@ declare namespace TypeCheck {
 declare var typecheck: TypeCheck.TC;
 
 declare module "type-check" {
-  export=typecheck;
+  export = typecheck;
 }

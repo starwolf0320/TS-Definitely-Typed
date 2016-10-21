@@ -121,7 +121,7 @@ export interface TediousTypes {
     NumericN: TediousType;
     Real: TediousType;
     SmallDateTime: TediousType;
-    SmallInt		: TediousType;
+    SmallInt: TediousType;
     SmallMoney: TediousType;
     TVP: TediousType;
     Text: TediousType;

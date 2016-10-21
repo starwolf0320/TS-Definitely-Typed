@@ -12,7 +12,7 @@ declare namespace facebook {
         AppEvents: any;
         Canvas: any;
         Event: any;
-        
+
         /**
          * The method FB.getAuthResponse() is a synchronous accessor for the current authResponse.
          * The synchronous nature of this method is what sets it apart from the other login methods.
@@ -50,7 +50,7 @@ declare namespace facebook {
          * @param callback function to handle the response
          */
         logout(callback: (response: AuthResponse) => void): void;
-        
+
         ui: any;
         XFBML: any;
     }
@@ -87,6 +87,6 @@ declare namespace facebook {
             expiresIn: number;
             signedRequest: string;
             userID: string;
-        }
+        };
     }
 }

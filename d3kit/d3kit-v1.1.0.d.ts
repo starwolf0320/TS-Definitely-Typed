@@ -16,7 +16,7 @@ declare namespace d3kit {
 
     export interface ChartOptions {
         margin?: ChartMargin;
-        offset?: [number,number];
+        offset?: [number, number];
         initialWidth?: number;
         initialHeight?: number;
         [name: string]: any;
@@ -55,7 +55,7 @@ declare namespace d3kit {
         dimension(): [number, number];
         dimension(dimension: [number|string, number|string], doNotDispatch?: boolean): Skeleton;
         autoResize(mode?: string|boolean): string|boolean|void;
-        autoResizeDetection(method?:string): string|void;
+        autoResizeDetection(method?: string): string|void;
         autoResizeToAspectRatio(ratio?: number|boolean): number|boolean|void;
 
         // Other functions
@@ -78,9 +78,9 @@ declare namespace d3kit {
     export class Chartlet {
 
         constructor(
-            enterFunction?:   ChartletEventFunction,
-            updateFunction?:  ChartletEventFunction,
-            exitFunction?:    ChartletEventFunction,
+            enterFunction?: ChartletEventFunction,
+            updateFunction?: ChartletEventFunction,
+            exitFunction?: ChartletEventFunction,
             customEventName?: Array<string>);
 
         // Getter functions
@@ -107,9 +107,9 @@ declare namespace d3kit {
     }
 
     interface LayerConfig {
-        name?: string,
-        names?: Array<string>,
-        sublayers?: LayerConfig
+        name?: string;
+        names?: Array<string>;
+        sublayers?: LayerConfig;
     }
 
     export class LayerOrganizer {

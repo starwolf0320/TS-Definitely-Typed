@@ -35,7 +35,7 @@ declare namespace restangular {
         method: string;
         url: string;
         params: any;
-    }
+    };
   }
 
   interface IProvider {

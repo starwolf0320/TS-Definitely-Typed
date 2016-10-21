@@ -37,7 +37,7 @@ declare namespace inquirer {
         ui: {
             BottomBar: ui.BottomBar;
             Prompt: ui.Prompt;
-        }
+        };
     }
 
     interface PromptModule {

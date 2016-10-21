@@ -61,7 +61,7 @@ interface SafariEvent {
 		* Prevents the event from any further propagation.
 		* Propagation can be stopped only fon cancelable events. After propagation is stopped, the event is not sent to any other targets.
 		*/
-	stopPropagation() : void;
+	stopPropagation(): void;
 
 	/**
 		* Prevents the browser from performing the default action for an event.

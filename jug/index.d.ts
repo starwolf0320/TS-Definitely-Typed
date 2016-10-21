@@ -9,9 +9,9 @@
  */
 interface VertexStructure {
     level: number;
-    edge: Array<Vertex>,
-    data: VertexData,
-    parent: Vertex
+    edge: Array<Vertex>;
+    data: VertexData;
+    parent: Vertex;
 }
 
 /**

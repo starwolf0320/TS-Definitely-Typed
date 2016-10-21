@@ -6,7 +6,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Language {
+  export namespace Language {
     /**
      * The Language service provides scripts a way to compute automatic translations of text.
      *

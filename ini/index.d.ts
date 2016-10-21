@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 interface EncodeOptions {
-    section: string
-    whitespace: boolean
+    section: string;
+    whitespace: boolean;
 }
 
 export function decode(inistring: string): any;

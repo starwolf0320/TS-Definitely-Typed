@@ -4,9 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 interface BugsnagUser {
-    id?:    string,
-    name?:  string,
-    email?: string
+    id?: string;
+    name?: string;
+    email?: string;
 }
 
 interface BugsnagStatic {

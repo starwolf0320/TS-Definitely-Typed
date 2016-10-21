@@ -198,7 +198,7 @@ declare namespace FixedDataTable {
 	    /**
 	     * Whether a column is currently being resized.
 	     */
-	    isColumnResizing?: boolean
+	    isColumnResizing?: boolean;
     }
 
     interface ColumnProps {

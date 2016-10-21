@@ -11,7 +11,7 @@ function forEachTypingDir(callback: (fullPath: string, dirName: string) => void)
 		for (const dir of dirs) {
 			const fullPath = path.join(home, dir);
 			fs.lstat(fullPath, (err, stats) => {
-				if (err) throw err;			
+				if (err) throw err;
 				if (stats.isDirectory()) {
 					callback(fullPath, dir);
 				}

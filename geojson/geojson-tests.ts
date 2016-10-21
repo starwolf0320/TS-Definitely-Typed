@@ -2,25 +2,25 @@
 
 var featureCollection: GeoJSON.FeatureCollection<any> =  {
     type: "FeatureCollection",
-    features: [   
-        { 
+    features: [
+        {
             type: "Feature",
             geometry: {
-                type: "Point", 
+                type: "Point",
                 coordinates: [102.0, 0.5]
             },
             properties: {
                 prop0: "value0"
             }
         },
-        { 
+        {
             type: "Feature",
             geometry: {
                 type: "LineString",
                 coordinates: [
-                    [102.0, 0.0], 
-                    [103.0, 1.0], 
-                    [104.0, 0.0], 
+                    [102.0, 0.0],
+                    [103.0, 1.0],
+                    [104.0, 0.0],
                     [105.0, 1.0]
                 ]
             },
@@ -29,7 +29,7 @@ var featureCollection: GeoJSON.FeatureCollection<any> =  {
                 prop1: 0.0
             }
         },
-        { 
+        {
             type: "Feature",
             geometry: {
                 type: "Polygon",
@@ -67,7 +67,7 @@ var feature: GeoJSON.Feature<GeoJSON.Polygon> = {
 };
 
 
-var point: GeoJSON.Point = { 
+var point: GeoJSON.Point = {
 	type: "Point",
 	coordinates: [100.0, 0.0]
 };
@@ -82,14 +82,14 @@ var lineString: GeoJSON.LineString = {
 	coordinates: [ [100.0, 0.0], [101.0, 1.0] ]
 };
 
-var polygon: GeoJSON.Polygon = { 
+var polygon: GeoJSON.Polygon = {
     type: "Polygon",
     coordinates: [
         [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]
     ]
 };
 
-var polygonWithHole: GeoJSON.Polygon = { 
+var polygonWithHole: GeoJSON.Polygon = {
     type: "Polygon",
     coordinates: [
         [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ],
@@ -102,7 +102,7 @@ var multiPoint: GeoJSON.MultiPoint = {
     coordinates: [ [100.0, 0.0], [101.0, 1.0] ]
 };
 
-var multiLineString: GeoJSON.MultiLineString = { 
+var multiLineString: GeoJSON.MultiLineString = {
     type: "MultiLineString",
     coordinates: [
         [ [100.0, 0.0], [101.0, 1.0] ],
@@ -110,7 +110,7 @@ var multiLineString: GeoJSON.MultiLineString = {
     ]
 };
 
-var multiPolygon: GeoJSON.MultiPolygon = { 
+var multiPolygon: GeoJSON.MultiPolygon = {
     type: "MultiPolygon",
     coordinates: [
         [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],
@@ -119,14 +119,14 @@ var multiPolygon: GeoJSON.MultiPolygon = {
     ]
 }
 
-var geometryCollection: GeoJSON.GeometryCollection = { 
+var geometryCollection: GeoJSON.GeometryCollection = {
     type: "GeometryCollection",
     "geometries": [
-        { 
+        {
             type: "Point",
             coordinates: [100.0, 0.0]
         },
-        { 
+        {
             type: "LineString",
             coordinates: [ [101.0, 0.0], [102.0, 1.0] ]
         }

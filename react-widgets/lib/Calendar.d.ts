@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface CalendarProps extends React.Props<CalendarClass>{
+interface CalendarProps extends React.Props<CalendarClass> {
     /**
      * The current selected date, should be a Date object or null.
      */

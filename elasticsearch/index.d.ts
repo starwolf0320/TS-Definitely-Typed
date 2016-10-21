@@ -3,7 +3,7 @@
 // Definitions by: Casper Skydt <https://github.com/CasperSkydt>, Blake Smith <https://github.com/bfsmith>, Dave Dunkin <https://github.com/ddunkin>, Jeffery Grajkowski <https://github.com/pushplay>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare module Elasticsearch {
+declare namespace Elasticsearch {
     export class Client {
         constructor(params: ConfigOptions);
         cat: Cat;
@@ -111,9 +111,9 @@ declare module Elasticsearch {
     }
 
     export interface Explanation {
-        value: number,
-        description: string,
-        details: Explanation[]
+        value: number;
+        description: string;
+        details: Explanation[];
     }
 
     export interface GenericParams {
@@ -590,7 +590,15 @@ declare module Elasticsearch {
         took: number;
         timed_out: boolean;
         _scroll_id?: string;
+<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
         _shards: ShardsResponse;
+=======
+        _shards: {
+            total: number;
+            successful: number;
+            failed: number;
+        };
+>>>>>>> WIP
         hits: {
             total: number;
             max_score: number;
@@ -605,9 +613,21 @@ declare module Elasticsearch {
                 fields?: any;
                 highlight?: any;
                 inner_hits?: any;
+<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
             }[];
         };
         aggregations?: any;
+=======
+            }[]
+        };
+        aggregations?: any;
+    }
+
+    export interface MSearchParams extends GenericParams {
+        index?: string | string[] | Boolean;
+        type?: string | string[] | Boolean;
+        search_type?: string;
+>>>>>>> WIP
     }
 
     export interface SearchShardsParams extends GenericParams {
@@ -696,6 +716,23 @@ declare module Elasticsearch {
         id: string;
         index: string;
         type: string;
+<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
+=======
+        id: string;
+        body?: string | any;
+        version?: Number;
+        timesstamp?: Date | Number;
+        scriptedUpsert?: Boolean;
+        scriptId?: any;
+        script?: any;
+        routing?: string;
+        retryOnConflict?: Number;
+        refresh?: Boolean;
+        parent?: string;
+        lang?: string;
+        fields?: string | string[] | Boolean;
+        consistensy?: string;
+>>>>>>> WIP
     }
 
     export interface UpdateDocumentByQueryParams extends GenericParams {
@@ -747,6 +784,7 @@ declare module Elasticsearch {
     }
 
     export interface Cat {
+<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
         aliases(params: CatAliasesParams, callback: (error: any, response: any) => void): void;
         aliases(params: CatAliasesParams): PromiseLike<any>;
         allocation(params: CatAllocationParams, callback: (error: any, response: any) => void): void;
@@ -785,6 +823,10 @@ declare module Elasticsearch {
         tasks(params: CatTasksParams): PromiseLike<any>;
         threadPool(params: CatThreadPoolParams, callback: (error: any, response: any) => void): void;
         threadPool(params: CatThreadPoolParams): PromiseLike<any>;
+=======
+        health(params: CatHealthOptions, callback: (error: any, response: any) => void): void;
+        health(params: CatHealthOptions): PromiseLike<any>;
+>>>>>>> WIP
     }
 
     export type CatBytes = "b" | "k" | "kb" | "m" | "mb" | "g" | "gb" | "t" | "tb" | "p" | "pb";

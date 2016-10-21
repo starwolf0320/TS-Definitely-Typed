@@ -1,16 +1,16 @@
 
 
-/* 
+/*
 * Handle the event of adding a file to the jQuery Upload plugin.
 *
 */
-var __handleAddingFile = function (event:any, data:any) 
+var __handleAddingFile = function (event:any, data:any)
 {
     event.preventDefault();
 
     // [PERFORM VALIDATION]
     // If the data is valid submit the document
-    data.submit();    
+    data.submit();
 };
 
 var options: JQueryFileInputOptions = {

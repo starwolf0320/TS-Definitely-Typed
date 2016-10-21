@@ -7,21 +7,21 @@ import { Thrift } from "thrift";
 
 declare namespace Evernote {
     interface Callback<T> {
-        (err: EDAMUserException | EDAMSystemException | EDAMNotFoundException, v: T): void
+        (err: EDAMUserException | EDAMSystemException | EDAMNotFoundException, v: T): void;
     }
 
     interface ClientConfig {
-        consumerKey?: string
-        consumerSecret?: string
-        sandbox?: boolean
-        token?: string
-        serviceHost?: string
-        additionalHeaders?: { [k: string]: string }
-        secret?: string
+        consumerKey?: string;
+        consumerSecret?: string;
+        sandbox?: boolean;
+        token?: string;
+        serviceHost?: string;
+        additionalHeaders?: { [k: string]: string };
+        secret?: string;
     }
 
     class Client {
-        static "new": (config: ClientConfig) => Client
+        static "new": (config: ClientConfig) => Client;
         constructor(config: ClientConfig);
         getNoteStore(): NoteStoreClient;
         getUserStore(): UserStoreClient;

@@ -369,10 +369,10 @@ export function stack<This, Datum, Key>(): Stack<This, Datum, Key>;
 
 
 export function stackOrderAscending(series: Series<any, any>): Array<number>;
-export function stackOrderDescending(series: Series<any, any>): Array<number>
-export function stackOrderInsideOut(series: Series<any, any>): Array<number>
-export function stackOrderNone(series: Series<any, any>): Array<number>
-export function stackOrderReverse(series: Series<any, any>): Array<number>
+export function stackOrderDescending(series: Series<any, any>): Array<number>;
+export function stackOrderInsideOut(series: Series<any, any>): Array<number>;
+export function stackOrderNone(series: Series<any, any>): Array<number>;
+export function stackOrderReverse(series: Series<any, any>): Array<number>;
 
 export function stackOffsetExpand(series: Series<any, any>, order: Array<number>): void;
 export function stackOffsetNone(series: Series<any, any>, order: Array<number>): void;

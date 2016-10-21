@@ -164,7 +164,7 @@ declare namespace ng {
          * @param controllerConstructor Controller constructor fn (optionally decorated with DI annotations in the array notation).
          */
         controller(name: string, inlineAnnotatedConstructor: any[]): IModule;
-        controller(object : Object): IModule;
+        controller(object: Object): IModule;
         directive(name: string, directiveFactory: IDirectiveFactory): IModule;
         directive(name: string, inlineAnnotatedFunction: any[]): IModule;
         directive(object: Object): IModule;
@@ -245,7 +245,7 @@ declare namespace ng {
         // The observer function will be invoked once during the next $digest
         // following compilation. The observer is then invoked whenever the
         // interpolated value changes.
-        $observe(name: string, fn:(value?:any)=>any): Function;
+        $observe(name: string, fn: (value?: any) => any): Function;
 
         // A map of DOM element attribute names to the normalized name. This is needed
         // to do reverse lookup from normalized name back to actual name.
@@ -347,7 +347,7 @@ declare namespace ng {
         $watchCollection(watchExpression: (scope: IScope) => any, listener: (newValue: any, oldValue: any, scope: IScope) => any): Function;
 
         $watchGroup(watchExpressions: any[], listener: (newValue: any, oldValue: any, scope: IScope) => any): Function;
-        $watchGroup(watchExpressions: {(scope: IScope) : any}[], listener: (newValue: any, oldValue: any, scope: IScope) => any): Function;
+        $watchGroup(watchExpressions: {(scope: IScope): any}[], listener: (newValue: any, oldValue: any, scope: IScope) => any): Function;
 
         $parent: IScope;
 
@@ -647,13 +647,13 @@ declare namespace ng {
         catch<TResult>(onRejected: (reason: any) => IPromise<TResult>): IPromise<TResult>;
         catch<TResult>(onRejected: (reason: any) => TResult): IPromise<TResult>;
 
-        finally<TResult>(finallyCallback: ()=>any):IPromise<TResult>;
+        finally<TResult>(finallyCallback: () => any): IPromise<TResult>;
     }
 
     interface IDeferred<T> {
         resolve(value?: T): void;
         reject(reason?: any): void;
-        notify(state?:any): void;
+        notify(state?: any): void;
         promise: IPromise<T>;
     }
 
@@ -1127,7 +1127,7 @@ declare namespace ng {
     ///////////////////////////////////////////////////////////////////////////
     // AUTO module (angular.js)
     ///////////////////////////////////////////////////////////////////////////
-    export module auto {
+    export namespace auto {
 
         ///////////////////////////////////////////////////////////////////////
         // InjectorService

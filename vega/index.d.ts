@@ -119,7 +119,7 @@ declare namespace Vega {
     }
 
     export interface Datum {
-      [key: string]: any
+      [key: string]: any;
     }
 
     export interface Marks {
@@ -293,7 +293,7 @@ declare namespace Vega {
       type: string; // "csv" | "tsv"
       parse?: {
        [propertyName: string]: string; // "number" | "boolean" | "date"
-      }
+      };
     }
 
     export interface TopoJsonFormat extends FormatBase {
@@ -307,7 +307,7 @@ declare namespace Vega {
       children?: string;
       parse?: {
        [propertyName: string]: string; // "number" | "boolean" | "date"
-      }
+      };
     }
 
     export type Format = JsonFormat | CsvOrTsvFormat | TopoJsonFormat | TreeJson;
@@ -366,7 +366,7 @@ declare namespace Vega {
     offset?: any;
     layer?: string;
     grid?: boolean;
-    properties?: Axis.Properties
+    properties?: Axis.Properties;
   }
 
   export namespace Axis {
@@ -407,7 +407,7 @@ declare namespace Vega {
     properties?: PropertySets;
   }
 
-  export module Mark {
+  export namespace Mark {
     export interface From {
       // TODO docs
       data?: string;

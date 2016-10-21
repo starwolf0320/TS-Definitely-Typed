@@ -153,7 +153,7 @@ export interface Queryable extends events.EventEmitter {
      * The second form is not needed for normal use, but must be implemented by adapters to work correctly
      * with ConnectionPool and Transaction. See Adapter.createQuery for more details.
      */
-    query(text: string, params?: any[], callback?: (error: Error, results: ResultSet) => void): Query
+    query(text: string, params?: any[], callback?: (error: Error, results: ResultSet) => void): Query;
 
     /**
      * The second form is not needed for normal use, but must be implemented by adapters to work correctly

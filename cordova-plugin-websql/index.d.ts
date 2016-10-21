@@ -2,7 +2,7 @@
 // Project: https://github.com/MSOpenTech/cordova-plugin-websql
 // Definitions by: Microsoft Open Technologies Inc <http://msopentech.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// 
+//
 // Copyright (c) Microsoft Open Technologies Inc
 // Licensed under the MIT license.
 
@@ -53,7 +53,7 @@ declare var Database: {
         version: string,
         displayname: string,
         size: number,
-        creationCallback: (database: Database)=> void): Database;
+        creationCallback: (database: Database) => void): Database;
 };
 
 interface SqlTransaction {

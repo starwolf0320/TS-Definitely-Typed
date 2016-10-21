@@ -28,7 +28,7 @@ declare namespace Siesta {
 
         listenters: {
             [key: string]: (event: Event, ...args: any[]) => void;
-        }
+        };
 
         maxThreads: number;
 
@@ -159,7 +159,7 @@ declare namespace Siesta {
 
             runCore: string;
 
-            transparentEx: boolean
+            transparentEx: boolean;
         }
 
         interface IBrowserSingleton extends IBrowser {
@@ -967,7 +967,7 @@ declare namespace Siesta {
         }
 
         interface IWaitForReturn {
-            force: Function
+            force: Function;
         }
 
         /**

@@ -3,7 +3,7 @@
 // Definitions by: Hadrian Oliveira <https://github.com/thelambdaparty/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare let LeState : {
+declare let LeState: {
     createState: (props?: {
         initialState: {};
     }) => {
@@ -16,7 +16,7 @@ declare let LeState : {
         getDescription(): {};
         createListener({ id, selector, force }: {
             id: number;
-            selector: (state :any) => {};
+            selector: (state: any) => {};
             force?: boolean;
         }): void;
     };

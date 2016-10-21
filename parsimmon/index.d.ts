@@ -193,12 +193,12 @@ declare namespace Parsimmon {
 		/**
 		 * Accepts two parsers, and expects zero or more matches for content, separated by separator, yielding an array.
 		 */
-		export function sepBy<T>(content: Parser<T>, separator: Parser<T>): Parser<T>
+		export function sepBy<T>(content: Parser<T>, separator: Parser<T>): Parser<T>;
 
 		/**
 		 * This is the same as Parsimmon.sepBy, but matches the content parser at least once.
 		 */
-		export function sepBy1<T>(content: Parser<T>, separator: Parser<T>): Parser<T>
+		export function sepBy1<T>(content: Parser<T>, separator: Parser<T>): Parser<T>;
 
 		/**
 		 * accepts a function that returns a parser, which is evaluated the first time the parser is used.

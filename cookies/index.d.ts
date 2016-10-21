@@ -6,7 +6,7 @@
 /// <reference types="node" />
 
 
-import * as http from "http"
+import * as http from "http";
 
 declare namespace cookies {
     interface ICookies {
@@ -96,4 +96,4 @@ interface CookiesStatic {
 
 declare const cookies: CookiesStatic;
 
-export = cookies
+export = cookies;

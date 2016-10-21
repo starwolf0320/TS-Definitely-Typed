@@ -10,12 +10,12 @@ function useAsyncFS(fs:FileSystem):void {
   fs.root.getFile("already_there.txt", null, function (f): void{
 
     // In the example of the specification, there is a following code:
-    // 
+    //
     //     getAsText(f.file());
     //
     // It seems wrong because f is ASYNCRONOUS file system.
-    f.file(getAsText); 
-    
+    f.file(getAsText);
+
   });
 
   // But now we can also write to the file; see [FILE-WRITER-ED].

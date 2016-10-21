@@ -15,7 +15,7 @@ function test_resetFrame() {
         var options = { src: "" };
         frame = quixote.createFrame(options, done());
     });
-    
+
     beforeEach(() => {
         frame.reset();
     });
@@ -27,7 +27,7 @@ function test_removeFrame() {
         var options = { src: "" };
         frame = quixote.createFrame(options, done());
     });
-    
+
     after(function() {
         frame.remove();
     });

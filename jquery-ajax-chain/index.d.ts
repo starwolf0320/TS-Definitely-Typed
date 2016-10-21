@@ -12,7 +12,7 @@ declare namespace ajaxChain {
      */
     interface JQueryAjaxChainStatic {
 
-        new (): JQueryAjaxChain
+        new (): JQueryAjaxChain;
 
     }
 

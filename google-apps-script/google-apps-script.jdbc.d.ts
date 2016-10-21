@@ -7,7 +7,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module JDBC {
+  export namespace JDBC {
     /**
      * The JDBC service allows scripts to connect to Google Cloud SQL, MySQL,
      *  Microsoft SQL Server, and Oracle databases. For more information, see the

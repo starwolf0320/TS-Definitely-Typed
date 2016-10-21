@@ -116,7 +116,7 @@ declare namespace Resumable {
     /**
      * A function which displays an error a selected file is smaller than allowed. (Default: displays an alert for every bad file.)
      **/
-    minFileSizeErrorCallback?:(file: ResumableFile, errorCount: number) => void;
+    minFileSizeErrorCallback?: (file: ResumableFile, errorCount: number) => void;
     /**
      * The maximum allowed file size. (Default: undefined)
      **/
@@ -146,10 +146,10 @@ declare namespace Resumable {
      **/
     withCredentials?: boolean;
   }
-  
+
   class Resumable {
-    constructor(options:ConfigurationHash);
-    
+    constructor(options: ConfigurationHash);
+
     /**
      * A boolean value indicator whether or not Resumable.js is supported by the current browser.
      **/
@@ -162,12 +162,12 @@ declare namespace Resumable {
      * An array of ResumableFile file objects added by the user (see full docs for this object type below).
      **/
     files: ResumableFile[];
-	
+
 	defaults: ConfigurationHash;
-    
+
     events: Event[];
     version: number;
-    
+
     /**
      * Assign a browse action to one or more DOM nodes. Pass in true to allow directories to be selected (Chrome only).
      **/
@@ -219,18 +219,18 @@ declare namespace Resumable {
      **/
     getSize(): number;
     getOpt(o: string): any;
-    
+
     // Events
 	/**
 	 * Change event handler
 	 **/
 	handleChangeEvent(e: Event): void;
-	 
+
 	 /**
 	 * Drop event handler
 	 **/
 	handleDropEvent(e: Event): void;
-	
+
     /**
      *  A specific file was completed.
      **/
@@ -365,7 +365,7 @@ declare namespace Resumable {
      **/
     isComplete: () => boolean;
   }
-  
+
   interface ResumableChunk {}
 }
 

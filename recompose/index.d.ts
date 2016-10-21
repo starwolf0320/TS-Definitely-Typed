@@ -13,7 +13,7 @@ declare module 'recompose' {
     type Component<P> = ComponentClass<P> | StatelessComponent<P>;
     type mapper<TInner, TOutter> = (input: TInner) => TOutter;
     type predicate<T> = mapper<T, boolean>;
-    type predicateDiff<T> = (current: T, next: T) => boolean
+    type predicateDiff<T> = (current: T, next: T) => boolean;
     interface Subscribable<T> {
         subscribe: Function;
     }
@@ -125,7 +125,7 @@ declare module 'recompose' {
     // onlyUpdateForKeys: https://github.com/acdlite/recompose/blob/master/docs/API.md#onlyUpdateForKeys
     export function onlyUpdateForKeys(
         propKeys: Array<string>
-    ) : InferableComponentEnhancer;
+    ): InferableComponentEnhancer;
 
     // onlyUpdateForPropTypes: https://github.com/acdlite/recompose/blob/master/docs/API.md#onlyUpdateForPropTypes
     export const onlyUpdateForPropTypes: InferableComponentEnhancer;
@@ -134,12 +134,12 @@ declare module 'recompose' {
     export function withContext<TContext, TProps>(
         childContextTypes: ValidationMap<TContext>,
         getChildContext: mapper<TProps, any>
-    ) : InferableComponentEnhancer;
+    ): InferableComponentEnhancer;
 
     // getContext: https://github.com/acdlite/recompose/blob/master/docs/API.md#getContext
     export function getContext<TContext, TProps>(
         contextTypes: ValidationMap<TContext>
-    ) : InferableComponentEnhancer;
+    ): InferableComponentEnhancer;
 
     // lifecycle: https://github.com/acdlite/recompose/blob/master/docs/API.md#lifecycle
     interface ReactLifeCycleFunctions {

@@ -652,7 +652,7 @@ declare namespace Later {
          *
          * Be sure to use this interface when dealing with Later.modifier
          */
-        modifier: IModifierStatic
+        modifier: IModifierStatic;
     }
 }
 

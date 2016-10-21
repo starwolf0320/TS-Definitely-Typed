@@ -82,7 +82,7 @@ declare namespace angular.resource {
     // Also, static calls always return the IResource (or IResourceArray) retrieved
     // https://github.com/angular/angular.js/blob/v1.2.0/src/ngResource/resource.js#L538-L549
     interface IResourceClass<T> {
-        new(dataOrParams? : any) : T;
+        new(dataOrParams?: any): T;
         get(): T;
         get(params: Object): T;
         get(success: Function, error?: Function): T;
@@ -138,11 +138,11 @@ declare namespace angular.resource {
         $delete(success: Function, error?: Function): angular.IPromise<T>;
 
         /** the promise of the original server interaction that created this instance. **/
-        $promise : angular.IPromise<T>;
-        $resolved : boolean;
+        $promise: angular.IPromise<T>;
+        $resolved: boolean;
         toJSON: () => {
           [index: string]: any;
-        }
+        };
     }
 
     /**
@@ -150,8 +150,8 @@ declare namespace angular.resource {
      */
     interface IResourceArray<T> extends Array<T & IResource<T>> {
         /** the promise of the original server interaction that created this collection. **/
-        $promise : angular.IPromise<IResourceArray<T>>;
-        $resolved : boolean;
+        $promise: angular.IPromise<IResourceArray<T>>;
+        $resolved: boolean;
     }
 
     /** when creating a resource factory via IModule.factory */
@@ -177,9 +177,8 @@ declare namespace angular {
     }
 }
 
-interface Array<T>
-{
+interface Array<T> {
     /** the promise of the original server interaction that created this collection. **/
-    $promise : angular.IPromise<Array<T>>;
-    $resolved : boolean;
+    $promise: angular.IPromise<Array<T>>;
+    $resolved: boolean;
 }

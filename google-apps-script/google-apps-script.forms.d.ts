@@ -7,7 +7,7 @@
 
 
 declare namespace GoogleAppsScript {
-  export module Forms {
+  export namespace Forms {
     /**
      * An enum representing the supported types of image alignment. Alignment types can be accessed from
      *  FormApp.Alignment.
@@ -275,10 +275,10 @@ declare namespace GoogleAppsScript {
      *      var newForm = FormApp.create('Form Name');
      */
     export interface FormApp {
-      Alignment: Alignment
-      DestinationType: DestinationType
-      ItemType: ItemType
-      PageNavigationType: PageNavigationType
+      Alignment: Alignment;
+      DestinationType: DestinationType;
+      ItemType: ItemType;
+      PageNavigationType: PageNavigationType;
       create(title: string): Form;
       getActiveForm(): Form;
       getUi(): Base.Ui;

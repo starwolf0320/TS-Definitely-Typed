@@ -34,10 +34,10 @@ declare module 'redux-saga' {
   export {runSaga, storeIO} from 'redux-saga/lib/runSaga'
 
   export interface Task<T> {
-    name:string;
-    isRunning():boolean;
-    result():T;
-    error():any;
+    name: string;
+    isRunning(): boolean;
+    result(): T;
+    error(): any;
     cancel(): void;
   }
 
@@ -70,7 +70,7 @@ declare module 'redux-saga/effects' {
 
   export function put(action: any): Effect;
 
-  export function race(effects: {[key:string]: any}): Effect;
+  export function race(effects: {[key: string]: any}): Effect;
 
   export function call<T1, T2, T3>(fn: EffectFunction<T1, T2, T3>, arg1?: T1, arg2?: T2, arg3?: T3, ...rest: any[]): Effect;
 
@@ -128,9 +128,9 @@ declare module 'redux-saga/lib/runSaga' {
 
 declare module 'redux-saga/lib/emitter' {
   export default function emitter(): {
-    subscribe(cb: Function):Function;
-    emit(item: any):void;
-  }
+    subscribe(cb: Function): Function;
+    emit(item: any): void;
+  };
 }
 
 declare module 'redux-saga/lib/monitorActions' {

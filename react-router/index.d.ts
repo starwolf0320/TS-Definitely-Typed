@@ -9,9 +9,9 @@ export as namespace ReactRouter;
 
 import * as React from 'react';
 
-export const routerShape: React.Requireable<any>
+export const routerShape: React.Requireable<any>;
 
-export const locationShape: React.Requireable<any>
+export const locationShape: React.Requireable<any>;
 
 import Router from "./lib/Router";
 import Link from "./lib/Link";

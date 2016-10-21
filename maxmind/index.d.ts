@@ -17,7 +17,7 @@ export declare interface Options {
     cache?: {
         max?: number;
         maxAge?: number;
-    }
+    };
 }
 
 export declare interface Metadata {

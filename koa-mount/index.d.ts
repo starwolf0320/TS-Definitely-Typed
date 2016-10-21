@@ -6,7 +6,7 @@
 
 import * as Koa from "koa";
 
-interface Function { (ctx: Koa.Context, next?: () => any): any }
+interface Function { (ctx: Koa.Context, next?: () => any): any; }
 
 declare function mount(app: Function): Function;
 

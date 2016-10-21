@@ -52,7 +52,7 @@ declare module 'angular' {
 
         // Hash of action descriptors allows custom action names
         interface IActionHash {
-            [action: string]: IActionDescriptor
+            [action: string]: IActionDescriptor;
         }
 
         // Just a reference to facilitate describing new actions
@@ -70,7 +70,7 @@ declare module 'angular' {
              * would be used for multiple requests. If you are looking for a way to cancel requests, you should
              * use the cancellable option.
              */
-            timeout?: number
+            timeout?: number;
             cancellable?: boolean;
             withCredentials?: boolean;
             responseType?: string;
@@ -115,7 +115,7 @@ declare module 'angular' {
         // Also, static calls always return the IResource (or IResourceArray) retrieved
         // https://github.com/angular/angular.js/blob/v1.2.0/src/ngResource/resource.js#L538-L549
         interface IResourceClass<T> {
-            new(dataOrParams? : any) : T & IResource<T>;
+            new(dataOrParams?: any) : T & IResource<T>;
             get: IResourceMethod<T>;
 
             query: IResourceArrayMethod<T>;

@@ -24,7 +24,7 @@ declare namespace THREE {
     class CSS3DRenderer {
         constructor();
 
-        domElement:HTMLElement;
+        domElement: HTMLElement;
 
         setSize(width: number, height: number): void;
         render(scene: THREE.Scene, camera: THREE.Camera): void;

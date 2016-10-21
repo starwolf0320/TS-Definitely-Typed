@@ -13,11 +13,11 @@ const server = http.createServer((req, res) => {
         cookies
         // set a regular cookie
             .set("unsigned", "foo", { httpOnly: false })
- 
-        // set a signed cookie 
+
+        // set a signed cookie
             .set("signed", "bar", { signed: true })
- 
-        // mimic a signed cookie, but with a bogus signature 
+
+        // mimic a signed cookie, but with a bogus signature
             .set("tampered", "baz")
             .set("tampered.sig", "bogus")
 

@@ -35,10 +35,10 @@ declare module "ip" {
 
     /**
      * Get the subnet mask from a CIDR prefix length.
-     * 
+     *
      * @param family The IP family is infered from the prefixLength, but can be explicity specified as either "ipv4" or "ipv6".
      **/
-    export function fromPrefixLen(prefixLength: number, family?:string): string;
+    export function fromPrefixLen(prefixLength: number, family?: string): string;
 
     /**
      * Get the network ID IP address from an IP address and its subnet mask.
@@ -58,7 +58,7 @@ declare module "ip" {
     /**
      * Get the bitwise OR of two IP addresses (usually an IP address and a subnet mask).
      **/
-    export function or(ip: string, mask:string): string;
+    export function or(ip: string, mask: string): string;
 
     /**
      * Check whether an IP is within a private IP address range.
@@ -77,7 +77,7 @@ declare module "ip" {
 
     /**
      * Get the loopback address for an IP family.
-     * 
+     *
      * @param family The family can be either "ipv4" or "ipv6". Default: "ipv4".
      **/
     export function loopback(family?: string): string;
@@ -85,11 +85,11 @@ declare module "ip" {
     /**
      * Get the address for the network interface on the current system with the specified 'name'.
      * If no interface name is specified, the first IPv4 address or loopback address is returned.
-     * 
+     *
      * @param name The name can be any named interface, or 'public' or 'private'.
      * @param family The family can be either "ipv4" or "ipv6". Default: "ipv4".
      **/
-    export function address(name?: string, family?: string):string;
+    export function address(name?: string, family?: string): string;
 
     /**
      * Convert a string IPv4 IP address to the equivalent long numeric value.

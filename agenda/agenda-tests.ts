@@ -3,16 +3,16 @@ import * as Agenda from "agenda";
 var mongoConnectionString = "mongodb://127.0.0.1/agenda";
 
 var agenda = new Agenda({ db: { address: mongoConnectionString } });
- 
- 
+
+
 agenda.define('delete old users', (job, done) => {
 
 });
 
 agenda.on('ready', () => {
     agenda.every('3 minutes', 'delete old users');
- 
-    // Alternatively, you could also do: 
+
+    // Alternatively, you could also do:
     agenda.every('*/3 * * * *', 'delete old users');
 
     agenda.start();
