@@ -76,8 +76,8 @@ declare namespace Chartist {
   // this definition gives some intellisense, but does not protect the user from misuse
   // TODO: come in and tidy this up and make it fit better
   interface IChartistData {
-    labels?: string[] | number[] | Array<Date>;
-    series: Array<IChartistSeriesData> | number[] |  Array<number[]>;
+    labels?: string[] | number[] | Date[];
+    series: IChartistSeriesData[] | number[] |  number[][];
   }
 
   interface IChartistSeriesData {
@@ -93,7 +93,7 @@ declare namespace Chartist {
     data: IChartistData;
     defaultOptions: T;
     options: T;
-    responsiveOptions: Array<IResponsiveOptionTuple<T>>;
+    responsiveOptions: IResponsiveOptionTuple<T>[];
 
     // this most likely doesn't need to be exposed to the user
     eventEmitter: any;
@@ -127,15 +127,15 @@ declare namespace Chartist {
   }
 
   interface IChartistPieChart extends IChartistBase<IPieChartOptions> {
-    new (target: any, data: IChartistData, options?: IPieChartOptions, responsiveOptions?: Array<IResponsiveOptionTuple<IPieChartOptions>>): IChartistPieChart;
+    new (target: any, data: IChartistData, options?: IPieChartOptions, responsiveOptions?: IResponsiveOptionTuple<IPieChartOptions>[]): IChartistPieChart;
   }
 
   interface IChartistLineChart extends IChartistBase<ILineChartOptions> {
-    new (target: any, data: IChartistData, options?: ILineChartOptions, responsiveOptions?: Array<IResponsiveOptionTuple<ILineChartOptions>>): IChartistLineChart;
+    new (target: any, data: IChartistData, options?: ILineChartOptions, responsiveOptions?: IResponsiveOptionTuple<ILineChartOptions>[]): IChartistLineChart;
   }
 
   interface IChartistBarChart extends IChartistBase<IBarChartOptions> {
-    new (target: any, data: IChartistData, options?: IBarChartOptions, responsiveOptions?: Array<IResponsiveOptionTuple<IBarChartOptions>>): IChartistBarChart;
+    new (target: any, data: IChartistData, options?: IBarChartOptions, responsiveOptions?: IResponsiveOptionTuple<IBarChartOptions>[]): IChartistBarChart;
   }
 
   interface IChartOptions {
@@ -237,7 +237,7 @@ declare namespace Chartist {
     height?: number | string;
     high?: number;
     low?: number;
-    ticks?: Array<string | number>;
+    ticks?: (string | number)[];
     onlyInteger?: boolean;
     chartPadding?: IChartPadding;
     seriesBarDistance?: number;
@@ -292,7 +292,7 @@ declare namespace Chartist {
     lineSmooth?: Function | boolean;
     low?: number;
     high?: number;
-    ticks?: Array<string | number>;
+    ticks?: (string | number)[];
     chartPadding?: IChartPadding;
     fullWidth?: boolean;
     classNames?: ILineChartClasses;

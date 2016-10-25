@@ -407,7 +407,7 @@ declare module ej {
         constructor(field: string, operator: ej.FilterOperators, value: any, ignoreCase: boolean);
         and(field: string, operator: any, value:any, ignoreCase:boolean): void;
         or(field: string, operator: any, value: any, ignoreCase: boolean): void;
-		or(predicate: Array<Object>): any;
+		or(predicate: Object[]): any;
         validate(record: Object): boolean;
         toJSON(): {
             isComplex: boolean;

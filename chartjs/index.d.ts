@@ -117,7 +117,7 @@ interface CircularInstance extends ChartInstance {
     update: () => void;
     addData: (valuesArray: CircularChartData, index?: number) => void;
     removeData: (index: number) => void;
-    segments: Array<CircularChartData>;
+    segments: CircularChartData[];
 }
 
 interface LineChartOptions extends ChartOptions {

@@ -29,7 +29,7 @@ declare namespace ImgurRestApi {
         accepted_gallery_terms: boolean;
         active_emails: string[];
         messaging_enabled: boolean;
-        blocked_users: Array<BlockedUser>;
+        blocked_users: BlockedUser[];
     }
 
     interface Album {
@@ -52,7 +52,7 @@ declare namespace ImgurRestApi {
         order: number;
         deletehash?: string;
         images_count: number;
-        images: Array<Image>;
+        images: Image[];
     }
 
     interface BlockedUser {
@@ -75,7 +75,7 @@ declare namespace ImgurRestApi {
         parent_id: number;
         deleted: boolean;
         vote?: string;
-        children: Array<Comment>;
+        children: Comment[];
     }
 
     interface Conversation {
@@ -85,7 +85,7 @@ declare namespace ImgurRestApi {
         with_account_id: number;
         with_account: string;
         message_count: number;
-        messages?: Array<Message>;
+        messages?: Message[];
         done?: boolean;
         page?: number;
     }
@@ -95,7 +95,7 @@ declare namespace ImgurRestApi {
         link: string;
         tags: string[];
         item_count: number;
-        items: Array<GalleryItem>;
+        items: GalleryItem[];
     }
 
     interface GalleryItem {
@@ -126,7 +126,7 @@ declare namespace ImgurRestApi {
         privacy: string;
         layout: string;
         images_count: number;
-        images: Array<Image>;
+        images: Image[];
     }
 
     interface GalleryImage extends GalleryItem {
@@ -148,7 +148,7 @@ declare namespace ImgurRestApi {
         total_gallery_comments: number;
         total_gallery_favorites: number;
         total_gallery_submissions: number;
-        trophies: Array<Trophy>;
+        trophies: Trophy[];
     }
 
     interface Trophy {
@@ -214,8 +214,8 @@ declare namespace ImgurRestApi {
     }
 
     interface AccountNotifications {
-        replies: Array<Notification<Comment>>;
-        messages: Array<Notification<Conversation>>;
+        replies: Notification<Comment>[];
+        messages: Notification<Conversation>[];
     }
 
     interface Tag {
@@ -223,7 +223,7 @@ declare namespace ImgurRestApi {
         followers: number;
         total_items: number;
         following?: boolean;
-        items: Array<GalleryItem>;
+        items: GalleryItem[];
     }
 
     interface TagVote {

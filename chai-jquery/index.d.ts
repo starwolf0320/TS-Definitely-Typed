@@ -216,7 +216,7 @@ interface ChaiJQueryStatic {
      *
      * @param deferreds One or more Deferred objects, or plain JavaScript objects.
      */
-    when<T>(...deferreds: Array<T|JQueryPromise<T>/* as JQueryDeferred<T> */>): JQueryPromise<T>;
+    when<T>(...deferreds: (T|JQueryPromise<T>/* as JQueryDeferred<T> */)[]): JQueryPromise<T>;
 
     /**
      * Hook directly into jQuery to override how particular CSS properties are retrieved or set, normalize CSS property naming, or create custom properties.

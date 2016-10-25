@@ -584,7 +584,7 @@ declare namespace StripeNode {
              * via the transfers API. The available balance for each currency and payment
              * type can be found in the source_types property.
              */
-            available: Array<ISourceType>;
+            available: ISourceType[];
 
             livemode: boolean;
 
@@ -593,7 +593,7 @@ declare namespace StripeNode {
              * cycle. The pending balance for each currency and payment type can be
              * found in the source_types property
              */
-            pending: Array<ISourceType>;
+            pending: ISourceType[];
         }
 
         interface ISourceType {
@@ -640,7 +640,7 @@ declare namespace StripeNode {
             /**
              * Detailed breakdown of fees (in cents/pence) paid for this transaction
              */
-            fee_details: Array<{
+            fee_details: {
                 amount: number;
                 application: string;
 
@@ -655,7 +655,7 @@ declare namespace StripeNode {
                  * Type of the fee, one of: "application_fee", "stripe_fee"" or "tax".
                  */
                 type: string;
-            }>;
+            }[];
 
             /**
              * Net amount of the transaction, in cents.
@@ -1408,7 +1408,7 @@ declare namespace StripeNode {
              * List of zero, one, or two balance transactions that show funds withdrawn and reinstated to your
              * Stripe account as a result of this dispute.
              */
-            balance_transactions: Array<balance.IBalanceTransaction>;
+            balance_transactions: balance.IBalanceTransaction[];
 
             /**
              * ID of the charge that was disputed. [Expandable]
@@ -2310,7 +2310,7 @@ declare namespace StripeNode {
             /**
              * List of items constituting the order.
              */
-            items: Array<IOrderItem>;
+            items: IOrderItem[];
 
             livemode: boolean;
             metadata: IMetadata;
@@ -2331,7 +2331,7 @@ declare namespace StripeNode {
              * A list of supported shipping methods for this order. The desired shipping method can be specified either by updating the order, or
              * when paying it.
              */
-            shipping_methods: Array<IShippingMethod>;
+            shipping_methods: IShippingMethod[];
 
             status: OrderStatus;
 
@@ -2414,7 +2414,7 @@ declare namespace StripeNode {
             /**
              * List of items constituting the order.
              */
-            items?: Array<IOrderItemCreationHash>;
+            items?: IOrderItemCreationHash[];
 
             /**
              * Shipping address for the order. Required if any of the SKUs are for products that have shippable set to true.
@@ -6391,7 +6391,7 @@ declare namespace StripeNode {
         /**
          * An array containing the actual response elements, paginated by any request parameters.
          */
-        data: Array<T>;
+        data: T[];
 
         /**
          * Whether or not there are more elements available after this set. If false, this set comprises the end of the list.

@@ -457,7 +457,7 @@ declare namespace openpgp.message {
         /** Verify message signatures
             @param keys array of keys to verify signatures
          */
-        verify(keys: Array<key.Key>): Array<Object>;
+        verify(keys: Array<key.Key>): Object[];
     }
 
     /** creates new message object from binary data

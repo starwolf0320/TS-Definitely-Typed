@@ -44,7 +44,7 @@ declare module 'angular' {
             updateParams(newParams: { [key: string]: string }): void;
         }
 
-        type InlineAnnotatedFunction = Function | Array<string | Function>;
+        type InlineAnnotatedFunction = Function | (string | Function)[];
 
         /**
          * see http://docs.angularjs.org/api/ngRoute/provider/$routeProvider#when for API documentation

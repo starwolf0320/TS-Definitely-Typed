@@ -590,15 +590,7 @@ declare namespace Elasticsearch {
         took: number;
         timed_out: boolean;
         _scroll_id?: string;
-<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
         _shards: ShardsResponse;
-=======
-        _shards: {
-            total: number;
-            successful: number;
-            failed: number;
-        };
->>>>>>> WIP
         hits: {
             total: number;
             max_score: number;
@@ -613,21 +605,9 @@ declare namespace Elasticsearch {
                 fields?: any;
                 highlight?: any;
                 inner_hits?: any;
-<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
             }[];
         };
         aggregations?: any;
-=======
-            }[]
-        };
-        aggregations?: any;
-    }
-
-    export interface MSearchParams extends GenericParams {
-        index?: string | string[] | Boolean;
-        type?: string | string[] | Boolean;
-        search_type?: string;
->>>>>>> WIP
     }
 
     export interface SearchShardsParams extends GenericParams {
@@ -716,23 +696,6 @@ declare namespace Elasticsearch {
         id: string;
         index: string;
         type: string;
-<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
-=======
-        id: string;
-        body?: string | any;
-        version?: Number;
-        timesstamp?: Date | Number;
-        scriptedUpsert?: Boolean;
-        scriptId?: any;
-        script?: any;
-        routing?: string;
-        retryOnConflict?: Number;
-        refresh?: Boolean;
-        parent?: string;
-        lang?: string;
-        fields?: string | string[] | Boolean;
-        consistensy?: string;
->>>>>>> WIP
     }
 
     export interface UpdateDocumentByQueryParams extends GenericParams {
@@ -784,7 +747,6 @@ declare namespace Elasticsearch {
     }
 
     export interface Cat {
-<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
         aliases(params: CatAliasesParams, callback: (error: any, response: any) => void): void;
         aliases(params: CatAliasesParams): PromiseLike<any>;
         allocation(params: CatAllocationParams, callback: (error: any, response: any) => void): void;
@@ -823,10 +785,6 @@ declare namespace Elasticsearch {
         tasks(params: CatTasksParams): PromiseLike<any>;
         threadPool(params: CatThreadPoolParams, callback: (error: any, response: any) => void): void;
         threadPool(params: CatThreadPoolParams): PromiseLike<any>;
-=======
-        health(params: CatHealthOptions, callback: (error: any, response: any) => void): void;
-        health(params: CatHealthOptions): PromiseLike<any>;
->>>>>>> WIP
     }
 
     export type CatBytes = "b" | "k" | "kb" | "m" | "mb" | "g" | "gb" | "t" | "tb" | "p" | "pb";

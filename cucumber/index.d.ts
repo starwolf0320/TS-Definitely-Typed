@@ -22,7 +22,7 @@ declare namespace cucumber {
 	type StepDefinitionParam = string | CallbackStepDefinition | TableDefinition;
 
 	interface StepDefinitionCode {
-		(...stepArgs: Array<StepDefinitionParam>): PromiseLike<any> | any | void;
+		(...stepArgs: StepDefinitionParam[]): PromiseLike<any> | any | void;
 	}
 
 	interface StepDefinitionOptions {

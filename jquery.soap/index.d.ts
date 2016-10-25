@@ -8,8 +8,8 @@
 declare namespace JQuerySOAP {
     interface SOAPEnvelope {
         attributes: Object;
-        bodies: Array<SOAPObject>;
-        headers: Array<SOAPObject>;
+        bodies: SOAPObject[];
+        headers: SOAPObject[];
         prefix: string;
         soapConfig: any;
         typeOf: string;
@@ -29,7 +29,7 @@ declare namespace JQuerySOAP {
 
     interface SOAPObject {
         attributes: Object;
-        children: Array<SOAPObject>;
+        children: SOAPObject[];
         name: string;
         ns: Object;
         _parent: SOAPObject;

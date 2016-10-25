@@ -1150,7 +1150,7 @@ declare namespace sequelize {
         dropForeignKeyQuery(tableName: string, foreignKey: string): string;
         selectQuery<TInstance, TPojo>(tableName: string, options: SelectOptions, model?: Model<TInstance, TPojo>): string;
         selectQuery<TInstance, TPojo>(tableName: string[], options: SelectOptions, model?: Model<TInstance, TPojo>): string;
-        selectQuery<TInstance, TPojo>(tableName: Array<string[]>, options: SelectOptions, model?: Model<TInstance, TPojo>): string;
+        selectQuery<TInstance, TPojo>(tableName: string[][], options: SelectOptions, model?: Model<TInstance, TPojo>): string;
         setAutocommitQuery(value: boolean): string;
         setIsolationLevelQuery(value: string): string;
         /**

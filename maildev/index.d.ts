@@ -122,7 +122,7 @@ declare module "maildev" {
 
          * @public
          */
-        getAllEmail(done: (error: Error, emails: Array<Object>) => void): void;
+        getAllEmail(done: (error: Error, emails: Object[]) => void): void;
 
         /**
          * Starts the SMTP server.

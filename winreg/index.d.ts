@@ -188,7 +188,7 @@ declare namespace Winreg {
          * @param {array=} cb.items - an array of {@link RegistryItem} objects
          * @returns {Registry} this registry key object
          */
-        values(cb: (err: Error, result: Array<Winreg.RegistryItem>) => void): Registry;
+        values(cb: (err: Error, result: Winreg.RegistryItem[]) => void): Registry;
 
         /**
          * Retrieve all subkeys from this registry key.
@@ -197,7 +197,7 @@ declare namespace Winreg {
          * @param {array=} cb.items - an array of {@link Registry} objects
          * @returns {Registry} this registry key object
          */
-        keys(cb: (err: Error, result: Array<Registry>) => void): Registry;
+        keys(cb: (err: Error, result: Registry[]) => void): Registry;
 
         /**
          * Gets a named value from this registry key.

@@ -393,7 +393,7 @@ declare namespace THREE {
         Versioning: { [versioning: string]: number };
 
         GetterByBindingType: Function[];
-        SetterByBindingTypeAndVersioning: Array<Function[]>;
+        SetterByBindingTypeAndVersioning: Function[][];
 
         static create(root: any, path: any, parsedPath?: any): PropertyBinding|PropertyBinding.Composite;
         static parseTrackName(trackName: string): any;

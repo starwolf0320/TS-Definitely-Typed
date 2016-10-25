@@ -175,7 +175,7 @@ declare namespace chrome.cast {
      * @param {function(chrome.cast.Error)} errorCallback
      */
     export function setCustomReceivers(
-        receivers: Array<chrome.cast.Receiver>,
+        receivers: chrome.cast.Receiver[],
         successCallback: Function,
         errorCallback: (error: chrome.cast.Error) => void
     ): void;
@@ -195,7 +195,7 @@ declare namespace chrome.cast {
         /**
          * @param {!chrome.cast.SessionRequest} sessionRequest
          * @param {function(!chrome.cast.Session)} sessionListener
-         * @param {function(!chrome.cast.ReceiverAvailability,Array<Object>)}
+         * @param {function(!chrome.cast.ReceiverAvailability,Object[])}
          *     receiverListener
          * @param {chrome.cast.AutoJoinPolicy=} opt_autoJoinPolicy
          * @param {chrome.cast.DefaultActionPolicy=} opt_defaultActionPolicy
@@ -277,12 +277,12 @@ declare namespace chrome.cast {
          */
         new(
             appId: string,
-            capabilities?: Array<chrome.cast.Capability>,
+            capabilities?: chrome.cast.Capability[],
             timeout?: number
         ): SessionRequest;
 
         appId: string;
-        capabilities: Array<chrome.cast.Capability>;
+        capabilities: chrome.cast.Capability[];
         requestSessionTimeout: number;
         language?: string;
     }
@@ -301,18 +301,18 @@ declare namespace chrome.cast {
             sessionId: string,
             appId: string,
             displayName: string,
-            appImages: Array<chrome.cast.Image>,
+            appImages: chrome.cast.Image[],
             receiver: chrome.cast.Receiver
         ): Session;
 
         sessionId: string;
         appId: string;
         displayName: string;
-        appImages: Array<chrome.cast.Image>;
+        appImages: chrome.cast.Image[];
         receiver: chrome.cast.Receiver;
-        senderApps: Array<chrome.cast.SenderApplication>;
-        namespaces: Array<{name: string}>;
-        media: Array<chrome.cast.media.Media>;
+        senderApps: chrome.cast.SenderApplication[];
+        namespaces: {name: string}[];
+        media: chrome.cast.media.Media[];
         status: chrome.cast.SessionStatus;
 
         /**
@@ -449,13 +449,13 @@ declare namespace chrome.cast {
         new(
             label: string,
             friendlyName: string,
-            capabilities?: Array<chrome.cast.Capability>,
+            capabilities?: chrome.cast.Capability[],
             volume?: chrome.cast.Volume
         ): Receiver;
 
         label: string;
         friendlyName: string;
-        capabilities: Array<chrome.cast.Capability>;
+        capabilities: chrome.cast.Capability[];
         volume: chrome.cast.Volume;
         receiverType: chrome.cast.ReceiverType;
         displayStatus: chrome.cast.ReceiverDisplayStatus;
@@ -470,11 +470,11 @@ declare namespace chrome.cast {
          */
         new(
             statusText: string,
-            appImages: Array<chrome.cast.Image>
+            appImages: chrome.cast.Image[]
         ): ReceiverDisplayStatus;
 
         statusText: string;
-        appImages: Array<chrome.cast.Image>;
+        appImages: chrome.cast.Image[];
     }
 
     interface Volume {
@@ -599,11 +599,11 @@ declare namespace chrome.cast.media {
          * @see https://developers.google.com/cast/docs/reference/chrome/chrome.cast.media.QueueLoadRequest
          */
         new(
-            items: Array<chrome.cast.media.QueueItem>
+            items: chrome.cast.media.QueueItem[]
         ): QueueLoadRequest;
 
         customData: Object;
-        items: Array<chrome.cast.media.QueueItem>;
+        items: chrome.cast.media.QueueItem[];
         repeatMode: chrome.cast.media.RepeatMode;
         startIndex: number;
     }
@@ -615,12 +615,12 @@ declare namespace chrome.cast.media {
          * @see https://developers.google.com/cast/docs/reference/chrome/chrome.cast.media.QueueInsertItemsRequest
          */
         new(
-            itemsToInsert: Array<chrome.cast.media.QueueItem>
+            itemsToInsert: chrome.cast.media.QueueItem[]
         ): QueueInsertItemsRequest;
 
         customData: Object;
         insertBefore: number;
-        items: Array<chrome.cast.media.QueueItem>;
+        items: chrome.cast.media.QueueItem[];
     }
 
     interface QueueRemoveItemsRequest {
@@ -659,11 +659,11 @@ declare namespace chrome.cast.media {
          * @see https://developers.google.com/cast/docs/reference/chrome/chrome.cast.media.QueueUpdateItemsRequest
          */
         new(
-            itemsToUpdate: Array<chrome.cast.media.QueueItem>
+            itemsToUpdate: chrome.cast.media.QueueItem[]
         ): QueueUpdateItemsRequest;
 
         customData: Object;
-        item: Array<chrome.cast.media.QueueItem>;
+        item: chrome.cast.media.QueueItem[];
     }
 
     /**
@@ -841,7 +841,7 @@ declare namespace chrome.cast.media {
          */
         new(): GenericMediaMetadata;
 
-        images: Array<chrome.cast.Image>;
+        images: chrome.cast.Image[];
         metadataType: chrome.cast.media.MetadataType;
         releaseDate: string;
         /** @deprecated. Use releaseDate instead. */
@@ -859,7 +859,7 @@ declare namespace chrome.cast.media {
          */
         new(): MovieMediaMetadata;
 
-        images: Array<chrome.cast.Image>;
+        images: chrome.cast.Image[];
         metadataType: chrome.cast.media.MetadataType;
         releaseDate: string;
         /** @deprecated. Use releaseDate instead. */
@@ -883,7 +883,7 @@ declare namespace chrome.cast.media {
         title: string;
         season: number;
         episode: number;
-        images: Array<chrome.cast.Image>;
+        images: chrome.cast.Image[];
         originalAirdate: string;
 
         /** @deprecated. Use metadataType instead. */
@@ -914,7 +914,7 @@ declare namespace chrome.cast.media {
         songName: string;
         trackNumber: number;
         discNumber: number;
-        images: Array<chrome.cast.Image>;
+        images: chrome.cast.Image[];
         releaseDate: string;
 
         /** @deprecated. Use metadataType instead. */
@@ -936,7 +936,7 @@ declare namespace chrome.cast.media {
         title: string;
         artist: string;
         location: string;
-        images: Array<chrome.cast.Image>;
+        images: chrome.cast.Image[];
         latitude: number;
         longitude: number;
         width: number;
@@ -964,7 +964,7 @@ declare namespace chrome.cast.media {
         contentType: string;
         metadata: Object;
         duration: number;
-        tracks: Array<chrome.cast.media.Track>;
+        tracks: chrome.cast.media.Track[];
         textTrackStyle: chrome.cast.media.TextTrackStyle;
         customData: Object;
     }
@@ -985,7 +985,7 @@ declare namespace chrome.cast.media {
         currentItemId: number;
         customData: Object;
         idleReason: chrome.cast.media.IdleReason;
-        items: Array<chrome.cast.media.QueueItem>;
+        items: chrome.cast.media.QueueItem[];
         loadingItemId: number;
         media: chrome.cast.media.MediaInfo;
         mediaSessionId: number;
@@ -994,7 +994,7 @@ declare namespace chrome.cast.media {
         preloadedItemId: number;
         repeatMode: chrome.cast.media.RepeatMode;
         sessionId: string;
-        supportedMediaCommands: Array<chrome.cast.media.MediaCommand>;
+        supportedMediaCommands: chrome.cast.media.MediaCommand[];
         volume: chrome.cast.Volume;
 
         /** @deprecated. Use getEstimatedTime instead */

@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 interface Array<T> {
-    $remove(item: T): Array<T>;
+    $remove(item: T): T[];
     $set(index: any, val: T): T;
 }
 
@@ -174,14 +174,14 @@ declare namespace vuejs {
         hyphenate(str: string): string;
         classify(str: string): string;
         bind(fn: Function, ctx: Object): Function;
-        toAarray<T>(list: ArrayLike<T>, start?: number): Array<T>;
+        toAarray<T>(list: ArrayLike<T>, start?: number): T[];
         extend<T, F>(to: T, from: F): (T & F);
         isObject(obj: any): boolean;
         isPlainObject(obj: any): boolean;
         isArray: typeof Array.isArray;
         def(obj: Object, key: string, value: any, enumerable?: boolean): void;
         debounce(func: Function, wait: number): Function;
-        indexOf<T>(arr: Array<T>, obj: T): number;
+        indexOf<T>(arr: T[], obj: T): number;
         cancellable(fn: Function): Function;
         looseEqual(a: any, b: any): boolean;
         // util/env.js

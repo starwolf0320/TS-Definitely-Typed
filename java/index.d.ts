@@ -40,7 +40,7 @@ declare namespace NodeJavaCore {
 
     callMethod(instance: any, className: string, methodName: string, args: any[], callback: Callback<any>): void;
     callMethodSync(instance: any, className: string, methodName: string, ...args: any[]): any;
-    callStaticMethod(className: string, methodName: string, ...args: Array<any|Callback<any>>): void;
+    callStaticMethod(className: string, methodName: string, ...args: (any|Callback<any>)[]): void;
     callStaticMethodSync(className: string, methodName: string, ...args: any[]): any;
     getStaticFieldValue(className: string, fieldName: string): any;
     setStaticFieldValue(className: string, fieldName: string, newValue: any): void;

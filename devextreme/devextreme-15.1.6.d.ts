@@ -802,7 +802,7 @@ declare namespace DevExpress {
             /** Creates a confirm dialog that contains "Yes" and "No" buttons. */
             confirm(message: string, title: string): JQueryPromise<boolean>;
             /** Creates a custom dialog using the options specified by the passed configuration object. */
-            custom(options: { title?: string; message?: string; buttons?: Array<Object>; }): {
+            custom(options: { title?: string; message?: string; buttons?: Object[]; }): {
                 show(): JQueryPromise<any>;
                 hide(): void;
                 hide(value: any): void;
@@ -1873,9 +1873,9 @@ declare namespace DevExpress.ui {
     }
     export interface dxResponsiveBoxOptions extends CollectionWidgetOptions {
         /** Specifies the collection of rows for the grid used to position layout elements. */
-        rows?: Array<Object>;
+        rows?: Object[];
         /** Specifies the collection of columns for the grid used to position layout elements. */
-        cols?: Array<Object>;
+        cols?: Object[];
         /** Specifies the function returning the screen factor depending on the screen width. */
         screenByWidth?: (width: number) => string;
         /** Specifies the screen factor with which all elements are located in a single column. */
@@ -2843,7 +2843,7 @@ declare namespace DevExpress.ui {
         /** Collapses the specified item. */
         collapseItem(itemElement: any): void;
         /** Returns all nodes of the tree view. */
-        getNodes(): Array<Object>;
+        getNodes(): Object[];
         /** Selects all widget items. */
         selectAll(): void;
         /** Unselects all widget items. */
@@ -3071,7 +3071,7 @@ declare namespace DevExpress.ui {
         /** Specifies a column width in pixels or percentages. */
         width?: any;
         /** Specifies an array of validation rules to be checked when updating column cell values. */
-        validationRules?: Array<Object>;
+        validationRules?: Object[];
         /** Specifies whether or not to display the header of a hidden column in the column chooser. */
         showInColumnChooser?: boolean;
         /** Specifies the identifier of the column. */
@@ -3630,9 +3630,9 @@ declare namespace DevExpress.ui {
         /** Returns a filter expression applied to the grid using all possible scenarious. */
         getCombinedFilter(): any;
         /** Gets the keys of currently selected grid records.  */
-        getSelectedRowKeys(): Array<Object>;
+        getSelectedRowKeys(): Object[];
         /** Gets the data objects of currently selected grid records.  */
-        getSelectedRowsData(): Array<Object>;
+        getSelectedRowsData(): Object[];
         /** Hides the column chooser panel. */
         hideColumnChooser(): void;
         /** Adds a new data row to a grid. */
@@ -4044,7 +4044,7 @@ declare namespace DevExpress.framework {
             on(eventName: "resolveLayoutController", eventHandler: (e: {
                 viewInfo: Object;
                 layoutController: Object;
-                availableLayoutControllers: Array<Object>;
+                availableLayoutControllers: Object[];
             }) => void): HtmlApplication;
             on(eventName: "viewDisposed", eventHandler: (e: {
                 viewInfo: Object;
@@ -4107,7 +4107,7 @@ declare namespace DevExpress.framework {
             off(eventName: "resolveLayoutController", eventHandler: (e: {
                 viewInfo: Object;
                 layoutController: Object;
-                availableLayoutControllers: Array<Object>;
+                availableLayoutControllers: Object[];
             }) => void): HtmlApplication;
             off(eventName: "viewDisposed", eventHandler: (e: {
                 viewInfo: Object;

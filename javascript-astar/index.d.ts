@@ -4,8 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare class Graph {
-    grid: Array<Array<GridNode>>;
-    constructor(grid: Array<number[]>, options?: {diagonal?: boolean});
+    grid: GridNode[][];
+    constructor(grid: number[][], options?: {diagonal?: boolean});
 }
 
 declare class GridNode {
@@ -31,7 +31,7 @@ declare namespace astar {
             closest?: boolean,
             heuristic?: Heuristic
         }
-    ): Array<GridNode>;
+    ): GridNode[];
     var heuristics: Heuristics;
 }
 

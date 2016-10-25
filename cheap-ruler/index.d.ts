@@ -6,9 +6,9 @@
 declare module "cheap-ruler" {
     type BBox = [number, number, number, number] | number[];
     type Point = [number, number] | number[];
-    type Line = Array<Point>;
-    type Points = Array<Point>;
-    type Polygon = Array<Array<Point>>;
+    type Line = Point[];
+    type Points = Point[];
+    type Polygon = Point[][];
 
     interface TemplateUnits {
         kilometers: number;

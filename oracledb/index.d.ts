@@ -153,7 +153,7 @@ declare namespace oracledb {
 		/** For SELECT statements when the resultSet option is true, use the resultSet object to fetch rows. See ResultSet Class. */
 		resultSet?: IResultSet;
 		/** For SELECT statements where the resultSet option is false or unspecified, rows contains an array of fetched rows. It will be NULL if there is an error or the SQL statement was not a SELECT statement. By default, the rows are in an array of column value arrays, but this can be changed to arrays of objects by setting outFormat to OBJECT. If a single row is fetched, then rows is an array that contains one single row. The number of rows returned is limited to the maxRows configuration property of the Oracledb object, although this may be overridden in any execute() call. */
-		rows?: Array<any[]> | any[];
+		rows?: any[][] | any[];
 		/** For DML statements (including SELECT FOR UPDATE) this contains the number of rows affected, for example the number of rows inserted. For non-DML statements such as queries, or if no rows are affected, then rowsAffected will be zero. */
 		rowsAffected?: number;
 	}
@@ -565,7 +565,7 @@ declare namespace oracledb {
 	var maxRows: number;
 	/** Version of OCI that is used. */
 	var oracleClientVersion: number;
-	/** Default format for returning rows. When ARRAY, it will return Array<Array<any>>. When OBJECT, it will return Array<Object>. */
+	/** Default format for returning rows. When ARRAY, it will return Array<Array<any>>. When OBJECT, it will return Object[]. */
 	var outFormat: number;
 	/** Default number of connections to increment when available connections reach 0 in created pools. poolMax will be respected. */
 	var poolIncrement: number;

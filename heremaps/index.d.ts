@@ -2117,9 +2117,9 @@ declare namespace H {
           /**
            * This method clips this polyline against a rectangular area and returns the intersecting sub-lines.
            * @param geoRect {H.geo.Rect}
-           * @returns {Array<number[]>}
+           * @returns {number[][]}
            */
-          clip(geoRect: H.geo.Rect): Array<number[]>;
+          clip(geoRect: H.geo.Rect): number[][];
         }
 
         export namespace Polyline {

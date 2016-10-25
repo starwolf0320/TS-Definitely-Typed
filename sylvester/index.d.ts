@@ -36,9 +36,9 @@ declare namespace Sylvester {
         /**
          * Constructor function.
          *
-         * @param {number[]|Array<number[]>|Vector|Matrix} elements The elements.
+         * @param {number[]|number[][]|Vector|Matrix} elements The elements.
          */
-        create(elements: number[]|Array<number[]>|Vector | Matrix): Matrix;
+        create(elements: number[]|number[][]|Vector | Matrix): Matrix;
 
         /**
          * Identity matrix of size n.
@@ -52,7 +52,7 @@ declare namespace Sylvester {
          *
          * @param {any} elements The elements.
          */
-        Diagonal(elements: number[]|Array<number[]>|Vector | Matrix): Matrix;
+        Diagonal(elements: number[]|number[][]|Vector | Matrix): Matrix;
 
         /**
          * Rotation matrix about some axis. If no axis is supplied, assume we're after a 2D transform.
@@ -325,7 +325,7 @@ interface Matrix {
     /**
      * Gets a nested array containing the matrix's elements.
      */
-    elements: Array<number[]>;
+    elements: number[][];
     /**
      * Returns element (i,j) of the matrix.
      *
@@ -541,9 +541,9 @@ interface Matrix {
      * Set the matrix's elements from an array. If the argument passed is a vector, the resulting matrix
      * will be a single column.
      *
-     * @param {number[]|Array<number[]>|Vector|Matrix} matrix The elements.
+     * @param {number[]|number[][]|Vector|Matrix} matrix The elements.
      */
-    setElements(matrix: number[]|Array<number[]>|Vector|Matrix): Matrix;
+    setElements(matrix: number[]|number[][]|Vector|Matrix): Matrix;
 }
 
 interface Line {
@@ -795,9 +795,9 @@ declare function $V(elements: Vector|number[]): Vector;
 /**
 * Constructor function.
 *
-* @param {number[]|Array<number[]>|Vector|Matrix} elements The elements.
+* @param {number[]|number[][]|Vector|Matrix} elements The elements.
 */
-declare function $M(elements: number[]|Array<number[]>|Vector | Matrix): Matrix;
+declare function $M(elements: number[]|number[][]|Vector | Matrix): Matrix;
 
 /**
 * Constructor function.

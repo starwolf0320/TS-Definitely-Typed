@@ -153,7 +153,7 @@ declare namespace Immutable {
   export function List<T>(iter: Iterable.Indexed<T>): List<T>;
   export function List<T>(iter: Iterable.Set<T>): List<T>;
   export function List<K, V>(iter: Iterable.Keyed<K, V>): List<[K, V]>;
-  export function List<T>(array: Array<T>): List<T>;
+  export function List<T>(array: T[]): List<T>;
   export function List<T>(iterator: Iterator<T>): List<T>;
   export function List<T>(iterable: Iterable<any, T>): List<T>;
 
@@ -254,7 +254,7 @@ declare namespace Immutable {
      * @see `Map#merge`
      */
     merge(...iterables: Iterable.Indexed<T>[]): List<T>;
-    merge(...iterables: Array<T>[]): List<T>;
+    merge(...iterables: T[][]): List<T>;
 
     /**
      * @see `Map#mergeWith`
@@ -272,7 +272,7 @@ declare namespace Immutable {
      * @see `Map#mergeDeep`
      */
     mergeDeep(...iterables: Iterable.Indexed<T>[]): List<T>;
-    mergeDeep(...iterables: Array<T>[]): List<T>;
+    mergeDeep(...iterables: T[][]): List<T>;
 
     /**
      * @see `Map#mergeDeepWith`
@@ -357,7 +357,7 @@ declare namespace Immutable {
     ): List<T>;
     mergeIn(
       keyPath: any[],
-      ...iterables: Array<T>[]
+      ...iterables: T[][]
     ): List<T>;
 
     /**
@@ -373,7 +373,7 @@ declare namespace Immutable {
     ): List<T>;
     mergeDeepIn(
       keyPath: any[],
-      ...iterables: Array<T>[]
+      ...iterables: T[][]
     ): List<T>;
 
 
@@ -467,7 +467,7 @@ declare namespace Immutable {
   export function Map<K, V>(): Map<K, V>;
   export function Map<K, V>(iter: Iterable.Keyed<K, V>): Map<K, V>;
   export function Map<K, V>(iter: Iterable<any, [K, V]>): Map<K, V>;
-  export function Map<K, V>(array: Array<[K, V]>): Map<K, V>;
+  export function Map<K, V>(array: [K, V][]): Map<K, V>;
   export function Map<V>(obj: {[key: string]: V}): Map<string, V>;
   export function Map<K, V>(iterator: Iterator<[K, V]>): Map<K, V>;
   export function Map<K, V>(iterable: Iterable<any, [K, V]>): Map<K, V>;
@@ -774,7 +774,7 @@ declare namespace Immutable {
   export function OrderedMap<K, V>(): OrderedMap<K, V>;
   export function OrderedMap<K, V>(iter: Iterable.Keyed<K, V>): OrderedMap<K, V>;
   export function OrderedMap<K, V>(iter: Iterable<any, [K, V]>): OrderedMap<K, V>;
-  export function OrderedMap<K, V>(array: Array<[K, V]>): OrderedMap<K, V>;
+  export function OrderedMap<K, V>(array: [K, V][]): OrderedMap<K, V>;
   export function OrderedMap<V>(obj: {[key: string]: V}): OrderedMap<string, V>;
   export function OrderedMap<K, V>(iterator: Iterator<[K, V]>): OrderedMap<K, V>;
   export function OrderedMap<K, V>(iterable: Iterable<any, [K, V]>): OrderedMap<K, V>;
@@ -821,7 +821,7 @@ declare namespace Immutable {
   export function Set<T>(iter: Iterable.Set<T>): Set<T>;
   export function Set<T>(iter: Iterable.Indexed<T>): Set<T>;
   export function Set<K, V>(iter: Iterable.Keyed<K, V>): Set<[K, V]>;
-  export function Set<T>(array: Array<T>): Set<T>;
+  export function Set<T>(array: T[]): Set<T>;
   export function Set<T>(iterator: Iterator<T>): Set<T>;
   export function Set<T>(iterable: Iterable<any, T>): Set<T>;
 
@@ -854,9 +854,9 @@ declare namespace Immutable {
      * @alias merge
      */
     union(...iterables: Iterable<any, T>[]): Set<T>;
-    union(...iterables: Array<T>[]): Set<T>;
+    union(...iterables: T[][]): Set<T>;
     merge(...iterables: Iterable<any, T>[]): Set<T>;
-    merge(...iterables: Array<T>[]): Set<T>;
+    merge(...iterables: T[][]): Set<T>;
 
 
     /**
@@ -864,13 +864,13 @@ declare namespace Immutable {
      * within `iterables`.
      */
     intersect(...iterables: Iterable<any, T>[]): Set<T>;
-    intersect(...iterables: Array<T>[]): Set<T>;
+    intersect(...iterables: T[][]): Set<T>;
 
     /**
      * Returns a Set excluding any values contained within `iterables`.
      */
     subtract(...iterables: Iterable<any, T>[]): Set<T>;
-    subtract(...iterables: Array<T>[]): Set<T>;
+    subtract(...iterables: T[][]): Set<T>;
 
 
     // Transient changes
@@ -933,7 +933,7 @@ declare namespace Immutable {
   export function OrderedSet<T>(iter: Iterable.Set<T>): OrderedSet<T>;
   export function OrderedSet<T>(iter: Iterable.Indexed<T>): OrderedSet<T>;
   export function OrderedSet<K, V>(iter: Iterable.Keyed<K, V>): OrderedSet<[K, V]>;
-  export function OrderedSet<T>(array: Array<T>): OrderedSet<T>;
+  export function OrderedSet<T>(array: T[]): OrderedSet<T>;
   export function OrderedSet<T>(iterator: Iterator<T>): OrderedSet<T>;
   export function OrderedSet<T>(iterable: Iterable<any, T>): OrderedSet<T>;
 
@@ -977,7 +977,7 @@ declare namespace Immutable {
   export function Stack<T>(iter: Iterable.Indexed<T>): Stack<T>;
   export function Stack<T>(iter: Iterable.Set<T>): Stack<T>;
   export function Stack<K, V>(iter: Iterable.Keyed<K, V>): Stack<[K, V]>;
-  export function Stack<T>(array: Array<T>): Stack<T>;
+  export function Stack<T>(array: T[]): Stack<T>;
   export function Stack<T>(iterator: Iterator<T>): Stack<T>;
   export function Stack<T>(iterable: Iterable<any, T>): Stack<T>;
 
@@ -1010,7 +1010,7 @@ declare namespace Immutable {
      * Like `Stack#unshift`, but accepts a iterable rather than varargs.
      */
     unshiftAll(iter: Iterable<any, T>): Stack<T>;
-    unshiftAll(iter: Array<T>): Stack<T>;
+    unshiftAll(iter: T[]): Stack<T>;
 
     /**
      * Returns a new Stack with a size ones less than this Stack, excluding
@@ -1031,7 +1031,7 @@ declare namespace Immutable {
      * Alias for `Stack#unshiftAll`.
      */
     pushAll(iter: Iterable<any, T>): Stack<T>;
-    pushAll(iter: Array<T>): Stack<T>;
+    pushAll(iter: T[]): Stack<T>;
 
     /**
      * Alias for `Stack#shift` and is not equivalent to `List#pop`.
@@ -1229,7 +1229,7 @@ declare namespace Immutable {
     export function Keyed<K, V>(): Seq.Keyed<K, V>;
     export function Keyed<K, V>(seq: Iterable.Keyed<K, V>): Seq.Keyed<K, V>;
     export function Keyed<K, V>(seq: Iterable<any, [K, V]>): Seq.Keyed<K, V>;
-    export function Keyed<K, V>(array: Array<[K, V]>): Seq.Keyed<K, V>;
+    export function Keyed<K, V>(array: [K, V][]): Seq.Keyed<K, V>;
     export function Keyed<V>(obj: {[key: string]: V}): Seq.Keyed<string, V>;
     export function Keyed<K, V>(iterator: Iterator<[K, V]>): Seq.Keyed<K, V>;
     export function Keyed<K, V>(iterable: Iterable<any, [K, V]>): Seq.Keyed<K, V>;
@@ -1262,7 +1262,7 @@ declare namespace Immutable {
     export function Indexed<T>(seq: Iterable.Indexed<T>): Seq.Indexed<T>;
     export function Indexed<T>(seq: Iterable.Set<T>): Seq.Indexed<T>;
     export function Indexed<K, V>(seq: Iterable.Keyed<K, V>): Seq.Indexed<[K, V]>;
-    export function Indexed<T>(array: Array<T>): Seq.Indexed<T>;
+    export function Indexed<T>(array: T[]): Seq.Indexed<T>;
     export function Indexed<T>(iterator: Iterator<T>): Seq.Indexed<T>;
     export function Indexed<T>(iterable: Iterable<any, T>): Seq.Indexed<T>;
 
@@ -1296,7 +1296,7 @@ declare namespace Immutable {
     export function Set<T>(seq: Iterable.Set<T>): Seq.Set<T>;
     export function Set<T>(seq: Iterable.Indexed<T>): Seq.Set<T>;
     export function Set<K, V>(seq: Iterable.Keyed<K, V>): Seq.Set<[K, V]>;
-    export function Set<T>(array: Array<T>): Seq.Set<T>;
+    export function Set<T>(array: T[]): Seq.Set<T>;
     export function Set<T>(iterator: Iterator<T>): Seq.Set<T>;
     export function Set<T>(iterable: Iterable<any, T>): Seq.Set<T>;
 
@@ -1326,7 +1326,7 @@ declare namespace Immutable {
   export function Seq<K, V>(): Seq<K, V>;
   export function Seq<K, V>(seq: Seq<K, V>): Seq<K, V>;
   export function Seq<K, V>(iterable: Iterable<K, V>): Seq<K, V>;
-  export function Seq<T>(array: Array<T>): Seq.Indexed<T>;
+  export function Seq<T>(array: T[]): Seq.Indexed<T>;
   export function Seq<V>(obj: {[key: string]: V}): Seq.Keyed<string, V>;
   export function Seq<T>(iterator: Iterator<T>): Seq.Indexed<T>;
   export function Seq<T>(iterable: Iterable<any, T>): Seq.Indexed<T>;
@@ -1424,7 +1424,7 @@ declare namespace Immutable {
      */
     export function Keyed<K, V>(iter: Iterable.Keyed<K, V>): Iterable.Keyed<K, V>;
     export function Keyed<K, V>(iter: Iterable<any, [K, V]>): Iterable.Keyed<K, V>;
-    export function Keyed<K, V>(array: Array<[K, V]>): Iterable.Keyed<K, V>;
+    export function Keyed<K, V>(array: [K, V][]): Iterable.Keyed<K, V>;
     export function Keyed<V>(obj: {[key: string]: V}): Iterable.Keyed<string, V>;
     export function Keyed<K, V>(iterator: Iterator<[K, V]>): Iterable.Keyed<K, V>;
     export function Keyed<K, V>(iterable: Iterable<any, [K, V]>): Iterable.Keyed<K, V>;
@@ -1506,7 +1506,7 @@ declare namespace Immutable {
     export function Indexed<T>(iter: Iterable.Indexed<T>): Iterable.Indexed<T>;
     export function Indexed<T>(iter: Iterable.Set<T>): Iterable.Indexed<T>;
     export function Indexed<K, V>(iter: Iterable.Keyed<K, V>): Iterable.Indexed<[K, V]>;
-    export function Indexed<T>(array: Array<T>): Iterable.Indexed<T>;
+    export function Indexed<T>(array: T[]): Iterable.Indexed<T>;
     export function Indexed<T>(iterator: Iterator<T>): Iterable.Indexed<T>;
     export function Indexed<T>(iterable: Iterable<any, T>): Iterable.Indexed<T>;
 
@@ -1596,7 +1596,7 @@ declare namespace Immutable {
        *     var c = a.zip(b); // Seq [ [ 1, 4 ], [ 2, 5 ], [ 3, 6 ] ]
        *
        */
-      zip(...iterables: Array<Iterable<any, any>>): this;
+      zip(...iterables: Iterable<any, any>[]): this;
 
       /**
        * Returns an Iterable of the same type "zipped" with the provided
@@ -1618,7 +1618,7 @@ declare namespace Immutable {
       ): Iterable.Indexed<Z>;
       zipWith<Z>(
         zipper: (...any: any[]) => Z,
-        ...iterables: Array<Iterable<any, any>>
+        ...iterables: Iterable<any, any>[]
       ): Iterable.Indexed<Z>;
 
 
@@ -1676,7 +1676,7 @@ declare namespace Immutable {
     export function Set<T>(iter: Iterable.Set<T>): Iterable.Set<T>;
     export function Set<T>(iter: Iterable.Indexed<T>): Iterable.Set<T>;
     export function Set<K, V>(iter: Iterable.Keyed<K, V>): Iterable.Set<[K, V]>;
-    export function Set<T>(array: Array<T>): Iterable.Set<T>;
+    export function Set<T>(array: T[]): Iterable.Set<T>;
     export function Set<T>(iterator: Iterator<T>): Iterable.Set<T>;
     export function Set<T>(iterable: Iterable<any, T>): Iterable.Set<T>;
 
@@ -1707,7 +1707,7 @@ declare namespace Immutable {
    * `Seq.of`.
    */
   export function Iterable<K, V>(iterable: Iterable<K, V>): Iterable<K, V>;
-  export function Iterable<T>(array: Array<T>): Iterable.Indexed<T>;
+  export function Iterable<T>(array: T[]): Iterable.Indexed<T>;
   export function Iterable<V>(obj: {[key: string]: V}): Iterable.Keyed<string, V>;
   export function Iterable<T>(iterator: Iterator<T>): Iterable.Indexed<T>;
   export function Iterable<T>(iterable: Iterable<any, T>): Iterable.Indexed<T>;
@@ -1815,7 +1815,7 @@ declare namespace Immutable {
     /**
      * Shallowly converts this iterable to an Array, discarding keys.
      */
-    toArray(): Array<V>;
+    toArray(): V[];
 
     /**
      * Shallowly converts this Iterable to an Object.
@@ -2441,13 +2441,13 @@ declare namespace Immutable {
      * True if `iter` includes every value in this Iterable.
      */
     isSubset(iter: Iterable<any, V>): boolean;
-    isSubset(iter: Array<V>): boolean;
+    isSubset(iter: V[]): boolean;
 
     /**
      * True if this Iterable includes every value in `iter`.
      */
     isSuperset(iter: Iterable<any, V>): boolean;
-    isSuperset(iter: Array<V>): boolean;
+    isSuperset(iter: V[]): boolean;
 
 
     /**

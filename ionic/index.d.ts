@@ -110,7 +110,7 @@ declare namespace ionic {
             text: string;
         }
         interface IonicActionSheetOptions {
-            buttons?: Array<IonicActionSheetButton>;
+            buttons?: IonicActionSheetButton[];
             titleText?: string;
             cancelText?: string;
             destructiveText?: string;
@@ -275,7 +275,7 @@ declare namespace ionic {
         }
         interface IonicPopupFullOptions extends IonicPopupBaseOptions {
             scope?: any;
-            buttons?: Array<IonicPopupButton>;
+            buttons?: IonicPopupButton[];
         }
         interface IonicPopupButton {
             text: string;

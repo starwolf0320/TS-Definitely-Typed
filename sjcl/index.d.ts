@@ -348,7 +348,7 @@ declare namespace sjcl {
         toJac(): SjclPointJacobian;
         mult(k: BigNumber): SjclEllipticalPoint;
         mult2(k: BigNumber, k2: BigNumber, affine2: SjclEllipticalPoint): SjclEllipticalPoint;
-        multiples(): Array<SjclEllipticalPoint>;
+        multiples(): SjclEllipticalPoint[];
         isValid(): boolean;
         toBits(): BitArray;
     }

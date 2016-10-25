@@ -229,9 +229,9 @@ declare namespace turf {
      *
      * @name coordAll
      * @param {GeoJSON} layer any GeoJSON object
-     * @returns {Array<number[]>} coordinate position array
+     * @returns {number[][]} coordinate position array
      */
-    coordAll(layer: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>): Array<number[]>;
+    coordAll(layer: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>): number[][];
 
     /**
      * Tesselates a {@link Feature<Polygon>} into a {@link FeatureCollection<Polygon>} of triangles using [earcut](https://github.com/mapbox/earcut).
@@ -545,7 +545,7 @@ declare namespace turf {
      *
      * //=fc
      */
-    featureCollection(features: Array<GeoJSON.Feature<any>>): GeoJSON.FeatureCollection<any>;
+    featureCollection(features: GeoJSON.Feature<any>[]): GeoJSON.FeatureCollection<any>;
 
     /**
      * Wraps a GeoJSON {@link Geometry} in a GeoJSON {@link Feature}.
@@ -573,7 +573,7 @@ declare namespace turf {
      * Creates a {@link LineString} based on a coordinate array. Properties can be added optionally.
      *
      * @name [lineString](http://turfjs.org/docs/#linestring)
-     * @param {Array<number[]>} coordinates an array of Positions
+     * @param {number[][]} coordinates an array of Positions
      * @param {Object=} properties an Object of key-value pairs to add as properties
      * @returns {Feature<LineString>} a LineString feature
      * @throws {Error} if no coordinates are passed
@@ -595,13 +595,13 @@ declare namespace turf {
      *
      * //=linestring2
      */
-    lineString(coordinates: Array<number[]>, properties?: any): GeoJSON.Feature<GeoJSON.LineString>;
+    lineString(coordinates: number[][], properties?: any): GeoJSON.Feature<GeoJSON.LineString>;
 
     /**
      * Creates a {@link Feature<MultiLineString>} based on a coordinate array. Properties can be added optionally.
      *
      * @name [multiLineString](http://turfjs.org/docs/#multilinestring)
-     * @param {Array<Array<number[]>>} coordinates an array of LineStrings
+     * @param {number[][][]} coordinates an array of LineStrings
      * @param {Object=} properties an Object of key-value pairs to add as properties
      * @returns {Feature<MultiLineString>} a MultiLineString feature
      * @throws {Error} if no coordinates are passed
@@ -611,7 +611,7 @@ declare namespace turf {
      * //=multiLine
      *
      */
-    multiLineString(coordinates: Array<Array<number[]>>, properties?: any): GeoJSON.Feature<GeoJSON.MultiLineString>;
+    multiLineString(coordinates: number[][][], properties?: any): GeoJSON.Feature<GeoJSON.MultiLineString>;
 
     /**
      * Takes coordinates and properties (optional) and returns a new {@link Point} feature.
@@ -632,7 +632,7 @@ declare namespace turf {
      * Creates a {@link Feature<MultiPoint>} based on a coordinate array. Properties can be added optionally.
      *
      * @name [multiPoint](http://turfjs.org/docs/#multipoint)
-     * @param {Array<number[]>} coordinates an array of Positions
+     * @param {number[][]} coordinates an array of Positions
      * @param {Object=} properties an Object of key-value pairs to add as properties
      * @returns {Feature<MultiPoint>} a MultiPoint feature
      * @throws {Error} if no coordinates are passed
@@ -642,13 +642,13 @@ declare namespace turf {
      * //=multiPt
      *
      */
-    multiPoint(coordinates: Array<number[]>, properties?: any): GeoJSON.Feature<GeoJSON.MultiPoint>;
+    multiPoint(coordinates: number[][], properties?: any): GeoJSON.Feature<GeoJSON.MultiPoint>;
 
     /**
      * Takes an array of LinearRings and optionally an {@link Object} with properties and returns a {@link Polygon} feature.
      *
      * @name [polygon](http://turfjs.org/docs/#polygon)
-     * @param {Array<Array<number[]>>} coordinates an array of LinearRings
+     * @param {number[][][]} coordinates an array of LinearRings
      * @param {Object=} properties a properties object
      * @returns {Feature<Polygon>} a Polygon feature
      * @throws {Error} throw an error if a LinearRing of the polygon has too few positions
@@ -665,13 +665,13 @@ declare namespace turf {
      *
      * //=polygon
      */
-    polygon(coordinates: Array<Array<number[]>>, properties?: any): GeoJSON.Feature<GeoJSON.Polygon>;
+    polygon(coordinates: number[][][], properties?: any): GeoJSON.Feature<GeoJSON.Polygon>;
 
     /**
      * Creates a {@link Feature<MultiPolygon>} based on a coordinate array. Properties can be added optionally.
      *
      * @name [multiPolygon](http://turfjs.org/docs/#multipolygon)
-     * @param {Array<Array<Array<number[]>>>} coordinates an array of Polygons
+     * @param {number[][][][]} coordinates an array of Polygons
      * @param {Object=} properties an Object of key-value pairs to add as properties
      * @returns {Feature<MultiPolygon>} a multipolygon feature
      * @throws {Error} if no coordinates are passed
@@ -681,13 +681,13 @@ declare namespace turf {
      * //=multiPoly
      *
      */
-    multiPolygon(coordinates: Array<Array<Array<number[]>>>, properties?: any): GeoJSON.Feature<GeoJSON.MultiPolygon>;
+    multiPolygon(coordinates: number[][][][], properties?: any): GeoJSON.Feature<GeoJSON.MultiPolygon>;
 
     /**
      * Creates a {@link Feature<GeometryCollection>} based on acoordinate array. Properties can be added optionally.
      *
      * @name [geometryCollection](http://turfjs.org/docs/#geometrycollection)
-     * @param {Array<{Geometry}>} geometries an array of GeoJSON Geometries
+     * @param {{Geometry}[]} geometries an array of GeoJSON Geometries
      * @param {Object=} properties an Object of key-value pairs to add as properties
      * @returns {Feature<GeometryCollection>} a GeoJSON GeometryCollection Feature
      * @example
@@ -703,7 +703,7 @@ declare namespace turf {
      *
      * //=collection
      */
-    geometryCollection(geometries: Array<GeoJSON.GeometryObject>, properties?: any): GeoJSON.GeometryCollection;
+    geometryCollection(geometries: GeoJSON.GeometryObject[], properties?: any): GeoJSON.GeometryCollection;
 
     //////////////////////////////////////////////////////
     // Data

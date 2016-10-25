@@ -830,7 +830,7 @@ declare namespace go {
         * that match those specified by the given example data.
         * @param {...Object} examples
         */
-        findLinksByExample(...examples: Array<Object>): Iterator<Link>;
+        findLinksByExample(...examples: Object[]): Iterator<Link>;
 
         /**
         * Look for a Node or Group corresponding to a model's node data object.
@@ -849,7 +849,7 @@ declare namespace go {
         * that match those specified by the given example data.
         * @param {...Object} examples
         */
-        findNodesByExample(...examples: Array<Object>): Iterator<Node>;
+        findNodesByExample(...examples: Object[]): Iterator<Node>;
 
         /**
         * Find the front-most GraphObject at the given point in document coordinates.
@@ -4993,10 +4993,10 @@ declare namespace go {
     class GraphLinksModel extends Model {
         /**
         * This constructs an empty GraphLinksModel unless one provides arguments as the initial data array values for the Model.nodeDataArray and GraphLinksModel.linkDataArray properties.
-        * @param {Array<Object>=} nodedataarray an optional Array containing JavaScript objects to be represented by Nodes.
-        * @param {Array<Object>=} linkdataarray an optional Array containing JavaScript objects to be represented by Links.
+        * @param {Object[]=} nodedataarray an optional Array containing JavaScript objects to be represented by Nodes.
+        * @param {Object[]=} linkdataarray an optional Array containing JavaScript objects to be represented by Links.
         */
-        constructor(nodedataarray?: Array<Object>, linkdataarray?: Array<Object>);
+        constructor(nodedataarray?: Object[], linkdataarray?: Object[]);
 
         /**
         * Gets or sets a data object that will be copied and added to the model as a new node data each time there
@@ -5028,7 +5028,7 @@ declare namespace go {
         linkCategoryProperty: PropertyAccessor;
 
         /**Gets or sets the array of link data objects that correspond to Links in the Diagram; the initial value is an empty Array.*/
-        linkDataArray: Array<Object>;
+        linkDataArray: Object[];
 
         /**
         * Gets or sets the name of the data property that returns
@@ -5128,9 +5128,9 @@ declare namespace go {
 
         /**
         * Add to this model all of the link data held in an Array or in an Iterable of link data objects.
-        * @param {Iterable<Object>|Array<Object>} coll a collection of link data objects to add to the .linkDataArray
+        * @param {Iterable<Object>|Object[]} coll a collection of link data objects to add to the .linkDataArray
         */
-        addLinkDataCollection(coll: Iterable<Object> | Array<Object>): void;
+        addLinkDataCollection(coll: Iterable<Object> | Object[]): void;
 
         /**
         * Decide if a given link data is in this model.
@@ -5264,9 +5264,9 @@ declare namespace go {
 
         /**
         * Remove from this model all of the link data held in an Array or in an Iterable of link data objects.
-        * @param {Iterable<Object>|Array<Object>} coll a collection of link data objects to remove from the .linkDataArray
+        * @param {Iterable<Object>|Object[]} coll a collection of link data objects to remove from the .linkDataArray
         */
-        removeLinkDataCollection(coll: Iterable<Object> | Array<Object>): void;
+        removeLinkDataCollection(coll: Iterable<Object> | Object[]): void;
 
         /**
         * Change the category of a given link data, a string naming the link template
@@ -5352,9 +5352,9 @@ declare namespace go {
     class Model {
         /**
         * You probably don't want to call this constructor, because this class does not support links (relationships between nodes) or groups (nodes and links and subgraphs as nodes): instead, create instances of a subclass such as GraphLinksModel or TreeModel.
-        * @param {Array<Object>=} nodedataarray an optional Array containing JavaScript objects to be represented by Parts.
+        * @param {Object[]=} nodedataarray an optional Array containing JavaScript objects to be represented by Parts.
         */
-        constructor(nodedataarray?: Array<Object>);
+        constructor(nodedataarray?: Object[]);
 
         /**Gets or sets whether the default behavior for copyNodeData makes copies of property values that are Arrays.*/
         copiesArrays: boolean;
@@ -5384,7 +5384,7 @@ declare namespace go {
         nodeCategoryProperty: PropertyAccessor;
 
         /**Gets or sets the array of node data objects that correspond to Nodes, Groups, or non-Link Parts in the Diagram; the initial value is an empty Array.*/
-        nodeDataArray: Array<Object>;
+        nodeDataArray: Object[];
 
         /**Gets or sets the name of the data property that returns a unique id number or string for each node data object, or a function taking a node data object and returning the key value; the default value is the name 'key'.*/
         nodeKeyProperty: PropertyAccessor;
@@ -5425,9 +5425,9 @@ declare namespace go {
 
         /**
         * Add to this model all of the node data held in an Array or in an Iterable of node data objects.
-        * @param {Iterable<Object>|Array<Object>} coll a collection of node data objects to add to the .nodeDataArray
+        * @param {Iterable<Object>|Object[]} coll a collection of node data objects to add to the .nodeDataArray
         */
-        addNodeDataCollection(coll: Iterable<Object> | Array<Object>): void;
+        addNodeDataCollection(coll: Iterable<Object> | Object[]): void;
 
         /**
         * Modify this model by applying the changes given in an "incremental" model change in JSON format
@@ -5612,9 +5612,9 @@ declare namespace go {
 
         /**
         * Remove from this model all of the node data held in an Array or in an Iterable of node data objects.
-        * @param {Iterable<Object>|Array<Object>} coll a collection of node data objects to remove from the .nodeDataArray
+        * @param {Iterable<Object>|Object[]} coll a collection of node data objects to remove from the .nodeDataArray
         */
-        removeNodeDataCollection(coll: Iterable<Object> | Array<Object>): void;
+        removeNodeDataCollection(coll: Iterable<Object> | Object[]): void;
 
         /**
         * Rollback the current transaction, undoing any recorded changes.
@@ -5771,9 +5771,9 @@ declare namespace go {
     class TreeModel extends Model {
         /**
         * This constructs an empty TreeModel unless one provides arguments as the initial data array values for the Model.nodeDataArray property.
-        * @param {Array<Object>=} nodedataarray an optional Array containing JavaScript objects to be represented by Nodes.
+        * @param {Object[]=} nodedataarray an optional Array containing JavaScript objects to be represented by Nodes.
         */
-        constructor(nodedataarray?: Array<Object>);
+        constructor(nodedataarray?: Object[]);
 
         /**
         * Gets or sets the name of the property on node data that specifies

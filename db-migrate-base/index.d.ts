@@ -52,7 +52,7 @@ export interface ColumnDef {
 }
 
 export interface CreateTableOptions {
-  columns?: Array<ColumnSpec>;
+  columns?: ColumnSpec[];
   ifNotExists?: boolean;
 }
 

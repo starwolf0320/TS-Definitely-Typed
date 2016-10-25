@@ -774,8 +774,8 @@ declare namespace cola {
          * @property nodes {Array}
          * @default empty list
          */
-        nodes(): Array<Node>;
-        nodes(v: Array<Node>): Layout;
+        nodes(): Node[];
+        nodes(v: Node[]): Layout;
         /**
          * a list of hierarchical groups defined over nodes
          * @property groups {Array}
@@ -831,8 +831,8 @@ declare namespace cola {
          * @type {Array of Array of Number}
          * @default null
          */
-        distanceMatrix(): Array<number[]>;
-        distanceMatrix(d: Array<number[]>): Layout;
+        distanceMatrix(): number[][];
+        distanceMatrix(d: number[][]): Layout;
         /**
          * Size of the layout canvas dimensions [x,y]. Currently only used to determine the midpoint which is taken as the starting position
          * for nodes with no preassigned x and y.

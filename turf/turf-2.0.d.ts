@@ -374,7 +374,7 @@ declare namespace turf {
     * @param [properties] An Object of key-value pairs to add as properties
     * @returns A LineString feature
     */
-    function linestring(coordinates: Array<number[]>, properties?: any): GeoJSON.Feature<GeoJSON.LineString>;
+    function linestring(coordinates: number[][], properties?: any): GeoJSON.Feature<GeoJSON.LineString>;
 
     /**
     * Takes coordinates and properties (optional) and returns a new Point feature.
@@ -390,7 +390,7 @@ declare namespace turf {
     * @param [properties] An Object of key-value pairs to add as properties
     * @returns A Polygon feature
     */
-    function polygon(rings: Array<Array<number[]>>, properties?: any): GeoJSON.Feature<GeoJSON.Polygon>;
+    function polygon(rings: Array<number[][]>, properties?: any): GeoJSON.Feature<GeoJSON.Polygon>;
 
     //////////////////////////////////////////////////////
     // Data

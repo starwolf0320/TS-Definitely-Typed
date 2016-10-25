@@ -41,7 +41,7 @@ export declare class Accelerometer {
 }
 
 export declare class Animation {
-    constructor(option: Servo | Array<Servo>);
+    constructor(option: Servo | Servo[]);
     enqueue(segment: any): void;
     play(): void;
     pause(): void;
@@ -106,7 +106,7 @@ export declare class Board {
     isReady: boolean;
     io: any;
     id: string;
-    pins: Array<Pin>;
+    pins: Pin[];
     port: string;
     inject: Repl;
 }

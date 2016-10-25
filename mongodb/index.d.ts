@@ -943,15 +943,15 @@ export interface BulkWriteResult {
     nModified: number;
     nRemoved: number;
 
-    getInsertedIds(): Array<Object>;
+    getInsertedIds(): Object[];
     getLastOp(): Object;
     getRawResponse(): Object;
     getUpsertedIdAt(index: number): Object;
-    getUpsertedIds(): Array<Object>;
+    getUpsertedIds(): Object[];
     getWriteConcernError(): WriteConcernError;
     getWriteErrorAt(index: number): WriteError;
     getWriteErrorCount(): number;
-    getWriteErrors(): Array<Object>;
+    getWriteErrors(): Object[];
     hasWriteErrors(): boolean;
 }
 

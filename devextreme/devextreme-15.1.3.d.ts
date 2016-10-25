@@ -778,7 +778,7 @@ declare namespace DevExpress  {
             /** Creates a confirm dialog that contains "Yes" and "No" buttons. */
             confirm(message: string, title: string): JQueryPromise<boolean>;
             /** Creates a custom dialog using the options specified by the passed configuration object. */
-            custom(options: { title?: string; message?: string; buttons?: Array<Object>; }): {
+            custom(options: { title?: string; message?: string; buttons?: Object[]; }): {
                 show(): JQueryPromise<any>;
                 hide(): void;
                 hide(value: any): void;
@@ -894,7 +894,7 @@ declare namespace DevExpress.data  {
         /** Specifies data filtering conditions. */
         filter?: Object;
         /** An array of pivot grid fields. */
-        fields?: Array<PivotGridField>;
+        fields?: PivotGridField[];
         /** Indicates whether or not the local sorting of the XMLA data should be performed. */
         localSorting?: boolean;
         /** A handler for the changed event. */
@@ -904,7 +904,7 @@ declare namespace DevExpress.data  {
         /** A handler for the loadError event. */
         onLoadError?: (e?: Object) => void;
         /** A handler for the fieldsPrepared event. */
-        onFieldsPrepared?: (e?: Array<PivotGridField>) => void;
+        onFieldsPrepared?: (e?: PivotGridField[]) => void;
     }
     /** An object that provides access to data for the dxPivotGrid widget. */
     export class PivotGridDataSource implements EventsMixin<PivotGridDataSource> {
@@ -916,11 +916,11 @@ declare namespace DevExpress.data  {
         /** Gets data displayed in a PivotGrid. */
         getData(): Object;
         /** Gets all fields within a specified area. */
-        getAreaFields(area: string, collectGroups: boolean): Array<PivotGridField>;
+        getAreaFields(area: string, collectGroups: boolean): PivotGridField[];
         /** Gets all fields from the data source. */
-        fields(): Array<PivotGridField>;
+        fields(): PivotGridField[];
         /** Sets the fields option. */
-        fields(fields: Array<PivotGridField>): void;
+        fields(fields: PivotGridField[]): void;
         /** Gets current options of a specified field. */
         field(id: number): PivotGridField;
         /** Sets one or more options of a specified field. */
@@ -1115,7 +1115,7 @@ declare namespace DevExpress.framework  {
             on(eventName: "resolveLayoutController", eventHandler: (e: {
                 viewInfo: Object;
                 layoutController: Object;
-                availableLayoutControllers: Array<Object>;
+                availableLayoutControllers: Object[];
             }) => void): HtmlApplication;
             on(eventName: "viewDisposed", eventHandler: (e: {
                 viewInfo: Object;
@@ -1178,7 +1178,7 @@ declare namespace DevExpress.framework  {
             off(eventName: "resolveLayoutController", eventHandler: (e: {
                 viewInfo: Object;
                 layoutController: Object;
-                availableLayoutControllers: Array<Object>;
+                availableLayoutControllers: Object[];
             }) => void): HtmlApplication;
             off(eventName: "viewDisposed", eventHandler: (e: {
                 viewInfo: Object;
@@ -2229,9 +2229,9 @@ declare namespace DevExpress.ui  {
     }
     export interface dxResponsiveBoxOptions extends CollectionWidgetOptions {
         /** Specifies the collection of rows for the grid used to position layout elements. */
-        rows?: Array<Object>;
+        rows?: Object[];
         /** Specifies the collection of columns for the grid used to position layout elements. */
-        cols?: Array<Object>;
+        cols?: Object[];
         /** Specifies the function returning the screen factor depending on the screen width. */
         screenByWidth?: (width: number) => string;
         /** Specifies the screen factor with which all elements are located in a single column. */
@@ -2748,7 +2748,7 @@ declare namespace DevExpress.ui  {
         /** Collapses the specified item. */
         collapseItem(itemElement: any): void;
         /** Returns all nodes of the tree view. */
-        getNodes(): Array<Object>;
+        getNodes(): Object[];
         /** Selects all widget items. */
         selectAll(): void;
         /** Unselects all widget items. */
@@ -2976,7 +2976,7 @@ Specifies the data source providing data for a lookup column.
         /** Specifies a column width in pixels or percentages. */
         width?: any;
         /** Specifies an array of validation rules to be checked when updating column cell values. */
-        validationRules?: Array<Object>;
+        validationRules?: Object[];
         /** Specifies whether or not to display the header of a hidden column in the column chooser. */
         showInColumnChooser?: boolean;
         /** Specifies the identifier of the column. */
@@ -3533,9 +3533,9 @@ Specifies the message displayed in a group row when the corresponding group cont
         /** Returns a filter expression applied to the grid using all possible scenarious. */
         getCombinedFilter(): any;
         /** Gets the keys of currently selected grid records.  */
-        getSelectedRowKeys(): Array<Object>;
+        getSelectedRowKeys(): Object[];
         /** Gets the data objects of currently selected grid records.  */
-        getSelectedRowsData(): Array<Object>;
+        getSelectedRowsData(): Object[];
         /** Hides the column chooser panel. */
         hideColumnChooser(): void;
         /** Adds a new data row to a grid. */

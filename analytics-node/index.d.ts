@@ -70,9 +70,7 @@ declare namespace AnalyticsNode {
 
     /* Flush batched calls to make sure nothing is left in the queue */
     flush(fn?: (err: Error, batch: {
-      batch: Array<{
-        type: string;
-      }>;
+      batch: { type: string; }[];
       messageId: string;
       sentAt: Date;
       timestamp: Date;

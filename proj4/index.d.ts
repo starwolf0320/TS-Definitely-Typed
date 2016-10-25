@@ -73,7 +73,7 @@ declare module "proj4" {
          */
         export function defs(name: string): any;
         export function defs(name: string, projection: string): any;
-        export function defs(name: Array<string[]>): any;
+        export function defs(name: string[][]): any;
 
         /**
          * @name transform

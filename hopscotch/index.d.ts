@@ -45,7 +45,7 @@ interface TourDefinition extends HopscotchConfiguration {
 
 interface StepDefinition {
   placement: string;
-  target: string | HTMLElement | Array<string | HTMLElement>;
+  target: string | HTMLElement | (string | HTMLElement)[];
 
   title?: string;
   content?: string;

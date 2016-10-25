@@ -148,7 +148,7 @@ declare namespace Antd {
 
     interface BreadcrumbProps {
         /** router 的路由栈信息 */
-        routes?: Array<React.ReactNode>;
+        routes?: React.ReactNode[];
         /** 路由的参数*/
         params?: Object;
         /** 分隔符自定义*/
@@ -1826,7 +1826,7 @@ declare namespace Antd {
         render(): JSX.Element;
     }
 
-    type TreeData = Array<{ value: any, label: string, children: TreeData }>;
+    type TreeData = { value: any, label: string, children: TreeData }[];
     interface TreeSelectProps {
         style?: Object;
         /** 指定当前选中的条目*/

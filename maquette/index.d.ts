@@ -220,7 +220,7 @@ declare namespace maquette {
          * These objects are assumed to be immutable primitive values.
          * @param {function} calculation - Function that takes zero arguments and returns an object (A {@link VNode} assumably) that can be cached.
          */
-    result(inputs: Array<Object>, calculation: () => Result): Result;
+    result(inputs: Object[], calculation: () => Result): Result;
   }
 
   /**

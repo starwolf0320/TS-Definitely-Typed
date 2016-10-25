@@ -44,7 +44,7 @@ declare namespace JSData {
         save<T>(resourceName: string, id: string | number, options?: DSSaveConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
 
         // sync
-        changeHistory(resourceName: string, id?: string | number): Array<Object>;
+        changeHistory(resourceName: string, id?: string | number): Object[];
         changes(resourceName: string, id: string | number): Object;
         compute(resourceName: string, idOrInstance: number | string | Object ): void;
         createInstance<T>(resourceName: string, attrs?: T, options?: DSAdapterOperationConfiguration): T & DSInstanceShorthands<T>;
@@ -146,7 +146,7 @@ declare namespace JSData {
         save(id: string | number, options?: DSSaveConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
 
         // sync
-        changeHistory(id?: string | number): Array<Object>;
+        changeHistory(id?: string | number): Object[];
         changes(id: string | number): Object;
         compute(idOrInstance: number | string | Object ): void;
         createInstance<TInject>(attrs?: TInject, options?: DSAdapterOperationConfiguration): T & DSInstanceShorthands<T>;
@@ -177,7 +177,7 @@ declare namespace JSData {
         DSDestroy(options?: DSAdapterOperationConfiguration): JSDataPromise<void>;
         DSCreate(options?: DSConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         DSLoadRelations(relations: string | string[], options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        DSChangeHistory(): Array<Object>;
+        DSChangeHistory(): Object[];
         DSChanges(): Object;
         DSHasChanges(): boolean;
         DSLastModified(): number; // timestamp
@@ -196,8 +196,8 @@ declare namespace JSData {
         skip?: number;
         offset?: number;
 
-        orderBy?: string | string[] | Array<string[]>;
-        sort?: string | string[] | Array<string[]>;
+        orderBy?: string | string[] | string[][];
+        sort?: string | string[] | string[][];
     }
 
     type DSFilterArg = DSFilterParams | Object;

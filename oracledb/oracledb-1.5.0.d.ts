@@ -93,7 +93,7 @@ declare module 'oracledb' {
 		/** Metadata information - just columns names for now. */
 		metaData?: Array<IMetaData>;
 		/** When not using ResultSet, query results comes here. */
-		rows?: Array<any[]> | any[];
+		rows?: any[][] | any[];
 		/** When using ResultSet, query results comes here. */
 		resultSet?: IResultSet;
 	}
@@ -122,11 +122,11 @@ declare module 'oracledb' {
 		/**
 		 * Fetch some rows from ResultSet.
 		 * @param  {number} rowCount Number of rows to be fetched.
-		 * @param  {(err:any,rows:Array<Array<any>>|Array<Object>) => void} callback Callback called when the rows are available, or when some error occurs.
+		 * @param  {(err:any,rows:Array<Array<any>>|Object[]) => void} callback Callback called when the rows are available, or when some error occurs.
 		 * @returns void
 		 * @remarks When the number of rows passed to the callback is less than the rowCount, no more rows are available to be fetched.
 		 */
-		getRows(rowCount: number, callback: (err: any, rows: Array<Array<any>> | Array<Object>) => void): void;
+		getRows(rowCount: number, callback: (err: any, rows: Array<Array<any>> | Object[]) => void): void;
 	}
 
 	export interface IConnection {
@@ -293,7 +293,7 @@ declare module 'oracledb' {
 	export var autoCommit: boolean;
 	/** Default maximum number of rows to be fetched in statements not using ResultSets */
 	export var maxRows: number;
-	/** Default format for returning rows. When ARRAY, it will return Array<Array<any>>. When OBJECT, it will return Array<Object>. */
+	/** Default format for returning rows. When ARRAY, it will return Array<Array<any>>. When OBJECT, it will return Object[]. */
 	export var outFormat: number;
 	/** node-oracledb driver version. */
 	export var version: number;

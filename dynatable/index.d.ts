@@ -869,7 +869,7 @@ declare namespace JQueryDynatable {
          *
          * @return An Array with the records
          */
-        getFromTable(): Array<Object>;
+        getFromTable(): Object[];
         /** Create and init the records */
         init(): void;
         /**

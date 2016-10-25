@@ -2135,8 +2135,8 @@ declare namespace BABYLON {
         _initialize(source: Vector3, dir: Vector3, e: number): void;
         _checkPointInTriangle(point: Vector3, pa: Vector3, pb: Vector3, pc: Vector3, n: Vector3): boolean;
         _canDoCollision(sphereCenter: Vector3, sphereRadius: number, vecMin: Vector3, vecMax: Vector3): boolean;
-        _testTriangle(faceIndex: number, trianglePlaneArray: Array<Plane>, p1: Vector3, p2: Vector3, p3: Vector3, hasMaterial: boolean): void;
-        _collide(trianglePlaneArray: Array<Plane>, pts: Vector3[], indices: number[] | Int32Array, indexStart: number, indexEnd: number, decal: number, hasMaterial: boolean): void;
+        _testTriangle(faceIndex: number, trianglePlaneArray: Plane[], p1: Vector3, p2: Vector3, p3: Vector3, hasMaterial: boolean): void;
+        _collide(trianglePlaneArray: Plane[], pts: Vector3[], indices: number[] | Int32Array, indexStart: number, indexEnd: number, decal: number, hasMaterial: boolean): void;
         _getResponse(pos: Vector3, vel: Vector3): void;
     }
 }
@@ -2546,7 +2546,7 @@ declare namespace BABYLON {
         constructor(name: string, direction: Vector3, scene: Scene);
         getAbsolutePosition(): Vector3;
         setDirectionToTarget(target: Vector3): Vector3;
-        setShadowProjectionMatrix(matrix: Matrix, viewMatrix: Matrix, renderList: Array<AbstractMesh>): void;
+        setShadowProjectionMatrix(matrix: Matrix, viewMatrix: Matrix, renderList: AbstractMesh[]): void;
         supportsVSM(): boolean;
         needRefreshPerFrame(): boolean;
         needCube(): boolean;
@@ -2580,7 +2580,7 @@ declare namespace BABYLON {
         name: string;
         computeTransformedPosition(): boolean;
         getScene(): Scene;
-        setShadowProjectionMatrix(matrix: Matrix, viewMatrix: Matrix, renderList: Array<AbstractMesh>): void;
+        setShadowProjectionMatrix(matrix: Matrix, viewMatrix: Matrix, renderList: AbstractMesh[]): void;
         supportsVSM(): boolean;
         needRefreshPerFrame(): boolean;
         needCube(): boolean;
@@ -2626,7 +2626,7 @@ declare namespace BABYLON {
         supportsVSM(): boolean;
         needRefreshPerFrame(): boolean;
         getShadowDirection(faceIndex?: number): Vector3;
-        setShadowProjectionMatrix(matrix: Matrix, viewMatrix: Matrix, renderList: Array<AbstractMesh>): void;
+        setShadowProjectionMatrix(matrix: Matrix, viewMatrix: Matrix, renderList: AbstractMesh[]): void;
         _getWorldMatrix(): Matrix;
         serialize(): any;
     }
@@ -2643,7 +2643,7 @@ declare namespace BABYLON {
         private _worldMatrix;
         constructor(name: string, position: Vector3, direction: Vector3, angle: number, exponent: number, scene: Scene);
         getAbsolutePosition(): Vector3;
-        setShadowProjectionMatrix(matrix: Matrix, viewMatrix: Matrix, renderList: Array<AbstractMesh>): void;
+        setShadowProjectionMatrix(matrix: Matrix, viewMatrix: Matrix, renderList: AbstractMesh[]): void;
         needCube(): boolean;
         supportsVSM(): boolean;
         needRefreshPerFrame(): boolean;
@@ -6033,7 +6033,7 @@ declare namespace BABYLON {
         meshesNames: any;
         rootUrl: string;
         sceneFilename: string;
-        loadedMeshes: Array<AbstractMesh>;
+        loadedMeshes: AbstractMesh[];
         loadedParticleSystems: Array<ParticleSystem>;
         loadedSkeletons: Array<Skeleton>;
         onSuccess: (task: IAssetTask) => void;
@@ -6710,11 +6710,11 @@ declare namespace BABYLON {
 
 declare namespace BABYLON {
     interface IOctreeContainer<T> {
-        blocks: Array<OctreeBlock<T>>;
+        blocks: OctreeBlock<T>[];
     }
     class Octree<T> {
         maxDepth: number;
-        blocks: Array<OctreeBlock<T>>;
+        blocks: OctreeBlock<T>[];
         dynamicContent: T[];
         private _maxBlockCapacity;
         private _selectionContent;
@@ -6734,7 +6734,7 @@ declare namespace BABYLON {
 declare namespace BABYLON {
     class OctreeBlock<T> {
         entries: T[];
-        blocks: Array<OctreeBlock<T>>;
+        blocks: OctreeBlock<T>[];
         private _depth;
         private _maxDepth;
         private _capacity;

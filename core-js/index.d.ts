@@ -152,7 +152,7 @@ interface ArrayConstructor {
       * @param mapfn A mapping function to call on every element of the array.
       * @param thisArg Value of 'this' used to invoke the mapfn.
       */
-    from<T, U>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): Array<U>;
+    from<T, U>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];
 
     /**
       * Creates an array from an iterable object.
@@ -160,7 +160,7 @@ interface ArrayConstructor {
       * @param mapfn A mapping function to call on every element of the array.
       * @param thisArg Value of 'this' used to invoke the mapfn.
       */
-    from<T, U>(iterable: Iterable<T>, mapfn: (v: T, k: number) => U, thisArg?: any): Array<U>;
+    from<T, U>(iterable: Iterable<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];
 
     /**
       * Creates an array from an array-like object.
@@ -882,7 +882,7 @@ declare namespace Reflect {
     function getPrototypeOf(target: any): any;
     function has(target: any, propertyKey: PropertyKey): boolean;
     function isExtensible(target: any): boolean;
-    function ownKeys(target: any): Array<PropertyKey>;
+    function ownKeys(target: any): PropertyKey[];
     function preventExtensions(target: any): boolean;
     function set(target: any, propertyKey: PropertyKey, value: any, receiver?: any): boolean;
     function setPrototypeOf(target: any, proto: any): boolean;
@@ -1316,7 +1316,7 @@ declare namespace core {
         function has(target: any, propertyKey: string): boolean;
         function has(target: any, propertyKey: symbol): boolean;
         function isExtensible(target: any): boolean;
-        function ownKeys(target: any): Array<PropertyKey>;
+        function ownKeys(target: any): PropertyKey[];
         function preventExtensions(target: any): boolean;
         function set(target: any, propertyKey: PropertyKey, value: any, receiver?: any): boolean;
         function setPrototypeOf(target: any, proto: any): boolean;
@@ -1357,8 +1357,8 @@ declare namespace core {
     };
 
     var Array: {
-        from<T, U>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): Array<U>;
-        from<T, U>(iterable: Iterable<T>, mapfn: (v: T, k: number) => U, thisArg?: any): Array<U>;
+        from<T, U>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];
+        from<T, U>(iterable: Iterable<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];
         from<T>(arrayLike: ArrayLike<T>): T[];
         from<T>(iterable: Iterable<T>): T[];
         of<T>(...items: T[]): T[];

@@ -294,7 +294,7 @@ declare namespace DC {
 
     export interface DataTableWidget extends BaseMixin<DataTableWidget> {
         size: IGetSet<number, DataTableWidget>;
-        columns: IGetSet<Array<Accessor<any, any>|string|Array<Accessor<any, any>|string>>, DataTableWidget>;
+        columns: IGetSet<(Accessor<any, any>|string|(Accessor<any, any>|string)[])[], DataTableWidget>;
         sortBy: IGetSet<Accessor<any, any>, DataTableWidget>;
         order: IGetSet<(a: any, b: any) => number, DataTableWidget>;
     }

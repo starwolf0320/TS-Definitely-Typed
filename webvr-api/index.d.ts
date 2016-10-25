@@ -92,7 +92,7 @@ declare class VRDisplay extends EventTarget {
    * Begin presenting to the VRDisplay. Must be called in response to a user gesture.
    * Repeat calls while already presenting will update the VRLayers being displayed.
    */
-  requestPresent(layers: Array<VRLayer>): Promise<void>;
+  requestPresent(layers: VRLayer[]): Promise<void>;
 
   /**
    * Stops presenting to the VRDisplay.
@@ -102,7 +102,7 @@ declare class VRDisplay extends EventTarget {
   /**
    * Get the layers currently being presented.
    */
-  getLayers(): Array<VRLayer>;
+  getLayers(): VRLayer[];
 
   /**
    * The VRLayer provided to the VRDisplay will be captured and presented
@@ -169,8 +169,8 @@ interface VRStageParameters {
 }
 
 interface Navigator {
-  getVRDisplays(): Promise<Array<VRDisplay>>;
-  activeVRDisplays: Array<VRDisplay>;
+  getVRDisplays(): Promise<VRDisplay[]>;
+  activeVRDisplays: VRDisplay[];
 }
 
 interface Window {

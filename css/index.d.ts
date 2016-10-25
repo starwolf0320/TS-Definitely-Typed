@@ -92,7 +92,7 @@ export interface Rule extends Node {
     /** The list of selectors of the rule, split on commas. Each selector is trimmed from whitespace and comments. */
     selectors?: string[];
     /** Array of nodes with the types declaration and comment. */
-    declarations?: Array<Declaration | Comment>;
+    declarations?: (Declaration | Comment)[];
 }
 
 export interface Declaration extends Node {
@@ -136,7 +136,7 @@ export interface Document {
     /** The vendor prefix in @document, or undefined if there is none. */
     vendor?: string;
     /** Array of nodes with the types rule, comment and any of the at-rule types. */
-    rules?: Array<Rule | Comment | AtRule>;
+    rules?: (Rule | Comment | AtRule)[];
 }
 
 /**
@@ -144,7 +144,7 @@ export interface Document {
  */
 export interface FontFace {
     /** Array of nodes with the types declaration and comment. */
-    declarations?: Array<Declaration | Comment>;
+    declarations?: (Declaration | Comment)[];
 }
 
 /**
@@ -152,7 +152,7 @@ export interface FontFace {
  */
 export interface Host {
     /** Array of nodes with the types rule, comment and any of the at-rule types. */
-    rules?: Array<Rule | Comment | AtRule>;
+    rules?: (Rule | Comment | AtRule)[];
 }
 
 /**
@@ -172,14 +172,14 @@ export interface KeyFrames {
     /** The vendor prefix in @keyframes, or undefined if there is none. */
     vendor?: string;
     /** Array of nodes with the types keyframe and comment. */
-    keyframes?: Array<KeyFrame | Comment>;
+    keyframes?: (KeyFrame | Comment)[];
 }
 
 export interface KeyFrame {
     /** The list of "selectors" of the keyframe rule, split on commas. Each “selector” is trimmed from whitespace. */
     values?: string[];
     /** Array of nodes with the types declaration and comment. */
-    declarations?: Array<Declaration | Comment>;
+    declarations?: (Declaration | Comment)[];
 }
 
 /**
@@ -189,7 +189,7 @@ export interface Media {
     /** The part following @media. */
     media?: string;
     /** Array of nodes with the types rule, comment and any of the at-rule types. */
-    rules?: Array<Rule | Comment | AtRule>;
+    rules?: (Rule | Comment | AtRule)[];
 }
 
 /**
@@ -207,7 +207,7 @@ export interface Page {
     /** The list of selectors of the rule, split on commas. Each selector is trimmed from whitespace and comments. */
     selectors?: string[];
     /** Array of nodes with the types declaration and comment. */
-    declarations?: Array<Declaration | Comment>;
+    declarations?: (Declaration | Comment)[];
 }
 
 /**
@@ -217,7 +217,7 @@ export interface Supports {
     /** The part following @supports. */
     supports?: string;
     /** Array of nodes with the types rule, comment and any of the at-rule types. */
-    rules?: Array<Rule | Comment | AtRule>;
+    rules?: (Rule | Comment | AtRule)[];
 }
 
 /** All at-rules. */
@@ -229,9 +229,9 @@ export type AtRule = Charset | CustomMedia | Document | FontFace | Host | Import
 export interface Stylesheet extends Node {
     stylesheet?: {
         /** Array of nodes with the types rule, comment and any of the at-rule types. */
-        rules?: Array<Rule | Comment | AtRule>;
+        rules?: (Rule | Comment | AtRule)[];
         /** Array of Errors. Errors collected during parsing when option silent is true. */
-        parsingErrors?: Array<ParserError>
+        parsingErrors?: ParserError[]
     };
 }
 

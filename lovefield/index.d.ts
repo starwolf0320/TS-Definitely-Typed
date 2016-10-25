@@ -43,7 +43,7 @@ declare namespace lf {
     gte(operand: ValueLiteral|schema.Column|Binder): Predicate;
     match(operand: RegExp|Binder): Predicate;
     between(from: ValueLiteral|Binder, to: ValueLiteral|Binder): Predicate;
-    in(values: Binder|Array<ValueLiteral>): Predicate;
+    in(values: Binder|ValueLiteral[]): Predicate;
     isNull(): Predicate;
     isNotNull(): Predicate;
   }
@@ -51,10 +51,10 @@ declare namespace lf {
   function bind(index: number): Binder;
 
   export interface Transaction {
-    attach(query: query.Builder): Promise<Array<Object>>;
-    begin(scope: Array<schema.Table>): Promise<void>;
+    attach(query: query.Builder): Promise<Object[]>;
+    begin(scope: schema.Table[]): Promise<void>;
     commit(): Promise<void>;
-    exec(queries: Array<query.Builder>): Promise<Array<Array<Object>>>;
+    exec(queries: query.Builder[]): Promise<Object[][]>;
     rollback(): Promise<void>;
   }
 
@@ -78,7 +78,7 @@ declare namespace lf {
   namespace query {
     export interface Builder {
       bind(...values: any[]): Builder;
-      exec(): Promise<Array<Object>>;
+      exec(): Promise<Object[]>;
       explain(): string;
       toSql(): string;
     }
@@ -90,7 +90,7 @@ declare namespace lf {
 
     export interface Insert extends Builder {
       into(table: schema.Table): Insert;
-      values(rows: Array<Row>|Binder|Array<Binder>): Insert;
+      values(rows: Row[]|Binder|Binder[]): Insert;
     }
 
     export interface Select extends Builder {
@@ -126,7 +126,7 @@ declare namespace lf {
           newColumnName: string): Promise<void>;
       createRow(payload: Object): Row;
       getVersion(): number;
-      dump(): Array<Object>;
+      dump(): Object[];
     }
   }  // module raw
 
@@ -147,7 +147,7 @@ declare namespace lf {
     export interface Database {
       name(): string;
       pragma(): DatabasePragma;
-      tables(): Array<schema.Table>;
+      tables(): schema.Table[];
       table(tableName: string): schema.Table;
       version(): number;
     }
@@ -195,11 +195,11 @@ declare namespace lf {
       addColumn(name: string, type: lf.Type): TableBuilder;
       addForeignKey(name: string, spec: RawForeignKeySpec): TableBuilder;
       addIndex(
-          name: string, columns: string[]|Array<IndexedColumn>,
+          name: string, columns: string[]|IndexedColumn[],
           unique?: boolean, order?: Order): TableBuilder;
       addNullable(columns: string[]): TableBuilder;
       addPrimaryKey(
-          columns: string[]|Array<IndexedColumn>,
+          columns: string[]|IndexedColumn[],
           autoInc?: boolean): TableBuilder;
       addUnique(name: string, columns: string[]): TableBuilder;
     }

@@ -34,8 +34,8 @@ declare namespace Survey {
     }
     class ItemValue {
         static Separator: string;
-        static setData(items: Array<ItemValue>, values: any[]): void;
-        static getData(items: Array<ItemValue>): any;
+        static setData(items: ItemValue[], values: any[]): void;
+        static getData(items: ItemValue[]): any;
         private itemValue;
         private itemText;
         constructor(value: any, text?: string);
@@ -149,7 +149,7 @@ declare namespace Survey {
         parentName: string;
         static requiredSymbol: string;
         static typeSymbol: string;
-        properties: Array<JsonObjectProperty>;
+        properties: JsonObjectProperty[];
         requiredProperties: string[];
         constructor(name: string, propertiesNames: string[], creator?: () => any, parentName?: string);
         find(name: string): JsonObjectProperty;
@@ -165,9 +165,9 @@ declare namespace Survey {
         setPropertyValues(name: string, propertyName: string, propertyClassName: string, defaultValue?: any, onGetValue?: (obj: any) => any, onSetValue?: (obj: any, value: any, jsonConv: JsonObject) => any): void;
         setPropertyChoices(name: string, propertyName: string, choices: any[], choicesFunc?: () => any[]): void;
         setPropertyClassInfo(name: string, propertyName: string, baseClassName: string, classNamePart?: string): void;
-        getProperties(name: string): Array<JsonObjectProperty>;
+        getProperties(name: string): JsonObjectProperty[];
         createClass(name: string): any;
-        getChildrenClasses(name: string, canBeCreated?: boolean): Array<JsonMetadataClass>;
+        getChildrenClasses(name: string, canBeCreated?: boolean): JsonMetadataClass[];
         getRequiredProperties(name: string): string[];
         private fillChildrenClasses(name, canBeCreated, result);
         private findClass(name);
@@ -278,7 +278,7 @@ declare namespace Survey {
 declare namespace Survey {
     class PageModel extends Base implements IPage {
         name: string;
-        questions: Array<QuestionBase>;
+        questions: QuestionBase[];
         data: ISurvey;
         title: string;
         visibleIndex: number;
@@ -294,7 +294,7 @@ declare namespace Survey {
         addNewQuestion(questionType: string, name: string): QuestionBase;
         removeQuestion(question: QuestionBase): void;
         hasErrors(): boolean;
-        addQuestionsToList(list: Array<IQuestion>, visibleOnly?: boolean): void;
+        addQuestionsToList(list: IQuestion[], visibleOnly?: boolean): void;
         protected onNumChanged(value: number): void;
     }
 }
@@ -316,7 +316,7 @@ declare namespace Survey {
         validate(value: any, name?: string): ValidatorResult;
     }
     interface IValidatorOwner {
-        validators: Array<SurveyValidator>;
+        validators: SurveyValidator[];
         value: any;
         getValidatorTitle(): string;
     }
@@ -375,8 +375,8 @@ declare namespace Survey {
         private isRequiredValue;
         private hasCommentValue;
         private hasOtherValue;
-        errors: Array<SurveyError>;
-        validators: Array<SurveyValidator>;
+        errors: SurveyError[];
+        validators: SurveyValidator[];
         valueChangedCallback: () => void;
         commentChangedCallback: () => void;
         errorsChangedCallback: () => void;
@@ -396,7 +396,7 @@ declare namespace Survey {
         hasErrors(): boolean;
         requiredText: string;
         private checkForErrors();
-        protected onCheckForErrors(errors: Array<SurveyError>): void;
+        protected onCheckForErrors(errors: SurveyError[]): void;
         protected runValidators(): SurveyError;
         private isValueChangedInSurvey;
         protected setNewValue(newValue: any): void;
@@ -412,7 +412,7 @@ declare namespace Survey {
 declare namespace Survey {
     class QuestionSelectBase extends Question {
         otherItem: ItemValue;
-        choicesValues: Array<ItemValue>;
+        choicesValues: ItemValue[];
         otherErrorText: string;
         choicesOrderValue: string;
         constructor(name: string);
@@ -420,13 +420,13 @@ declare namespace Survey {
         choices: any[];
         choicesOrder: string;
         otherText: string;
-        visibleChoices: Array<ItemValue>;
+        visibleChoices: ItemValue[];
         supportComment(): boolean;
         supportOther(): boolean;
-        protected onCheckForErrors(errors: Array<SurveyError>): void;
-        sortVisibleChoices(array: Array<ItemValue>): Array<ItemValue>;
-        sortArray(array: Array<ItemValue>, mult: number): Array<ItemValue>;
-        randomizeArray(array: Array<ItemValue>): Array<ItemValue>;
+        protected onCheckForErrors(errors: SurveyError[]): void;
+        sortVisibleChoices(array: ItemValue[]): ItemValue[];
+        sortArray(array: ItemValue[], mult: number): ItemValue[];
+        randomizeArray(array: ItemValue[]): ItemValue[];
     }
     class QuestionCheckboxBase extends QuestionSelectBase {
         name: string;
@@ -513,7 +513,7 @@ declare namespace Survey {
         hasRows: boolean;
         columns: any[];
         rows: any[];
-        visibleRows: Array<MatrixRowModel>;
+        visibleRows: MatrixRowModel[];
         protected createMatrixRow(name: any, text: string, fullName: string, value: any): MatrixRowModel;
         protected onValueChanged(): void;
         onMatrixRowChanged(row: MatrixRowModel): void;
@@ -553,7 +553,7 @@ declare namespace Survey {
 declare namespace Survey {
     interface IMatrixDropdownData {
         onCellChanged(cell: MatrixDropdownCellModel): any;
-        columns: Array<MatrixDropdownColumn>;
+        columns: MatrixDropdownColumn[];
         choices: any[];
         optionsCaption: string;
     }
@@ -598,7 +598,7 @@ declare namespace Survey {
         text: string;
         protected data: IMatrixDropdownData;
         protected rowValue: any;
-        cells: Array<MatrixDropdownCellModel>;
+        cells: MatrixDropdownCellModel[];
         constructor(name: any, text: string, data: IMatrixDropdownData, value: any);
         value: any;
         private buildCells();
@@ -615,12 +615,12 @@ declare namespace Survey {
         private generatedVisibleRows;
         constructor(name: string);
         getType(): string;
-        columns: Array<MatrixDropdownColumn>;
+        columns: MatrixDropdownColumn[];
         rows: any[];
         choices: any[];
         optionsCaption: string;
         addColumn(name: string, title?: string): MatrixDropdownColumn;
-        visibleRows: Array<MatrixDropdownRowModel>;
+        visibleRows: MatrixDropdownRowModel[];
         protected createMatrixRow(name: any, text: string, value: any): MatrixDropdownRowModel;
         protected onValueChanged(): void;
         onCellChanged(cell: MatrixDropdownCellModel): void;
@@ -638,7 +638,7 @@ declare namespace Survey {
         name: any;
         private data;
         private titleValue;
-        validators: Array<SurveyValidator>;
+        validators: SurveyValidator[];
         constructor(name?: any, title?: string);
         getType(): string;
         setData(data: IMultipleTextData): void;
@@ -655,7 +655,7 @@ declare namespace Survey {
         private itemsValues;
         constructor(name: string);
         getType(): string;
-        items: Array<MultipleTextItemModel>;
+        items: MultipleTextItemModel[];
         AddItem(name: string, title?: string): MultipleTextItemModel;
         colCount: number;
         getRows(): any[];
@@ -774,8 +774,8 @@ declare namespace Survey {
         completedHtml: string;
         requiredText: string;
         showProgressBar: string;
-        pages: Array<PageModel>;
-        triggers: Array<SurveyTrigger>;
+        pages: PageModel[];
+        triggers: SurveyTrigger[];
         private currentPageValue;
         private valuesHash;
         private variablesHash;
@@ -800,7 +800,7 @@ declare namespace Survey {
         onProcessHtml: Event<(sender: SurveyModel, options: any) => any, any>;
         onSendResult: Event<(sender: SurveyModel, options: any) => any, any>;
         onGetResult: Event<(sender: SurveyModel, options: any) => any, any>;
-        jsonErrors: Array<JsonError>;
+        jsonErrors: JsonError[];
         mode: string;
         constructor(jsonObj?: any);
         getType(): string;
@@ -814,7 +814,7 @@ declare namespace Survey {
         showQuestionNumbers: string;
         data: any;
         comments: any;
-        visiblePages: Array<PageModel>;
+        visiblePages: PageModel[];
         isEmpty: boolean;
         PageCount: number;
         visiblePageCount: number;
@@ -848,7 +848,7 @@ declare namespace Survey {
         getPageByQuestion(question: IQuestion): PageModel;
         getPageByName(name: string): PageModel;
         getPagesByNames(names: string[]): PageModel[];
-        getAllQuestions(visibleOnly?: boolean): Array<IQuestion>;
+        getAllQuestions(visibleOnly?: boolean): IQuestion[];
         protected createNewPage(name: string): PageModel;
         private notifyQuestionOnValueChanged(name, newValue);
         private notifyAllQuestionsOnValueChanged();

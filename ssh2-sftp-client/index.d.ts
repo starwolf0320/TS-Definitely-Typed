@@ -28,7 +28,7 @@ declare module "ssh2-sftp-client" {
     interface Client {
       new(): Client;
       connect(options: ssh2.ConnectConfig): Promise<void>;
-      list(remoteFilePath: string): Promise<Array<FileInfo>>;
+      list(remoteFilePath: string): Promise<FileInfo[]>;
       get(remoteFilePath: string, useCompression?: boolean): Promise<NodeJS.ReadableStream>;
       put(localFilePath: string, remoteFilePath: string, useCompression?: boolean): Promise<void>;
       put(buffer: Buffer, remoteFilePath: string, useCompression?: boolean): Promise<void>;

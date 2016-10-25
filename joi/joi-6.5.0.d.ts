@@ -92,7 +92,7 @@ declare module 'joi' {
 		 * Specifies one or more acceptable Schemes, should only include the scheme name.
 		 * Can be an Array or String (strings are automatically escaped for use in a Regular Expression).
 		 */
-		scheme ?: string | RegExp | Array<string | RegExp>;
+		scheme ?: string | RegExp | (string | RegExp)[];
 	}
 
 	export interface WhenOptions<T> {

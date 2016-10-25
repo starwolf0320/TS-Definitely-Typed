@@ -32,7 +32,7 @@ declare module "angular" {
         }
 
         export interface FeatureFlagsProvider {
-            setInitialFlags(flags: Array<FlagData>): void;
+            setInitialFlags(flags: FlagData[]): void;
         }
 
         export interface FeatureFlagsService {

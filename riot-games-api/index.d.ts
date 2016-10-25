@@ -307,7 +307,7 @@ declare namespace RiotGamesAPI {
 			costBurn: string;
 			costType: string;
 			description: string;
-			effect: Array<number[]>;
+			effect: number[][];
 			effectBurn: string[];
 			image: ImageDto;
 			key: string;
@@ -641,7 +641,7 @@ declare namespace RiotGamesAPI {
 			costBurn: string;
 			costType: string;
 			description: string;
-			effect: Array<number[]>;
+			effect: number[][];
 			effectBurn: string[];
 			id: number;
 			image: ImageDto;

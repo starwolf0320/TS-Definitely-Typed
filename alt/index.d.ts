@@ -34,7 +34,7 @@ declare namespace AltJS {
     onDeserialize?(fn: (data: any) => any): void;
     on?(event: AltJS.lifeCycleEvents, callback: () => any): void;
     emitChange?(): void;
-    waitFor?(storeOrStores: AltStore<any> | Array<AltStore<any>>): void;
+    waitFor?(storeOrStores: AltStore<any> | AltStore<any>[]): void;
     otherwise?(data: any, action: AltJS.Action<any>): void;
     observe?(alt: Alt): any;
     reduce?(state: any, config: StoreReduce): Object;
@@ -96,7 +96,7 @@ declare namespace AltJS {
     dispatcher?: any;
     serialize?: (serializeFn: (data: Object) => string) => void;
     deserialize?: (deserializeFn: (serialData: string) => Object) => void;
-    storeTransforms?: Array<StateTransform>;
+    storeTransforms?: StateTransform[];
     batchingFunction?: (callback: ( ...data: any[]) => any) => void;
   }
 
@@ -106,7 +106,7 @@ declare namespace AltJS {
     bootstrap(jsonData: string): void;
     takeSnapshot( ...storeNames: string[]): string;
     flush(): Object;
-    recycle( ...stores: Array<AltJS.AltStore<any>>): void;
+    recycle( ...stores: AltJS.AltStore<any>[]): void;
     rollback(): void;
     dispatch(action?: AltJS.Action<any>, data?: Object, details?: any): void;
 
@@ -144,7 +144,7 @@ declare module "alt/AltContainer" {
 
   interface ContainerProps {
     store?: AltJS.AltStore<any>;
-    stores?: Array<AltJS.AltStore<any>>;
+    stores?: AltJS.AltStore<any>[];
     inject?: {[key: string]: any};
     actions?: {[key: string]: Object};
     render?: (...props: any[]) => React.ReactElement<any>;

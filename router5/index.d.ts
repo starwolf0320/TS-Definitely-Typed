@@ -16,7 +16,7 @@ interface constants {
 }
 
 interface State {
-    _meta: Array<Object>;
+    _meta: Object[];
     name: String;
     params: Object;
 }
@@ -25,13 +25,13 @@ interface RouteNode {
     add(route: any, cb?: Function): RouteNode;
     addNode(name?: any, params?: any): RouteNode;
     buildPath(routeName: String, params?: Object): String;
-    buildPathFromSegments(segment: Array<Object>, params?: Object): String;
+    buildPathFromSegments(segment: Object[], params?: Object): String;
     buildState(name: String, params?: Object): State;
-    buildStateFromSegments(segments: Array<Object>): State;
-    getMetaFromSegments(segments: Array<Object>): Array<Object>;
+    buildStateFromSegments(segments: Object[]): State;
+    getMetaFromSegments(segments: Object[]): Object[];
     getPath(routeName: String): String;
-    getPathFromSegments(segments: Array<Object>): String;
-    getSegmentsByName(routeName: String): Array<Object>;
+    getPathFromSegments(segments: Object[]): String;
+    getSegmentsByName(routeName: String): Object[];
     getSegmentsMatchingPath(path: any, options: Object): any[];
     matchPath(path: any, options?: Object): State;
     setPath(path?: any): void;

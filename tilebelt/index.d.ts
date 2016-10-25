@@ -51,12 +51,12 @@ declare namespace tilebelt {
          *
          * @name getChildren
          * @param {number[]} tile
-         * @returns {Array<number[]>} tiles
+         * @returns {number[][]} tiles
          * @example
          * var tiles = getChildren([5, 10, 10])
          * //=tiles
          */
-        getChildren(tile: number[]): Array<number[]>;
+        getChildren(tile: number[]): number[][];
 
         /**
          * Get the tile one zoom level lower
@@ -75,19 +75,19 @@ declare namespace tilebelt {
          *
          * @name getSiblings
          * @param {number[]} tile
-         * @returns {Array<number[]>} tiles
+         * @returns {number[][]} tiles
          * @example
          * var tiles = getSiblings([5, 10, 10])
          * //=tiles
          */
-        getSiblings(tile: number[]): Array<number[]>;
+        getSiblings(tile: number[]): number[][];
 
         /**
          * Check to see if an array of tiles contains a tiles siblings
          *
          * @name hasSiblings
          * @param {number[]} tile
-         * @param {Array<number[]>} tiles
+         * @param {number[][]} tiles
          * @returns {boolean}
          * @example
          * var tiles = [
@@ -99,13 +99,13 @@ declare namespace tilebelt {
          * hasSiblings([0, 0, 5], tiles)
          * //=boolean
          */
-        hasSiblings(tile: number[], tiles: Array<number[]>): boolean;
+        hasSiblings(tile: number[], tiles: number[][]): boolean;
 
         /**
          * Check to see if an array of tiles contains a particular tile
          *
          * @name hasTile
-         * @param {Array<number[]>} tiles
+         * @param {number[][]} tiles
          * @param {number[]} tile
          * @returns {boolean}
          * @example
@@ -118,7 +118,7 @@ declare namespace tilebelt {
          * hasTile(tiles, [0, 0, 5])
          * //=boolean
          */
-        hasTile(tiles: Array<number[]>, tile: number[]): boolean;
+        hasTile(tiles: number[][], tile: number[]): boolean;
 
         /**
          * Check to see if two tiles are the same

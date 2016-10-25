@@ -39,7 +39,7 @@ declare namespace JSData {
         findStrategy?: string;
         findStrictCache?: boolean;
         idAttribute?: string;
-        ignoredChanges?: Array<RegExp | string>;
+        ignoredChanges?: (RegExp | string)[];
         ignoreMissing?: boolean;
         instanceEvents?: boolean;
         keepChangeHistory?: boolean;
@@ -47,7 +47,7 @@ declare namespace JSData {
         log?: boolean | ((message?: any, ...optionalParams: any[]) => void);
         maxAge?: number;
         notify?: boolean;
-        omit?: Array<string|RegExp>;
+        omit?: (string|RegExp)[];
         onConflict?: string; // "merge"(default) or "replace"
         reapAction?: string;
         reapInterval?: number;
@@ -82,8 +82,8 @@ declare namespace JSData {
         skip?: number;
         offset?: number;
 
-        orderBy?: string | string[] | Array<string[]>;
-        sort?: string | string[] | Array<string[]>;
+        orderBy?: string | string[] | string[][];
+        sort?: string | string[] | string[][];
     }
 
     type DSFilterArg = DSFilterParams | Object;
@@ -123,7 +123,7 @@ declare namespace JSData {
 
         defaults: DSConfiguration;
 
-        changeHistory(resourceName: string, id: string | number): Array<Object>;
+        changeHistory(resourceName: string, id: string | number): Object[];
         changes(resourceName: string, id: string | number, options?: {ignoredChanges: Array<string|RegExp>}): Object;
         clear<T>(): Array<T & DSInstanceShorthands<T>>;
         compute<T>(resourceName: string, idOrInstance: number | string | T): T & DSInstanceShorthands<T>;
@@ -162,7 +162,7 @@ declare namespace JSData {
     }
 
     interface DSResourceDefinition<T> extends DSResourceDefinitionConfiguration, DSEvents {
-        changeHistory(id: string | number): Array<Object>;
+        changeHistory(id: string | number): Object[];
         changes(id: string | number, options?: {ignoredChanges: Array<string|RegExp>}): Object;
         clear(): Array<T & DSInstanceShorthands<T>>;
         compute(idOrInstance: number | string | T): T & DSInstanceShorthands<T>;
@@ -205,7 +205,7 @@ declare namespace JSData {
         DSDestroy(options?: DSAdapterOperationConfiguration): JSDataPromise<void>;
         DSCreate(options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         DSLoadRelations(relations: string | string[], options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        DSChangeHistory(): Array<Object>;
+        DSChangeHistory(): Object[];
         DSChanges(): Object;
         DSHasChanges(): boolean;
         DSLastModified(): number; // timestamp

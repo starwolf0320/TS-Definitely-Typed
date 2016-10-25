@@ -25,7 +25,7 @@ declare module 'jsoneditor' {
         sortObjectKeys?: boolean;
         history?: boolean;
         mode?: JSONEditorMode;
-        modes?: Array<JSONEditorMode>;
+        modes?: JSONEditorMode[];
         name?: string;
         schema?: Object;
         search?: boolean;

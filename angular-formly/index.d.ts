@@ -121,7 +121,7 @@ declare namespace AngularFormly {
 		[key: string]: any;
 
 		// types for select/radio fields
-		options?: Array<ISelectOption>;
+		options?: ISelectOption[];
 		groupProp?: string;  // default: group
 		valueProp?: string;  // default: value
 		labelProp?: string;  // default: name

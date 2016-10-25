@@ -481,7 +481,7 @@ declare namespace Ti {
 				contentView: Ti.UI.View;
 				height: any;
 				leftNavButton: any;
-				passthroughViews: Array<Ti.UI.View>;
+				passthroughViews: Ti.UI.View[];
 				rightNavButton: any;
 				title: string;
 				width: any;
@@ -490,7 +490,7 @@ declare namespace Ti {
 				getContentView (): Ti.UI.View;
 				getHeight (): any;
 				getLeftNavButton (): any;
-				getPassthroughViews (): Array<Ti.UI.View>;
+				getPassthroughViews (): Ti.UI.View[];
 				getRightNavButton (): any;
 				getTitle (): string;
 				getWidth (): any;
@@ -501,7 +501,7 @@ declare namespace Ti {
 				setHeight (height: number): void;
 				setHeight (height: string): void;
 				setLeftNavButton (leftNavButton: any): void;
-				setPassthroughViews (passthroughViews: Array<Ti.UI.View>): void;
+				setPassthroughViews (passthroughViews: Ti.UI.View[]): void;
 				setRightNavButton (rightNavButton: any): void;
 				setTitle (title: string): void;
 				setWidth (width: number): void;
@@ -631,16 +631,16 @@ declare namespace Ti {
 			export function removeEventListener (name: string, callback: (...args: any[]) => any): void;
 			export function setBubbleParent (bubbleParent: boolean): void;
 			export interface Animator extends Ti.Proxy {
-				behaviors: Array<Ti.Proxy>;
+				behaviors: Ti.Proxy[];
 				referenceView: Ti.UI.View;
 				running: boolean;
 				addBehavior (behavior: Ti.Proxy): void;
-				getBehaviors (): Array<Ti.Proxy>;
+				getBehaviors (): Ti.Proxy[];
 				getReferenceView (): Ti.UI.View;
 				getRunning (): boolean;
 				removeAllBehaviors (): void;
 				removeBehavior (behavior: Ti.Proxy): void;
-				setBehaviors (behaviors: Array<Ti.Proxy>): void;
+				setBehaviors (behaviors: Ti.Proxy[]): void;
 				setReferenceView (referenceView: Ti.UI.View): void;
 				startAnimator (): void;
 				stopAnimator (): void;
@@ -652,7 +652,7 @@ declare namespace Ti {
 				density: number;
 				elasticity: number;
 				friction: number;
-				items: Array<Ti.UI.View>;
+				items: Ti.UI.View[];
 				resistance: number;
 				addAngularVelocityForItem (item: Ti.UI.View, velocity: number): void;
 				addItem (item: Ti.UI.View): void;
@@ -663,7 +663,7 @@ declare namespace Ti {
 				getDensity (): number;
 				getElasticity (): number;
 				getFriction (): number;
-				getItems (): Array<Ti.UI.View>;
+				getItems (): Ti.UI.View[];
 				getResistance (): number;
 				linearVelocityForItem (item: Ti.UI.View): Point;
 				removeItem (item: Ti.UI.View): void;
@@ -688,12 +688,12 @@ declare namespace Ti {
 			export interface GravityBehavior extends Ti.Proxy {
 				angle: number;
 				gravityDirection: Point;
-				items: Array<Ti.UI.View>;
+				items: Ti.UI.View[];
 				magnitude: number;
 				addItem (item: Ti.UI.View): void;
 				getAngle (): number;
 				getGravityDirection (): Point;
-				getItems (): Array<Ti.UI.View>;
+				getItems (): Ti.UI.View[];
 				getMagnitude (): number;
 				removeItem (item: Ti.UI.View): void;
 				setAngle (angle: number): void;
@@ -701,16 +701,16 @@ declare namespace Ti {
 				setMagnitude (magnitude: number): void;
 			}
 			export interface CollisionBehavior extends Ti.Proxy {
-				boundaryIdentifiers: Array<BoundaryIdentifier>;
+				boundaryIdentifiers: BoundaryIdentifier[];
 				collisionMode: number;
-				items: Array<Ti.UI.View>;
+				items: Ti.UI.View[];
 				referenceInsets: ReferenceInsets;
 				treatReferenceAsBoundary: boolean;
 				addBoundary (boundary: BoundaryIdentifier): void;
 				addItem (item: Ti.UI.View): void;
-				getBoundaryIdentifiers (): Array<BoundaryIdentifier>;
+				getBoundaryIdentifiers (): BoundaryIdentifier[];
 				getCollisionMode (): number;
-				getItems (): Array<Ti.UI.View>;
+				getItems (): Ti.UI.View[];
 				getReferenceInsets (): ReferenceInsets;
 				getTreatReferenceAsBoundary (): boolean;
 				removeAllBoundaries (): void;
@@ -725,18 +725,18 @@ declare namespace Ti {
 				borderBottom: boolean;
 				borderTop: boolean;
 				extendBackground: boolean;
-				items: Array<Ti.UI.View>;
+				items: Ti.UI.View[];
 				translucent: boolean;
 				getBarColor (): string;
 				getBorderBottom (): boolean;
 				getBorderTop (): boolean;
 				getExtendBackground (): boolean;
-				getItems (): Array<Ti.UI.View>;
+				getItems (): Ti.UI.View[];
 				getTranslucent (): boolean;
 				setBarColor (barColor: string): void;
 				setBorderBottom (borderBottom: boolean): void;
 				setBorderTop (borderTop: boolean): void;
-				setItems (items: Array<Ti.UI.View>): void;
+				setItems (items: Ti.UI.View[]): void;
 				setTranslucent (translucent: boolean): void;
 			}
 			export interface ViewAttachmentBehavior extends Ti.Proxy {
@@ -765,14 +765,14 @@ declare namespace Ti {
 			export interface PushBehavior extends Ti.Proxy {
 				active: boolean;
 				angle: number;
-				items: Array<Ti.UI.View>;
+				items: Ti.UI.View[];
 				magnitude: number;
 				pushDirection: Point;
 				pushMode: number;
 				addItem (item: Ti.UI.View): void;
 				getActive (): boolean;
 				getAngle (): number;
-				getItems (): Array<Ti.UI.View>;
+				getItems (): Ti.UI.View[];
 				getMagnitude (): number;
 				getPushDirection (): Point;
 				getPushMode (): number;
@@ -1156,7 +1156,7 @@ declare namespace Ti {
 			setFont (font: Font): void;
 			setHandleLinks (handleLinks: boolean): void;
 			setHintText (hintText: string): void;
-			setKeyboardToolbar (keyboardToolbar: Array<Ti.UI.View>): void;
+			setKeyboardToolbar (keyboardToolbar: Ti.UI.View[]): void;
 			setKeyboardToolbar (keyboardToolbar: Ti.UI.iOS.Toolbar): void;
 			setKeyboardToolbarColor (keyboardToolbarColor: string): void;
 			setKeyboardToolbarHeight (keyboardToolbarHeight: number): void;
@@ -1197,7 +1197,7 @@ declare namespace Ti {
 			borderWidth: number;
 			bottom: any;
 			center: Point;
-			children: Array<Ti.UI.View>;
+			children: Ti.UI.View[];
 			clipMode: number;
 			enabled: boolean;
 			focusable: boolean;
@@ -1251,7 +1251,7 @@ declare namespace Ti {
 			getBorderWidth (): number;
 			getBottom (): any;
 			getCenter (): Point;
-			getChildren (): Array<Ti.UI.View>;
+			getChildren (): Ti.UI.View[];
 			getClipMode (): number;
 			getEnabled (): boolean;
 			getFocusable (): boolean;
@@ -1792,14 +1792,14 @@ declare namespace Ti {
 			hideShadow: boolean;
 			includeOpaqueBars: boolean;
 			leftNavButton: Ti.UI.View;
-			leftNavButtons: Array<Ti.UI.View>;
+			leftNavButtons: Ti.UI.View[];
 			modal: boolean;
 			navBarHidden: boolean;
 			navTintColor: any;
 			orientation: number;
 			orientationModes: number[];
 			rightNavButton: Ti.UI.View;
-			rightNavButtons: Array<Ti.UI.View>;
+			rightNavButtons: Ti.UI.View[];
 			shadowImage: string;
 			statusBarStyle: any;
 			tabBarHidden: boolean;
@@ -1811,7 +1811,7 @@ declare namespace Ti {
 			titlePrompt: string;
 			titleid: string;
 			titlepromptid: string;
-			toolbar: Array<Object>;
+			toolbar: Object[];
 			transitionAnimation: Ti.Proxy;
 			translucent: boolean;
 			url: string;
@@ -1833,14 +1833,14 @@ declare namespace Ti {
 			getHideShadow (): boolean;
 			getIncludeOpaqueBars (): boolean;
 			getLeftNavButton (): Ti.UI.View;
-			getLeftNavButtons (): Array<Ti.UI.View>;
+			getLeftNavButtons (): Ti.UI.View[];
 			getModal (): boolean;
 			getNavBarHidden (): boolean;
 			getNavTintColor (): string;
 			getOrientation (): number;
 			getOrientationModes (): number[];
 			getRightNavButton (): Ti.UI.View;
-			getRightNavButtons (): Array<Ti.UI.View>;
+			getRightNavButtons (): Ti.UI.View[];
 			getShadowImage (): string;
 			getStatusBarStyle (): number;
 			getTabBarHidden (): boolean;
@@ -1852,7 +1852,7 @@ declare namespace Ti {
 			getTitlePrompt (): string;
 			getTitleid (): string;
 			getTitlepromptid (): string;
-			getToolbar (): Array<Object>;
+			getToolbar (): Object[];
 			getTransitionAnimation (): Ti.Proxy;
 			getTranslucent (): boolean;
 			getUrl (): string;
@@ -1874,13 +1874,13 @@ declare namespace Ti {
 			setHideShadow (hideShadow: boolean): void;
 			setIncludeOpaqueBars (includeOpaqueBars: boolean): void;
 			setLeftNavButton (leftNavButton: Ti.UI.View): void;
-			setLeftNavButtons (leftNavButtons: Array<Ti.UI.View>): void;
+			setLeftNavButtons (leftNavButtons: Ti.UI.View[]): void;
 			setModal (modal: boolean): void;
 			setNavBarHidden (navBarHidden: boolean): void;
 			setNavTintColor (navTintColor: string): void;
 			setOrientationModes (orientationModes: number[]): void;
 			setRightNavButton (rightNavButton: Ti.UI.View): void;
-			setRightNavButtons (rightNavButtons: Array<Ti.UI.View>): void;
+			setRightNavButtons (rightNavButtons: Ti.UI.View[]): void;
 			setShadowImage (shadowImage: string): void;
 			setStatusBarStyle (statusBarStyle: number): void;
 			setTabBarHidden (tabBarHidden: boolean): void;
@@ -1891,7 +1891,7 @@ declare namespace Ti {
 			setTitlePrompt (titlePrompt: string): void;
 			setTitleid (titleid: string): void;
 			setTitlepromptid (titlepromptid: string): void;
-			setToolbar (items: Array<Object>, params?: windowToolbarParam): void;
+			setToolbar (items: Object[], params?: windowToolbarParam): void;
 			setTransitionAnimation (transitionAnimation: Ti.Proxy): void;
 			setTranslucent (translucent: boolean): void;
 			setWindowPixelFormat (windowPixelFormat: number): void;
@@ -1988,7 +1988,7 @@ declare namespace Ti {
 			setEnableReturnKey (enableReturnKey: boolean): void;
 			setFont (font: Font): void;
 			setHintText (hintText: string): void;
-			setKeyboardToolbar (keyboardToolbar: Array<Ti.UI.View>): void;
+			setKeyboardToolbar (keyboardToolbar: Ti.UI.View[]): void;
 			setKeyboardToolbar (keyboardToolbar: Ti.UI.iOS.Toolbar): void;
 			setKeyboardToolbarColor (keyboardToolbarColor: string): void;
 			setKeyboardToolbarHeight (keyboardToolbarHeight: number): void;
@@ -2165,7 +2165,7 @@ declare namespace Ti {
 			pagingControlTimeout: number;
 			scrollingEnabled: boolean;
 			showPagingControl: boolean;
-			views: Array<Ti.UI.View>;
+			views: Ti.UI.View[];
 			addView (view: Ti.UI.View): void;
 			getCacheSize (): number;
 			getClipViews (): boolean;
@@ -2181,7 +2181,7 @@ declare namespace Ti {
 			getPagingControlTimeout (): number;
 			getScrollingEnabled (): boolean;
 			getShowPagingControl (): boolean;
-			getViews (): Array<Ti.UI.View>;
+			getViews (): Ti.UI.View[];
 			moveNext (): void;
 			movePrevious (): void;
 			removeView (view: number): void;
@@ -2200,29 +2200,29 @@ declare namespace Ti {
 			setPagingControlOnTop (pagingControlOnTop: boolean): void;
 			setScrollingEnabled (scrollingEnabled: boolean): void;
 			setShowPagingControl (showPagingControl: boolean): void;
-			setViews (views: Array<Ti.UI.View>): void;
+			setViews (views: Ti.UI.View[]): void;
 		}
 		export interface ListSection extends Ti.Proxy {
 			footerTitle: string;
 			footerView: Ti.UI.View;
 			headerTitle: string;
 			headerView: Ti.UI.View;
-			items: Array<ListDataItem>;
-			appendItems (dataItems: Array<ListDataItem>, animation?: ListViewAnimationProperties): void;
+			items: ListDataItem[];
+			appendItems (dataItems: ListDataItem[], animation?: ListViewAnimationProperties): void;
 			deleteItemsAt (itemIndex: number, count: number, animation?: ListViewAnimationProperties): void;
 			getFooterTitle (): string;
 			getFooterView (): Ti.UI.View;
 			getHeaderTitle (): string;
 			getHeaderView (): Ti.UI.View;
 			getItemAt (itemIndex: number): ListDataItem;
-			getItems (): Array<ListDataItem>;
-			insertItemsAt (itemIndex: number, dataItems: Array<ListDataItem>, animation?: ListViewAnimationProperties): void;
-			replaceItemsAt (index: number, count: number, dataItems: Array<ListDataItem>, animation?: ListViewAnimationProperties): void;
+			getItems (): ListDataItem[];
+			insertItemsAt (itemIndex: number, dataItems: ListDataItem[], animation?: ListViewAnimationProperties): void;
+			replaceItemsAt (index: number, count: number, dataItems: ListDataItem[], animation?: ListViewAnimationProperties): void;
 			setFooterTitle (footerTitle: string): void;
 			setFooterView (footerView: Ti.UI.View): void;
 			setHeaderTitle (headerTitle: string): void;
 			setHeaderView (headerView: Ti.UI.View): void;
-			setItems (dataItems: Array<ListDataItem>, animation?: ListViewAnimationProperties): void;
+			setItems (dataItems: ListDataItem[], animation?: ListViewAnimationProperties): void;
 			updateItemAt (index: number, dataItem: ListDataItem, animation?: ListViewAnimationProperties): void;
 		}
 		export interface ScrollView extends Ti.UI.View {
@@ -2305,7 +2305,7 @@ declare namespace Ti {
 			searchView: any;
 			sectionCount: number;
 			sectionIndexTitles: Array<ListViewIndexEntry>;
-			sections: Array<Ti.UI.ListSection>;
+			sections: Ti.UI.ListSection[];
 			separatorColor: string;
 			separatorInsets: Dictionary<Object>;
 			separatorStyle: number;
@@ -2314,7 +2314,7 @@ declare namespace Ti {
 			templates: Dictionary<Object>;
 			willScrollOnStatusTap: boolean;
 			appendSection (section: Ti.UI.ListSection, animation?: ListViewAnimationProperties): void;
-			appendSection (section: Array<Ti.UI.ListSection>, animation?: ListViewAnimationProperties): void;
+			appendSection (section: Ti.UI.ListSection[], animation?: ListViewAnimationProperties): void;
 			deleteSectionAt (sectionIndex: number, animation?: ListViewAnimationProperties): void;
 			deselectItem (sectionIndex: number, itemIndex: number): void;
 			getAllowsSelection (): boolean;
@@ -2337,7 +2337,7 @@ declare namespace Ti {
 			getSearchView (): any;
 			getSectionCount (): number;
 			getSectionIndexTitles (): Array<ListViewIndexEntry>;
-			getSections (): Array<Ti.UI.ListSection>;
+			getSections (): Ti.UI.ListSection[];
 			getSeparatorColor (): string;
 			getSeparatorInsets (): Dictionary<Object>;
 			getSeparatorStyle (): number;
@@ -2346,7 +2346,7 @@ declare namespace Ti {
 			getTemplates (): Dictionary<Object>;
 			getWillScrollOnStatusTap (): boolean;
 			insertSectionAt (sectionIndex: number, section: Ti.UI.ListSection, animation?: ListViewAnimationProperties): void;
-			insertSectionAt (sectionIndex: number, section: Array<Ti.UI.ListSection>, animation?: ListViewAnimationProperties): void;
+			insertSectionAt (sectionIndex: number, section: Ti.UI.ListSection[], animation?: ListViewAnimationProperties): void;
 			replaceSectionAt (sectionIndex: number, section: Ti.UI.ListSection, animation: ListViewAnimationProperties): void;
 			scrollToItem (sectionIndex: number, itemIndex: number, animation?: ListViewAnimationProperties): void;
 			selectItem (sectionIndex: number, itemIndex: number): void;
@@ -2371,7 +2371,7 @@ declare namespace Ti {
 			setSearchView (searchView: Ti.UI.SearchBar): void;
 			setSearchView (searchView: Ti.UI.Android.SearchView): void;
 			setSectionIndexTitles (sectionIndexTitles: Array<ListViewIndexEntry>): void;
-			setSections (sections: Array<Ti.UI.ListSection>): void;
+			setSections (sections: Ti.UI.ListSection[]): void;
 			setSeparatorColor (separatorColor: string): void;
 			setSeparatorInsets (separatorInsets: Dictionary<Object>): void;
 			setSeparatorStyle (separatorStyle: number): void;
@@ -2400,7 +2400,7 @@ declare namespace Ti {
 			tabDividerColor: string;
 			tabDividerWidth: any;
 			tabHeight: any;
-			tabs: Array<Ti.UI.Tab>;
+			tabs: Ti.UI.Tab[];
 			tabsAtBottom: boolean;
 			tabsBackgroundColor: string;
 			tabsBackgroundDisabledColor: string;
@@ -2438,7 +2438,7 @@ declare namespace Ti {
 			getTabDividerColor (): string;
 			getTabDividerWidth (): any;
 			getTabHeight (): any;
-			getTabs (): Array<Ti.UI.Tab>;
+			getTabs (): Ti.UI.Tab[];
 			getTabsAtBottom (): boolean;
 			getTabsBackgroundColor (): string;
 			getTabsBackgroundDisabledColor (): string;
@@ -2478,7 +2478,7 @@ declare namespace Ti {
 			setTabDividerWidth (tabDividerWidth: string): void;
 			setTabHeight (tabHeight: number): void;
 			setTabHeight (tabHeight: string): void;
-			setTabs (tabs: Array<Ti.UI.Tab>): void;
+			setTabs (tabs: Ti.UI.Tab[]): void;
 			setTabsAtBottom (tabsAtBottom: boolean): void;
 			setTabsBackgroundColor (tabsBackgroundColor: string): void;
 			setTabsBackgroundDisabledColor (tabsBackgroundDisabledColor: string): void;
@@ -3085,17 +3085,17 @@ declare namespace Ti {
 			barColor: string;
 			borderBottom: boolean;
 			borderTop: boolean;
-			items: Array<Ti.UI.View>;
+			items: Ti.UI.View[];
 			translucent: boolean;
 			getBarColor (): string;
 			getBorderBottom (): boolean;
 			getBorderTop (): boolean;
-			getItems (): Array<Ti.UI.View>;
+			getItems (): Ti.UI.View[];
 			getTranslucent (): boolean;
 			setBarColor (barColor: string): void;
 			setBorderBottom (borderBottom: boolean): void;
 			setBorderTop (borderTop: boolean): void;
-			setItems (items: Array<Ti.UI.View>): void;
+			setItems (items: Ti.UI.View[]): void;
 			setTranslucent (translucent: boolean): void;
 		}
 		export interface Notification extends Ti.UI.View {
@@ -3952,16 +3952,16 @@ declare namespace Ti {
 			getBool (property: string, _default?: boolean): boolean;
 			getDouble (property: string, _default?: number): number;
 			getInt (property: string, _default?: number): number;
-			getList (property: string, _default?: Array<Object>): Array<Object>;
+			getList (property: string, _default?: Object[]): Object[];
 			getObject (property: string, _default?: any): any;
 			getString (property: string, _default?: string): string;
 			hasProperty (property: string): boolean;
-			listProperties (): Array<Object>;
+			listProperties (): Object[];
 			removeProperty (property: string): void;
 			setBool (property: string, value: boolean): void;
 			setDouble (property: string, value: number): void;
 			setInt (property: string, value: number): void;
-			setList (property: string, value: Array<Object>): void;
+			setList (property: string, value: Object[]): void;
 			setObject (property: string, value: any): void;
 			setString (property: string, value: string): void;
 		}
@@ -4626,7 +4626,7 @@ declare namespace Ti {
 			execute (sql: string, vararg?: string): Ti.Database.ResultSet;
 			execute (vararg?: string[]): Ti.Database.ResultSet;
 			execute (vararg?: any): Ti.Database.ResultSet;
-			execute (sql: string, vararg?: Array<Object>): Ti.Database.ResultSet;
+			execute (sql: string, vararg?: Object[]): Ti.Database.ResultSet;
 			getFile (): Ti.Filesystem.File;
 			getLastInsertRowId (): number;
 			getName (): string;
@@ -4938,10 +4938,10 @@ declare namespace Ti {
 		export var audioPlaying: boolean;
 		export var audioSessionCategory: number;
 		export var audioSessionMode: number;
-		export var availableCameraMediaTypes: Array<Object>;
+		export var availableCameraMediaTypes: Object[];
 		export var availableCameras: number[];
-		export var availablePhotoGalleryMediaTypes: Array<Object>;
-		export var availablePhotoMediaTypes: Array<Object>;
+		export var availablePhotoGalleryMediaTypes: Object[];
+		export var availablePhotoMediaTypes: Object[];
 		export var averageMicrophonePower: number;
 		export var bubbleParent: boolean;
 		export var cameraFlashMode: number;
@@ -4967,10 +4967,10 @@ declare namespace Ti {
 		export function getAudioPlaying (): boolean;
 		export function getAudioSessionCategory (): number;
 		export function getAudioSessionMode (): number;
-		export function getAvailableCameraMediaTypes (): Array<Object>;
+		export function getAvailableCameraMediaTypes (): Object[];
 		export function getAvailableCameras (): number[];
-		export function getAvailablePhotoGalleryMediaTypes (): Array<Object>;
-		export function getAvailablePhotoMediaTypes (): Array<Object>;
+		export function getAvailablePhotoGalleryMediaTypes (): Object[];
+		export function getAvailablePhotoMediaTypes (): Object[];
 		export function getAverageMicrophonePower (): number;
 		export function getBubbleParent (): boolean;
 		export function getCameraFlashMode (): number;
@@ -4993,9 +4993,9 @@ declare namespace Ti {
 		export function saveToPhotoGallery (media: Ti.Filesystem.File, callbacks: any): void;
 		export function setAudioSessionCategory (audioSessionCategory: number): void;
 		export function setAudioSessionMode (audioSessionMode: number): void;
-		export function setAvailableCameraMediaTypes (availableCameraMediaTypes: Array<Object>): void;
-		export function setAvailablePhotoGalleryMediaTypes (availablePhotoGalleryMediaTypes: Array<Object>): void;
-		export function setAvailablePhotoMediaTypes (availablePhotoMediaTypes: Array<Object>): void;
+		export function setAvailableCameraMediaTypes (availableCameraMediaTypes: Object[]): void;
+		export function setAvailablePhotoGalleryMediaTypes (availablePhotoGalleryMediaTypes: Object[]): void;
+		export function setAvailablePhotoMediaTypes (availablePhotoMediaTypes: Object[]): void;
 		export function setAverageMicrophonePower (averageMicrophonePower: number): void;
 		export function setBubbleParent (bubbleParent: boolean): void;
 		export function setCameraFlashMode (cameraFlashMode: number): void;
@@ -6288,7 +6288,7 @@ declare class ListViewAnimationProperties  {
 }
 
 declare class CloudPushSchedulesResponse extends CloudResponse {
-	push_schedules: Array<Object>;
+	push_schedules: Object[];
 }
 
 declare class DataCallbackArgs  {
@@ -6380,8 +6380,8 @@ declare class ListViewContentInsetOption  {
 }
 
 declare class RouteDescription  {
-	inputs: Array<Object>;
-	outputs: Array<Object>;
+	inputs: Object[];
+	outputs: Object[];
 }
 
 declare class CreateStreamArgs  {
@@ -6856,8 +6856,8 @@ declare class hideParams  {
 
 declare class SecurityManagerProtocol  {
 	connectionDelegateForUrl (url: any): APSConnectionDelegate;
-	getKeyManagers (proxy: any): Array<Object>;
-	getTrustManagers (proxy: any): Array<Object>;
+	getKeyManagers (proxy: any): Object[];
+	getTrustManagers (proxy: any): Object[];
 	willHandleURL (url: any): boolean;
 }
 

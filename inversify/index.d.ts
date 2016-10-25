@@ -137,7 +137,7 @@ declare namespace inversify {
             serviceIdentifier: ServiceIdentifier<any>;
             type: number; // TargetType
             name: QueryableString;
-            metadata: Array<Metadata>;
+            metadata: Metadata[];
             hasTag(key: string): boolean;
             isArray(): boolean;
             matchesArray(name: string | Symbol | Newable<any>): boolean;
@@ -192,7 +192,7 @@ declare namespace inversify {
 
         export interface Lookup<T> extends Clonable<Lookup<T>> {
             add(serviceIdentifier: ServiceIdentifier<any>, value: T): void;
-            get(serviceIdentifier: ServiceIdentifier<any>): Array<T>;
+            get(serviceIdentifier: ServiceIdentifier<any>): T[];
             remove(serviceIdentifier: ServiceIdentifier<any>): void;
             removeByModuleId(moduleId: string): void;
             hasKey(serviceIdentifier: ServiceIdentifier<any>): boolean;
@@ -200,7 +200,7 @@ declare namespace inversify {
 
         export interface KeyValuePair<T> {
             serviceIdentifier: ServiceIdentifier<any>;
-            value: Array<T>;
+            value: T[];
             guid: string;
         }
 

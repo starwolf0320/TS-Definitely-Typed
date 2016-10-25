@@ -65,7 +65,7 @@ export interface TransformOptions {
      * A glob, regex, or mixed array of both, matching paths to only compile. Can also be an array of arrays containing
      * paths to explicitly match. When attempting to compile a non-matching file it's returned verbatim.
      */
-    only?: string | RegExp | Array<string | RegExp>;
+    only?: string | RegExp | (string | RegExp)[];
 
     /** Enable code generation. Default: `true`. */
     code?: boolean;

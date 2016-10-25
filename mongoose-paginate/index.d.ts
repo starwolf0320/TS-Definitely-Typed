@@ -9,7 +9,7 @@ declare module 'mongoose' {
   export interface PaginateOptions {
     select?: Object | string;
     sort?: Object | string;
-    populate?: Array<Object> | string[] | Object | string;
+    populate?: Object[] | string[] | Object | string;
     lean?: boolean;
     leanWithId?: boolean;
     offset?: number;

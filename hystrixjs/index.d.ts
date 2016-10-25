@@ -105,7 +105,7 @@ declare namespace HystrixJS {
     interface MetricsFactory {
         getOrCreate(config: MetricsProperties): CommandMetrics;
         resetCache(): void;
-        getAllMetrics(): Array<CommandMetrics>;
+        getAllMetrics(): CommandMetrics[];
     }
 
     interface CirctuiBreakerConfig {
@@ -127,7 +127,7 @@ declare namespace HystrixJS {
 
     interface CircuitFactory {
         getOrCreate(config: CirctuiBreakerConfig): CircuitBreaker;
-        getCache(): Array<CircuitBreaker>;
+        getCache(): CircuitBreaker[];
         resetCache(): void;
     }
 
