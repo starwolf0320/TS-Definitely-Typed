@@ -26,7 +26,7 @@ interface IHeaders {
     append(name: string, value: string): void;
     delete(name: string): void;
     get(name: string): string;
-    getAll(name: string): Array<string>;
+    getAll(name: string): string[];
     has(name: string): boolean;
     set(name: string, value: string): void;
 
@@ -38,14 +38,14 @@ interface IHeaders {
     // values(): IterableIterator<string>;
 }
 
-type HeadersInit = Headers | Array<string> | { [index: string]: string };
+type HeadersInit = Headers | string[] | { [index: string]: string };
 
 declare class Headers implements IHeaders {
     constructor(init?: HeadersInit);
     append(name: string, value: string): void;
     delete(name: string): void;
     get(name: string): string;
-    getAll(name: string): Array<string>;
+    getAll(name: string): string[];
     has(name: string): boolean;
     set(name: string, value: string): void;
 

@@ -12,7 +12,7 @@ declare namespace PleaseJS {
          * @param {MakeColorOption} options
          * @returns {Array}
          */
-        make_color(options?: MakeColorOption): Array<string>;
+        make_color(options?: MakeColorOption): string[];
         make_color(options?: MakeColorOption): Array<RGB>;
         make_color(options?: MakeColorOption): Array<HSV>;
 
@@ -21,7 +21,7 @@ declare namespace PleaseJS {
          * @param {MakeSchemeOption} options
          * @returns {Array}
          */
-        make_scheme(base_color: HSV, options?: MakeSchemeOption): Array<string>;
+        make_scheme(base_color: HSV, options?: MakeSchemeOption): string[];
         make_scheme(base_color: HSV, options?: MakeSchemeOption): Array<RGB>;
         make_scheme(base_color: HSV, options?: MakeSchemeOption): Array<HSV>;
 

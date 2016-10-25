@@ -30,7 +30,7 @@ declare namespace commonmark {
         resumeAt(node: Node, entering?: boolean): void;
     }
 
-    export interface Position extends Array<Array<number>> {
+    export interface Position extends Array<number[]> {
     }
 
     export interface ListData {

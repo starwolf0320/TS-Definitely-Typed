@@ -8933,27 +8933,27 @@ declare namespace WinJS.UI.XYFocus {
         /**
          * The array of keycodes that cause XYFocus to accept.
         **/
-        accept: Array<number>;
+        accept: number[];
         /**
          * The array of keycodes that cause XYFocus to cancel.
         **/
-        cancel: Array<number>;
+        cancel: number[];
         /**
          * The array of keycodes that cause XYFocus to navigate down.
         **/
-        down: Array<number>;
+        down: number[];
         /**
          * The array of keycodes that cause XYFocus to navigate left.
         **/
-        left: Array<number>;
+        left: number[];
         /**
          * The array of keycodes that cause XYFocus to navigate right.
         **/
-        right: Array<number>;
+        right: number[];
         /**
          * The array of keycodes that cause XYFocus to navigate up.
         **/
-        up: Array<number>;
+        up: number[];
     };
 
     /**

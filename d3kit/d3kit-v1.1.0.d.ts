@@ -28,10 +28,10 @@ declare namespace d3kit {
 
     export class Skeleton {
 
-        constructor(selector: string|Element, options?: ChartOptions, customEvents?: Array<string>);
+        constructor(selector: string|Element, options?: ChartOptions, customEvents?: string[]);
 
         // Getters
-        getCustomEventNames(): Array<string>;
+        getCustomEventNames(): string[];
         getDispatcher(): any; // should be d3.Dispatch but this throws error for user-created events
         getInnerWidth(): number;
         getInnerHeight(): number;
@@ -47,7 +47,7 @@ declare namespace d3kit {
         margin(): ChartMargin;
         margin(margin: ChartMargin, doNotDispatch?: boolean): Skeleton;
         offset(): [number, number];
-        offset(offset: Array<number>, doNotDispatch?: boolean): Skeleton;
+        offset(offset: number[], doNotDispatch?: boolean): Skeleton;
         width(): number;
         width(value: number|string, doNotDispatch?: boolean): Skeleton;
         height(): number;
@@ -59,7 +59,7 @@ declare namespace d3kit {
         autoResizeToAspectRatio(ratio?: number|boolean): number|boolean|void;
 
         // Other functions
-        on(eventName: string, listener: (...args: Array<any>) => void): void;
+        on(eventName: string, listener: (...args: any[]) => void): void;
         hasData(): boolean;
         hasNonZeroArea(): boolean;
         mixin(fn: ChartMixin): void;
@@ -81,11 +81,11 @@ declare namespace d3kit {
             enterFunction?: ChartletEventFunction,
             updateFunction?: ChartletEventFunction,
             exitFunction?: ChartletEventFunction,
-            customEventName?: Array<string>);
+            customEventName?: string[]);
 
         // Getter functions
         getDispatcher(): d3.Dispatch;
-        getCustomEventNames(): Array<string>;
+        getCustomEventNames(): string[];
         getPropertyValue(name: string, datum: any, datum_index: number): any;
 
         // Getter/Setter functions
@@ -99,7 +99,7 @@ declare namespace d3kit {
 
         // Inheritance functions
         inheritPropertyFrom(parent_chartlet: Chartlet, parent_property_name: string, child_property_name?: string): void;
-        inheritPropertiesFrom(parent_chartlet: Chartlet, parent_property_names: Array<string>, child_property_names?: Array<string>): void;
+        inheritPropertiesFrom(parent_chartlet: Chartlet, parent_property_names: string[], child_property_names?: string[]): void;
         publishEventsTo(dispatcher: d3.Dispatch): Chartlet;
 
         // Events
@@ -108,7 +108,7 @@ declare namespace d3kit {
 
     interface LayerConfig {
         name?: string;
-        names?: Array<string>;
+        names?: string[];
         sublayers?: LayerConfig;
     }
 
@@ -116,7 +116,7 @@ declare namespace d3kit {
 
         constructor(container: d3.Selection<any>, tag?: string);
 
-        create(config: string|Array<string>|LayerConfig|Array<LayerConfig>|any): d3.Selection<any>|Array<d3.Selection<any>>;
+        create(config: string|string[]|LayerConfig|Array<LayerConfig>|any): d3.Selection<any>|Array<d3.Selection<any>>;
         get(name: string): d3.Selection<any>;
         has(name: string): boolean;
     }
@@ -124,19 +124,19 @@ declare namespace d3kit {
     export namespace factory {
         export function createChart(
             defaultOptions: ChartOptions,
-            customEvents: Array<string>,
+            customEvents: string[],
             constructor: (skeleton: Skeleton) => void
-        ): (selector: string|Element, options?: ChartOptions, customEvents?: Array<string>) => Skeleton;
+        ): (selector: string|Element, options?: ChartOptions, customEvents?: string[]) => Skeleton;
     }
 
     export namespace helper {
-        export function debounce(fn: (...args: Array<any>) => void, wait: number, immediate: boolean): (...args: Array<any>) => void;
+        export function debounce(fn: (...args: any[]) => void, wait: number, immediate: boolean): (...args: any[]) => void;
         export function extend(target: Object, ...args: Object[]): Object;
         export function deepExtend(target: Object, ...args: Object[]): Object;
         export function bindMouseEventsToDispatcher(selection: d3.Selection<any>, dispatch: d3.Dispatch, prefix: string): void;
         export function removeAllChildren(selection: d3.Selection<any>, noTransition: boolean): d3.Selection<any>;
-        export function on(element: Element, type: string, listener: (...args: Array<any>) => void): void;
-        export function off(element: Element, type: string, listener: (...args: Array<any>) => void): void;
+        export function on(element: Element, type: string, listener: (...args: any[]) => void): void;
+        export function off(element: Element, type: string, listener: (...args: any[]) => void): void;
         export function trim(str: string, characters: string): string;
         export function dasherize(str: string): string;
         export function $(s: Element|string): Element;

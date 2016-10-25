@@ -106,10 +106,10 @@ declare namespace chrome.cast {
     }
 
     /**
-     * @const {!Array<number>}
+     * @const {!number[]}
      * @see https://developers.google.com/cast/docs/reference/chrome/chrome.cast#.VERSION
      */
-    var VERSION: Array<number>;
+    var VERSION: number[];
 
     /**
      * @type {boolean}
@@ -583,7 +583,7 @@ declare namespace chrome.cast.media {
             mediaInfo: chrome.cast.media.MediaInfo
         ): QueueItem;
 
-        activeTrackIds: Array<Number>;
+        activeTrackIds: number[];
         autoplay: boolean;
         customData: Object;
         itemId: number;
@@ -625,31 +625,31 @@ declare namespace chrome.cast.media {
 
     interface QueueRemoveItemsRequest {
         /**
-         * @param {!Array<number>}
+         * @param {!number[]}
          * @constructor
          * @see https://developers.google.com/cast/docs/reference/chrome/chrome.cast.media.QueueRemoveItemsRequest
          */
         new(
-            itemIdsToRemove: Array<number>
+            itemIdsToRemove: number[]
         ): QueueRemoveItemsRequest;
 
         customData: Object;
-        itemIds: Array<number>;
+        itemIds: number[];
     }
 
     interface QueueReorderItemsRequest {
         /**
-         * @param {!Array<number>}
+         * @param {!number[]}
          * @constructor
          * @see https://developers.google.com/cast/docs/reference/chrome/chrome.cast.media.QueueReorderItemsRequest
          */
         new(
-            itemIdsToReorder: Array<number>
+            itemIdsToReorder: number[]
         ): QueueReorderItemsRequest;
 
         customData: Object;
         insertBefore: number;
-        itemIds: Array<number>;
+        itemIds: number[];
     }
 
     interface QueueUpdateItemsRequest {
@@ -811,7 +811,7 @@ declare namespace chrome.cast.media {
             mediaInfo: chrome.cast.media.MediaInfo
         ): LoadRequest;
 
-        activeTrackIds: Array<number>;
+        activeTrackIds: number[];
         autoplay: boolean;
         currentTime: number;
         customData: Object;
@@ -820,17 +820,17 @@ declare namespace chrome.cast.media {
 
     interface EditTracksInfoRequest {
         /**
-         * @param {Array<number>=} opt_activeTrackIds
+         * @param {number[]=} opt_activeTrackIds
          * @param {chrome.cast.media.TextTrackStyle=} opt_textTrackStyle
          * @constructor
          * @see https://developers.google.com/cast/docs/reference/chrome/chrome.cast.media.EditTracksInfoRequest
          */
         new(
-            activeTrackIds?: Array<number>,
+            activeTrackIds?: number[],
             textTrackStyle?: chrome.cast.media.TextTrackStyle
         ): EditTracksInfoRequest;
 
-        activeTrackIds: Array<number>;
+        activeTrackIds: number[];
         textTrackStyle: chrome.cast.media.TextTrackStyle;
     }
 
@@ -981,7 +981,7 @@ declare namespace chrome.cast.media {
             mediaSessionId: number
         ): Media;
 
-        activeTrackIds: Array<number>;
+        activeTrackIds: number[];
         currentItemId: number;
         customData: Object;
         idleReason: chrome.cast.media.IdleReason;

@@ -620,7 +620,7 @@ declare namespace sequelize {
            * dataValues is different from the value in _previousDataValues. If changed is called without an argument, it will
            * return an array of keys that have changed.
            */
-        changed(): Array<string>;
+        changed(): string[];
 
         /**
          * Returns the previous value for key from _previousDataValues.
@@ -630,7 +630,7 @@ declare namespace sequelize {
         /**
          * Validate this instance, and if the validation passes, persist it to the database.
          */
-        save(fields?: Array<string>, options?: SaveOptions): PromiseT<TInstance>;
+        save(fields?: string[], options?: SaveOptions): PromiseT<TInstance>;
 
         /**
          * Refresh the current instance in-place, i.e. update the object with current data from the DB and return the same
@@ -833,22 +833,22 @@ declare namespace sequelize {
         /**
          * A named hook that is run before creating instances in bulk.
          */
-        beforeBulkCreate<T>(name: string, validator: (daos: Array<T>, fields: Array<string>, callback: (err?: Error, dao?: T) => void) => void): void;
+        beforeBulkCreate<T>(name: string, validator: (daos: Array<T>, fields: string[], callback: (err?: Error, dao?: T) => void) => void): void;
 
         /**
          * A hook that is run before creating instances in bulk.
          */
-        beforeBulkCreate<T>(validator: (daos: Array<T>, fields: Array<string>, callback: (err?: Error, dao?: T) => void) => void): void;
+        beforeBulkCreate<T>(validator: (daos: Array<T>, fields: string[], callback: (err?: Error, dao?: T) => void) => void): void;
 
         /**
          * A named hook that is run after creating instances in bulk.
          */
-        afterBulkCreate<T>(name: string, validator: (daos: Array<T>, fields: Array<string>, callback: (err?: Error, dao?: T) => void) => void): void;
+        afterBulkCreate<T>(name: string, validator: (daos: Array<T>, fields: string[], callback: (err?: Error, dao?: T) => void) => void): void;
 
         /**
          * A hook that is run after creating instances in bulk.
          */
-        afterBulkCreate<T>(validator: (daos: Array<T>, fields: Array<string>, callback: (err?: Error, dao?: T) => void) => void): void;
+        afterBulkCreate<T>(validator: (daos: Array<T>, fields: string[], callback: (err?: Error, dao?: T) => void) => void): void;
 
         /**
          * A named hook that is run before destroying instances in bulk.
@@ -1030,8 +1030,8 @@ declare namespace sequelize {
         renameColumn(tableName: string, attrNameBefore: string, attrNameAfter: string): EventEmitter;
         addIndex(tableName: string, attributes: Array<any>, options?: QueryOptions): EventEmitter;
         showIndex(tableName: string, options?: QueryOptions): EventEmitter;
-        getForeignKeysForTables(tableNames: Array<string>): EventEmitter;
-        removeIndex(tableName: string, attributes: Array<string>): EventEmitter;
+        getForeignKeysForTables(tableNames: string[]): EventEmitter;
+        removeIndex(tableName: string, attributes: string[]): EventEmitter;
         removeIndex(tableName: string, indexName: string): EventEmitter;
         insert<TModel>(dao: TModel, tableName: string, values: any, options?: QueryOptions): EventEmitter;
         /**
@@ -1062,7 +1062,7 @@ declare namespace sequelize {
          * @param functionParams
          * @param optionsArray
          */
-        createTrigger(tableName: string, triggerName: string, timingType: string, fireOnArray: Array<any>, functionName: string, functionParams: Array<any>, optionsArray: Array<string>): EventEmitter;
+        createTrigger(tableName: string, triggerName: string, timingType: string, fireOnArray: Array<any>, functionName: string, functionParams: Array<any>, optionsArray: string[]): EventEmitter;
         /**
          * Postgres only. Drops the specified trigger.
          *
@@ -1126,15 +1126,15 @@ declare namespace sequelize {
          */
         showIndexQuery(tableName: string, options?: any): string; // options is actually not used
         removeIndexQuery(tableName: string, indexNameOrAttributes: string): string;
-        removeIndexQuery(tableName: string, indexNameOrAttributes: Array<string>): string;
+        removeIndexQuery(tableName: string, indexNameOrAttributes: string[]): string;
         attributesToSQL(attributes: Array<any>): string;
-        findAutoIncrementField<TInstance, TPojo>(factory: Model<TInstance, TPojo>): Array<string>;
+        findAutoIncrementField<TInstance, TPojo>(factory: Model<TInstance, TPojo>): string[];
         quoteTable(param: any, as: boolean): string;
         quote(obj: any, parent: any, force: boolean): string;
         createTrigger(tableName: string, triggerName: string, timingType: string, fireOnArray: TriggerOptions, functionName: string, functionParams: Array<TriggerParam>): string;
         dropTrigger(tableName: string, triggerName: string): string;
         renameTrigger(tableName: string, oldTriggerName: string, newTriggerName: string): string;
-        createFunction(functionName: string, params: Array<TriggerParam>, returnType: string, language: string, body: string, options?: Array<string>): string;
+        createFunction(functionName: string, params: Array<TriggerParam>, returnType: string, language: string, body: string, options?: string[]): string;
         dropFunction(functionName: string, params: Array<TriggerParam>): string;
         renameFunction(oldFunctionName: string, params: Array<TriggerParam>, newFunctionName: string): string;
         quoteIdentifier(identifier: string, force?: boolean): string;
@@ -1149,8 +1149,8 @@ declare namespace sequelize {
         getForeignKeysQuery(tableName: string, schemaName: string): string;
         dropForeignKeyQuery(tableName: string, foreignKey: string): string;
         selectQuery<TInstance, TPojo>(tableName: string, options: SelectOptions, model?: Model<TInstance, TPojo>): string;
-        selectQuery<TInstance, TPojo>(tableName: Array<string>, options: SelectOptions, model?: Model<TInstance, TPojo>): string;
-        selectQuery<TInstance, TPojo>(tableName: Array<Array<string>>, options: SelectOptions, model?: Model<TInstance, TPojo>): string;
+        selectQuery<TInstance, TPojo>(tableName: string[], options: SelectOptions, model?: Model<TInstance, TPojo>): string;
+        selectQuery<TInstance, TPojo>(tableName: Array<string[]>, options: SelectOptions, model?: Model<TInstance, TPojo>): string;
         setAutocommitQuery(value: boolean): string;
         setIsolationLevelQuery(value: string): string;
         /**
@@ -1176,7 +1176,7 @@ declare namespace sequelize {
         isAssociationFilter<TInstance, TPojo>(filterStr: string, dao: Model<TInstance, TPojo>, options?: any): string;
         getAssociationFilterColumn<TInstance, TPojo>(filterStr: string, dao: Model<TInstance, TPojo>, options?: { include: boolean }): string;
         getConditionalJoins<TInstance, TPojo>(options: { where?: any }, originalDao: Model<TInstance, TPojo>): string;
-        arrayValue(value: Array<string>, key: string, _key: string, factory?: any, logicResult?: any): string;
+        arrayValue(value: string[], key: string, _key: string, factory?: any, logicResult?: any): string;
         hashToWhereConditions<TInstance, TPojo>(hash: any, dao: Model<TInstance, TPojo>, options?: HashToWhereConditionsOption): string;
         booleanValue(value: boolean): string;
     }
@@ -1894,7 +1894,7 @@ declare namespace sequelize {
         /**
          * If set, only columns matching those in fields will be saved.
          */
-        fields?: Array<string>;
+        fields?: string[];
 
         /**
          *
@@ -1910,7 +1910,7 @@ declare namespace sequelize {
         /**
          * Fields to insert (defaults to all fields).
          */
-        fields?: Array<string>;
+        fields?: string[];
 
         /**
          * Should each row be subject to validation before it is inserted. The whole insert will fail if one row fails
@@ -2011,7 +2011,7 @@ declare namespace sequelize {
         /**
          * An array of strings. All properties that are in this array will not be validated.
          */
-        skip: Array<string>;
+        skip: string[];
     }
 
     interface IncrementOptions {
@@ -2034,7 +2034,7 @@ declare namespace sequelize {
         /**
          * An array of the events to proxy. Defaults to sql, error and success.
          */
-        events: Array<string>;
+        events: string[];
     }
 
     interface AssociationOptions {
@@ -2089,10 +2089,10 @@ declare namespace sequelize {
     }
 
     interface TriggerOptions {
-        insert?: Array<string>;
-        update?: Array<string>;
-        delete?: Array<string>;
-        truncate?: Array<string>;
+        insert?: string[];
+        update?: string[];
+        delete?: string[];
+        truncate?: string[];
     }
 
     interface TriggerParam {
@@ -2755,7 +2755,7 @@ declare namespace sequelize {
     interface DataTypeVirtual {
     }
     interface DataTypeEnum {
-        (...values: Array<string>): DataTypeEnum;
+        (...values: string[]): DataTypeEnum;
     }
     interface DataTypeArray {
     }

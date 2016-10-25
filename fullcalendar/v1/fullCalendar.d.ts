@@ -38,7 +38,7 @@ declare namespace FullCalendar {
     export interface BusinessHours {
         start: moment.Duration;
         end: moment.Duration;
-        dow: Array<number>;
+        dow: number[];
     }
 
     export interface Timespan {
@@ -99,10 +99,10 @@ declare namespace FullCalendar {
         titleFormat?: any; // String/ViewOptionHash
 
         buttonText?: ButtonTextObject;
-        monthNames?: Array<string>;
-        monthNamesShort?: Array<string>;
-        dayNames?: Array<string>;
-        dayNamesShort?: Array<string>;
+        monthNames?: string[];
+        monthNamesShort?: string[];
+        dayNames?: string[];
+        dayNamesShort?: string[];
         weekNumberTitle?: string;
 
         // Clicking & Hovering - http://arshaw.com/fullcalendar/docs/mouse/
@@ -240,7 +240,7 @@ declare namespace FullCalendar {
         title: string;
         allDay?: boolean;
         url?: string;
-        className?: any; // string/Array<string>
+        className?: any; // string/string[]
         editable?: boolean;
         source?: EventSource;
         color?: string;
@@ -272,7 +272,7 @@ declare namespace FullCalendar {
         backgroundColor?: string;
         borderColor?: string;
         textColor?: string;
-        className?: any; // string/Array<string>
+        className?: any; // string/string[]
         editable?: boolean;
         allDayDefault?: boolean;
         ignoreTimezone?: boolean;

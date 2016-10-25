@@ -144,7 +144,7 @@ declare namespace self {
          * @description
          * Get the item data given its path, or 'undefined' if missing.
          *
-         * @param {Array<string>} paths The array with path parts to the cldr member.
+         * @param {string[]} paths The array with path parts to the cldr member.
          *
          * @returns {any} The cldr member.
          */
@@ -174,7 +174,7 @@ declare namespace self {
          * @declaration
          * It's an alias for .get(["main/{languageId}, ...])"
          *
-         * @param {Array<string>} paths The array with path parts to the cldr member.
+         * @param {string[]} paths The array with path parts to the cldr member.
          *
          * @returns {any} The cldr member.
          */
@@ -227,7 +227,7 @@ declare namespace self {
          * Load the CLDR content in the form of JSON.
          *
          * @param {any} json The json content.
-         * @param {Array<any>} otherJson Optional. The parts of the JSON.
+         * @param {any[]} otherJson Optional. The parts of the JSON.
          *
          * @returns {void}
          */

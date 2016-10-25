@@ -119,8 +119,8 @@ type VRSource = HTMLCanvasElement;
 type VRLayer = {
   source?: VRSource;
 
-  leftBounds?: Array<number>;
-  rightBounds?: Array<number>;
+  leftBounds?: number[];
+  rightBounds?: number[];
 };
 
 interface VRDisplayCapabilities {

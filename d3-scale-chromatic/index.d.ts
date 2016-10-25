@@ -7,21 +7,21 @@
 // Categorical
 // -----------------------------------------------------------------------
 /**An array of eight categorical colors represented as RGB hexadecimal strings. */
-export const schemeAccent: Array<string>;
+export const schemeAccent: string[];
 /**An array of eight categorical colors represented as RGB hexadecimal strings. */
-export const schemeDark2: Array<string>;
+export const schemeDark2: string[];
 /**An array of twelve categorical colors represented as RGB hexadecimal strings. */
-export const schemePaired: Array<string>;
+export const schemePaired: string[];
 /**An array of nine categorical colors represented as RGB hexadecimal strings. */
-export const schemePastel1: Array<string>;
+export const schemePastel1: string[];
 /**An array of eight categorical colors represented as RGB hexadecimal strings. */
-export const schemePastel2: Array<string>;
+export const schemePastel2: string[];
 /**An array of nine categorical colors represented as RGB hexadecimal strings. */
-export const schemeSet1: Array<string>;
+export const schemeSet1: string[];
 /**An array of eight categorical colors represented as RGB hexadecimal strings. */
-export const schemeSet2: Array<string>;
+export const schemeSet2: string[];
 /**An array of twelve categorical colors represented as RGB hexadecimal strings. */
-export const schemeSet3: Array<string>;
+export const schemeSet3: string[];
 
 // -----------------------------------------------------------------------
 // Diverging

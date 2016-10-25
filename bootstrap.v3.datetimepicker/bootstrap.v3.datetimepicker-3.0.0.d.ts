@@ -49,7 +49,7 @@ export interface DatetimepickerOptions {
     useStrict?: boolean;
     direction?: string;
     sideBySide?: boolean;
-    daysOfWeekDisabled?: Array<number>;
+    daysOfWeekDisabled?: number[];
     calendarWeeks?: boolean;
     format?: string | boolean;
     locale?: string;

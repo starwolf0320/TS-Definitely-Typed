@@ -15,10 +15,10 @@ export interface AccelerometerGeneralOption {
 }
 
 export interface AccelerometerAnalogOption extends AccelerometerGeneralOption {
-    pins: Array<string>;
+    pins: string[];
     sensitivity?: number;
     aref?: number;
-    zeroV?: number | Array<number>;
+    zeroV?: number | number[];
     autoCalibrate?: boolean;
 }
 
@@ -47,11 +47,11 @@ export declare class Animation {
     pause(): void;
     stop(): void;
     next(): void;
-    speed(speed: Array<number>): void;
+    speed(speed: number[]): void;
 
     target: number;
     duration: number;
-    cuePoints: Array<number>;
+    cuePoints: number[];
     keyFrames: number;
     easing: string;
     loop: boolean;
@@ -125,7 +125,7 @@ export declare class Compass {
 
 export interface ESCOption {
     pin: number | string;
-    range?: Array<number>;
+    range?: number[];
     startAt?: number;
 }
 
@@ -142,7 +142,7 @@ export interface GyroGeneralOption {
 }
 
 export interface GyroAnalogOption extends GyroGeneralOption {
-    pins: Array<string>;
+    pins: string[];
     sensitivity: number;
     resolution?: number;
 }
@@ -202,14 +202,14 @@ export declare namespace IR {
     }
 
     export interface ArrayOption {
-        pins: Array<number> | Array<string>;
+        pins: number[] | string[];
         emitter: number | string;
         freq?: number;
     }
 
     export interface LoadCalibrationOption {
-        min: Array<number>;
-        max: Array<number>;
+        min: number[];
+        max: number[];
     }
 
     export namespace Reflect {
@@ -229,7 +229,7 @@ export declare namespace IR {
 }
 
 export interface JoystickOption {
-    pins: Array<string>;
+    pins: string[];
 }
 
 export declare class Joystick {
@@ -239,8 +239,8 @@ export declare class Joystick {
     on(event: "change", cb: () => void): void;
     on(event: "axismove", cb: (error: Error, date: Date) => void): void;
 
-    axis: Array<number>;
-    raw: Array<number>;
+    axis: number[];
+    raw: number[];
 }
 
 
@@ -255,7 +255,7 @@ export interface LCDI2COption extends LCDGeneralOption {
 }
 
 export interface LCDParallelOption extends LCDGeneralOption {
-    pins: Array<any>;
+    pins: any[];
     backlight?: number;
 }
 
@@ -325,7 +325,7 @@ export declare namespace Led {
 
     export interface MatrixIC2Option {
         controller: string;
-        addresses?: Array<any>;
+        addresses?: any[];
         isBicolor?: boolean;
         dims?: any;
         rotation?: number;
@@ -352,7 +352,7 @@ export declare namespace Led {
     }
 
     export interface RGBOption {
-        pins: Array<number>;
+        pins: number[];
         isAnode?: boolean;
         controller?: string;
     }
@@ -383,7 +383,7 @@ export interface MotorOption {
 }
 
 export declare class Motor {
-    constructor(option: Array<number> | MotorOption);
+    constructor(option: number[] | MotorOption);
     forward(speed: number): void;
     fwd(speed: number): void;
     reverse(speed: number): void;
@@ -415,7 +415,7 @@ export interface PinOption {
 }
 
 export interface PinState {
-    supportedModes: Array<number>;
+    supportedModes: number[];
     mode: number;
     value: number;
     report: number;
@@ -467,7 +467,7 @@ export declare class Sensor {
     scale(range: number[]): Sensor;
     scale(): Sensor;
     booleanAt(barrier: number): boolean;
-    within(range: Array<number>, cb: () => void): void;
+    within(range: number[], cb: () => void): void;
     on(event: string, cb: () => void): void;
     on(event: "data", cb: (data: any) => void): void;
     on(event: "change", cb: () => void): void;
@@ -475,7 +475,7 @@ export declare class Sensor {
 
 export interface ServoGeneralOption {
     pin: number | string;
-    range?: Array<number>;
+    range?: number[];
     type?: string;
     startAt?: number;
     isInverted?: boolean;
@@ -488,7 +488,7 @@ export interface ServoPCA9685Option extends ServoGeneralOption {
 }
 
 export interface ServoSweepOpts {
-    range: Array<number>;
+    range: number[];
     interval?: number;
     step?: number;
 }
@@ -500,7 +500,7 @@ export declare class Servo {
     max(): void;
     center(): void;
     sweep(): void;
-    sweep(range: Array<number>): void;
+    sweep(range: number[]): void;
     sweep(opt: ServoSweepOpts): void;
     stop(): void;
     cw(speed: number): void;
@@ -527,8 +527,8 @@ export interface SonarOption {
 
 export declare class Sonar {
     constructor(option: number | string | SonarOption);
-    within(range: Array<number>, cb: () => void): void;
-    within(range: Array<number>, unit: string, cb: () => void): void;
+    within(range: number[], cb: () => void): void;
+    within(range: number[], unit: string, cb: () => void): void;
     on(event: string, cb: () => void): void;
     on(event: "data", cb: (data: any) => void): void;
     on(event: "change", cb: () => void): void;
@@ -566,8 +566,8 @@ export declare class Stepper {
     cw(): Stepper;
     ccw(): Stepper;
 
-    within(range: Array<number>, cb: () => void): void;
-    within(range: Array<number>, unit: string, cb: () => void): void;
+    within(range: number[], cb: () => void): void;
+    within(range: number[], unit: string, cb: () => void): void;
     on(event: string, cb: () => void): void;
     on(event: "data", cb: (data: any) => void): void;
     on(event: "change", cb: () => void): void;

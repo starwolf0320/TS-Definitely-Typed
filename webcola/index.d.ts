@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare namespace cola {
-    function applyPacking(graphs: Array<any>, w: any, h: any, node_size: any, desired_ratio?: number): void;
+    function applyPacking(graphs: any[], w: any, h: any, node_size: any, desired_ratio?: number): void;
     /**
      * connected components of graph
      * returns an array of {}
@@ -781,8 +781,8 @@ declare namespace cola {
          * @property groups {Array}
          * @default empty list
          */
-        groups(): Array<any>;
-        groups(x: Array<any>): Layout;
+        groups(): any[];
+        groups(x: any[]): Layout;
         powerGraphGroups(f: Function): Layout;
         /**
          * if true, the layout will not permit overlaps of the node bounding boxes (defined by the width and height properties on nodes)
@@ -822,8 +822,8 @@ declare namespace cola {
          * @type {array}
          * @default empty list
          */
-        constraints(): Array<any>;
-        constraints(c: Array<any>): Layout;
+        constraints(): any[];
+        constraints(c: any[]): Layout;
         /**
          * Matrix of ideal distances between all pairs of nodes.
          * If unspecified, the ideal distances for pairs of nodes will be based on the shortest path distance between them.
@@ -831,16 +831,16 @@ declare namespace cola {
          * @type {Array of Array of Number}
          * @default null
          */
-        distanceMatrix(): Array<Array<number>>;
-        distanceMatrix(d: Array<Array<number>>): Layout;
+        distanceMatrix(): Array<number[]>;
+        distanceMatrix(d: Array<number[]>): Layout;
         /**
          * Size of the layout canvas dimensions [x,y]. Currently only used to determine the midpoint which is taken as the starting position
          * for nodes with no preassigned x and y.
          * @property size
          * @type {Array of Number}
          */
-        size(): Array<number>;
-        size(x: Array<number>): Layout;
+        size(): number[];
+        size(x: number[]): Layout;
         /**
          * Default size (assume nodes are square so both width and height) to use in packing if node width/height are not specified.
          * @property defaultNodeSize

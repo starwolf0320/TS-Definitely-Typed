@@ -27,7 +27,7 @@ declare namespace ImgurRestApi {
         album_privacy: string;
         pro_expiration: any; //number|boolean;
         accepted_gallery_terms: boolean;
-        active_emails: Array<string>;
+        active_emails: string[];
         messaging_enabled: boolean;
         blocked_users: Array<BlockedUser>;
     }
@@ -93,7 +93,7 @@ declare namespace ImgurRestApi {
     interface CustomGallery {
         account_url: string;
         link: string;
-        tags: Array<string>;
+        tags: string[];
         item_count: number;
         items: Array<GalleryItem>;
     }

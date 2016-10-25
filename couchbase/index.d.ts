@@ -930,7 +930,7 @@ interface Bucket {
      * @param params A list or map to do replacements on a N1QL query.
      * @param callback The callback function.
      */
-    query(query: ViewQuery | N1qlQuery, params: Object | Array<any>, callback: Bucket.QueryCallback): Bucket.ViewQueryResponse | Bucket.N1qlQueryResponse;
+    query(query: ViewQuery | N1qlQuery, params: Object | any[], callback: Bucket.QueryCallback): Bucket.ViewQueryResponse | Bucket.N1qlQueryResponse;
 
     /**
      * Deletes a document on the server.

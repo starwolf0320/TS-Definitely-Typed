@@ -31,12 +31,12 @@ declare namespace PDFKit.Mixins {
     interface AnnotationOption {
         Type?: string;
         Rect?: any;
-        Border?: Array<number>;
+        Border?: number[];
         SubType?: string;
         Contents?: string;
         Name?: string;
         color?: string;
-        QuadPoints?: Array<number>;
+        QuadPoints?: number[];
 
         A?: any;
         B?: any;

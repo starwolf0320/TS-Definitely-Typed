@@ -48,7 +48,7 @@ interface HtmlToTextOptions {
      *  and with a # for the id attribute. All other tables are ignored.
      *   You can assign true to this attribute to select all tables. Default: []
      */
-    tables?: Array<string> | boolean;
+    tables?: string[] | boolean;
 
     /**
      *  By default links are translated the following

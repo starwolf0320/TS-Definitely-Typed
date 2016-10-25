@@ -7,25 +7,25 @@
 
 interface JQuery {
     md5(value: string): string;
-    md5(value: Array<any>): string;
+    md5(value: any[]): string;
     md5(value: Uint8Array): string;
 }
 
 interface JQueryStatic {
     md5(value: string): string;
-    md5(value: Array<any>): string;
+    md5(value: any[]): string;
     md5(value: Uint8Array): string;
 }
 
 interface md5 {
     (value: string): string;
-    (value: Array<any>): string;
+    (value: any[]): string;
     (value: Uint8Array): string;
 }
 
 interface String {
     md5(value: string): string;
-    md5(value: Array<any>): string;
+    md5(value: any[]): string;
     md5(value: Uint8Array): string;
 }
 

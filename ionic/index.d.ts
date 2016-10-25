@@ -87,7 +87,7 @@ interface IonicStatic {
         /**
          * An array of all platforms found.
          */
-        platforms: Array<string>;
+        platforms: string[];
         /**
          * What grade the current platform is.
          */

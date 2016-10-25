@@ -223,7 +223,7 @@ declare namespace wx {
         /** 当前显示图片的链接，不填则默认为 urls 的第一张 */
         current?: string;
         /** 需要预览的图片链接列表 */
-        urls: Array<string>;
+        urls: string[];
         /** 接口调用成功的回调函数 */
         success?: ResponseCallback;
         /** 接口调用失败的回调函数 */
@@ -675,7 +675,7 @@ declare namespace wx {
     }
     interface Animate {
         type: string;
-        args: Array<any>;
+        args: any[];
     }
 
     /**

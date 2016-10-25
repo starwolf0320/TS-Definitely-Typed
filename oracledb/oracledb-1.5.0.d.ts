@@ -89,11 +89,11 @@ declare module 'oracledb' {
 		/** Number o rows affected by the statement (used for inserts / updates)*/
 		rowsAffected?: number;
 		/** When the statement has out parameters, it comes here. */
-		outBinds?: Array<any> | Object;
+		outBinds?: any[] | Object;
 		/** Metadata information - just columns names for now. */
 		metaData?: Array<IMetaData>;
 		/** When not using ResultSet, query results comes here. */
-		rows?: Array<Array<any>> | Array<any>;
+		rows?: Array<any[]> | any[];
 		/** When using ResultSet, query results comes here. */
 		resultSet?: IResultSet;
 	}
@@ -115,10 +115,10 @@ declare module 'oracledb' {
 		close(callback: (err: any) => void): void;
 		/**
 		 * Fetch one row from ResultSet.
-		 * @param  {(err:any,row:Array<any>|Object) => void} callback Callback called when the row is available or when some error occurs.
+		 * @param  {(err:any,row:any[]|Object) => void} callback Callback called when the row is available or when some error occurs.
 		 * @returns void
 		 */
-		getRow(callback: (err: any, row: Array<any> | Object) => void): void;
+		getRow(callback: (err: any, row: any[] | Object) => void): void;
 		/**
 		 * Fetch some rows from ResultSet.
 		 * @param  {number} rowCount Number of rows to be fetched.
@@ -149,7 +149,7 @@ declare module 'oracledb' {
 		 * @param	{(err: any, value: IExecuteReturn) => void} callback Callback function to receive the result.
 		 */
 		execute(sql: string,
-			binds: Object | Array<any>,
+			binds: Object | any[],
 			options: IExecuteOptions,
 			callback: (err: any, value: IExecuteReturn) => void): void;
 
@@ -160,7 +160,7 @@ declare module 'oracledb' {
 		 * @param	{(err: any, value: IExecuteReturn) => void} callback Callback function to receive the result.
 		 */
 		execute(sql: string,
-			binds: Object | Array<any>,
+			binds: Object | any[],
 			callback: (err: any, value: IExecuteReturn) => void): void;
 
 		/**

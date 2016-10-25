@@ -32,7 +32,7 @@ interface RouteNode {
     getPath(routeName: String): String;
     getPathFromSegments(segments: Array<Object>): String;
     getSegmentsByName(routeName: String): Array<Object>;
-    getSegmentsMatchingPath(path: any, options: Object): Array<any>;
+    getSegmentsMatchingPath(path: any, options: Object): any[];
     matchPath(path: any, options?: Object): State;
     setPath(path?: any): void;
 }
@@ -53,15 +53,15 @@ interface Router5 {
     canActivate(name: String, canActivate: Function): Router5;
     canDeactivate(name: String, canDeactivate: Boolean): any;
     cancel(): void;
-    getAdditionalArgs(): Array<any>;
+    getAdditionalArgs(): any[];
     getState(): Object;
     isActive(name: String, params?: Object, strictEquality?: Boolean, ignoreQueryParams?: Boolean): Boolean;
     matchPath(path: String): Object;
     matchUrl(url: String): Object;
     navigate(name: String, ...args: Array<Object | Function>): Function;
-    setAdditionalArgs(args: Array<any>): void;
+    setAdditionalArgs(args: any[]): void;
     setOption(opt: String, val: any): Router5;
-    start(...args: Array<any>): Router5;
+    start(...args: any[]): Router5;
     stop(): Router5;
     urlToPath(path: String): String;
     useMiddleware(...args: Array<Function>): Router5;

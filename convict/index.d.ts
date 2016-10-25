@@ -27,7 +27,7 @@ declare namespace convict {
              *
              * The docs also state that any function that validates is ok too
              */
-            format?: string | Array<any> | Function;
+            format?: string | any[] | Function;
             env?: string;
             arg?: string;
         };

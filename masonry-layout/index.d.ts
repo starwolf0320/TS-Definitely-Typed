@@ -21,15 +21,15 @@ declare namespace Masonry {
 
         // layout
         layout?(): void;
-        layoutItems?(items: Array<any>, isStill?: boolean): void;
-        stamp?(elements: Array<any>): void;
-        unstamp?(elements: Array<any>): void;
+        layoutItems?(items: any[], isStill?: boolean): void;
+        stamp?(elements: any[]): void;
+        unstamp?(elements: any[]): void;
 
         // add and remove items
-        appended?(elements: Array<any>): void;
-        prepended?(elements: Array<any>): void;
-        addItems?(elements: Array<any>): void;
-        remove?(elements: Array<any>): void;
+        appended?(elements: any[]): void;
+        prepended?(elements: any[]): void;
+        addItems?(elements: any[]): void;
+        remove?(elements: any[]): void;
 
         // events
         on?(eventName: string, listener: any): void;
@@ -39,7 +39,7 @@ declare namespace Masonry {
         // utilities
         reloadItems?(): void;
         destroy?(): void;
-        getItemElements?(): Array<any>;
+        getItemElements?(): any[];
         data?(element: Element): Masonry;
     }
 

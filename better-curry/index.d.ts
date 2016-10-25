@@ -36,7 +36,7 @@ declare namespace BetterCurryModule {
     export interface BetterCurry {
         predefine: <T extends Function>(fn: T, args: any[], context?: Object, len?: number, checkArguments?: boolean) => OriginalFunctionReminder<T>;
         wrap: <T extends Function>(fn: T, context?: Object, len?: number, checkArguments?: boolean) => OriginalFunctionReminder<T>;
-        flatten: (...args: Array<Array<any>|any>) => any[];
+        flatten: (...args: (any[]|any)[]) => any[];
         delegate: <T>(proto: T, target: string) => Delegate<T>;
         MAX_OPTIMIZED: number;
     }

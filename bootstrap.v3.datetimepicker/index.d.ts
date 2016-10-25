@@ -83,14 +83,14 @@ export interface Datetimepicker {
 	/**Returns the options.daysOfWeekDisabled configuration
 	 * IMPORTANT! Throws exception if not set explicitly https://github.com/Eonasdan/bootstrap-datetimepicker/issues/1459
 	*/
-	daysOfWeekDisabled(): Array<number>;
+	daysOfWeekDisabled(): number[];
 	/**Takes an [ Number:0 to 6 ] and disallow the user to select weekdays that exist in this array.
 	 * This has lower priority over the options.minDate, options.maxDate, options.disabledDates and options.enabledDates configuration settings.
 	 * Emits:
 	 * - dp.change - if the currently selected moment falls in the values passed on the daysOfWeek parameter.
 	 * - dp.error - if the currently selected moment falls in the values passed on the daysOfWeek parameter.
 	 */
-	daysOfWeekDisabled(days: Array<number>): void;
+	daysOfWeekDisabled(days: number[]): void;
 	/**Returns the options.dayViewHeaderFormat option. */
 	dayViewHeaderFormat(): string;
 	/**Used to customize the header of the day view. */
@@ -115,12 +115,12 @@ export interface Datetimepicker {
 	 */
 	disabledDates(dates: boolean | Array<string | Date | moment.Moment>): void;
 	/**Returns the options.disabledHours option.
-	 * NOTES: probably should be: disabledHours(): boolean | Array<number>; see: DatetimepickerOptions
+	 * NOTES: probably should be: disabledHours(): boolean | number[]; see: DatetimepickerOptions
 	*/
 	disabledHours(): boolean | any;
 	/**Must be in 24 hour format. Will disallow hour selections (much like disabledTimeIntervals) but will affect all days.
 	 * Like en/disabledDates, the en/disabledHours options are mutually exclusive and will reset one of the options back to false. */
-	disabledHours(value: boolean | Array<number>): void;
+	disabledHours(value: boolean | number[]): void;
 	/**Returns the options.disabledTimeIntervals option, or... not exactly
 	 * IMPORTANT! Creates an object from the options.disabledTimeIntervals with the keys being numbers, the values being the moment arrays.
 	 * eg { "0": [<moment.Moment1>, <moment.Moment2>], "1": [...] }
@@ -142,16 +142,16 @@ export interface Datetimepicker {
 	 */
 	enabledDates(dates: boolean | Array<string | Date | moment.Moment>): void;
 	/**Returns the options.enabledHours option.
-	 * NOTES: probably should be: enabledHours(): boolean | Array<number>; see: DatetimepickerOptions
+	 * NOTES: probably should be: enabledHours(): boolean | number[]; see: DatetimepickerOptions
 	*/
 	enabledHours(): boolean | any;
 	/**Must be in 24 hour format. Will allow hour selections (much like enabledTimeIntervals) but will affect all days.
 	 * Like en/disabledDates, the en/disabledHours options are mutually exclusive and will reset one of the options back to false. */
-	enabledHours(value: boolean | Array<number>): void;
+	enabledHours(value: boolean | number[]): void;
 	/**Returns a boolean or array with the options.extraFormats option configuration */
-	extraFormats(): boolean | Array<string>;
+	extraFormats(): boolean | string[];
 	/**Takes an array of valid input moment format options, or boolean:false */
-	extraFormats(formats: boolean | Array<string>): void;
+	extraFormats(formats: boolean | string[]): void;
 	/**Returns the options.focusOnShow option. */
 	focusOnShow(): boolean;
 	/**If false, the textbox will not be given focus when the picker is shown */
@@ -315,7 +315,7 @@ export interface DatetimepickerOptions {
 	 * Accepts: array of numbers from 0-6
 	 * @default: false
 	 */
-    daysOfWeekDisabled?: Array<number> | boolean;
+    daysOfWeekDisabled?: number[] | boolean;
 	/**Changes the heading of the datepicker when in "days" view.
 	 * @default: "MMMM YYYY"
 	 */
@@ -341,7 +341,7 @@ export interface DatetimepickerOptions {
 	 * eg disabledHours = [0, 1]; -> disabledHours will be { "0": true, "1": true }
 	 * https://github.com/Eonasdan/bootstrap-datetimepicker/issues/1499
 	 */
-	disabledHours?: boolean | Array<number> | any;
+	disabledHours?: boolean | number[] | any;
 	/**Disables time selection between the given moments
 	 * eg: [[moment({ h: 0 }), moment({ h: 8 })], [moment({ h: 18 }), moment({ h: 24 })]]
 	 * @default: false
@@ -360,11 +360,11 @@ export interface DatetimepickerOptions {
 	 * eg enabledHours = [0, 1]; -> enabledHours will be { "0": true, "1": true }
 	 * https://github.com/Eonasdan/bootstrap-datetimepicker/issues/1499
 	 */
-	enabledHours?: boolean | Array<number>;
+	enabledHours?: boolean | number[];
 	/**Allows for several input formats to be valid. See: https://github.com/Eonasdan/bootstrap-datetimepicker/pull/666
 	 * @default: false
 	 */
-	extraFormats?: boolean | Array<string>;
+	extraFormats?: boolean | string[];
 	/**If false, the textbox will not be given focus when the picker is shown
 	 * @default: true
 	 */

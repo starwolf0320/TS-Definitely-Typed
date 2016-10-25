@@ -73,7 +73,7 @@ declare namespace chrome {
          * List of Chrome command line switches to exclude that ChromeDriver by default
          * passes when starting Chrome.  Do not prefix switches with "--".
          *
-         * @param {...(string|!Array<string>)} var_args The switches to exclude.
+         * @param {...(string|!string[])} var_args The switches to exclude.
          * @return {!Options} A self reference.
          */
         excludeSwitches(...var_args: string[]): Options;
@@ -1091,7 +1091,7 @@ declare namespace ie {
      * @param {...(string|!Array.<string>)} var_args The arguments to add.
      * @return {!Options} A self reference.
      */
-    addArguments(...var_args: Array<string>): Options;
+    addArguments(...var_args: string[]): Options;
 
     /**
      * Configures whether proxies should be configured on a per-process basis. If
@@ -1274,7 +1274,7 @@ declare namespace opera {
      * @param {...(string|!Array.<string>)} var_args The arguments to add.
      * @return {!Options} A self reference.
      */
-    addArguments(...var_args: Array<string>): Options;
+    addArguments(...var_args: string[]): Options;
 
     /**
      * Add additional extensions to install when launching Opera. Each extension
@@ -1284,7 +1284,7 @@ declare namespace opera {
      *     extensions to add.
      * @return {!Options} A self reference.
      */
-    addExtensions(...var_args: Array<any>): Options;
+    addExtensions(...var_args: any[]): Options;
 
     /**
      * Sets the path to the Opera binary to use. On Mac OS X, this path should
@@ -3344,7 +3344,7 @@ declare namespace webdriver {
          * @return {!webdriver.ActionSequence} A self reference.
          * @throws {Error} If the key is not a valid modifier key.
          */
-        sendKeys(...var_args: Array<string>): ActionSequence;
+        sendKeys(...var_args: string[]): ActionSequence;
 
         //endregion
     }
@@ -4064,7 +4064,7 @@ declare namespace webdriver {
        * @return {function(!./webdriver.WebDriver): !./promise.Promise}
        *     A new JavaScript-based locator function.
        */
-      static js(script: string|Function, ...var_args: Array<any>): (webdriver: webdriver.WebDriver) => webdriver.promise.Promise<any>;
+      static js(script: string|Function, ...var_args: any[]): (webdriver: webdriver.WebDriver) => webdriver.promise.Promise<any>;
 
       /**
        * Locates elements whose `name` attribute has the given value.

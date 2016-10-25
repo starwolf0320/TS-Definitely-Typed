@@ -101,5 +101,5 @@ interface RadiusPacket {
     identifier: number;
     length: number;
     attributes: any;
-    raw_attributes: Array<Array<any>>;
+    raw_attributes: Array<any[]>;
 }

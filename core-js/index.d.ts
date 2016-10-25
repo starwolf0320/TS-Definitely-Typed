@@ -108,7 +108,7 @@ interface Array<T> {
       * @param thisArg If provided, it will be used as the this value for each invocation of
       * predicate. If it is not provided, undefined is used instead.
       */
-    find(predicate: (value: T, index: number, obj: Array<T>) => boolean, thisArg?: any): T;
+    find(predicate: (value: T, index: number, obj: T[]) => boolean, thisArg?: any): T;
 
     /**
       * Returns the index of the first element in the array where predicate is true, and undefined
@@ -166,19 +166,19 @@ interface ArrayConstructor {
       * Creates an array from an array-like object.
       * @param arrayLike An array-like object to convert to an array.
       */
-    from<T>(arrayLike: ArrayLike<T>): Array<T>;
+    from<T>(arrayLike: ArrayLike<T>): T[];
 
     /**
       * Creates an array from an iterable object.
       * @param iterable An iterable object to convert to an array.
       */
-    from<T>(iterable: Iterable<T>): Array<T>;
+    from<T>(iterable: Iterable<T>): T[];
 
     /**
       * Returns a new array from a set of elements.
       * @param items A set of elements to include in the new array object.
       */
-    of<T>(...items: T[]): Array<T>;
+    of<T>(...items: T[]): T[];
 }
 
 // #############################################################################################
@@ -1090,7 +1090,7 @@ interface ArrayConstructor {
       * @param thisArg If provided, it will be used as the this value for each invocation of
       * predicate. If it is not provided, undefined is used instead.
       */
-    find<T>(array: ArrayLike<T>, predicate: (value: T, index: number, obj: Array<T>) => boolean, thisArg?: any): T;
+    find<T>(array: ArrayLike<T>, predicate: (value: T, index: number, obj: T[]) => boolean, thisArg?: any): T;
 
     /**
       * Returns the index of the first element in the array where predicate is true, and undefined
@@ -1125,8 +1125,8 @@ interface ArrayConstructor {
     copyWithin<T>(array: ArrayLike<T>, target: number, start: number, end?: number): T[];
 
     includes<T>(array: ArrayLike<T>, value: T, fromIndex?: number): boolean;
-    turn<T, U>(array: ArrayLike<T>, callbackfn: (memo: U, value: T, index: number, array: Array<T>) => void, memo?: U): U;
-    turn<T>(array: ArrayLike<T>, callbackfn: (memo: Array<T>, value: T, index: number, array: Array<T>) => void, memo?: Array<T>): Array<T>;
+    turn<T, U>(array: ArrayLike<T>, callbackfn: (memo: U, value: T, index: number, array: T[]) => void, memo?: U): U;
+    turn<T>(array: ArrayLike<T>, callbackfn: (memo: T[], value: T, index: number, array: T[]) => void, memo?: T[]): T[];
 }
 
 // #############################################################################################
@@ -1257,12 +1257,12 @@ interface Array<T> {
     /**
       * Non-standard.
       */
-    turn<U>(callbackfn: (memo: U, value: T, index: number, array: Array<T>) => void, memo?: U): U;
+    turn<U>(callbackfn: (memo: U, value: T, index: number, array: T[]) => void, memo?: U): U;
 
     /**
       * Non-standard.
       */
-    turn(callbackfn: (memo: Array<T>, value: T, index: number, array: Array<T>) => void, memo?: Array<T>): Array<T>;
+    turn(callbackfn: (memo: T[], value: T, index: number, array: T[]) => void, memo?: T[]): T[];
 }
 
 // #############################################################################################
@@ -1359,9 +1359,9 @@ declare namespace core {
     var Array: {
         from<T, U>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): Array<U>;
         from<T, U>(iterable: Iterable<T>, mapfn: (v: T, k: number) => U, thisArg?: any): Array<U>;
-        from<T>(arrayLike: ArrayLike<T>): Array<T>;
-        from<T>(iterable: Iterable<T>): Array<T>;
-        of<T>(...items: T[]): Array<T>;
+        from<T>(arrayLike: ArrayLike<T>): T[];
+        from<T>(iterable: Iterable<T>): T[];
+        of<T>(...items: T[]): T[];
         push<T>(array: ArrayLike<T>, ...items: T[]): number;
         pop<T>(array: ArrayLike<T>): T;
         concat<T>(array: ArrayLike<T>, ...items: (T[]| T)[]): T[];
@@ -1387,13 +1387,13 @@ declare namespace core {
         entries<T>(array: ArrayLike<T>): IterableIterator<[number, T]>;
         keys<T>(array: ArrayLike<T>): IterableIterator<number>;
         values<T>(array: ArrayLike<T>): IterableIterator<T>;
-        find<T>(array: ArrayLike<T>, predicate: (value: T, index: number, obj: Array<T>) => boolean, thisArg?: any): T;
+        find<T>(array: ArrayLike<T>, predicate: (value: T, index: number, obj: T[]) => boolean, thisArg?: any): T;
         findIndex<T>(array: ArrayLike<T>, predicate: (value: T) => boolean, thisArg?: any): number;
         fill<T>(array: ArrayLike<T>, value: T, start?: number, end?: number): T[];
         copyWithin<T>(array: ArrayLike<T>, target: number, start: number, end?: number): T[];
         includes<T>(array: ArrayLike<T>, value: T, fromIndex?: number): boolean;
-        turn<T>(array: ArrayLike<T>, callbackfn: (memo: Array<T>, value: T, index: number, array: Array<T>) => void, memo?: Array<T>): Array<T>;
-        turn<T, U>(array: ArrayLike<T>, callbackfn: (memo: U, value: T, index: number, array: Array<T>) => void, memo?: U): U;
+        turn<T>(array: ArrayLike<T>, callbackfn: (memo: T[], value: T, index: number, array: T[]) => void, memo?: T[]): T[];
+        turn<T, U>(array: ArrayLike<T>, callbackfn: (memo: U, value: T, index: number, array: T[]) => void, memo?: U): U;
     };
 
     var String: {

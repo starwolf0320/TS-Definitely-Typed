@@ -116,7 +116,7 @@ declare module 'joi' {
 	}
 
 	export interface IPOptions {
-		version?: Array<string>;
+		version?: string[];
 		cidr?: string;
 	}
 

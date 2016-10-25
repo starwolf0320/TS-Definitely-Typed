@@ -16,7 +16,7 @@ declare namespace umzug {
          * The params that gets passed to the migrations.
          * Might be an array or a synchronous function which returns an array.
          */
-        params?: Array<any>;
+        params?: any[];
 
         /** The path to the migrations directory. */
         path?: string;
@@ -84,7 +84,7 @@ declare namespace umzug {
     }
 
     interface ExecuteOptions {
-        migrations?: Array<string>;
+        migrations?: string[];
         method?: string;
     }
 
@@ -141,7 +141,7 @@ declare namespace umzug {
          * Running specific migrations while ignoring the right order, can be
          * done like this:
          */
-        migrations: Array<string>;
+        migrations: string[];
 
     }
 

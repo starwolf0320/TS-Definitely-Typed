@@ -17,9 +17,9 @@ declare module 'angular' {
             cheatSheetHotkey: string;
             cheatSheetDescription: string;
 
-            add(combo: string | string[], callback: (event: Event, hotkey?: Hotkey) => void, action?: string, allowIn?: Array<string>, persistent?: boolean): ng.hotkeys.Hotkey;
+            add(combo: string | string[], callback: (event: Event, hotkey?: Hotkey) => void, action?: string, allowIn?: string[], persistent?: boolean): ng.hotkeys.Hotkey;
 
-            add(combo: string | string[], description: string, callback: (event: Event, hotkey?: Hotkey) => void, action?: string, allowIn?: Array<string>, persistent?: boolean): ng.hotkeys.Hotkey;
+            add(combo: string | string[], description: string, callback: (event: Event, hotkey?: Hotkey) => void, action?: string, allowIn?: string[], persistent?: boolean): ng.hotkeys.Hotkey;
 
             add(hotkeyObj: ng.hotkeys.Hotkey): ng.hotkeys.Hotkey;
 
@@ -47,7 +47,7 @@ declare module 'angular' {
             description?: string;
             callback: (event: Event, hotkey: ng.hotkeys.Hotkey) => void;
             action?: string;
-            allowIn?: Array<string>;
+            allowIn?: string[];
             persistent?: boolean;
         }
     }

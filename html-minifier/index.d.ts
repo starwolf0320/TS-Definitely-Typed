@@ -89,7 +89,7 @@ declare namespace HTMLMinifier {
         ignoreCustomFragments?: Array<RegExp>;
 
         // Array of strings corresponding to types of script elements to process through minifier (e.g. text/ng-template, text/x-handlebars-template, etc.)
-        processScripts?: Array<string>;
+        processScripts?: string[];
 
         // Specify a maximum line length. Compressed output will be split by newlines at valid HTML split-points
         maxLineLength?: number;

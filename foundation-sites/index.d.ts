@@ -140,10 +140,10 @@ declare namespace FoundationSites {
 
     // http://foundation.zurb.com/sites/docs/equalizer.html#javascript-reference
     interface Equalizer {
-        getHeights(element: Object): Array<any>;
+        getHeights(element: Object): any[];
         getHeightsByRow(cb: Function): void;
-        applyHeight(heights: Array<any>): void;
-        applyHeightByRow(groups: Array<any>): void;
+        applyHeight(heights: any[]): void;
+        applyHeightByRow(groups: any[]): void;
         destroy(): void;
     }
 
@@ -160,7 +160,7 @@ declare namespace FoundationSites {
     }
 
     interface IInterchangeOptions {
-        rules?: Array<any>;
+        rules?: any[];
     }
 
     // http://foundation.zurb.com/sites/docs/magellan.html#javascript-reference
@@ -363,7 +363,7 @@ declare namespace FoundationSites {
     interface MediaQuery {
         get(size: string): string;
         atLeast(size: string): boolean;
-        queries: Array<string>;
+        queries: string[];
         current: string;
     }
 
@@ -402,9 +402,9 @@ declare namespace FoundationSites {
         plugin(plugin: Object, name: string): void;
         registerPlugin(plugin: Object): void;
         unregisterPlugin(plugin: Object): void;
-        reInit(plugins: Array<any>): void;
+        reInit(plugins: any[]): void;
         GetYoDigits(length: number, namespace?: string): string;
-        reflow(elem: Object, plugins?: Array<string>|string): void;
+        reflow(elem: Object, plugins?: string[]|string): void;
         getFnName(fn: string): string;
         transitionend(): string;
 
@@ -446,7 +446,7 @@ declare namespace FoundationSites {
 }
 
 interface JQuery {
-    foundation(method?: string|Array<any>): JQuery;
+    foundation(method?: string|any[]): JQuery;
 }
 
 declare var Foundation: FoundationSites.FoundationSitesStatic;

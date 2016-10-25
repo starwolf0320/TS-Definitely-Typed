@@ -9,7 +9,7 @@ declare module 'jsoneditor' {
     export interface JSONEditorNode {
         field: string;
         value: string;
-        path: Array<string>;
+        path: string[];
     }
 
     export type JSONEditorMode = 'tree' | 'view' | 'form' | 'code' | 'text';

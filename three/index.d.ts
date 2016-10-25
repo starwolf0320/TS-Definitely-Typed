@@ -2146,7 +2146,7 @@ declare namespace THREE {
         corssOrigin: string;
         path: string;
 
-        load(urls: Array<string>, onLoad?: (texture: CubeTexture) => void, onProgress?: (event: any) => void, onError?: (event: any) => void): void;
+        load(urls: string[], onLoad?: (texture: CubeTexture) => void, onProgress?: (event: any) => void, onError?: (event: any) => void): void;
         setCrossOrigin(crossOrigin: string): CubeTextureLoader;
         setPath(path: string): CubeTextureLoader;
     }

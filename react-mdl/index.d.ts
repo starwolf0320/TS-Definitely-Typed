@@ -328,7 +328,7 @@ declare namespace __ReactMDL {
     class Checkbox extends __MDLComponent<CheckboxProps> { }
 
     interface UndecoratedTableProps extends __MDLClassProps, MDLHTMLAttributes, React.DOMAttributes<UndecoratedTable>, ShadowedComponent {
-        rows: Array<any>;
+        rows: any[];
         rowKeyColumn?: string;
 
         name?: string;

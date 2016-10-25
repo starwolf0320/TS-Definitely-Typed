@@ -33,10 +33,10 @@ export interface AxisTimeInterval {
 export interface AxisScale<Domain> {
     (x: Domain): number;
     domain(): Array<Domain>;
-    range(): Array<number>;
+    range(): number[];
     copy(): AxisScale<Domain>;
     bandwidth?(): number;
-    ticks?(count: number | AxisTimeInterval): Array<number> | Array<Date>;
+    ticks?(count: number | AxisTimeInterval): number[] | Array<Date>;
     tickFormat?(count: number | AxisTimeInterval, specifier?: string): ((d: number) => string) | ((d: Date) => string);
 }
 

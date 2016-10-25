@@ -150,7 +150,7 @@ declare namespace StripeNode {
                  * standing. Nested fields are separated by "." (for example,
                  * "legal_entity.first_name").
                  */
-                fields_needed: Array<string>;
+                fields_needed: string[];
             };
         }
 
@@ -2479,7 +2479,7 @@ declare namespace StripeNode {
             /**
              * Only return orders with the given IDs
              */
-            ids?: Array<string>;
+            ids?: string[];
 
             /**
              * Only return orders that have the given status. One of "created", "paid", "fulfilled", or "refunded".
@@ -2734,7 +2734,7 @@ declare namespace StripeNode {
             /**
              * A list of up to 5 attributes that each SKU can provide values for (e.g. ["color", "size"]).
              */
-            attributes: Array<string>;
+            attributes: string[];
 
             /**
              * A short one-line description of the product, meant to be displayable to the customer.
@@ -2746,7 +2746,7 @@ declare namespace StripeNode {
             /**
              * An array of connect application identifiers that cannot purchase this product.
              */
-            deactivated_on: Array<string>;
+            deactivated_on: string[];
 
             /**
              * The product’s description, meant to be displayable to the customer.
@@ -2756,7 +2756,7 @@ declare namespace StripeNode {
             /**
              * A list of up to 8 URLs of images for this product, meant to be displayable to the customer.
              */
-            images: Array<string>;
+            images: string[];
 
             livemode: boolean;
             metadata: IMetadata;
@@ -2805,7 +2805,7 @@ declare namespace StripeNode {
             /**
              * A list of up to 5 alphanumeric attributes that each SKU can provide values for (e.g. ["color", "size"]).
              */
-            attribute?: Array<string>;
+            attribute?: string[];
 
             /**
              * A short one-line description of the product, meant to be displayable to the customer.
@@ -2815,7 +2815,7 @@ declare namespace StripeNode {
             /**
              * An array of Connect application names or identifiers that should not be able to order the SKUs for this product.
              */
-            deactivate_on?: Array<string>;
+            deactivate_on?: string[];
 
             /**
              * The product’s description, meant to be displayable to the customer.
@@ -2825,7 +2825,7 @@ declare namespace StripeNode {
             /**
              * A list of up to 8 URLs of images for this product, meant to be displayable to the customer.
              */
-            images?: Array<string>;
+            images?: string[];
 
             package_dimensions?: IPackageDimensions;
 
@@ -2856,7 +2856,7 @@ declare namespace StripeNode {
              * An array of Connect application names or identifiers that should not be able to order the SKUs for this product. This can be unset
              * by updating the value to null and then saving.
              */
-            deactivate_on?: Array<string>;
+            deactivate_on?: string[];
 
             /**
              * The product’s description, meant to be displayable to the customer.
@@ -2867,7 +2867,7 @@ declare namespace StripeNode {
              * A list of up to 8 URLs of images for this product, meant to be displayable to the customer. This can be unset by updating the value to
              * null and then saving.
              */
-            images?: Array<string>;
+            images?: string[];
 
             /**
              * The product’s name, meant to be displayable to the customer.
@@ -2896,7 +2896,7 @@ declare namespace StripeNode {
             /**
              * Only return products with the given IDs.
              */
-            ids?: Array<string>;
+            ids?: string[];
 
             /**
              * Only return products that can be shipped (i.e., physical, not digital products).
@@ -3084,7 +3084,7 @@ declare namespace StripeNode {
             /**
              * Only return SKUs with the given IDs.
              */
-            ids?: Array<string>;
+            ids?: string[];
 
             /**
              * Only return SKUs that are either in stock or out of stock (e.g. pass false to list all SKUs that are out of stock).
@@ -4398,13 +4398,13 @@ declare namespace StripeNode {
             /**
              * Currencies that can be accepted in the specified country (for payments).
              */
-            supported_payment_currencies: Array<string>;
+            supported_payment_currencies: string[];
 
             /**
              * Payment methods available in the specified country. You will need to enable bitcoin and ACH payments on your account for those methods to
              * appear in this list. The stripe payment method refers to charging through your platform.
              */
-            supported_payment_methods: Array<string>;
+            supported_payment_methods: string[];
 
             /**
              * Lists the types of verification data needed to keep an account open. Includes 'minimum' fields, which every account must eventually
@@ -4412,12 +4412,12 @@ declare namespace StripeNode {
              */
             verification_fields: {
                 individual: {
-                    minimum: Array<string>;
-                    additional: Array<string>;
+                    minimum: string[];
+                    additional: string[];
                 },
                 company: {
-                    minimum: Array<string>;
-                    additional: Array<string>;
+                    minimum: string[];
+                    additional: string[];
                 }
             };
         }
@@ -6439,8 +6439,8 @@ declare namespace StripeNode {
     }
 
     interface IDataOptions {
-        expand?: Array<string>;
-        include?: Array<string>;
+        expand?: string[];
+        include?: string[];
     }
 
     interface IDataOptionsWithMetadata extends IDataOptions {

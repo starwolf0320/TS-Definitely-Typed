@@ -279,7 +279,7 @@ declare module "orientjs" {
             lucene(property: any, luceneQuery: string): Statement;
             near(latitudeProperty: string, longitudeProperty: string, longitude: number, latitude: number, maxDistanceInKms: number): Statement;
             near(prop: any, maxDistanceInKms: number, longitude: number, latitude: number): Statement;
-            within(latitudeProperty: string, longitudeProperty: string, box: Array<Number>): Statement;
+            within(latitudeProperty: string, longitudeProperty: string, box: number[]): Statement;
             addParams(key: string, value: any): Statement;
             addParams(value: any): Statement;
             token(value: any): Statement;

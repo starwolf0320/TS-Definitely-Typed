@@ -8,10 +8,10 @@
 declare namespace ngCordova {
 
   export interface IEmailComposerOptions {
-        to: string | Array<string>;
-        cc?: string | Array<string>;
-        bcc?: string | Array<string>;
-        attachments?: Array<any>;
+        to: string | string[];
+        cc?: string | string[];
+        bcc?: string | string[];
+        attachments?: any[];
         subject?: string;
         body?: string;
         isHtml?: boolean;

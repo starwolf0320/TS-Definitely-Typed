@@ -64,7 +64,7 @@ export namespace policies {
     interface TokenAwarePolicy extends LoadBalancingPolicy { }
 
     interface WhiteListPolicyStatic {
-      new (childPolicy: LoadBalancingPolicy, whiteList: Array<string>): WhiteListPolicy;
+      new (childPolicy: LoadBalancingPolicy, whiteList: string[]): WhiteListPolicy;
     }
 
     interface WhiteListPolicy extends LoadBalancingPolicy { }
@@ -237,11 +237,11 @@ export namespace types {
   }
 
   interface IntegerStatic {
-    new (bits: Array<number>, sign: number): Integer;
+    new (bits: number[], sign: number): Integer;
 
     fromInt(value: number): Integer;
     fromNumber(value: number): Integer;
-    fromBits(bits: Array<number>): Integer;
+    fromBits(bits: number[]): Integer;
     fromString(str: string, opt_radix?: number): Integer;
     fromBuffer(bits: Buffer): Integer;
     toBuffer(value: Integer): Buffer;
@@ -343,7 +343,7 @@ export namespace types {
       triedHosts: { [key: string]: string; },
       achievedConsistency: consistencies,
       traceId: Uuid,
-      warnings: Array<string>,
+      warnings: string[],
       customPayload: any
     };
     rows: Array<Row>;
@@ -376,7 +376,7 @@ export namespace types {
   interface Row {
     get(columnName: string | number): { [key: string]: any; };
     values(): Array<{ [key: string]: any; }>;
-    keys(): Array<string>;
+    keys(): string[];
     forEach(callback: Callback): void;
   }
 
@@ -398,19 +398,19 @@ export namespace types {
   }
 
   interface TupleStatic {
-    new (...args: Array<any>): Tuple;
+    new (...args: any[]): Tuple;
 
-    fromArray(elements: Array<any>): Tuple;
+    fromArray(elements: any[]): Tuple;
   }
 
   interface Tuple {
-    elements: Array<any>;
+    elements: any[];
     length: number;
 
     get(index: number): any;
     toString(): string;
     toJSON(): string;
-    values(): Array<any>;
+    values(): any[];
   }
 
   interface UuidStatic {
@@ -437,7 +437,7 @@ export var HostMap: HostMapStatic;
 export var Encoder: EncoderStatic;
 
 export interface ClientOptions {
-  contactPoints: Array<string>;
+  contactPoints: string[];
   keyspace: string;
   policies?: {
     addressResolution?: policies.addressResolution.AddressTranslator,
@@ -481,16 +481,16 @@ export interface QueryOptions {
   consistency?: number;
   customPayload?: any;
   fetchSize?: number;
-  hints?: Array<string> | Array<Array<string>>;
+  hints?: string[] | Array<string[]>;
   logged?: boolean;
   pageState?: Buffer | string;
   prepare?: boolean;
   readTimeout?: number;
   retry?: policies.retry.RetryPolicy;
   retryOnTimeout?: boolean;
-  routingIndexes?: Array<number>;
+  routingIndexes?: number[];
   routingKey?: Buffer | Array<Buffer>;
-  routingNames?: Array<string>;
+  routingNames?: string[];
   serialConsistency?: number;
   timestamp?: number | _Long;
   traceQuery?: boolean;
@@ -505,11 +505,11 @@ export interface Client extends events.EventEmitter {
   keyspace: string;
   metadata: metadata.Metadata;
 
-  batch(queries: Array<string> | Array<{ query: string, params?: any }>, options: QueryOptions, callback: ResultCallback): void;
+  batch(queries: string[] | Array<{ query: string, params?: any }>, options: QueryOptions, callback: ResultCallback): void;
   connect(callback: Callback): void;
   eachRow(query: string, params?: any, options?: QueryOptions, rowCallback?: Callback, callback?: Callback): void;
   execute(query: string, params?: any, options?: QueryOptions, callback?: ResultCallback): void;
-  getReplicas(keyspace: string, token: Buffer): Array<any>; // TODO: Should this be a more explicit return?
+  getReplicas(keyspace: string, token: Buffer): any[]; // TODO: Should this be a more explicit return?
   shutdown(callback?: Callback): void;
   stream(query: string, params?: any, options?: QueryOptions, callback?: Callback): NodeJS.ReadableStream;
 }
@@ -523,10 +523,10 @@ export interface Host extends events.EventEmitter {
   cassandraVersion: string;
   dataCenter: string;
   rack: string;
-  tokens: Array<string>;
+  tokens: string[];
 
   canBeConsideredAsUp(): boolean;
-  getCassandraVersion(): Array<number>;
+  getCassandraVersion(): number[];
   isUp(): boolean;
 }
 
@@ -539,9 +539,9 @@ export interface HostMap extends events.EventEmitter {
 
   forEach(callback: Callback): void;
   get(key: string): Host;
-  keys(): Array<string>;
+  keys(): string[];
   remove(key: string): void;
-  removeMultiple(keys: Array<string>): void;
+  removeMultiple(keys: string[]): void;
   set(key: string, value: Host): void;
   values(): Array<Host>;
 }
@@ -634,7 +634,7 @@ export namespace metadata {
     initCondition: string;
     keyspaceName: string;
     returnType: string;
-    signature: Array<string>;
+    signature: string[];
     stateFunction: string;
     stateType: string;
   }
@@ -657,7 +657,7 @@ export namespace metadata {
     bloomFilterFalsePositiveChance: number;
     caching: caching;
     clusterKeys: Array<{ c: ColumnInfo, index: number, order: string }>;
-    clusteringOrder: Array<string>;
+    clusteringOrder: string[];
     columns: Array<ColumnInfo>;
     columnsByName: { [key: string]: ColumnInfo };
     comment: string;
@@ -715,12 +715,12 @@ export namespace metadata {
   interface Metadata {
     clearPrepared(): void;
 
-    getAggregate(keyspaceName: string, name: string, signature: Array<string> | Array<{ code: number, info: any }>, callback: Callback): void;
+    getAggregate(keyspaceName: string, name: string, signature: string[] | Array<{ code: number, info: any }>, callback: Callback): void;
     getAggregates(keyspaceName: string, name: string, callback: Callback): void;
-    getFunction(keyspaceName: string, name: string, signature: Array<string> | Array<{ code: number, info: any }>, callback: Callback): void;
+    getFunction(keyspaceName: string, name: string, signature: string[] | Array<{ code: number, info: any }>, callback: Callback): void;
     getFunctions(keyspaceName: string, name: string, callback: Callback): void;
     getMaterializedView(keyspaceName: string, name: string, callback: Callback): void;
-    getReplicas(keyspaceName: string, tokenBuffer: Buffer): Array<any>;
+    getReplicas(keyspaceName: string, tokenBuffer: Buffer): any[];
     getTable(keyspaceName: string, name: string, callback: Callback): void;
     getTrace(traceId: types.Uuid, callback: Callback): void;
     getUdt(keyspaceName: string, name: string, callback: Callback): void;
@@ -733,7 +733,7 @@ export namespace metadata {
   }
 
   interface SchemaFunction {
-    argumentNames: Array<string>;
+    argumentNames: string[];
     argumentTypes: Array<{ code: number, info: any }>;
     body: string;
     calledOnNullInput: boolean;
@@ -741,7 +741,7 @@ export namespace metadata {
     language: string;
     name: string;
     returnType: string;
-    signature: Array<string>;
+    signature: string[];
   }
 
   interface TableMetadataStatic {

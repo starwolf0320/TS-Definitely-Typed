@@ -120,7 +120,7 @@ export interface ReferenceOptions {
 }
 
 export interface IPOptions {
-    version?: Array<string>;
+    version?: string[];
     cidr?: string;
 }
 

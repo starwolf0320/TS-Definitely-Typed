@@ -242,9 +242,9 @@ declare namespace Antd {
         /** 可选项数据源*/
         options: Object;
         /** 默认的选中项*/
-        defaultValue?: Array<any>;
+        defaultValue?: any[];
         /** 指定选中项*/
-        value?: Array<any>;
+        value?: any[];
         /** 选择完成后的回调*/
         onChange?: Function;
         /** 选择后展示的渲染函数*/
@@ -296,11 +296,11 @@ declare namespace Antd {
 
     interface CheckboxGroupProps {
         /** 默认选中的选项*/
-        defaultValue?: Array<any>;
+        defaultValue?: any[];
         /** 指定选中的选项*/
-        value?: Array<any>;
+        value?: any[];
         /** 指定可选项*/
-        options?: Array<any>;
+        options?: any[];
         /** 变化时回调函数*/
         onChange?: Function;
     }
@@ -328,9 +328,9 @@ declare namespace Antd {
 
     interface CollapseProps {
         /** 当前激活 tab 面板的 key*/
-        activeKey?: Array<any> | string;
+        activeKey?: any[] | string;
         /** 初始化选中面板的key */
-        defaultActiveKey?: Array<string>;
+        defaultActiveKey?: string[];
         /** 切换面板的回调*/
         onChange?: Function;
 
@@ -415,7 +415,7 @@ declare namespace Antd {
 
     interface DropdownProps {
         /** 触发下拉的行为  ['click'] or ['hover']*/
-        trigger?: Array<string>;
+        trigger?: string[];
         /** 菜单节点*/
         overlay: React.ReactNode;
 
@@ -487,7 +487,7 @@ declare namespace Antd {
     // function  create
     type CreateFormOptions = {
         /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值*/
-        getFieldsValue(): (fieldNames?: Array<string>) => any;
+        getFieldsValue(): (fieldNames?: string[]) => any;
         /** 获取一个输入控件的值*/
         getFieldValue(): (fieldName: string) => any;
         /** 设置一组输入控件的值*/
@@ -495,15 +495,15 @@ declare namespace Antd {
         /** 设置一组输入控件的值*/
         setFields(): (obj: Object) => void;
         /** 校验并获取一组输入域的值与 Error*/
-        validateFields(): (fieldNames?: Array<string>, options?: Object, callback?: (erros: any, values: any) => void) => any;
+        validateFields(): (fieldNames?: string[], options?: Object, callback?: (erros: any, values: any) => void) => any;
         /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
-        validateFieldsAndScroll(): (fieldNames?: Array<string>, options?: Object, callback?: (erros: any, values: any) => void) => any;
+        validateFieldsAndScroll(): (fieldNames?: string[], options?: Object, callback?: (erros: any, values: any) => void) => any;
         /** 获取某个输入控件的 Error */
         getFieldError(): (name: string) => Object;
         /** 判断一个输入控件是否在校验状态*/
         isFieldValidating(): (name: string) => Object
         /**重置一组输入控件的值与状态，如不传入参数，则重置所有;组件*/
-        resetFields(): (names?: Array<string>) => void;
+        resetFields(): (names?: string[]) => void;
 
         getFieldsValue(): (id: string, options: {
             /** 子节点的值的属性，如 Checkbox 的是 'checked'*/
@@ -515,10 +515,10 @@ declare namespace Antd {
             /** 校验子节点值的时机*/
             validateTrigger?: string,
             /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
-            rules?: Array<any>,
+            rules?: any[],
             /** 必填输入控件唯一标志*/
             id?: string
-        }) => Array<any>;
+        }) => any[];
     };
 
     interface ComponentDecorator {
@@ -552,7 +552,7 @@ declare namespace Antd {
             /**
              *   当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store
              */
-            onFieldsChange?: (props: Object, fields: Array<any>) => void,
+            onFieldsChange?: (props: Object, fields: any[]) => void,
             /**  把 props 转为对应的值，可用于把 Redux store 中的值读出 */
             mapPropsToFields?: (props: Object) => void
         }): ComponentDecorator;
@@ -773,21 +773,21 @@ declare namespace Antd {
         /** 菜单类型  enum: `vertical` `horizontal` `inline`*/
         mode?: MenuMode | string;
         /** 当前选中的菜单项 key 数组*/
-        selectedKeys?: Array<string>;
+        selectedKeys?: string[];
         /** 初始选中的菜单项 key 数组*/
-        defaultSelectedKeys?: Array<string>;
+        defaultSelectedKeys?: string[];
         /** 当前展开的菜单项 key 数组*/
-        openKeys?: Array<string>;
+        openKeys?: string[];
         /** 初始展开的菜单项 key 数组*/
-        defaultOpenKeys?: Array<string>;
+        defaultOpenKeys?: string[];
         /**
          * 被选中时调用
          *
-         * @type {(item: any, key: string, selectedKeys: Array<string>) => void}
+         * @type {(item: any, key: string, selectedKeys: string[]) => void}
          */
-        onSelect?: (item: any, key: string, selectedKeys: Array<string>) => void;
+        onSelect?: (item: any, key: string, selectedKeys: string[]) => void;
         /** 取消选中时调用*/
-        onDeselect?: (item: any, key: string, selectedKeys: Array<string>) => void;
+        onDeselect?: (item: any, key: string, selectedKeys: string[]) => void;
         /** 点击 menuitem 调用此函数*/
         onClick?: (item: any, key: string) => void;
         /** 根节点样式*/
@@ -962,7 +962,7 @@ declare namespace Antd {
         /** 是否可以改变 pageSize */
         showSizeChanger?: boolean;
         /** 指定每页可以显示多少条*/
-        pageSizeOptions?: Array<number>;
+        pageSizeOptions?: number[];
         /** pageSize 变化的回调  */
         onShowSizeChange?: Function;
         /** 是否可以快速跳转至某页*/
@@ -1128,21 +1128,21 @@ declare namespace Antd {
     // QueueAnim
     interface QueueAnimProps {
         /** 动画内置参数 `left` `right` `top` `bottom` `scale` `scaleBig` `scaleX` `scaleY`*/
-        type?: string | Array<string>;
+        type?: string | string[];
         /** 配置动画参数 如 `{opacity:[1, 0],translateY:[0, -30]}` 具体参考 [velocity](http://julian.com/research/velocity) 的写法*/
-        animConfig?: Object | Array<any>;
+        animConfig?: Object | any[];
         /** 整个动画的延时,以毫秒为单位*/
-        delay?: number | Array<any>;
+        delay?: number | any[];
         /** 每个动画的时间,以毫秒为单位*/
-        duration?: number | Array<any>;
+        duration?: number | any[];
         /** 每个动画的间隔时间,以毫秒为单位*/
-        interval?: number | Array<any>;
+        interval?: number | any[];
         /** 出场时是否倒放,从最后一个 dom 开始往上播放 */
         leaveReverse?: boolean;
         /** 动画的缓动函数,[查看详细](http://julian.com/research/velocity/#easing)*/
-        ease?: string | Array<any>;
+        ease?: string | any[];
         /** 进出场动画进行中的类名*/
-        animatingClassName?: Array<string>;
+        animatingClassName?: string[];
         /** QueueAnim 替换的标签名*/
         component?: string;
     }
@@ -1235,9 +1235,9 @@ declare namespace Antd {
 
     interface SelectProps {
         /** 指定当前选中的条目*/
-        value?: string | Array<any>;
+        value?: string | any[];
         /** 指定默认选中的条目*/
-        defaultValue?: string | Array<any>;
+        defaultValue?: string | any[];
         /** 支持多选*/
         multiple?: boolean;
         /** 支持清除, 单选模式有效*/
@@ -1300,9 +1300,9 @@ declare namespace Antd {
         /** 分段标记，key 的类型必须为 `Number` 且取值在闭区间 [min, max] 内*/
         marks?: { key: number, value: any };
         /**  设置当前取值。当 `range` 为 `false` 时，使用 `Number`，否则用 `[Number, Number]`*/
-        value?: number | Array<number>;
+        value?: number | number[];
         /**  设置当前取值。当 `range` 为 `false` 时，使用 `Number`，否则用 `[Number, Number]`*/
-        defaultValue?: number | Array<number>;
+        defaultValue?: number | number[];
         /** `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列*/
         included?: boolean;
         /** 值为 `true` 时，滑块为禁用状态*/
@@ -1432,7 +1432,7 @@ declare namespace Antd {
         checkbox,
         radio
     }
-    type SelectedRowKeys = Array<any>;
+    type SelectedRowKeys = any[];
     interface RowSelection {
         type?: RowSelectionType | string;
         selectedRowKeys?: SelectedRowKeys;
@@ -1451,7 +1451,7 @@ declare namespace Antd {
         /** 生成复杂数据的渲染函数，参数分别为当前列的值，当前列数据，列索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan)*/
         render?: (text?: any, record?: any, index?: number) => React.ReactNode;
         /** 表头的筛选菜单项*/
-        filters?: Array<any>;
+        filters?: any[];
         /** 本地模式下，确定筛选的运行函数*/
         onFilter?: Function;
         /** 是否多选*/
@@ -1473,7 +1473,7 @@ declare namespace Antd {
         /** 正常或迷你类型 : `default` or `small` */
         size?: string;
         /** 数据数组*/
-        dataSource: Array<any>;
+        dataSource: any[];
         /** 表格列的配置描述*/
         columns: Columns;
         /** 表格行 key 的取值*/
@@ -1481,7 +1481,7 @@ declare namespace Antd {
         /** 额外的展开行*/
         expandedRowRender?: Function;
         /** 默认展开的行*/
-        defaultExpandedRowKeys?: Array<string>;
+        defaultExpandedRowKeys?: string[];
         /** 分页、排序、筛选变化时触发*/
         onChange?: (pagination: Object, filters: any, sorter: any) => void;
         /** 页面是否加载中*/
@@ -1699,11 +1699,11 @@ declare namespace Antd {
     // Transfer
     interface TransferProps {
         /** 数据源*/
-        dataSource: Array<any>;
+        dataSource: any[];
         /** 每行数据渲染函数*/
         render?: (record: Object) => any;
         /** 显示在右侧框数据的key集合*/
-        targetKeys: Array<string>;
+        targetKeys: string[];
         /** 变化时回调函数*/
         onChange?: (targetKeys: any, direction: string, moveKeys: any) => void;
         /** 两个穿梭框的自定义样式*/
@@ -1711,9 +1711,9 @@ declare namespace Antd {
         /** 自定义类*/
         className?: string;
         /** 标题集合,顺序从左至右*/
-        titles?: Array<string>;
+        titles?: string[];
         /** 操作文案集合,顺序从上至下*/
-        operations?: Array<string>;
+        operations?: string[];
         /** 是否显示搜索框*/
         showSearch?: boolean;
         /** 搜索框的默认值*/
@@ -1761,17 +1761,17 @@ declare namespace Antd {
         /** 默认展开所有树节点*/
         defaultExpandAll?: boolean;
         /** 默认展开指定的树节点*/
-        defaultExpandedKeys?: Array<string>;
+        defaultExpandedKeys?: string[];
         /** （受控）展开指定的树节点*/
-        expandedKeys?: Array<string>;
+        expandedKeys?: string[];
         /** （受控）选中复选框的树节点*/
-        checkedKeys?: Array<string>;
+        checkedKeys?: string[];
         /** 默认选中复选框的树节点*/
-        defaultCheckedKeys?: Array<string>;
+        defaultCheckedKeys?: string[];
         /** （受控）设置选中的树节点*/
-        selectedKeys?: Array<string>;
+        selectedKeys?: string[];
         /** 默认选中的树节点*/
-        defaultSelectedKeys?: Array<string>;
+        defaultSelectedKeys?: string[];
         /** 展开/收起节点时触发 */
         onExpand?: (node: any, expanded: any, expandedKeys: any) => void;
         /** 点击复选框触发*/
@@ -1830,9 +1830,9 @@ declare namespace Antd {
     interface TreeSelectProps {
         style?: Object;
         /** 指定当前选中的条目*/
-        value?: string | Array<any>;
+        value?: string | any[];
         /** 指定默认选中的条目*/
-        defaultValue?: string | Array<any>;
+        defaultValue?: string | any[];
         /** 支持多选*/
         multiple?: boolean;
         /** 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配*/

@@ -195,13 +195,13 @@ declare namespace lf {
       addColumn(name: string, type: lf.Type): TableBuilder;
       addForeignKey(name: string, spec: RawForeignKeySpec): TableBuilder;
       addIndex(
-          name: string, columns: Array<string>|Array<IndexedColumn>,
+          name: string, columns: string[]|Array<IndexedColumn>,
           unique?: boolean, order?: Order): TableBuilder;
-      addNullable(columns: Array<string>): TableBuilder;
+      addNullable(columns: string[]): TableBuilder;
       addPrimaryKey(
-          columns: Array<string>|Array<IndexedColumn>,
+          columns: string[]|Array<IndexedColumn>,
           autoInc?: boolean): TableBuilder;
-      addUnique(name: string, columns: Array<string>): TableBuilder;
+      addUnique(name: string, columns: string[]): TableBuilder;
     }
 
     function create(dbName: string, dbVersion: number): Builder;

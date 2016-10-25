@@ -54,7 +54,7 @@ declare namespace PrismJS {
          * @param  {LanguageDefinition} language
          * @returns Array - An array of strings, tokens (class Prism.Token) and other arrays.
          */
-        tokenize(text: string, grammar: LanguageDefinition, language?: LanguageDefinition): Array<string>;
+        tokenize(text: string, grammar: LanguageDefinition, language?: LanguageDefinition): string[];
 
         fileHighlight(): void;
 
@@ -70,8 +70,8 @@ declare namespace PrismJS {
 		type?: string;
 		content?: string;
 		tag?: string;
-		classes?: Array<string>;
-		attributes?: Array<string> | Object;
+		classes?: string[];
+		attributes?: string[] | Object;
 		parent?: Element;
 	}
 
@@ -157,7 +157,7 @@ declare namespace PrismJS {
 		type: string;
 		content: Token | Array<Token> | string;
 		alias: string;
-		stringify(o: string| Array<any>, language: LanguageDefinition, parent: HTMLPreElement): string;
+		stringify(o: string| any[], language: LanguageDefinition, parent: HTMLPreElement): string;
 	}
 }
 

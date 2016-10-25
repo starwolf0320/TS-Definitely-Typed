@@ -183,8 +183,13 @@ declare module 'angular' {
 
     export interface DataWithPermissions {
       permissions?: {
+<<<<<<< 031c230832f552d889e1df6834530c0218a336bb
         only?: (() => void) | string | string[] | angular.IPromise<any>;
         except?: (() => void) | string | string[] | angular.IPromise<any>;
+=======
+        only?: (() => void) | string[] | angular.IPromise<any>;
+        except?: (() => void) | string[] | angular.IPromise<any>;
+>>>>>>> WIP
         redirectTo: string | (() => string) | (() => PermissionRedirectConfigation) | { [index: string]: PermissionRedirectConfigation }
       };
     }

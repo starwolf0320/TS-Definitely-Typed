@@ -13,7 +13,7 @@ declare namespace GoogleMapsLoader {
     export var CLIENT: string;
     export var VERSION: string;
     export var SENSOR: boolean;
-    export var LIBRARIES: Array<string>;
+    export var LIBRARIES: string[];
     export var LANGUAGE: string;
     export function release(callBack: Function): void;
     export function onLoad(callBack?: CallBack): void;

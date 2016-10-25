@@ -145,7 +145,7 @@ declare module "pem" {
      * @param {Array} ca List of CA certificates
      * @param {Function} callback Callback function with an error object and a boolean valid
      */
-    function verifySigningChain(certificate: string, ca: Array<string>, callback: Function): void;
+    function verifySigningChain(certificate: string, ca: string[], callback: Function): void;
 
     /**
      * config the pem module

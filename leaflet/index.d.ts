@@ -476,7 +476,7 @@ declare namespace L {
         minZoom?: number;
         maxZoom?: number;
         maxNativeZoom?: number;
-        subdomains?: string | Array<string>;
+        subdomains?: string | string[];
         errorTileUrl?: string;
         zoomOffset?: number;
         tms?: boolean;
@@ -723,7 +723,7 @@ declare namespace L {
          * Calls methodName on every layer contained in this group, passing any additional parameters.
          * Has no effect if the layers contained do not implement methodName.
          */
-        invoke(methodName: string, ...params: Array<any>): this;
+        invoke(methodName: string, ...params: any[]): this;
 
         /**
          * Iterates over the layers of the group,
@@ -894,7 +894,7 @@ declare namespace L {
          * arrays of points, etc., 0 by default).
          * Can use a custom coordsToLatLng function.
          */
-        coordsToLatLngs(coords: Array<number>, levelsDeep?: number, coordsToLatLng?: (coords: [number, number] | [number, number, number]) => LatLng): LatLng[]; // Not entirely sure how to define arbitrarily nested arrays
+        coordsToLatLngs(coords: number[], levelsDeep?: number, coordsToLatLng?: (coords: [number, number] | [number, number, number]) => LatLng): LatLng[]; // Not entirely sure how to define arbitrarily nested arrays
 
         /**
          * Reverse of coordsToLatLng

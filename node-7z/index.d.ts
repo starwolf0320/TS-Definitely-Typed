@@ -9,12 +9,12 @@ declare module "node-7z" {
   // (also the progress event emits an array of strings, which doesn't correlate with any promise<T>)
   // so instead of patching `when` promises I'm extending the generic Promise for use internally
   interface PromiseWithProgress<T> extends Promise<T> {
-    progress(progress: (files: Array<string>) => void): this;
+    progress(progress: (files: string[]) => void): this;
   }
 
   // Options are mapped to the 7z program so there is no idea to define all possible types here
   interface CommandLineSwitches {
-    raw?: Array<string>;
+    raw?: string[];
     [key: string]: any;
   }
 
@@ -26,13 +26,13 @@ declare module "node-7z" {
   }
 
   class Zip {
-    add(archive: string, files: string | Array<string>, options: CommandLineSwitches): PromiseWithProgress<{}>;
-    delete(archive: string, files: string | Array<string>, options: CommandLineSwitches): PromiseWithProgress<{}>;
+    add(archive: string, files: string | string[], options: CommandLineSwitches): PromiseWithProgress<{}>;
+    delete(archive: string, files: string | string[], options: CommandLineSwitches): PromiseWithProgress<{}>;
     extract(archive: string, dest: string, options: CommandLineSwitches): PromiseWithProgress<{}>;
     extractFull(archive: string, dest: string, options: CommandLineSwitches): PromiseWithProgress<{}>;
     list(archive: string, options: CommandLineSwitches): PromiseWithProgress<FileSpec>;
     test(archive: string, options: CommandLineSwitches): PromiseWithProgress<{}>;
-    update(archive: string, files: string | Array<string>, options: CommandLineSwitches): PromiseWithProgress<{}>;
+    update(archive: string, files: string | string[], options: CommandLineSwitches): PromiseWithProgress<{}>;
   }
 
   export = Zip;

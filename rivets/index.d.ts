@@ -30,7 +30,7 @@ declare namespace Rivets {
         prefix: string;
 
         // Default template delimiters.
-        templateDelimiters: Array<string>;
+        templateDelimiters: string[];
 
         // Default sightglass root interface.
         rootInterface: string;
@@ -52,7 +52,7 @@ declare namespace Rivets {
             rootInterface?: string;
 
             // Template delimiters for text bindings
-            templateDelimiters?: Array<string>
+            templateDelimiters?: string[]
 
             // Augment the event handler of the on-* binder
             handler?: Function;

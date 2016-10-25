@@ -36,7 +36,7 @@ declare namespace JSData {
         destroyAll(resourceName: string, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<any>;
         find<T>(resourceName: string, id: string | number, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         findAll<T>(resourceName: string, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<Array<T & DSInstanceShorthands<T>>>;
-        loadRelations<T>(resourceName: string, idOrInstance: string | number | Object, relations: string | Array<string>, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
+        loadRelations<T>(resourceName: string, idOrInstance: string | number | Object, relations: string | string[], options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         update<T>(resourceName: string, id: string | number, attrs: Object, options?: DSSaveConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         updateAll<T>(resourceName: string, attrs: Object, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<Array<T & DSInstanceShorthands<T>>>;
         reap(resourceName: string, options?: DSConfiguration): JSDataPromise<any>;
@@ -60,12 +60,12 @@ declare namespace JSData {
         is(resourceName: string, object: Object): boolean;
         lastModified(resourceName: string, id?: string | number): number; // timestamp
         lastSaved(resourceName: string, id?: string | number): number; // timestamp
-        link<T>(resourceName: string, id: string | number, relations?: Array<string>): T & DSInstanceShorthands<T>;
-        linkAll<T>(resourceName: string, params: DSFilterArg, relations?: Array<string>): T & DSInstanceShorthands<T>;
-        linkInverse<T>(resourceName: string, id: string | number, relations?: Array<string>): T & DSInstanceShorthands<T>;
+        link<T>(resourceName: string, id: string | number, relations?: string[]): T & DSInstanceShorthands<T>;
+        linkAll<T>(resourceName: string, params: DSFilterArg, relations?: string[]): T & DSInstanceShorthands<T>;
+        linkInverse<T>(resourceName: string, id: string | number, relations?: string[]): T & DSInstanceShorthands<T>;
         previous<T>(resourceName: string, id: string | number): T & DSInstanceShorthands<T>;
         revert<T>(resourceName: string, id: string | number): T & DSInstanceShorthands<T>;
-        unlinkInverse<T>(resourceName: string, id: string | number, relations?: Array<string>): T & DSInstanceShorthands<T>;
+        unlinkInverse<T>(resourceName: string, id: string | number, relations?: string[]): T & DSInstanceShorthands<T>;
 
         defineResource<T>(resourceNameOrDefinition: string | DSResourceDefinitionConfiguration): DSResourceDefinition<T>;
         defineResource<T, TActions>(resourceNameOrDefinition: string | DSResourceDefinitionConfiguration): DSResourceDefinition<T> & TActions;
@@ -79,15 +79,15 @@ declare namespace JSData {
         bypassCache?: boolean;
         cacheResponse?: boolean;
         defaultAdapter?: string;
-        defaultFilter?: (collection: Array<any>, resourceName: string, params: DSFilterArg, options: DSConfiguration) => Array<any>;
+        defaultFilter?: (collection: any[], resourceName: string, params: DSFilterArg, options: DSConfiguration) => any[];
         eagerEject?: boolean;
         endpoint?: string;
         error?: boolean | ((message?: any, ...optionalParams: any[]) => void);
-        fallbackAdapters?: Array<string>;
-        findAllFallbackAdapters?: Array<string>;
+        fallbackAdapters?: string[];
+        findAllFallbackAdapters?: string[];
         findAllStrategy?: string;
         findBelongsTo?: boolean;
-        findFallbackAdapters?: Array<string>;
+        findFallbackAdapters?: string[];
         findHasOne?: boolean;
         findHasMany?: boolean;
         findInverseLinks?: boolean;
@@ -138,7 +138,7 @@ declare namespace JSData {
         destroyAll(params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<void>;
         find(id: string | number, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         findAll(params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<Array<T & DSInstanceShorthands<T>>>;
-        loadRelations(idOrInstance: string | number | Object, relations: string | Array<string>, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
+        loadRelations(idOrInstance: string | number | Object, relations: string | string[], options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         update(id: string | number, attrs: Object, options?: DSSaveConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         updateAll(attrs: Object, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<Array<T & DSInstanceShorthands<T>>>;
         reap(options?: DSConfiguration): JSDataPromise<void>;
@@ -162,11 +162,11 @@ declare namespace JSData {
         is(object: Object): boolean;
         lastModified(id?: string | number): number; // timestamp
         lastSaved(id?: string | number): number; // timestamp
-        link(id: string | number, relations?: Array<string>): T & DSInstanceShorthands<T>;
-        linkAll(params: DSFilterArg, relations?: Array<string>): T & DSInstanceShorthands<T>;
-        linkInverse(id: string | number, relations?: Array<string>): T & DSInstanceShorthands<T>;
+        link(id: string | number, relations?: string[]): T & DSInstanceShorthands<T>;
+        linkAll(params: DSFilterArg, relations?: string[]): T & DSInstanceShorthands<T>;
+        linkInverse(id: string | number, relations?: string[]): T & DSInstanceShorthands<T>;
         previous(id: string | number): T & DSInstanceShorthands<T>;
-        unlinkInverse(id: string | number, relations?: Array<string>): T & DSInstanceShorthands<T>;
+        unlinkInverse(id: string | number, relations?: string[]): T & DSInstanceShorthands<T>;
     }
 
     export interface DSInstanceShorthands<T> {
@@ -176,16 +176,16 @@ declare namespace JSData {
         DSUpdate(options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         DSDestroy(options?: DSAdapterOperationConfiguration): JSDataPromise<void>;
         DSCreate(options?: DSConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        DSLoadRelations(relations: string | Array<string>, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
+        DSLoadRelations(relations: string | string[], options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         DSChangeHistory(): Array<Object>;
         DSChanges(): Object;
         DSHasChanges(): boolean;
         DSLastModified(): number; // timestamp
         DSLastSaved(): number; // timestamp
-        DSLink(relations?: Array<string>): T & DSInstanceShorthands<T>;
-        DSLinkInverse(relations?: Array<string>): T & DSInstanceShorthands<T>;
+        DSLink(relations?: string[]): T & DSInstanceShorthands<T>;
+        DSLinkInverse(relations?: string[]): T & DSInstanceShorthands<T>;
         DSPrevious(): T & DSInstanceShorthands<T>;
-        DSUnlinkInverse(relations?: Array<string>): T & DSInstanceShorthands<T>;
+        DSUnlinkInverse(relations?: string[]): T & DSInstanceShorthands<T>;
     }
 
     interface DSFilterParams {
@@ -196,8 +196,8 @@ declare namespace JSData {
         skip?: number;
         offset?: number;
 
-        orderBy?: string | Array<string> | Array<Array<string>>;
-        sort?: string | Array<string> | Array<Array<string>>;
+        orderBy?: string | string[] | Array<string[]>;
+        sort?: string | string[] | Array<string[]>;
     }
 
     type DSFilterArg = DSFilterParams | Object;

@@ -1349,7 +1349,7 @@ declare namespace BABYLON {
         color3InterpolateFunction(startValue: Color3, endValue: Color3, gradient: number): Color3;
         matrixInterpolateFunction(startValue: Matrix, endValue: Matrix, gradient: number): Matrix;
         clone(): Animation;
-        setKeys(values: Array<any>): void;
+        setKeys(values: any[]): void;
         private _getKeyValue(value);
         private _interpolate(currentFrame, repeatCount, loopMode, offsetValue?, highLimitValue?);
         setValue(currentValue: any): void;
@@ -2159,10 +2159,10 @@ declare namespace BABYLON {
         name: string;
         uniqueId: number;
         geometryId: string;
-        sphereCenter: Array<number>;
+        sphereCenter: number[];
         sphereRadius: number;
-        boxMinimum: Array<number>;
-        boxMaximum: Array<number>;
+        boxMinimum: number[];
+        boxMaximum: number[];
         worldMatrixFromCache: any;
         subMeshes: Array<SerializedSubMesh>;
         checkCollisions: boolean;
@@ -2174,10 +2174,10 @@ declare namespace BABYLON {
         indexStart: number;
         indexCount: number;
         hasMaterial: boolean;
-        sphereCenter: Array<number>;
+        sphereCenter: number[];
         sphereRadius: number;
-        boxMinimum: Array<number>;
-        boxMaximum: Array<number>;
+        boxMinimum: number[];
+        boxMaximum: number[];
     }
     interface SerializedGeometry {
         id: string;
@@ -2190,9 +2190,9 @@ declare namespace BABYLON {
         payload: InitPayload | CollidePayload | UpdatePayload;
     }
     interface SerializedColliderToWorker {
-        position: Array<number>;
-        velocity: Array<number>;
-        radius: Array<number>;
+        position: number[];
+        velocity: number[];
+        radius: number[];
     }
     enum WorkerTaskType {
         INIT = 0,
@@ -2205,7 +2205,7 @@ declare namespace BABYLON {
         payload?: any;
     }
     interface CollisionReplyPayload {
-        newPosition: Array<number>;
+        newPosition: number[];
         collisionId: number;
         collidedMeshUniqueId: number;
     }
@@ -2224,8 +2224,8 @@ declare namespace BABYLON {
         updatedGeometries: {
             [s: string]: SerializedGeometry;
         };
-        removedMeshes: Array<number>;
-        removedGeometries: Array<string>;
+        removedMeshes: number[];
+        removedGeometries: string[];
     }
     enum WorkerReplyType {
         SUCCESS = 0,
@@ -4673,7 +4673,7 @@ declare namespace BABYLON {
     class DecimationTriangle {
         vertices: Array<DecimationVertex>;
         normal: Vector3;
-        error: Array<number>;
+        error: number[];
         deleted: boolean;
         isDirty: boolean;
         borderFactor: number;
@@ -4688,16 +4688,16 @@ declare namespace BABYLON {
         isBorder: boolean;
         triangleStart: number;
         triangleCount: number;
-        originalOffsets: Array<number>;
+        originalOffsets: number[];
         constructor(position: Vector3, id: any);
         updatePosition(newPosition: Vector3): void;
     }
     class QuadraticMatrix {
-        data: Array<number>;
-        constructor(data?: Array<number>);
+        data: number[];
+        constructor(data?: number[]);
         det(a11: any, a12: any, a13: any, a21: any, a22: any, a23: any, a31: any, a32: any, a33: any): number;
         addInPlace(matrix: QuadraticMatrix): void;
-        addArrayInPlace(data: Array<number>): void;
+        addArrayInPlace(data: number[]): void;
         add(matrix: QuadraticMatrix): QuadraticMatrix;
         static FromData(a: number, b: number, c: number, d: number): QuadraticMatrix;
         static DataFromNumbers(a: number, b: number, c: number, d: number): number[];
@@ -6375,7 +6375,7 @@ declare namespace BABYLON {
 
 declare namespace BABYLON {
     class SmartArray<T> {
-        data: Array<T>;
+        data: T[];
         length: number;
         private _id;
         private _duplicateId;
@@ -6501,7 +6501,7 @@ declare namespace BABYLON {
             minimum: Vector3;
             maximum: Vector3;
         };
-        static MakeArray(obj: any, allowsNullUndefined?: boolean): Array<any>;
+        static MakeArray(obj: any, allowsNullUndefined?: boolean): any[];
         static GetPointerPrefix(): string;
         static QueueNewFrame(func: any): void;
         static RequestFullscreen(element: any): void;

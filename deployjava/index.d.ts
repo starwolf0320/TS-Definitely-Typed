@@ -54,9 +54,9 @@ declare namespace DeployJava {
 
         /**
          * @summary JRE versions installed.
-         * @member  {Array<string>}
+         * @member  {string[]}
          */
-        preInstallJREList: Array<string>;
+        preInstallJREList: string[];
 
         /**
          * @summary URL of current document.
@@ -81,12 +81,12 @@ declare namespace DeployJava {
         /**
          * @summary Compares a version with a pattern.
          * @param   {string}        version        Version to compare.
-         * @param   {Array<string>} patternArray   Patterns to compare.
+         * @param   {string[]} patternArray   Patterns to compare.
          * @param   {boolean}       familyMatch    Family match.
          * @param   {boolean}       minMatch       Minimum version match.
          * @return  {boolean}       True if a or many patterns are identical to version, otherwise, False.
          */
-        compareVersionToPattern(version: string, patternArray: Array<string>, familyMatch: boolean, minMatch: boolean): boolean;
+        compareVersionToPattern(version: string, patternArray: string[], familyMatch: boolean, minMatch: boolean): boolean;
 
         /**
          * @summary Enable alerts.
@@ -113,9 +113,9 @@ declare namespace DeployJava {
 
         /**
          * @summary Get JRE versions (in format : "#.#[.#[_#]]") installed.
-         * @return {Array<string>} JRE Version list.
+         * @return {string[]} JRE Version list.
          */
-        getJREs(): Array<string>;
+        getJREs(): string[];
 
         /**
          * Gets a Java plugin.

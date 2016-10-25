@@ -22,7 +22,7 @@ declare class NeDBDataStore {
     /**
      * Get an array of all the data in the database
      */
-    getAllData(): Array<any>;
+    getAllData(): any[];
 
 
     /**

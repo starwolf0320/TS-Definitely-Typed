@@ -6,7 +6,7 @@
 
 declare namespace SystemJSLoader {
 
-    type ModulesList = { [bundleName: string]: Array<string> };
+    type ModulesList = { [bundleName: string]: string[] };
 
     type PackageList<T> = { [packageName: string]: T };
 
@@ -49,7 +49,7 @@ declare namespace SystemJSLoader {
          * Dependencies to load before this module. Goes through regular paths and map normalization.
          * Only supported for the cjs, amd and global formats.
          */
-        deps?: Array<string>;
+        deps?: string[];
 
         /**
          * A map of global names to module names that should be defined only for the execution of this module.
@@ -231,7 +231,7 @@ declare namespace SystemJSLoader {
     interface SystemJSSystemFields {
         env: string;
         loaderErrorStack: boolean;
-        packageConfigPaths: Array<string>;
+        packageConfigPaths: string[];
         pluginFirst: boolean;
         version: string;
         warnings: boolean;
@@ -292,15 +292,15 @@ declare namespace SystemJSLoader {
         /**
          * Declaration function for defining modules of the System.register polyfill module format.
          */
-        register(name: string, deps: Array<string>, declare: Function): void;
-        register(deps: Array<string>, declare: Function): void;
+        register(name: string, deps: string[], declare: Function): void;
+        register(deps: string[], declare: Function): void;
 
         /**
          * Companion module format to System.register for non-ES6 modules.
          * Provides a <script>-injection-compatible module format that any CommonJS or Global module can be converted into for CSP compatibility.
          */
-        registerDynamic(name: string, deps: Array<string>, executingRequire: boolean, declare: Function): void;
-        registerDynamic(deps: Array<string>, executingRequire: boolean, declare: Function): void;
+        registerDynamic(name: string, deps: string[], executingRequire: boolean, declare: Function): void;
+        registerDynamic(deps: string[], executingRequire: boolean, declare: Function): void;
 
         /**
          * Sets a module into the registry directly and synchronously.

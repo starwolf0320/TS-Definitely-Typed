@@ -42,7 +42,7 @@ export function interpolate(a: number | { valueOf(): number }, b: number): ((t: 
 export function interpolate(a: any, b: ColorCommonInstance): ((t: number) => string);
 export function interpolate(a: Date, b: Date): ((t: number) => Date);
 export function interpolate(a: string | { toString(): string }, b: string): ((t: number) => string);
-export function interpolate<U extends Array<any>>(a: Array<any>, b: U): ((t: number) => U);
+export function interpolate<U extends any[]>(a: any[], b: U): ((t: number) => U);
 export function interpolate(a: number | { valueOf(): number }, b: { valueOf(): number }): ((t: number) => number);
 export function interpolate<U extends Object>(a: any, b: U): ((t: number) => U);
 export function interpolate(a: any, b: { [key: string]: any }): ((t: number) => { [key: string]: any });
@@ -56,7 +56,7 @@ export function interpolateString(a: string | { toString(): string }, b: string 
 
 export function interpolateDate(a: Date, b: Date): ((t: number) => Date);
 
-export function interpolateArray<A extends Array<any>>(a: Array<any>, b: A): ((t: number) => A);
+export function interpolateArray<A extends any[]>(a: any[], b: A): ((t: number) => A);
 
 export function interpolateObject<U extends Object>(a: any, b: U): ((t: number) => U);
 export function interpolateObject(a: { [key: string]: any }, b: { [key: string]: any }): ((t: number) => { [key: string]: any });
@@ -91,5 +91,5 @@ export var interpolateCubehelixLong: ColorGammaInterpolationFactory;
 
 // Spline related
 
-export function interpolateBasis(splineNodes: Array<number>): ((t: number) => number);
-export function interpolateBasisClosed(splineNodes: Array<number>): ((t: number) => number);
+export function interpolateBasis(splineNodes: number[]): ((t: number) => number);
+export function interpolateBasisClosed(splineNodes: number[]): ((t: number) => number);

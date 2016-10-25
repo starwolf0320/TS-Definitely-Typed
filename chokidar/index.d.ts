@@ -8,9 +8,9 @@
 declare module "fs" {
     interface FSWatcher {
         add(fileDirOrGlob: string): void;
-        add(filesDirsOrGlobs: Array<string>): void;
+        add(filesDirsOrGlobs: string[]): void;
         unwatch(fileDirOrGlob: string): void;
-        unwatch(filesDirsOrGlobs: Array<string>): void;
+        unwatch(filesDirsOrGlobs: string[]): void;
         getWatched(): any;
     }
 }
@@ -36,5 +36,5 @@ declare module "chokidar" {
     import fs = require("fs");
 
     function watch(fileDirOrGlob: string, options?: WatchOptions): fs.FSWatcher;
-    function watch(filesDirsOrGlobs: Array<string>, options?: WatchOptions): fs.FSWatcher;
+    function watch(filesDirsOrGlobs: string[], options?: WatchOptions): fs.FSWatcher;
 }

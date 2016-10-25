@@ -715,7 +715,7 @@ declare class Table<T>  {
      * @returnType {array}
      * @return {array}
      */
-    getRowAsArray(jsObject: any): Array<any>;
+    getRowAsArray(jsObject: any): any[];
 
     /**
      * Returns the primary key's value from an object.

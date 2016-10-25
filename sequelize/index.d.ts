@@ -1796,7 +1796,7 @@ declare namespace sequelize {
          * Accepts subtype any of the DataTypes
          * Array of required attributes that are available on the model
          */
-        new (subtype: DataTypeAbstract, requireAttributes?: Array<string>): DataTypeVirtual;
+        new (subtype: DataTypeAbstract, requireAttributes?: string[]): DataTypeVirtual;
     }
 
     interface DataTypeEnum extends DataTypeAbstract {

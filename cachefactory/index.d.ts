@@ -211,7 +211,7 @@ declare namespace CacheFactory {
 		 * Return the keys of all items in the cache as an array.
 		 * @returns []
 		 */
-		keys(): Array<string>;
+		keys(): string[];
 
 		/**
 		 * Enable the cache.
@@ -281,9 +281,9 @@ declare namespace CacheFactory {
 
 		/**
 		 * Return the values of all items in the cache as an array.
-		 * @returns Array<any>
+		 * @returns any[]
 		 */
-		values(): Array<any>;
+		values(): any[];
 	}
 
 	export interface ICacheFactory {
@@ -331,9 +331,9 @@ declare namespace CacheFactory {
 
 		/**
 		 * Return the ids of all registered caches as an array.
-		 * @returns Array<string>
+		 * @returns string[]
 		 */
-		keys(): Array<string>;
+		keys(): string[];
 
 		/**
 		 * Destroy the cache with the given cacheId.

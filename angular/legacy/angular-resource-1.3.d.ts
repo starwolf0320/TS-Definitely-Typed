@@ -179,6 +179,6 @@ declare namespace angular {
 
 interface Array<T> {
     /** the promise of the original server interaction that created this collection. **/
-    $promise: angular.IPromise<Array<T>>;
+    $promise: angular.IPromise<T[]>;
     $resolved: boolean;
 }

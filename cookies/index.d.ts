@@ -91,7 +91,7 @@ declare namespace cookies {
 
 interface CookiesStatic {
     new (request: http.IncomingMessage, response: http.ServerResponse): cookies.ICookies;
-    new (request: http.IncomingMessage, response: http.ServerResponse, keys?: Array<string>): cookies.ICookies;
+    new (request: http.IncomingMessage, response: http.ServerResponse, keys?: string[]): cookies.ICookies;
 }
 
 declare const cookies: CookiesStatic;

@@ -30,9 +30,9 @@ declare namespace NodePersist {
     export function removeItemSync(key: string): void;
     export function clear(callback?: (err: any) => any): Q.Promise<any>;
     export function clearSync(): void;
-    export function values(): Array<any>;
-    export function valuesWithKeyMatch(match: string): Array<any>;
-    export function keys(): Array<string>;
+    export function values(): any[];
+    export function valuesWithKeyMatch(match: string): any[];
+    export function keys(): string[];
     export function length(): number;
     export function forEach(callback: (key: string, value: any) => void): void;
 

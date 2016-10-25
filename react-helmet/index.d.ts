@@ -16,9 +16,9 @@ declare namespace ReactHelmet {
         base?: any;
         defaultTitle?: string;
         htmlAttributes?: any;
-        link?: Array<any>;
-        meta?: Array<any>;
-        script?: Array<any>;
+        link?: any[];
+        meta?: any[];
+        script?: any[];
         title?: string;
         titleTemplate?: string;
         onChangeClientState?: (newState: any) => void;

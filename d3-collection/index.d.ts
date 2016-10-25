@@ -14,11 +14,11 @@ type Stringifiable = {
 // Objects
 // ---------------------------------------------------------------------
 
-export function keys(object: { [key: string]: any }): Array<string>;
-export function keys(object: Object): Array<string>;
+export function keys(object: { [key: string]: any }): string[];
+export function keys(object: Object): string[];
 
-export function values<T>(object: { [key: string]: T }): Array<T>;
-export function values(object: Object): Array<any>;
+export function values<T>(object: { [key: string]: T }): T[];
+export function values(object: Object): any[];
 
 export function entries<T>(object: { [key: string]: T }): Array<{ key: string, value: T }>;
 export function entries(object: Object): Array<{ key: string, value: any }>;
@@ -34,8 +34,8 @@ export interface Map<T> {
     set(key: string, value: T): this;
     remove(key: string): boolean;
     clear(): void;
-    keys(): Array<string>;
-    values(): Array<T>;
+    keys(): string[];
+    values(): T[];
     entries(): Array<{ key: string, value: T }>;
     each(func: (value: T, key: string, map: Map<T>) => void): void;
     empty(): boolean;
@@ -46,7 +46,7 @@ export function map<T>(): Map<T>;
 export function map<T>(d3Map: Map<T>): Map<T>;
 export function map<T>(object: { [key: string]: T }): Map<T>;
 export function map<T>(object: { [key: number]: T }): Map<T>;
-export function map<T>(array: Array<T>, key?: (value: T, i?: number, array?: Array<T>) => string): Map<T>;
+export function map<T>(array: T[], key?: (value: T, i?: number, array?: T[]) => string): Map<T>;
 export function map(object: Object): Map<any>;
 
 // ---------------------------------------------------------------------
@@ -59,7 +59,7 @@ export interface Set {
     add(value: string | Stringifiable): this;
     remove(value: string | Stringifiable): boolean;
     clear(): void;
-    values(): Array<string>;
+    values(): string[];
     /**
      * The first and second parameter of the function are both passed
      * the 'value' of the set entry for consistency with map.each(...)
@@ -74,7 +74,7 @@ export interface Set {
 export function set(): Set;
 export function set(d3Set: Set): Set;
 export function set(array: Array<string | Stringifiable>): Set;
-export function set<T>(array: Array<T>, key: (value: T, index?: number, array?: Array<T>) => string): Set;
+export function set<T>(array: T[], key: (value: T, index?: number, array?: T[]) => string): Set;
 
 // ---------------------------------------------------------------------
 // nest / Nest

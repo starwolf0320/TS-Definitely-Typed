@@ -329,7 +329,7 @@ export var symbolWye: SymbolType;
 // SeriesPoint is a [number, number] two-element Array with added
 // data and index properties related to the data element which formed the basis for the
 // SeriesPoint
-export interface SeriesPoint<Datum> extends Array<number> {
+export interface SeriesPoint<Datum> extends number[] {
     0: number;
     1: number;
     index: number;
@@ -351,14 +351,14 @@ export interface Stack<This, Datum, Key> {
     value(value: number): this;
     value(value: (d: Datum, key: Key, j: number, data: Array<Datum>) => number): this;
 
-    order(): (series: Series<Datum, Key>) => Array<number>;
+    order(): (series: Series<Datum, Key>) => number[];
     order(order: null): this;
-    order(order: Array<number>): this;
-    order(order: (series: Series<Datum, Key>) => Array<number>): this;
+    order(order: number[]): this;
+    order(order: (series: Series<Datum, Key>) => number[]): this;
 
-    offset(): (series: Series<Datum, Key>, order: Array<number>) => void;
+    offset(): (series: Series<Datum, Key>, order: number[]) => void;
     offset(offset: null): this;
-    offset(offset: (series: Series<Datum, Key>, order: Array<number>) => void): this;
+    offset(offset: (series: Series<Datum, Key>, order: number[]) => void): this;
 
 }
 
@@ -368,13 +368,13 @@ export function stack<Datum, Key>(): Stack<any, Datum, Key>;
 export function stack<This, Datum, Key>(): Stack<This, Datum, Key>;
 
 
-export function stackOrderAscending(series: Series<any, any>): Array<number>;
-export function stackOrderDescending(series: Series<any, any>): Array<number>;
-export function stackOrderInsideOut(series: Series<any, any>): Array<number>;
-export function stackOrderNone(series: Series<any, any>): Array<number>;
-export function stackOrderReverse(series: Series<any, any>): Array<number>;
+export function stackOrderAscending(series: Series<any, any>): number[];
+export function stackOrderDescending(series: Series<any, any>): number[];
+export function stackOrderInsideOut(series: Series<any, any>): number[];
+export function stackOrderNone(series: Series<any, any>): number[];
+export function stackOrderReverse(series: Series<any, any>): number[];
 
-export function stackOffsetExpand(series: Series<any, any>, order: Array<number>): void;
-export function stackOffsetNone(series: Series<any, any>, order: Array<number>): void;
-export function stackOffsetSilhouette(series: Series<any, any>, order: Array<number>): void;
-export function stackOffsetWiggle(series: Series<any, any>, order: Array<number>): void;
+export function stackOffsetExpand(series: Series<any, any>, order: number[]): void;
+export function stackOffsetNone(series: Series<any, any>, order: number[]): void;
+export function stackOffsetSilhouette(series: Series<any, any>, order: number[]): void;
+export function stackOffsetWiggle(series: Series<any, any>, order: number[]): void;

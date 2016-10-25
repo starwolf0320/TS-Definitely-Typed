@@ -17,7 +17,7 @@ declare namespace PapaParse {
          */
         unparse(data: Array<Object>, config?: UnparseConfig): string;
 
-        unparse(data: Array<Array<any>>, config?: UnparseConfig): string;
+        unparse(data: Array<any[]>, config?: UnparseConfig): string;
 
         unparse(data: UnparseObject, config?: UnparseConfig): string;
 
@@ -25,7 +25,7 @@ declare namespace PapaParse {
          * Read-Only Properties
          */
         // An array of characters that are not allowed as delimiters.
-        BAD_DELIMETERS: Array<string>;
+        BAD_DELIMETERS: string[];
 
         // The true delimiter. Invisible. ASCII code 30. Should be doing the job we strangely rely upon commas and tabs for.
         RECORD_SEP: string;
@@ -88,8 +88,8 @@ declare namespace PapaParse {
     }
 
     interface UnparseObject {
-        fields: Array<any>;
-        data: string | Array<any>;
+        fields: any[];
+        data: string | any[];
     }
 
     interface ParseError {
@@ -103,7 +103,7 @@ declare namespace PapaParse {
         delimiter: string;     // Delimiter used
         linebreak: string;     // Line break sequence used
         aborted: boolean;      // Whether process was aborted
-        fields: Array<string>; // Array of field names
+        fields: string[]; // Array of field names
         truncated: boolean;    // Whether preview consumed all input
     }
 
@@ -115,7 +115,7 @@ declare namespace PapaParse {
      * meta: contains extra information about the parse, such as delimiter used, the newline sequence, whether the process was aborted, etc. Properties in this object are not guaranteed to exist in all situations
      */
     interface ParseResult {
-        data: Array<any>;
+        data: any[];
         errors: Array<ParseError>;
         meta: ParseMeta;
     }

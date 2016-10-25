@@ -55,11 +55,11 @@ declare namespace AltJS {
   export interface SourceModel<S> {
     local(state: any, ...args: any[]): any;
     remote(state: any, ...args: any[]): Promise<S>;
-    shouldFetch?(fetchFn: (...args: Array<any>) => boolean): void;
+    shouldFetch?(fetchFn: (...args: any[]) => boolean): void;
     loading?: (args: any) => void;
     success?: (state: S) => void;
     error?: (args: any) => void;
-    interceptResponse?(response: any, action: Action<any>, ...args: Array<any>): any;
+    interceptResponse?(response: any, action: Action<any>, ...args: any[]): any;
   }
 
   export interface AltStore<S> {
@@ -85,8 +85,8 @@ declare namespace AltJS {
   }
 
   export interface ActionsClass {
-    generateActions?( ...action: Array<string>): void;
-    dispatch( ...payload: Array<any>): void;
+    generateActions?( ...action: string[]): void;
+    dispatch( ...payload: any[]): void;
     actions?: Actions;
   }
 
@@ -97,14 +97,14 @@ declare namespace AltJS {
     serialize?: (serializeFn: (data: Object) => string) => void;
     deserialize?: (deserializeFn: (serialData: string) => Object) => void;
     storeTransforms?: Array<StateTransform>;
-    batchingFunction?: (callback: ( ...data: Array<any>) => any) => void;
+    batchingFunction?: (callback: ( ...data: any[]) => any) => void;
   }
 
   class Alt {
     constructor(config?: AltConfig);
     actions: Actions;
     bootstrap(jsonData: string): void;
-    takeSnapshot( ...storeNames: Array<string>): string;
+    takeSnapshot( ...storeNames: string[]): string;
     flush(): Object;
     recycle( ...stores: Array<AltJS.AltStore<any>>): void;
     rollback(): void;
@@ -113,8 +113,8 @@ declare namespace AltJS {
     //Actions methods
     addActions(actionsName: string, ActionsClass: ActionsClassConstructor): void;
     createActions<T>(ActionsClass: ActionsClassConstructor, exportObj?: Object): T;
-    createActions<T>(ActionsClass: ActionsClassConstructor, exportObj?: Object, ...constructorArgs: Array<any>): T;
-    generateActions<T>( ...actions: Array<string>): T;
+    createActions<T>(ActionsClass: ActionsClassConstructor, exportObj?: Object, ...constructorArgs: any[]): T;
+    generateActions<T>( ...actions: string[]): T;
     getActions(actionsName: string): AltJS.Actions;
 
     //Stores methods
@@ -129,8 +129,8 @@ declare namespace AltJS {
 
   type ActionsClassConstructor = new (alt: Alt) => AltJS.ActionsClass;
 
-  type ActionHandler = ( ...data: Array<any>) => any;
-  type ExportConfig = {[key: string]: (...args: Array<any>) => any};
+  type ActionHandler = ( ...data: any[]) => any;
+  type ExportConfig = {[key: string]: (...args: any[]) => any};
 }
 
 declare module "alt/utils/chromeDebug" {
@@ -147,7 +147,7 @@ declare module "alt/AltContainer" {
     stores?: Array<AltJS.AltStore<any>>;
     inject?: {[key: string]: any};
     actions?: {[key: string]: Object};
-    render?: (...props: Array<any>) => React.ReactElement<any>;
+    render?: (...props: any[]) => React.ReactElement<any>;
     flux?: AltJS.Alt;
     transform?: (store: AltJS.AltStore<any>, actions: any) => any;
     shouldComponentUpdate?: (props: any) => boolean;

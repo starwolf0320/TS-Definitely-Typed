@@ -67,7 +67,7 @@ interface StateMachineCan {
 }
 
 interface StateMachineTransitions {
-    (): Array<string>;
+    (): string[];
 }
 
 interface StateMachine {

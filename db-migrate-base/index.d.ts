@@ -70,7 +70,7 @@ export class Base {
   createDatabase(...options: any[]): void;
   switchDatabase(...options: any[]): void;
   dropDatabase(...options: any[]): void;
-  recurseCallbackArray(foreignKeys: Array<string>, callback: CallbackFunction): void;
+  recurseCallbackArray(foreignKeys: string[], callback: CallbackFunction): void;
   bindForeignKey(tableName: string, columnName: string, fkOptions: ForeignKeySpec): (callback: CallbackFunction) => void;
   createColumnDef(name: string, spec: ColumnSpec, options?: any): ColumnDef;  // TODO Figure out a type for `options`!
   //createColumnConstraint(spec: ColumnSpec, options?: any, ...implementationDefinedOptions: any[]): string;
@@ -83,9 +83,9 @@ export class Base {
   removeColumn(tableName: string, columnName: string, callback: CallbackFunction): void;
   renameColumn(tableName: string, oldColumnName: string, newColumnName: string, callback: CallbackFunction): void;
   changeColumn(tableName: string, columnName: string, columnSpec: ColumnSpec, callback: CallbackFunction): void;
-  quoteDDLArr(arr: Array<string>): Array<string>;
-  quoteArr(arr: Array<string>): Array<string>;
-  addIndex(tableName: string, indexName: string, columns: string | Array<string>, uniqueOrCb?: boolean | CallbackFunction, callback?: CallbackFunction): void;
+  quoteDDLArr(arr: string[]): string[];
+  quoteArr(arr: string[]): string[];
+  addIndex(tableName: string, indexName: string, columns: string | string[], uniqueOrCb?: boolean | CallbackFunction, callback?: CallbackFunction): void;
   insert(tableName: string, columnNameOrValueArray: any, valueArrayOrCb?: any | CallbackFunction, callback?: CallbackFunction): void;
   update(tableName: string, columnNameOrValueArray: any, valueArrayOrIds?: any, idsOrCb?: any | CallbackFunction, callback?: CallbackFunction): void;
   lookup(tableName: string, column: string, id?: any, callback?: CallbackFunction): void;
@@ -97,14 +97,14 @@ export class Base {
   addSeedRecord(name: string, callback: CallbackFunction): void;
   startMigration(callback: CallbackFunction): void;
   endMigration(callback: CallbackFunction): void;
-  runSql(sql?: string, paramsOrCb?: Array<any> | CallbackFunction, callback?: CallbackFunction): void;
+  runSql(sql?: string, paramsOrCb?: any[] | CallbackFunction, callback?: CallbackFunction): void;
   allLoadedMigrations(callback: CallbackFunction): void;
   allLoadedSeeds(callback: CallbackFunction): void;
   deleteMigration(migrationName: string, callback: CallbackFunction): void;
   remove(table: string, ids: any, callback: CallbackFunction): void;  // TODO Make ids match the type of ids in buildWhereClause(ids);
   buildWhereClause(ids: any): string;
   deleteSeed(seedName: string, callback: CallbackFunction): void;
-  all(sql: string, paramsOrCb?: Array<any> | CallbackFunction, callback?: CallbackFunction): void;
+  all(sql: string, paramsOrCb?: any[] | CallbackFunction, callback?: CallbackFunction): void;
   escape(str: string): string;
   escapeString(str: string): string;
   escapeDDL(str: string): string;
@@ -116,7 +116,7 @@ export class Base {
   createDatabaseAsync(...options: any[]): Promise<any>;
   switchDatabaseAsync(...options: any[]): Promise<any>;
   dropDatabaseAsync(...options: any[]): Promise<any>;
-  recurseCallbackArrayAsync(foreignKeys: Array<string>): Promise<any>;
+  recurseCallbackArrayAsync(foreignKeys: string[]): Promise<any>;
   createMigrationsTableAsync(): Promise<any>;
   createSeedsTableAsync(): Promise<any>;
   createTableAsync(tableName: string, options: any | CreateTableOptions): Promise<any>;
@@ -126,7 +126,7 @@ export class Base {
   removeColumnAsync(tableName: string, columnName: string): Promise<any>;
   renameColumnAsync(tableName: string, oldColumnName: string, newColumnName: string): Promise<any>;
   changeColumnAsync(tableName: string, columnName: string, columnSpec: ColumnSpec): Promise<any>;
-  addIndexAsync(tableName: string, indexName: string, columns: string | Array<string>, unique?: boolean): Promise<any>;
+  addIndexAsync(tableName: string, indexName: string, columns: string | string[], unique?: boolean): Promise<any>;
   insertAsync(tableName: string, columnNameOrValueArray: any, valueArrayOrCb?: any | CallbackFunction, callback?: CallbackFunction): Promise<any>;
   updateAsync(tableName: string, columnNameOrValueArray: any, valueArrayOrIds?: any, idsOrCb?: any | CallbackFunction, callback?: CallbackFunction): Promise<any>;
   lookupAsync(tableName: string, column: string, id?: any, callback?: CallbackFunction): Promise<any>;
@@ -137,11 +137,11 @@ export class Base {
   addSeedRecordAsync(name: string): Promise<any>;
   startMigrationAsync(): Promise<any>;
   endMigrationAsync(callback: CallbackFunction): Promise<any>;
-  runSqlAsync(sql?: string, params?: Array<any>): Promise<any>;
+  runSqlAsync(sql?: string, params?: any[]): Promise<any>;
   allLoadedMigrationsAsync(): Promise<any>;
   allLoadedSeedsAsync(): Promise<any>;
   deleteMigrationAsync(migrationName: string): Promise<any>;
   removeAsync(table: string, ids: any): Promise<any>;
   deleteSeedAsync(seedName: string): Promise<any>;
-  allAsync(sql: string, params?: Array<any>): Promise<any>;
+  allAsync(sql: string, params?: any[]): Promise<any>;
 }

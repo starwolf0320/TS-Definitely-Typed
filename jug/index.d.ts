@@ -94,7 +94,7 @@ interface Vertex {
      * @param from
      * @param to
      */
-    proximity(from: string, to: string): Array<number>;
+    proximity(from: string, to: string): number[];
 
     /**
      * Find a node.

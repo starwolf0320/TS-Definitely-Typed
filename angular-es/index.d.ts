@@ -19,9 +19,9 @@ declare module 'angular-es' {
     interface ngESDecorator extends ClassDecorator, MethodDecorator {
         (target: Object|Function,
          ngName?: string,
-         ngArguments?: Array<any>,
+         ngArguments?: any[],
          ngType?: string,
-         injectAsProperty?: Array<string>): void;
+         injectAsProperty?: string[]): void;
     }
 
     /**
@@ -109,20 +109,20 @@ declare module 'angular-es' {
     /**
      * Add $inject property to target
      *
-     * @param {Array<string>} dependencies - dependencies to inject
+     * @param {string[]} dependencies - dependencies to inject
      *
      * @returns {ngESDecorator} - decorated class
      */
-    function Inject(...dependencies: Array<string>): ngESDecorator;
+    function Inject(...dependencies: string[]): ngESDecorator;
 
     /**
      * Inject dependencies as properties to target
      *
-     * @param {Array<string>} dependencies - dependencies to inject
+     * @param {string[]} dependencies - dependencies to inject
      *
      * @returns {ngESDecorator} - decorated class
      */
-    function InjectAsProperty(...dependencies: Array<string>): ngESDecorator;
+    function InjectAsProperty(...dependencies: string[]): ngESDecorator;
 
     /**
      * Attach target to the specified module

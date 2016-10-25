@@ -6,11 +6,11 @@
 
 declare namespace mod {
     export interface Lookup {
-        range: Array<number>; // range start, end
+        range: number[]; // range start, end
         country: string;
         region: string;
         city: string;
-        ll: Array<number>; // latitude, longitude
+        ll: number[]; // latitude, longitude
     }
 
     export function lookup(ip: string): Lookup;

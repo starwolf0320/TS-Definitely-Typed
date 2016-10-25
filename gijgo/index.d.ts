@@ -8,7 +8,7 @@ declare namespace Gijgo {
     //Grid
     interface GridPager {
         limit?: number;
-        sizes?: Array<number>;
+        sizes?: number[];
         leftControls?: any;
         rightControls?: any;
     }
@@ -105,7 +105,7 @@ declare namespace Gijgo {
         getById(id: string): Entity;
         getChanges(): Array<Entity>;
         getSelected(): string;
-        getSelections(): Array<string>;
+        getSelections(): string[];
         hideColumn(field: string): Grid<Entity, Params>;
         makeResponsive(): void;
         reload(params?: Params): Grid<Entity, Params>;

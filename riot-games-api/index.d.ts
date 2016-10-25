@@ -281,9 +281,9 @@ declare namespace RiotGamesAPI {
 			version: string;
 		}
 		interface ChampionDto {
-			allytips: Array<string>;
+			allytips: string[];
 			blurb: string;
-			enemytips: Array<string>;
+			enemytips: string[];
 			id: number;
 			image: ImageDto;
 			info: InfoDto;
@@ -296,25 +296,25 @@ declare namespace RiotGamesAPI {
 			skins: Array<SkinDto>;
 			spells: Array<ChampionSpellDto>;
 			stats: StatsDto;
-			tags: Array<string>;
+			tags: string[];
 			title: string;
 		}
 		interface ChampionSpellDto {
 			altimages: Array<ImageDto>;
-			cooldown: Array<number>;
+			cooldown: number[];
 			cooldownBurn: string;
-			cost: Array<number>;
+			cost: number[];
 			costBurn: string;
 			costType: string;
 			description: string;
-			effect: Array<Array<number>>;
-			effectBurn: Array<string>;
+			effect: Array<number[]>;
+			effectBurn: string[];
 			image: ImageDto;
 			key: string;
 			leveltip: LevelTipDto;
 			maxrank: number;
 			name: string;
-			range: Array<number> | string;
+			range: number[] | string;
 			rangeBurn: string;
 			resource: string;
 			sanitizedDescription: string;
@@ -380,11 +380,11 @@ declare namespace RiotGamesAPI {
 			spellblockperlevel: number;
 		}
 		interface LevelTipDto {
-			effect: Array<string>;
-			label: Array<string>;
+			effect: string[];
+			label: string[];
 		}
 		interface SpellVarsDto {
-			coeff: Array<number>;
+			coeff: number[];
 			dyn: string;
 			key: string;
 			link: string;
@@ -413,14 +413,14 @@ declare namespace RiotGamesAPI {
 			consumed: boolean;
 			depth: number;
 			description: string;
-			from: Array<string>;
+			from: string[];
 			gold: GoldDto;
 			group: string;
 			hideFromAll: boolean;
 			id: number;
 			image: ImageDto;
 			inStore: boolean;
-			into: Array<string>;
+			into: string[];
 			maps: Array<{[str: string]: boolean}>;
 			name: string;
 			plaintext: string;
@@ -430,7 +430,7 @@ declare namespace RiotGamesAPI {
 			specialRecipe: number;
 			stacks: number;
 			stats: BasicDataStatsDto;
-			tags: Array<string>;
+			tags: string[];
 		}
 		interface GroupDto {
 			MaxGroupOwnable: string;
@@ -443,14 +443,14 @@ declare namespace RiotGamesAPI {
 			depth: number;
 			description: string;
 			effect: Array<{[str: string]: string}>;
-			from: Array<string>;
+			from: string[];
 			gold: GoldDto;
 			group: string;
 			hideFromAll: boolean;
 			id: number;
 			image: ImageDto;
 			inStore: boolean;
-			into: Array<string>;
+			into: string[];
 			maps: Array<{[str: string]: boolean}>;
 			name: string;
 			plaintext: string;
@@ -460,11 +460,11 @@ declare namespace RiotGamesAPI {
 			specialRecipe: number;
 			stacks: number;
 			stats: BasicDataStatsDto;
-			tags: Array<string>;
+			tags: string[];
 		}
 		interface ItemTreeDto {
 			header: string;
-			tags: Array<string>;
+			tags: string[];
 		}
 		interface BasicDataStatsDto {
 			FlatArmorMod: number;
@@ -558,7 +558,7 @@ declare namespace RiotGamesAPI {
 			image: ImageDto;
 			mapId: number;
 			mapName: string;
-			unpurchasableItemList: Array<number>;
+			unpurchasableItemList: number[];
 		}
 		interface MasteryListDto {
 			data: Array<{[str: string]: MasteryDto}>;
@@ -567,14 +567,14 @@ declare namespace RiotGamesAPI {
 			version: string;
 		}
 		interface MasteryDto {
-			description: Array<string>;
+			description: string[];
 			id: number;
 			image: ImageDto;
 			masteryTree: string;
 			name: string;
 			prereq: string;
 			ranks: number;
-			sanitizedDescription: Array<string>;
+			sanitizedDescription: string[];
 		}
 		interface MasteryTreeDto {
 			Defense: Array<MasteryTreeListDto>;
@@ -611,13 +611,13 @@ declare namespace RiotGamesAPI {
 			consumed: boolean;
 			depth: number;
 			description: string;
-			from: Array<string>;
+			from: string[];
 			group: string;
 			hideFromAll: boolean;
 			id: number;
 			image: ImageDto;
 			inStore: boolean;
-			into: Array<string>;
+			into: string[];
 			maps: Array<{[str: string]: boolean}>;
 			name: string;
 			plaintext: string;
@@ -627,7 +627,7 @@ declare namespace RiotGamesAPI {
 			specialRecipe: number;
 			stacks: number;
 			stats: BasicDataStatsDto;
-			tags: Array<string>;
+			tags: string[];
 		}
 		interface SummonerSpellListDto {
 			data: Array<{[str: string]: SummonerSpellDto}>;
@@ -635,22 +635,22 @@ declare namespace RiotGamesAPI {
 			version: string;
 		}
 		interface SummonerSpellDto {
-			cooldown: Array<number>;
+			cooldown: number[];
 			cooldownBurn: string;
-			cost: Array<number>;
+			cost: number[];
 			costBurn: string;
 			costType: string;
 			description: string;
-			effect: Array<Array<number>>;
-			effectBurn: Array<string>;
+			effect: Array<number[]>;
+			effectBurn: string[];
 			id: number;
 			image: ImageDto;
 			key: string;
 			leveltip: LevelTipDto;
 			maxrank: number;
-			modes: Array<string>;
+			modes: string[];
 			name: string;
-			range: Array<number> | string;
+			range: number[] | string;
 			rangeBurn: string;
 			resource: string;
 			sanitizedDescription: string;
@@ -667,14 +667,14 @@ declare namespace RiotGamesAPI {
 	namespace LolStatus {
 		interface Shard {
 			hostname: string;
-			locales: Array<string>;
+			locales: string[];
 			name: string;
 			region_tag: string;
 			slug: string;
 		}
 		interface ShardStatus {
 			hostname: string;
-			locales: Array<string>;
+			locales: string[];
 			name: string;
 			region_tag: string;
 			services: Array<Service>;
@@ -889,7 +889,7 @@ declare namespace RiotGamesAPI {
 		}
 		interface Event {
 			ascendedType: string;
-			assistingParticipantIds: Array<number>;
+			assistingParticipantIds: number[];
 			buildingType: string;
 			creatorId: number;
 			eventType: string;

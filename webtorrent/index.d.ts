@@ -24,7 +24,7 @@ declare namespace WebTorrent {
   }
 
   export interface TorrentOptions {
-    announce?: Array<string>;   // Torrent trackers to use (added to list in .torrent or magnet uri)
+    announce?: string[];   // Torrent trackers to use (added to list in .torrent or magnet uri)
     path?: string;   // Folder to download files to (default=`/tmp/webtorrent/`)
     store?: Function; // Custom chunk store (must follow [abstract-chunk-store](https://www.npmjs.com/package/abstract-chunk-store) API)
   }

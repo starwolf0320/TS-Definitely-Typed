@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare module "proj4" {
-    const TemplateCoordinates: Array<number> | InterfaceCoordinates;
+    const TemplateCoordinates: number[] | InterfaceCoordinates;
 
     interface InterfaceCoordinates {
         x: number;
@@ -22,8 +22,8 @@ declare module "proj4" {
     }
 
     interface Proj4Static {
-        forward(coordinates: typeof TemplateCoordinates): Array<number>;
-        inverse(coordinates: typeof TemplateCoordinates): Array<number>;
+        forward(coordinates: typeof TemplateCoordinates): number[];
+        inverse(coordinates: typeof TemplateCoordinates): number[];
     }
 
     interface InterfaceProjection {
@@ -34,8 +34,8 @@ declare module "proj4" {
         es: number;
         e: number;
         ep2: number;
-        forward(coordinates: typeof TemplateCoordinates): Array<number>;
-        inverse(coordinates: typeof TemplateCoordinates): Array<number>;
+        forward(coordinates: typeof TemplateCoordinates): number[];
+        inverse(coordinates: typeof TemplateCoordinates): number[];
     }
 
     namespace proj4 {
@@ -59,21 +59,21 @@ declare module "proj4" {
          * @name Point
          */
         export function Point(x: number, y: number, z?: number): InterfaceCoordinates;
-        export function Point(coordinates: Array<number>): InterfaceCoordinates;
+        export function Point(coordinates: number[]): InterfaceCoordinates;
         export function Point(coordinates: InterfaceCoordinates): InterfaceCoordinates;
         export function Point(coordinates: string): InterfaceCoordinates;
 
         /**
          * @name toPoint
          */
-        export function toPoint(array: Array<number>): InterfaceCoordinates;
+        export function toPoint(array: number[]): InterfaceCoordinates;
 
         /**
          * @name defs
          */
         export function defs(name: string): any;
         export function defs(name: string, projection: string): any;
-        export function defs(name: Array<Array<string>>): any;
+        export function defs(name: Array<string[]>): any;
 
         /**
          * @name transform
@@ -83,7 +83,7 @@ declare module "proj4" {
         /**
          * @name mgrs
          */
-        export function mgrs(coordinates: Array<number>, accuracy: number): string;
+        export function mgrs(coordinates: number[], accuracy: number): string;
 
         /**
          * @name version
@@ -96,7 +96,7 @@ declare module "proj4" {
      */
     function proj4(fromProjection: string): Proj4Static;
     function proj4(fromProjection: string, toProjection: string): Proj4Static;
-    function proj4(fromProjection: string, coordinates: typeof TemplateCoordinates): Array<number>;
-    function proj4(fromProjection: string, toProjection: string, coordinates: typeof TemplateCoordinates): Array<number>;
+    function proj4(fromProjection: string, coordinates: typeof TemplateCoordinates): number[];
+    function proj4(fromProjection: string, toProjection: string, coordinates: typeof TemplateCoordinates): number[];
     export = proj4;
 }

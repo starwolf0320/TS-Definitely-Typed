@@ -138,7 +138,7 @@ declare namespace Sdk {
          * Adds a string array of column names.
          * @param columns A string array of column names.
          */
-        addColumns( columns: Array<string> ): void;
+        addColumns( columns: string[] ): void;
 
         /**
          * Sets the AllColumns property.
@@ -473,7 +473,7 @@ declare namespace Sdk {
         /**
          * Gets an array of the names of attributes in a collection.
          */
-        getNames(): Array<string>;
+        getNames(): string[];
         /**
          * The XML for an attribute collection.
          */
@@ -1189,7 +1189,7 @@ declare namespace Sdk.Query {
          * Sets the columns to include.
          * @param columns An array of attribute logical names for the columns to return.
          */
-        setColumnSet( columns: Array<string> ): void;
+        setColumnSet( columns: string[] ): void;
 
         /**
          * Sets the columns to include.
@@ -2280,7 +2280,7 @@ declare namespace Sdk.Mdq {
      * @param languages An array of LCID number values.
      */
     export class LabelQueryExpression {
-        constructor( languages: Array<number> );
+        constructor( languages: number[] );
     }
 
     /**

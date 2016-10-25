@@ -10,13 +10,13 @@ import passport = require("passport");
 import express = require("express");
 
 interface IStrategyOptions {
-    scope: string | Array<string>;
+    scope: string | string[];
     realm: string;
     passReqToCallback: boolean;
 }
 interface IVerifyOptions {
     message: string;
-    scope: string | Array<string>;
+    scope: string | string[];
 }
 
 interface VerifyFunction {

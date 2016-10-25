@@ -23,7 +23,7 @@ declare namespace mock {
          * @param plugins An array of NPM modules as strings.
          * @param skipDefaults Set true to skip loading of default mocks.
          */
-        <TResponse, TPayload>(mocks?: Array<requests.AllRequests<TResponse, TPayload>>, plugins?: Array<string>, skipDefaults?: boolean): ProtractorHttpMock;
+        <TResponse, TPayload>(mocks?: Array<requests.AllRequests<TResponse, TPayload>>, plugins?: string[], skipDefaults?: boolean): ProtractorHttpMock;
 
         /**
          * Instantiate mock modules from files. This must be done before the browser connects.
@@ -32,7 +32,7 @@ declare namespace mock {
          * @param plugins An array of Plugin objects.
          * @param skipDefaults Set true to skip loading of default mocks.
          */
-        (mocks: Array<string>, plugins?: Array<Plugin>, skipDefaults?: boolean): ProtractorHttpMock;
+        (mocks: string[], plugins?: Array<Plugin>, skipDefaults?: boolean): ProtractorHttpMock;
 
         /**
          * Instantiate mock modules from files. This must be done before the browser connects.
@@ -41,7 +41,7 @@ declare namespace mock {
          * @param plugins An array of NPM modules as strings.
          * @param skipDefaults Set true to skip loading of default mocks.
          */
-        (mocks: Array<string>, plugins?: Array<string>, skipDefaults?: boolean): ProtractorHttpMock;
+        (mocks: string[], plugins?: string[], skipDefaults?: boolean): ProtractorHttpMock;
 
         /**
          * Clean up.

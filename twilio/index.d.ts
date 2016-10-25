@@ -150,7 +150,7 @@ declare namespace twilio {
     static IpMessagingGrant: IpMessagingGrant;
     static ConversationGrant: ConversationsGrant;
     static DEFAULT_ALGORITHM: string;
-    static ALGORITHMS: Array<string>;
+    static ALGORITHMS: string[];
 
     constructor(accountSid: string, keySid: string, secret: string, opts?: AccessTokenOptions);
 
@@ -162,7 +162,7 @@ declare namespace twilio {
   export class Capability {
     accountSid: string;
     authToken: string;
-    capabilities: Array<string>;
+    capabilities: string[];
     clientName: string;
     outgoingScopeParams: any;
     scopeParams: any;
@@ -376,7 +376,7 @@ declare namespace twilio {
     attributes?: any;
     text?: string;
     topLevel?: boolean;
-    legalNodes: Array<string>;
+    legalNodes: string[];
   }
 
   export interface TwimlMethod {
@@ -392,7 +392,7 @@ declare namespace twilio {
     attributes: any;
     text: any;
     topLevel: boolean;
-    legalNodes: Array<string>;
+    legalNodes: string[];
 
     constructor(config?: NodeOptions);
 

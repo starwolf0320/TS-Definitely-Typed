@@ -165,7 +165,7 @@ declare namespace SignalR {
     }
 
     interface ConnectionOptions {
-        transport?: string | Array<string> | Transport;
+        transport?: string | string[] | Transport;
         callback?: Function;
         waitForPageLoad?: boolean;
         jsonp?: boolean;

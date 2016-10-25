@@ -18,13 +18,13 @@ declare namespace ParseTorrent {
     private?: boolean;
     created?: Date;
     comment?: string;
-    announce?: Array<string>;
-    urlList?: Array<string>;
+    announce?: string[];
+    urlList?: string[];
     files?: Array<{path: string, name: string, length: number, offset: number}>;
     length?: number;
     pieceLength?: number;
     lastPieceLength?: number;
-    pieces?: Array<string>;
+    pieces?: string[];
   }
 
   interface StaticInstance {

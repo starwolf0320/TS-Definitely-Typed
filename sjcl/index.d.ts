@@ -154,7 +154,7 @@ declare namespace sjcl {
 
     // ________________________________________________________________________
 
-    interface BitArray extends Array<number> {
+    interface BitArray extends number[] {
     }
 
     interface BitArrayStatic {

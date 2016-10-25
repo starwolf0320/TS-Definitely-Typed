@@ -317,7 +317,7 @@ declare namespace SpotifyApi {
      * GET /v1/me/following/contains
      * https://developer.spotify.com/web-api/check-current-user-follows/
      */
-    interface UserFollowsUsersOrArtistsResponse extends Array<boolean> {}
+    interface UserFollowsUsersOrArtistsResponse extends boolean[] {}
 
     /**
      * Follow a Playlist
@@ -365,7 +365,7 @@ declare namespace SpotifyApi {
      * GET /v1/me/tracks/contains?ids={ids}
      * https://developer.spotify.com/web-api/check-users-saved-tracks/
      */
-    interface CheckUsersSavedTracksResponse extends Array<boolean> {}
+    interface CheckUsersSavedTracksResponse extends boolean[] {}
 
     /**
      * Save albums for user
@@ -397,7 +397,7 @@ declare namespace SpotifyApi {
      * GET /v1/me/albums/contains?ids={ids}
      * https://developer.spotify.com/web-api/check-users-saved-albums/
      */
-    interface CheckUserSavedAlbumsResponse extends Array<boolean> {}
+    interface CheckUserSavedAlbumsResponse extends boolean[] {}
 
     /**
      * Get a User’s Top Artists and Tracks (Note: This is only Artists)
@@ -585,7 +585,7 @@ declare namespace SpotifyApi {
      * GET /v1/users/{user_id}/playlists/{playlist_id}/followers/contains
      * https://developer.spotify.com/web-api/check-user-following-playlist/
      */
-    interface UsersFollowPlaylistReponse extends Array<boolean> {}
+    interface UsersFollowPlaylistReponse extends boolean[] {}
 
 
 

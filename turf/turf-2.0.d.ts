@@ -124,7 +124,7 @@ declare namespace turf {
     * @param bbox An Array of bounding box coordinates in the form: [xLow, yLow, xHigh, yHigh]
     * @returns A Polygon representation of the bounding box
     */
-    function bboxPolygon(bbox: Array<number>): GeoJSON.Feature<GeoJSON.Polygon>;
+    function bboxPolygon(bbox: number[]): GeoJSON.Feature<GeoJSON.Polygon>;
 
     /**
     * Takes two points and finds the geographic bearing between them.
@@ -182,7 +182,7 @@ declare namespace turf {
     * @param input Input features
     * @returns The bounding box of input given as an array in WSEN order (west, south, east, north)
     */
-    function extent(input: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>): Array<number>;
+    function extent(input: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>): number[];
 
     /**
     * Takes a line and measures its length in the specified units.
@@ -214,14 +214,14 @@ declare namespace turf {
     * @param factor The ratio of the new bbox to the input bbox
     * @returns The resized bbox
     */
-    function size(bbox: Array<number>, factor: number): Array<number>;
+    function size(bbox: number[], factor: number): number[];
 
     /**
     * Takes a bounding box and calculates the minimum square bounding box that would contain the input.
     * @param bbox A bounding box
     * @returns A square surrounding bbox
     */
-    function square(bbox: Array<number>): Array<number>;
+    function square(bbox: number[]): number[];
 
     //////////////////////////////////////////////////////
     // Transformation
@@ -374,7 +374,7 @@ declare namespace turf {
     * @param [properties] An Object of key-value pairs to add as properties
     * @returns A LineString feature
     */
-    function linestring(coordinates: Array<Array<number>>, properties?: any): GeoJSON.Feature<GeoJSON.LineString>;
+    function linestring(coordinates: Array<number[]>, properties?: any): GeoJSON.Feature<GeoJSON.LineString>;
 
     /**
     * Takes coordinates and properties (optional) and returns a new Point feature.
@@ -382,7 +382,7 @@ declare namespace turf {
     * @param [properties] An Object of key-value pairs to add as properties
     * @returns A Point feature
     */
-    function point(coordinates: Array<number>, properties?: any): GeoJSON.Feature<GeoJSON.Point>;
+    function point(coordinates: number[], properties?: any): GeoJSON.Feature<GeoJSON.Point>;
 
     /**
     * Takes an array of LinearRings and optionally an Object with properties and returns a Polygon feature.
@@ -390,7 +390,7 @@ declare namespace turf {
     * @param [properties] An Object of key-value pairs to add as properties
     * @returns A Polygon feature
     */
-    function polygon(rings: Array<Array<Array<number>>>, properties?: any): GeoJSON.Feature<GeoJSON.Polygon>;
+    function polygon(rings: Array<Array<number[]>>, properties?: any): GeoJSON.Feature<GeoJSON.Polygon>;
 
     //////////////////////////////////////////////////////
     // Data
@@ -415,7 +415,7 @@ declare namespace turf {
     *   - The total number of decimal degrees longitude or latitude that a polygon can extent outwards to from its center. Default is 10.
     * @returns Generated random features
     */
-    function random(type?: string, count?: number, options?: {bbox?: Array<number>; num_vertices?: number; max_radial_length?: number}): GeoJSON.FeatureCollection<any>;
+    function random(type?: string, count?: number, options?: {bbox?: number[]; num_vertices?: number; max_radial_length?: number}): GeoJSON.FeatureCollection<any>;
 
     /**
     * Takes a FeatureCollection of any type, a property, and a value and returns a FeatureCollection with features matching that property-value pair removed.
@@ -445,7 +445,7 @@ declare namespace turf {
     * @param units Used in calculating cellWidth ('miles' or 'kilometers')
     * @returns A hexagonal grid
     */
-    function hexGrid(bbox: Array<number>, cellWidth: number, units: string): GeoJSON.FeatureCollection<GeoJSON.Polygon>;
+    function hexGrid(bbox: number[], cellWidth: number, units: string): GeoJSON.FeatureCollection<GeoJSON.Polygon>;
 
     /**
     * Takes points with z-values and an array of value breaks and generates isolines.
@@ -455,7 +455,7 @@ declare namespace turf {
     * @param breaks Where to draw contours
     * @returns Isolines
     */
-    function isolines(points: GeoJSON.FeatureCollection<GeoJSON.Point>, z: string, resolution: number, breaks: Array<number>): GeoJSON.FeatureCollection<GeoJSON.LineString>;
+    function isolines(points: GeoJSON.FeatureCollection<GeoJSON.Point>, z: string, resolution: number, breaks: number[]): GeoJSON.FeatureCollection<GeoJSON.LineString>;
 
     /**
     * Takes a triangular plane as a Polygon and a Point within that triangle and returns the z-value at that point.
@@ -473,7 +473,7 @@ declare namespace turf {
     * @param units Used in calculating cellWidth ('miles' or 'kilometers')
     * @returns Grid of points
     */
-    function pointGrid(extent: Array<number>, cellWidth: number, units: string): GeoJSON.FeatureCollection<GeoJSON.Point>;
+    function pointGrid(extent: number[], cellWidth: number, units: string): GeoJSON.FeatureCollection<GeoJSON.Point>;
 
     /**
     * Takes a bounding box and a cell depth and returns a set of square polygons in a grid.
@@ -482,7 +482,7 @@ declare namespace turf {
     * @param units Used in calculating cellWidth ('miles' or 'kilometers')
     * @returns Grid of polygons
     */
-    function squareGrid(extent: Array<number>, cellWidth: number, units: string): GeoJSON.FeatureCollection<GeoJSON.Polygon>;
+    function squareGrid(extent: number[], cellWidth: number, units: string): GeoJSON.FeatureCollection<GeoJSON.Polygon>;
 
     /**
     * Takes a set of points and the name of a z-value property and creates a Triangulated Irregular Network, or a TIN for short, returned as a collection of Polygons.
@@ -501,7 +501,7 @@ declare namespace turf {
     * @param units Used in calculating cellWidth ('miles' or 'kilometers')
     * @returns Grid of triangles
     */
-    function triangleGrid(extent: Array<number>, cellWidth: number, units: string): GeoJSON.FeatureCollection<GeoJSON.Polygon>;
+    function triangleGrid(extent: number[], cellWidth: number, units: string): GeoJSON.FeatureCollection<GeoJSON.Polygon>;
 
     //////////////////////////////////////////////////////
     // Joins
@@ -545,7 +545,7 @@ declare namespace turf {
     * @param numberOfBreaks Number of classes in which to group the data
     * @returns The break number for each class plus the minimum and maximum values
     */
-    function jenks(input: GeoJSON.FeatureCollection<any>, field: string, numberOfBreaks: number): Array<number>;
+    function jenks(input: GeoJSON.FeatureCollection<any>, field: string, numberOfBreaks: number): number[];
 
     /**
     * Takes a reference point and a set of points and returns the point from the set closest to the reference.
@@ -562,7 +562,7 @@ declare namespace turf {
     * @param percentiles An Array of percentiles on which to calculate quantile values
     * @returns An array of the break values
     */
-    function quantile(input: GeoJSON.FeatureCollection<any>, field: string, percentiles: Array<number>): Array<number>;
+    function quantile(input: GeoJSON.FeatureCollection<any>, field: string, percentiles: number[]): number[];
 
     /**
     * Takes a FeatureCollection, an input field, an output field, and an array of translations and outputs an identical FeatureCollection with the output field property populated.
@@ -572,7 +572,7 @@ declare namespace turf {
     * @param translations An array of translations
     * @returns A FeatureCollection with identical geometries to input but with outField populated.
     */
-    function reclass(input: GeoJSON.FeatureCollection<any>, inField: string, outField: string, translations: Array<any>): GeoJSON.FeatureCollection<any>;
+    function reclass(input: GeoJSON.FeatureCollection<any>, inField: string, outField: string, translations: any[]): GeoJSON.FeatureCollection<any>;
 }
 
 declare module 'turf' {

@@ -12,7 +12,7 @@ declare namespace TemporaryName {
 
 	export interface MT19937 extends Engine {
 		seed (value: number): Engine;
-		seedWithArray(array: Array<number>): Engine;
+		seedWithArray(array: number[]): Engine;
 		autoSeed(): Engine;
 		discard(count: number): Engine;
 		getUseCount(): Engine;

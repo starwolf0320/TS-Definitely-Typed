@@ -27,7 +27,7 @@ declare module "draft-js" {
         }
 
         interface CompositeDecorator {
-            getDecorations(): Array<any>;
+            getDecorations(): any[];
             getComponentForKey(): any;
             getPropsForKey(): any;
         }

@@ -8,7 +8,7 @@ interface Status {
     [code: number]: string;
     [msg: string]: any | number;
 
-    codes: Array<number>;
+    codes: number[];
     redirect: { [code: number]: boolean };
     empty: { [code: number]: boolean };
     retry: { [code: number]: boolean };

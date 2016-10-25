@@ -49,7 +49,7 @@ declare namespace IntlTelInput {
     /**
      * Don't display the countries you specify.
      */
-    excludeCountries?: Array<string>;
+    excludeCountries?: string[];
     /**
      * Format the input value during initialisation.
      */
@@ -89,11 +89,11 @@ declare namespace IntlTelInput {
     /**
      * Display only the countries you specify.
      */
-    onlyCountries?: Array<string>;
+    onlyCountries?: string[];
     /**
      * Specify the countries to appear at the top of the list.
      */
-    preferredCountries?: Array<string>;
+    preferredCountries?: string[];
     /**
      * Display the country dial code next to the selected flag so it's not part
      * of the typed number. Note that this will disable nationalMode because

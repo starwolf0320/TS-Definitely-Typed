@@ -34,7 +34,7 @@ declare namespace FalcorRouter {
     type RoutePathSet = FalcorJsonGraph.PathSet;
 
     interface CallRoute extends Route {
-        call(callPath: RoutePathSet, args: Array<any>): RouteResult | Promise<RouteResult>;
+        call(callPath: RoutePathSet, args: any[]): RouteResult | Promise<RouteResult>;
     }
 
     interface GetRoute extends Route {

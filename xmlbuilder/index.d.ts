@@ -37,14 +37,14 @@ declare class XMLElementOrXMLNode {
     att(name: any, value?: any): XMLElementOrXMLNode;
     removeAttribute(name: string): XMLElementOrXMLNode;
     instruction(target: string, value: any): XMLElementOrXMLNode;
-    instruction(array: Array<any>): XMLElementOrXMLNode;
+    instruction(array: any[]): XMLElementOrXMLNode;
     instruction(obj: Object): XMLElementOrXMLNode;
     ins(target: string, value: any): XMLElementOrXMLNode;
-    ins(array: Array<any>): XMLElementOrXMLNode;
+    ins(array: any[]): XMLElementOrXMLNode;
     ins(obj: Object): XMLElementOrXMLNode;
     a(name: any, value?: any): XMLElementOrXMLNode;
     i(target: string, value: any): XMLElementOrXMLNode;
-    i(array: Array<any>): XMLElementOrXMLNode;
+    i(array: any[]): XMLElementOrXMLNode;
     i(obj: Object): XMLElementOrXMLNode;
     toString(options?: Object, level?: Number): string;
     // XMLNode:

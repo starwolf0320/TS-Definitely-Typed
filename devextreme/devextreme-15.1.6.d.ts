@@ -160,7 +160,7 @@ declare namespace DevExpress {
         /** Indicates whether or not the device type is 'tablet'. */
         tablet?: boolean;
         /** Specifies an array with the major and minor versions of the device platform. */
-        version?: Array<number>;
+        version?: number[];
         /** Indicates whether or not the device platform is Windows8. */
         win8?: boolean;
         /** Specifies a performance grade of the current device. */
@@ -258,7 +258,7 @@ declare namespace DevExpress {
         export interface StoreOptions {
             inserted?: (values: Object, key: any) => void;
             inserting?: (values: Object) => void;
-            loaded?: (result: Array<any>) => void;
+            loaded?: (result: any[]) => void;
             loading?: (loadOptions: LoadOptions) => void;
             modified?: () => void;
             modifying?: () => void;
@@ -279,7 +279,7 @@ declare namespace DevExpress {
             /** A handler for the updating event. */
             onUpdating?: (key: any, values: Object) => void;
             /** A handler for the loaded event. */
-            onLoaded?: (result: Array<any>) => void;
+            onLoaded?: (result: any[]) => void;
             /** A handler for the loading event. */
             onLoading?: (loadOptions: LoadOptions) => void;
             /** A handler for the inserted event. */
@@ -345,7 +345,7 @@ declare namespace DevExpress {
             on(eventName: "modifying", eventHandler: () => void): Store;
             on(eventName: "modified", eventHandler: () => void): Store;
             on(eventName: "loading", eventHandler: (loadOptions: LoadOptions) => void): Store;
-            on(eventName: "loaded", eventHandler: (result: Array<any>) => void): Store;
+            on(eventName: "loaded", eventHandler: (result: any[]) => void): Store;
             on(eventName: string, eventHandler: Function): Store;
             on(events: { [eventName: string]: Function; }): Store;
             off(eventName: "removing"): Store;
@@ -368,12 +368,12 @@ declare namespace DevExpress {
             off(eventName: "modifying", eventHandler: () => void): Store;
             off(eventName: "modified", eventHandler: () => void): Store;
             off(eventName: "loading", eventHandler: (loadOptions: LoadOptions) => void): Store;
-            off(eventName: "loaded", eventHandler: (result: Array<any>) => void): Store;
+            off(eventName: "loaded", eventHandler: (result: any[]) => void): Store;
             off(eventName: string, eventHandler: Function): Store;
         }
         export interface ArrayStoreOptions extends StoreOptions {
             /** Specifies the array associated with this Store. */
-            data?: Array<any>;
+            data?: any[];
         }
         /** A Store accessing an in-memory array. */
         export class ArrayStore extends Store {
@@ -463,11 +463,11 @@ declare namespace DevExpress {
             /** Indicates whether or not the DataSource is currently being loaded. */
             isLoading(): boolean;
             /** Returns the array of items currently operated by the DataSource. */
-            items(): Array<any>;
+            items(): any[];
             /** Returns the key expression. */
             key(): any;
             /** Starts loading data. */
-            load(): JQueryPromise<Array<any>>;
+            load(): JQueryPromise<any[]>;
             /** Returns an object that would be passed to the load() method of the underlying Store according to the current data shaping option values of the current DataSource instance. */
             loadOptions(): Object;
             /** Returns the current pageSize option value. */
@@ -624,7 +624,7 @@ declare namespace DevExpress {
             /** Executes the Query. */
             enumerate(): JQueryPromise<any>;
             /** Filters the current Query data. */
-            filter(criteria: Array<any>): Query;
+            filter(criteria: any[]): Query;
             /** Groups the current Query data. */
             groupBy(getter: Object): Query;
             /** Applies the specified transformation to each item. */
@@ -644,14 +644,14 @@ declare namespace DevExpress {
             /** Adds one more sorting condition to the current Query. */
             thenBy(getter: Object, desc: boolean): Query;
             /** Returns the array of current Query items. */
-            toArray(): Array<any>;
+            toArray(): any[];
         }
         /** The global data layer error handler. */
         export var errorHandler: (e: Error) => void;
         /** Encodes the specified string or array of bytes to base64 encoding. */
         export function base64_encode(input: any): string;
         /** Creates a Query instance. */
-        export function query(array: Array<any>): Query;
+        export function query(array: any[]): Query;
         /** Creates a Query instance for accessing the remote service specified by a URL. */
         export function query(url: string, queryOptions: Object): Query;
         /** This section describes the utility objects provided by the DevExtreme data layer. */
@@ -714,7 +714,7 @@ declare namespace DevExpress {
             itemRender?: any;
             itemRenderedAction?: Function;
             /** An array of items displayed by the widget. */
-            items?: Array<any>;
+            items?: any[];
             /**
              * A function performed when a widget item is selected.
              * @deprecated onSelectionChanged.md
@@ -742,7 +742,7 @@ declare namespace DevExpress {
             /** The selected item object. */
             selectedItem?: Object;
             /** An array of currently selected item objects. */
-            selectedItems?: Array<any>;
+            selectedItems?: any[];
             /** A handler for the itemDeleting event. */
             onItemDeleting?: Function;
             /** A handler for the itemDeleted event. */
@@ -769,7 +769,7 @@ declare namespace DevExpress {
             valueExpr?: any;
             itemRender?: any;
             /** An array of items displayed by the widget. */
-            items?: Array<any>;
+            items?: any[];
             /** The template to be used for rendering items. */
             itemTemplate?: any;
             /** The currently selected value in the widget. */
@@ -848,7 +848,7 @@ declare namespace DevExpress {
 declare namespace DevExpress.ui {
     export interface dxValidatorOptions extends DOMComponentOptions {
         /** An array of validation rules to be checked for the editor with which the dxValidator object is associated. */
-        validationRules?: Array<any>;
+        validationRules?: any[];
         /** Specifies the editor name to be used in the validation default messages. */
         name?: string;
         /** An object that specifies what and when to validate and how to apply the validation result. */
@@ -1117,7 +1117,7 @@ declare namespace DevExpress.ui {
     }
     export interface dxTagBoxOptions extends dxSelectBoxOptions {
         /** Holds the list of selected values. */
-        values?: Array<any>;
+        values?: any[];
     }
     /** A widget that allows you to select multiple items from a dropdown list. */
     export class dxTagBox extends dxSelectBox {
@@ -1236,7 +1236,7 @@ declare namespace DevExpress.ui {
         titleTemplate?: any;
         width?: any;
         /** Specifies items displayed on the top or bottom toolbar of the popup window. */
-        buttons?: Array<any>;
+        buttons?: any[];
         /** Specifies whether or not the widget displays the Close button. */
         showCloseButton?: boolean;
         /** A handler for the titleRendered event. */
@@ -1411,7 +1411,7 @@ declare namespace DevExpress.ui {
             onMarkerRemoved?: Function;
             markerRemovedAction?: Function;
             /** An array of markers displayed on a map. */
-            markers?: Array<any>;
+            markers?: any[];
             /** The name of the current map data provider. */
             provider?: string;
             /** A handler for the ready event. */
@@ -1424,7 +1424,7 @@ declare namespace DevExpress.ui {
             onRouteRemoved?: Function;
             routeRemovedAction?: Function;
             /** An array of routes shown on the map. */
-            routes?: Array<any>;
+            routes?: any[];
             /** The type of a map to display. */
             type?: string;
             /** Specifies the width of the widget. */
@@ -1632,7 +1632,7 @@ declare namespace DevExpress.ui {
         selectionMode?: string;
         selectAllText?: string;
         /** Specifies the array of items for a context menu called for a list item. */
-        menuItems?: Array<any>;
+        menuItems?: any[];
         /** Specifies whether an item context menu is shown when a user holds or swipes an item. */
         menuMode?: string;
         /** Specifies whether or not an end user can delete list items. */
@@ -2457,7 +2457,7 @@ declare namespace DevExpress.ui {
         itemClickAction?: any;
         itemRender?: any;
         /** An array of items displayed by the widget. */
-        items?: Array<any>;
+        items?: any[];
         /** The template to be used for rendering items. */
         itemTemplate?: any;
         /** Specifies whether or not to show the drop down menu within a dxPopover widget. */
@@ -2602,9 +2602,9 @@ declare namespace DevExpress.data {
         /** Specifies the data field against which the header items of this field should be sorted. */
         sortBySummaryField?: string;
         /** The array of field names that specify a path to column/row whose summary field is used for sorting of this field's header items. */
-        sortBySummaryPath?: Array<any>;
+        sortBySummaryPath?: any[];
         /** The filter values for the current field. */
-        filterValues?: Array<any>;
+        filterValues?: any[];
         /** The filter type for the current field. */
         filterType?: string;
         /** Indicates whether all header items of the field's header level are expanded. */
@@ -2670,9 +2670,9 @@ declare namespace DevExpress.data {
         /** Sets one or more options of a specified field. */
         field(id: number, field: PivotGridField): void;
         /** Collapses a specified header item. */
-        collapseHeaderItem(area: string, path: Array<any>): void;
+        collapseHeaderItem(area: string, path: any[]): void;
         /** Expands a specified header item. */
-        expandHeaderItem(area: string, path: Array<any>): void;
+        expandHeaderItem(area: string, path: any[]): void;
         /** Disposes of all resources associated with this PivotGridDataSource. */
         dispose(): void;
         on(eventName: string, eventHandler: Function): PivotGridDataSource;
@@ -2784,7 +2784,7 @@ declare namespace DevExpress.ui {
          * An array of currently expanded item objects.
          * @deprecated Use item.expanded field instead
          */
-        expandedItems?: Array<any>;
+        expandedItems?: any[];
         /** Specifies whether or not a check box is displayed at each tree view item. */
         showCheckBoxes?: boolean;
         /** Specifies whether or not to select nodes recursively. */
@@ -2857,7 +2857,7 @@ declare namespace DevExpress.ui {
         /** Specifies the name of the CSS class associated with the menu. */
         cssClass?: string;
         /** Holds an array of menu items. */
-        items?: Array<any>;
+        items?: any[];
         /** Specifies whether or not an item becomes selected if an end-user clicks it. */
         selectionByClick?: boolean;
         /** Specifies the selection mode supported by the menu. */
@@ -2994,7 +2994,7 @@ declare namespace DevExpress.ui {
         /** Specifies a callback function that returns a value to be displayed in a column cell. */
         calculateCellValue?: (rowData: Object) => string;
         /** Specifies a callback function that defines filters for customary calculated grid cells. */
-        calculateFilterExpression?: (filterValue: any, selectedFilterOperation: string) => Array<any>;
+        calculateFilterExpression?: (filterValue: any, selectedFilterOperation: string) => any[];
         /** Specifies a caption for a column. */
         caption?: string;
         /** Specifies a custom template for grid column cells. */
@@ -3018,11 +3018,11 @@ declare namespace DevExpress.ui {
         /** In a boolean column, replaces all false items with a specified text. */
         falseText?: string;
         /** Specifies the set of available filter operations. */
-        filterOperations?: Array<any>;
+        filterOperations?: any[];
         /** Specifies a filter value for a column. */
         filterValue?: any;
         /** Specifies initial filter values for the column's header filter. */
-        filterValues?: Array<any>;
+        filterValues?: any[];
         /** Specifies whether to include or exclude the records with the values selected in the column's header filter. */
         filterType?: string;
         /** Indicates whether the column takes part in horizontal grid scrolling or is anchored to a grid edge. */
@@ -3405,7 +3405,7 @@ declare namespace DevExpress.ui {
             }
         };
         /** Specifies the keys of the records that must appear selected initially. */
-        selectedRowKeys?: Array<any>;
+        selectedRowKeys?: any[];
         /** Specifies options of runtime selection. */
         selection?: {
             /** Specifies whether the user can select all grid records at once. */
@@ -3414,19 +3414,19 @@ declare namespace DevExpress.ui {
             mode?: string;
         };
         selectionChanged?: (e: {
-            currentSelectedRowKeys: Array<any>;
-            currentDeselectedRowKeys: Array<any>;
-            selectedRowKeys: Array<any>;
-            selectedRowsData: Array<any>;
+            currentSelectedRowKeys: any[];
+            currentDeselectedRowKeys: any[];
+            selectedRowKeys: any[];
+            selectedRowsData: any[];
         }) => void;
         /** A handler for the dataErrorOccured event. */
         onDataErrorOccurred?: (e: { error: Error }) => void;
         /** A handler for the selectionChanged event. */
         onSelectionChanged?: (e: {
-            currentSelectedRowKeys: Array<any>;
-            currentDeselectedRowKeys: Array<any>;
-            selectedRowKeys: Array<any>;
-            selectedRowsData: Array<any>;
+            currentSelectedRowKeys: any[];
+            currentDeselectedRowKeys: any[];
+            selectedRowKeys: any[];
+            selectedRowsData: any[];
         }) => void;
         /** A handler for the exporting event. */
         onExporting?: (e: {
@@ -3662,11 +3662,11 @@ declare namespace DevExpress.ui {
         /** Deselects the rows that are currently selected within the applied filter. */
         deselectAll(): void;
         /** Selects specific grid records. */
-        selectRows(keys: Array<any>, preserve: boolean): void;
+        selectRows(keys: any[], preserve: boolean): void;
         /** Deselects specific grid records. */
-        deselectRows(keys: Array<any>): void;
+        deselectRows(keys: any[]): void;
         /** Selects grid rows by indexes. */
-        selectRowsByIndexes(indexes: Array<any>): void;
+        selectRowsByIndexes(indexes: any[]): void;
         /** Allows you to find out whether a row is selected or not. */
         isRowSelected(key: any): boolean;
         /** Invokes the column chooser panel. */
@@ -3955,7 +3955,7 @@ declare namespace DevExpress.framework {
             /** Specifies application behavior when the user navigates to a root view. */
             navigateToRootViewMode?: string;
             /** An array of dxCommand configuration objects used to define commands available from the application's global navigation. */
-            navigation?: Array<any>;
+            navigation?: any[];
             /** A state manager to be used in the application. */
             stateManager?: StateManager;
             /** Specifies the storage to be used by the application's state manager to store the application state. */
@@ -3989,7 +3989,7 @@ declare namespace DevExpress.framework {
             /** Provides access to the ViewCache object. */
             viewCache: ViewCache;
             /** An array of dxCommand components that are created based on the application's navigation option value. */
-            navigation: Array<any>;
+            navigation: any[];
             /** Provides access to the StateManager object. */
             stateManager: StateManager;
             /** Provides access to the Router object. */
@@ -4001,7 +4001,7 @@ declare namespace DevExpress.framework {
             /** Calls the clearState() method of the application's StateManager object. */
             clearState(): void;
             /** Creates global navigation commands.  */
-            createNavigation(navigationConfig: Array<any>): void;
+            createNavigation(navigationConfig: any[]): void;
             /** Returns an HTML template of the specified view. */
             getViewTemplate(viewName: string): JQuery;
             /** Returns a configuration object used to create a dxView component for a specified view. */
@@ -5126,7 +5126,7 @@ declare namespace DevExpress.viz.charts {
         /** Specifies a coefficient for dividing the value axis. */
         axisDivisionFactor?: number;
         /** Specifies the order in which discrete values are arranged on the value axis. */
-        categories?: Array<any>;
+        categories?: any[];
         /** Specifies the value to be raised to a power when generating ticks for a logarithmic axis. */
         logarithmBase?: number;
         /** Specifies an interval between axis ticks/grid lines. */
@@ -5622,7 +5622,7 @@ declare namespace DevExpress.viz.gauges {
         /** Specifies the color of the scale's minor ticks. */
         color?: string;
         /** Specifies an array of custom minor ticks. */
-        customTickValues?: Array<any>;
+        customTickValues?: any[];
         /** Specifies the length of the scale's minor ticks. */
         length?: number;
         /** Indicates whether automatically calculated minor ticks are visible or not. */
@@ -5700,7 +5700,7 @@ declare namespace DevExpress.viz.gauges {
         /** Specifies the length of an arrow for the indicator of the textCloud type in pixels. */
         arrowLength?: number;
         /** Sets the array of colors to be used for coloring subvalue indicators. */
-        palette?: Array<any>;
+        palette?: any[];
         /** Specifies the distance between the needle and the center of a gauge for the indicator of a needle-like type. */
         indentFromCenter?: number;
         /** Specifies the second color for the indicator of the twoColorNeedle type. */
@@ -5768,7 +5768,7 @@ declare namespace DevExpress.viz.gauges {
         /** Specifies the appearance options of subvalue indicators. */
         subvalueIndicator?: BaseValueIndicator;
         /** Specifies a set of subvalues to be designated by the subvalue indicators. */
-        subvalues?: Array<number>;
+        subvalues?: number[];
         /** Specifies the main value on a gauge. */
         value?: number;
         /** Specifies the appearance options of the value indicator. */
@@ -5787,9 +5787,9 @@ declare namespace DevExpress.viz.gauges {
         /** Updates a gauge value. */
         value(value: number): void;
         /** Returns an array of gauge subvalues. */
-        subvalues(): Array<number>;
+        subvalues(): number[];
         /** Updates gauge subvalues. */
-        subvalues(subvalues: Array<number>): void;
+        subvalues(subvalues: number[]): void;
     }
     export interface LinearRangeContainer extends BaseRangeContainer {
         /** Specifies the orientation of the range container on a vertically oriented dxLinearGauge widget. */
@@ -5903,7 +5903,7 @@ declare namespace DevExpress.viz.gauges {
         /** Specifies a start value for the gauge's invisible scale. */
         startValue?: number;
         /** Specifies the array of values to be indicated on a bar gauge. */
-        values?: Array<number>;
+        values?: number[];
     }
     /** A circular bar widget. */
     export class dxBarGauge extends viz.core.BaseWidget {
@@ -5916,9 +5916,9 @@ declare namespace DevExpress.viz.gauges {
         /** Redraws the widget. */
         render(): void;
         /** Returns an array of gauge values. */
-        values(): Array<number>;
+        values(): number[];
         /** Updates the values displayed by a gauge. */
-        values(values: Array<number>): void;
+        values(values: number[]): void;
     }
 }
 interface JQuery {
@@ -6099,7 +6099,7 @@ Specifies an interval between minor ticks.
             /** Specifies the type of values on the scale. */
             valueType?: string;
             /** Specifies the order of arguments on a discrete scale. */
-            categories?: Array<any>;
+            categories?: any[];
         };
         /** Specifies the range to be selected when displaying the dxRangeSelector. */
         selectedRange?: {
@@ -6233,11 +6233,11 @@ declare namespace DevExpress.viz.map {
         /** Contains the value of a bubble map marker. */
         value: number;
         /** Contains the values of a pie map marker. */
-        values: Array<number>;
+        values: number[];
         /** Returns the value of an attribute. */
         attribute(name: string): any;
         /** Returns the coordinates of a specific marker. */
-        coordinates(): Array<number>;
+        coordinates(): number[];
         /** Provides information about the selection state of a marker. */
         selected(): boolean;
         /** Sets a new selection state for a marker. */
@@ -6277,7 +6277,7 @@ declare namespace DevExpress.viz.map {
         /** Specifies the number of colors in a palette. */
         paletteSize?: number;
         /** Allows you to paint areas with similar attributes in the same color. */
-        colorGroups?: Array<number>;
+        colorGroups?: number[];
         /** Specifies the field that provides data to be used for coloring areas. */
         colorGroupingField?: string;
         /** Specifies a color for the area border when the area is selected. */
@@ -6338,11 +6338,11 @@ declare namespace DevExpress.viz.map {
         /** Specifies the name of a palette or a custom set of colors to be used for coloring markers of the pie type. */
         palette?: any;
         /** Allows you to paint markers with similar attributes in the same color. */
-        colorGroups?: Array<number>;
+        colorGroups?: number[];
         /** Specifies the field that provides data to be used for coloring markers. */
         colorGroupingField?: string;
         /** Allows you to display bubbles with similar attributes in the same size. */
-        sizeGroups?: Array<number>;
+        sizeGroups?: number[];
         /** Specifies the field that provides data to be used for sizing bubble markers. */
         sizeGroupingField?: string;
     }
@@ -6357,7 +6357,7 @@ declare namespace DevExpress.viz.map {
             color?: string;
         };
         /** Specifies the positioning of a map in geographical coordinates. */
-        bounds?: Array<number>;
+        bounds?: number[];
         /** Specifies the options of the control bar. */
         controlBar?: {
             /** Specifies a color for the outline of the control bar elements. */
@@ -6396,11 +6396,11 @@ declare namespace DevExpress.viz.map {
         /** Disables the zooming capability. */
         zoomingEnabled?: boolean;
         /** Specifies the geographical coordinates of the center for a map. */
-        center?: Array<number>;
-        centerChanged?: (center: Array<number>) => void;
+        center?: number[];
+        centerChanged?: (center: number[]) => void;
         /** A handler for the centerChanged event. */
         onCenterChanged?: (e: {
-            center: Array<number>;
+            center: number[];
             component: dxVectorMap;
             element: Element;
         }) => void;
@@ -6468,9 +6468,9 @@ declare namespace DevExpress.viz.map {
         /** Redraws a widget. */
         render(): void;
         /** Gets the current coordinates of the map center. */
-        center(): Array<number>;
+        center(): number[];
         /** Sets the coordinates of the map center. */
-        center(centerCoordinates: Array<number>): void;
+        center(centerCoordinates: number[]): void;
         /** Deselects all the selected areas on a map. The areas are displayed in their initial style after. */
         clearAreaSelection(): void;
         /** Deselects all the selected markers on a map. The markers are displayed in their initial style after. */
@@ -6478,15 +6478,15 @@ declare namespace DevExpress.viz.map {
         /** Deselects all the selected area and markers on a map at once. The areas and markers are displayed in their initial style after. */
         clearSelection(): void;
         /** Converts client area coordinates into map coordinates. */
-        convertCoordinates(x: number, y: number): Array<number>;
+        convertCoordinates(x: number, y: number): number[];
         /** Returns an array with all the map areas. */
         getAreas(): Array<Area>;
         /** Returns an array with all the map markers. */
         getMarkers(): Array<Marker>;
         /** Gets the current coordinates of the map viewport. */
-        viewport(): Array<any>;
+        viewport(): any[];
         /** Sets the coordinates of the map viewport. */
-        viewport(viewportCoordinates: Array<number>): void;
+        viewport(viewportCoordinates: number[]): void;
         /** Gets the current value of the map zoom factor. */
         zoomFactor(): number;
         /** Sets the value of the map zoom factor. */
@@ -6567,7 +6567,7 @@ declare namespace DevExpress.viz.sparklines {
         /** Sets a color for the bars indicating positive values. Available for a sparkline of the bar type only. */
         barPositiveColor?: string;
         /** Specifies a data source for the sparkline. */
-        dataSource?: Array<any>;
+        dataSource?: any[];
         /** Sets a color for the boundary of both the first and last points on a sparkline. */
         firstLastColor?: string;
         /** Specifies whether a sparkline ignores null data points or not. */

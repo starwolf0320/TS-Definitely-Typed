@@ -133,10 +133,10 @@ declare namespace WebdriverIO {
             ...args: any[]
         ): Client<P>;
 
-        setValue(selector: string, values: number | string | Array<string>): Client<void>;
+        setValue(selector: string, values: number | string | string[]): Client<void>;
         setValue<P>(
             selector: string,
-            values: number | string | Array<string>,
+            values: number | string | string[],
             callback: (err: any) => P
         ): Client<void>;
 

@@ -792,7 +792,7 @@ declare namespace Ti {
 				setImage (image: Ti.Blob): void;
 				setImage (image: Ti.Filesystem.File): void;
 				setImage (index: number, image: CoverFlowImageType): void;
-				setImages (images: Array<String>): void;
+				setImages (images: string[]): void;
 				setImages (images: Array<Ti.Blob>): void;
 				setImages (images: Array<Ti.Filesystem.File>): void;
 				setImages (images: Array<CoverFlowImageType>): void;
@@ -850,7 +850,7 @@ declare namespace Ti {
 				getLabels (): any;
 				getStyle (): number;
 				setIndex (index: number): void;
-				setLabels (labels: Array<String>): void;
+				setLabels (labels: string[]): void;
 				setLabels (labels: Array<BarItemType>): void;
 				setStyle (style: number): void;
 			}
@@ -1499,7 +1499,7 @@ declare namespace Ti {
 			getLabels (): any;
 			getStyle (): number;
 			setIndex (index: number): void;
-			setLabels (labels: Array<String>): void;
+			setLabels (labels: string[]): void;
 			setLabels (labels: Array<BarItemType>): void;
 			setStyle (style: number): void;
 		}
@@ -1713,7 +1713,7 @@ declare namespace Ti {
 		}
 		export interface AlertDialog extends Ti.Proxy {
 			androidView: Ti.UI.View;
-			buttonNames: Array<String>;
+			buttonNames: string[];
 			cancel: number;
 			message: string;
 			messageid: string;
@@ -1724,7 +1724,7 @@ declare namespace Ti {
 			title: string;
 			titleid: string;
 			getAndroidView (): Ti.UI.View;
-			getButtonNames (): Array<String>;
+			getButtonNames (): string[];
 			getCancel (): number;
 			getMessage (): string;
 			getOk (): string;
@@ -1774,7 +1774,7 @@ declare namespace Ti {
 			getLabels (): any;
 			getStyle (): number;
 			setIndex (index: number): void;
-			setLabels (labels: Array<String>): void;
+			setLabels (labels: string[]): void;
 			setLabels (labels: Array<BarItemType>): void;
 			setStyle (style: number): void;
 		}
@@ -1786,7 +1786,7 @@ declare namespace Ti {
 			barColor: string;
 			barImage: string;
 			exitOnClose: boolean;
-			extendEdges: Array<Number>;
+			extendEdges: number[];
 			flagSecure: boolean;
 			fullscreen: boolean;
 			hideShadow: boolean;
@@ -1797,7 +1797,7 @@ declare namespace Ti {
 			navBarHidden: boolean;
 			navTintColor: any;
 			orientation: number;
-			orientationModes: Array<Number>;
+			orientationModes: number[];
 			rightNavButton: Ti.UI.View;
 			rightNavButtons: Array<Ti.UI.View>;
 			shadowImage: string;
@@ -1827,7 +1827,7 @@ declare namespace Ti {
 			getBarColor (): string;
 			getBarImage (): string;
 			getExitOnClose (): boolean;
-			getExtendEdges (): Array<Number>;
+			getExtendEdges (): number[];
 			getFlagSecure (): boolean;
 			getFullscreen (): boolean;
 			getHideShadow (): boolean;
@@ -1838,7 +1838,7 @@ declare namespace Ti {
 			getNavBarHidden (): boolean;
 			getNavTintColor (): string;
 			getOrientation (): number;
-			getOrientationModes (): Array<Number>;
+			getOrientationModes (): number[];
 			getRightNavButton (): Ti.UI.View;
 			getRightNavButtons (): Array<Ti.UI.View>;
 			getShadowImage (): string;
@@ -1869,7 +1869,7 @@ declare namespace Ti {
 			setBarColor (barColor: string): void;
 			setBarImage (barImage: string): void;
 			setExitOnClose (exitOnClose: boolean): void;
-			setExtendEdges (extendEdges: Array<Number>): void;
+			setExtendEdges (extendEdges: number[]): void;
 			setFullscreen (fullscreen: boolean): void;
 			setHideShadow (hideShadow: boolean): void;
 			setIncludeOpaqueBars (includeOpaqueBars: boolean): void;
@@ -1878,7 +1878,7 @@ declare namespace Ti {
 			setModal (modal: boolean): void;
 			setNavBarHidden (navBarHidden: boolean): void;
 			setNavTintColor (navTintColor: string): void;
-			setOrientationModes (orientationModes: Array<Number>): void;
+			setOrientationModes (orientationModes: number[]): void;
 			setRightNavButton (rightNavButton: Ti.UI.View): void;
 			setRightNavButtons (rightNavButtons: Array<Ti.UI.View>): void;
 			setShadowImage (shadowImage: string): void;
@@ -2681,21 +2681,21 @@ declare namespace Ti {
 		}
 		export interface OptionDialog extends Ti.Proxy {
 			androidView: Ti.UI.View;
-			buttonNames: Array<String>;
+			buttonNames: string[];
 			cancel: number;
 			destructive: number;
 			opaquebackground: boolean;
-			options: Array<String>;
+			options: string[];
 			persistent: boolean;
 			selectedIndex: number;
 			title: string;
 			titleid: string;
 			getAndroidView (): Ti.UI.View;
-			getButtonNames (): Array<String>;
+			getButtonNames (): string[];
 			getCancel (): number;
 			getDestructive (): number;
 			getOpaquebackground (): boolean;
-			getOptions (): Array<String>;
+			getOptions (): string[];
 			getPersistent (): boolean;
 			getSelectedIndex (): number;
 			getTitle (): string;
@@ -2725,30 +2725,30 @@ declare namespace Ti {
 			SAVED: number;
 			SENT: number;
 			barColor: string;
-			bccRecipients: Array<String>;
-			ccRecipients: Array<String>;
+			bccRecipients: string[];
+			ccRecipients: string[];
 			html: boolean;
 			messageBody: string;
 			subject: string;
-			toRecipients: Array<String>;
+			toRecipients: string[];
 			addAttachment (attachment: Ti.Blob): void;
 			addAttachment (attachment: Ti.Filesystem.File): void;
 			getBarColor (): string;
-			getBccRecipients (): Array<String>;
-			getCcRecipients (): Array<String>;
+			getBccRecipients (): string[];
+			getCcRecipients (): string[];
 			getHtml (): boolean;
 			getMessageBody (): string;
 			getSubject (): string;
-			getToRecipients (): Array<String>;
+			getToRecipients (): string[];
 			isSupported (): boolean;
 			open (properties: any): void;
 			setBarColor (barColor: string): void;
-			setBccRecipients (bccRecipients: Array<String>): void;
-			setCcRecipients (ccRecipients: Array<String>): void;
+			setBccRecipients (bccRecipients: string[]): void;
+			setCcRecipients (ccRecipients: string[]): void;
 			setHtml (html: boolean): void;
 			setMessageBody (messageBody: string): void;
 			setSubject (subject: string): void;
-			setToRecipients (toRecipients: Array<String>): void;
+			setToRecipients (toRecipients: string[]): void;
 		}
 		export interface CoverFlowView extends Ti.UI.View {
 			images: any;
@@ -2759,7 +2759,7 @@ declare namespace Ti {
 			setImage (image: Ti.Blob): void;
 			setImage (image: Ti.Filesystem.File): void;
 			setImage (index: number, image: CoverFlowImageType): void;
-			setImages (images: Array<String>): void;
+			setImages (images: string[]): void;
 			setImages (images: Array<Ti.Blob>): void;
 			setImages (images: Array<Ti.Filesystem.File>): void;
 			setImages (images: Array<CoverFlowImageType>): void;
@@ -2804,7 +2804,7 @@ declare namespace Ti {
 			setImage (image: string): void;
 			setImage (image: Ti.Blob): void;
 			setImage (image: Ti.Filesystem.File): void;
-			setImages (images: Array<String>): void;
+			setImages (images: string[]): void;
 			setImages (images: Array<Ti.Blob>): void;
 			setImages (images: Array<Ti.Filesystem.File>): void;
 			setPreventDefaultImage (preventDefaultImage: boolean): void;
@@ -2983,13 +2983,13 @@ declare namespace Ti {
 			FAILED: number;
 			SENT: number;
 			messageBody: string;
-			toRecipients: Array<String>;
+			toRecipients: string[];
 			getMessageBody (): string;
-			getToRecipients (): Array<String>;
+			getToRecipients (): string[];
 			isSupported (): boolean;
 			open (): void;
 			setMessageBody (messageBody: string): void;
-			setToRecipients (toRecipients: Array<String>): void;
+			setToRecipients (toRecipients: string[]): void;
 		}
 		export interface TableViewSection extends Ti.Proxy {
 			footerTitle: string;
@@ -3239,19 +3239,19 @@ declare namespace Ti {
 
 	}
 	export interface API  {
-		debug (message: Array<String>): void;
+		debug (message: string[]): void;
 		debug (message: string): void;
-		error (message: Array<String>): void;
+		error (message: string[]): void;
 		error (message: string): void;
-		info (message: Array<String>): void;
+		info (message: string[]): void;
 		info (message: string): void;
-		log (level: string, message: Array<String>): void;
+		log (level: string, message: string[]): void;
 		log (level: string, message: string): void;
-		timestamp (message: Array<String>): void;
+		timestamp (message: string[]): void;
 		timestamp (message: string): void;
-		trace (message: Array<String>): void;
+		trace (message: string[]): void;
 		trace (message: string): void;
-		warn (message: Array<String>): void;
+		warn (message: string[]): void;
 		warn (message: string): void;
 	}
 	export namespace Geolocation {
@@ -3464,7 +3464,7 @@ declare namespace Ti {
 			removeAllAnnotations (): void;
 			removeAnnotation (annotation: string): void;
 			removeAnnotation (annotation: Ti.Map.Annotation): void;
-			removeAnnotations (annotations: Array<String>): void;
+			removeAnnotations (annotations: string[]): void;
 			removeAnnotations (annotations: Array<Ti.Map.Annotation>): void;
 			removeRoute (route: MapRouteType): void;
 			selectAnnotation (annotation: string): void;
@@ -3966,7 +3966,7 @@ declare namespace Ti {
 			setString (property: string, value: string): void;
 		}
 		export interface Tizen  {
-			categories: Array<String>;
+			categories: string[];
 			iconPath: string;
 			id: string;
 			installDate: Date;
@@ -3974,7 +3974,7 @@ declare namespace Ti {
 			show: boolean;
 			size: number;
 			exit (): void;
-			getCategories (): Array<String>;
+			getCategories (): string[];
 			getIconPath (): string;
 			getId (): string;
 			getInstallDate (): Date;
@@ -4195,7 +4195,7 @@ declare namespace Ti {
 		export function getCurrentActivity (): Ti.Android.Activity;
 		export function getCurrentService (): Ti.Android.Service;
 		export function isServiceRunning (intent: Ti.Android.Intent): boolean;
-		export function registerBroadcastReceiver (broadcastReceiver: Ti.Android.BroadcastReceiver, actions: Array<String>): void;
+		export function registerBroadcastReceiver (broadcastReceiver: Ti.Android.BroadcastReceiver, actions: string[]): void;
 		export function removeEventListener (name: string, callback: (...args: any[]) => any): void;
 		export function setBubbleParent (bubbleParent: boolean): void;
 		export function startService (intent: Ti.Android.Intent): void;
@@ -4624,7 +4624,7 @@ declare namespace Ti {
 			rowsAffected: number;
 			close (): void;
 			execute (sql: string, vararg?: string): Ti.Database.ResultSet;
-			execute (vararg?: Array<String>): Ti.Database.ResultSet;
+			execute (vararg?: string[]): Ti.Database.ResultSet;
 			execute (vararg?: any): Ti.Database.ResultSet;
 			execute (sql: string, vararg?: Array<Object>): Ti.Database.ResultSet;
 			getFile (): Ti.Filesystem.File;
@@ -4939,7 +4939,7 @@ declare namespace Ti {
 		export var audioSessionCategory: number;
 		export var audioSessionMode: number;
 		export var availableCameraMediaTypes: Array<Object>;
-		export var availableCameras: Array<Number>;
+		export var availableCameras: number[];
 		export var availablePhotoGalleryMediaTypes: Array<Object>;
 		export var availablePhotoMediaTypes: Array<Object>;
 		export var averageMicrophonePower: number;
@@ -4968,7 +4968,7 @@ declare namespace Ti {
 		export function getAudioSessionCategory (): number;
 		export function getAudioSessionMode (): number;
 		export function getAvailableCameraMediaTypes (): Array<Object>;
-		export function getAvailableCameras (): Array<Number>;
+		export function getAvailableCameras (): number[];
 		export function getAvailablePhotoGalleryMediaTypes (): Array<Object>;
 		export function getAvailablePhotoMediaTypes (): Array<Object>;
 		export function getAverageMicrophonePower (): number;
@@ -5006,7 +5006,7 @@ declare namespace Ti {
 		export function switchCamera (camera: number): void;
 		export function takePicture (): void;
 		export function takeScreenshot (callback: (...args: any[]) => any): void;
-		export function vibrate (pattern?: Array<Number>): void;
+		export function vibrate (pattern?: number[]): void;
 		export interface Sound extends Ti.Proxy {
 			STATE_BUFFERING: number;
 			STATE_INITIALIZED: number;
@@ -5093,7 +5093,7 @@ declare namespace Ti {
 			pause (): void;
 			play (): void;
 			release (): void;
-			requestThumbnailImagesAtTimes (times: Array<Number>, option: number, callback: (...args: any[]) => any): void;
+			requestThumbnailImagesAtTimes (times: number[], option: number, callback: (...args: any[]) => any): void;
 			setAllowsAirPlay (allowsAirPlay: boolean): void;
 			setAutoplay (autoplay: boolean): void;
 			setBackgroundView (view: Ti.UI.View): void;
@@ -5114,7 +5114,7 @@ declare namespace Ti {
 			setScalingMode (scalingMode: number): void;
 			setSourceType (sourceType: number): void;
 			setUrl (url: string): void;
-			setUrl (url: Array<String>): void;
+			setUrl (url: string[]): void;
 			setUseApplicationAudioSession (useApplicationAudioSession: boolean): void;
 			setVolume (volume: number): void;
 			stop (): void;
@@ -5262,7 +5262,7 @@ declare namespace Ti {
 			stop (): void;
 		}
 		export interface Android  {
-			scanMediaFiles (paths: Array<String>, mimeTypes: Array<String>, callback: (...args: any[]) => any): void;
+			scanMediaFiles (paths: string[], mimeTypes: string[], callback: (...args: any[]) => any): void;
 			setSystemWallpaper (image: Ti.Blob, scale: boolean): void;
 		}
 	}
@@ -5512,25 +5512,25 @@ declare namespace Ti {
 		}
 		export interface RecurrenceRule extends Ti.Proxy {
 			calendarID: string;
-			daysOfTheMonth: Array<Number>;
+			daysOfTheMonth: number[];
 			daysOfTheWeek: daysOfTheWeekDictionary;
-			daysOfTheYear: Array<Number>;
+			daysOfTheYear: number[];
 			end: recurrenceEndDictionary;
 			frequency: number;
 			interval: number;
-			monthsOfTheYear: Array<Number>;
-			setPositions: Array<Number>;
-			weeksOfTheYear: Array<Number>;
+			monthsOfTheYear: number[];
+			setPositions: number[];
+			weeksOfTheYear: number[];
 			getCalendarID (): string;
-			getDaysOfTheMonth (): Array<Number>;
+			getDaysOfTheMonth (): number[];
 			getDaysOfTheWeek (): daysOfTheWeekDictionary;
-			getDaysOfTheYear (): Array<Number>;
+			getDaysOfTheYear (): number[];
 			getEnd (): recurrenceEndDictionary;
 			getFrequency (): number;
 			getInterval (): number;
-			getMonthsOfTheYear (): Array<Number>;
-			getSetPositions (): Array<Number>;
-			getWeeksOfTheYear (): Array<Number>;
+			getMonthsOfTheYear (): number[];
+			getSetPositions (): number[];
+			getWeeksOfTheYear (): number[];
 		}
 		export interface Alert extends Ti.Proxy {
 			absoluteDate: Date;
@@ -5616,7 +5616,7 @@ declare namespace Ti {
 			deleteFile (): boolean;
 			exists (): boolean;
 			extension (): string;
-			getDirectoryListing (): Array<String>;
+			getDirectoryListing (): string[];
 			getExecutable (): boolean;
 			getHidden (): boolean;
 			getName (): string;
@@ -5678,7 +5678,7 @@ declare namespace Ti {
 		export var networkTypeName: string;
 		export var online: boolean;
 		export var remoteDeviceUUID: string;
-		export var remoteNotificationTypes: Array<Number>;
+		export var remoteNotificationTypes: number[];
 		export var remoteNotificationsEnabled: boolean;
 		export function addConnectivityListener (callback: (...args: any[]) => any): void;
 		export function addEventListener (name: string, callback: (...args: any[]) => any): void;
@@ -5703,7 +5703,7 @@ declare namespace Ti {
 		export function getNetworkTypeName (): string;
 		export function getOnline (): boolean;
 		export function getRemoteDeviceUUID (): string;
-		export function getRemoteNotificationTypes (): Array<Number>;
+		export function getRemoteNotificationTypes (): number[];
 		export function getRemoteNotificationsEnabled (): boolean;
 		export function getSystemCookies (domain: string, path: string, name: string): Array<Ti.Network.Cookie>;
 		export function registerForPushNotifications (config: PushNotificationConfig): void;
@@ -5765,7 +5765,7 @@ declare namespace Ti {
 				getError (): (...args: any[]) => any;
 				getPort (): number;
 				getStarted (): (...args: any[]) => any;
-				sendBytes (port: number, host: string, data: Array<Number>): void;
+				sendBytes (port: number, host: string, data: number[]): void;
 				sendString (port: number, host: string, data: string): void;
 				setData (data: (...args: any[]) => any): void;
 				setError (error: (...args: any[]) => any): void;
@@ -5996,7 +5996,7 @@ declare namespace Ti {
 		export var expirationDate: Date;
 		export var forceDialogAuth: boolean;
 		export var loggedIn: boolean;
-		export var permissions: Array<String>;
+		export var permissions: string[];
 		export var uid: string;
 		export function addEventListener (name: string, callback: (...args: any[]) => any): void;
 		export function applyProperties (props: Dictionary<Object>): void;
@@ -6011,7 +6011,7 @@ declare namespace Ti {
 		export function getExpirationDate (): Date;
 		export function getForceDialogAuth (): boolean;
 		export function getLoggedIn (): boolean;
-		export function getPermissions (): Array<String>;
+		export function getPermissions (): string[];
 		export function getUid (): string;
 		export function logout (): void;
 		export function removeEventListener (name: string, callback: (...args: any[]) => any): void;
@@ -6023,7 +6023,7 @@ declare namespace Ti {
 		export function setExpirationDate (expirationDate: Date): void;
 		export function setForceDialogAuth (forceDialogAuth: boolean): void;
 		export function setLoggedIn (loggedIn: boolean): void;
-		export function setPermissions (permissions: Array<String>): void;
+		export function setPermissions (permissions: string[]): void;
 		export function setUid (uid: string): void;
 		export interface LoginButton extends Ti.UI.View {
 			style: string;
@@ -6181,8 +6181,8 @@ declare namespace Global {
 	export interface JSON  {
 		parse (text: string, reviver: (...args: any[]) => any): any;
 		stringify (value: any, replacer?: (...args: any[]) => any, space?: number): string;
-		stringify (value: any, replacer?: Array<String>, space?: string): string;
-		stringify (value: any, replacer?: Array<String>, space?: number): string;
+		stringify (value: any, replacer?: string[], space?: string): string;
+		stringify (value: any, replacer?: string[], space?: number): string;
 		stringify (value: any, replacer?: (...args: any[]) => any, space?: string): string;
 	}
 }
@@ -6293,7 +6293,7 @@ declare class CloudPushSchedulesResponse extends CloudResponse {
 
 declare class DataCallbackArgs  {
 	address: string;
-	bytesData: Array<Number>;
+	bytesData: number[];
 	port: string;
 	stringData: string;
 }
@@ -6426,7 +6426,7 @@ declare class PushNotificationConfig  {
 	callback: (...args: any[]) => any;
 	error: (...args: any[]) => any;
 	success: (...args: any[]) => any;
-	types: Array<Number>;
+	types: number[];
 }
 
 declare class MapRouteType  {
@@ -6524,7 +6524,7 @@ declare class MediaScannerResponse  {
 }
 
 declare class CloudPushNotificationsQueryChannelResponse extends CloudResponse {
-	push_channels: Array<String>;
+	push_channels: string[];
 }
 
 declare class CloudPostsResponse extends CloudResponse {
@@ -6548,7 +6548,7 @@ declare class CameraOptionsType  {
 	cancel: (...args: any[]) => any;
 	error: (...args: any[]) => any;
 	inPopOver: boolean;
-	mediaTypes: Array<String>;
+	mediaTypes: string[];
 	overlay: Ti.UI.View;
 	popoverView: Ti.UI.View;
 	saveToPhotoGallery: boolean;
@@ -6708,7 +6708,7 @@ declare class PhotoGalleryOptionsType  {
 	autohide: boolean;
 	cancel: (...args: any[]) => any;
 	error: (...args: any[]) => any;
-	mediaTypes: Array<String>;
+	mediaTypes: string[];
 	popoverView: Ti.UI.View;
 	success: (...args: any[]) => any;
 }
@@ -6828,7 +6828,7 @@ declare class EncodeNumberDict  {
 declare class showContactsParams  {
 	animated: boolean;
 	cancel: (...args: any[]) => any;
-	fields: Array<String>;
+	fields: string[];
 	selectedPerson: (...args: any[]) => any;
 	selectedProperty: (...args: any[]) => any;
 }
@@ -6926,7 +6926,7 @@ declare class contentOffsetOption  {
 }
 
 declare class Attribute  {
-	range: Array<Number>;
+	range: number[];
 	type: number;
 	value: number;
 }
@@ -6978,7 +6978,7 @@ declare class ImageAsCroppedDict  {
 
 declare class UserNotificationSettings  {
 	categories: Array<Ti.App.iOS.UserNotificationCategory>;
-	types: Array<Number>;
+	types: number[];
 }
 
 declare class TableViewAnimationProperties  {

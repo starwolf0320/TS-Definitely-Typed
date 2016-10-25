@@ -40,7 +40,7 @@ declare class HandleObject extends BaseObject {
 
 declare class Collection<T extends BaseObject> extends BaseObject {
 
-    protected items_: Array<any>;
+    protected items_: any[];
     protected classType: any;
 
     /**
@@ -48,7 +48,7 @@ declare class Collection<T extends BaseObject> extends BaseObject {
      */
     length: number;
 
-    constructor(items: Array<any>, lib: pkcs11.PKCS11, classType: any);
+    constructor(items: any[], lib: pkcs11.PKCS11, classType: any);
 
     /**
      * returns item from collection by index
@@ -1144,7 +1144,7 @@ declare class MechanismCollection extends Collection<Mechanism> {
 
     protected slotHandle: Handle;
 
-    constructor(items: Array<number>, slotHandle: Handle, lib: pkcs11.PKCS11, classType?: typeof Mechanism);
+    constructor(items: number[], slotHandle: Handle, lib: pkcs11.PKCS11, classType?: typeof Mechanism);
     /**
      * returns item from collection by index
      * @param {number} index of element in collection `[0..n]`

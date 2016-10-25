@@ -41,12 +41,12 @@ declare namespace Microsoft.Maps.VenueMaps {
     export interface Floor {
         name: string;
         primitives: Array<Primitive>;
-        zoomRange: Array<number>;
+        zoomRange: number[];
     }
 
     export interface Footprint {
         polygons: Array<Polygon>;
-        zoomRange: Array<number>;
+        zoomRange: number[];
     }
 
     export interface Metadata {

@@ -158,7 +158,7 @@ declare namespace PeerJs {
          * Get a list of available peer IDs
          * @param callback
          */
-        listAllPeers(callback: (peerIds: Array<string>) => void): void;
+        listAllPeers(callback: (peerIds: string[]) => void): void;
         /**
          * The brokering ID of this peer
          */

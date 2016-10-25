@@ -108,8 +108,8 @@ declare namespace Microsoft.Maps {
         focus(): void;
         getBounds(): LocationRect;
         getCenter(): Location;
-        getCopyrights(callback: (copyrights: Array<string>) => void): void;
-        getCredentials(callback: (credentials: Array<string>) => void): void;
+        getCopyrights(callback: (copyrights: string[]) => void): void;
+        getCredentials(callback: (credentials: string[]) => void): void;
         getHeading(): string;
         getHeight(): number;
         getImageryId: string;
@@ -542,7 +542,7 @@ declare namespace Microsoft.Maps {
 
     export interface ModuleOptions {
         callback?: () => void;
-        styleURLS?: Array<string>;
+        styleURLS?: string[];
         culture?: string;
         homeRegion?: string;
     }

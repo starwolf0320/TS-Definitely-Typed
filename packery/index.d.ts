@@ -182,7 +182,7 @@ declare class Packery {
      * [layoutItems Lay out specified items]
      * @param {Array<Packery.items>} items [description]
      */
-    layoutItems(items: Array<any>): void;
+    layoutItems(items: any[]): void;
 
     /**
      * [off Remove an event listener]

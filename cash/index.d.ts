@@ -87,7 +87,7 @@ interface CashStatic {
    * @argument collection Array, callback Function
    * @return Array
    */
-  each(collection: Array<any>, callback: Function): Array<any>;
+  each(collection: any[], callback: Function): any[];
 
   /**
    * fn: use to extend cash for plugin development
@@ -340,14 +340,14 @@ interface Cash {
    * on
    * Adds event listener to collection elements. Event is delegated if delegate is supplied.
    */
-  on(eventName: string|Array<string>, delegate: any, callback?: Function, runOnce?: boolean): Cash;
+  on(eventName: string|string[], delegate: any, callback?: Function, runOnce?: boolean): Cash;
 
   /**
    * one
    * Adds event listener to collection elements that only triggers once for each element.
    * Event is delegated if delegate is supplied.
    */
-  one(eventName: string|Array<string>, delegate: any, callback?: Function, runOnce?: boolean): Cash;
+  one(eventName: string|string[], delegate: any, callback?: Function, runOnce?: boolean): Cash;
 
   /**
    * outerHeight

@@ -40,7 +40,7 @@ declare namespace DC {
     }
 
     export interface UnitFunction {
-        (start: number, end: number, domain?: Array<any>): number|Array<any>;
+        (start: number, end: number, domain?: any[]): number|any[];
     }
 
     export interface FloatPointUnits {
@@ -68,8 +68,8 @@ declare namespace DC {
 
     export interface Filters {
         RangedFilter(low: any, high: any): Filter;
-        TwoDimensionalFilter(arr: Array<any>): Filter;
-        RangedTwoDimensionalFilter(arr: Array<any>): Filter;
+        TwoDimensionalFilter(arr: any[]): Filter;
+        RangedTwoDimensionalFilter(arr: any[]): Filter;
     }
 
     export interface Logger {
@@ -80,7 +80,7 @@ declare namespace DC {
     }
 
     export interface Printers {
-        filters(filters: Array<any>): string;
+        filters(filters: any[]): string;
         filter(filter: any): string;
     }
 
@@ -123,7 +123,7 @@ declare namespace DC {
         minWidth: IGetSet<number, T>;
         minHeight: IGetSet<number, T>;
         dimension: IGetSet<any, T>;
-        data: IGetSetComputed<(group: any) => Array<any>, Array<any>, T>;
+        data: IGetSetComputed<(group: any) => any[], any[], T>;
         group: IGetSet<any, T>;
         ordering: IGetSet<Accessor<any, any>, T>;
         filterAll(): void;
@@ -133,20 +133,20 @@ declare namespace DC {
         anchorName(): string;
         svg: IGetSet<d3.Selection<any>, d3.Selection<any>>;
         resetSvg(): void;
-        filterPrinter: IGetSet<(filters: Array<any>) => string, T>;
+        filterPrinter: IGetSet<(filters: any[]) => string, T>;
         turnOnControls(): void;
         turnOffControls(): void;
         transitionDuration: IGetSet<number, T>;
         render(): void;
         redraw(): void;
         redrawGroup(): void;
-        hasFilterHandler: IGetSet<(filters: Array<any>, filter: any) => boolean, T>;
+        hasFilterHandler: IGetSet<(filters: any[], filter: any) => boolean, T>;
         hasFilter(filter?: any): boolean;
-        removeFilterHandler: IGetSet<(filters: Array<any>) => Array<any>, T>;
-        addFilterHandler: IGetSet<(filters: Array<any>) => Array<any>, T>;
-        resetFilterHandler: IGetSet<(filters: Array<any>) => Array<any>, T>;
+        removeFilterHandler: IGetSet<(filters: any[]) => any[], T>;
+        addFilterHandler: IGetSet<(filters: any[]) => any[], T>;
+        resetFilterHandler: IGetSet<(filters: any[]) => any[], T>;
         filter: IGetSet<any, T>;
-        filters(): Array<any>;
+        filters(): any[];
         onClick(datum: any): void;
         filterHandler: IGetSet<(dimension: any, filter: any) => any, T>;
         keyAccessor: IGetSet<Accessor<any, any>, T>;
@@ -184,11 +184,11 @@ declare namespace DC {
     }
 
     export interface ColorMixin<T> {
-        colors: IGetSet<Array<string> | Scale<string | d3.Color>, T>;
-        ordinalColors(r: Array<string>): void;
-        linearColors(r: Array<string>): void;
+        colors: IGetSet<string[] | Scale<string | d3.Color>, T>;
+        ordinalColors(r: string[]): void;
+        linearColors(r: string[]): void;
         colorAccessor: IGetSet<Accessor<any, string>, T>;
-        colorDomain: IGetSet<Array<any>, T>;
+        colorDomain: IGetSet<any[], T>;
         calculateColorDomain(): void;
         getColor(datum: any, index?: number): string;
         colorCalculator: IGetSet<Accessor<any, string>, T>;
@@ -196,7 +196,7 @@ declare namespace DC {
 
     export interface CoordinateGridMixin<T> extends BaseMixin<T>, MarginMixin<T>, ColorMixin<T> {
         rangeChart: IGetSet<BaseMixin<any>, T>;
-        zoomScale: IGetSet<Array<any>, T>;
+        zoomScale: IGetSet<any[], T>;
         zoomOutRestrict: IGetSet<boolean, T>;
         g: IGetSet<d3.Selection<any>, T>;
         mouseZoomable: IGetSet<boolean, T>;
@@ -223,7 +223,7 @@ declare namespace DC {
         yAxisPadding: IGetSet<number, T>;
         round: IGetSet<(value: any) => any, T>;
         clipPadding: IGetSet<number, T>;
-        focus(range?: Array<any>): void;
+        focus(range?: any[]): void;
         brushOn: IGetSet<boolean, T>;
     }
 
@@ -239,7 +239,7 @@ declare namespace DC {
     export interface CapMixin<T> {
         cap: IGetSet<number, T>;
         othersLabel: IGetSet<string, T>;
-        othersGrouper: IGetSet<(data: Array<any>) => Array<any>, T>;
+        othersGrouper: IGetSet<(data: any[]) => any[], T>;
     }
 
     export interface BubbleMixin<T> extends ColorMixin<T> {
@@ -276,7 +276,7 @@ declare namespace DC {
         interpolate: IGetSet<string, LineChart>;
         tension: IGetSet<number, LineChart>;
         defined: IGetSet<Accessor<any, boolean>, LineChart>;
-        dashStyle: IGetSet<Array<number>, LineChart>;
+        dashStyle: IGetSet<number[], LineChart>;
         renderArea: IGetSet<boolean, LineChart>;
         dotRadius: IGetSet<number, LineChart>;
         renderDataPoints: IGetSet<RenderDataPointOptions|any, LineChart>;
@@ -385,8 +385,8 @@ declare namespace DC {
     export interface HeatMap extends ColorMixin<HeatMap>, MarginMixin<HeatMap>, BaseMixin<HeatMap> {
         colsLabel: IGetSet<Accessor<any, string>, HeatMap>;
         rowsLabel: IGetSet<Accessor<any, string>, HeatMap>;
-        rows: IGetSet<Array<any>, HeatMap>;
-        cols: IGetSet<Array<any>, HeatMap>;
+        rows: IGetSet<any[], HeatMap>;
+        cols: IGetSet<any[], HeatMap>;
         boxOnClick: IGetSet<(d: any) => void, HeatMap>;
         xAxisOnClick: IGetSet<(d: any) => void, HeatMap>;
         yAxisOnClick: IGetSet<(d: any) => void, HeatMap>;

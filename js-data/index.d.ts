@@ -27,15 +27,15 @@ declare namespace JSData {
         clearEmptyQueries?: boolean;
         debug?: boolean;
         defaultAdapter?: string;
-        defaultFilter?: (collection: Array<any>, resourceName: string, params: DSFilterArg, options: DSConfiguration) => Array<any>;
+        defaultFilter?: (collection: any[], resourceName: string, params: DSFilterArg, options: DSConfiguration) => any[];
         defaultValues?: Object;
         eagerEject?: boolean;
         endpoint?: string;
         error?: boolean | ((message?: any, ...optionalParams: any[]) => void);
-        fallbackAdapters?: Array<string>;
-        findAllFallbackAdapters?: Array<string>;
+        fallbackAdapters?: string[];
+        findAllFallbackAdapters?: string[];
         findAllStrategy?: string;
-        findFallbackAdapters?: Array<string>;
+        findFallbackAdapters?: string[];
         findStrategy?: string;
         findStrictCache?: boolean;
         idAttribute?: string;
@@ -82,8 +82,8 @@ declare namespace JSData {
         skip?: number;
         offset?: number;
 
-        orderBy?: string | Array<string> | Array<Array<string>>;
-        sort?: string | Array<string> | Array<Array<string>>;
+        orderBy?: string | string[] | Array<string[]>;
+        sort?: string | string[] | Array<string[]>;
     }
 
     type DSFilterArg = DSFilterParams | Object;
@@ -146,7 +146,7 @@ declare namespace JSData {
         is(resourceName: string, object: Object): boolean;
         lastModified(resourceName: string, id?: string | number): number; // timestamp
         lastSaved(resourceName: string, id?: string | number): number; // timestamp
-        loadRelations<T>(resourceName: string, idOrInstance: string | number, relations: string | Array<string>, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
+        loadRelations<T>(resourceName: string, idOrInstance: string | number, relations: string | string[], options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         previous<T>(resourceName: string, id: string | number): T & DSInstanceShorthands<T>;
         reap(resourceName: string): JSDataPromise<void>;
         refresh<T>(resourceName: string, id: string | number, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
@@ -185,7 +185,7 @@ declare namespace JSData {
         is(object: Object): boolean;
         lastModified(id?: string | number): number; // timestamp
         lastSaved(id?: string | number): number; // timestamp
-        loadRelations(idOrInstance: string | number, relations: string | Array<string>, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
+        loadRelations(idOrInstance: string | number, relations: string | string[], options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         previous(id: string | number): T & DSInstanceShorthands<T>;
         reap(): JSDataPromise<void>;
         refresh(id: string | number, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
@@ -204,7 +204,7 @@ declare namespace JSData {
         DSUpdate(options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         DSDestroy(options?: DSAdapterOperationConfiguration): JSDataPromise<void>;
         DSCreate(options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        DSLoadRelations(relations: string | Array<string>, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
+        DSLoadRelations(relations: string | string[], options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         DSChangeHistory(): Array<Object>;
         DSChanges(): Object;
         DSHasChanges(): boolean;

@@ -9,7 +9,7 @@ declare namespace ECharts {
         renderer?: string
     }): ECharts;
 
-    function connect(group: string|Array<string>): void;
+    function connect(group: string|string[]): void;
 
     function disConnect(group: string): void;
 

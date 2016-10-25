@@ -45,7 +45,7 @@ export class Headers {
 	append(name: string, value: string): void;
 	delete(name: string): void;
 	get(name: string): string;
-	getAll(name: string): Array<string>;
+	getAll(name: string): string[];
 	has(name: string): boolean;
 	set(name: string, value: string): void;
 	forEach(callback: (value: string, name: string) => void): void;
@@ -82,7 +82,7 @@ interface ResponseInit {
 	headers?: HeaderInit;
 }
 
-type HeaderInit = Headers | Array<string>;
+type HeaderInit = Headers | string[];
 type BodyInit = ArrayBuffer | ArrayBufferView | Blob | FormData | string;
 type RequestInfo = Request | string;
 

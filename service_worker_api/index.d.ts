@@ -91,7 +91,7 @@ interface Header {
      * from the Headers object. If the given name is not the name of an
      * HTTP header, this method throws a TypeError.
      */
-    getAll(name: string): Array<string>;
+    getAll(name: string): string[];
 
     /**
      * Returns a boolean stating whether a Headers object contains a
@@ -382,7 +382,7 @@ interface CacheStorage {
      * CacheStorage. Use this method to iterate over a list of all the
      * Cache objects.
      */
-    keys(): Promise<Array<string>>;
+    keys(): Promise<string[]>;
 }
 
 /**

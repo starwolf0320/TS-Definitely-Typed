@@ -149,11 +149,11 @@ declare namespace oracledb {
 		/** Metadata information - column names is always given. If the Oracledb extendedMetaData or execute() option extendedMetaData are true then additional information is included. */
 		metaData?: Array<IMetaData>;
 		/** This is either an array or an object containing OUT and IN OUT bind values. If bindParams is passed as an array, then outBinds is returned as an array. If bindParams is passed as an object, then outBinds is returned as an object. */
-		outBinds?: Array<any> | Object;
+		outBinds?: any[] | Object;
 		/** For SELECT statements when the resultSet option is true, use the resultSet object to fetch rows. See ResultSet Class. */
 		resultSet?: IResultSet;
 		/** For SELECT statements where the resultSet option is false or unspecified, rows contains an array of fetched rows. It will be NULL if there is an error or the SQL statement was not a SELECT statement. By default, the rows are in an array of column value arrays, but this can be changed to arrays of objects by setting outFormat to OBJECT. If a single row is fetched, then rows is an array that contains one single row. The number of rows returned is limited to the maxRows configuration property of the Oracledb object, although this may be overridden in any execute() call. */
-		rows?: Array<Array<any>> | Array<any>;
+		rows?: Array<any[]> | any[];
 		/** For DML statements (including SELECT FOR UPDATE) this contains the number of rows affected, for example the number of rows inserted. For non-DML statements such as queries, or if no rows are affected, then rowsAffected will be zero. */
 		rowsAffected?: number;
 	}
@@ -203,14 +203,14 @@ declare namespace oracledb {
 		 * @param  {(err:any,row:Array<any>|Object) => void} callback Callback called when the row is available or when some error occurs.
 		 * @returns void
 		 */
-		getRow(callback: (err: any, row: Array<any> | Object) => void): void;
+		getRow(callback: (err: any, row: any[] | Object) => void): void;
 
 		/**
 		 * This call fetches one row of the result set as an object or an array of column values, depending on the value of outFormat.
 		 * At the end of fetching, the ResultSet should be freed by calling close().
 		 * @returns Promise when the row is available or when some error occurs.
 		 */
-		getRow(): IPromise<Array<any> | Object>;
+		getRow(): IPromise<any[] | Object>;
 
 		/**
 		 * This synchronous method converts a ResultSet into a stream.
@@ -302,7 +302,7 @@ declare namespace oracledb {
 		 * @param	{(err: any, value: IExecuteReturn) => void} callback Callback function to receive the result.
 		 */
 		execute(sql: string,
-			bindParams: Object | Array<any>,
+			bindParams: Object | any[],
 			options: IExecuteOptions,
 			callback: (err: any, value: IExecuteReturn) => void): void;
 
@@ -315,7 +315,7 @@ declare namespace oracledb {
 		 * @param	{(err: any, value: IExecuteReturn) => void} callback Callback function to receive the result.
 		 */
 		execute(sql: string,
-			bindParams: Object | Array<any>,
+			bindParams: Object | any[],
 			callback: (err: any, value: IExecuteReturn) => void): void;
 
 		/**
@@ -349,7 +349,7 @@ declare namespace oracledb {
 		 * @returns	A Promise of a result object, containing any fetched rows, the values of any OUT and IN OUT bind variables, and the number of rows affected by the execution of DML statements.
 		 */
 		execute(sql: string,
-			bindParams?: Object | Array<any>,
+			bindParams?: Object | any[],
 			options?: IExecuteOptions): IPromise<IExecuteReturn>;
 
 		/**
@@ -364,7 +364,7 @@ declare namespace oracledb {
 		 * @returns Readable Stream for queries.
 		 */
 		queryStream(sql: string,
-			bindParams?: Object | Array<any>,
+			bindParams?: Object | any[],
 			options?: IExecuteOptions): stream.Readable;
 
 		/**
@@ -558,7 +558,7 @@ declare namespace oracledb {
 	 * An array of node-oracledb types. When any column having the specified type is queried with execute(), the column data is returned as a string instead of the native representation. For column types not specified in fetchAsString, native types will be returned.
 	 * By default all columns are returned as native types.
 	 */
-	var fetchAsString: Array<number>;
+	var fetchAsString: number[];
 	/** Default size in bytes that the driver will fetch from LOBs in advance. */
 	var lobPrefetchSize: number;
 	/** Default maximum number of rows to be fetched in statements not using ResultSets */

@@ -9,7 +9,7 @@ import gulp = require('gulp');
 
 interface IOptions {
     configFile?: string;
-    args?: Array<string>;
+    args?: string[];
     debug?: boolean;
 }
 

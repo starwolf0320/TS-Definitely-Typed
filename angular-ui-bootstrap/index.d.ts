@@ -616,7 +616,7 @@ declare module 'angular' {
              *
              * @default: ["one", "two", "three", "four", "five"]
              */
-            titles?: Array<string>;
+            titles?: string[];
         }
 
 
@@ -647,7 +647,7 @@ declare module 'angular' {
              *
              * @default null
              */
-            meridians?: Array<string>;
+            meridians?: string[];
 
             /**
              * Whether the user can type inside the hours & minutes input.

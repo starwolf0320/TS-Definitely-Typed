@@ -42,9 +42,9 @@ declare namespace polymer {
         notifyPath(path: string, value: any, fromAbove?: any): void;
         notifySplices(path: string, splices: {
             index: number;
-            removed: Array<any>;
+            removed: any[];
             addedCount: number;
-            object: Array<any>;
+            object: any[];
             type: "splice";
         }): void;
         pop(path: string): any;

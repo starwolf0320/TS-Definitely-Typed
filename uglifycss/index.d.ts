@@ -38,7 +38,7 @@ declare module "uglifycss" {
         /**
          * Uglify one or more files
          */
-        function processFiles(filenames: Array<string>, options?: UglifyCSSOptions): string;
+        function processFiles(filenames: string[], options?: UglifyCSSOptions): string;
 
     }
 

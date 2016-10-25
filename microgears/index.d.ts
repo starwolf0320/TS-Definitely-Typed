@@ -20,7 +20,7 @@ declare namespace microgears {
 
     interface Plugin {
         name: string;
-        beforeChain(args: Array<any>, metaInfo: MetaInformation): Array<any>;
+        beforeChain(args: any[], metaInfo: MetaInformation): any[];
         afterChain<T>(result: T, metaInfo: MetaInformation): T;
     }
 

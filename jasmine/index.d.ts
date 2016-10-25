@@ -137,7 +137,7 @@ declare namespace jasmine {
     interface MatchersUtil {
         equals(a: any, b: any, customTesters?: Array<CustomEqualityTester>): boolean;
         contains<T>(haystack: ArrayLike<T> | string, needle: any, customTesters?: Array<CustomEqualityTester>): boolean;
-        buildFailureMessage(matcherName: string, isNot: boolean, actual: any, ...expected: Array<any>): string;
+        buildFailureMessage(matcherName: string, isNot: boolean, actual: any, ...expected: any[]): string;
     }
 
     interface Env {

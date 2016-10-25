@@ -27,7 +27,7 @@ export interface ScaleLinear<Range, Output> {
      * values that can be coerced to numeric. Otherwise, returns NaN
      */
     invert(value: number | { valueOf(): number }): number;
-    domain(): Array<number>;
+    domain(): number[];
     domain(domain: Array<number | { valueOf(): number }>): this;
     range(): Array<Range>;
     range(range: Array<Range>): this;
@@ -41,7 +41,7 @@ export interface ScaleLinear<Range, Output> {
     interpolate(): InterpolatorFactory<any, any>;
     interpolate(interpolate: InterpolatorFactory<Range, Output>): this;
     interpolate<NewOutput>(interpolate: InterpolatorFactory<Range, NewOutput>): ScaleLinear<Range, NewOutput>;
-    ticks(count?: number): Array<number>;
+    ticks(count?: number): number[];
     tickFormat(count?: number, specifier?: string): ((d: number | { valueOf(): number }) => string);
     nice(count?: number): this;
     copy(): ScaleLinear<Range, Output>;
@@ -63,7 +63,7 @@ export interface ScalePower<Range, Output> {
      * values that can be coerced to numeric. Otherwise, returns NaN
      */
     invert(value: number | { valueOf(): number }): number;
-    domain(): Array<number>;
+    domain(): number[];
     domain(domain: Array<number | { valueOf(): number }>): this;
     range(): Array<Range>;
     range(range: Array<Range>): this;
@@ -77,7 +77,7 @@ export interface ScalePower<Range, Output> {
     interpolate(): InterpolatorFactory<any, any>;
     interpolate(interpolate: InterpolatorFactory<Range, Output>): this;
     interpolate<NewOutput>(interpolate: InterpolatorFactory<Range, NewOutput>): ScalePower<Range, NewOutput>;
-    ticks(count?: number): Array<number>;
+    ticks(count?: number): number[];
     tickFormat(count?: number, specifier?: string): ((d: number | { valueOf(): number }) => string);
     nice(count?: number): this;
     copy(): ScalePower<Range, Output>;
@@ -106,7 +106,7 @@ export interface ScaleLogarithmic<Range, Output> {
      * values that can be coerced to numeric. Otherwise, returns NaN
      */
     invert(value: number | { valueOf(): number }): number;
-    domain(): Array<number>;
+    domain(): number[];
     domain(domain: Array<number | { valueOf(): number }>): this;
     range(): Array<Range>;
     range(range: Array<Range>): this;
@@ -120,7 +120,7 @@ export interface ScaleLogarithmic<Range, Output> {
     interpolate(): InterpolatorFactory<any, any>;
     interpolate(interpolate: InterpolatorFactory<Range, Output>): this;
     interpolate<NewOutput>(interpolate: InterpolatorFactory<Range, NewOutput>): ScaleLogarithmic<Range, NewOutput>;
-    ticks(count?: number): Array<number>;
+    ticks(count?: number): number[];
     tickFormat(count?: number, specifier?: string): ((d: number | { valueOf(): number }) => string);
     nice(count?: number): this;
     copy(): ScaleLogarithmic<Range, Output>;
@@ -145,11 +145,11 @@ export interface ScaleIdentity {
      * values that can be coerced to numeric. Otherwise, returns NaN
      */
     invert(value: number | { valueOf(): number }): number;
-    domain(): Array<number>;
+    domain(): number[];
     domain(domain: Array<number | { valueOf(): number }>): this;
-    range(): Array<number>;
+    range(): number[];
     range(range: Array<Range | { valueOf(): number }>): this;
-    ticks(count?: number): Array<number>;
+    ticks(count?: number): number[];
     tickFormat(count?: number, specifier?: string): ((d: number | { valueOf(): number }) => string);
     nice(count?: number): this;
     copy(): ScaleIdentity;
@@ -258,7 +258,7 @@ export interface ScaleQuantize<Range> {
     domain(domain: [number | { valueOf(): number }, number | { valueOf(): number }]): this;
     range(): Array<Range>;
     range(range: Array<Range>): this;
-    ticks(count?: number): Array<number>;
+    ticks(count?: number): number[];
     tickFormat(count?: number, specifier?: string): ((d: number | { valueOf(): number }) => string);
     nice(count?: number): this;
     copy(): ScaleQuantize<Range>;
@@ -274,11 +274,11 @@ export function scaleQuantize<Range>(): ScaleQuantize<Range>;
 export interface ScaleQuantile<Range> {
     (value: number | { valueOf(): number }): Range;
     invertExtent(value: Range): [number, number];
-    domain(): Array<number>;
+    domain(): number[];
     domain(domain: Array<number | { valueOf(): number }>): this;
     range(): Array<Range>;
     range(range: Array<Range>): this;
-    quantiles(): Array<number>;
+    quantiles(): number[];
     copy(): ScaleQuantile<Range>;
 }
 
@@ -404,10 +404,10 @@ export function scalePoint<Domain extends { toString(): string }>(): ScalePoint<
 // Categorical Color Schemas for Ordinal Scales
 // -------------------------------------------------------------------------------
 
-export const schemeCategory10: Array<string>;
+export const schemeCategory10: string[];
 
-export const schemeCategory20: Array<string>;
+export const schemeCategory20: string[];
 
-export const schemeCategory20b: Array<string>;
+export const schemeCategory20b: string[];
 
-export const schemeCategory20c: Array<string>;
+export const schemeCategory20c: string[];

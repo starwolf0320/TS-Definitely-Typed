@@ -50,7 +50,7 @@ declare namespace PhantomCSS {
         /**
          * Get a list of image diffs generated in this test run
          */
-        getCreatedDiffFiles(): Array<string>;
+        getCreatedDiffFiles(): string[];
     }
 
     interface PhantomCSSTest {

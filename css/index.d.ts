@@ -90,7 +90,7 @@ export interface Node {
 
 export interface Rule extends Node {
     /** The list of selectors of the rule, split on commas. Each selector is trimmed from whitespace and comments. */
-    selectors?: Array<string>;
+    selectors?: string[];
     /** Array of nodes with the types declaration and comment. */
     declarations?: Array<Declaration | Comment>;
 }
@@ -177,7 +177,7 @@ export interface KeyFrames {
 
 export interface KeyFrame {
     /** The list of "selectors" of the keyframe rule, split on commas. Each “selector” is trimmed from whitespace. */
-    values?: Array<string>;
+    values?: string[];
     /** Array of nodes with the types declaration and comment. */
     declarations?: Array<Declaration | Comment>;
 }
@@ -205,7 +205,7 @@ export interface Namespace {
  */
 export interface Page {
     /** The list of selectors of the rule, split on commas. Each selector is trimmed from whitespace and comments. */
-    selectors?: Array<string>;
+    selectors?: string[];
     /** Array of nodes with the types declaration and comment. */
     declarations?: Array<Declaration | Comment>;
 }

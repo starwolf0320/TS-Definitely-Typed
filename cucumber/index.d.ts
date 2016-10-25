@@ -13,8 +13,8 @@ declare namespace cucumber {
 	}
 
 	export interface TableDefinition {
-		raw: () => Array<any>;
-		rows: () => Array<any>;
+		raw: () => any[];
+		rows: () => any[];
 		rowsHash: () => {};
 		hashes: () => {};
 	}

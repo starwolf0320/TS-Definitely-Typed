@@ -56,7 +56,7 @@ interface WinregStatic {
     /**
      * Collection of available registry hive keys.
      */
-    HIVES: Array<string>;
+    HIVES: string[];
 
     /**
      * Registry value type STRING.
@@ -110,7 +110,7 @@ interface WinregStatic {
     /**
      * Collection of available registry value types.
      */
-    REG_TYPES: Array<string>;
+    REG_TYPES: string[];
 
     /**
      * The name of the default value. May be used instead of the empty string literal for better readability.

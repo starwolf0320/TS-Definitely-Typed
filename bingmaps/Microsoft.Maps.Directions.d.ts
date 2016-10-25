@@ -242,8 +242,8 @@ declare namespace Microsoft.Maps.Directions {
         maneuver: Maneuver;
         maneuverImageName: string;
         monetaryCost: number;
-        postIntersectionHints: Array<string>;
-        preIntersectionHings: Array<string>;
+        postIntersectionHints: string[];
+        preIntersectionHings: string[];
         startStopName: string;
         transitLine: TransitLine;
         transitStepIcon: string;
@@ -384,9 +384,9 @@ declare namespace Microsoft.Maps.Directions {
     }
 
     export interface RoutePath {
-        decodedLatitudes: Array<number>;
-        decodedLongitudes: Array<number>;
-        decodedRegions: Array<any>;
+        decodedLatitudes: number[];
+        decodedLongitudes: number[];
+        decodedRegions: any[];
     }
 
     export interface RouteSummary {

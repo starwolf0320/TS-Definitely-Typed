@@ -17,7 +17,7 @@ declare namespace c3 {
         ids: ArrayOrString;
     }
 
-    type ArrayOrString = Array<string> | string;
+    type ArrayOrString = string[] | string;
 
     interface ChartConfiguration {
         /**
@@ -63,7 +63,7 @@ declare namespace c3 {
             /**
              * Set custom color pattern.
              */
-            pattern?: Array<string>;
+            pattern?: string[];
             threshold?: any; // Undocumented
         };
 
@@ -274,7 +274,7 @@ declare namespace c3 {
         /**
          * Choose which JSON object keys correspond to desired data.
          */
-        keys?: { x?: string; value: Array<string>; };
+        keys?: { x?: string; value: string[]; };
         /**
          * Specify the key of x values in the data.
          * We can show the data with non-index x values by this option. This option is required when the type of x axis is timeseries. If this option is set on category axis, the values of the data on the key will be used for category names.
@@ -304,7 +304,7 @@ declare namespace c3 {
         /**
          * Set groups for the data for stacking.
          */
-        groups?: Array<Array<string>>;
+        groups?: Array<string[]>;
         /**
          * Set y axis the data related to. y and y2 can be used.
          */
@@ -357,7 +357,7 @@ declare namespace c3 {
          * Hide each data when the chart appears.
          * If true specified, all of data will be hidden. If multiple ids specified as an array, those will be hidden.
          */
-        hide?: boolean | Array<string>;
+        hide?: boolean | string[];
         /**
          * Set text displayed when empty data.
          */
@@ -422,7 +422,7 @@ declare namespace c3 {
          * Set category names on category axis.
          * This must be an array that includes category names in string. If category names are included in the date by data.x option, this is not required.
          */
-        categories?: Array<string>;
+        categories?: string[];
 
         tick?: XTickConfiguration;
         /**
@@ -449,7 +449,7 @@ declare namespace c3 {
         /**
          * Set default extent for subchart and zoom. This can be an array or function that returns an array.
          */
-        extent?: Array<number> | (() => Array<number>);
+        extent?: number[] | (() => number[]);
         /**
          * Set label on x axis.
          * You can set x axis label and change its position by this option. string and object can be passed and we can change the poisiton by passing object that has position key. Available position differs according to the axis direction (vertical or horizontal). If string set, the position will be the default.
@@ -503,7 +503,7 @@ declare namespace c3 {
         /**
          * Set default range of y axis. This option set the default value for y axis when there is no data on init.
          */
-        default?: Array<number>;
+        default?: number[];
 
     }
 
@@ -535,7 +535,7 @@ declare namespace c3 {
          * Set the x values of ticks manually.
          * If this option is provided, the position of the ticks will be determined based on those values. This option works with timeseries data and the x values will be parsed accoding to the type of the value and data.xFormat option.
          */
-        values?: Array<number> | Array<string>;
+        values?: number[] | string[];
         /**
          * Rotate x axis tick text. If you set negative value, it will rotate to opposite direction.
          */
@@ -560,7 +560,7 @@ declare namespace c3 {
         /**
          * Set the y values of ticks manually.
          */
-        values?: Array<number>;
+        values?: number[];
         /**
          * The number of y axis ticks to show.
          * The position of the ticks will be calculated precisely, so the values on the ticks will not be rounded nicely. In the case, axis.y.tick.format or axis.y.tick.values will be helpful.
@@ -824,11 +824,11 @@ declare namespace c3 {
         load(args: {
             url?: string;
             json?: Object;
-            keys?: { x?: string; value: Array<string>; }
+            keys?: { x?: string; value: string[]; }
             rows?: Array<PrimitiveArray>;
             columns?: Array<PrimitiveArray>;
             classes?: { [key: string]: string };
-            categories?: Array<string>;
+            categories?: string[];
             axes?: { [key: string]: string };
             colors?: { [key: string]: string | d3.Rgb };
             type?: string;
@@ -855,7 +855,7 @@ declare namespace c3 {
          */
         flow(args: {
             json?: Object;
-            keys?: { x?: string; value: Array<string>; }
+            keys?: { x?: string; value: string[]; }
             rows?: Array<PrimitiveArray>;
             columns?: Array<PrimitiveArray>;
             to?: any;
@@ -869,13 +869,13 @@ declare namespace c3 {
          * @param indices Specify indices to be selected. If this argument is not given, all data points will be the candidate.
          * @param resetOthers If this argument is set true, the data points that are not specified by ids, indices will be unselected.
          */
-        select(ids?: Array<string>, indices?: Array<number>, resetOthers?: boolean): void;
+        select(ids?: string[], indices?: number[], resetOthers?: boolean): void;
         /**
          * Change data point state to unselected. By this API, you can unselect data points. To use this API, data.selection.enabled needs to be set true.
          * @param ids Specify target ids to be unselected. If this argument is not given, all targets will be the candidate.
          * @param indices Specify indices to be unselected. If this argument is not given, all data points will be the candidate.
          */
-        unselect(ids?: Array<string>, indices?: Array<number>): void;
+        unselect(ids?: string[], indices?: number[]): void;
         /**
          * Get selected data points. By this API, you can get selected data points information. To use this API, data.selection.enabled needs to be set true.
          * @param targetId You can filter the result by giving target id that you want to get. If not given, all of data points will be returned.
@@ -891,7 +891,7 @@ declare namespace c3 {
          * Update groups for the targets.
          * @param groups This argument needs to be an Array that includes one or more Array that includes target ids to be grouped.
          */
-        groups(groups: Array<Array<string>>): void;
+        groups(groups: Array<string[]>): void;
 
         xgrids: GridOperations;
 
@@ -902,12 +902,12 @@ declare namespace c3 {
              * Update regions.
              * @param regions Regions will be replaced with this argument. The format of this argument is the same as regions.
              */
-            (regions: Array<any>): void;
+            (regions: any[]): void;
             /**
              * Add new region. This API adds new region instead of replacing like regions.
              * @param grids New region will be added. The format of this argument is the same as regions and it's possible to give an Object if only one region will be added.
              */
-            add(regions: Array<any> | Object): void;
+            add(regions: any[] | Object): void;
             /**
              * Remove regions. This API removes regions.
              * @param args This argument should include classes. If classes is given, the regions that have one of the specified classes will be removed. If args is not given, all of regions will be removed.
@@ -930,7 +930,7 @@ declare namespace c3 {
              * Get values of the data loaded in the chart.
              * @param targetIds This API returns the values of specified target. If this argument is not given, null will be retruned.
              */
-            values(targetIds?: ArrayOrString): Array<any>;
+            values(targetIds?: ArrayOrString): any[];
             /**
              * Get and set names of the data loaded in the chart.
              * @param names If this argument is given, the names of data will be updated. If not given, the current names will be returned. The format of this argument is the same as data.names.
@@ -959,7 +959,7 @@ declare namespace c3 {
          * Get and set the categories
          * @param categories: Value of the categories to update
          */
-        categories(categories?: Array<string>): Array<string>;
+        categories(categories?: string[]): string[];
 
         /**
          * Get the color for the specified targetId
@@ -1019,7 +1019,7 @@ declare namespace c3 {
              * Zoom by giving x domain.
              * @param domain If domain is given, the chart will be zoomed to the given domain. If no argument is given, the current zoomed domain will be returned.
              */
-            (domain?: Array<number>): Array<number>;
+            (domain?: number[]): number[];
 
             /**
              * Enable and disable zooming.
@@ -1055,12 +1055,12 @@ declare namespace c3 {
          * Update the x/y grid lines.
          * @param grids X/Y grid lines will be replaced with this argument. The format of this argument is the same as grid.x.lines or grid.y.lines.
          */
-        (grids: Array<any>): void;
+        (grids: any[]): void;
         /**
          * Add x/y grid lines. This API adds new x/y grid lines instead of replacing like xgrids.
          * @param grids New x/y grid lines will be added. The format of this argument is the same as grid.x.lines or grid.y.lines and it's possible to give an Object if only one line will be added.
          */
-        add(grids: Array<any> | Object): void;
+        add(grids: any[] | Object): void;
         /**
          * Remove x/y grid lines. This API removes x/y grid lines.
          * @param args This argument should include value or class. If value is given, the x/y grid lines that have specified x/y value will be removed. If class is given, the x/y grid lines that have specified class will be removed. If args is not given, all of x/y grid lines will be removed.

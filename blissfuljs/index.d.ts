@@ -13,7 +13,7 @@ interface Array<T> {
 
 declare namespace BlissNS {
     export type BlissDecoratedElement<T> = Element & T;
-    export type BlissDecoratedArrayElement<T> = Array<T> & BlissNS.BlissCollectionArray<T>;
+    export type BlissDecoratedArrayElement<T> = T[] & BlissNS.BlissCollectionArray<T>;
 
     interface BlissStatic {
         <T>(selector: string, context?: Element): BlissDecoratedElement<T>;
@@ -129,8 +129,8 @@ declare namespace BlissNS {
         create<T>(...args: any[]): BlissDecoratedElement<T>;
 
         set<T>(subject: BlissDecoratedElement<T>, options: Object): BlissDecoratedElement<T>;
-        contents<T>(subject: BlissDecoratedElement<T> , elements: Object | Array<any> | string | Number | Node): BlissDecoratedElement<T>;
-        contents<T>(subject: BlissDecoratedElement<T>[], elements: Object | Array<any> | string | Number | Node): BlissDecoratedElement<T>[];
+        contents<T>(subject: BlissDecoratedElement<T> , elements: Object | any[] | string | Number | Node): BlissDecoratedElement<T>;
+        contents<T>(subject: BlissDecoratedElement<T>[], elements: Object | any[] | string | Number | Node): BlissDecoratedElement<T>[];
         clone<T>(subject: BlissDecoratedElement<T>): BlissDecoratedElement<T>;
         after<T>(subject: BlissDecoratedElement<T>, element: Element): BlissDecoratedElement<T>;
         around<T>(subject: BlissDecoratedElement<T>, element: Element): BlissDecoratedElement<T>;
@@ -160,8 +160,8 @@ declare namespace BlissNS {
 
         remove(subject: Element | BlissStatic): void;
 
-        all(array: Array<any>, method: string, ...args: Array<any>): Array<any>;
-        all<T>(array: Array<T>, method: string, ...args: Array<any>): Array<T>;
+        all(array: any[], method: string, ...args: any[]): any[];
+        all<T>(array: T[], method: string, ...args: any[]): T[];
 
         Class<T>(options: {
             constructor?: Function;
@@ -233,8 +233,8 @@ declare namespace BlissNS {
         include(condition: any, url: string ): Promise<void>;
         include(url: string ): Promise<void>;
 
-        add(name: string, callback: Function, on?: BlissStatic | BlissStaticCollection | Element | Array<any>): void;
-        add(callbacks: {[callbackName: string]: Function}, on?: BlissStatic | BlissStaticCollection | Element | Array<any>): void;
+        add(name: string, callback: Function, on?: BlissStatic | BlissStaticCollection | Element | any[]): void;
+        add(callbacks: {[callbackName: string]: Function}, on?: BlissStatic | BlissStaticCollection | Element | any[]): void;
 
         hooks: {
             add(name: string, callback: Function): void;
@@ -246,7 +246,7 @@ declare namespace BlissNS {
 
     interface BlissStaticCollection extends BlissStatic {
         <T>(selector: string, context?: Element): BlissDecoratedArrayElement<T>;
-        <T>(expr: Object, context?: Element): Array<T>;
+        <T>(expr: Object, context?: Element): T[];
         (expr: Window, context?: Element): [Window];
         (expr: Node, context?: Element): [Node];
     }
@@ -613,7 +613,7 @@ declare namespace BlissNS {
 
     interface BlissBindedElement<T> extends BlissNativeExtentions<T> {
         set(options: Object): BlissDecoratedElement<T>;
-        contents(elements: Object | Array<any> | string | Number | Node): BlissDecoratedElement<T>;
+        contents(elements: Object | any[] | string | Number | Node): BlissDecoratedElement<T>;
         clone(): BlissDecoratedElement<T>;
         after(element: Element): BlissDecoratedElement<T>;
         around(element: Element): BlissDecoratedElement<T>;
@@ -635,13 +635,13 @@ declare namespace BlissNS {
     }
 
     interface BlissBindedArray<T> {
-        all(method: string, ...args: Array<any>): Array<any>;
-        all<T>(method: string, ...args: Array<any>): Array<T>;
+        all(method: string, ...args: any[]): any[];
+        all<T>(method: string, ...args: any[]): T[];
     }
 
     interface BlissCollectionArray<T> {
         set(options: Object): BlissCollectionArray<T>;
-        contents(elements: Object | Array<any> | string | Number | Node): BlissCollectionArray<T>;
+        contents(elements: Object | any[] | string | Number | Node): BlissCollectionArray<T>;
         clone(): BlissCollectionArray<T>;
         after(element: Element): BlissCollectionArray<T>;
         around(element: Element): BlissCollectionArray<T>;

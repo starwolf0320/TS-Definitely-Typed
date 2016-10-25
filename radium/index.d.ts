@@ -67,7 +67,7 @@ declare namespace Radium {
         /**
          * List of plugins
          */
-        plugins?: Array<any>;
+        plugins?: any[];
     }
 
     /**

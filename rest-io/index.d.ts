@@ -97,21 +97,21 @@ export declare class AuthorizedResource extends Resource {
 
     getRoles(id: string): Promise<Document>;
 
-    hasAuthorizedRole(roles: Array<any>, authorizedRoles: Array<string>): boolean;
+    hasAuthorizedRole(roles: any[], authorizedRoles: string[]): boolean;
 
-    hasAccessRightsDefined(req: Request, authorizedRoles: Array<string>): boolean;
+    hasAccessRightsDefined(req: Request, authorizedRoles: string[]): boolean;
 
-    isAuthorized(req: Request, authorizedRoles: Array<string>): boolean;
+    isAuthorized(req: Request, authorizedRoles: string[]): boolean;
 
     sendUnauthorized(error: Error, res: Response): void;
 }
 
 export interface IMethodAccess {
-    getAll: Array<string>;
-    getById: Array<string>;
-    create: Array<string>;
-    update: Array<string>;
-    del: Array<string>;
+    getAll: string[];
+    getById: string[];
+    create: string[];
+    update: string[];
+    del: string[];
 }
 
 export declare class UserResource extends AuthorizedResource {

@@ -308,7 +308,7 @@ declare namespace Immutable {
      * Index numbers are used as keys to determine the path to follow in
      * the List.
      */
-    setIn(keyPath: Array<any>, value: any): List<T>;
+    setIn(keyPath: any[], value: any): List<T>;
     setIn(keyPath: Iterable<any, any>, value: any): List<T>;
 
     /**
@@ -317,20 +317,20 @@ declare namespace Immutable {
      *
      * @alias removeIn
      */
-    deleteIn(keyPath: Array<any>): List<T>;
+    deleteIn(keyPath: any[]): List<T>;
     deleteIn(keyPath: Iterable<any, any>): List<T>;
-    removeIn(keyPath: Array<any>): List<T>;
+    removeIn(keyPath: any[]): List<T>;
     removeIn(keyPath: Iterable<any, any>): List<T>;
 
     /**
      * @see `Map#updateIn`
      */
     updateIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       updater: (value: any) => any
     ): List<T>;
     updateIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       notSetValue: any,
       updater: (value: any) => any
     ): List<T>;
@@ -352,11 +352,11 @@ declare namespace Immutable {
       ...iterables: Iterable.Indexed<T>[]
     ): List<T>;
     mergeIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       ...iterables: Iterable.Indexed<T>[]
     ): List<T>;
     mergeIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       ...iterables: Array<T>[]
     ): List<T>;
 
@@ -368,11 +368,11 @@ declare namespace Immutable {
       ...iterables: Iterable.Indexed<T>[]
     ): List<T>;
     mergeDeepIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       ...iterables: Iterable.Indexed<T>[]
     ): List<T>;
     mergeDeepIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       ...iterables: Array<T>[]
     ): List<T>;
 
@@ -587,7 +587,7 @@ declare namespace Immutable {
      * Returns a new Map having set `value` at this `keyPath`. If any keys in
      * `keyPath` do not exist, a new immutable Map will be created at that key.
      */
-    setIn(keyPath: Array<any>, value: any): Map<K, V>;
+    setIn(keyPath: any[], value: any): Map<K, V>;
     setIn(KeyPath: Iterable<any, any>, value: any): Map<K, V>;
 
     /**
@@ -596,9 +596,9 @@ declare namespace Immutable {
      *
      * @alias removeIn
      */
-    deleteIn(keyPath: Array<any>): Map<K, V>;
+    deleteIn(keyPath: any[]): Map<K, V>;
     deleteIn(keyPath: Iterable<any, any>): Map<K, V>;
-    removeIn(keyPath: Array<any>): Map<K, V>;
+    removeIn(keyPath: any[]): Map<K, V>;
     removeIn(keyPath: Iterable<any, any>): Map<K, V>;
 
     /**
@@ -623,11 +623,11 @@ declare namespace Immutable {
      *
      */
     updateIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       updater: (value: any) => any
     ): Map<K, V>;
     updateIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       notSetValue: any,
       updater: (value: any) => any
     ): Map<K, V>;
@@ -655,11 +655,11 @@ declare namespace Immutable {
       ...iterables: Iterable<K, V>[]
     ): Map<K, V>;
     mergeIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       ...iterables: Iterable<K, V>[]
     ): Map<K, V>;
     mergeIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       ...iterables: {[key: string]: V}[]
     ): Map<string, V>;
 
@@ -677,11 +677,11 @@ declare namespace Immutable {
       ...iterables: Iterable<K, V>[]
     ): Map<K, V>;
     mergeDeepIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       ...iterables: Iterable<K, V>[]
     ): Map<K, V>;
     mergeDeepIn(
-      keyPath: Array<any>,
+      keyPath: any[],
       ...iterables: {[key: string]: V}[]
     ): Map<string, V>;
 
@@ -1617,7 +1617,7 @@ declare namespace Immutable {
         thirdIterable: Iterable<any, V>
       ): Iterable.Indexed<Z>;
       zipWith<Z>(
-        zipper: (...any: Array<any>) => Z,
+        zipper: (...any: any[]) => Z,
         ...iterables: Array<Iterable<any, any>>
       ): Iterable.Indexed<Z>;
 
@@ -1789,14 +1789,14 @@ declare namespace Immutable {
      * Returns the value found by following a path of keys or indices through
      * nested Iterables.
      */
-    getIn(searchKeyPath: Array<any>, notSetValue?: any): any;
+    getIn(searchKeyPath: any[], notSetValue?: any): any;
     getIn(searchKeyPath: Iterable<any, any>, notSetValue?: any): any;
 
     /**
      * True if the result of following a path of keys or indices through nested
      * Iterables results in a set value.
      */
-    hasIn(searchKeyPath: Array<any>): boolean;
+    hasIn(searchKeyPath: any[]): boolean;
     hasIn(searchKeyPath: Iterable<any, any>): boolean;
 
 

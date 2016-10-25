@@ -5,7 +5,7 @@
 
 declare class Graph {
     grid: Array<Array<GridNode>>;
-    constructor(grid: Array<Array<number>>, options?: {diagonal?: boolean});
+    constructor(grid: Array<number[]>, options?: {diagonal?: boolean});
 }
 
 declare class GridNode {

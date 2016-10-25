@@ -29,7 +29,7 @@ declare namespace WebFont {
 		fontinactive?(familyName: string, fvd: string): void;
 
 		/** Child window or iframes to manage fonts for */
-		context?: Array<string>;
+		context?: string[];
 
 		custom?: Custom;
 		google?: Google;
@@ -38,15 +38,15 @@ declare namespace WebFont {
 		monotype?: Monotype;
 	}
 	export interface Google {
-		families: Array<string>;
+		families: string[];
 		text?: string;
 	}
 	export interface Typekit {
-		id?: Array<string>;
+		id?: string[];
 	}
 	export interface Custom {
-		families?: Array<string>;
-		urls?: Array<string>;
+		families?: string[];
+		urls?: string[];
 		testStrings?: {[fontFamily: string]: string};
 	}
 	export interface Fontdeck {

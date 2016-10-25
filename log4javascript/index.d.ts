@@ -930,7 +930,7 @@ declare namespace log4javascript {
 		/**
 		 * Used internally by log4javascript in constructing formatted output for some layouts.
 		 */
-		getDataValues(loggingEvent: LoggingEvent): Array<any>;
+		getDataValues(loggingEvent: LoggingEvent): any[];
 
 		/**
 		 * This method is used to change the default keys used to create formatted name-value pairs for the properties of a log

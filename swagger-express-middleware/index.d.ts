@@ -243,7 +243,7 @@ declare module "swagger-express-middleware" {
              * If a string is provided, this is used as the secret.
              * If an array is provided, an attempt will be made to unsign the cookie with each secret in order.
              */
-            secret?: string | Array<string>;
+            secret?: string | string[];
             /**
              *  an object that is passed to cookie.parse as the second option
              */

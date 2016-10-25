@@ -1482,14 +1482,14 @@ declare namespace __MaterialUI {
             openDirection?: string;
             menuStyle?: React.CSSProperties;
             multiple?: boolean;
-            value?: string | Array<string>;
+            value?: string | string[];
             width?: string | number;
             touchTapCloseDelay?: number;
             style?: React.CSSProperties;
 
             onKeyboardFocus?: React.FocusEventHandler;
             onItemTouchTap?: (e: TouchTapEvent, item: React.ReactElement<any>) => void;
-            onChange?: (e: React.FormEvent, value: string | Array<string>) => void;
+            onChange?: (e: React.FormEvent, value: string | string[]) => void;
         }
         export class IconMenu extends React.Component<IconMenuProps, {}> {
         }
@@ -1502,7 +1502,7 @@ declare namespace __MaterialUI {
             maxHeight?: number;
             multiple?: boolean;
             openDirection?: string;
-            value?: string | Array<string>;
+            value?: string | string[];
             width?: string | number;
             zDepth?: number;
             style?: React.CSSProperties;

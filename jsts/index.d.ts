@@ -1460,7 +1460,7 @@ declare namespace jsts {
              * @return {number} the first non-zero <code>compareTo</code> result, if any;
              *         otherwise, zero.
              */
-            compare(a: Array<any>, b: Array<any>): number;
+            compare(a: any[], b: any[]): number;
 
             /**
              * @param {jsts.geom.Coordinate}

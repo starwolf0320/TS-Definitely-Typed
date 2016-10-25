@@ -73,7 +73,7 @@ declare namespace Snap {
     export function plugin(f: Function): void;
     export function select(query: string): Snap.Element;
     export function selectAll(query: string): any;
-    export function snapTo(values: Array<number>, value: number, tolerance?: number): number;
+    export function snapTo(values: number[], value: number, tolerance?: number): number;
 
     export function animate(from: number|number[], to: number|number[], updater: (n: number) => void, duration: number, easing?: (num: number) => number, callback?: () => void): mina.MinaAnimation;
     export function animation(attr: Object, duration: number, easing?: (num: number) => number, callback?: () => void): Snap.Animation;
@@ -103,10 +103,10 @@ declare namespace Snap {
     export function len2(x1: number, y1: number, x2: number, y2: number): number;
 
     export function parse(svg: string): Fragment;
-    export function parsePathString(pathString: string): Array<any>;
-    export function parsePathString(pathString: Array<string>): Array<any>;
-    export function parseTransformString(TString: string): Array<any>;
-    export function parseTransformString(TString: Array<string>): Array<any>;
+    export function parsePathString(pathString: string): any[];
+    export function parsePathString(pathString: string[]): any[];
+    export function parseTransformString(TString: string): any[];
+    export function parseTransformString(TString: string[]): any[];
 
     export function closest(x: number, y: number, X: number, Y: number): boolean;
 
@@ -361,7 +361,7 @@ declare namespace Snap {
 
     interface Path {
         bezierBBox(...args: number[]): BBox;
-        bezierBBox(bez: Array<number>): BBox;
+        bezierBBox(bez: number[]): BBox;
         findDotsAtSegment(p1x: number, p1y: number, c1x: number,
                           c1y: number, c2x: number, c2y: number,
                           p2x: number, p2y: number, t: number): Object;
@@ -375,10 +375,10 @@ declare namespace Snap {
         isPointInsideBBox(bbox: BBox, x: number, y: number): boolean;
         map(path: string, matrix: Snap.Matrix): string;
         map(path: string, matrix: Object): string;
-        toAbsolute(path: string): Array<any>;
-        toCubic(pathString: string): Array<any>;
-        toCubic(pathString: Array<string>): Array<any>;
-        toRelative(path: string): Array<any>;
+        toAbsolute(path: string): any[];
+        toCubic(pathString: string): any[];
+        toCubic(pathString: string[]): any[];
+        toRelative(path: string): any[];
     }
 
     interface IntersectionDot {
@@ -388,7 +388,7 @@ declare namespace Snap {
         t2: number;
         segment1: number;
         segment2: number;
-        bez1: Array<number>;
-        bez2: Array<number>;
+        bez1: number[];
+        bez2: number[];
     }
 }

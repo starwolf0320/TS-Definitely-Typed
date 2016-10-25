@@ -2746,7 +2746,7 @@ declare namespace samchon.library {
          *			  If omitted, it's same with split(start) not having first item.
          * @return An array of substrings.
          */
-        static betweens(str: string, start?: string, end?: string): Array<string>;
+        static betweens(str: string, start?: string, end?: string): string[];
         /**
          * An array containing whitespaces.
          */
@@ -5130,7 +5130,7 @@ declare namespace samchon.protocol {
          *
          * @return An array containing values of the contained parameters.
          */
-        getArguments(): Array<any>;
+        getArguments(): any[];
         /**
          * Apply to a matched function.
          *

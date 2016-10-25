@@ -20,7 +20,7 @@ export interface Calendar {
 export interface BusinessHours {
     start: moment.Duration | string | Date;
     end: moment.Duration | string | Date;
-    dow: Array<number>;
+    dow: number[];
 }
 
 export interface Timespan {
@@ -83,10 +83,10 @@ export interface Options extends AgendaOptions, EventDraggingResizingOptions, Dr
     titleFormat?: any; // String
 
     buttonText?: ButtonTextObject;
-    monthNames?: Array<string>;
-    monthNamesShort?: Array<string>;
-    dayNames?: Array<string>;
-    dayNamesShort?: Array<string>;
+    monthNames?: string[];
+    monthNamesShort?: string[];
+    dayNames?: string[];
+    dayNamesShort?: string[];
     weekNumberTitle?: string;
 
     // Clicking & Hovering - http://fullcalendar.io/docs/mouse/
@@ -218,7 +218,7 @@ export interface EventObject extends Timespan {
     title: string;
     allDay?: boolean;
     url?: string;
-    className?: string | Array<string>;
+    className?: string | string[];
     editable?: boolean;
     startEditable?: boolean;
     durationEditable?: boolean;
@@ -253,7 +253,7 @@ export interface EventSource extends JQueryAjaxSettings {
     backgroundColor?: string;
     borderColor?: string;
     textColor?: string;
-    className?: any; // string/Array<string>
+    className?: any; // string/string[]
     editable?: boolean;
     allDayDefault?: boolean;
     ignoreTimezone?: boolean;

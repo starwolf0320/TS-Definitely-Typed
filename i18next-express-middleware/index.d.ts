@@ -16,14 +16,14 @@ declare namespace i18nextExpressMiddleware {
      * @interface
      */
     interface LanguageDetectorOptions {
-        caches?: Array<string>|boolean;
+        caches?: string[]|boolean;
         cookieDomain?: string;
         cookieExpirationDate?: Date;
         lookupCookie?: string;
         lookupFromPathIndex?: number;
         lookupQuerystring?: string;
         lookupSession?: string;
-        order?: Array<string>;
+        order?: string[];
     }
 
     /**

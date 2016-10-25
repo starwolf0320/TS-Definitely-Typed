@@ -12,10 +12,10 @@ interface formatters_info {
 }
 
 interface locale_detail {
-    monthNames?: string [];
-    monthNamesShort?: string [];
+    monthNames?: string[];
+    monthNamesShort?: string[];
     dayNames?: string[];
-    dayNamesShort?: string [];
+    dayNamesShort?: string[];
     amDesignator?: string;
     pmDesignator?: string;
 }

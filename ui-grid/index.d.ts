@@ -113,7 +113,7 @@ declare namespace uiGrid {
             min: number;
             max: number;
         };
-        CURRENCY_SYMBOLS: Array<string>;
+        CURRENCY_SYMBOLS: string[];
         dataChange: {
             ALL: string;
             EDIT: string;
@@ -400,12 +400,12 @@ declare namespace uiGrid {
          * - OPTIONS calls OPTIONS and ALL callbacks
          *
          * @param {(grid: IGridInstance) => void} callback function to be called
-         * @param {Array<string>} types the types of data change you want to be informed of.  Values from
+         * @param {string[]} types the types of data change you want to be informed of.  Values from
          * the uiGridConstants.dataChange values ( ALL, EDIT, ROW, COLUMN, OPTIONS ).  Optional and defaults to
          * ALL
          * @returns {Function} deregister function - a function that can be called to deregister this callback
          */
-        registerDataChangeCallback(callback: (grid: IGridInstanceOf<TEntity>) => void, types?: Array<string>): Function;
+        registerDataChangeCallback(callback: (grid: IGridInstanceOf<TEntity>) => void, types?: string[]): Function;
         /**
          * When the build creates rows from gridOptions.data, the rowBuilders will be called to add
          * additional properties to the row.
@@ -681,7 +681,7 @@ declare namespace uiGrid {
          *
          * Defaults to ['$$hashKey']
          */
-        excludeProperties?: Array<string>;
+        excludeProperties?: string[];
         /**
          * Set to true if your columns are all related directly to fields in a flat object structure - i.e.
          * each of your columns associate directly with a propery one each of the entities in your data array.
@@ -1781,7 +1781,7 @@ declare namespace uiGrid {
              * Defaults to: []
              * @default []
              */
-            exporterSuppressColumns?: Array<string>;
+            exporterSuppressColumns?: string[];
             /**
              * Don't show the export menu button, implying the user will roll their own UI for calling the exporter
              * Defaults to false
@@ -2119,11 +2119,11 @@ declare namespace uiGrid {
              * Your callback routine should respond by processing the header array, and returning an array
              * of matching column names.  A null value in any given position means "don't import this column"
              * @param {IGridInstance} grid the grid we're importing into
-             * @param {Array<string>} headerArray an array of the text from the first row of the csv file,
+             * @param {string[]} headerArray an array of the text from the first row of the csv file,
              * which you need to match to column.names
-             * @returns {Array<string>} array of matching column names, in the same order as the headerArray
+             * @returns {string[]} array of matching column names, in the same order as the headerArray
              */
-            importerProcessHeaders?: (grid: IGridInstanceOf<TEntity>, headerArray: Array<string>) => Array<string>;
+            importerProcessHeaders?: (grid: IGridInstanceOf<TEntity>, headerArray: string[]) => string[];
             /**
              * Whether or not importer is enabled.  Automatically set
              * to false if the user's browser does not support the required fileApi.
@@ -2355,7 +2355,7 @@ declare namespace uiGrid {
              * Array of page sizes, defaults to [250, 500, 1000]
              * @default [250, 500, 1000]
              */
-            paginationPageSizes?: Array<number>;
+            paginationPageSizes?: number[];
             /**
              * A custom template for the pager, defaults to ui-grid/pagination
              * @default 'ui-grid/pagination'
@@ -2560,10 +2560,10 @@ declare namespace uiGrid {
              * Triggers a save event for all currently dirty rows.
              * Could be used where user presses a save button or navigates away from the page
              * @param {IGridInstance} grid The grid
-             * @returns {ng.IPromise<Array<any>>} a promise that represents the aggregate of all of the individual save
+             * @returns {ng.IPromise<any[]>} a promise that represents the aggregate of all of the individual save
              *          promises.  i.e. it will be resolved when all the individual save promises have been resolved.
              */
-            flushDirtyRows(grid?: IGridInstanceOf<TEntity>): ng.IPromise<Array<any>>;
+            flushDirtyRows(grid?: IGridInstanceOf<TEntity>): ng.IPromise<any[]>;
             /**
              * Returns all currently dirty rows
              * @param {IGridInstance} grid The target grid

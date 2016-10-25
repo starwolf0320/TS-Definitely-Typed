@@ -15,9 +15,9 @@ declare namespace ngeohash {
   function encode(latitude: number, longitude: number, precision?: number): string;
   function decode(hashstring: string): GeographicPoint;
   function decode_bbox(hashstring: string): GeographicBoundingBox;
-  function bboxes(minlat: number, minlon: number, maxlat: number, maxlon: number, precision?: number): Array<string>;
+  function bboxes(minlat: number, minlon: number, maxlat: number, maxlon: number, precision?: number): string[];
   function neighbor(hashstring: string, direction: NSEW): string;
-  function neighbors(hashstring: string): Array<string>;
+  function neighbors(hashstring: string): string[];
 
   function encode_int(latitude: number, longitude: number, bitDepth?: number): number;
   function decode_int(hashinteger: number, bitDepth?: number): GeographicPoint;

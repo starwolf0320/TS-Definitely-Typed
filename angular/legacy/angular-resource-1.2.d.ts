@@ -122,7 +122,7 @@ declare namespace ng.resource {
     /**
      * Really just a regular Array object with $promise and $resolve attached to it
      */
-    interface IResourceArray<T> extends Array<T> {
+    interface IResourceArray<T> extends T[] {
         /** the promise of the original server interaction that created this collection. **/
         $promise: ng.IPromise<IResourceArray<T>>;
         $resolved: boolean;
@@ -144,8 +144,8 @@ declare namespace ng {
     }
 }
 
-interface Array<T> {
+interface T[] {
     /** the promise of the original server interaction that created this collection. **/
-    $promise: ng.IPromise<Array<T>>;
+    $promise: ng.IPromise<T[]>;
     $resolved: boolean;
 }

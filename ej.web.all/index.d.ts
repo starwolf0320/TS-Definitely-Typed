@@ -125,8 +125,8 @@ declare module ej {
     }
     export module widget {
         var autoInit: boolean;
-        var registeredInstances: Array<any>;
-        var registeredWidgets: Array<any>;
+        var registeredInstances: any[];
+        var registeredWidgets: any[];
         function register(pluginName: string, className: string, prototype: any): void;
         function destroyAll(elements: Element): void;
         function init(element: Element): void;
@@ -253,7 +253,7 @@ declare module ej {
         onEachWhere(filter: any, requiresCast: boolean): any;
         onPredicate(pred: ej.Predicate, query: ej.Query, requiresCast: boolean): string;
         onComplexPredicate(pred: ej.Predicate, requiresCast: boolean): string;
-        onWhere(filters: Array<string>): string;
+        onWhere(filters: string[]): string;
         onEachSearch(e: Object): void;
         onSearch(e: Object): string;
         onEachSort(e: Object): string;
@@ -270,9 +270,9 @@ declare module ej {
         remove(dm: ej.DataManager, keyField: string, value: any, tableName: string): { url: string; type: string; }
         update(dm: ej.DataManager, keyField: string, value: any, tableName: string): { url: string; type: string; data: Object; accept: string; }
         batchRequest(dm: ej.DataManager, changes: Changes, e: any): { url: string; type: string; data: Object; contentType: string; }
-        generateDeleteRequest(arr: Array<any>, e: any): string;
-        generateInsertRequest(arr: Array<any>, e: any): string;
-        generateUpdateRequest(arr: Array<any>, e: any): string;
+        generateDeleteRequest(arr: any[], e: any): string;
+        generateInsertRequest(arr: any[], e: any): string;
+        generateUpdateRequest(arr: any[], e: any): string;
     }
     interface UrlAdaptorOptions {
         requestType?: string;
@@ -363,7 +363,7 @@ declare module ej {
         update(dm: ej.DataManager, keyField: string, value: any, tableName: string): { type: string; url: string; data: any };
     }
     class TableModel {
-        constructor(name: string, jsonArray: Array<any>, dataManager: ej.DataManager, modelComputed: any);
+        constructor(name: string, jsonArray: any[], dataManager: ej.DataManager, modelComputed: any);
         on(eventName: string, handler: any): void;
         off(eventName: string, handler: any): void;
         setDataManager(dataManager: DataManager): void;
@@ -382,7 +382,7 @@ declare module ej {
     }
     class Model {
         constructor(json: any, table: string, name: string);
-        formElements: Array<string>;
+        formElements: string[];
         computes(value: any): void;
         on(eventName: string, handler: any): void;
         off(eventName: string, handler: any): void;
@@ -398,9 +398,9 @@ declare module ej {
         unbind(element: any): void;
     }
     interface Changes {
-        changed?: Array<any>;
-        added?: Array<any>;
-        deleted?: Array<any>;
+        changed?: any[];
+        added?: any[];
+        deleted?: any[];
     }
     class Predicate {
 	    constructor();
@@ -893,22 +893,22 @@ interface globalize {
         calendars?: calendarsSettings;
     }
     interface formatSettings {
-        pattern: Array<string>;
+        pattern: string[];
         decimals: number;
-        groupSizes: Array<number>;
+        groupSizes: number[];
         percent: percentSettings;
         currency: currencySettings;
     }
     interface percentSettings {
-        pattern: Array<string>;
+        pattern: string[];
         decimals: number;
-        groupSizes: Array<number>;
+        groupSizes: number[];
         symbol: string;
     }
     interface currencySettings {
-        pattern: Array<string>;
+        pattern: string[];
         decimals: number;
-        groupSizes: Array<number>;
+        groupSizes: number[];
         symbol: string;
     }
     interface calendarsSettings {
@@ -918,19 +918,19 @@ interface globalize {
         firstDay: number;
         days: daySettings;
         months: monthSettings;
-        AM: Array<string>;
-        PM: Array<string>;
+        AM: string[];
+        PM: string[];
         twoDigitYearMax: number;
         patterns: patternSettings;
     }
     interface daySettings {
-        names: Array<string>;
-        namesAbbr: Array<string>;
-        namesShort: Array<string>;
+        names: string[];
+        namesAbbr: string[];
+        namesShort: string[];
     }
     interface monthSettings {
-        names: Array<string>;
-        namesAbbr: Array<string>;
+        names: string[];
+        namesAbbr: string[];
     }
     interface patternSettings {
         d: string;
@@ -1287,10 +1287,10 @@ class Accordion extends ej.Widget {
 	disable(): void;
 
 	/** Disable the accordion widget item based on specified header index.
-	*   @param {Array<any>} index values to disable the panels
+	*   @param {any[]} index values to disable the panels
 	*   @returns {void}
 	*/
-	disableItems(index: Array<any>): void;
+	disableItems(index: any[]): void;
 
 	/** Enable the accordion widget includes all the headers and content panels.
 	*   @returns {void}
@@ -1298,10 +1298,10 @@ class Accordion extends ej.Widget {
 	enable(): void;
 
 	/** Enable the accordion widget item based on specified header index.
-	*   @param {Array<any>} index values to enable the panels
+	*   @param {any[]} index values to enable the panels
 	*   @returns {void}
 	*/
-	enableItems(index: Array<any>): void;
+	enableItems(index: any[]): void;
 
 	/** To expand all the accordion widget items.
 	*   @returns {void}
@@ -1869,7 +1869,7 @@ export interface Model {
 	/** The data source contains the list of data for the suggestions list. It can be a string array or JSON array.
 	*   @Default {null}
 	*/
-	dataSource?: any|Array<any>;
+	dataSource?: any|any[];
 
 	/** The time delay (in milliseconds) after which the suggestion popup will be shown.
 	*   @Default {200}
@@ -2909,10 +2909,10 @@ class ListBox extends ej.Widget {
 	getItemByText(text: string): any;
 
 	/** Merges the given data with the existing data items in the listbox.
-	*   @param {Array<any>} Data to merge in listbox.
+	*   @param {any[]} Data to merge in listbox.
 	*   @returns {void}
 	*/
-	mergeData(data: Array<any>): void;
+	mergeData(data: any[]): void;
 
 	/** Selects the next item based on the current selection.
 	*   @returns {void}
@@ -3045,16 +3045,16 @@ class ListBox extends ej.Widget {
 	hideItemsByIndices(indices: number[]|string): void;
 
 	/** Shows the hidden list items using its values.
-	*   @param {Array<any>} Values of the listbox items to be shown.
+	*   @param {any[]} Values of the listbox items to be shown.
 	*   @returns {void}
 	*/
-	showItemsByValues(values: Array<any>): void;
+	showItemsByValues(values: any[]): void;
 
 	/** Hides the list item using its values.
-	*   @param {Array<any>} Values of the listbox items to be hidden.
+	*   @param {any[]} Values of the listbox items to be hidden.
 	*   @returns {void}
 	*/
-	hideItemsByValues(values: Array<any>): void;
+	hideItemsByValues(values: any[]): void;
 
 	/** Shows a hidden list item using its value.
 	*   @param {String} Value of the listbox item to be shown.
@@ -3137,7 +3137,7 @@ export interface Model {
 	/** Set of list items to be checked by default using its index. It works only when the showCheckbox property is set to true.
 	*   @Default {null}
 	*/
-	checkedIndices?: Array<any>;
+	checkedIndices?: any[];
 
 	/** The root class for the ListBox widget to customize the existing theme.
 	*   @Default {â€œâ€}
@@ -3216,7 +3216,7 @@ export interface Model {
 	/** The list items to be selected by default using its indices. To use this property allowMultiSelection should be enabled.
 	*   @Default {[]}
 	*/
-	selectedIndices?: Array<any>;
+	selectedIndices?: any[];
 
 	/** Enables/Disables the multi selection option with the help of checkbox control.
 	*   @Default {false}
@@ -3339,7 +3339,7 @@ export interface ActionBeforeSuccessEventArgs {
 
 	/** List of array object
 	*/
-	result?: Array<any>;
+	result?: any[];
 
 	/** ExecuteQuery object of DataManager
 	*/
@@ -4186,7 +4186,7 @@ export interface Model {
 	/** This property allows to define the custom colors in the palette model.Custom palettes are created by passing a comma delimited string of HEX values or an array of colors.
 	*   @Default {empty}
 	*/
-	custom?: Array<any>;
+	custom?: any[];
 
 	/** This property allows to embed the popup in the order of DOM element flow . When we set the value as true, the color picker popup is always in visible state.
 	*   @Default {false}
@@ -4709,7 +4709,7 @@ export interface Model {
 
 	/** The selectedItems is used to select the specified items (file, folder) of FileExplorer control.
 	*/
-	selectedItems?: string|Array<any>;
+	selectedItems?: string|any[];
 
 	/** Enables or disables the checkbox option in FileExplorer control.
 	*   @Default {true}
@@ -4754,7 +4754,7 @@ export interface Model {
 	/** The toolsList property is used to arrange the toolbar items in the FileExplorer control.
 	*   @Default {[layout, creation, navigation, addressBar, editing, copyPaste, sortBy, getProperties, searchBar]}
 	*/
-	toolsList?: Array<any>;
+	toolsList?: any[];
 
 	/** Gets or sets an object that indicates whether to customize the upload behavior in the FileExplorer.
 	*/
@@ -5266,7 +5266,7 @@ export interface ContextMenuSettings {
 	/** The customMenuFields property is used to define custom functionality for custom ContextMenu item's which are defined in items property.
 	*   @Default {[]}
 	*/
-	customMenuFields?: Array<any>;
+	customMenuFields?: any[];
 }
 
 export interface FilterSettings {
@@ -5302,7 +5302,7 @@ export interface GridSettings {
 	/** Gets or sets an object that indicates to render the grid with specified columns. You can use this property same as the column property in Grid control.
 	*   @Default {[{ field: name, headerText: Name, width: 30% }, { field: dateModified, headerText: Date Modified, width: 30% }, { field: type, headerText: Type, width: 15% }, { field: size, headerText: Size, width: 12%, textAlign: right, headerTextAlign: left }]}
 	*/
-	columns?: Array<any>;
+	columns?: any[];
 }
 
 export interface UploadSettings {
@@ -7191,10 +7191,10 @@ class DropDownList extends ej.Widget {
 	defaults:DropDownList.Model;
 
 	/** Adding a single item or an array of items into the DropDownList allows you to specify all the field attributes such as value, template, image URL, and HTML attributes for those items.
-	*   @param {any|Array<any>}  this parameter should have field attributes with respect to mapped field attributes and it's corresponding values to fields
+	*   @param {any|any[]}  this parameter should have field attributes with respect to mapped field attributes and it's corresponding values to fields
 	*   @returns {void}
 	*/
-	addItem(data: any|Array<any>): void;
+	addItem(data: any|any[]): void;
 
 	/** This method is used to select all the items in the DropDownList.
 	*   @returns {void}
@@ -7217,10 +7217,10 @@ class DropDownList extends ej.Widget {
 	disable(): void;
 
 	/** This property disables the set of items in the DropDownList.
-	*   @param {string|number|Array<any>}  disable the given index list items
+	*   @param {string|number|any[]}  disable the given index list items
 	*   @returns {void}
 	*/
-	disableItemsByIndices(index: string|number|Array<any>): void;
+	disableItemsByIndices(index: string|number|any[]): void;
 
 	/** This property enables the DropDownList control.
 	*   @returns {void}
@@ -7228,10 +7228,10 @@ class DropDownList extends ej.Widget {
 	enable(): void;
 
 	/** Enables an Item or set of Items that are disabled in the DropDownList
-	*   @param {string|number|Array<any>}  enable the given index list items if it's disabled
+	*   @param {string|number|any[]}  enable the given index list items if it's disabled
 	*   @returns {void}
 	*/
-	enableItemsByIndices(index: string|number|Array<any>): void;
+	enableItemsByIndices(index: string|number|any[]): void;
 
 	/** This method retrieves the items using given value.
 	*   @param {string|number|any}  Return the whole object of data based on given value
@@ -7260,22 +7260,22 @@ class DropDownList extends ej.Widget {
 	hidePopup(): void;
 
 	/** This method is used to select the list of items in the DropDownList through the Index of the items.
-	*   @param {string|number|Array<any>}  select the given index list items
+	*   @param {string|number|any[]}  select the given index list items
 	*   @returns {void}
 	*/
-	selectItemsByIndices(index: string|number|Array<any>): void;
+	selectItemsByIndices(index: string|number|any[]): void;
 
 	/** This method is used to select an item in the DropDownList by using the given text value.
-	*   @param {string|number|Array<any>}  select the list items relates to given text
+	*   @param {string|number|any[]}  select the list items relates to given text
 	*   @returns {void}
 	*/
-	selectItemByText(index: string|number|Array<any>): void;
+	selectItemByText(index: string|number|any[]): void;
 
 	/** This method is used to select an item in the DropDownList by using the given value.
-	*   @param {string|number|Array<any>}  select the list items relates to given values
+	*   @param {string|number|any[]}  select the list items relates to given values
 	*   @returns {void}
 	*/
-	selectItemByValue(index: string|number|Array<any>): void;
+	selectItemByValue(index: string|number|any[]): void;
 
 	/** This method shows the DropDownList control with the suggestion popup.
 	*   @returns {void}
@@ -7288,22 +7288,22 @@ class DropDownList extends ej.Widget {
 	unCheckAll(): void;
 
 	/** This method is used to unselect the list of items in the DropDownList through Index of the items.
-	*   @param {string|number|Array<any>}  unselect the given index list items
+	*   @param {string|number|any[]}  unselect the given index list items
 	*   @returns {void}
 	*/
-	unselectItemsByIndices(index: string|number|Array<any>): void;
+	unselectItemsByIndices(index: string|number|any[]): void;
 
 	/** This method is used to unselect an item in the DropDownList by using the given text value.
-	*   @param {string|number|Array<any>}  unselect the list items relates to given text
+	*   @param {string|number|any[]}  unselect the list items relates to given text
 	*   @returns {void}
 	*/
-	unselectItemByText(index: string|number|Array<any>): void;
+	unselectItemByText(index: string|number|any[]): void;
 
 	/** This method is used to unselect an item in the DropDownList by using the given value.
-	*   @param {string|number|Array<any>}  unselect the list items relates to given values
+	*   @param {string|number|any[]}  unselect the list items relates to given values
 	*   @returns {void}
 	*/
-	unselectItemByValue(index: string|number|Array<any>): void;
+	unselectItemByValue(index: string|number|any[]): void;
 }
 export module DropDownList{
 
@@ -7466,7 +7466,7 @@ export interface Model {
 	/** Specifies the selectedItems for the DropDownList.
 	*   @Default {[]}
 	*/
-	selectedIndices?: Array<any>;
+	selectedIndices?: any[];
 
 	/** Selects multiple items in the DropDownList with the help of the checkbox control. To achieve this, enable the showCheckbox option to true.
 	*   @Default {false}
@@ -7640,7 +7640,7 @@ export interface ActionCompleteEventArgs {
 
 	/** Returns the number of items fetched from remote data
 	*/
-	result?: Array<any>;
+	result?: any[];
 
 	/** Returns the requested data
 	*/
@@ -7698,7 +7698,7 @@ export interface ActionSuccessEventArgs {
 
 	/** Returns the number of items fetched from remote data
 	*/
-	result?: Array<any>;
+	result?: any[];
 
 	/** Returns the requested data
 	*/
@@ -8954,14 +8954,14 @@ class ListView extends ej.Widget {
 	getActiveItemText(): string;
 
 	/** To get all the checked items.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getCheckedItems(): Array<any>;
+	getCheckedItems(): any[];
 
 	/** To get the text of all the checked items.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getCheckedItemsText(): Array<any>;
+	getCheckedItemsText(): any[];
 
 	/** To get the total item count.
 	*   @returns {number}
@@ -9059,7 +9059,7 @@ export interface Model {
 	/** Contains the list of data for generating the ListView items.
 	*   @Default {[]}
 	*/
-	dataSource?: Array<any>;
+	dataSource?: any[];
 
 	/** Specifies whether to load AJAX content while selecting item.
 	*   @Default {false}
@@ -9870,10 +9870,10 @@ class Menu extends ej.Widget {
 	insertBefore(item: any, target: string|any): void;
 
 	/** Remove Menu item.
-	*   @param {any|Array<any>} Selector of target node or Object of target node.
+	*   @param {any|any[]} Selector of target node or Object of target node.
 	*   @returns {void}
 	*/
-	remove(target: any|Array<any>): void;
+	remove(target: any|any[]): void;
 
 	/** To show the Menu control.
 	*   @param {number} x co-ordinate position of context menu.
@@ -11100,11 +11100,11 @@ class Ribbon extends ej.Widget {
 
 	/** Adds tab dynamically in the ribbon control with given name, tab group array and index position. When index is null, ribbon tab is added at the last index.
 	*   @param {string} ribbon tab display text.
-	*   @param {Array<any>} groups to be displayed in ribbon tab .
+	*   @param {any[]} groups to be displayed in ribbon tab .
 	*   @param {number} index of the ribbon tab,this is optional.
 	*   @returns {void}
 	*/
-	addTab(tabText: string, ribbonGroups: Array<any>, index?: number): void;
+	addTab(tabText: string, ribbonGroups: any[], index?: number): void;
 
 	/** Adds tab group dynamically in the ribbon control with given tab index, tab group object and group index position. When group index is null, ribbon group is added at the last index.
 	*   @param {number} ribbon tab index.
@@ -11283,12 +11283,12 @@ export interface Model {
 	/** Specifies the index or indexes to disable the given index tab or indexes tabs in the ribbon control.
 	*   @Default {0}
 	*/
-	disabledItemIndex?: Array<any>;
+	disabledItemIndex?: any[];
 
 	/** Specifies the index or indexes to enable the given index tab or indexes tabs in the ribbon control.
 	*   @Default {null}
 	*/
-	enabledItemIndex?: Array<any>;
+	enabledItemIndex?: any[];
 
 	/** Specifies the index of the ribbon tab to select the given index tab item in the ribbon control.
 	*   @Default {1}
@@ -11829,7 +11829,7 @@ export interface ContextualTab {
 	/** Specifies the tabs to present in the contextual tabs and tab set. Refer to the tabs section for adding tabs into the contextual tabs and tab set.
 	*   @Default {array}
 	*/
-	tabs?: Array<any>;
+	tabs?: any[];
 }
 
 export interface TabsGroupsContentDefaults {
@@ -12214,12 +12214,12 @@ class Kanban extends ej.Widget {
 	defaults:Kanban.Model;
 
 	/** Add or remove columns in Kanban columns collections.Default action is add.
-	*   @param {Array<any>|string} Pass array of columns or string of headerText to add/remove the column in Kanban
-	*   @param {Array<any>|string} Pass array of columns or string of key value to add/remove the column in Kanban
+	*   @param {any[]|string} Pass array of columns or string of headerText to add/remove the column in Kanban
+	*   @param {any[]|string} Pass array of columns or string of key value to add/remove the column in Kanban
 	*   @param {string} optional Pass add/remove action to be performed. By default "add" action will perform
 	*   @returns {void}
 	*/
-	columns(columndetails: Array<any>|string, keyvalue: Array<any>|string, action?: string): void;
+	columns(columndetails: any[]|string, keyvalue: any[]|string, action?: string): void;
 
 	/** Destroy the Kanban widget all events bound using this._on will be unbind automatically and bring the control to pre-init state.
 	*   @returns {void}
@@ -12227,10 +12227,10 @@ class Kanban extends ej.Widget {
 	destroy(): void;
 
 	/** Refresh the Kanban with new data source.
-	*   @param {Array<any>} Pass new data source to the Kanban
+	*   @param {any[]} Pass new data source to the Kanban
 	*   @returns {void}
 	*/
-	dataSource(datasource: Array<any>): void;
+	dataSource(datasource: any[]): void;
 
 	/** toggleColumn based on the headerText in Kanban.
 	*   @param {any} Pass the header text of the column to get the corresponding column object
@@ -12266,10 +12266,10 @@ class Kanban extends ej.Widget {
 	getHeaderTable(): String;
 
 	/** Hide columns from the Kanban based on the header text
-	*   @param {Array<any>|string} you can pass either array of header text of various columns or a header text of a column to hide
+	*   @param {any[]|string} you can pass either array of header text of various columns or a header text of a column to hide
 	*   @returns {void}
 	*/
-	hideColumns(headerText: Array<any>|string): void;
+	hideColumns(headerText: any[]|string): void;
 
 	/** Print the Kanban Board
 	*   @returns {void}
@@ -12288,17 +12288,17 @@ class Kanban extends ej.Widget {
 	refresh(templateRefresh?: boolean): void;
 
 	/** Show columns in the Kanban based on the header text.
-	*   @param {Array<any>|string} You can pass either array of header text of various columns or a header text of a column to show
+	*   @param {any[]|string} You can pass either array of header text of various columns or a header text of a column to show
 	*   @returns {void}
 	*/
-	showColumns(headerText: Array<any>|string): void;
+	showColumns(headerText: any[]|string): void;
 
 	/** Update a card in Kanban control based on key and JSON data given.
 	*   @param {string} Pass the key field Name of the column
-	*   @param {Array<any>} Pass the edited JSON data of card need to be update.
+	*   @param {any[]} Pass the edited JSON data of card need to be update.
 	*   @returns {void}
 	*/
-	updateCard(key: string, data: Array<any>): void;
+	updateCard(key: string, data: any[]): void;
 
 	KanbanSelection: Kanban.KanbanSelection;
 
@@ -12365,10 +12365,10 @@ export interface KanbanEdit {
 
 	/** Add a new card in Kanban control.If parameters are not given default dialog will be open.
 	*   @param {string} Pass the primary key field Name of the column
-	*   @param {Array<any>} Pass the edited JSON data of card need to be add.
+	*   @param {any[]} Pass the edited JSON data of card need to be add.
 	*   @returns {void}
 	*/
-	addCard(primaryKey: string,card: Array<any>): void;
+	addCard(primaryKey: string,card: any[]): void;
 
 	/** Send a cancel request of add/edit card in Kanban.
 	*   @returns {void}
@@ -12858,7 +12858,7 @@ export interface BeforeCardSelectEventArgs {
 
 	/** Returns the previously select card indexes
 	*/
-	previousRowcellindex?: Array<any>;
+	previousRowcellindex?: any[];
 
 	/** Returns the Target item.
 	*/
@@ -13044,7 +13044,7 @@ export interface CardSelectEventArgs {
 
 	/** Returns the previously select card indexes
 	*/
-	previousRowcellindex?: Array<any>;
+	previousRowcellindex?: any[];
 
 	/** Returns the current item.
 	*/
@@ -13441,12 +13441,12 @@ export interface ContextMenuSettings {
 	/** Gets or sets a value that indicates the list of items needs to be disable from default context menu items.
 	*   @Default {array}
 	*/
-	disableDefaultItems?: Array<any>;
+	disableDefaultItems?: any[];
 
 	/** Its used to add specific default context menu items.
 	*   @Default {array}
 	*/
-	menuItems?: Array<any>;
+	menuItems?: any[];
 
 	/** Gets or sets a value that indicates whether to add custom contextMenu items.
 	*   @Default {array}
@@ -13701,7 +13701,7 @@ export interface SearchSettings {
 	/** To customize the fields the searching operation can be perform.
 	*   @Default {Array}
 	*/
-	fields?: Array<any>;
+	fields?: any[];
 
 	/** To customize the searching string.
 	*/
@@ -14666,7 +14666,7 @@ export interface Model {
 	/** Specifies the list of groups and order of those groups displayed in the RTE toolbar.  The toolsList property is used to get the root group order and tools property is used to get the inner order of the corresponding groups displayed. When the value is not specified, it gets its default display order and tools.
 	*   @Default {[formatStyle, font, style, effects, alignment, lists, indenting, clipboard, doAction, clear, links, images, media, tables, casing,view, customTools,print,edit]}
 	*/
-	toolsList?: Array<any>;
+	toolsList?: any[];
 
 	/** Display the hints for the tools in the Toolbar.
 	*   @Default {{ associate: mouseenter, showShadow: true, position: { stem: { horizontal: left, vertical: top }  }, tip: { size: { width: 5, height: 5 }, isBalloon: false }}
@@ -14962,71 +14962,71 @@ export interface Tools {
 
 	/** Specifies the casing tools and the display order of this tool in the RTE toolbar.
 	*/
-	casing?: Array<any>;
+	casing?: any[];
 
 	/** Specifies the clear tools and the display order of this tool in the RTE toolbar.
 	*/
-	clear?: Array<any>;
+	clear?: any[];
 
 	/** Specifies the clipboard tools and the display order of this tool in the RTE toolbar.
 	*/
-	clipboard?: Array<any>;
+	clipboard?: any[];
 
 	/** Specifies the edit tools and the displays tool in the RTE toolbar.
 	*/
-	edit?: Array<any>;
+	edit?: any[];
 
 	/** Specifies the doAction tools and the display order of this tool in the RTE toolbar.
 	*/
-	doAction?: Array<any>;
+	doAction?: any[];
 
 	/** Specifies the effect of tools and the display order of this tool in RTE toolbar.
 	*/
-	effects?: Array<any>;
+	effects?: any[];
 
 	/** Specifies the font tools and the display order of this tool in the RTE toolbar.
 	*/
-	font?: Array<any>;
+	font?: any[];
 
 	/** Specifies the formatStyle tools and the display order of this tool in the RTE toolbar.
 	*/
-	formatStyle?: Array<any>;
+	formatStyle?: any[];
 
 	/** Specifies the image tools and the display order of this tool in the RTE toolbar.
 	*/
-	images?: Array<any>;
+	images?: any[];
 
 	/** Specifies the indent tools and the display order of this tool in the RTE toolbar.
 	*/
-	indenting?: Array<any>;
+	indenting?: any[];
 
 	/** Specifies the link tools and the display order of this tool in the RTE toolbar.
 	*/
-	links?: Array<any>;
+	links?: any[];
 
 	/** Specifies the list tools and the display order of this tool in the RTE toolbar.
 	*/
-	lists?: Array<any>;
+	lists?: any[];
 
 	/** Specifies the media tools and the display order of this tool in the RTE toolbar.
 	*/
-	media?: Array<any>;
+	media?: any[];
 
 	/** Specifies the style tools and the display order of this tool in the RTE toolbar.
 	*/
-	style?: Array<any>;
+	style?: any[];
 
 	/** Specifies the table tools and the display order of this tool in the RTE toolbar.
 	*/
-	tables?: Array<any>;
+	tables?: any[];
 
 	/** Specifies the view tools and the display order of this tool in the RTE toolbar.
 	*/
-	view?: Array<any>;
+	view?: any[];
 
 	/** Specifies the print tools and the display order of this tool in the RTE toolbar.
 	*/
-	print?: Array<any>;
+	print?: any[];
 
 	/** Specifies the customOrderedList tools and the display order of this tool in the RTE toolbar.
 	*/
@@ -15182,7 +15182,7 @@ export interface Model {
 	/** Specifies the values of the range slider. But it's not applicable for default and minRange sliders. we can use value property for default and minRange sliders.
 	*   @Default {[minValue,maxValue]}
 	*/
-	values?: Array<any>;
+	values?: any[];
 
 	/** Specifies the width of the slider.
 	*   @Default {100%}
@@ -15809,7 +15809,7 @@ export interface Model {
 	/** Specify properties for each pane like paneSize, minSize, maxSize, collapsible, expandable, resizable.
 	*   @Default {[]}
 	*/
-	properties?: Array<any>;
+	properties?: any[];
 
 	/** Specify width for splitter control.
 	*   @Default {null}
@@ -16090,7 +16090,7 @@ export interface Model {
 	/** Specifies to hide a pane of Tab control.
 	*   @Default {[]}
 	*/
-	hiddenItemIndex?: Array<any>;
+	hiddenItemIndex?: any[];
 
 	/** Specifies the HTML Attributes of the Tab.
 	*   @Default {{}}
@@ -17739,11 +17739,11 @@ class TreeView extends ej.Widget {
 	addNode(newNodeText: string|any, target: string|any): void;
 
 	/** To add a collection of nodes in TreeView. If target tree node is specified, then the given nodes are added as child of target tree node, otherwise nodes are added in TreeView.
-	*   @param {any|Array<any>} New node details in JSON object
+	*   @param {any|any[]} New node details in JSON object
 	*   @param {string|any} ID of TreeView node/object of TreeView node
 	*   @returns {void}
 	*/
-	addNodes(collection: any|Array<any>, target: string|any): void;
+	addNodes(collection: any|any[], target: string|any): void;
 
 	/** To check all the nodes in TreeView.
 	*   @returns {void}
@@ -17806,16 +17806,16 @@ class TreeView extends ej.Widget {
 	getCheckedNodes(): any;
 
 	/** To get currently checked nodes indexes in TreeView.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getCheckedNodesIndex(): Array<any>;
+	getCheckedNodesIndex(): any[];
 
 	/** This method is used to get immediate child nodes of a node in TreeView control. If you want to get the all child nodes include nested child nodes then we need to pass includeNestedChild as true along with element arguments to this method.
 	*   @param {string|any} ID of TreeView node/object of TreeView node
 	*   @param {boolean} Weather include nested child nodes of TreeView node
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getChildren(element: string|any, includeNestedChild?: boolean): Array<any>;
+	getChildren(element: string|any, includeNestedChild?: boolean): any[];
 
 	/** To get number of nodes in TreeView.
 	*   @returns {number}
@@ -17828,9 +17828,9 @@ class TreeView extends ej.Widget {
 	getExpandedNodes(): any;
 
 	/** To get currently expanded nodes indexes in TreeView.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getExpandedNodesIndex(): Array<any>;
+	getExpandedNodesIndex(): any[];
 
 	/** To get TreeView node by using index position in TreeView.
 	*   @param {number} Index position of TreeView node
@@ -17862,9 +17862,9 @@ class TreeView extends ej.Widget {
 	getSelectedNode(): any;
 
 	/** To get the currently selected nodes in TreeView.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getSelectedNodes(): Array<any>;
+	getSelectedNodes(): any[];
 
 	/** To get the index position of currently selected node in TreeView.
 	*   @returns {number}
@@ -17872,9 +17872,9 @@ class TreeView extends ej.Widget {
 	getSelectedNodeIndex(): number;
 
 	/** To get the index positions of currently selected nodes in TreeView.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getSelectedNodesIndex(): Array<any>;
+	getSelectedNodesIndex(): any[];
 
 	/** To get the text of a node in TreeView.
 	*   @param {string|any} ID of TreeView node/object of TreeView node
@@ -17884,9 +17884,9 @@ class TreeView extends ej.Widget {
 
 	/** To get the updated datasource of TreeView after performing some operation like drag and drop, node editing, adding and removing node.
 	*   @param {string|number} ID of TreeView node
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getTreeData(id?: string|number): Array<any>;
+	getTreeData(id?: string|number): any[];
 
 	/** To get currently visible nodes in TreeView.
 	*   @returns {any}
@@ -18003,10 +18003,10 @@ class TreeView extends ej.Widget {
 	selectAll(): void;
 
 	/** This method is used to select a node in TreeView control. If you want to select the collection of nodes in TreeView control then we need to enable allowMultiSelection property.
-	*   @param {string|any|Array<any>} ID of TreeView node/object of TreeView node/ collection of ID/object of TreeView nodes
+	*   @param {string|any|any[]} ID of TreeView node/object of TreeView node/ collection of ID/object of TreeView nodes
 	*   @returns {void}
 	*/
-	selectNode(element: string|any|Array<any>): void;
+	selectNode(element: string|any|any[]): void;
 
 	/** To show nodes in TreeView.
 	*   @returns {void}
@@ -18036,10 +18036,10 @@ class TreeView extends ej.Widget {
 	unselectAll(): void;
 
 	/** This method is used to unselect a node in TreeView control. If you want to unselect the collection of nodes in TreeView control then we need to enable allowMultiSelection property.
-	*   @param {string|any|Array<any>} ID of TreeView node/object of TreeView node/ collection of ID/object of TreeView nodes
+	*   @param {string|any|any[]} ID of TreeView node/object of TreeView node/ collection of ID/object of TreeView nodes
 	*   @returns {void}
 	*/
-	unselectNode(element: string|any|Array<any>): void;
+	unselectNode(element: string|any|any[]): void;
 
 	/** To edit or update the text of the TreeView node.
 	*   @param {string|any} ID of TreeView node/object of TreeView node
@@ -18100,7 +18100,7 @@ export interface Model {
 	/** Gets or sets a value that indicates the checkedNodes index collection as an array. The given array index position denotes the nodes, that are checked while rendering TreeView.
 	*   @Default {[]}
 	*/
-	checkedNodes?: Array<any>;
+	checkedNodes?: any[];
 
 	/** Sets the root CSS class for TreeView which allow us to customize the appearance.
 	*/
@@ -18134,7 +18134,7 @@ export interface Model {
 	/** Gets or sets a array of value that indicates the expandedNodes index collection as an array. The given array index position denotes the nodes, that are expanded while rendering TreeView.
 	*   @Default {[]}
 	*/
-	expandedNodes?: Array<any>;
+	expandedNodes?: any[];
 
 	/** Gets or sets a value that indicates the TreeView node can be expand or collapse by using the specified action.
 	*   @Default {dblclick}
@@ -18174,7 +18174,7 @@ export interface Model {
 	/** Gets or sets a value that indicates the selectedNodes index collection as an array. The given array index position denotes the nodes, that are selected while rendering TreeView.
 	*   @Default {[]}
 	*/
-	selectedNodes?: Array<any>;
+	selectedNodes?: any[];
 
 	/** Gets or sets a value that indicates whether to display or hide checkbox for all TreeView nodes.
 	*   @Default {false}
@@ -18425,7 +18425,7 @@ export interface BeforeDeleteEventArgs {
 
 	/** returns the currently removed nodes
 	*/
-	removedNodes?: Array<any>;
+	removedNodes?: any[];
 }
 
 export interface BeforeEditEventArgs {
@@ -18780,11 +18780,11 @@ export interface NodeCheckEventArgs {
 
 	/** it returns the currently checked node name
 	*/
-	currentNode?: Array<any>;
+	currentNode?: any[];
 
 	/** it returns the currently checked and its child node details
 	*/
-	currentCheckedNodes?: Array<any>;
+	currentCheckedNodes?: any[];
 }
 
 export interface NodeClickEventArgs {
@@ -18916,7 +18916,7 @@ export interface NodeDeleteEventArgs {
 
 	/** returns the currently removed nodes
 	*/
-	removedNodes?: Array<any>;
+	removedNodes?: any[];
 }
 
 export interface NodeDragEventArgs {
@@ -19216,7 +19216,7 @@ export interface NodeSelectEventArgs {
 
 	/** returns the current selected nodes index of TreeView
 	*/
-	selectedNodes?: Array<any>;
+	selectedNodes?: any[];
 
 	/** returns the value of the node
 	*/
@@ -19271,7 +19271,7 @@ export interface NodeUncheckEventArgs {
 
 	/** it returns currently unchecked node and its child node details.
 	*/
-	currentUncheckedNodes?: Array<any>;
+	currentUncheckedNodes?: any[];
 }
 
 export interface NodeUnselectEventArgs {
@@ -19298,7 +19298,7 @@ export interface NodeUnselectEventArgs {
 
 	/** returns the current selected nodes index of TreeView
 	*/
-	selectedNodes?: Array<any>;
+	selectedNodes?: any[];
 
 	/** returns the name of the event
 	*/
@@ -20029,10 +20029,10 @@ class Grid extends ej.Widget {
 	defaults:Grid.Model;
 
 	/** Adds a grid model property which is to be ignored upon exporting.
-	*   @param {Array<any>} Pass the array of parameters which need to be ignored on exporting
+	*   @param {any[]} Pass the array of parameters which need to be ignored on exporting
 	*   @returns {void}
 	*/
-	addIgnoreOnExport(propertyNames: Array<any>): void;
+	addIgnoreOnExport(propertyNames: any[]): void;
 
 	/** Add a new record in grid control when allowAdding is set as true.
 	*   @returns {void}
@@ -20040,11 +20040,11 @@ class Grid extends ej.Widget {
 	addRecord(): void;
 
 	/** Add a new record in grid control when allowAdding is set as true.
-	*   @param {Array<any>} Pass the array of added Records
-	*   @param {Array<any>} optionalIf we pass serverChange as true, send post to server side for server action.
+	*   @param {any[]} Pass the array of added Records
+	*   @param {any[]} optionalIf we pass serverChange as true, send post to server side for server action.
 	*   @returns {void}
 	*/
-	addRecord(data: Array<any>, serverChange?: Array<any>): void;
+	addRecord(data: any[], serverChange?: any[]): void;
 
 	/** Cancel the modified changes in grid control when edit mode is &quot;batch&quot;.
 	*   @returns {void}
@@ -20117,25 +20117,25 @@ class Grid extends ej.Widget {
 	collapseGroupDropArea(): void;
 
 	/** Add or remove columns in grid column collections
-	*   @param {Array<any>|string} Pass array of columns or string of field name to add/remove the column in grid
+	*   @param {any[]|string} Pass array of columns or string of field name to add/remove the column in grid
 	*   @param {string} optional Pass add/remove action to be performed. By default "add" action will perform
 	*   @returns {void}
 	*/
-	columns(columnDetails: Array<any>|string, action?: string): void;
+	columns(columnDetails: any[]|string, action?: string): void;
 
 	/** Refresh the grid with new data source
-	*   @param {Array<any>} Pass new data source to the grid
+	*   @param {any[]} Pass new data source to the grid
 	*   @param {boolean} optional When templateRefresh is set true, both header and contents get refreshed
 	*   @returns {void}
 	*/
-	dataSource(datasource: Array<any>, templateRefresh?: boolean): void;
+	dataSource(datasource: any[], templateRefresh?: boolean): void;
 
 	/** Delete a record in grid control when allowDeleting is set as true
 	*   @param {string} Pass the primary key field Name of the column
-	*   @param {Array<any>} Pass the JSON data of record need to be delete.
+	*   @param {any[]} Pass the JSON data of record need to be delete.
 	*   @returns {void}
 	*/
-	deleteRecord(fieldName: string, data: Array<any>): void;
+	deleteRecord(fieldName: string, data: any[]): void;
 
 	/** Destroy the grid widget all events bound using this._on will be unbind automatically and bring the control to pre-init state.
 	*   @returns {void}
@@ -20174,10 +20174,10 @@ class Grid extends ej.Widget {
 	*   @param {string} Pass the controller action name corresponding to exporting
 	*   @param {string} optionalASP server event name corresponding to exporting
 	*   @param {boolean} optionalPass the multiple exporting value as true/false
-	*   @param {Array<any>} optionalPass the array of the gridIds to be filtered
+	*   @param {any[]} optionalPass the array of the gridIds to be filtered
 	*   @returns {void}
 	*/
-	export(action: string, serverEvent?: string, multipleExport?: boolean, gridIds?: Array<any>): void;
+	export(action: string, serverEvent?: string, multipleExport?: boolean, gridIds?: any[]): void;
 
 	/** Export the grid content to excel, word or PDF document.
 	*   @param {string} Pass the controller action name corresponding to exporting
@@ -20188,7 +20188,7 @@ class Grid extends ej.Widget {
 	export(action: string, serverEvent?: string, multipleExport?: boolean): void;
 
 	/** Send a filtering request to filter one column in grid.
-	*   @param {Array<any>} Pass the field name of the column
+	*   @param {any[]} Pass the field name of the column
 	*   @param {string} string/integer/dateTime operator
 	*   @param {string} Pass the value to be filtered in a column
 	*   @param {string} Pass the predicate as and/or
@@ -20196,13 +20196,13 @@ class Grid extends ej.Widget {
 	*   @param {any} optionalactualFilterValue denote the filter object of current filtered columns.Pass the value to filtered in a column
 	*   @returns {void}
 	*/
-	filterColumn(fieldName: Array<any>, filterOperator: string, filterValue: string, predicate: string, matchcase?: boolean, actualFilterValue?: any): void;
+	filterColumn(fieldName: any[], filterOperator: string, filterValue: string, predicate: string, matchcase?: boolean, actualFilterValue?: any): void;
 
 	/** Send a filtering request to filter single or multiple column in grid.
-	*   @param {Array<any>} Pass array of filterColumn query for performing filter operation
+	*   @param {any[]} Pass array of filterColumn query for performing filter operation
 	*   @returns {void}
 	*/
-	filterColumn(filterQueries: Array<any>): void;
+	filterColumn(filterQueries: any[]): void;
 
 	/** Get the batch changes of edit, delete and add operations of grid.
 	*   @returns {any}
@@ -20233,9 +20233,9 @@ class Grid extends ej.Widget {
 	getColumnByIndex(columnIndex: number): any;
 
 	/** Get the list of field names from column collection in grid.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getColumnFieldNames(): Array<any>;
+	getColumnFieldNames(): any[];
 
 	/** Get the column index of the given field in grid.
 	*   @param {string} Pass the field name of the column to get the corresponding column index
@@ -20264,9 +20264,9 @@ class Grid extends ej.Widget {
 	getCurrentIndex(): Number;
 
 	/** Get the current page data source of grid.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getCurrentViewData(): Array<any>;
+	getCurrentViewData(): any[];
 
 	/** Get the column field name from the given header text in grid.
 	*   @param {string} Pass header text of the column to get its corresponding field name
@@ -20280,9 +20280,9 @@ class Grid extends ej.Widget {
 	getFilterBar(): HTMLElement;
 
 	/** Get the records filtered or searched in Grid
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getFilteredRecords(): Array<any>;
+	getFilteredRecords(): any[];
 
 	/** Get the footer content of grid.
 	*   @returns {HTMLElement}
@@ -20311,9 +20311,9 @@ class Grid extends ej.Widget {
 	getHeaderTextByFieldName(field: string): String;
 
 	/** Get the names of all the hidden column collections in grid.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getHiddenColumnNames(): Array<any>;
+	getHiddenColumnNames(): any[];
 
 	/** Get the row index based on the given tr element in grid.
 	*   @param {JQuery} Pass the tr element in grid content to get its row index
@@ -20327,9 +20327,9 @@ class Grid extends ej.Widget {
 	getPager(): HTMLElement;
 
 	/** Get the names of primary key columns in Grid
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getPrimaryKeyFieldNames(): Array<any>;
+	getPrimaryKeyFieldNames(): any[];
 
 	/** Get the rows(tr element) from the given from and to row index in grid
 	*   @param {number} Pass the from index from which the rows to be returned
@@ -20366,9 +20366,9 @@ class Grid extends ej.Widget {
 	getSummaryValues(summaryCol: any, summaryData: any): Number;
 
 	/** Get the names of all the visible column collections in grid
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getVisibleColumnNames(): Array<any>;
+	getVisibleColumnNames(): any[];
 
 	/** Send a paging request to specified page in grid
 	*   @param {number} Pass the page index to perform paging at specified page index
@@ -20383,10 +20383,10 @@ class Grid extends ej.Widget {
 	groupColumn(fieldName: string): void;
 
 	/** Hide columns from the grid based on the header text
-	*   @param {Array<any>|string} you can pass either array of header text of various columns or a header text of a column to hide
+	*   @param {any[]|string} you can pass either array of header text of various columns or a header text of a column to hide
 	*   @returns {void}
 	*/
-	hideColumns(headerText: Array<any>|string): void;
+	hideColumns(headerText: any[]|string): void;
 
 	/** Print the grid control
 	*   @returns {void}
@@ -20415,10 +20415,10 @@ class Grid extends ej.Widget {
 	refreshToolbar(): void;
 
 	/** Remove a column or collection of columns from a sorted column collections in grid.
-	*   @param {Array<any>|string} Pass array of field names of the columns to remove a collection of sorted columns or pass a string of field name to remove a column from sorted column collections
+	*   @param {any[]|string} Pass array of field names of the columns to remove a collection of sorted columns or pass a string of field name to remove a column from sorted column collections
 	*   @returns {void}
 	*/
-	removeSortedColumns(fieldName: Array<any>|string): void;
+	removeSortedColumns(fieldName: any[]|string): void;
 
 	/** Creates a grid control
 	*   @returns {void}
@@ -20505,18 +20505,18 @@ class Grid extends ej.Widget {
 	selectRows(fromIndex: number, toIndex: number): void;
 
 	/** Select specified rows in grid based on Index provided.
-	*   @param {Array<any>|number} It is used to set the starting index of row for selecting rows.
+	*   @param {any[]|number} It is used to set the starting index of row for selecting rows.
 	*   @param {number} optionalIt is used to set the ending index of row for selecting rows.
 	*   @param {any} optionalTarget element which is clicked.
 	*   @returns {void}
 	*/
-	selectRows(from: Array<any>|number, to: number, target?: any): void;
+	selectRows(from: any[]|number, to: number, target?: any): void;
 
 	/** Select rows in grid.
-	*   @param {Array<any>} Pass array of rowIndexes for selecting rows
+	*   @param {any[]} Pass array of rowIndexes for selecting rows
 	*   @returns {void}
 	*/
-	selectRows(rowIndexes: Array<any>): void;
+	selectRows(rowIndexes: any[]): void;
 
 	/** Used to update a particular cell value.
 	*   @returns {void}
@@ -20545,10 +20545,10 @@ class Grid extends ej.Widget {
 	setValidationToField(fieldName: string, rules: any): void;
 
 	/** Show columns in the grid based on the header text
-	*   @param {Array<any>|string} you can pass either array of header text of various columns or a header text of a column to show
+	*   @param {any[]|string} you can pass either array of header text of various columns or a header text of a column to show
 	*   @returns {void}
 	*/
-	showColumns(headerText: Array<any>|string): void;
+	showColumns(headerText: any[]|string): void;
 
 	/** Send a sorting request in grid.
 	*   @param {string} Pass the field name of the column as columnName for which sorting have to be performed
@@ -20571,10 +20571,10 @@ class Grid extends ej.Widget {
 
 	/** Update a edited record in grid control when allowEditing is set as true.
 	*   @param {string} Pass the primary key field Name of the column
-	*   @param {Array<any>} Pass the edited JSON data of record need to be update.
+	*   @param {any[]} Pass the edited JSON data of record need to be update.
 	*   @returns {void}
 	*/
-	updateRecord(fieldName: string, data: Array<any>): void;
+	updateRecord(fieldName: string, data: any[]): void;
 
 	/** It adapts grid to its parent element or to the browsers window.
 	*   @returns {void}
@@ -20808,7 +20808,7 @@ export interface Model {
 	/** Gets a value that indicates whether the grid model to hold multiple selected records . selectedRecords can be used to displayed hold the single or multiple selected records using â€œselectedRecordsâ€ property
 	*   @Default {null}
 	*/
-	selectedRecords?: Array<any>;
+	selectedRecords?: any[];
 
 	/** Gets or sets a value that indicates to select the row while initializing the grid
 	*   @Default {-1}
@@ -21618,7 +21618,7 @@ export interface CellSelectedEventArgs {
 
 	/** Returns the selected row cell index values.
 	*/
-	selectedRowCellIndex?: Array<any>;
+	selectedRowCellIndex?: any[];
 
 	/** Returns the cancel option value.
 	*/
@@ -21870,7 +21870,7 @@ export interface ColumnSelectedEventArgs {
 
 	/** Returns the selected columns values.
 	*/
-	selectedColumnsIndex?: Array<any>;
+	selectedColumnsIndex?: any[];
 
 	/** Returns the cancel option value.
 	*/
@@ -22726,7 +22726,7 @@ export interface Column {
 	/** Gets or sets a value that indicates to bind the external datasource to the particular column when column editType as dropdownedit and also it is used to bind the datasource to the foreign key column while editing the grid. //Where data is array of JSON objects of text and value for the drop-down and array of JSON objects for foreign key column.
 	*   @Default {null}
 	*/
-	dataSource?: Array<any>;
+	dataSource?: any[];
 
 	/** Gets or sets a value that indicates to display the specified default value while adding a new record to the grid
 	*/
@@ -22860,7 +22860,7 @@ export interface ContextMenuSettingsSubContextMenu {
 	/** Used to get or set the sub menu items to the custom context menu item.
 	*   @Default {[]}
 	*/
-	subMenu?: Array<any>;
+	subMenu?: any[];
 }
 
 export interface ContextMenuSettings {
@@ -22868,12 +22868,12 @@ export interface ContextMenuSettings {
 	/** Gets or sets a value that indicates whether to add the default context menu actions as a context menu items If enableContextMenu is true it will show all the items related to the target, if you want selected items from contextmenu you have to mention in the contextMenuItems
 	*   @Default {[]}
 	*/
-	contextMenuItems?: Array<any>;
+	contextMenuItems?: any[];
 
 	/** Gets or sets a value that indicates whether to add custom contextMenu items within the toolbar to perform any action in the grid
 	*   @Default {[]}
 	*/
-	customContextMenuItems?: Array<any>;
+	customContextMenuItems?: any[];
 
 	/** Gets or sets a value that indicates whether to enable the context menu action in the grid.
 	*   @Default {false}
@@ -23035,7 +23035,7 @@ export interface GroupSettings {
 	/** Gets or sets a value that indicates whether to add grouped columns programmatically at initial load
 	*   @Default {[]}
 	*/
-	groupedColumns?: Array<any>;
+	groupedColumns?: any[];
 
 	/** Gets or sets a value that indicates whether to show the group drop area just above the column header. It can be used to avoid ungrouping the already grouped column using groupSettings.
 	*   @Default {true}
@@ -23169,7 +23169,7 @@ export interface SelectionSettings {
 	/** Gets or sets a value that indicates whether to add the default selection actions as a selection mode.See selectionMode
 	*   @Default {[row]}
 	*/
-	selectionMode?: Array<any>;
+	selectionMode?: any[];
 }
 
 export interface ScrollSettings {
@@ -23357,7 +23357,7 @@ export interface ToolbarSettings {
 	/** Gets or sets a value that indicates whether to add custom toolbar items within the toolbar to perform any action in the grid
 	*   @Default {[]}
 	*/
-	customToolbarItems?: Array<any>;
+	customToolbarItems?: any[];
 
 	/** Gets or sets a value that indicates whether to enable toolbar in the grid.
 	*   @Default {false}
@@ -23367,7 +23367,7 @@ export interface ToolbarSettings {
 	/** Gets or sets a value that indicates whether to add the default editing actions as a toolbar items
 	*   @Default {[]}
 	*/
-	toolbarItems?: Array<any>;
+	toolbarItems?: any[];
 }
 
 enum GridLines{
@@ -27301,7 +27301,7 @@ export interface DataSourceRowsFilterItems {
 	/** Contains the collection of items to be included/excluded among the field members.
 	*   @Default {[]}
 	*/
-	values?: Array<any>;
+	values?: any[];
 }
 
 export interface DataSourceRow {
@@ -27866,10 +27866,10 @@ class Schedule extends ej.Widget {
 	exportSchedule(action: string, serverEvent: string, id: string|number): void;
 
 	/** Searches and filters the appointments from appointment list of Schedule control.
-	*   @param {Array<any>} Holds array of one or more conditional objects for filtering the appointments based on it.
+	*   @param {any[]} Holds array of one or more conditional objects for filtering the appointments based on it.
 	*   @returns {void}
 	*/
-	filterAppointments(filterConditions: Array<any>): void;
+	filterAppointments(filterConditions: any[]): void;
 
 	/** Gets the complete appointment list of Schedule control.
 	*   @returns {void}
@@ -28139,7 +28139,7 @@ export interface Model {
 	/** Defines the view collection to be displayed on the Schedule. By default, it displays all the views namely, Day, Week, WorkWeek and Month.
 	*   @Default {[Day, Week, WorkWeek, Month, Agenda]}
 	*/
-	views?: Array<any>;
+	views?: any[];
 
 	/** Sets the width of the Schedule. Accepts both pixel and percentage values.
 	*   @Default {100%}
@@ -28163,7 +28163,7 @@ export interface Model {
 	/** Sets different day collection within workWeek view.
 	*   @Default {[Monday, Tuesday, Wednesday, Thursday, Friday]}
 	*/
-	workWeek?: Array<any>;
+	workWeek?: any[];
 
 	/** Allows to pop-up appointment details in a tooltip while hovering over the appointments.
 	*/
@@ -29065,7 +29065,7 @@ export interface AppointmentSettings {
 	/** The dataSource option accepts either JSON object collection or DataManager (ej.DataManager) instance that contains Schedule appointments.
 	*   @Default {[]}
 	*/
-	dataSource?: any|Array<any>;
+	dataSource?: any|any[];
 
 	/** It holds either the ej.Query() object or simply the query string that retrieves the specified records from the table.
 	*   @Default {null}
@@ -29167,7 +29167,7 @@ export interface CategorizeSettings {
 
 	/** The dataSource option accepts either the JSON object collection or DataManager [ej.DataManager] instance that contains the categorize data.
 	*/
-	dataSource?: Array<any>|any;
+	dataSource?: any[]|any;
 
 	/** Binds id field name in the dataSource to id of category data.
 	*   @Default {id}
@@ -29194,11 +29194,11 @@ export interface ContextMenuSettingsMenuItems {
 
 	/** All the appointment related context menu items are grouped under this appointment menu collection.
 	*/
-	appointment?: Array<any>;
+	appointment?: any[];
 
 	/** All the Scheduler cell related context menu items are grouped under this cells menu item collection.
 	*/
-	cells?: Array<any>;
+	cells?: any[];
 }
 
 export interface ContextMenuSettings {
@@ -29217,7 +29217,7 @@ export interface Group {
 
 	/** Holds the array of resource names to be grouped on the Schedule.
 	*/
-	resources?: Array<any>;
+	resources?: any[];
 }
 
 export interface WorkHours {
@@ -29248,7 +29248,7 @@ export interface PrioritySettings {
 	/** The dataSource option can accept the JSON object collection that contains the priority related data.
 	*   @Default {{% highlight js%}[{ text: None, value: none },{ text: High, value: high },{ text: Medium, value: medium },{ text: Low, value: low }]{% endhighlight %}}
 	*/
-	dataSource?: any|Array<any>;
+	dataSource?: any|any[];
 
 	/** Binds text field name in the dataSource to prioritySettings text. These text gets listed out in priority field of the appointment window.
 	*   @Default {text}
@@ -29297,7 +29297,7 @@ export interface ResourcesResourceSettings {
 	/** The dataSource option accepts either JSON object collection or DataManager (ejDataManager) instance that contains the resources related data.
 	*   @Default {[]}
 	*/
-	dataSource?: any|Array<any>;
+	dataSource?: any|any[];
 
 	/** Binds text field name in the dataSource to resourceSettings text. These text gets listed out in resources field of the appointment window.
 	*   @Default {null}
@@ -29463,7 +29463,7 @@ export interface BlockoutSettings {
 	/** The dataSource option accepts either JSON object collection or DataManager (ej.DataManager) instance that contains Schedule block intervals.
 	*   @Default {[]}
 	*/
-	dataSource?: any|Array<any>;
+	dataSource?: any|any[];
 
 	/** It holds either the ej.Query() object or simply the query string that retrieves the specified records from the table.
 	*   @Default {null}
@@ -29593,7 +29593,7 @@ export interface Model {
 	/** Defines the collection of recurrence frequencies within Recurrence Editor such as Never, Daily, Weekly, Monthly, Yearly and Every Weekday.
 	*   @Default {[never, daily, weekly, monthly, yearly, everyweekday]}
 	*/
-	frequencies?: Array<any>;
+	frequencies?: any[];
 
 	/** Sets the starting day of the week.
 	*   @Default {null}
@@ -29683,11 +29683,11 @@ class Gantt extends ej.Widget {
 	addRecord(data: any, rowPosition: string): void;
 
 	/** To select cell based on the cell and row index dynamically.
-	*   @param {Array<any>} array of cell indexes to be select
+	*   @param {any[]} array of cell indexes to be select
 	*   @param {boolean} Defines that we need to preserve the previously selected cells of not
 	*   @returns {void}
 	*/
-	selectCells(Indexes: Array<any>, preservePreviousSelectedCell: boolean): void;
+	selectCells(Indexes: any[], preservePreviousSelectedCell: boolean): void;
 
 	/** Positions the splitter by the specified column index.
 	*   @param {Number} Set the splitter position based on column index.
@@ -29782,7 +29782,7 @@ export interface Model {
 	/** Specifies the fields to be included in the add dialog in Gantt
 	*   @Default {[]}
 	*/
-	addDialogFields?: Array<any>;
+	addDialogFields?: any[];
 
 	/** Enables or disables the ability to resize column.
 	*   @Default {false}
@@ -29849,7 +29849,7 @@ export interface Model {
 	/** To Specify the column fields to be displayed in the dialog while inserting a column using column menu.
 	*   @Default {[]}
 	*/
-	columnDialogFields?: Array<any>;
+	columnDialogFields?: any[];
 
 	/** Specifies the background of connector lines in Gantt
 	*/
@@ -29876,7 +29876,7 @@ export interface Model {
 	/** Collection of data or hierarchical data to represent in Gantt
 	*   @Default {null}
 	*/
-	dataSource?: Array<any>;
+	dataSource?: any[];
 
 	/** Specifies the dateFormat for Gantt , given format is displayed in tooltip , Grid .
 	*   @Default {MM/dd/yyyy}
@@ -29895,7 +29895,7 @@ export interface Model {
 	/** Specifies the fields to be included in the edit dialog in Gantt
 	*   @Default {[]}
 	*/
-	editDialogFields?: Array<any>;
+	editDialogFields?: any[];
 
 	/** Enables or disables the responsiveness of Gantt
 	*   @Default {false}
@@ -29988,7 +29988,7 @@ export interface Model {
 	/** Collection of holidays with date, background and label information to be displayed in Gantt.
 	*   @Default {[]}
 	*/
-	holidays?: Array<any>;
+	holidays?: any[];
 
 	/** Specifies whether to include weekends while calculating the duration of a task.
 	*   @Default {true}
@@ -30119,7 +30119,7 @@ export interface Model {
 	/** Collection of data regarding resources involved in entire project
 	*   @Default {[]}
 	*/
-	resources?: Array<any>;
+	resources?: any[];
 
 	/** Specifies whether rounding off the day working time edits
 	*   @Default {true}
@@ -30204,7 +30204,7 @@ export interface Model {
 	/** Specifies the options for striplines
 	*   @Default {[]}
 	*/
-	stripLines?: Array<any>;
+	stripLines?: any[];
 
 	/** Specifies the background of the taskbar in Gantt
 	*/
@@ -30681,7 +30681,7 @@ export interface ContextMenuOpenEventArgs {
 
 	/** Returns the default context menu items to which we add custom items.
 	*/
-	contextMenuItems?: Array<any>;
+	contextMenuItems?: any[];
 
 	/** Returns the Gantt model.
 	*/
@@ -31040,7 +31040,7 @@ export interface DragTooltip {
 	/** Specifies the data source fields to be displayed in the drag tooltip.
 	*   @Default {[]}
 	*/
-	tooltipItems?: Array<any>;
+	tooltipItems?: any[];
 
 	/** Specifies the custom template for drag tooltip.
 	*   @Default {null}
@@ -31175,7 +31175,7 @@ export interface SortSettings {
 	/** Specifies the sorted columns for Gantt
 	*   @Default {[]}
 	*/
-	sortedColumns?: Array<any>;
+	sortedColumns?: any[];
 }
 
 export interface ToolbarSettings {
@@ -31188,7 +31188,7 @@ export interface ToolbarSettings {
 	/** Specifies the list of toolbar items to be rendered in Gantt toolbar
 	*   @Default {[]}
 	*/
-	toolbarItems?: Array<any>;
+	toolbarItems?: any[];
 }
 
 enum DurationUnit{
@@ -31668,7 +31668,7 @@ export interface DataSource {
 	/** Gets or sets the values of data source.
 	*   @Default {[]}
 	*/
-	values?: Array<any>;
+	values?: any[];
 }
 
 export interface ExportSettings {
@@ -31707,7 +31707,7 @@ export interface Parameter {
 	/** Gets or sets the parameter labels.
 	*   @Default {null}
 	*/
-	labels?: Array<any>;
+	labels?: any[];
 
 	/** Gets or sets the name of the parameter.
 	*   @Default {empty}
@@ -31727,7 +31727,7 @@ export interface Parameter {
 	/** Gets or sets the parameter values.
 	*   @Default {[]}
 	*/
-	values?: Array<any>;
+	values?: any[];
 }
 
 export interface ToolbarSettings {
@@ -31997,11 +31997,11 @@ class TreeGrid extends ej.Widget {
 	clearSelection(index: number): void;
 
 	/** To select cell based on the cell and row index dynamically.
-	*   @param {Array<any>} array of cell indexes to be select
+	*   @param {any[]} array of cell indexes to be select
 	*   @param {boolean} Defines that we need to preserve the previously selected cells or not
 	*   @returns {void}
 	*/
-	selectCells(Indexes: Array<any>, preservePreviousSelectedCell: boolean): void;
+	selectCells(Indexes: any[], preservePreviousSelectedCell: boolean): void;
 
 	/** To rename a column with the specified name
 	*   @param {number} Index of the column to be renamed
@@ -32040,11 +32040,11 @@ class TreeGrid extends ej.Widget {
 	collapseAtLevel(index: number): void;
 
 	/** To refresh the changes in tree grid
-	*   @param {Array<any>} Pass which data source you want to show in tree grid
+	*   @param {any[]} Pass which data source you want to show in tree grid
 	*   @param {any} Pass which data you want to show in tree grid
 	*   @returns {void}
 	*/
-	refresh(dataSource: Array<any>, query: any): void;
+	refresh(dataSource: any[], query: any): void;
 
 	/** Freeze all the columns preceding to the column specified by the field name.
 	*   @param {string} Freeze all Columns before this field column.
@@ -32154,7 +32154,7 @@ export interface Model {
 	/** To Specify the column fields to be displayed in the dialog while inserting a column using column menu.
 	*   @Default {[]}
 	*/
-	columnDialogFields?: Array<any>;
+	columnDialogFields?: any[];
 
 	/** Options for displaying and customizing context menu items.
 	*/
@@ -32167,7 +32167,7 @@ export interface Model {
 	/** Specifies hierarchical or self-referential data to populate the TreeGrid.
 	*   @Default {null}
 	*/
-	dataSource?: Array<any>;
+	dataSource?: any[];
 
 	/** Specifies whether to wrap the header text when it is overflown i.e., when it exceeds the header width.
 	*   @Default {none}
@@ -32302,7 +32302,7 @@ export interface Model {
 	/** Specifies the summary row collection object to be displayed
 	*   @Default {[]}
 	*/
-	summaryRows?: Array<any>;
+	summaryRows?: any[];
 
 	/** Specifies whether to show tooltip when mouse is hovered on the cell.
 	*   @Default {true}
@@ -32758,7 +32758,7 @@ export interface ContextMenuOpenEventArgs {
 
 	/** Returns the default context menu items to which we add custom items.
 	*/
-	contextMenuItems?: Array<any>;
+	contextMenuItems?: any[];
 
 	/** Returns the TreeGrid model.
 	*/
@@ -33273,7 +33273,7 @@ export interface ContextMenuSettings {
 	/** Option for adding items to context menu.
 	*   @Default {[]}
 	*/
-	contextMenuItems?: Array<any>;
+	contextMenuItems?: any[];
 
 	/** Shows/hides the context menu.
 	*   @Default {false}
@@ -33291,7 +33291,7 @@ export interface DragTooltip {
 	/** Option to add field names whose corresponding values in the dragged row needs to be shown in the preview tooltip.
 	*   @Default {[]}
 	*/
-	tooltipItems?: Array<any>;
+	tooltipItems?: any[];
 
 	/** Custom template for that tooltip that is shown while dragging a row.
 	*   @Default {null}
@@ -33355,7 +33355,7 @@ export interface FilterSettings {
 	/** Specifies the column collection for filtering the TreeGrid content on initial load
 	*   @Default {[]}
 	*/
-	filteredColumns?: Array<any>;
+	filteredColumns?: any[];
 }
 
 export interface PageSettings {
@@ -33432,7 +33432,7 @@ export interface SortSettings {
 	/** Option to add columns based on which the rows have to be sorted recursively.
 	*   @Default {[]}
 	*/
-	sortedColumns?: Array<any>;
+	sortedColumns?: any[];
 }
 
 export interface ToolbarSettings {
@@ -33445,7 +33445,7 @@ export interface ToolbarSettings {
 	/** Specifies the list of toolbar items to be rendered in TreeGrid toolbar
 	*   @Default {[]}
 	*/
-	toolbarItems?: Array<any>;
+	toolbarItems?: any[];
 }
 
 enum EditingType{
@@ -33929,7 +33929,7 @@ export interface Model {
 	/** Specifies the listview items as an array of object.
 	*   @Default {[]}
 	*/
-	items?: Array<any>;
+	items?: any[];
 
 	/** Sets all the properties of listview to render in navigation drawer
 	*/
@@ -34228,7 +34228,7 @@ export interface ItemsSliderSettings {
 
 	/** Specifies the sliderSettings ticks values of nested radial menu items.
 	*/
-	ticks?: Array<any>;
+	ticks?: any[];
 
 	/** Specifies the sliderSettings stroke Width value.
 	*/
@@ -34271,7 +34271,7 @@ export interface Item {
 
 	/** Specifies to add sub level items .
 	*/
-	items?: Array<any>;
+	items?: any[];
 }
 }
 
@@ -34489,17 +34489,17 @@ export interface LiveTile {
 	/** Specifies liveTile images in CSS classes.
 	*   @Default {null}
 	*/
-	imageClass?: Array<any>;
+	imageClass?: any[];
 
 	/** Specifies liveTile images in templates.
 	*   @Default {null}
 	*/
-	imageTemplateId?: Array<any>;
+	imageTemplateId?: any[];
 
 	/** Specifies liveTile images in CSS classes.
 	*   @Default {null}
 	*/
-	imageUrl?: Array<any>;
+	imageUrl?: any[];
 
 	/** Specifies liveTile type for Tile. See orientation
 	*   @Default {flip}
@@ -34514,7 +34514,7 @@ export interface LiveTile {
 	/** Sets the text to each living tile
 	*   @Default {Null}
 	*/
-	text?: Array<any>;
+	text?: any[];
 }
 
 enum BadgePosition{
@@ -34924,7 +34924,7 @@ export interface Model {
 
 	/** Specifies the ticks value of radial slider
 	*/
-	ticks?: Array<any>;
+	ticks?: any[];
 
 	/** Specifies the value of radial slider
 	*   @Default {10}
@@ -35124,7 +35124,7 @@ class Spreadsheet extends ej.Widget {
 	clearRange(rangeName: string): void;
 
 	/** It is used to remove data in the specified range of cells based on the defined property.
-	*   @param {Array<any>|string} Optional.  If range is specified, it will clear data for the specified range else it will use the current selected range.
+	*   @param {any[]|string} Optional.  If range is specified, it will clear data for the specified range else it will use the current selected range.
 	*   @param {string} Optional.  If property is specified, it will remove the specified property in the range else it will remove default properties
 	*   @param {any} Optional.
 	*   @param {boolean} Optional.  If pass true, if you want to skip the hidden rows
@@ -35132,7 +35132,7 @@ class Spreadsheet extends ej.Widget {
 	*   @param {any} Optional. It specifies whether to skip element processing or not.
 	*   @returns {void}
 	*/
-	clearRangeData(range?: Array<any>|string, property?: string, cells?: any, skipHiddenRow?: boolean, status?: any, skipCell?: any): void;
+	clearRangeData(range?: any[]|string, property?: string, cells?: any, skipHiddenRow?: boolean, status?: any, skipCell?: any): void;
 
 	/** This method is used to copy or move the sheets in Spreadsheet.
 	*   @param {number} Pass the sheet index that you want to copy or move.
@@ -35254,15 +35254,15 @@ class Spreadsheet extends ej.Widget {
 
 	/** This method is used to get the data in specified range in Spreadsheet.
 	*   @param {any} Optional.  Pass the range, property, sheetIdx, valueOnly in options.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getRangeData(options?: any): Array<any>;
+	getRangeData(options?: any): any[];
 
 	/** This method is used to get the range indices array based on the specified alpha range in Spreadsheet.
 	*   @param {string} Pass the alpha range that you want to get range indices.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getRangeIndices(range: string): Array<any>;
+	getRangeIndices(range: string): any[];
 
 	/** This method is used to get the sheet details based on the given sheet index in Spreadsheet.
 	*   @param {number} Pass the sheet index to get the sheet object.
@@ -35353,11 +35353,11 @@ class Spreadsheet extends ej.Widget {
 	import(importRequest: any): void;
 
 	/** This method is used to lock/unlock the range of cells in active sheet. Lock cells are activated only after the sheet is protected. Once the sheet is protected it is unable to lock/unlock cells.
-	*   @param {string|Array<any>} Pass the alpha range cells or array range of cells.
+	*   @param {string|any[]} Pass the alpha range cells or array range of cells.
 	*   @param {string} Optional.  By default is true. If it is false locked cells are unlocked.
 	*   @returns {void}
 	*/
-	lockCells(range: string|Array<any>, isLocked?: string): void;
+	lockCells(range: string|any[], isLocked?: string): void;
 
 	/** This method is used to merge cells by across in the Spreadsheet.
 	*   @param {string} Optional.  To pass the cell range or selected cells are process.
@@ -35459,10 +35459,10 @@ class Spreadsheet extends ej.Widget {
 	setSheetFocus(): void;
 
 	/** This method is used to set the width for the columns in the Spreadsheet.
-	*   @param {Array<any>|any} Pass the column index and width of the columns.
+	*   @param {any[]|any} Pass the column index and width of the columns.
 	*   @returns {void}
 	*/
-	setWidthToColumns(widthColl: Array<any>|any): void;
+	setWidthToColumns(widthColl: any[]|any): void;
 
 	/** This method is used to rename the active sheet.
 	*   @param {string} Pass the sheet name that you want to change the current active sheet name.
@@ -35530,17 +35530,17 @@ class Spreadsheet extends ej.Widget {
 	unmergeCells(range?: string): void;
 
 	/** This method is used to unwrap the selected range of cells in the Spreadsheet.
-	*   @param {Array<any>|string} Optional.  If the range is specified, then it will update unwrap in the specified range else it will use the current selected range.
+	*   @param {any[]|string} Optional.  If the range is specified, then it will update unwrap in the specified range else it will use the current selected range.
 	*   @returns {void}
 	*/
-	unWrapText(range?: Array<any>|string): void;
+	unWrapText(range?: any[]|string): void;
 
 	/** This method is used to update the data for the specified range of cells in the Spreadsheet.
 	*   @param {any} Pass the cells data that you want to update.
-	*   @param {Array<any>} Optional.  If range is specified, it will update data for the specified range  else it will use the current selected range.
+	*   @param {any[]} Optional.  If range is specified, it will update data for the specified range  else it will use the current selected range.
 	*   @returns {void}
 	*/
-	updateData(data: any, range?: Array<any>): void;
+	updateData(data: any, range?: any[]): void;
 
 	/** This method is used to update the formula bar in the Spreadsheet.
 	*   @returns {void}
@@ -35556,16 +35556,16 @@ class Spreadsheet extends ej.Widget {
 
 	/** This method is used to update the unique data for the specified range of cells in Spreadsheet.
 	*   @param {any} Pass the  data that you want to update in the particular range
-	*   @param {Array<any>|string} Optional.  If range is specified, it will update data for the specified range else it will use the current selected range.
+	*   @param {any[]|string} Optional.  If range is specified, it will update data for the specified range else it will use the current selected range.
 	*   @returns {void}
 	*/
-	updateUniqueData(data: any, range?: Array<any>|string): void;
+	updateUniqueData(data: any, range?: any[]|string): void;
 
 	/** This method is used to wrap the selected range of cells in the Spreadsheet.
-	*   @param {Array<any>|string} Optional.  If the range is specified, then it will update wrap in the specified  range else it will use the current selected range.
+	*   @param {any[]|string} Optional.  If the range is specified, then it will update wrap in the specified  range else it will use the current selected range.
 	*   @returns {void}
 	*/
-	wrapText(range?: Array<any>|string): void;
+	wrapText(range?: any[]|string): void;
 
 	XLCellType: Spreadsheet.XLCellType;
 
@@ -35631,17 +35631,17 @@ export interface XLCFormat {
 
 	/** This method is used to clear the applied conditional formatting rules in the Spreadsheet.
 	*   @param {boolean} Pass true if you want to clear rules from selected cells else it will clear rules from entire sheet.
-	*   @param {Array<any>|string} Optional.   If range is specified, it will clear rules for the specified range else it will use the current selected range.
+	*   @param {any[]|string} Optional.   If range is specified, it will clear rules for the specified range else it will use the current selected range.
 	*   @returns {void}
 	*/
-	clearCF(isSelected: boolean,range: Array<any>|string): void;
+	clearCF(isSelected: boolean,range: any[]|string): void;
 
 	/** This method is used to get the applied conditional formatting rules as array of objects based on the specified row Index and column Index in the Spreadsheet.
 	*   @param {number} Pass the row index.
 	*   @param {number} Pass the column index.
-	*   @returns {Array<any>}
+	*   @returns {any[]}
 	*/
-	getCFRule(rowIdx: number,colIdx: number): Array<any>;
+	getCFRule(rowIdx: number,colIdx: number): any[];
 
 	/** This method is used to set the conditional formatting rule in the Spreadsheet.
 	*   @param {any} Pass the rule to set.
@@ -35696,12 +35696,12 @@ export interface XLClipboard {
 export interface XLComment {
 
 	/** This method is used to delete the comment in the specified range in Spreadsheet.
-	*   @param {Array<any>|string} Optional.  If range is specified, it will delete comments for the specified range else it will use the current selected range.
+	*   @param {any[]|string} Optional.  If range is specified, it will delete comments for the specified range else it will use the current selected range.
 	*   @param {number} Optional.  If sheetIdx is specified, it will delete comment in specified sheet else it will use active sheet.
 	*   @param {boolean} Optional.  Pass true, if you want to skip the hidden rows data.
 	*   @returns {void}
 	*/
-	deleteComment(range: Array<any>|string,sheetIdx: number,skipHiddenRow: boolean): void;
+	deleteComment(range: any[]|string,sheetIdx: number,skipHiddenRow: boolean): void;
 
 	/** This method is used to edit the comment in the target Cell in Spreadsheet.
 	*   @param {any} Optional.  Pass the row index and column index of the cell which contains comment.
@@ -35726,12 +35726,12 @@ export interface XLComment {
 	getComment(cell: HTMLElement): any;
 
 	/** This method is used to set new comment in Spreadsheet.
-	*   @param {string|Array<any>} Optional.  If we pass the range comment will set in the range otherwise it will set with selected cells.
+	*   @param {string|any[]} Optional.  If we pass the range comment will set in the range otherwise it will set with selected cells.
 	*   @param {string} Optional.  Pass the comment data.
 	*   @param {boolean} Optional.  Pass true to show comment in edit mode
 	*   @returns {void}
 	*/
-	setComment(range: string|Array<any>,data: string,showEditPanel: boolean): void;
+	setComment(range: string|any[],data: string,showEditPanel: boolean): void;
 
 	/** This method is used to show all the comments in the Spreadsheet.
 	*   @returns {void}
@@ -35748,11 +35748,11 @@ export interface XLComment {
 export interface XLDragDrop {
 
 	/** This method is used to drag and drop the selected range of cells to destination range in the Spreadsheet.
-	*   @param {any|Array<any>} Pass the source range to perform drag and drop.
-	*   @param {any|Array<any>} Pass the destination range to drop the dragged cells.
+	*   @param {any|any[]} Pass the source range to perform drag and drop.
+	*   @param {any|any[]} Pass the destination range to drop the dragged cells.
 	*   @returns {void}
 	*/
-	moveRangeTo(sourceRange: any|Array<any>,destinationRange: any|Array<any>): void;
+	moveRangeTo(sourceRange: any|any[],destinationRange: any|any[]): void;
 }
 
 export interface XLDragFill {
@@ -35880,11 +35880,11 @@ export interface XLFormat {
 	format(formatObj: any,range: string): void;
 
 	/** This method is used to remove the style in the specified range.
-	*   @param {Array<any>|string} Pass the cell range .
+	*   @param {any[]|string} Pass the cell range .
 	*   @param {any} Optional. Pass the options for which the style gets removed.
 	*   @returns {void}
 	*/
-	removeStyle(range: Array<any>|string,options: any): void;
+	removeStyle(range: any[]|string,options: any): void;
 
 	/** This method is used to remove table with specified tableId in the Spreadsheet.
 	*   @param {number} Pass the tableId that you want to remove.
@@ -35901,17 +35901,17 @@ export interface XLFormat {
 
 	/** This method is used to update the format for the selected range of cells in the Spreadsheet.
 	*   @param {any} Pass the format object that you want to update.
-	*   @param {Array<any>} Optional.  If the range is specified, then it will update format in the specified range else it will use the current selected range.
+	*   @param {any[]} Optional.  If the range is specified, then it will update format in the specified range else it will use the current selected range.
 	*   @returns {void}
 	*/
-	updateFormat(formatObj: any,range: Array<any>): void;
+	updateFormat(formatObj: any,range: any[]): void;
 
 	/** This method is used to update the unique format for selected range of cells in the Spreadsheet.
 	*   @param {string} Pass the unique format class.
-	*   @param {Array<any>} Optional.  If the range is specified, then it will update format in the specified range else it will use the current selected range.
+	*   @param {any[]} Optional.  If the range is specified, then it will update format in the specified range else it will use the current selected range.
 	*   @returns {void}
 	*/
-	updateUniqueFormat(formatClass: string,range: Array<any>): void;
+	updateUniqueFormat(formatClass: string,range: any[]): void;
 }
 
 export interface XLFreeze {
@@ -36079,10 +36079,10 @@ export interface XLSelection {
 	getSelectedCells(sheetIdx: number): HTMLElement;
 
 	/** This method is used to refresh the selection in the Spreadsheet.
-	*   @param {Array<any>} Optional.  Pass range to refresh selection.
+	*   @param {any[]} Optional.  Pass range to refresh selection.
 	*   @returns {void}
 	*/
-	refreshSelection(range: Array<any>): void;
+	refreshSelection(range: any[]): void;
 
 	/** This method is used to select a single column in the Spreadsheet.
 	*   @param {number} Pass the column index value.
@@ -36133,25 +36133,25 @@ export interface XLSort {
 	sortByColor(operation: string,color: any,range: string): void;
 
 	/** This method is used to sort a particular range of cells based on its values in the Spreadsheet.
-	*   @param {Array<any>|string} Pass the range to sort.
+	*   @param {any[]|string} Pass the range to sort.
 	*   @param {string} Pass the column name.
 	*   @param {any} Pass the direction to sort (ascending or descending).
 	*   @returns {void}
 	*/
-	sortByRange(range: Array<any>|string,columnName: string,direction: any): void;
+	sortByRange(range: any[]|string,columnName: string,direction: any): void;
 }
 
 export interface XLValidate {
 
 	/** This method is used to apply data validation rules in a selected range of cells based on the defined condition in the Spreadsheet.
 	*   @param {string} If range is specified, it will apply rules for the specified range else it will use the current selected range.
-	*   @param {Array<any>} Pass the validation condition, value1 and value2.
+	*   @param {any[]} Pass the validation condition, value1 and value2.
 	*   @param {string} Pass the data type.
 	*   @param {boolean} Pass 'true' if you ignore blank values.
 	*   @param {boolean} Pass 'true' if you want to show an error alert.
 	*   @returns {void}
 	*/
-	applyDVRules(range: string,values: Array<any>,type: string,required: boolean,showErrorAlert: boolean): void;
+	applyDVRules(range: string,values: any[],type: string,required: boolean,showErrorAlert: boolean): void;
 
 	/** This method is used to clear the applied validation rules in a specified range of cells in the Spreadsheet.
 	*   @param {string} Optional.  If range is specified, it will clear rules for the specified range else it will use the current selected range.
@@ -36353,7 +36353,7 @@ export interface Model {
 	/** Gets or sets a value that indicates custom formulas in Spreadsheet.
 	*   @Default {[]}
 	*/
-	customFormulas?: Array<any>;
+	customFormulas?: any[];
 
 	/** Gets or sets a value that indicates whether to enable or disable context menu in the Spreadsheet.
 	*   @Default {true}
@@ -36559,7 +36559,7 @@ export interface ActionBeginEventArgs {
 
 	/** Returns the cell range.
 	*/
-	range?: Array<any>;
+	range?: any[];
 
 	/** Returns the action format.
 	*/
@@ -36594,7 +36594,7 @@ export interface ActionCompleteEventArgs {
 
 	/** Returns the applied cell format object.
 	*/
-	selectedCell?: Array<any>|any;
+	selectedCell?: any[]|any;
 
 	/** Returns the sheet index.
 	*/
@@ -36617,7 +36617,7 @@ export interface AutoFillBeginEventArgs {
 
 	/** Returns auto fill begin cell range.
 	*/
-	dataRange?: Array<any>;
+	dataRange?: any[];
 
 	/** Returns which direction drag the auto fill.
 	*/
@@ -36625,7 +36625,7 @@ export interface AutoFillBeginEventArgs {
 
 	/** Returns fill cells range.
 	*/
-	fillRange?: Array<any>;
+	fillRange?: any[];
 
 	/** Returns the auto fill type.
 	*/
@@ -36652,7 +36652,7 @@ export interface AutoFillCompleteEventArgs {
 
 	/** Returns auto fill begin cell range.
 	*/
-	dataRange?: Array<any>;
+	dataRange?: any[];
 
 	/** Returns which direction to drag the auto fill.
 	*/
@@ -36660,7 +36660,7 @@ export interface AutoFillCompleteEventArgs {
 
 	/** Returns fill cells range.
 	*/
-	fillRange?: Array<any>;
+	fillRange?: any[];
 
 	/** Returns the auto fill type.
 	*/
@@ -36710,7 +36710,7 @@ export interface BeforeCellFormatEventArgs {
 
 	/** Returns the selected cells.
 	*/
-	cells?: Array<any>|any;
+	cells?: any[]|any;
 
 	/** Returns the Spreadsheet model.
 	*/
@@ -36729,11 +36729,11 @@ export interface BeforeCellSelectEventArgs {
 
 	/** Returns the previous cell range.
 	*/
-	prevRange?: Array<any>;
+	prevRange?: any[];
 
 	/** Returns the current cell range.
 	*/
-	currRange?: Array<any>;
+	currRange?: any[];
 
 	/** Returns the Spreadsheet model.
 	*/
@@ -37008,7 +37008,7 @@ export interface CellSelectedEventArgs {
 
 	/** Returns the selected range.
 	*/
-	selectedRange?: Array<any>;
+	selectedRange?: any[];
 
 	/** Returns the target element.
 	*/
@@ -37617,7 +37617,7 @@ export interface RibbonSettingsApplicationTabMenuSettings {
 	/** Specifies the data source to append in application tab.
 	*   @Default {[]}
 	*/
-	dataSource?: Array<any>;
+	dataSource?: any[];
 }
 
 export interface RibbonSettingsApplicationTab {
@@ -37732,7 +37732,7 @@ export interface SheetsCFormatRule {
 	/** Specifies the inputs for conditional formatting in Spreadsheet.
 	*   @Default {[]}
 	*/
-	inputs?: Array<any>;
+	inputs?: any[];
 
 	/** Specifies the range for conditional formatting in Spreadsheet.
 	*/
@@ -37911,17 +37911,17 @@ export interface Sheet {
 	/** To hide the specified columns in Spreadsheet.
 	*   @Default {[]}
 	*/
-	hideColumns?: Array<any>;
+	hideColumns?: any[];
 
 	/** To hide the specified rows in Spreadsheet.
 	*   @Default {[]}
 	*/
-	hideRows?: Array<any>;
+	hideRows?: any[];
 
 	/** To merge specified ranges in Spreadsheet.
 	*   @Default {[]}
 	*/
-	mergeCells?: Array<any>;
+	mergeCells?: any[];
 
 	/** Specifies the primary key for the datasource in Spreadsheet.
 	*/
@@ -39080,7 +39080,7 @@ export interface Palette {
 	/** Defines the palette items
 	*   @Default {[]}
 	*/
-	items?: Array<any>;
+	items?: any[];
 }
 }
 
@@ -43658,7 +43658,7 @@ export interface Model {
 	/** Palette is used to store the series fill color in array and apply the color to series collection in the order of series index.
 	*   @Default {null}
 	*/
-	palette?: Array<any>;
+	palette?: any[];
 
 	/** Options to customize the left, right, top and bottom margins of chart area.
 	*/
@@ -50090,7 +50090,7 @@ export interface Zooming {
 	/** To display user specified buttons in zooming toolbar.
 	*   @Default {[zoomIn, zoomOut, zoom, pan, reset]}
 	*/
-	toolbarItems?: Array<any>;
+	toolbarItems?: any[];
 }
 }
 module Chart
@@ -53527,7 +53527,7 @@ export interface LayersShapeSettingsColorMappingsRangeColorMapping {
 	/** Specifies the gradientColors in the shape layer of map.
 	*   @Default {null}
 	*/
-	gradientColors?: Array<any>;
+	gradientColors?: any[];
 }
 
 export interface LayersShapeSettingsColorMappingsEqualColorMapping {
@@ -53692,7 +53692,7 @@ export interface Layer {
 	/** Specify markers for shape layer.
 	*   @Default {[]}
 	*/
-	markers?: Array<any>;
+	markers?: any[];
 
 	/** Specifies the map marker template for map layer.
 	*   @Default {null}
@@ -53702,7 +53702,7 @@ export interface Layer {
 	/** Specify selectedMapShapes for shape layer
 	*   @Default {[]}
 	*/
-	selectedMapShapes?: Array<any>;
+	selectedMapShapes?: any[];
 
 	/** Specifies the selection mode of the map. Accepted selection mode values are Default and Multiple.
 	*   @Default {default}
@@ -54050,7 +54050,7 @@ export interface Model {
 	/** Hold the treeMapItems to be displayed in treemap
 	*   @Default {[]}
 	*/
-	treeMapItems?: Array<any>;
+	treeMapItems?: any[];
 
 	/** Specify levels of treemap for grouped visualization of data
 	*   @Default {[]}
@@ -54114,7 +54114,7 @@ export interface PaletteColorMapping {
 	/** Specifies the colors of the paletteColorMapping
 	*   @Default {[]}
 	*/
-	colors?: Array<any>;
+	colors?: any[];
 }
 
 export interface GroupColorMapping {
@@ -54233,7 +54233,7 @@ export interface RangeColorMapping {
 	/** specifies the gradient colors for th given range value
 	*   @Default {[]}
 	*/
-	gradientColors?: Array<any>;
+	gradientColors?: any[];
 
 	/** Specifies the from value for rangeColorMapping.
 	*   @Default {-1}
@@ -54438,10 +54438,10 @@ class Diagram extends ej.Widget {
 
 	/** Add a collection of ports to the node specified by name
 	*   @param {string} name of the node to which the ports have to be added
-	*   @param {Array<any>} a collection of ports to be added to the specified node
+	*   @param {any[]} a collection of ports to be added to the specified node
 	*   @returns {void}
 	*/
-	addPorts(name: string, ports: Array<any>): void;
+	addPorts(name: string, ports: any[]): void;
 
 	/** Add the specified node to selection list
 	*   @param {any} the node to be selected
@@ -55335,7 +55335,7 @@ export interface HistoryChangeEventArgs {
 
 	/** An array of objects, where each object represents the changes made in last undo/redo. To explore how the changes are defined, refer [Undo Redo Changes](#undo-redo-changes)
 	*/
-	changes?: Array<any>;
+	changes?: any[];
 
 	/** A collection of objects that are changed in the last undo/redo
 	*/
@@ -55549,15 +55549,15 @@ export interface SelectionChangeEventArgs {
 
 	/** parameter returns the collection of nodes and connectors that have to be removed from selection list
 	*/
-	oldItems?: Array<any>;
+	oldItems?: any[];
 
 	/** parameter returns the collection of nodes and connectors that have to be added to selection list
 	*/
-	newItems?: Array<any>;
+	newItems?: any[];
 
 	/** parameter returns the collection of nodes and connectors that will be selected after selection change
 	*/
-	selectedItems?: Array<any>;
+	selectedItems?: any[];
 
 	/** parameter to specify whether or not to cancel the selection change event
 	*/
@@ -56217,7 +56217,7 @@ export interface ContextMenu {
 	/** Defines the collection of context menu items
 	*   @Default {[]}
 	*/
-	items?: Array<any>;
+	items?: any[];
 
 	/** To set whether to display the default context menu items or not
 	*   @Default {false}
@@ -56592,7 +56592,7 @@ export interface NodesGradientLinearGradient {
 	/** Defines the different colors and the region of color transitions
 	*   @Default {[]}
 	*/
-	stops?: Array<any>;
+	stops?: any[];
 
 	/** Defines the left most position(relative to node) of the rectangular region that needs to be painted
 	*   @Default {0}
@@ -56640,7 +56640,7 @@ export interface NodesGradientRadialGradient {
 	/** Defines the different colors and the region of color transitions.
 	*   @Default {[]}
 	*/
-	stops?: Array<any>;
+	stops?: any[];
 }
 
 export interface NodesGradientStop {
@@ -56855,7 +56855,7 @@ export interface NodesLane {
 	/** An array of objects where each object represents a child node of the lane
 	*   @Default {[]}
 	*/
-	children?: Array<any>;
+	children?: any[];
 
 	/** Defines the fill color of the lane
 	*   @Default {white}
@@ -57060,7 +57060,7 @@ export interface NodesSubProcess {
 
 	/** Defines the collection of events that need to be appended with BPMN Sub-Process
 	*/
-	events?: Array<any>;
+	events?: any[];
 
 	/** Defines the loop type of a sub process.
 	*   @Default {ej.datavisualization.Diagram.BPMNLoops.None}
@@ -57145,7 +57145,7 @@ export interface Node {
 	/** Array of JSON objects where each object represents a child node/connector
 	*   @Default {[]}
 	*/
-	children?: Array<any>;
+	children?: any[];
 
 	/** Sets the type of UML classifier. Applicable, if the node is a UML Class Diagram shape.
 	*   @Default {ej.datavisualization.Diagram.ClassifierShapes.Class}
@@ -57245,7 +57245,7 @@ export interface Node {
 	/** A read only collection of the incoming connectors/edges of the node
 	*   @Default {[]}
 	*/
-	inEdges?: Array<any>;
+	inEdges?: any[];
 
 	/** Defines an interface in a UML Class Diagram
 	*   @Default {null}
@@ -57339,7 +57339,7 @@ export interface Node {
 	/** A read only collection of outgoing connectors/edges of the node
 	*   @Default {[]}
 	*/
-	outEdges?: Array<any>;
+	outEdges?: any[];
 
 	/** Defines the minimum padding value to be left between the bottom most position of a group and its children. Applicable, if the group is a container.
 	*   @Default {0}
@@ -57392,7 +57392,7 @@ export interface Node {
 	/** Defines a collection of points to draw a polygon. Applicable, if the shape is a polygon.
 	*   @Default {[]}
 	*/
-	points?: Array<any>;
+	points?: any[];
 
 	/** An array of objects where each object represents a port
 	*   @Default {[]}
@@ -57625,7 +57625,7 @@ export interface SelectedItems {
 	/** A read only collection of the selected items
 	*   @Default {[]}
 	*/
-	children?: Array<any>;
+	children?: any[];
 
 	/** Controls the visibility of selector.
 	*   @Default {ej.datavisualization.Diagram.SelectorConstraints.All}
@@ -57687,12 +57687,12 @@ export interface SnapSettingsHorizontalGridLines {
 	/** A pattern of lines and gaps that defines a set of horizontal gridlines
 	*   @Default {[1.25, 18.75, 0.25, 19.75, 0.25, 19.75, 0.25, 19.75, 0.25, 19.75]}
 	*/
-	linesInterval?: Array<any>;
+	linesInterval?: any[];
 
 	/** Specifies a set of intervals to snap the objects
 	*   @Default {[20]}
 	*/
-	snapInterval?: Array<any>;
+	snapInterval?: any[];
 }
 
 export interface SnapSettingsVerticalGridLines {
@@ -57709,12 +57709,12 @@ export interface SnapSettingsVerticalGridLines {
 	/** A pattern of lines and gaps that defines a set of horizontal gridlines
 	*   @Default {[1.25, 18.75, 0.25, 19.75, 0.25, 19.75, 0.25, 19.75, 0.25, 19.75]}
 	*/
-	linesInterval?: Array<any>;
+	linesInterval?: any[];
 
 	/** Specifies a set of intervals to snap the objects
 	*   @Default {[20]}
 	*/
-	snapInterval?: Array<any>;
+	snapInterval?: any[];
 }
 
 export interface SnapSettings {
@@ -58759,7 +58759,7 @@ export interface Model {
 	/** Specifies the no of legends can sync with heat map.
 	*   @Default {[]}
 	*/
-	legendCollection?: Array<any>;
+	legendCollection?: any[];
 
 	/** Specifies the property and display value of the heat map column.
 	*   @Default {[]}
@@ -58973,7 +58973,7 @@ export interface ItemsMapping {
 	/** Specifies the property and display value of the collection of column.
 	*   @Default {[]}
 	*/
-	columnMapping?: Array<any>;
+	columnMapping?: any[];
 }
 
 export interface ColorMappingCollectionLabel {

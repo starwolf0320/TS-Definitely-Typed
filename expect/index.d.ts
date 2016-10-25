@@ -31,19 +31,19 @@ export declare class Expectation {
     toExclude(value: any, compareValues?: any, message?: string): Expectation;
     toNotContain(value: any, compareValues?: any, message?: string): Expectation;
     toHaveBeenCalled(message?: string): Expectation;
-    toHaveBeenCalledWith(...args: Array<any>): Expectation;
+    toHaveBeenCalledWith(...args: any[]): Expectation;
     toNotHaveBeenCalled(message?: string): Expectation;
     withContext(context: any): Expectation;
-    withArgs(...args: Array<any>): Expectation;
+    withArgs(...args: any[]): Expectation;
 }
 
 export interface Extension {
-    [name: string]: (args?: Array<any>) => void;
+    [name: string]: (args?: any[]) => void;
 }
 
 export interface Call {
     context: Spy;
-    arguments: Array<any>;
+    arguments: any[];
 }
 
 export interface Spy {
@@ -64,7 +64,7 @@ export declare function createSpy(fn?: Function, restore?: Function): Spy;
 export declare function spyOn(object: Object, methodName: string): Spy;
 export declare function isSpy(object: any): Boolean;
 export declare function restoreSpies(): void;
-export declare function assert(condition: any, messageFormat: string, ...extraArgs: Array<any>): void;
+export declare function assert(condition: any, messageFormat: string, ...extraArgs: any[]): void;
 export declare function extend(extension: Extension): void;
 
 export default expect;

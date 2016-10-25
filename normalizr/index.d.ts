@@ -92,7 +92,7 @@ declare namespace Normalizr {
      * @param schema
      * @param options
      */
-    export function normalize(obj: any | Array<any>, schema: SchemaType, options?: {
+    export function normalize(obj: any | any[], schema: SchemaType, options?: {
         /**
          * This is useful if your backend emits additional fields, such as separate ID fields, you'd like to delete in the normalized entity.
          */

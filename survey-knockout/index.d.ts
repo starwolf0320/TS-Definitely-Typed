@@ -34,7 +34,7 @@ declare namespace Survey {
     }
     class ItemValue {
         static Separator: string;
-        static setData(items: Array<ItemValue>, values: Array<any>): void;
+        static setData(items: Array<ItemValue>, values: any[]): void;
         static getData(items: Array<ItemValue>): any;
         private itemValue;
         private itemText;
@@ -65,7 +65,7 @@ declare namespace Survey {
         constructor();
         loadSurvey(surveyId: string, onLoad: (success: boolean, result: string, response: any) => void): void;
         sendResult(postId: string, result: JSON, onSendResult: (success: boolean, response: any) => void, clientId?: string, isPartialCompleted?: boolean): void;
-        getResult(resultId: string, name: string, onGetResult: (success: boolean, data: any, dataList: Array<any>, response: any) => void): void;
+        getResult(resultId: string, name: string, onGetResult: (success: boolean, data: any, dataList: any[], response: any) => void): void;
         isCompleted(resultId: string, clientId: string, onIsCompleted: (success: boolean, result: string, response: any) => void): void;
     }
 }
@@ -140,8 +140,8 @@ declare namespace Survey {
         setValue(obj: any, value: any, jsonConv: JsonObject): void;
         getObjType(objType: string): string;
         getClassName(className: string): string;
-        choices: Array<any>;
-        setChoices(value: Array<any>, valueFunc: () => Array<any>): void;
+        choices: any[];
+        setChoices(value: any[], valueFunc: () => any[]): void;
     }
     class JsonMetadataClass {
         name: string;
@@ -150,8 +150,8 @@ declare namespace Survey {
         static requiredSymbol: string;
         static typeSymbol: string;
         properties: Array<JsonObjectProperty>;
-        requiredProperties: Array<string>;
-        constructor(name: string, propertiesNames: Array<string>, creator?: () => any, parentName?: string);
+        requiredProperties: string[];
+        constructor(name: string, propertiesNames: string[], creator?: () => any, parentName?: string);
         find(name: string): JsonObjectProperty;
         private getPropertyName(propertyName);
     }
@@ -160,15 +160,15 @@ declare namespace Survey {
         private childrenClasses;
         private classProperties;
         private classRequiredProperties;
-        addClass(name: string, propertiesNames: Array<string>, creator?: () => any, parentName?: string): JsonMetadataClass;
+        addClass(name: string, propertiesNames: string[], creator?: () => any, parentName?: string): JsonMetadataClass;
         overrideClassCreatore(name: string, creator: () => any): void;
         setPropertyValues(name: string, propertyName: string, propertyClassName: string, defaultValue?: any, onGetValue?: (obj: any) => any, onSetValue?: (obj: any, value: any, jsonConv: JsonObject) => any): void;
-        setPropertyChoices(name: string, propertyName: string, choices: Array<any>, choicesFunc?: () => Array<any>): void;
+        setPropertyChoices(name: string, propertyName: string, choices: any[], choicesFunc?: () => any[]): void;
         setPropertyClassInfo(name: string, propertyName: string, baseClassName: string, classNamePart?: string): void;
         getProperties(name: string): Array<JsonObjectProperty>;
         createClass(name: string): any;
         getChildrenClasses(name: string, canBeCreated?: boolean): Array<JsonMetadataClass>;
-        getRequiredProperties(name: string): Array<string>;
+        getRequiredProperties(name: string): string[];
         private fillChildrenClasses(name, canBeCreated, result);
         private findClass(name);
         private findProperty(name, propertyName);
@@ -267,7 +267,7 @@ declare namespace Survey {
         })[];
         private creatorHash;
         registerQuestion(questionType: string, questionCreator: (name: string) => QuestionBase): void;
-        getAllTypes(): Array<string>;
+        getAllTypes(): string[];
         createQuestion(questionType: string, name: string): QuestionBase;
     }
 }
@@ -417,7 +417,7 @@ declare namespace Survey {
         choicesOrderValue: string;
         constructor(name: string);
         isOtherSelected: boolean;
-        choices: Array<any>;
+        choices: any[];
         choicesOrder: string;
         otherText: string;
         visibleChoices: Array<ItemValue>;
@@ -511,8 +511,8 @@ declare namespace Survey {
         constructor(name: string);
         getType(): string;
         hasRows: boolean;
-        columns: Array<any>;
-        rows: Array<any>;
+        columns: any[];
+        rows: any[];
         visibleRows: Array<MatrixRowModel>;
         protected createMatrixRow(name: any, text: string, fullName: string, value: any): MatrixRowModel;
         protected onValueChanged(): void;
@@ -554,7 +554,7 @@ declare namespace Survey {
     interface IMatrixDropdownData {
         onCellChanged(cell: MatrixDropdownCellModel): any;
         columns: Array<MatrixDropdownColumn>;
-        choices: Array<any>;
+        choices: any[];
         optionsCaption: string;
     }
     class MatrixDropdownColumn extends Base {
@@ -567,7 +567,7 @@ declare namespace Survey {
         constructor(name: string, title?: string);
         getType(): string;
         title: string;
-        choices: Array<any>;
+        choices: any[];
         cellType: string;
         colCount: number;
     }
@@ -577,7 +577,7 @@ declare namespace Survey {
         private data;
         private questionValue;
         constructor(column: MatrixDropdownColumn, row: MatrixDropdownRowModel, data: IMatrixDropdownData, value: any);
-        choices: Array<any>;
+        choices: any[];
         optionsCaption: string;
         question: Question;
         value: any;
@@ -616,8 +616,8 @@ declare namespace Survey {
         constructor(name: string);
         getType(): string;
         columns: Array<MatrixDropdownColumn>;
-        rows: Array<any>;
-        choices: Array<any>;
+        rows: any[];
+        choices: any[];
         optionsCaption: string;
         addColumn(name: string, title?: string): MatrixDropdownColumn;
         visibleRows: Array<MatrixDropdownRowModel>;
@@ -658,7 +658,7 @@ declare namespace Survey {
         items: Array<MultipleTextItemModel>;
         AddItem(name: string, title?: string): MultipleTextItemModel;
         colCount: number;
-        getRows(): Array<any>;
+        getRows(): any[];
         private isMultipleItemValueChanging;
         protected onValueChanged(): void;
         protected createTextItem(name: string, title: string): MultipleTextItemModel;
@@ -680,7 +680,7 @@ declare namespace Survey {
         maximumRateDescription: string;
         rateValuesChangedCallback: () => void;
         constructor(name: string);
-        rateValues: Array<any>;
+        rateValues: any[];
         visibleRateValues: ItemValue[];
         getType(): string;
         supportComment(): boolean;

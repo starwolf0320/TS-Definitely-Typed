@@ -8,7 +8,7 @@
 
 interface IOptions {
     ignoreInitial?: boolean;
-    events?: Array<string>;
+    events?: string[];
     base?: string;
     name?: string;
     verbose?: boolean;
@@ -16,11 +16,11 @@ interface IOptions {
 }
 
 interface IWatchStream extends NodeJS.ReadWriteStream {
-    add(path: string | Array<string>): NodeJS.ReadWriteStream;
-    unwatch(path: string | Array<string>): NodeJS.ReadWriteStream;
+    add(path: string | string[]): NodeJS.ReadWriteStream;
+    unwatch(path: string | string[]): NodeJS.ReadWriteStream;
     close(): NodeJS.ReadWriteStream;
 }
 
-declare function watch(glob: string | Array<string>, options?: IOptions, callback?: Function): IWatchStream;
+declare function watch(glob: string | string[], options?: IOptions, callback?: Function): IWatchStream;
 declare namespace watch { }
 export = watch;

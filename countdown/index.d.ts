@@ -27,8 +27,8 @@ declare namespace countdown {
   }
 
   interface Format {
-    singular?: string | Array<string>;
-    plural?: string | Array<string>;
+    singular?: string | string[];
+    plural?: string | string[];
     last?: string;
     delim?: string;
     empty?: string;

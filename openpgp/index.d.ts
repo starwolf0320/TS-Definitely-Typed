@@ -388,7 +388,7 @@ declare namespace openpgp.key {
         getKeyIds(): Array<Keyid>;
         getPreferredHashAlgorithm(): string;
         getPrimaryUser(): any;
-        getUserIds(): Array<string>;
+        getUserIds(): string[];
         isPrivate(): boolean;
         isPublic(): boolean;
         primaryKey: packet.PublicKey;
@@ -513,7 +513,7 @@ declare namespace openpgp.util {
     /** Convert an array of integers(0.255) to a string
         @param bin An array of (binary) integers to convert
      */
-    function bin2str(bin: Array<number>): string;
+    function bin2str(bin: number[]): string;
 
     /** Calculates a 16bit sum of a string by adding each character codes modulus 65535
         @param text string to create a sum of
@@ -572,7 +572,7 @@ declare namespace openpgp.util {
     /** Convert a string to an array of integers(0.255)
         @param str string to convert
      */
-    function str2bin(str: string): Array<number>;
+    function str2bin(str: string): number[];
 
     /** Convert a string to a Uint8Array
         @param str string to convert

@@ -39,13 +39,13 @@ declare namespace RcSelect {
         filterOption?: boolean;
         optionFilterProp?: string;
         optionLabelProp?: string;
-        defaultValue?: string | Array<string>;
-        value?: string | Array<string>;
+        defaultValue?: string | string[];
+        value?: string | string[];
         onChange?: (value: string, label: string) => void;
         onSearch?: Function;
         onSelect?: (value: string, ontion: Option) => void;
         onDeselect?: Function;
-        defaultLabel?: string | Array<string>;
+        defaultLabel?: string | string[];
         defaultActiveFirstOption?: boolean;
         getPopupContainer?: (trigger: Node) => Node;
     }

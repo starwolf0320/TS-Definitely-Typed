@@ -207,8 +207,8 @@ declare namespace ydn.db {
     values(iter: Iterator, limit?: number): Request;
     values(store_name: string, key_range?: Object, limit?: number, offset?: number, reverse?: boolean): Request;
     values(store_name: string, index_name: string, key_range?: Object, limit?: number, offset?: number, reverse?: boolean): Request;
-    values(store_name: string, ids?: Array<any>): Request;
-    values(keys?: Array<any>): Request;
+    values(store_name: string, ids?: any[]): Request;
+    values(keys?: any[]): Request;
   }
 
   export class Storage extends DbOperator {

@@ -19,7 +19,7 @@ declare namespace go {
     type PropertyAccessor = string | ((data: any, newval: any) => any);
 
     /** A constructor */
-    type Constructor = new (...args: Array<any>) => Object;
+    type Constructor = new (...args: any[]) => Object;
 
     /**
     * An adornment is a special kind of Part that is associated with another Part,
@@ -1496,7 +1496,7 @@ declare namespace go {
         * @param {string} name a capitalized name; must not be "" or "None"
         * @param {function(Array<*>):Object} func
         */
-        static defineBuilder(name: string, func: (args: Array<any>) => Object): void;
+        static defineBuilder(name: string, func: (args: any[]) => Object): void;
 
         /**
         * This static function returns the first argument from the arguments array passed
@@ -1509,7 +1509,7 @@ declare namespace go {
         *        the default predicate checks whether the argument is a string
         * @return {*}
         */
-        static takeBuilderArgument(args: Array<any>, defval?: any, pred?: (arg: any) => boolean): any;
+        static takeBuilderArgument(args: any[], defval?: any, pred?: (arg: any) => boolean): any;
 
         /**
         * Returns the effective angle that the object is drawn at, in document coordinates.
@@ -1567,7 +1567,7 @@ declare namespace go {
         * is recognized to take that value,
         * or a string that is used as the value of a commonly set property.
         */
-        static make(type: Constructor | string, ...initializers: Array<any>): any;
+        static make(type: Constructor | string, ...initializers: any[]): any;
 
         /**GraphObjects with this as the value of GraphObject.stretch are stretched depending on the context they are used.*/
         static Default: EnumValue;
@@ -1592,7 +1592,7 @@ declare namespace go {
 
         spanAllocation: (obj: GraphObject, r: RowColumnDefinition, n: number) => number;  // undocumented
         protected cloneProtected(copy: GraphObject): void;  // undocumented
-        static getBuilders(): Map<string, (args: Array<any>) => Object>;  // undocumented
+        static getBuilders(): Map<string, (args: any[]) => Object>;  // undocumented
     }
 
     /**
@@ -2569,7 +2569,7 @@ declare namespace go {
         defaultAlignment: Spot;
 
         /**Gets or sets the default dash array for a particular column's separator.*/
-        defaultColumnSeparatorDashArray: Array<number>;
+        defaultColumnSeparatorDashArray: number[];
 
         /**Gets or sets the default Brush stroke (or CSS color string) for columns in a Table Panel provided a given column has a nonzero RowColumnDefinition.separatorStrokeWidth.*/
         defaultColumnSeparatorStroke: BrushLike;
@@ -2578,7 +2578,7 @@ declare namespace go {
         defaultColumnSeparatorStrokeWidth: number;
 
         /**Gets or sets the default dash array for a particular row's separator.*/
-        defaultRowSeparatorDashArray: Array<number>;
+        defaultRowSeparatorDashArray: number[];
 
         /**Gets or sets the default Brush stroke (or CSS color string) for rows in a Table Panel provided a given row has a nonzero RowColumnDefinition.separatorStrokeWidth.*/
         defaultRowSeparatorStroke: BrushLike;
@@ -2602,7 +2602,7 @@ declare namespace go {
         gridOrigin: Point;
 
         /**Gets or sets a JavaScript Array of values or objects, each of which will be represented by a Panel as elements in this Panel.*/
-        itemArray: Array<any>;
+        itemArray: any[];
 
         /**Gets or sets the name of the item data property that returns a string describing that data's category, or a function that takes an item data object and returns that string; the default value is the name 'category'.*/
         itemCategoryProperty: PropertyAccessor;
@@ -3215,7 +3215,7 @@ declare namespace go {
         position: number;
 
         /**Gets or sets the dash array for dashing the spacing provided this row or column has a nonzero RowColumnDefinition.separatorStrokeWidth and non-null RowColumnDefinition.separatorStroke.*/
-        separatorDashArray: Array<number>;
+        separatorDashArray: number[];
 
         /**Gets or sets the additional padding for a particular row or column, a Margin (or number for a uniform Margin).*/
         separatorPadding: MarginLike;
@@ -3315,7 +3315,7 @@ declare namespace go {
         strokeCap: string;
 
         /**Gets or sets the dash array for creating dashed lines.*/
-        strokeDashArray: Array<number>;
+        strokeDashArray: number[];
 
         /**Gets or sets the offset for dashed lines, used in the phase pattern.*/
         strokeDashOffset: number;
@@ -5403,7 +5403,7 @@ declare namespace go {
         * @param {Array<*>} arr an Array that is the value of some Panel's Panel.itemArray.
         * @param {*} val the new value to be pushed onto the array.
         */
-        addArrayItem(arr: Array<any>, val: any): void;
+        addArrayItem(arr: any[], val: any): void;
 
         /**
         * Register an event handler that is called when there is a ChangedEvent for a modification of the Diagram, a Layer, or a GraphObject.
@@ -5530,7 +5530,7 @@ declare namespace go {
         * @param {number} idx the zero-based array index where the new value will be inserted; use -1 to push the new value on the end of the array.
         * @param {*} val the new value to be inserted into the array.
         */
-        insertArrayItem(arr: Array<any>, idx: number, val: any): void;
+        insertArrayItem(arr: any[], idx: number, val: any): void;
 
         /**
         * This method is called when a node data object is added to the model to make sure that
@@ -5586,7 +5586,7 @@ declare namespace go {
         * @param {number=} idx the zero-based array index of the data item to be removed from the array;
         *   if not supplied it will remove the last item of the array.
         */
-        removeArrayItem(arr: Array<any>, idx?: number): void;
+        removeArrayItem(arr: any[], idx?: number): void;
 
         /**
         * Unregister an event handler listener.

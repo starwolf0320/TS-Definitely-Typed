@@ -56,7 +56,7 @@ declare module "msgpack-lite" {
     }
 
     export function encode(input: any, options?: BufferOptions): any;
-    export function decode(input: Buffer | Uint8Array | Array<number>, options?: BufferOptions): any;
+    export function decode(input: Buffer | Uint8Array | number[], options?: BufferOptions): any;
     export function createEncodeStream (): EncodeStream;
     export function createDecodeStream (): DecodeStream;
     export function createCodec (options?: any): Codec;

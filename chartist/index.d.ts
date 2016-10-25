@@ -38,11 +38,11 @@ declare namespace Chartist {
     quantity(input: string | number): Object;
 
     query(query: Node | string): Node;
-    times(length: number): Array<any>;
+    times(length: number): any[];
     sum(previous: number, current: number): number;
     mapMultiply(factor: number): (num: number) => number;
     mapAdd(addend: number): (num: number) => number;
-    serialMap(arr: Array<any>, cb: Function): Array<any>;
+    serialMap(arr: any[], cb: Function): any[];
     roundWithPrecision(value: number, digits?: number): number;
 
     getMultiValue(value: any, dimension?: any): number; // this method is not documented, but it is used in the examples
@@ -76,14 +76,14 @@ declare namespace Chartist {
   // this definition gives some intellisense, but does not protect the user from misuse
   // TODO: come in and tidy this up and make it fit better
   interface IChartistData {
-    labels?: Array<string> | Array<number> | Array<Date>;
-    series: Array<IChartistSeriesData> | Array<number> |  Array<Array<number>>;
+    labels?: string[] | number[] | Array<Date>;
+    series: Array<IChartistSeriesData> | number[] |  Array<number[]>;
   }
 
   interface IChartistSeriesData {
     name?: string;
     value?: number;
-    data?: Array<number>;
+    data?: number[];
     className?: string;
     meta?: string; // I assume this could probably be a number as well?
   }
@@ -102,7 +102,7 @@ declare namespace Chartist {
     supportsAnimations: boolean;
     resizeListener: any;
 
-    plugins?: Array<any>; // all of these plugins seem to be functions with options, but keeping type any for now
+    plugins?: any[]; // all of these plugins seem to be functions with options, but keeping type any for now
 
     update(data: Object, options?: T, override?: boolean): void;
     detach(): void;
@@ -144,7 +144,7 @@ declare namespace Chartist {
      */
     reverseData?: boolean;
 
-    plugins?: Array<any>;
+    plugins?: any[];
   }
 
   interface IPieChartOptions extends IChartOptions {
@@ -312,7 +312,7 @@ declare namespace Chartist {
 
   interface IChartistStepAxis extends ILineChartAxis {
     type?: IStepAxisStatic;
-    ticks?: Array<string> | Array<number>;
+    ticks?: string[] | number[];
     stretch?: boolean;
   }
 
@@ -321,7 +321,7 @@ declare namespace Chartist {
     high?: number;
     low?: number;
     divisor?: number;
-    ticks?: Array<string> | Array<number>;
+    ticks?: string[] | number[];
   }
 
   interface IChartistAutoScaleAxis extends ILineChartAxis {
@@ -428,7 +428,7 @@ declare namespace Chartist {
     /**
      * Returns an array of class names that are attached to the current wrapper element. This method can not be chained further.
      */
-    classes(): Array<string>;
+    classes(): string[];
 
     /**
      * Adds one or a space separated list of classes to the current element and ensures the classes are only existing once.

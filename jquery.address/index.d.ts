@@ -82,7 +82,7 @@ interface JQueryAddressStatic {
     /**
      * Provides a list of all the query parameter names.
      */
-    parameterNames(): Array<string>;
+    parameterNames(): string[];
     /**
      * Provides the deep linking value without the query string and the hash fragment.
      */
@@ -94,7 +94,7 @@ interface JQueryAddressStatic {
     /**
      * Provides a list of all the folders in the deep linking path.
      */
-    pathNames(): Array<string>;
+    pathNames(): string[];
     /**
      * Provides the query string part of the deep linking value.
      */

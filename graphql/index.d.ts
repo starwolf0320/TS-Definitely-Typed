@@ -347,47 +347,29 @@ declare module "graphql/language/ast" {
         kind: 'Name';
         loc?: Location;
         value: string;
-    };
+    }
 
     // Document
 
     export type DocumentNode = {
         kind: 'Document';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         definitions: Array<DefinitionNode>;
     }
 
     export type DefinitionNode = OperationDefinitionNode
         | FragmentDefinitionNode
         | TypeSystemDefinitionNode // experimental non-spec addition.
-=======
-        definitions: Array<Definition>;
-    };
-
-    export type Definition = OperationDefinition
-        | FragmentDefinition
-        | TypeSystemDefinition; // experimental non-spec addition.
->>>>>>> WIP
 
     export type OperationDefinitionNode = {
         kind: 'OperationDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         operation: OperationTypeNode;
         name?: NameNode;
         variableDefinitions?: Array<VariableDefinitionNode>;
         directives?: Array<DirectiveNode>;
         selectionSet: SelectionSetNode;
     }
-=======
-        operation: OperationType;
-        name?: Name;
-        variableDefinitions?: Array<VariableDefinition>;
-        directives?: Array<Directive>;
-        selectionSet: SelectionSet;
-    };
->>>>>>> WIP
 
     // Note: subscription is an experimental non-spec addition.
     export type OperationTypeNode = 'query' | 'mutation' | 'subscription';
@@ -395,79 +377,43 @@ declare module "graphql/language/ast" {
     export type VariableDefinitionNode = {
         kind: 'VariableDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         variable: VariableNode;
         type: TypeNode;
         defaultValue?: ValueNode;
     }
-=======
-        variable: Variable;
-        type: Type;
-        defaultValue?: Value;
-    };
->>>>>>> WIP
 
     export type VariableNode = {
         kind: 'Variable';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
     }
-=======
-        name: Name;
-    };
->>>>>>> WIP
 
     export type SelectionSetNode = {
         kind: 'SelectionSet';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         selections: Array<SelectionNode>;
     }
 
     export type SelectionNode = FieldNode
         | FragmentSpreadNode
         | InlineFragmentNode
-=======
-        selections: Array<Selection>;
-    };
-
-    export type Selection = Field
-        | FragmentSpread
-        | InlineFragment;
->>>>>>> WIP
 
     export type FieldNode = {
         kind: 'Field';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         alias?: NameNode;
         name: NameNode;
         arguments?: Array<ArgumentNode>;
         directives?: Array<DirectiveNode>;
         selectionSet?: SelectionSetNode;
     }
-=======
-        alias?: Name;
-        name: Name;
-        arguments?: Array<Argument>;
-        directives?: Array<Directive>;
-        selectionSet?: SelectionSet;
-    };
->>>>>>> WIP
 
     export type ArgumentNode = {
         kind: 'Argument';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         value: ValueNode;
     }
-=======
-        name: Name;
-        value: Value;
-    };
->>>>>>> WIP
 
 
     // Fragments
@@ -475,52 +421,30 @@ declare module "graphql/language/ast" {
     export type FragmentSpreadNode = {
         kind: 'FragmentSpread';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         directives?: Array<DirectiveNode>;
     }
-=======
-        name: Name;
-        directives?: Array<Directive>;
-    };
->>>>>>> WIP
 
     export type InlineFragmentNode = {
         kind: 'InlineFragment';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         typeCondition?: NamedTypeNode;
         directives?: Array<DirectiveNode>;
         selectionSet: SelectionSetNode;
     }
-=======
-        typeCondition?: NamedType;
-        directives?: Array<Directive>;
-        selectionSet: SelectionSet;
-    };
->>>>>>> WIP
 
     export type FragmentDefinitionNode = {
         kind: 'FragmentDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         typeCondition: NamedTypeNode;
         directives?: Array<DirectiveNode>;
         selectionSet: SelectionSetNode;
     }
-=======
-        name: Name;
-        typeCondition: NamedType;
-        directives?: Array<Directive>;
-        selectionSet: SelectionSet;
-    };
->>>>>>> WIP
 
 
     // Values
 
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     export type ValueNode = VariableNode
         | IntValueNode
         | FloatValueNode
@@ -529,81 +453,55 @@ declare module "graphql/language/ast" {
         | EnumValueNode
         | ListValueNode
         | ObjectValueNode
-=======
-    export type Value = Variable
-        | IntValue
-        | FloatValue
-        | StringValue
-        | BooleanValue
-        | EnumValue
-        | ListValue
-        | ObjectValue;
->>>>>>> WIP
 
     export type IntValueNode = {
         kind: 'IntValue';
         loc?: Location;
         value: string;
-    };
+    }
 
     export type FloatValueNode = {
         kind: 'FloatValue';
         loc?: Location;
         value: string;
-    };
+    }
 
     export type StringValueNode = {
         kind: 'StringValue';
         loc?: Location;
         value: string;
-    };
+    }
 
     export type BooleanValueNode = {
         kind: 'BooleanValue';
         loc?: Location;
         value: boolean;
-    };
+    }
 
     export type EnumValueNode = {
         kind: 'EnumValue';
         loc?: Location;
         value: string;
-    };
+    }
 
     export type ListValueNode = {
         kind: 'ListValue';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         values: Array<ValueNode>;
     }
-=======
-        values: Array<Value>;
-    };
->>>>>>> WIP
 
     export type ObjectValueNode = {
         kind: 'ObjectValue';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         fields: Array<ObjectFieldNode>;
     }
-=======
-        fields: Array<ObjectField>;
-    };
->>>>>>> WIP
 
     export type ObjectFieldNode = {
         kind: 'ObjectField';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         value: ValueNode;
     }
-=======
-        name: Name;
-        value: Value;
-    };
->>>>>>> WIP
 
 
     // Directives
@@ -611,28 +509,16 @@ declare module "graphql/language/ast" {
     export type DirectiveNode = {
         kind: 'Directive';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         arguments?: Array<ArgumentNode>;
     }
-=======
-        name: Name;
-        arguments?: Array<Argument>;
-    };
->>>>>>> WIP
 
 
     // Type Reference
 
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     export type TypeNode = NamedTypeNode
         | ListTypeNode
         | NonNullTypeNode
-=======
-    export type Type = NamedType
-        | ListType
-        | NonNullType;
->>>>>>> WIP
 
     export type NamedTypeNode = {
         kind: 'NamedType';
@@ -643,18 +529,12 @@ declare module "graphql/language/ast" {
     export type ListTypeNode = {
         kind: 'ListType';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         type: TypeNode;
     }
-=======
-        type: Type;
-    };
->>>>>>> WIP
 
     export type NonNullTypeNode = {
         kind: 'NonNullType';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         type: NamedTypeNode | ListTypeNode;
     }
 
@@ -664,35 +544,17 @@ declare module "graphql/language/ast" {
         | TypeDefinitionNode
         | TypeExtensionDefinitionNode
         | DirectiveDefinitionNode
-=======
-        type: NamedType | ListType;
-    };
-
-    // Type System Definition
-
-    export type TypeSystemDefinition = SchemaDefinition
-        | TypeDefinition
-        | TypeExtensionDefinition
-        | DirectiveDefinition;
->>>>>>> WIP
 
     export type SchemaDefinitionNode = {
         kind: 'SchemaDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         directives: Array<DirectiveNode>;
         operationTypes: Array<OperationTypeDefinitionNode>;
     }
-=======
-        directives: Array<Directive>;
-        operationTypes: Array<OperationTypeDefinition>;
-    };
->>>>>>> WIP
 
     export type OperationTypeDefinitionNode = {
         kind: 'OperationTypeDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         operation: OperationTypeNode;
         type: NamedTypeNode;
     }
@@ -703,181 +565,93 @@ declare module "graphql/language/ast" {
         | UnionTypeDefinitionNode
         | EnumTypeDefinitionNode
         | InputObjectTypeDefinitionNode
-=======
-        operation: OperationType;
-        type: NamedType;
-    };
-
-    export type TypeDefinition = ScalarTypeDefinition
-        | ObjectTypeDefinition
-        | InterfaceTypeDefinition
-        | UnionTypeDefinition
-        | EnumTypeDefinition
-        | InputObjectTypeDefinition;
->>>>>>> WIP
 
     export type ScalarTypeDefinitionNode = {
         kind: 'ScalarTypeDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         directives?: Array<DirectiveNode>;
     }
-=======
-        name: Name;
-        directives?: Array<Directive>;
-    };
->>>>>>> WIP
 
     export type ObjectTypeDefinitionNode = {
         kind: 'ObjectTypeDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         interfaces?: Array<NamedTypeNode>;
         directives?: Array<DirectiveNode>;
         fields: Array<FieldDefinitionNode>;
     }
-=======
-        name: Name;
-        interfaces?: Array<NamedType>;
-        directives?: Array<Directive>;
-        fields: Array<FieldDefinition>;
-    };
->>>>>>> WIP
 
     export type FieldDefinitionNode = {
         kind: 'FieldDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         arguments: Array<InputValueDefinitionNode>;
         type: TypeNode;
         directives?: Array<DirectiveNode>;
     }
-=======
-        name: Name;
-        arguments: Array<InputValueDefinition>;
-        type: Type;
-        directives?: Array<Directive>;
-    };
->>>>>>> WIP
 
     export type InputValueDefinitionNode = {
         kind: 'InputValueDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         type: TypeNode;
         defaultValue?: ValueNode;
         directives?: Array<DirectiveNode>;
     }
-=======
-        name: Name;
-        type: Type;
-        defaultValue?: Value;
-        directives?: Array<Directive>;
-    };
->>>>>>> WIP
 
     export type InterfaceTypeDefinitionNode = {
         kind: 'InterfaceTypeDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         directives?: Array<DirectiveNode>;
         fields: Array<FieldDefinitionNode>;
     }
-=======
-        name: Name;
-        directives?: Array<Directive>;
-        fields: Array<FieldDefinition>;
-    };
->>>>>>> WIP
 
     export type UnionTypeDefinitionNode = {
         kind: 'UnionTypeDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         directives?: Array<DirectiveNode>;
         types: Array<NamedTypeNode>;
     }
-=======
-        name: Name;
-        directives?: Array<Directive>;
-        types: Array<NamedType>;
-    };
->>>>>>> WIP
 
     export type EnumTypeDefinitionNode = {
         kind: 'EnumTypeDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         directives?: Array<DirectiveNode>;
         values: Array<EnumValueDefinitionNode>;
     }
-=======
-        name: Name;
-        directives?: Array<Directive>;
-        values: Array<EnumValueDefinition>;
-    };
->>>>>>> WIP
 
     export type EnumValueDefinitionNode = {
         kind: 'EnumValueDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         directives?: Array<DirectiveNode>;
     }
-=======
-        name: Name;
-        directives?: Array<Directive>;
-    };
->>>>>>> WIP
 
     export type InputObjectTypeDefinitionNode = {
         kind: 'InputObjectTypeDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         directives?: Array<DirectiveNode>;
         fields: Array<InputValueDefinitionNode>;
     }
-=======
-        name: Name;
-        directives?: Array<Directive>;
-        fields: Array<InputValueDefinition>;
-    };
->>>>>>> WIP
 
     export type TypeExtensionDefinitionNode = {
         kind: 'TypeExtensionDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         definition: ObjectTypeDefinitionNode;
     }
-=======
-        definition: ObjectTypeDefinition;
-    };
->>>>>>> WIP
 
     export type DirectiveDefinitionNode = {
         kind: 'DirectiveDefinition';
         loc?: Location;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         name: NameNode;
         arguments?: Array<InputValueDefinitionNode>;
         locations: Array<NameNode>;
     }
-=======
-        name: Name;
-        arguments?: Array<InputValueDefinition>;
-        locations: Array<Name>;
-    };
->>>>>>> WIP
 
 }
 
@@ -1164,7 +938,7 @@ declare module "graphql/language/visitor" {
         EnumValueDefinition: string[];
         InputObjectTypeDefinition: string[];
         TypeExtensionDefinition: string[];
-    };
+    }
 
     const BREAK: any;
 
@@ -1469,15 +1243,9 @@ declare module "graphql/type/definition" {
     export interface GraphQLObjectTypeConfig<TSource, TContext> {
         name: string;
         interfaces?: Thunk<Array<GraphQLInterfaceType>>;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         fields: Thunk<GraphQLFieldConfigMap<TSource, TContext>>;
         isTypeOf?: GraphQLIsTypeOfFn<TSource, TContext>;
         description?: string
-=======
-        fields: Thunk<GraphQLFieldConfigMap<TSource>>;
-        isTypeOf?: GraphQLIsTypeOfFn;
-        description?: string;
->>>>>>> WIP
     }
 
     export type GraphQLTypeResolver<TSource, TContext> = (
@@ -1587,33 +1355,16 @@ declare module "graphql/type/definition" {
         toString(): string;
     }
 
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     export interface GraphQLInterfaceTypeConfig<TSource, TContext> {
         name: string,
         fields: Thunk<GraphQLFieldConfigMap<TSource, TContext>>,
-=======
-<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
-    export interface GraphQLInterfaceTypeConfig {
-        name: string,
-        fields: Thunk<GraphQLFieldConfigMap<any>>,
-=======
-    interface GraphQLInterfaceTypeConfig {
-        name: string;
-        fields: Thunk<GraphQLFieldConfigMap<any>>;
->>>>>>> WIP
->>>>>>> WIP
         /**
          * Optionally provide a custom type resolver function. If one is not provided,
          * the default implementation will call `isTypeOf` on each implementing
          * Object type.
          */
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         resolveType?: GraphQLTypeResolver<TSource, TContext>,
         description?: string
-=======
-        resolveType?: GraphQLTypeResolveFn;
-        description?: string;
->>>>>>> WIP
     }
 
     /**
@@ -1651,19 +1402,9 @@ declare module "graphql/type/definition" {
         toString(): string;
     }
 
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
     export interface GraphQLUnionTypeConfig<TSource, TContext> {
-=======
-<<<<<<< 8c65c84d30d181c36ffd00c77f85181e5350ef61
-    export interface GraphQLUnionTypeConfig {
->>>>>>> WIP
         name: string,
         types: Thunk<Array<GraphQLObjectType>>,
-=======
-    interface GraphQLUnionTypeConfig {
-        name: string;
-        types: Thunk<Array<GraphQLObjectType>>;
->>>>>>> WIP
         /**
          * Optionally provide a custom type resolver function. If one is not provided,
          * the default implementation will call `isTypeOf` on each implementing
@@ -1866,7 +1607,7 @@ declare module "graphql/type/directives" {
         INPUT_FIELD_DEFINITION: 'INPUT_FIELD_DEFINITION',
     };
 
-    type DirectiveLocationEnum = any; //$Keys<typeof DirectiveLocation>
+    type DirectiveLocationEnum = any //$Keys<typeof DirectiveLocation>
 
     /**
      * Directives are used by the GraphQL runtime as a way of modifying execution
@@ -1944,7 +1685,7 @@ declare module "graphql/type/introspection" {
         INPUT_OBJECT: 'INPUT_OBJECT',
         LIST: 'LIST',
         NON_NULL: 'NON_NULL',
-    };
+    }
 
     const __TypeKind: GraphQLEnumType;
 
@@ -2122,13 +1863,8 @@ declare module "graphql/validation/validate" {
 
     type NodeWithSelectionSet = OperationDefinitionNode | FragmentDefinitionNode;
     interface VariableUsage {
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         node: VariableNode,
         type: GraphQLInputType
-=======
-        node: Variable;
-        type: GraphQLInputType;
->>>>>>> WIP
     }
 
     /**
@@ -2243,7 +1979,6 @@ declare module "graphql/execution/execute" {
         },
         operationName?: string
     ): Promise<ExecutionResult>;
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
 
     /**
      * Given a ResponsePath (found in the `path` entry in the information provided
@@ -2262,8 +1997,6 @@ declare module "graphql/execution/execute" {
      * of calling that function while passing along args and context.
      */
     export const defaultFieldResolver: GraphQLFieldResolver<any, any>;
-=======
->>>>>>> WIP
 }
 
 declare module "graphql/execution/values" {
@@ -2280,7 +2013,7 @@ declare module "graphql/execution/values" {
         schema: GraphQLSchema,
         varDefNodes: Array<VariableDefinitionNode>,
         inputs: { [key: string]: any }
-    ): { [key: string]: any };
+    ): { [key: string]: any }
 
     /**
      * Prepares an object map of argument values given a list of argument
@@ -3125,11 +2858,7 @@ declare module "graphql/utilities/valueFromAST" {
     } from 'graphql/language/ast';
 
     function valueFromAST(
-<<<<<<< cd4debea25a280da0808d4ff2ca5a4bdb34bd28b
         valueNode: ValueNode,
-=======
-        valueAST: Value,
->>>>>>> WIP
         type: GraphQLInputType,
         variables?: {
             [key: string]: any

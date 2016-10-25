@@ -91,7 +91,7 @@ declare const turf: turf.TurfStatic;
 declare const TemplateUnits: 'miles' | 'nauticalmiles' | 'degrees' | 'radians' | 'inches' | 'yards' | 'meters' | 'metres' | 'kilometers' | 'kilometres';
 declare const TemplateType: 'point'| 'points' | 'polygon' | 'polygons';
 declare interface OptionsRandom {
-    bbox?: Array<number>;
+    bbox?: number[];
     num_vertices?: number;
     max_radial_length?: number;
 }
@@ -161,7 +161,7 @@ declare namespace turf {
      *
      * @name bbox
      * @param {(Feature|FeatureCollection)} geojson input features
-     * @return {Array<number>} bbox extent in [minX, minY, maxX, maxY] order
+     * @return {number[]} bbox extent in [minX, minY, maxX, maxY] order
      * @example
      * var pt1 = point([114.175329, 22.2524])
      * var pt2 = point([114.170007, 22.267969])
@@ -178,7 +178,7 @@ declare namespace turf {
      *
      * //=bboxPolygon
      */
-    bbox(bbox: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>): Array<number>;
+    bbox(bbox: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>): number[];
 
     /**
      * Takes a {@link Point} and calculates the circle polygon given a radius in degrees, radians, miles, or kilometers; and steps for precision.
@@ -229,9 +229,9 @@ declare namespace turf {
      *
      * @name coordAll
      * @param {GeoJSON} layer any GeoJSON object
-     * @returns {Array<Array<Number>>} coordinate position array
+     * @returns {Array<number[]>} coordinate position array
      */
-    coordAll(layer: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>): Array<Array<number>>;
+    coordAll(layer: GeoJSON.Feature<any> | GeoJSON.FeatureCollection<any>): Array<number[]>;
 
     /**
      * Tesselates a {@link Feature<Polygon>} into a {@link FeatureCollection<Polygon>} of triangles using [earcut](https://github.com/mapbox/earcut).
@@ -253,7 +253,7 @@ declare namespace turf {
     * @param bbox An Array of bounding box coordinates in the form: [xLow, yLow, xHigh, yHigh]
     * @returns A Polygon representation of the bounding box
     */
-    bboxPolygon(bbox: Array<number>): GeoJSON.Feature<GeoJSON.Polygon>;
+    bboxPolygon(bbox: number[]): GeoJSON.Feature<GeoJSON.Polygon>;
 
     /**
     * Takes two points and finds the geographic bearing between them.
@@ -347,7 +347,7 @@ declare namespace turf {
     * @param bbox A bounding box
     * @returns A square surrounding bbox
     */
-    square(bbox: Array<number>): Array<number>;
+    square(bbox: number[]): number[];
 
     //////////////////////////////////////////////////////
     // Transformation
@@ -573,7 +573,7 @@ declare namespace turf {
      * Creates a {@link LineString} based on a coordinate array. Properties can be added optionally.
      *
      * @name [lineString](http://turfjs.org/docs/#linestring)
-     * @param {Array<Array<number>>} coordinates an array of Positions
+     * @param {Array<number[]>} coordinates an array of Positions
      * @param {Object=} properties an Object of key-value pairs to add as properties
      * @returns {Feature<LineString>} a LineString feature
      * @throws {Error} if no coordinates are passed
@@ -595,13 +595,13 @@ declare namespace turf {
      *
      * //=linestring2
      */
-    lineString(coordinates: Array<Array<number>>, properties?: any): GeoJSON.Feature<GeoJSON.LineString>;
+    lineString(coordinates: Array<number[]>, properties?: any): GeoJSON.Feature<GeoJSON.LineString>;
 
     /**
      * Creates a {@link Feature<MultiLineString>} based on a coordinate array. Properties can be added optionally.
      *
      * @name [multiLineString](http://turfjs.org/docs/#multilinestring)
-     * @param {Array<Array<Array<number>>>} coordinates an array of LineStrings
+     * @param {Array<Array<number[]>>} coordinates an array of LineStrings
      * @param {Object=} properties an Object of key-value pairs to add as properties
      * @returns {Feature<MultiLineString>} a MultiLineString feature
      * @throws {Error} if no coordinates are passed
@@ -611,13 +611,13 @@ declare namespace turf {
      * //=multiLine
      *
      */
-    multiLineString(coordinates: Array<Array<Array<number>>>, properties?: any): GeoJSON.Feature<GeoJSON.MultiLineString>;
+    multiLineString(coordinates: Array<Array<number[]>>, properties?: any): GeoJSON.Feature<GeoJSON.MultiLineString>;
 
     /**
      * Takes coordinates and properties (optional) and returns a new {@link Point} feature.
      *
      * @name [point](http://turfjs.org/docs/#point)
-     * @param {Array<number>} coordinates longitude, latitude position (each in decimal degrees)
+     * @param {number[]} coordinates longitude, latitude position (each in decimal degrees)
      * @param {Object=} properties an Object that is used as the {@link Feature}'s
      * properties
      * @returns {Feature<Point>} a Point feature
@@ -626,13 +626,13 @@ declare namespace turf {
      *
      * //=pt1
      */
-    point(coordinates: Array<number>, properties?: any): GeoJSON.Feature<GeoJSON.Point>;
+    point(coordinates: number[], properties?: any): GeoJSON.Feature<GeoJSON.Point>;
 
     /**
      * Creates a {@link Feature<MultiPoint>} based on a coordinate array. Properties can be added optionally.
      *
      * @name [multiPoint](http://turfjs.org/docs/#multipoint)
-     * @param {Array<Array<number>>} coordinates an array of Positions
+     * @param {Array<number[]>} coordinates an array of Positions
      * @param {Object=} properties an Object of key-value pairs to add as properties
      * @returns {Feature<MultiPoint>} a MultiPoint feature
      * @throws {Error} if no coordinates are passed
@@ -642,13 +642,13 @@ declare namespace turf {
      * //=multiPt
      *
      */
-    multiPoint(coordinates: Array<Array<number>>, properties?: any): GeoJSON.Feature<GeoJSON.MultiPoint>;
+    multiPoint(coordinates: Array<number[]>, properties?: any): GeoJSON.Feature<GeoJSON.MultiPoint>;
 
     /**
      * Takes an array of LinearRings and optionally an {@link Object} with properties and returns a {@link Polygon} feature.
      *
      * @name [polygon](http://turfjs.org/docs/#polygon)
-     * @param {Array<Array<Array<number>>>} coordinates an array of LinearRings
+     * @param {Array<Array<number[]>>} coordinates an array of LinearRings
      * @param {Object=} properties a properties object
      * @returns {Feature<Polygon>} a Polygon feature
      * @throws {Error} throw an error if a LinearRing of the polygon has too few positions
@@ -665,13 +665,13 @@ declare namespace turf {
      *
      * //=polygon
      */
-    polygon(coordinates: Array<Array<Array<number>>>, properties?: any): GeoJSON.Feature<GeoJSON.Polygon>;
+    polygon(coordinates: Array<Array<number[]>>, properties?: any): GeoJSON.Feature<GeoJSON.Polygon>;
 
     /**
      * Creates a {@link Feature<MultiPolygon>} based on a coordinate array. Properties can be added optionally.
      *
      * @name [multiPolygon](http://turfjs.org/docs/#multipolygon)
-     * @param {Array<Array<Array<Array<number>>>>} coordinates an array of Polygons
+     * @param {Array<Array<Array<number[]>>>} coordinates an array of Polygons
      * @param {Object=} properties an Object of key-value pairs to add as properties
      * @returns {Feature<MultiPolygon>} a multipolygon feature
      * @throws {Error} if no coordinates are passed
@@ -681,7 +681,7 @@ declare namespace turf {
      * //=multiPoly
      *
      */
-    multiPolygon(coordinates: Array<Array<Array<Array<number>>>>, properties?: any): GeoJSON.Feature<GeoJSON.MultiPolygon>;
+    multiPolygon(coordinates: Array<Array<Array<number[]>>>, properties?: any): GeoJSON.Feature<GeoJSON.MultiPolygon>;
 
     /**
      * Creates a {@link Feature<GeometryCollection>} based on acoordinate array. Properties can be added optionally.
@@ -716,7 +716,7 @@ declare namespace turf {
      * @param {String} [type='point'] type of features desired: 'points' or 'polygons'
      * @param {Number} [count=1] how many geometries should be generated.
      * @param {Object} options options relevant to the feature desired. Can include:
-     * @param {Array<number>} options.bbox a bounding box inside of which geometries
+     * @param {number[]} options.bbox a bounding box inside of which geometries
      * are placed. In the case of {@link Point} features, they are guaranteed to be within this bounds,
      * while {@link Polygon} features have their centroid within the bounds.
      * @param {Number} [options.num_vertices=10] options.vertices the number of vertices added
@@ -770,7 +770,7 @@ declare namespace turf {
      * Takes a bounding box and a cell size in degrees and returns a {@link FeatureCollection} of flat-topped hexagons ({@link Polygon} features) aligned in an "odd-q" vertical grid as described in [Hexagonal Grids](http://www.redblobgames.com/grids/hexagons/).
      *
      * @name [hexGrid](http://turfjs.org/docs/#hexgrid)
-     * @param {Array<number>} bbox bounding box in [minX, minY, maxX, maxY] order
+     * @param {number[]} bbox bounding box in [minX, minY, maxX, maxY] order
      * @param {number} cellSize dimension of cell in specified units
      * @param {string} units used in calculating cellSize ('miles' or 'kilometers')
      * @param {boolean} triangles whether to return as triangles instead of hexagons
@@ -785,7 +785,7 @@ declare namespace turf {
      * //=hexgrid
      */
     hexGrid(
-      bbox: Array<number>,
+      bbox: number[],
       cellSize: number,
       units?: typeof TemplateUnits,
       triangles?: boolean
@@ -795,7 +795,7 @@ declare namespace turf {
      * Takes a bounding box and a cell depth and returns a set of {@link Point|points} in a grid.
      *
      * @name [pointGrid](http://turfjs.org/docs/#pointgrid)
-     * @param {Array<number>} bbox extent in [minX, minY, maxX, maxY] order
+     * @param {number[]} bbox extent in [minX, minY, maxX, maxY] order
      * @param {number} cellSize the distance across each cell
      * @param {string} [units=kilometers] used in calculating cellSize, can be degrees, radians, miles, or kilometers
      * @return {FeatureCollection<Point>} grid of points
@@ -809,7 +809,7 @@ declare namespace turf {
      * //=grid
      */
     pointGrid(
-      bbox: Array<number>,
+      bbox: number[],
       cellSize: number,
       units?: typeof TemplateUnits
     ): GeoJSON.FeatureCollection<GeoJSON.Point>;
@@ -818,7 +818,7 @@ declare namespace turf {
      * Takes a bounding box and a cell depth and returns a set of square {@link Polygon|polygons} in a grid.
      *
      * @name [squareGrid](http://turfjs.org/docs/#squaregrid)
-     * @param {Array<number>} bbox extent in [minX, minY, maxX, maxY] order
+     * @param {number[]} bbox extent in [minX, minY, maxX, maxY] order
      * @param {number} cellSize width of each cell
      * @param {string} [units=kilometers] used in calculating cellSize, can be degrees, radians, miles, or kilometers
      * @return {FeatureCollection<Polygon>} grid a grid of polygons
@@ -832,7 +832,7 @@ declare namespace turf {
      * //=squareGrid
      */
     squareGrid(
-      bbox: Array<number>,
+      bbox: number[],
       cellSize: number,
       units?: typeof TemplateUnits
     ): GeoJSON.FeatureCollection<GeoJSON.Polygon>;
@@ -841,7 +841,7 @@ declare namespace turf {
      * Takes a bounding box and a cell depth and returns a set of triangular {@link Polygon|polygons} in a grid.
      *
      * @name [triangleGrid](http://turfjs.org/docs/#trianglegrid))
-     * @param {Array<number>} bbox extent in [minX, minY, maxX, maxY] order
+     * @param {number[]} bbox extent in [minX, minY, maxX, maxY] order
      * @param {number} cellSize dimension of each cell
      * @param {string} [units=kilometers] used in calculating cellSize, can be degrees, radians, miles, or kilometers
      * @return {FeatureCollection<Polygon>} grid of polygons
@@ -855,7 +855,7 @@ declare namespace turf {
      * //=triangleGrid
      */
     triangleGrid(
-      bbox: Array<number>,
+      bbox: number[],
       cellSize: number,
       units?: typeof TemplateUnits
     ): GeoJSON.FeatureCollection<GeoJSON.Polygon>;
@@ -872,7 +872,7 @@ declare namespace turf {
     * @param breaks Where to draw contours
     * @returns Isolines
     */
-    isolines(points: GeoJSON.FeatureCollection<GeoJSON.Point>, z: string, resolution: number, breaks: Array<number>): GeoJSON.FeatureCollection<GeoJSON.LineString>;
+    isolines(points: GeoJSON.FeatureCollection<GeoJSON.Point>, z: string, resolution: number, breaks: number[]): GeoJSON.FeatureCollection<GeoJSON.LineString>;
 
     /**
     * Takes a triangular plane as a Polygon and a Point within that triangle and returns the z-value at that point.

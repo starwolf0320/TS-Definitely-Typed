@@ -53,7 +53,7 @@ declare namespace FalcorModel {
         /**
          * Invokes a function in the DataSource's JSONGraph object.
          **/
-        call(functionPath: Path, args?: Array<any>, refSuffixes?: Array<PathSet>, thisPaths?: Array<PathSet>): Observable<JSONGraphEnvelope>;
+        call(functionPath: Path, args?: any[], refSuffixes?: Array<PathSet>, thisPaths?: Array<PathSet>): Observable<JSONGraphEnvelope>;
     }
 
 
@@ -123,8 +123,8 @@ declare namespace FalcorModel {
         // NOTE: In http://netflix.github.io/falcor/doc/Model.html#call, it says that refPaths should be an array<PathSet>.
         // However, model implementation returns an error with setting refPaths as Array<PathSet> and it works with refPaths as PathSet.
         // So refPaths is defined as a PathSet in this .d.ts.
-        call(functionPath: string | Path, args?: Array<any>, refPaths?: PathSet, thisPaths?: Array<PathSet>): ModelResponse<JSONEnvelope<any>>;
-        call<T>(functionPath: string | Path, args?: Array<any>, refPaths?: PathSet, thisPaths?: Array<PathSet>): ModelResponse<JSONEnvelope<T>>;
+        call(functionPath: string | Path, args?: any[], refPaths?: PathSet, thisPaths?: Array<PathSet>): ModelResponse<JSONEnvelope<any>>;
+        call<T>(functionPath: string | Path, args?: any[], refPaths?: PathSet, thisPaths?: Array<PathSet>): ModelResponse<JSONEnvelope<T>>;
 
         /**
          * The invalidate method synchronously removes several {@link Path}s or {@link PathSet}s from a {@link Model} cache.

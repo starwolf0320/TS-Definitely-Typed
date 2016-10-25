@@ -207,7 +207,7 @@ declare namespace olx {
         ratio?: number;
 
         /** Resolutions. If specified, requests will be made for these resolutions only. */
-        resolutions?: Array<number>;
+        resolutions?: number[];
     }
 
     interface TileWMSOptions {
@@ -243,7 +243,7 @@ declare namespace olx {
         url?: string;
 
         /** WMS service urls. Use this instead of url when the WMS supports multiple urls for GetMap requests. */
-        urls?: Array<string>;
+        urls?: string[];
 
         /** experimental The type of the remote WMS server. Currently only used when hidpi is true. Default is undefined. */
         serverType?: ol.source.wms.ServerType;
@@ -306,7 +306,7 @@ declare namespace olx {
         keyboardEventTarget?: any;
 
         /** Layers. If this is not defined, a map with no layers will be rendered. Note that layers are rendered in the order supplied, so if you want, for example, a vector layer to appear on top of a tile layer, it must come after the tile layer. */
-        layers?: Array<any>;
+        layers?: any[];
 
         /** When set to true, tiles will be loaded during animations. This may improve the user experience, but can also make animations stutter on devices with slow memory. Default is false. */
         loadTilesWhileAnimating?: boolean;
@@ -340,7 +340,7 @@ declare namespace olx {
         /**
          * Offsets in pixels used when positioning the overlay. The fist element in the array is the horizontal offset. A positive value shifts the overlay right. The second element in the array is the vertical offset. A positive value shifts the overlay down. Default is [0, 0].
          */
-        offset?: Array<number>;
+        offset?: number[];
 
         /**
          * The overlay position in map projection.
@@ -411,7 +411,7 @@ declare namespace olx {
         resolution?: number;
 
         /** Resolutions to determine the resolution constraint. If set the maxResolution, minResolution, minZoom, maxZoom, and zoomFactor options are ignored. */
-        resolutions?: Array<number>;
+        resolutions?: number[];
 
         /** The initial rotation for the view in radians (positive rotation clockwise). Default is 0. */
         rotation?: number;
@@ -460,7 +460,7 @@ declare namespace olx {
         /**
         * The validity extent for the SRS.
         */
-        extent?: Array<number>;
+        extent?: number[];
 
         /**
         * The axis orientation as specified in Proj4. The default is enu.
@@ -1032,7 +1032,7 @@ declare namespace olx {
             /**
              * The color gradient of the heatmap, specified as an array of CSS color strings. Default is ['#00f', '#0ff', '#0f0', '#ff0', '#f00'].
              */
-            gradient?: Array<String>;
+            gradient?: string[];
 
             /**
              * Radius size in pixels. Default is 8.
@@ -1211,7 +1211,7 @@ declare namespace olx {
             url?: string;
             maxZoom?: number;
             tileLoadFunction?: ol.TileLoadFunctionType;
-            urls?: Array<string>;
+            urls?: string[];
             wrapX: boolean;
         }
     }
@@ -1247,18 +1247,18 @@ declare namespace olx {
             color?: ol.Color | string;
             lineCap?: string;
             lineJoin?: string;
-            lineDash?: Array<number>;
+            lineDash?: number[];
             miterLimit?: number;
             width?: number;
         }
         interface IconOptions {
-            anchor?: Array<number>;
+            anchor?: number[];
             anchorOrigin?: string;
             anchorXUnits?: string;
             anchorYUnits?: string;
             crossOrigin?: string;
             img?: ol.Image | HTMLCanvasElement;
-            offset?: Array<number>;
+            offset?: number[];
             offsetOrigin?: string;
             opacity?: number;
             scale?: number;
@@ -1304,7 +1304,7 @@ declare namespace olx {
             /**
              * Resolutions. The array index of each resolution needs to match the zoom level. This means that even if a minZoom is configured, the resolutions array will have a length of maxZoom + 1.
              */
-            resolutions?: Array<number>;
+            resolutions?: number[];
 
             /**
              * Tile size. Default is [256, 256].
@@ -1337,12 +1337,12 @@ declare namespace olx {
             /**
              * Resolutions. The array index of each resolution needs to match the zoom level. This means that even if a minZoom is configured, the resolutions array will have a length of maxZoom + 1
              */
-            resolutions?: Array<number>;
+            resolutions?: number[];
 
             /**
              * matrix IDs. The length of this array needs to match the length of the resolutions array.
              */
-            matrixIds?: Array<string>;
+            matrixIds?: string[];
 
             /**
              * Number of tile rows and columns of the grid for each zoom level. The values here are the TileMatrixWidth and TileMatrixHeight advertised in the GetCapabilities response of the WMTS, and define the grid's extent together with the origin. An extent can be configured in addition, and will further limit the extent for which tile requests are made by sources.
@@ -1362,7 +1362,7 @@ declare namespace olx {
             /**
              * Number of tile columns that cover the grid's extent for each zoom level. Only required when used with a source that has wrapX set to true, and only when the grid's origin differs from the one of the projection's extent. The array length has to match the length of the resolutions array, i.e. each resolution will have a matching entry here.
              */
-            widths?: Array<number>;
+            widths?: number[];
         }
 
         interface XYZOptions {
@@ -1393,7 +1393,7 @@ declare namespace olx {
             /**
              * Resolutions
              */
-            resolutions: Array<number>;
+            resolutions: number[];
         }
     }
 
@@ -1404,7 +1404,7 @@ declare namespace olx {
             /**
              * Padding (in pixels) to be cleared inside the view. Values in the array are top, right, bottom and left padding. Default is [0, 0, 0, 0].
              */
-            padding?: Array<number>;
+            padding?: number[];
 
             /**
              * Constrain the resolution. Default is true.
@@ -1510,7 +1510,7 @@ declare namespace ol {
 
     interface ImageLoadFunctionType { (image: ol.Image, url: string): void; }
 
-    type AttributionLike = string | Array<string> | ol.Attribution | Array<ol.Attribution>;
+    type AttributionLike = string | string[] | ol.Attribution | Array<ol.Attribution>;
 
     /**
      * An attribution for a layer source.
@@ -2373,7 +2373,7 @@ declare namespace ol {
          * Get a list of object property names.
          * @returns List of property names.
          */
-        getKeys(): Array<string>;
+        getKeys(): string[];
 
         /**
          * Get an object of all property names and values.
@@ -2457,7 +2457,7 @@ declare namespace ol {
          * @param ref The object to use as this in listener.
          * @returns Unique key for the listener.
          */
-        on(type: Array<string>, listener: (event: ol.events.Event) => void, ref?: any): any;
+        on(type: string[], listener: (event: ol.events.Event) => void, ref?: any): any;
 
         /**
          * Listen once for a certain type of event.
@@ -2475,7 +2475,7 @@ declare namespace ol {
          * @param ref The object to use as this in listener.
          * @returns Unique key for the listener.
          */
-        once(type: Array<string>, listener: (event: ol.events.Event) => void, ref?: any): any;
+        once(type: string[], listener: (event: ol.events.Event) => void, ref?: any): any;
 
         /**
          * Unlisten for a certain type of event.
@@ -2484,7 +2484,7 @@ declare namespace ol {
          * @param ref The object to use as this in listener.
          * @returns Unique key for the listener.
          */
-        un(type: Array<string>, listener: (event: ol.events.Event) => void, ref?: any): any;
+        un(type: string[], listener: (event: ol.events.Event) => void, ref?: any): any;
 
         /**
          * Removes an event listener using the key returned by on() or once(). Note that using the ol.Observable.unByKey static function is to be preferred.
@@ -2520,7 +2520,7 @@ declare namespace ol {
          * Get the offset of this overlay.
          * @returns The offset.
          */
-        getOffset(): Array<number>;
+        getOffset(): number[];
 
         /**
          * Get the current position of this overlay.
@@ -2550,7 +2550,7 @@ declare namespace ol {
          * Set the offset for this overlay.
          * @param offset Offset.
          */
-        setOffset(offset: Array<number>): void;
+        setOffset(offset: number[]): void;
 
         /**
          * Set the position for this overlay. If the position is undefined the overlay is hidden.
@@ -4492,7 +4492,7 @@ declare namespace ol {
              * Return the gradient colors as array of strings.
              * @returns Colors
              */
-            getGradient(): Array<string>;
+            getGradient(): string[];
 
             /**
              * Return the size of the radius in pixels.
@@ -4510,7 +4510,7 @@ declare namespace ol {
              * Set the gradient colors as array of strings.
              * @param colors Gradient
              */
-            setGradient(colors: Array<string>): void;
+            setGradient(colors: string[]): void;
 
             /**
              * Set the size of the radius in pixels.
@@ -5210,7 +5210,7 @@ declare namespace ol {
              * Get the list of resolutions for the tile grid.
              * @returns Resolutions
              */
-            getResolutions(): Array<number>;
+            getResolutions(): number[];
 
             /**
              * Get the tile coordinate for the given map coordinate and resolution. This method considers that coordinates that intersect tile boundaries should be assigned the higher tile coordinate.
@@ -5261,7 +5261,7 @@ declare namespace ol {
              * Get the list of matrix identifiers.
              * @returns MatrixIds
              */
-            getMatrixIds(): Array<string>;
+            getMatrixIds(): string[];
         }
 
         /**
@@ -5326,17 +5326,17 @@ declare namespace ol {
     /**
      * A color represented as a short array [red, green, blue, alpha]. red, green, and blue should be integers in the range 0..255 inclusive. alpha should be a float in the range 0..1 inclusive.
      */
-    interface Color extends Array<number> { }
+    interface Color extends number[] { }
 
     /**
      * An array of numbers representing an xy coordinate. Example: [16, 48].
      */
-    interface Coordinate extends Array<number> { }
+    interface Coordinate extends number[] { }
 
     /**
      * An array of numbers representing an extent: [minx, miny, maxx, maxy].
      */
-    interface Extent extends Array<number> { }
+    interface Extent extends number[] { }
 
     /**
      * Overlay position: 'bottom-left', 'bottom-center', 'bottom-right', 'center-left', 'center-center', 'center-right', 'top-left', 'top-center', 'top-right'
@@ -5346,7 +5346,7 @@ declare namespace ol {
     /**
      * An array with two elements, representing a pixel. The first element is the x-coordinate, the second the y-coordinate of the pixel.
      */
-    interface Pixel extends Array<number> { }
+    interface Pixel extends number[] { }
 
     /**
      * Available renderers: 'canvas', 'dom' or 'webgl'.
@@ -5356,12 +5356,12 @@ declare namespace ol {
     /**
      * An array of numbers representing a size: [width, height].
      */
-    interface Size extends Array<number> { }
+    interface Size extends number[] { }
 
     /**
      * An array of three numbers representing the location of a tile in a tile grid. The order is z, x, and y. z is the zoom level.
      */
-    interface TileCoord extends Array<number> { }
+    interface TileCoord extends number[] { }
 
     // Functions
 
@@ -5393,7 +5393,7 @@ declare namespace ol {
     /**
      * A transform function accepts an array of input coordinate values, an optional output array, and an optional dimension (default should be 2). The function transforms the input coordinate values, populates the output array, and returns the output array.
      */
-    interface TransformFunction { (input: Array<number>, output?: Array<number>, dimension?: number): Array<number>; }
+    interface TransformFunction { (input: number[], output?: number[], dimension?: number): number[]; }
 }
 
 declare module "openlayers" {

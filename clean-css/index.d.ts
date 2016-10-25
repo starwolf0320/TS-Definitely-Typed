@@ -37,7 +37,7 @@ declare namespace CleanCSS {
         processImport?: boolean;
 
         // A list of @import rules, can be ['all'] (default), ['local'], ['remote'], or a blacklisted path e.g. ['!fonts.googleapis.com']
-        processImportFrom?: Array<string>;
+        processImportFrom?: string[];
 
         // Set to false to skip URL rebasing
         rebase?: boolean;
@@ -78,10 +78,10 @@ declare namespace CleanCSS {
         sourceMap: string;
 
         // A list of errors raised
-        errors: Array<string>;
+        errors: string[];
 
         // A list of warnings raised
-        warnings: Array<string>;
+        warnings: string[];
 
         // A hash of statistic information (if requested with debug option)
         stats: {
@@ -102,7 +102,7 @@ declare namespace CleanCSS {
 
 declare class CleanCSS {
     constructor(options?: CleanCSS.Options);
-    minify(sources: string | Array<string> | Object, callback?: (error: any, minified: CleanCSS.Output) => void): CleanCSS.Output;
+    minify(sources: string | string[] | Object, callback?: (error: any, minified: CleanCSS.Output) => void): CleanCSS.Output;
 }
 
 export = CleanCSS;

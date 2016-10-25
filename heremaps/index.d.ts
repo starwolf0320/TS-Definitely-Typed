@@ -1051,11 +1051,11 @@ declare namespace H {
 
             /**
              * This method creates the minimum rectangular area covering all of the coordinates in the argument array.
-             * @param latLngAltArray {Array<number>} - the array of coordinates to cover
+             * @param latLngAltArray {number[]} - the array of coordinates to cover
              * @param opt_skipValidation {boolean=} - a boolean flag indicating whether to check validity of the arguments
              * @returns {(H.geo.Rect | undefined)} - returns the minimum rectangular area covering the coordinates
              */
-            static coverLatLngAlts(latLngAltArray: Array<number>, opt_skipValidation?: boolean): H.geo.Rect | void;
+            static coverLatLngAlts(latLngAltArray: number[], opt_skipValidation?: boolean): H.geo.Rect | void;
 
             /**
              * This method creates the minimum rectangular area covering all of the rectangular areas in the argument array.
@@ -1080,10 +1080,10 @@ declare namespace H {
         export class Strip {
           /**
            * Constructor
-           * @param opt_latLngAlts {Array<number>=} - An optional array of latitude, longitude and altitude triples to initialize the strip with.
+           * @param opt_latLngAlts {number[]=} - An optional array of latitude, longitude and altitude triples to initialize the strip with.
            * @param opt_ctx {H.geo.AltitudeContext=} - An optional altitude context for all altitudes contained in this strip.
            */
-          constructor(opt_latLngAlts?: Array<number>, opt_ctx?: H.geo.AltitudeContext);
+          constructor(opt_latLngAlts?: number[], opt_ctx?: H.geo.AltitudeContext);
 
           /**
            * This method pushes a lat, lng, alt to the end of this strip.
@@ -1097,10 +1097,10 @@ declare namespace H {
            * This method splices the strip at the provided index, removing the specified number of items at that index and inserting the lat, lng, alt array.
            * @param index {number} - The index at which to splice
            * @param opt_nRemove {number=} - The number of lat, lng, alt values to remove
-           * @param opt_latLngAlts {Array<number>=} - The lat, lng, alt values to add
-           * @returns {Array<number>} - an array of removed elements
+           * @param opt_latLngAlts {number[]=} - The lat, lng, alt values to add
+           * @returns {number[]} - an array of removed elements
            */
-          spliceLatLngAlts(index: number, opt_nRemove?: number, opt_latLngAlts?: Array<number>): Array<number>;
+          spliceLatLngAlts(index: number, opt_nRemove?: number, opt_latLngAlts?: number[]): number[];
 
           /**
            * This method inserts one set of lat, lng, alt values into the strip at the specified index.
@@ -1167,9 +1167,9 @@ declare namespace H {
 
           /**
            * This method returns the internal array keeping the lat, lng, alt values. Modifying this array directly can destroy the integrity of this strip. Use it only for read access.
-           * @returns {Array<number>} - returns the raw lat, lng, alt values of this strip
+           * @returns {number[]} - returns the raw lat, lng, alt values of this strip
            */
-          getLatLngAltArray(): Array<number>;
+          getLatLngAltArray(): number[];
 
           /**
            * This method returns the bounding box of this strip.
@@ -1187,10 +1187,10 @@ declare namespace H {
 
           /**
            * This method initializes a new strip with an array of lat, lng values. Arrays are expected to have an even length with the format [lat, lng, lat, lng, ...].
-           * @param latLngs {Array<number>} - the array of lat, lng value.
+           * @param latLngs {number[]} - the array of lat, lng value.
            * @returns {H.geo.Strip} - the strip containing the lat, lng values
            */
-          static fromLatLngArray(latLngs: Array<number>): H.geo.Strip;
+          static fromLatLngArray(latLngs: number[]): H.geo.Strip;
         }
     }
 
@@ -1557,9 +1557,9 @@ declare namespace H {
             /**
              * Constructor
              * @param shapeType {H.map.HitArea.ShapeType} - The shape type of the HitArea
-             * @param opt_values {Array<number>=} - The type-dependent values to define the shape of the hit area. The format for the different types are:
+             * @param opt_values {number[]=} - The type-dependent values to define the shape of the hit area. The format for the different types are:
              */
-            constructor(shapeType: H.map.HitArea.ShapeType, opt_values?: Array<number>);
+            constructor(shapeType: H.map.HitArea.ShapeType, opt_values?: number[]);
         }
 
         export namespace HitArea {
@@ -2117,9 +2117,9 @@ declare namespace H {
           /**
            * This method clips this polyline against a rectangular area and returns the intersecting sub-lines.
            * @param geoRect {H.geo.Rect}
-           * @returns {Array<Array<number>>}
+           * @returns {Array<number[]>}
            */
-          clip(geoRect: H.geo.Rect): Array<Array<number>>;
+          clip(geoRect: H.geo.Rect): Array<number[]>;
         }
 
         export namespace Polyline {
@@ -2260,7 +2260,7 @@ declare namespace H {
          * @property lineCap {H.map.SpatialStyle.LineCap} - The style of the end caps for a line, default is 'round'.
          * @property lineJoin {H.map.SpatialStyle.LineJoin} - The type of corner created, when two lines meet, default is 'miter'.
          * @property miterLimit {number} - The miter length is the distance between the inner corner and the outer corner where two lines meet. The default is 10.
-         * @property lineDash {Array<number>} - The line dash pattern as an even numbered list of distances to alternately produce a line and a space. The default is [ ].
+         * @property lineDash {number[]} - The line dash pattern as an even numbered list of distances to alternately produce a line and a space. The default is [ ].
          * @property lineDashOffset {number} - The phase offset of the line dash pattern The default is 0.
          * @property MAX_LINE_WIDTH {number} - This constant represents the maximum line width which can be used for rendering.
          * @property DEFAULT_STYLE {H.map.SpatialStyle} - This static member defines the default style for spatial objects on the map. It's value is  { strokeColor: '#05A', fillColor: 'rgba(0, 85, 170, 0.4)' lineWidth: 1, lineCap: 'round', lineJoin: 'miter', miterLimit: 10, lineDash: [ ], lineDashOffset: 0 }
@@ -2292,7 +2292,7 @@ declare namespace H {
             lineCap: H.map.SpatialStyle.LineCap;
             lineJoin: H.map.SpatialStyle.LineJoin;
             miterLimit: number;
-            lineDash: Array<number>;
+            lineDash: number[];
             lineDashOffset: number;
             static MAX_LINE_WIDTH: number;
             static DEFAULT_STYLE: H.map.SpatialStyle;
@@ -2317,7 +2317,7 @@ declare namespace H {
              * @property lineCap {H.map.SpatialStyle.LineCap=} - The style of the end caps for a line.
              * @property lineJoin {H.map.SpatialStyle.LineJoin=} - The type of corner created, when two lines meet.
              * @property miterLimit {number=} - The miter limit in pixel, default is 10. The maximum supported miter limit is 100
-             * @property lineDash {Array<number>} - The line dash pattern as an even numbered list of distances to alternately produce a line and a space. If the browser doesn't support this feature this style property is ignored.
+             * @property lineDash {number[]} - The line dash pattern as an even numbered list of distances to alternately produce a line and a space. If the browser doesn't support this feature this style property is ignored.
              * @property lineDashOffset {number=} - The phase offset of the line dash pattern
              */
             export interface Options {
@@ -2327,7 +2327,7 @@ declare namespace H {
                 lineCap?: H.map.SpatialStyle.LineCap;
                 lineJoin?: H.map.SpatialStyle.LineJoin;
                 miterLimit?: number;
-                lineDash?: Array<number>;
+                lineDash?: number[];
                 lineDashOffset?: number;
             }
         }
@@ -4720,25 +4720,25 @@ declare namespace H {
                  * This method creates a tile provider which uses the meta info tile backend. This provider can be used as a data source for an TileLayer.
                  * @param tileSize {number} - The tile size
                  * @param pixelRatio {number} - The tile's pixel ratio, should be aligned with base map tile
-                 * @param opt_categoryFilter {Array<string>=} - A list of meta-info category names which should be suppressed. See Metainfo Tile for valid category names.
+                 * @param opt_categoryFilter {string[]=} - A list of meta-info category names which should be suppressed. See Metainfo Tile for valid category names.
                  * @param opt_additionalParameters {H.service.ServiceParameters=} - Additional parameters for the meta info service
                  * @param opt_tileType {string=} - the tile type (default is 'maptile')
                  * @param opt_scheme {string=} - the scheme for which the meta info tiles a requested (default is 'normal.day')
                  * @returns {H.map.provider.TileProvider} - the tile provider
                  */
-                createTileProvider(tileSize: number, pixelRatio: number, opt_categoryFilter?: Array<string>, opt_additionalParameters?: H.service.ServiceParameters, opt_tileType?: string, opt_scheme?: string): H.map.provider.TileProvider;
+                createTileProvider(tileSize: number, pixelRatio: number, opt_categoryFilter?: string[], opt_additionalParameters?: H.service.ServiceParameters, opt_tileType?: string, opt_scheme?: string): H.map.provider.TileProvider;
 
                 /**
                  * This method creates a tile layer. This layer can be used as a layer on a map's data model.
                  * @param tileSize {number} - The tile size
                  * @param pixelRatio {number} - The tile's pixel ratio, should be aligned with base map tile
-                 * @param opt_categoryFilter {Array<string>=} - A list of meta-info category names which should be suppressed. See Metainfo Tile for valid category names.
+                 * @param opt_categoryFilter {string[]=} - A list of meta-info category names which should be suppressed. See Metainfo Tile for valid category names.
                  * @param opt_additionalParameters {H.service.ServiceParameters=} - Additional parameters for the meta info service
                  * @param opt_tileType {string=} - the tile type (default is 'maptile')
                  * @param opt_scheme {string=} - the scheme for which the meta info tiles a requested (default is 'normal.day')
                  * @returns {H.map.layer.TileLayer} - the tile layer
                  */
-                createTileLayer(tileSize: number, pixelRatio: number, opt_categoryFilter?: Array<string>, opt_additionalParameters?: H.service.ServiceParameters, opt_tileType?: string, opt_scheme?: string): H.map.layer.TileLayer;
+                createTileLayer(tileSize: number, pixelRatio: number, opt_categoryFilter?: string[], opt_additionalParameters?: H.service.ServiceParameters, opt_tileType?: string, opt_scheme?: string): H.map.layer.TileLayer;
 
                 /**
                  * This methods receive configuration parameters from the platform, that can be used by the object implementing the interface.
@@ -4803,7 +4803,7 @@ declare namespace H {
                  * @property tileCacheSize {number=} - The number of fully rendered spatial tiles that are cached for immediate reuse, default is 32
                  * @property tileSize {number=} - The size of the tiles rendered by this provider (must be power of 2, default is 256)
                  * @property pixelRatio {number=} - The pixel ratio to use for over-sampling in cases of high-resolution displays
-                 * @property categoryFilter {Array<string>=} - A list of meta-info category names which should be suppressed. See Metainfo Tile for valid category names.
+                 * @property categoryFilter {string[]=} - A list of meta-info category names which should be suppressed. See Metainfo Tile for valid category names.
                  */
                 export interface Options {
                     tileType?: string;
@@ -4811,7 +4811,7 @@ declare namespace H {
                     tileCacheSize?: number;
                     tileSize?: number;
                     pixelRatio?: number;
-                    categoryFilter?: Array<string>;
+                    categoryFilter?: string[];
                 }
             }
         }
@@ -5725,7 +5725,7 @@ declare namespace H {
             /**
              * Default available locales. UI provides default translations for this set of locale codes.
              */
-            export const defaultLocales: Array<string>;
+            export const defaultLocales: string[];
 
             /**
              * This class is used for internationalization of UI components.
@@ -5741,9 +5741,9 @@ declare namespace H {
 
                 /**
                  * This method returns translation keys for current locale. Keys from this set can be used to get translations via translate method.
-                 * @returns {Array<string>}
+                 * @returns {string[]}
                  */
-                getKeys(): Array<string>;
+                getKeys(): string[];
 
                 /**
                  * This method returns a boolean value indicating whether this localization object has a translation for the specified translation key.
@@ -6178,7 +6178,7 @@ declare namespace H {
              * This method returns all list's entries as an array.
              * @returns {Array<*>} - The list as an array
              */
-            asArray(): Array<any>;
+            asArray(): any[];
 
             /**
              * This method removes all entries from the list.

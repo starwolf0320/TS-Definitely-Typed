@@ -246,21 +246,21 @@ export class Db extends EventEmitter {
 export class Server extends EventEmitter {
     constructor(host: string, port: number, options?: ServerOptions);
 
-    connections(): Array<any>;
+    connections(): any[];
 }
 
 // Deprecated http://mongodb.github.io/node-mongodb-native/2.1/api/ReplSet.html
 export class ReplSet extends EventEmitter {
     constructor(servers: Array<Server>, options?: ReplSetOptions);
 
-    connections(): Array<any>;
+    connections(): any[];
 }
 
 // Deprecated http://mongodb.github.io/node-mongodb-native/2.1/api/ReplSet.html
 export class Mongos extends EventEmitter {
     constructor(servers: Array<Server>, options?: MongosOptions);
 
-    connections(): Array<any>;
+    connections(): any[];
 }
 
 // http://mongodb.github.io/node-mongodb-native/2.1/api/Db.html#addUser
@@ -647,9 +647,9 @@ export interface Collection {
     geoNear(x: number, y: number, options?: GeoNearOptions): Promise<any>;
     geoNear(x: number, y: number, options: GeoNearOptions, callback: MongoCallback<any>): void;
     //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#group
-    group(keys: Object | Array<any> | Function | Code, condition: Object, initial: Object, reduce: Function | Code, finalize: Function | Code, command: boolean, callback: MongoCallback<any>): void;
-    group(keys: Object | Array<any> | Function | Code, condition: Object, initial: Object, reduce: Function | Code, finalize: Function | Code, command: boolean, options?: { readPreference?: ReadPreference | string }): Promise<any>;
-    group(keys: Object | Array<any> | Function | Code, condition: Object, initial: Object, reduce: Function | Code, finalize: Function | Code, command: boolean, options: { readPreference?: ReadPreference | string }, callback: MongoCallback<any>): void;
+    group(keys: Object | any[] | Function | Code, condition: Object, initial: Object, reduce: Function | Code, finalize: Function | Code, command: boolean, callback: MongoCallback<any>): void;
+    group(keys: Object | any[] | Function | Code, condition: Object, initial: Object, reduce: Function | Code, finalize: Function | Code, command: boolean, options?: { readPreference?: ReadPreference | string }): Promise<any>;
+    group(keys: Object | any[] | Function | Code, condition: Object, initial: Object, reduce: Function | Code, finalize: Function | Code, command: boolean, options: { readPreference?: ReadPreference | string }, callback: MongoCallback<any>): void;
     //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#indexes
     indexes(): Promise<any>;
     indexes(callback: MongoCallback<any>): void;
@@ -1011,7 +1011,7 @@ export interface FindOperatorsUnordered {
 //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#findOne
 export interface FindOneOptions {
     limit?: number;
-    sort?: Array<any> | Object;
+    sort?: any[] | Object;
     fields?: Object;
     skip?: number;
     hint?: Object;
@@ -1035,7 +1035,7 @@ export interface FindOneOptions {
 //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#~insertWriteOpResult
 export interface InsertWriteOpResult {
     insertedCount: number;
-    ops: Array<any>;
+    ops: any[];
     insertedIds: Array<ObjectID>;
     connection: any;
     result: { ok: number, n: number };
@@ -1060,7 +1060,7 @@ export interface CollectionInsertOneOptions {
 //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#~insertOneWriteOpResult
 export interface InsertOneWriteOpResult {
     insertedCount: number;
-    ops: Array<any>;
+    ops: any[];
     insertedId: ObjectID;
     connection: any;
     result: { ok: number, n: number };
@@ -1110,7 +1110,7 @@ export interface MapReduceOptions {
 
 //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#~WriteOpResult
 export interface WriteOpResult {
-    ops: Array<any>;
+    ops: any[];
     connection: any;
     result: any;
 }
