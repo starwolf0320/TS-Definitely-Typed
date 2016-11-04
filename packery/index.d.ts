@@ -101,9 +101,9 @@ declare class Packery {
 
     /**
      * [addItems Add item elements to the Packery instance]
-     * @param {Array<Element>} elements [description]
+     * @param {Element[]} elements [description]
      */
-    addItems(elements: Array<Element>): void;
+    addItems(elements: Element[]): void;
 
     /**
      * [appended Add and lay out newly appended item elements]
@@ -119,9 +119,9 @@ declare class Packery {
 
     /**
      * [appended Add and lay out newly appended item elements]
-     * @param {Array<Element>} elements [description]
+     * @param {Element[]} elements [description]
      */
-    appended(elements: Array<Element>): void;
+    appended(elements: Element[]): void;
 
     /**
      * [bindDraggabillyEvents Bind Draggabilly events, so that the Packery instance will layout around the dragged element]
@@ -162,9 +162,9 @@ declare class Packery {
 
     /**
      * [getItemElements Get an array of elements used as the Packery instance's items.]
-     * @return {Array<Element>}      [description]
+     * @return {Element[]}      [description]
      */
-    getItemElements(): Array<Element>;
+    getItemElements(): Element[];
 
     /**
      * [getItem Get a Packery.Item from an element]
@@ -180,7 +180,7 @@ declare class Packery {
 
     /**
      * [layoutItems Lay out specified items]
-     * @param {Array<Packery.items>} items [description]
+     * @param {Packery.items[]} items [description]
      */
     layoutItems(items: any[]): void;
 
@@ -221,9 +221,9 @@ declare class Packery {
 
     /**
      * [prepended Add and lay out newly prepended item elements at the beginning of layout]
-     * @param {Array<Element>} elements [description]
+     * @param {Element[]} elements [description]
      */
-    prepended(elements: Array<Element>): void;
+    prepended(elements: Element[]): void;
 
     /**
      * [reloadItems Recollect all item elements]
@@ -244,9 +244,9 @@ declare class Packery {
 
     /**
      * [remove Remove elements from the Packery instance, then from the DOM]
-     * @param {Array<Element>} elements [description]
+     * @param {Element[]} elements [description]
      */
-    remove(elements: Array<Element>): void;
+    remove(elements: Element[]): void;
 
     /**
      * [stamp Stamp the elements in the layout. Packery will lay out item elements around stamped element]
@@ -262,9 +262,9 @@ declare class Packery {
 
     /**
      * [stamp Stamp the elements in the layout. Packery will lay out item elements around stamped element]
-     * @param {Array<Element>} elements [description]
+     * @param {Element[]} elements [description]
      */
-    stamp(elements: Array<Element>): void;
+    stamp(elements: Element[]): void;
 
     /**
      * [unbindResize Un-bind layout to window resize event]
@@ -285,9 +285,9 @@ declare class Packery {
 
     /**
      * [unstamp Un-stamp the elements, so that Packery will no longer layout item elements around them]
-     * @param {Array<Element>} element [description]
+     * @param {Element[]} element [description]
      */
-    unstamp(element: Array<Element>): void;
+    unstamp(element: Element[]): void;
 }
 
 export = Packery;

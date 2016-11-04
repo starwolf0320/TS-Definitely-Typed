@@ -325,12 +325,12 @@ declare namespace Snap {
         polyline(varargs: any[]): Snap.Element;
         rect(x: number, y: number, width: number, height: number, rx?: number, ry?: number): Snap.Element;
         text(x: number, y: number, text: string|number): Snap.Element;
-        text(x: number, y: number, text: Array<string|number>): Snap.Element;
+        text(x: number, y: number, text: (string|number)[]): Snap.Element;
     }
 
     export interface Set {
         animate(attrs: {[attr: string]: string|number|boolean|any}, duration: number, easing?: (num: number) => number, callback?: () => void): Snap.Element;
-        animate(...params: Array<{attrs: any, duration: number, easing: (num: number) => number, callback?: () => void}>): Snap.Element;
+        animate(...params: ({attrs: any, duration: number, easing: (num: number) => number, callback?: () => void})[]): Snap.Element;
         attr(params: {[attr: string]: string|number|boolean|any}): Snap.Element;
         attr(param: string): string;
         bind(attr: string, callback: Function): Snap.Set;
@@ -369,7 +369,7 @@ declare namespace Snap {
         getPointAtLength(path: string, length: number): Object;
         getSubpath(path: string, from: number, to: number): string;
         getTotalLength(path: string): number;
-        intersection(path1: string, path2: string): Array<IntersectionDot>;
+        intersection(path1: string, path2: string): IntersectionDot[];
         isBBoxIntersect(bbox1: BBox, bbox2: BBox): boolean;
         isPointInside(path: string, x: number, y: number): boolean;
         isPointInsideBBox(bbox: BBox, x: number, y: number): boolean;

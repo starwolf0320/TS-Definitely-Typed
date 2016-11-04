@@ -52,13 +52,13 @@ declare class NeDBDataStore {
      * Add one or several document(s) to all indexes
      */
     addToIndexes<T>(doc: T): void;
-    addToIndexes<T>(doc: Array<T>): void;
+    addToIndexes<T>(doc: T[]): void;
 
     /**
      * Remove one or several document(s) from all indexes
      */
     removeFromIndexes<T>(doc: T): void;
-    removeFromIndexes<T>(doc: Array<T>): void;
+    removeFromIndexes<T>(doc: T[]): void;
 
     /**
      * Update one or several documents in all indexes
@@ -66,7 +66,7 @@ declare class NeDBDataStore {
      * If one update violates a constraint, all changes are rolled back
      */
     updateIndexes<T>(oldDoc: T, newDoc: T): void;
-    updateIndexes<T>(updates: Array<{oldDoc: T; newDoc: T}>): void;
+    updateIndexes<T>(updates: {oldDoc: T; newDoc: T}[]): void;
 
     /**
      * Return the list of candidates for a given query
@@ -98,7 +98,7 @@ declare class NeDBDataStore {
      * @param {any} query MongoDB-style query
      * @param {any} projection MongoDB-style projection
      */
-    find<T>(query: any, projection: T, callback: (err: Error, documents: Array<T>) => void): void;
+    find<T>(query: any, projection: T, callback: (err: Error, documents: T[]) => void): void;
     find<T>(query: any, projection: T): NeDB.Cursor<T>;
 
     /**
@@ -106,7 +106,7 @@ declare class NeDBDataStore {
      * If no callback is passed, we return the cursor so that user can limit, skip and finally exec
      * * @param {any} query MongoDB-style query
      */
-    find<T>(query: any, callback: (err: Error, documents: Array<T>) => void): void;
+    find<T>(query: any, callback: (err: Error, documents: T[]) => void): void;
     find<T>(query: any): NeDB.Cursor<T>;
 
     /**
@@ -174,7 +174,7 @@ declare namespace NeDB {
         skip(n: number): Cursor<T>;
         limit(n: number): Cursor<T>;
         projection(query: any): Cursor<T>;
-        exec(callback: (err: Error, documents: Array<T>) => void): void;
+        exec(callback: (err: Error, documents: T[]) => void): void;
     }
 
     interface CursorCount {

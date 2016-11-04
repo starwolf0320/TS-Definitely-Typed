@@ -69,5 +69,5 @@ declare module 'react-sortable-hoc' {
 
     export function SortableHandle<P>(wrappedComponent: WrappedComponent<P>, config?: Config): React.ComponentClass<P>;
 
-    export function arrayMove<T>(collection: Array<T>, previousIndex: number, newIndex: number): Array<T>;
+    export function arrayMove<T>(collection: T[], previousIndex: number, newIndex: number): T[];
 }

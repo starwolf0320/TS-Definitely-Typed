@@ -100,7 +100,7 @@ declare namespace JSData {
     }
 
     interface DSCollection<T> extends Array<T> {
-        fetch(params?: DSFilterArg, options?: DSConfiguration): JSDataPromise<Array<T & DSInstanceShorthands<T>>>;
+        fetch(params?: DSFilterArg, options?: DSConfiguration): JSDataPromise<(T & DSInstanceShorthands<T>)[]>;
         params: DSFilterArg;
         resourceName: string;
     }
@@ -124,25 +124,25 @@ declare namespace JSData {
         defaults: DSConfiguration;
 
         changeHistory(resourceName: string, id: string | number): Object[];
-        changes(resourceName: string, id: string | number, options?: {ignoredChanges: Array<string|RegExp>}): Object;
-        clear<T>(): Array<T & DSInstanceShorthands<T>>;
+        changes(resourceName: string, id: string | number, options?: {ignoredChanges: (string|RegExp)[]}): Object;
+        clear<T>(): (T & DSInstanceShorthands<T>)[];
         compute<T>(resourceName: string, idOrInstance: number | string | T): T & DSInstanceShorthands<T>;
         create<T>(resourceName: string, attrs: Object, options?: DSConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        createCollection<T>(resourceName: string, array?: Array<T>, params?: DSFilterArg, options?: DSConfiguration): DSCollection<T & DSInstanceShorthands<T>>;
+        createCollection<T>(resourceName: string, array?: T[], params?: DSFilterArg, options?: DSConfiguration): DSCollection<T & DSInstanceShorthands<T>>;
         createInstance<T>(resourceName: string, attrs?: Object, options?: DSConfiguration): T & DSInstanceShorthands<T>;
         destroy(resourceName: string, id: string | number, options?: DSAdapterOperationConfiguration): JSDataPromise<void>;
         destroyAll(resourceName: string, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<void>;
         digest(): void;
         eject<T>(resourceName: string, id: string | number, options?: DSConfiguration): T & DSInstanceShorthands<T>;
-        ejectAll<T>(resourceName: string, params: DSFilterArg, options?: DSConfiguration): Array<T & DSInstanceShorthands<T>>;
-        filter<T>(resourceName: string, params: DSFilterArg, options?: DSConfiguration): Array<T & DSInstanceShorthands<T>>;
+        ejectAll<T>(resourceName: string, params: DSFilterArg, options?: DSConfiguration): (T & DSInstanceShorthands<T>)[];
+        filter<T>(resourceName: string, params: DSFilterArg, options?: DSConfiguration): (T & DSInstanceShorthands<T>)[];
         find<T>(resourceName: string, id: string | number, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        findAll<T>(resourceName: string, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<Array<T & DSInstanceShorthands<T>>>;
+        findAll<T>(resourceName: string, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<(T & DSInstanceShorthands<T>)[]>;
         get<T>(resourceName: string, id: string | number): T & DSInstanceShorthands<T>;
-        getAll<T>(resourceName: string, ids?: Array<string | number>): Array<T & DSInstanceShorthands<T>>;
+        getAll<T>(resourceName: string, ids?: (string | number)[]): (T & DSInstanceShorthands<T>)[];
         hasChanges(resourceName: string, id: string | number): boolean;
         inject<TInject, U>(resourceName: string, attrs: TInject, options?: DSConfiguration): U & DSInstanceShorthands<U>;
-        inject<TInject, U>(resourceName: string, items: Array<TInject>, options?: DSConfiguration): Array<U & DSInstanceShorthands<U>>;
+        inject<TInject, U>(resourceName: string, items: TInject[], options?: DSConfiguration): (U & DSInstanceShorthands<U>)[];
         is(resourceName: string, object: Object): boolean;
         lastModified(resourceName: string, id?: string | number): number; // timestamp
         lastSaved(resourceName: string, id?: string | number): number; // timestamp
@@ -150,11 +150,11 @@ declare namespace JSData {
         previous<T>(resourceName: string, id: string | number): T & DSInstanceShorthands<T>;
         reap(resourceName: string): JSDataPromise<void>;
         refresh<T>(resourceName: string, id: string | number, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        refreshAll<T>(resourceName: string, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<Array<T & DSInstanceShorthands<T>>>;
+        refreshAll<T>(resourceName: string, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<(T & DSInstanceShorthands<T>)[]>;
         revert<T>(resourceName: string, id: string | number): T & DSInstanceShorthands<T>;
         save<T>(resourceName: string, id: string | number, options?: DSSaveConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         update<T>(resourceName: string, id: string | number, attrs: Object, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        updateAll<T>(resourceName: string, attrs: Object, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<Array<T & DSInstanceShorthands<T>>>;
+        updateAll<T>(resourceName: string, attrs: Object, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<(T & DSInstanceShorthands<T>)[]>;
 
         defineResource<T>(resourceNameOrDefinition: string | DSResourceDefinitionConfiguration): DSResourceDefinition<T>;
         defineResource<T, TActions>(resourceNameOrDefinition: string | DSResourceDefinitionConfiguration): DSResourceDefinition<T> & TActions;
@@ -163,25 +163,25 @@ declare namespace JSData {
 
     interface DSResourceDefinition<T> extends DSResourceDefinitionConfiguration, DSEvents {
         changeHistory(id: string | number): Object[];
-        changes(id: string | number, options?: {ignoredChanges: Array<string|RegExp>}): Object;
-        clear(): Array<T & DSInstanceShorthands<T>>;
+        changes(id: string | number, options?: {ignoredChanges: (string|RegExp)[]}): Object;
+        clear(): (T & DSInstanceShorthands<T>)[];
         compute(idOrInstance: number | string | T): T & DSInstanceShorthands<T>;
         create(attrs: Object, options?: DSConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        createCollection(array?: Array<T>, params?: DSFilterArg, options?: DSConfiguration): DSCollection<T & DSInstanceShorthands<T>>;
+        createCollection(array?: T[], params?: DSFilterArg, options?: DSConfiguration): DSCollection<T & DSInstanceShorthands<T>>;
         createInstance(attrs?: Object, options?: DSConfiguration): T & DSInstanceShorthands<T>;
         destroy(id: string | number, options?: DSAdapterOperationConfiguration): JSDataPromise<void>;
         destroyAll(params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<void>;
         digest(): void;
         eject(id: string | number, options?: DSConfiguration): T & DSInstanceShorthands<T>;
-        ejectAll(params: DSFilterArg, options?: DSConfiguration): Array<T & DSInstanceShorthands<T>>;
-        filter(params: DSFilterArg, options?: DSConfiguration): Array<T & DSInstanceShorthands<T>>;
+        ejectAll(params: DSFilterArg, options?: DSConfiguration): (T & DSInstanceShorthands<T>)[];
+        filter(params: DSFilterArg, options?: DSConfiguration): (T & DSInstanceShorthands<T>)[];
         find(id: string | number, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        findAll(params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<Array<T & DSInstanceShorthands<T>>>;
+        findAll(params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<(T & DSInstanceShorthands<T>)[]>;
         get(id: string | number): T & DSInstanceShorthands<T>;
-        getAll(ids?: Array<string | number>): Array<T & DSInstanceShorthands<T>>;
+        getAll(ids?: (string | number)[]): (T & DSInstanceShorthands<T>)[];
         hasChanges(id: string | number): boolean;
         inject<TInject>(attrs: TInject, options?: DSConfiguration): T & DSInstanceShorthands<T>;
-        inject<TInject>(items: Array<TInject>, options?: DSConfiguration): Array<T & DSInstanceShorthands<T>>;
+        inject<TInject>(items: TInject[], options?: DSConfiguration): (T & DSInstanceShorthands<T>)[];
         is(object: Object): boolean;
         lastModified(id?: string | number): number; // timestamp
         lastSaved(id?: string | number): number; // timestamp
@@ -189,11 +189,11 @@ declare namespace JSData {
         previous(id: string | number): T & DSInstanceShorthands<T>;
         reap(): JSDataPromise<void>;
         refresh(id: string | number, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        refreshAll(params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<Array<T & DSInstanceShorthands<T>>>;
+        refreshAll(params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<(T & DSInstanceShorthands<T>)[]>;
         revert(id: string | number): T & DSInstanceShorthands<T>;
         save(id: string | number, options?: DSSaveConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
         update(id: string | number, attrs: Object, options?: DSAdapterOperationConfiguration): JSDataPromise<T & DSInstanceShorthands<T>>;
-        updateAll(attrs: Object, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<Array<T & DSInstanceShorthands<T>>>;
+        updateAll(attrs: Object, params?: DSFilterArg, options?: DSAdapterOperationConfiguration): JSDataPromise<(T & DSInstanceShorthands<T>)[]>;
     }
 
     // cannot specify T at interface level because the interface is used as generic constraint itself which ends up being recursive

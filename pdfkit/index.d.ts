@@ -140,8 +140,8 @@ declare namespace PDFKit.Mixins {
         text(text: string, options?: TextOptions): TDocument;
         widthOfString(text: string, options?: TextOptions): number;
         heightOfString(text: string, options?: TextOptions): number;
-        list(list: Array<string|any>, x?: number, y?: number, options?: TextOptions): TDocument;
-        list(list: Array<string|any>, options?: TextOptions): TDocument;
+        list(list: (string|any)[], x?: number, y?: number, options?: TextOptions): TDocument;
+        list(list: (string|any)[], options?: TextOptions): TDocument;
     }
 
     interface PDFVector<TDocument> {

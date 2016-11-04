@@ -469,7 +469,7 @@ declare namespace log4javascript {
 		 * Returns an array of the additional headers that are sent with each HTTP request. Each array item is an object with
 		 * properties name and value.
 		 */
-		getHeaders(): Array<{ name: string; value: string; }>;
+		getHeaders(): { name: string; value: string; }[];
 
 		/**
 		 * Sends all log messages in the queue. If log messages are batched then only completed batches are sent.

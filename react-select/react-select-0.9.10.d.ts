@@ -32,7 +32,7 @@ declare module "react-select" {
         delimiter?: string;
         disabled?: boolean;
         filterOption?: (option: Option, filterString: string) => Option;
-        filterOptions?: (options: Array<Option>, filterString: string, values: Object[]) => Array<Option>;
+        filterOptions?: (options: Option[], filterString: string, values: Object[]) => Option[];
         ignoreCase?: boolean; // default true	whether to perform case-insensitive filtering
         inputProps?: Object;
         isLoading?: boolean;
@@ -49,7 +49,7 @@ declare module "react-select" {
         onInputChange?: (inputValue: string) => void;
         onOptionLabelClick?: (value: string, event: Event) => void;
         optionRenderer?: () => void;
-        options?: Array<Option>;
+        options?: Option[];
         placeholder?: string;
         searchable?: boolean;
         searchingText?: string;

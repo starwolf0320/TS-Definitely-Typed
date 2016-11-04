@@ -355,9 +355,9 @@ interface ITinytestAssertions {
 	isNotUndefined(v: any, msg?: string): void;
 	isNan(v: any, msg?: string): void;
 	isNotNan(v: any, msg?: string): void;
-	include<T>(s: Array<T>|Object|string, value: any, msg?: string, not?: boolean): void;
+	include<T>(s: T[]|Object|string, value: any, msg?: string, not?: boolean): void;
 
-	notInclude<T>(s: Array<T>|Object|string, value: any, msg?: string, not?: boolean): void;
+	notInclude<T>(s: T[]|Object|string, value: any, msg?: string, not?: boolean): void;
 	length(obj: ILengthAble, expected_length: number, msg?: string): void;
 	_stringEqual(actual: string, expected: string, msg?: string): void;
 }
@@ -674,9 +674,9 @@ declare namespace Mongo {
 	}
 	interface Cursor<T> {
 		count(): number;
-		fetch(): Array<T>;
+		fetch(): T[];
 		forEach(callback: <T>(doc: T, index: number, cursor: Mongo.Cursor<T>) => void, thisArg?: any): void;
-		map<U>(callback: (doc: T, index: number, cursor: Mongo.Cursor<T>) => U, thisArg?: any): Array<U>;
+		map<U>(callback: (doc: T, index: number, cursor: Mongo.Cursor<T>) => U, thisArg?: any): U[];
 		observe(callbacks: Object): Meteor.LiveQueryHandle;
 		observeChanges(callbacks: Object): Meteor.LiveQueryHandle;
 	}

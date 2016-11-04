@@ -5116,7 +5116,7 @@ declare namespace samchon.protocol {
          * @param listener
          * @param parameters
          */
-        constructor(listener: string, ...parameters: Array<number | string | library.XML>);
+        constructor(listener: string, ...parameters: (number | string | library.XML)[]);
         /**
          * @inheritdoc
          */

@@ -7,8 +7,8 @@ declare var objectPath: ObjectPathGlobal.IObjectPathStatic;
 
 declare namespace ObjectPathGlobal {
 
-    type IPath = Array<number|string>|number|string;
-    type IMultiArray = Array<IPath>;
+    type IPath = (number|string)[]|number|string;
+    type IMultiArray = IPath[];
 
     interface IObjectPathStatic {
         /**

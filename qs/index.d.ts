@@ -13,7 +13,7 @@ declare namespace QueryString {
         skipNulls?: boolean;
         encode?: boolean;
         encoder?: (str: string) => any;
-        filter?: Array<string | number> | ((prefix: string, value: any) => any);
+        filter?: string | number[] | ((prefix: string, value: any) => any);
         arrayFormat?: 'indices' | 'brackets' | 'repeat';
         indices?: boolean;
     }

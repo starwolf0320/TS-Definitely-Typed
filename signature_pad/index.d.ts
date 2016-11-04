@@ -70,7 +70,7 @@ declare namespace SignaturePad {
 }
 
 declare class SignaturePad {
-    points: Array<SignaturePad.Point>;
+    points: SignaturePad.Point[];
     _lastVelocity: number;
     _lastWidth: number;
     _isEmpty: boolean;

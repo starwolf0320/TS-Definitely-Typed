@@ -12,11 +12,11 @@ interface IOptions {
 }
 
 interface IMerge2Stream extends NodeJS.ReadWriteStream {
-    add(...args: Array<NodeJS.ReadWriteStream | IMerge2Stream | Array<NodeJS.ReadWriteStream | IMerge2Stream | IOptions>>): IMerge2Stream;
+    add(...args: (NodeJS.ReadWriteStream | IMerge2Stream | (NodeJS.ReadWriteStream | IMerge2Stream | IOptions)[])[]): IMerge2Stream;
 }
 
 interface IMerge2 {
-    (...args: Array<NodeJS.ReadWriteStream | IMerge2Stream | Array<NodeJS.ReadWriteStream | IMerge2Stream> | IOptions>): IMerge2Stream;
+    (...args: (NodeJS.ReadWriteStream | IMerge2Stream | (NodeJS.ReadWriteStream | IMerge2Stream)[] | IOptions)[]): IMerge2Stream;
 }
 
 declare var _tmp: IMerge2;

@@ -126,10 +126,10 @@ declare module 'angular' {
              * base64 data url representation of the file(s).
              * Could be used to send file in base64 format inside json to the databases
              *
-             * @param  {Array<File>}
+             * @param  {File[]}
              * @return {angular.IPromise}
              */
-            base64DataUrl(files: File | Array<File>): angular.IPromise<string[] | string>;
+            base64DataUrl(files: File | File[]): angular.IPromise<string[] | string>;
             /**
              * Convert the file to blob url object or base64 data url based on boolean disallowObjectUrl value
              *

@@ -58,13 +58,13 @@ interface Router5 {
     isActive(name: String, params?: Object, strictEquality?: Boolean, ignoreQueryParams?: Boolean): Boolean;
     matchPath(path: String): Object;
     matchUrl(url: String): Object;
-    navigate(name: String, ...args: Array<Object | Function>): Function;
+    navigate(name: String, ...args: (Object | Function)[]): Function;
     setAdditionalArgs(args: any[]): void;
     setOption(opt: String, val: any): Router5;
     start(...args: any[]): Router5;
     stop(): Router5;
     urlToPath(path: String): String;
-    useMiddleware(...args: Array<Function>): Router5;
+    useMiddleware(...args: Function[]): Router5;
     usePlugin(pluginFactory: Function): Router5;
 }
 

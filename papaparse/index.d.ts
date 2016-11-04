@@ -116,7 +116,7 @@ declare namespace PapaParse {
      */
     interface ParseResult {
         data: any[];
-        errors: Array<ParseError>;
+        errors: ParseError[];
         meta: ParseMeta;
     }
 

@@ -189,10 +189,10 @@ declare namespace UIkit {
     interface LightBox {
         /**
          * Create dynamic lightbox
-         * @param  {Array<LightBoxItem>} items Group of items on the lightbox
+         * @param  {LightBoxItem[]} items Group of items on the lightbox
          * @return {LightBoxElement}           The lightbox element to show
          */
-        create(items: Array<LightBoxItem>): LightBoxElement;
+        create(items: LightBoxItem[]): LightBoxElement;
         /**
          * Init element manually
          */

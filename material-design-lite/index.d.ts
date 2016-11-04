@@ -57,7 +57,7 @@ declare namespace MaterialDesignLite {
          * @param {!Array<!Element>} elements
          * The elements we wish to upgrade.
          */
-        upgradeElements(elements: Array<HTMLElement>): void;
+        upgradeElements(elements: HTMLElement[]): void;
         /**
          * Upgrades a specific list of elements rather than all in the DOM.
          *
@@ -109,7 +109,7 @@ declare namespace MaterialDesignLite {
          *
          * @param {!Array<!Node>} nodes The list of nodes.
          */
-        downgradeElements(nodes: Array<Node>): void;
+        downgradeElements(nodes: Node[]): void;
         /**
          * Downgrade either a given node, an array of nodes, or a NodeList.
          *

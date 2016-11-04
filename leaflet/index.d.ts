@@ -159,7 +159,7 @@ declare namespace L {
         isValid(): boolean;
     }
 
-    export type LatLngBoundsLiteral = Array<LatLngTuple>;
+    export type LatLngBoundsLiteral = LatLngTuple[];
 
     type LatLngBoundsExpression = LatLngBounds | LatLngBoundsLiteral;
 
@@ -205,7 +205,7 @@ declare namespace L {
 
     export function point(coords: {x: number, y: number}): Point;
 
-    export type BoundsLiteral = Array<PointTuple>;
+    export type BoundsLiteral = PointTuple[];
 
     export interface Bounds {
         extend(point: Point): this;
@@ -233,7 +233,7 @@ declare namespace L {
 
     export function bounds(topLeft: PointTuple, bottomRight: PointTuple): Bounds;
 
-    export function bounds(points: Array<Point>): Bounds;
+    export function bounds(points: Point[]): Bounds;
 
     export function bounds(points: BoundsLiteral): Bounds;
 
@@ -563,52 +563,52 @@ declare namespace L {
     }
 
     interface InternalPolyline extends Path {
-        getLatLngs(): Array<LatLng>;
-        setLatLngs(latlngs: Array<LatLng>): this;
-        setLatLngs(latlngs: Array<LatLngLiteral>): this;
-        setLatLngs(latlngs: Array<LatLngTuple>): this;
+        getLatLngs(): LatLng[];
+        setLatLngs(latlngs: LatLng[]): this;
+        setLatLngs(latlngs: LatLngLiteral[]): this;
+        setLatLngs(latlngs: LatLngTuple[]): this;
         isEmpty(): boolean;
         getCenter(): LatLng;
         getBounds(): LatLngBounds;
         addLatLng(latlng: LatLng): this;
         addLatLng(latlng: LatLngLiteral): this;
         addLatLng(latlng: LatLngTuple): this;
-        addLatLng(latlng: Array<LatLng>): this; // these three overloads aren't explicitly noted in the docs
-        addLatLng(latlng: Array<LatLngLiteral>): this;
-        addLatLng(latlng: Array<LatLngTuple>): this;
+        addLatLng(latlng: LatLng[]): this; // these three overloads aren't explicitly noted in the docs
+        addLatLng(latlng: LatLngLiteral[]): this;
+        addLatLng(latlng: LatLngTuple[]): this;
     }
 
     export interface Polyline extends InternalPolyline {
         toGeoJSON(): GeoJSON.LineString | GeoJSON.MultiLineString;
     }
 
-    export function polyline(latlngs: Array<LatLng>, options?: PolylineOptions): Polyline;
+    export function polyline(latlngs: LatLng[], options?: PolylineOptions): Polyline;
 
-    export function polyline(latlngs: Array<LatLngLiteral>, options?: PolylineOptions): Polyline;
+    export function polyline(latlngs: LatLngLiteral[], options?: PolylineOptions): Polyline;
 
-    export function polyline(latlngs: Array<LatLngTuple>, options?: PolylineOptions): Polyline;
+    export function polyline(latlngs: LatLngTuple[], options?: PolylineOptions): Polyline;
 
-    export function polyline(latlngs: Array<Array<LatLng>>, options?: PolylineOptions): Polyline;
+    export function polyline(latlngs: LatLng[][], options?: PolylineOptions): Polyline;
 
-    export function polyline(latlngs: Array<Array<LatLngLiteral>>, options?: PolylineOptions): Polyline;
+    export function polyline(latlngs: LatLngLiteral[][], options?: PolylineOptions): Polyline;
 
-    export function polyline(latlngs: Array<Array<LatLngTuple>>, options?: PolylineOptions): Polyline;
+    export function polyline(latlngs: LatLngTuple[][], options?: PolylineOptions): Polyline;
 
     export interface Polygon extends InternalPolyline {
         toGeoJSON(): GeoJSON.Polygon | GeoJSON.MultiPolygon;
     }
 
-    export function polygon(latlngs: Array<LatLng>, options?: PolylineOptions): Polygon;
+    export function polygon(latlngs: LatLng[], options?: PolylineOptions): Polygon;
 
-    export function polygon(latlngs: Array<LatLngLiteral>, options?: PolylineOptions): Polygon;
+    export function polygon(latlngs: LatLngLiteral[], options?: PolylineOptions): Polygon;
 
-    export function polygon(latlngs: Array<LatLngTuple>, options?: PolylineOptions): Polygon;
+    export function polygon(latlngs: LatLngTuple[], options?: PolylineOptions): Polygon;
 
-    export function polygon(latlngs: Array<Array<LatLng>>, options?: PolylineOptions): Polygon;
+    export function polygon(latlngs: LatLng[][], options?: PolylineOptions): Polygon;
 
-    export function polygon(latlngs: Array<Array<LatLngLiteral>>, options?: PolylineOptions): Polygon;
+    export function polygon(latlngs: LatLngLiteral[][], options?: PolylineOptions): Polygon;
 
-    export function polygon(latlngs: Array<Array<LatLngTuple>>, options?: PolylineOptions): Polygon;
+    export function polygon(latlngs: LatLngTuple[][], options?: PolylineOptions): Polygon;
 
     export interface Rectangle extends Polygon {
         setBounds(latLngBounds: LatLngBounds): this;
@@ -672,9 +672,9 @@ declare namespace L {
     export namespace SVG {
         export function create(name: string): SVGElement;
 
-        export function pointsToPath(rings: Array<Point>, close: boolean): string;
+        export function pointsToPath(rings: Point[], close: boolean): string;
 
-        export function pointsToPath(rings: Array<PointTuple>, close: boolean): string;
+        export function pointsToPath(rings: PointTuple[], close: boolean): string;
     }
 
     export function svg(options?: RendererOptions): SVG;
@@ -739,7 +739,7 @@ declare namespace L {
         /**
          * Returns an array of all the layers added to the group.
          */
-        getLayers(): Array<Layer>;
+        getLayers(): Layer[];
 
         /**
          * Calls setZIndex on every layer contained in this group, passing the z-index.
@@ -755,7 +755,7 @@ declare namespace L {
     /**
      * Create a layer group, optionally given an initial set of layers.
      */
-    export function layerGroup(layers: Array<Layer>): LayerGroup;
+    export function layerGroup(layers: Layer[]): LayerGroup;
 
     /**
      * Extended LayerGroup that also has mouse events (propagated from
@@ -787,7 +787,7 @@ declare namespace L {
     /**
      * Create a feature group, optionally given an initial set of layers.
      */
-    export function featureGroup(layers?: Array<Layer>): FeatureGroup;
+    export function featureGroup(layers?: Layer[]): FeatureGroup;
 
     type StyleFunction = (feature: GeoJSON.Feature<GeoJSON.GeometryObject>) => PathOptions;
 
@@ -906,7 +906,7 @@ declare namespace L {
          * appended to the end of the array to close the feature, only used when levelsDeep is 0.
          * False by default.
          */
-        latLngsToCoords(latlngs: Array<LatLng>, levelsDeep?: number, closed?: boolean): [number, number] | [number, number, number];
+        latLngsToCoords(latlngs: LatLng[], levelsDeep?: number, closed?: boolean): [number, number] | [number, number, number];
 
         /**
          * Normalize GeoJSON geometries/features into GeoJSON features.
@@ -949,7 +949,7 @@ declare namespace L {
         zoom?: number;
         minZoom?: number;
         maxZoom?: number;
-        layers?: Array<Layer>;
+        layers?: Layer[];
         maxBounds?: LatLngBoundsExpression;
         renderer?: Renderer;
 

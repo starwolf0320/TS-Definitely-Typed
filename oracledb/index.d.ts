@@ -147,7 +147,7 @@ declare namespace oracledb {
 
 	interface IExecuteReturn {
 		/** Metadata information - column names is always given. If the Oracledb extendedMetaData or execute() option extendedMetaData are true then additional information is included. */
-		metaData?: Array<IMetaData>;
+		metaData?: IMetaData[];
 		/** This is either an array or an object containing OUT and IN OUT bind values. If bindParams is passed as an array, then outBinds is returned as an array. If bindParams is passed as an object, then outBinds is returned as an object. */
 		outBinds?: any[] | Object;
 		/** For SELECT statements when the resultSet option is true, use the resultSet object to fetch rows. See ResultSet Class. */
@@ -180,7 +180,7 @@ declare namespace oracledb {
 		 * Contains an array of objects with metadata about the query or REF CURSOR columns.
 		 * Each column's name is always given. If the Oracledb extendedMetaData or execute() option extendedMetaData are true then additional information is included.
 		 */
-		metaData?: Array<IMetaData>;
+		metaData?: IMetaData[];
 
 		/**
 		 * Closes a ResultSet. Applications should always call this at the end of fetch or when no more rows are needed.

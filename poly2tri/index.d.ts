@@ -70,23 +70,23 @@ declare namespace poly2tri {
 
 
     class SweepContext {
-        constructor(contour: Array<IPointLike>);
+        constructor(contour: IPointLike[]);
 
-        constructor(contour: Array<IPointLike>, options: JSON);
+        constructor(contour: IPointLike[], options: JSON);
 
-        addHole(polyline: Array<IPointLike>): SweepContext;
+        addHole(polyline: IPointLike[]): SweepContext;
 
-        addHoles(holes: Array<Array<IPointLike>>): SweepContext;
+        addHoles(holes: IPointLike[][]): SweepContext;
 
         addPoint(point: IPointLike): SweepContext;
 
-        addPoints(point: Array<IPointLike>): SweepContext;
+        addPoints(point: IPointLike[]): SweepContext;
 
         triangulate(): SweepContext;
 
         getBoundingBox(): { min: IPointLike; max: IPointLike; };
 
-        getTriangles(): Array<Triangle>;
+        getTriangles(): Triangle[];
     }
 
     class Triangle {
@@ -96,7 +96,7 @@ declare namespace poly2tri {
 
         getPoint(index: number): IPointLike;
 
-        getPoints(): Array<IPointLike>;
+        getPoints(): IPointLike[];
 
         containsPoint(point: IPointLike): boolean;
 

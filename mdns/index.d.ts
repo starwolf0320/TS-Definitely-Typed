@@ -38,7 +38,7 @@ declare namespace MDNS {
     // --- Browser ---
 
     interface BrowserOptions {
-        resolverSequence?: Array<(service: Service, next: () => void) => boolean>;
+        resolverSequence?: ((service: Service, next: () => void) => boolean)[];
         interfaceIndex?: number;
         networkInterface?: string;
         domain?: any;
@@ -56,7 +56,7 @@ declare namespace MDNS {
 
     interface BrowserStatic {
         new(serviceType: ServiceType, options?: BrowserOptions): Browser;
-        defaultResolverSequence: Array<(service: Service, next: () => void) => boolean>;
+        defaultResolverSequence: ((service: Service, next: () => void) => boolean)[];
     }
 
     // --- Services ---
@@ -137,7 +137,7 @@ declare namespace MDNS {
 
     function createAdvertisement(serviceType: ServiceType, port: number, options?: AdvertisementOptions, callback?: (error: DnsSdError, service: Service) => void): Advertisement;
 
-    function resolve(service: Service, sequence?: Array<(service: Service, next: () => void) => boolean>, callback?: (error: DnsSdError, service: Service) => void): void;
+    function resolve(service: Service, sequence?: ((service: Service, next: () => void) => boolean)[], callback?: (error: DnsSdError, service: Service) => void): void;
 
     function browseThemAll(options: BrowserOptions): Browser;
 

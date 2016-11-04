@@ -85,10 +85,10 @@ declare namespace SimpleMDE {
         shortcuts?: ShortcutsArray;
         showIcons?: string[];
         spellChecker?: boolean;
-        status?: boolean|Array<string|StatusBarItem>;
+        status?: boolean|(string|StatusBarItem)[];
         styleSelectedText?: boolean;
         tabSize?: number;
-        toolbar?: boolean|Array<string|ToolbarIcon>;
+        toolbar?: boolean|(string|ToolbarIcon)[];
         toolbarTips?: boolean;
     }
 }

@@ -28,7 +28,7 @@ declare namespace polymer {
         elementMatches(selector: string, node: Element): any;
         fire(type: string, detail?: Object, options?: FireOptions): any;
         flushDebouncer(jobName: string): void;
-        get(path: string | Array<string | number>): any;
+        get(path: string | (string | number)[]): any;
         getContentChildNodes(slctr: string): any;
         getContentChildren(slctr: string): any;
         getNativePrototype(tag: string): any;
@@ -54,7 +54,7 @@ declare namespace polymer {
         scopeSubtree(container: Element, shouldObserve: boolean): void;
         serialize(value: string): any;
         serializeValueToAttribute(value: any, attribute: string, node: Element): void;
-        set(path: string | Array<string | number>, value: any, root?: Object): any;
+        set(path: string | (string | number)[], value: any, root?: Object): any;
         setScrollDirection(direction: string, node: HTMLElement): void;
         shift(path: string, value: any): any;
         splice(path: string, start: number, deleteCount: number, ...items: any[]): any;

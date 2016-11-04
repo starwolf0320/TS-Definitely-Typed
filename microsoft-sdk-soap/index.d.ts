@@ -16,7 +16,7 @@ declare namespace Sdk {
 
     interface IEntityCollectionView {
         entityName: string;
-        entities: Array<IEntityView>;
+        entities: IEntityView[];
         minActiveRowVersion: string;
         moreRecords: boolean;
         pagingCookie: string;
@@ -185,7 +185,7 @@ declare namespace Sdk {
          * @param type The function that specifies the type.
          * @param items An array of items to add to the collection.
          */
-        constructor( type: T, items?: Array<T> );
+        constructor( type: T, items?: T[] );
 
         /**
          * Gets the type defined for the collection.
@@ -248,7 +248,7 @@ declare namespace Sdk {
         /**
          * Gets a copy of the array of items in the collection.
          */
-        toArray(): Array<T>;
+        toArray(): T[];
 
         /**
          * Returns the number of items in the collection.
@@ -1116,7 +1116,7 @@ declare namespace Sdk {
         /***
          *
          */
-        public getEntityMetadata(): Array<Mdq.IEntityMetadata>;
+        public getEntityMetadata(): Mdq.IEntityMetadata[];
 
         /***
          *
@@ -2297,7 +2297,7 @@ declare namespace Sdk.Mdq {
      * @param propertyNames: >An array of strings representing the metadata properties to retrieve.
      */
     export class MetadataPropertiesExpression {
-        constructor( allProperties: boolean, propertyNames?: Array<EntityMetadataProperties|AttributeMetadataProperties|RelationshipMetadataProperties|any> );
+        constructor( allProperties: boolean, propertyNames?: (EntityMetadataProperties|AttributeMetadataProperties|RelationshipMetadataProperties|any)[] );
     }
 
     export enum RelationshipMetadataProperties {

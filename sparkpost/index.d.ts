@@ -167,7 +167,7 @@ declare class SparkPost {
          */
         all(callback: SparkPost.ResultsCallback<SparkPost.SubaccountInformation[]>): void;
         /**
-         * 
+         *
          * @param subaccountId The webhook id
          * @param callback The request callback with subaccount information results
          */
@@ -286,13 +286,13 @@ declare class SparkPost {
          * List currently existing webhooks.
          * @param callback The request callback with RelayWebhook results array
          */
-        all(callback: SparkPost.ResultsCallback<Array<SparkPost.WebhookLinks & SparkPost.Webhook>>): void;
+        all(callback: SparkPost.ResultsCallback<(SparkPost.WebhookLinks & SparkPost.Webhook)[]>): void;
         /**
          * List currently existing webhooks.
          * @param options Object containing optional timezone
          * @param callback The request callback with RelayWebhook results array
          */
-        all(options: { timezone?: string }, callback: SparkPost.ResultsCallback<Array<SparkPost.WebhookLinks & SparkPost.Webhook>>): void;
+        all(options: { timezone?: string }, callback: SparkPost.ResultsCallback<(SparkPost.WebhookLinks & SparkPost.Webhook)[]>): void;
         /**
          * Retrieve details about a specified webhook by its id
          * @param options Object containing id and optional timezone
@@ -343,7 +343,7 @@ declare class SparkPost {
         }[]>): void;
         /**
          * Lists descriptions of the events, event types, and event fields that could be included in a Webhooks post to your target URL.
-         * @param callback The request callback containing documentation results 
+         * @param callback The request callback containing documentation results
          */
         getDocumentation(callback: SparkPost.ResultsCallback<any>): void;
         /**
@@ -463,7 +463,7 @@ declare namespace SparkPost {
 
     export interface MessageEventParameters {
         /** delimited list of bounce classification codes to search. (See Bounce Classification Codes.) */
-        bounce_classes?: Array<string | number> | string | number;
+        bounce_classes?: (string | number)[] | string | number;
         /** delimited list of campaign ID’s to search (i.e. the campaign id used during creation of a transmission). */
         campaign_ids?: string[] | string;
         /** Specifies the delimiter for query parameter lists */

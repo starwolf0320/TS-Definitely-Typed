@@ -109,7 +109,7 @@ declare namespace maquette {
   }
 
   // The following line is not possible in Typescript, hence the workaround in the two lines below
-  // export type VNodeChild = string|VNode|Array<VNodeChild>
+  // export type VNodeChild = string|VNode|VNodeChild[]
   export interface VNodeChildren extends Array<VNodeChild> {} // A bit of a hack to create a recursive type
   export type VNodeChild = string|VNode|VNodeChildren;
 
@@ -151,21 +151,21 @@ declare namespace maquette {
      *
      * @param {string} selector - Contains the tagName, id and fixed css classnames in CSS selector format. It is formatted as follows: `tagname.cssclass1.cssclass2#id`.
      * @param {Object} properties - An object literal containing attributes, properties, event handlers and more be placed on the DOM node.
-     * @param {Array<VNodeChild>} children - An array of virtual DOM nodes and strings to add as child nodes. May contain nested arrays, null or undefined.
+     * @param {VNodeChild[]} children - An array of virtual DOM nodes and strings to add as child nodes. May contain nested arrays, null or undefined.
      *
      * @returns {VNode} A VNode object, used to render a real DOM later.
      */
-  export function h(selector: string, properties: VNodeProperties, children: Array<VNodeChild>): VNode;
+  export function h(selector: string, properties: VNodeProperties, children: VNodeChild[]): VNode;
     /**
      * Creates a virtual DOM node, used to render a real DOM later.
      * The `h` stands for (virtual) hyperscript.
      *
      * @param {string} selector - Contains the tagName, id and fixed css classnames in CSS selector format. It is formatted as follows: `tagname.cssclass1.cssclass2#id`.
-     * @param {Array<VNodeChild>} children - An array of virtual DOM nodes and strings to add as child nodes. May contain nested arrays, null or undefined.
+     * @param {VNodeChild[]} children - An array of virtual DOM nodes and strings to add as child nodes. May contain nested arrays, null or undefined.
      *
      * @returns {VNode} A VNode object, used to render a real DOM later.
      */
-  export function h(selector: string, children: Array<VNodeChild>): VNode;
+  export function h(selector: string, children: VNodeChild[]): VNode;
     /**
      * Creates a virtual DOM node, used to render a real DOM later.
      * The `h` stands for (virtual) hyperscript.
@@ -193,7 +193,7 @@ declare namespace maquette {
   export interface VNode {
     vnodeSelector: string;
     properties: VNodeProperties;
-    children: Array<VNode>;
+    children: VNode[];
   }
 
   // Not used anywhere in the maquette sourcecode, but it is a widely used pattern.
@@ -235,12 +235,12 @@ declare namespace maquette {
          * The array of results. These results will be synchronized with the latest array of sources that were provided using {@link Mapping#map}.
          * @type {Object[]}
          */
-    results: Array<Target>;
+    results: Target[];
         /**
          * Maps a new array of sources and updates {@link Mapping#results}.
          * @param {Object[]} newSources - The new array of sources.
          */
-    map(newSources: Array<Source>): void;
+    map(newSources: Source[]): void;
   }
 
   /**

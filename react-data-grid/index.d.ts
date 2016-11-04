@@ -25,7 +25,7 @@ declare namespace AdazzleReactDataGrid {
         /**
          * The columns to render.
          */
-        columns?: Array<Column>;
+        columns?: Column[];
 
         /**
          * Invoked when the user changes the value of a single cell.

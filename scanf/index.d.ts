@@ -79,7 +79,7 @@ declare namespace __node_scanf {
 	 * @param format The format contains a sequence of characters that control how characters extracted from the stream are tread.
 	 * @return An array containing data constructed from stdin with the <i>format</i>.
 	 */
-	function scanf(format: string): Array<number|string>;
+	function scanf(format: string): (number|string)[];
 
 	/**
 	 * <p> Reads formatted data from stdin. </p>
@@ -179,7 +179,7 @@ declare namespace __node_scanf {
 		 *
 		 * @return An array containing data constructed from string with the <i>format</i>.
 		 */
-		function sscanf(source: string, format: string): Array<number|string>;
+		function sscanf(source: string, format: string): (number|string)[];
 
 		/**
 		 * <p> Reads formatted data from string. </p>

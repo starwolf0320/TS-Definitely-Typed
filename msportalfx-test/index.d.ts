@@ -19,14 +19,14 @@ declare namespace MsPortalTestFx {
         }
 
         export class ContentLocator extends Locator {
-            locators: Array<Locator>;
+            locators: Locator[];
             constructor(innerLocators: Locator[]);
             findElements(context: any): any;
             toString(): string;
         }
 
         export class ChainedLocator extends Locator {
-            locators: Array<Locator>;
+            locators: Locator[];
             constructor(innerLocators: Locator[]);
             findElements(context: any): any;
             toString(): string;
@@ -174,7 +174,7 @@ declare namespace MsPortalTestFx {
         }
 
         export class ResourceSummaryPart extends Part {
-            public properties: Array<PartProperty>;
+            public properties: PartProperty[];
             public resourceGroupProperty: PartProperty;
             public quickStartHotSpot: Controls.HotSpot;
             public accessHotSpot: Controls.HotSpot;

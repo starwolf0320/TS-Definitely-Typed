@@ -132,7 +132,7 @@ declare namespace LaunchDarkly {
          * Any additional attributes associated with the user.
          */
         custom?: {
-            [key: string]: string | boolean | number | Array<string | boolean | number>,
+            [key: string]: string | boolean | number | (string | boolean | number)[],
         };
     }
 

@@ -81,7 +81,7 @@ declare class Layer {
     path: string;
 
     constructor(path: string | RegExp, methods: string[], middleware: Router.IMiddleware, opts?: Layer.ILayerOptions);
-    constructor(path: string | RegExp, methods: string[], middleware: Array<Router.IMiddleware>, opts?: Layer.ILayerOptions);
+    constructor(path: string | RegExp, methods: string[], middleware: Router.IMiddleware[], opts?: Layer.ILayerOptions);
 
     /**
      * Returns whether request `path` matches route.
@@ -118,7 +118,7 @@ declare class Router {
 
     params: Object;
 
-    stack: Array<Layer>;
+    stack: Layer[];
 
     /**
      * Create a new router.
@@ -132,62 +132,62 @@ declare class Router {
      * sequentially, requests start at the first middleware and work their way
      * "down" the middleware stack.
      */
-    use(...middleware: Array<Router.IMiddleware>): Router;
-    use(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
+    use(...middleware: Router.IMiddleware[]): Router;
+    use(path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
 
     /**
      * HTTP get method
      */
-    get(name: string, path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
-    get(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
+    get(name: string, path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
+    get(path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
 
     /**
      * HTTP post method
      */
-    post(name: string, path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
-    post(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
+    post(name: string, path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
+    post(path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
 
     /**
      * HTTP put method
      */
-    put(name: string, path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
-    put(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
+    put(name: string, path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
+    put(path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
 
     /**
      * HTTP delete method
      */
-    delete(name: string, path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
-    delete(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
+    delete(name: string, path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
+    delete(path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
 
     /**
      * Alias for `router.delete()` because delete is a reserved word
      */
-    del(name: string, path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
-    del(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
+    del(name: string, path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
+    del(path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
 
     /**
      * HTTP head method
      */
-    head(name: string, path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
-    head(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
+    head(name: string, path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
+    head(path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
 
     /**
      * HTTP options method
      */
-    options(name: string, path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
-    options(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
+    options(name: string, path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
+    options(path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
 
     /**
      * HTTP path method
      */
-    patch(name: string, path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
-    patch(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
+    patch(name: string, path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
+    patch(path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
 
     /**
      * Register route with all methods.
      */
-    all(name: string, path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
-    all(path: string | RegExp, ...middleware: Array<Router.IMiddleware>): Router;
+    all(name: string, path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
+    all(path: string | RegExp, ...middleware: Router.IMiddleware[]): Router;
 
     /**
      * Set the path prefix for a Router instance that was already initialized.

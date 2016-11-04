@@ -18,7 +18,7 @@ declare namespace serveIndex {
     interface Locals {
         directory: string;
         displayIcons: boolean;
-        fileList: Array<File>;
+        fileList: File[];
         name: string;
         stat: fs.Stats;
         path: string;
@@ -29,7 +29,7 @@ declare namespace serveIndex {
     type templateCallback = (error: Error, htmlString?: string) => void;
 
     interface Options {
-        filter?: (filename: string, index: number, files: Array<File>, dir: string) => boolean;
+        filter?: (filename: string, index: number, files: File[], dir: string) => boolean;
         hidden?: boolean;
         icons?: boolean;
         stylesheet?: string;

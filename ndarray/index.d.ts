@@ -3,7 +3,7 @@
 // Definitions by: Giff Song <https://github.com/pawsong/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-type Data = Array<number> | Int8Array | Int16Array | Int32Array |
+type Data = number[] | Int8Array | Int16Array | Int32Array |
             Uint8Array | Uint16Array | Uint32Array |
             Float32Array | Float64Array | Uint8ClampedArray;
 

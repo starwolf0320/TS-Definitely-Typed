@@ -337,7 +337,7 @@ declare namespace PlayerFramework {
 			/**
 			*
 			**/
-			playlist: Array<PlaylistItem>;
+			playlist: PlaylistItem[];
 			/**
 			*
 			**/

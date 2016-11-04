@@ -5,7 +5,7 @@
 
 
 interface Uniq {
-  <T>(ip: Array<T>): Array<T>;
+  <T>(ip: T[]): T[];
 }
 
 declare var uniq: Uniq;

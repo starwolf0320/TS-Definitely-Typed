@@ -96,7 +96,7 @@ interface TransitionPlainStyle {
     // same as TransitionStyle, passed as argument to style/children function
     style: PlainStyle;
 }
-type InterpolateFunction = (previousInterpolatedStyles?: Array<TransitionPlainStyle>) => Array<TransitionStyle>;
+type InterpolateFunction = (previousInterpolatedStyles?: TransitionPlainStyle[]) => TransitionStyle[];
 /**
  * Transition properties
  */
@@ -104,13 +104,13 @@ interface TransitionProps {
     /**
      * Default styles on first render
      */
-    defaultStyles?: Array<TransitionPlainStyle>;
+    defaultStyles?: TransitionPlainStyle[];
     /**
      * Styles to interpolate. Accepts array of TransitionStyle objects or interpolated function similar as for
      * <StaggeredMotion/>
      */
-    styles: Array<TransitionStyle> | InterpolateFunction;
-    children: (interpolatedStyles: Array<TransitionPlainStyle>) => ReactElement<any>;
+    styles: TransitionStyle[] | InterpolateFunction;
+    children: (interpolatedStyles: TransitionPlainStyle[]) => ReactElement<any>;
     /**
      * Triggers when new elements appears
      * @param styleThatEntered
@@ -129,12 +129,12 @@ interface StaggeredMotionProps {
     /**
      * Default styles
      */
-    defaultStyles?: Array<PlainStyle>;
+    defaultStyles?: PlainStyle[];
     /**
      * Styles to interpolate
      * @param previousInterpolatedStyles The previously interpolating (array of) styles (undefined at first render, unless defaultStyles is provided).
      */
-    styles: (previousInterpolatedStyles?: Array<PlainStyle>) => Array<Style>;
+    styles: (previousInterpolatedStyles?: PlainStyle[]) => Style[];
 }
 export declare class StaggeredMotion extends Component<StaggeredMotionProps, any> { }
 

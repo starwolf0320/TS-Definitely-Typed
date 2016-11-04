@@ -10,7 +10,7 @@ declare module "pkijs/src/Attribute" {
     export default class Attribute {
 
         type: string;
-        value: Array<any>;
+        value: any[];
 
         constructor(params?: any);
 

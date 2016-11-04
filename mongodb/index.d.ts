@@ -105,7 +105,7 @@ export interface ServerOptions {
     ssl?: boolean;
     sslValidate?: Object;
     checkServerIdentity?: boolean | Function;
-    sslCA?: Array<Buffer | string>;
+    sslCA?: (Buffer | string)[];
     sslCert?: Buffer | string;
     sslKey?: Buffer | string;
     sslPass?: Buffer | string;
@@ -126,7 +126,7 @@ export interface ReplSetOptions {
     ssl?: boolean;
     sslValidate?: Object;
     checkServerIdentity?: boolean | Function;
-    sslCA?: Array<Buffer | string>;
+    sslCA?: (Buffer | string)[];
     sslCert?: Buffer | string;
     sslKey?: Buffer | string;
     sslPass?: Buffer | string;
@@ -142,7 +142,7 @@ export interface MongosOptions {
     ssl?: boolean;
     sslValidate?: Object;
     checkServerIdentity?: boolean | Function;
-    sslCA?: Array<Buffer | string>;
+    sslCA?: (Buffer | string)[];
     sslCert?: Buffer | string;
     sslKey?: Buffer | string;
     sslPass?: Buffer | string;
@@ -251,14 +251,14 @@ export class Server extends EventEmitter {
 
 // Deprecated http://mongodb.github.io/node-mongodb-native/2.1/api/ReplSet.html
 export class ReplSet extends EventEmitter {
-    constructor(servers: Array<Server>, options?: ReplSetOptions);
+    constructor(servers: Server[], options?: ReplSetOptions);
 
     connections(): any[];
 }
 
 // Deprecated http://mongodb.github.io/node-mongodb-native/2.1/api/ReplSet.html
 export class Mongos extends EventEmitter {
-    constructor(servers: Array<Server>, options?: MongosOptions);
+    constructor(servers: Server[], options?: MongosOptions);
 
     connections(): any[];
 }
@@ -1036,7 +1036,7 @@ export interface FindOneOptions {
 export interface InsertWriteOpResult {
     insertedCount: number;
     ops: any[];
-    insertedIds: Array<ObjectID>;
+    insertedIds: ObjectID[];
     connection: any;
     result: { ok: number, n: number };
 }

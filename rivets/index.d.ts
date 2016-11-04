@@ -60,7 +60,7 @@ declare namespace Rivets {
 
         bind(element: HTMLElement, models: Object, options?: Object): View;
         bind(element: JQuery, models: Object, options?: Object): View;
-        bind(element: Array<HTMLElement>, models: Object, options?: Object): View;
+        bind(element: HTMLElement[], models: Object, options?: Object): View;
     }
 }
 

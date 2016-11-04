@@ -49,7 +49,7 @@ declare namespace PhoneGapNfc {
         canMakeReadOnly: boolean;
         isWritable: boolean;
         maxSize: number;
-        ndefMessage: Array<NdefRecord>;
+        ndefMessage: NdefRecord[];
     }
 
     interface TagEvent extends Event {
@@ -200,7 +200,7 @@ declare namespace PhoneGapNfc {
          *
          * @return NdefRecord
          */
-        smartPoster(ndefRecords: Array<NdefRecord>, id: number[]): NdefRecord;
+        smartPoster(ndefRecords: NdefRecord[], id: number[]): NdefRecord;
 
         /**
          * Helper that creates an empty NdefRecord.
@@ -225,7 +225,7 @@ declare namespace PhoneGapNfc {
          *
          * @see NFC Data Exchange Format (NDEF) http://www.nfc-forum.org/specs/spec_list/
          */
-        encodeMessage(ndefRecords: Array<NdefRecord>): number[];
+        encodeMessage(ndefRecords: NdefRecord[]): number[];
 
         /**
          * Decodes an array bytes into an NDEF Message
@@ -236,7 +236,7 @@ declare namespace PhoneGapNfc {
          *
          * @see NFC Data Exchange Format (NDEF) http://www.nfc-forum.org/specs/spec_list/
          */
-        decodeMessage(bytes: number[]): Array<NdefRecord>;
+        decodeMessage(bytes: number[]): NdefRecord[];
 
         /**
          * Decode the bit flags from a TNF Byte.
@@ -340,7 +340,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the tag is written.
          * @param fail The callback that is called if there was an error.
          */
-        write(ndefMessage: Array<NdefRecord>, win?: () => void, fail?: () => void): void;
+        write(ndefMessage: NdefRecord[], win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.makeReadOnly make a NFC tag read only.
@@ -358,7 +358,7 @@ declare namespace PhoneGapNfc {
          * @param win The callback that is called when the message is pushed.
          * @param fail The callback that is called if there was an error.
          */
-        share(ndefMessage: Array<NdefRecord>, win?: () => void, fail?: () => void): void;
+        share(ndefMessage: NdefRecord[], win?: () => void, fail?: () => void): void;
 
         /**
          * Function nfc.unshare stops sharing data via peer-to-peer.

@@ -113,7 +113,7 @@ declare namespace H {
          * @param opt_x2 {number=} - The X coordinate of the right edge of the capturing rectangle defaults to viewport width
          * @param opt_y2 {number=} - The Y coordinate of the bottom edge of the capturing rectangle defaults to viewport height
          */
-        capture(callback?: (canvas: HTMLCanvasElement) => void, opt_capturables?: Array<H.util.ICapturable>, opt_x1?: number, opt_y1?: number, opt_x2?: number, opt_y2?: number): void;
+        capture(callback?: (canvas: HTMLCanvasElement) => void, opt_capturables?: H.util.ICapturable[], opt_x1?: number, opt_y1?: number, opt_x2?: number, opt_y2?: number): void;
 
         /**
          * This method sets the rendering engine type for the map. Rendering engine is responsible for displaying i.e tiles and data on the map.
@@ -180,7 +180,7 @@ declare namespace H {
          * @param x {number} - map viewport x-axis pixel coordinate
          * @param y {number} - map viewport y-axis pixel coordinate
          * @returns {?H.geo.Point}
-         */
+         */map.
         screenToGeo(x: number, y: number): H.geo.Point;
 
         /**
@@ -207,23 +207,23 @@ declare namespace H {
 
         /**
          * This method retrieves the list of all objects which have been added to the map.
-         * @returns {Array<H.map.Object>} - the list of all use objects which are currently on the map.
+         * @returns {H.map.Object[]} - the list of all use objects which are currently on the map.
          */
-        getObjects(): Array<H.map.Object>;
+        getObjects(): H.map.Object[];
 
         /**
          * This method adds an array of objects or an object group to the map.
          * @param mapObjects {Array<!H.map.Object>}
          * @returns {H.Map} - the map instance
          */
-        addObjects(mapObjects: Array<H.map.Object>): H.Map;
+        addObjects(mapObjects: H.map.Object[]): H.Map;
 
         /**
          * This method removes an array of object or an object group from the map.
-         * @param mapObjects {(Array<H.map.Object> | H.map.Group)}
+         * @param mapObjects {(H.map.Object[] | H.map.Group)}
          * @returns {H.Map} - the map instance
          */
-        removeObjects(mapObjects: (Array<H.map.Object> | H.map.Group)): H.Map;
+        removeObjects(mapObjects: (H.map.Object[] | H.map.Group)): H.Map;
 
         /**
          * Returns the top most z-ordered map object found under the specific screen coordinates. Coordinates are viewport pixel coordinates starting from top left corner as (0, 0) point.
@@ -239,7 +239,7 @@ declare namespace H {
          * @param y {number} - map viewport y-axis pixel coordinate
          * @returns {Array<!H.map.Object>}
          */
-        getObjectsAt(x: number, y: number): Array<H.map.Object>;
+        getObjectsAt(x: number, y: number): H.map.Object[];
 
         /**
          * This method will dispatch event on the event target object
@@ -284,7 +284,7 @@ declare namespace H {
          * @property center {H.geo.IPoint=} - The initial center of the map, default is {lat:0, lng: 0}
          * @property zoom {number=} - The initial zoom level of the map, default is 0 respectively the minimal zoom level of the base map
          * @property bounds {H.geo.Rect=} - The view bounds to be displayed on the map. If provided, it takes precedence over center and zoom. and zoom if provided)
-         * @property layers {Array<H.map.layer.Layer>=} - A list of layers to render on top of the base map
+         * @property layers {H.map.layer.Layer[]=} - A list of layers to render on top of the base map
          * @property engineType: {H.Map.EngineType=} - The initial engine type to use, default is P2D
          * @property pixelRatio {number} - The pixelRatio to use for over-sampling in cases of high-resolution displays, default is 1
          * @property imprint {H.map.Imprint.Options=} - The imprint options or null to suppress the imprint
@@ -298,7 +298,7 @@ declare namespace H {
             center?: H.geo.IPoint;
             zoom?: number;
             bounds?: H.geo.Rect;
-            layers?: Array<H.map.layer.Layer>;
+            layers?: H.map.layer.Layer[];
             engineType?: EngineType;
             pixelRatio?: number;
             imprint?: H.map.Imprint.Options;
@@ -676,9 +676,9 @@ declare namespace H {
 
             /**
              * Method returns collection of currently parsed, and converted to H.map.Object data objects. Method returns only currently parsed objects if parsing is ongoing.
-             * @returns {Array<H.map.Object>}
+             * @returns {H.map.Object[]}
              */
-            getParsedObjects(): Array<H.map.Object>;
+            getParsedObjects(): H.map.Object[];
 
             /**
              * Returns URL of the current file, which is either in process of fetching/parsing or file that has been already parsed.
@@ -1372,7 +1372,7 @@ declare namespace H {
              * Constructor
              * @param opt_layers {Array=} - array of layers to be added to the data model
              */
-            constructor(opt_layers?: Array<H.map.layer.Layer>);
+            constructor(opt_layers?: H.map.layer.Layer[]);
         }
 
         /**
@@ -1488,7 +1488,7 @@ declare namespace H {
              * @param opt_recursive {boolean=} - Indicates whether objects in sub-groups are also collected .
              * @returns {!Array<!H.map.Object>}
              */
-            getObjects(opt_recursive?: boolean): Array<H.map.Object>;
+            getObjects(opt_recursive?: boolean): H.map.Object[];
 
             /**
              * Method returns the bounding rectangle for the group. The rectangle is the smallest rectangle that covers all objects. If group doesn't contains objects method returns null.
@@ -1507,7 +1507,7 @@ declare namespace H {
              * Appends a list of objects to this group
              * @param objects {Array<!H.map.Object>}
              */
-            addObjects(objects: Array<H.map.Object>): void;
+            addObjects(objects: H.map.Object[]): void;
 
             /**
              * Removes an object from this group.
@@ -1520,7 +1520,7 @@ declare namespace H {
              * Removes objects from this group.
              * @param objects {!Array<!H.map.Object>} - The list of objects to remove
              */
-            removeObjects(objects: Array<H.map.Object>): void;
+            removeObjects(objects: H.map.Object[]): void;
 
             /**
              * Method removes all objects from the group.
@@ -1537,7 +1537,7 @@ declare namespace H {
              * @property zIndex {number=} - The z-index value of the map object, default is 0
              * @property provider {(H.map.provider.Provider | null)=} - The provider of this object. This property is only needed if a customized Implementation of ObjectProvider wants to instantiate an object.
              * @property data {*} - Optional arbitrary data to be stored with this map object. This data can be retrieved by calling getData.
-             * @property objects {Array<H.map.Object>=} - A list of map objects to add initially to this group.
+             * @property objects {H.map.Object[]=} - A list of map objects to add initially to this group.
              */
             export interface Options {
                 min?: number;
@@ -1546,7 +1546,7 @@ declare namespace H {
                 zIndex?: number;
                 provider?: H.map.provider.Provider;
                 data?: any;
-                objects?: Array<H.map.Object>;
+                objects?: H.map.Object[];
             }
         }
 
@@ -3343,7 +3343,7 @@ declare namespace H {
                  * @param x {number} - The row number of the tile
                  * @param y {number} - The column number of the tile
                  * @param z {number} - The zoom level for which the tile is requested
-                 * @param onResponse {function((Array<H.map.Object> | HTMLImageElement | HTMLCanvasElement | ArrayBuffer | null), *=)} - function which is called after response arrives
+                 * @param onResponse {function((H.map.Object[] | HTMLImageElement | HTMLCanvasElement | ArrayBuffer | null), *=)} - function which is called after response arrives
                  * @param onError {function(string=)} - function which is called in case of communication error
                  * @param opt_priority {H.net.Request.Priority=} - optional request priority level
                  * @returns {H.util.ICancelable}
@@ -3354,7 +3354,7 @@ declare namespace H {
                     z: number,
 
                     onResponse?: (
-                        object: Array<H.map.Object> | HTMLImageElement | HTMLCanvasElement | ArrayBuffer,
+                        object: H.map.Object[] | HTMLImageElement | HTMLCanvasElement | ArrayBuffer,
                         response: any
                     ) => void,
 

@@ -14,7 +14,7 @@ declare namespace mock {
          * @param plugins An array of Plugin objects.
          * @param skipDefaults Set true to skip loading of default mocks.
          */
-        <TResponse, TPayload>(mocks?: Array<requests.AllRequests<TResponse, TPayload>>, plugins?: Array<Plugin>, skipDefaults?: boolean): ProtractorHttpMock;
+        <TResponse, TPayload>(mocks?: requests.AllRequests<TResponse, TPayload>[], plugins?: Plugin[], skipDefaults?: boolean): ProtractorHttpMock;
 
         /**
          * Instantiate mock module. This must be done before the browser connects.
@@ -23,7 +23,7 @@ declare namespace mock {
          * @param plugins An array of NPM modules as strings.
          * @param skipDefaults Set true to skip loading of default mocks.
          */
-        <TResponse, TPayload>(mocks?: Array<requests.AllRequests<TResponse, TPayload>>, plugins?: string[], skipDefaults?: boolean): ProtractorHttpMock;
+        <TResponse, TPayload>(mocks?: requests.AllRequests<TResponse, TPayload>[], plugins?: string[], skipDefaults?: boolean): ProtractorHttpMock;
 
         /**
          * Instantiate mock modules from files. This must be done before the browser connects.
@@ -32,7 +32,7 @@ declare namespace mock {
          * @param plugins An array of Plugin objects.
          * @param skipDefaults Set true to skip loading of default mocks.
          */
-        (mocks: string[], plugins?: Array<Plugin>, skipDefaults?: boolean): ProtractorHttpMock;
+        (mocks: string[], plugins?: Plugin[], skipDefaults?: boolean): ProtractorHttpMock;
 
         /**
          * Instantiate mock modules from files. This must be done before the browser connects.
@@ -54,7 +54,7 @@ declare namespace mock {
          * Returns a promise that will be resolved with an array of
          * all matched HTTP requests.
          */
-        requestsMade(): webdriver.promise.Promise<Array<ReceivedRequest>>;
+        requestsMade(): webdriver.promise.Promise<ReceivedRequest[]>;
 
         /**
          * Returns a promise that will be resolved with a true boolean
@@ -86,7 +86,7 @@ declare namespace mock {
          *
          * @param mocks An array of mock modules to load into the application.
          */
-        add<T1, T2>(mocks: Array<requests.AllRequests<T1, T2>>): webdriver.promise.Promise<boolean>;
+        add<T1, T2>(mocks: requests.AllRequests<T1, T2>[]): webdriver.promise.Promise<boolean>;
 
         /**
          * Remove mocks during test execution.
@@ -95,7 +95,7 @@ declare namespace mock {
          *
          * @param mocks An array of mock modules to remove from the application.
          */
-        remove<T1, T2>(mocks: Array<requests.AllRequests<T1, T2>>): webdriver.promise.Promise<boolean>;
+        remove<T1, T2>(mocks: requests.AllRequests<T1, T2>[]): webdriver.promise.Promise<boolean>;
     }
 
     /**

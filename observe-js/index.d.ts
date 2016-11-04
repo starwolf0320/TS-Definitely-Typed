@@ -98,11 +98,11 @@ declare namespace observejs {
 		 * @param current array of current state
 		 * @param splices  splices to apply
 		 */
-		applySplices(previous: any[], current: any[], splices: Array<splice>): void;
+		applySplices(previous: any[], current: any[], splices: splice[]): void;
 	}
 
 	interface ArrayObserver_instance extends Observable {
-		open(onChange: (splices: Array<splice>) => any): void;
+		open(onChange: (splices: splice[]) => any): void;
 	}
 
 	/**

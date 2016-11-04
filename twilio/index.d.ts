@@ -145,7 +145,7 @@ declare namespace twilio {
     ttl: number;
     identity: string;
     nbf: number;
-    grants: Array<Grant>;
+    grants: Grant[];
 
     static IpMessagingGrant: IpMessagingGrant;
     static ConversationGrant: ConversationsGrant;
@@ -298,7 +298,7 @@ declare namespace twilio {
   export class TaskRouterCapability {
     accountSid: string;
     authToken: string;
-    policies: Array<Policy>;
+    policies: Policy[];
     workspaceSid: string;
     channelId: string;
 
@@ -761,7 +761,7 @@ declare namespace twilio {
 
   export interface WorkflowRuleOptions {
     expression: string;
-    targets: Array<WorkflowRuleTargetOptions>;
+    targets: WorkflowRuleTargetOptions[];
     // Don't ask me why, but all of these are supported options.
     friendly_name?: string;
     friendlyName?: string;
@@ -771,20 +771,20 @@ declare namespace twilio {
   export class WorkflowRule {
     friendly_name: string;
     expression: string;
-    targets: Array<WorkflowRuleTarget>;
+    targets: WorkflowRuleTarget[];
     friendlyName: string; // Defined property mapped to friendly_name.
 
     constructor(options?: WorkflowRuleOptions);
   }
 
   export interface TaskRoutingConfigurationOptions {
-    filters: Array<WorkflowRuleOptions>;
+    filters: WorkflowRuleOptions[];
     default_filter?: WorkflowRuleOptions;
     defaultFilter?: WorkflowRuleOptions;
   }
 
   export class TaskRoutingConfiguration {
-    filters: Array<WorkflowRule>;
+    filters: WorkflowRule[];
     default_filter: WorkflowRuleOptions;
     defaultFilter: WorkflowRuleOptions; // Defined property mapped to default_filter.
 

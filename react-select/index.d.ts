@@ -147,7 +147,7 @@ declare namespace ReactSelectClass {
         /**
          * method to filter the options array
          */
-        filterOptions?: (options: Array<Option>, filter: string, currentValues: Array<Option>) => Array<Option>;
+        filterOptions?: (options: Option[], filter: string, currentValues: Option[]) => Option[];
         /**
          * whether to strip diacritics when filtering
          * @default true
@@ -279,7 +279,7 @@ declare namespace ReactSelectClass {
          * array of Select options
          * @default false
          */
-        options?: Array<Option>;
+        options?: Option[];
         /**
          * field placeholder, displayed when there's no value
          * @default "Select..."

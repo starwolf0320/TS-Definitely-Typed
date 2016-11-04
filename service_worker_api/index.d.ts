@@ -289,7 +289,7 @@ interface Cache {
      * @param request The Request you are attempting to find in the Cache.
      * @param {CacheOptions} options
      */
-    matchAll(request: Request | string, options?: CacheOptions): Promise<Array<Response>>;
+    matchAll(request: Request | string, options?: CacheOptions): Promise<Response[]>;
 
     /**
      * Returns a Promise that resolves to a new Cache entry whose key
@@ -305,7 +305,7 @@ interface Cache {
      *
      * @param request An array of Request objects you want to add to the cache.
      */
-    addAll(...request: Array<Request | string>): Promise<void>;
+    addAll(...request: (Request | string)[]): Promise<void>;
 
     /**
      * Adds additional key/value pairs to the current Cache object.
@@ -331,7 +331,7 @@ interface Cache {
      * @param request The Request want to return, if a specific key is desired.
      * @param {CacheOptions} options
      */
-    keys(request?: Request, options?: CacheOptions): Promise<Array<Request>>;
+    keys(request?: Request, options?: CacheOptions): Promise<Request[]>;
 }
 
 /**
@@ -459,7 +459,7 @@ interface ServiceWorkerClients {
      *
      * @param options
      */
-    matchAll(options: ServiceWorkerClientsMatchOptions): Promise<Array<ServiceWorkerClient>>;
+    matchAll(options: ServiceWorkerClientsMatchOptions): Promise<ServiceWorkerClient[]>;
 
     /**
      * Opens a service worker Client in a new browser window.
@@ -751,7 +751,7 @@ interface ServiceWorkerContainer {
      * ServiceWorkerContainer in an array.  If the method can't return
      * ServiceWorkerRegistrations, it returns a Promise.
      */
-    getRegistrations(): Promise<Array<ServiceWorkerRegistration>>;
+    getRegistrations(): Promise<ServiceWorkerRegistration[]>;
 }
 
 /**

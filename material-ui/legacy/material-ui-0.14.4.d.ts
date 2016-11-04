@@ -846,7 +846,7 @@ declare namespace __MaterialUI {
     interface DialogProps extends React.DOMAttributes, React.Props<Dialog> {
         /** @deprecated use a custom `actions` property instead */
         actionFocus?: string;
-        actions?: Array<DialogAction | React.ReactElement<any>>;
+        actions?: (DialogAction | React.ReactElement<any>)[];
         actionsContainerClassName?: string;
         actionsContainerStyle?: React.CSSProperties;
         autoDetectWindowHeight?: boolean;

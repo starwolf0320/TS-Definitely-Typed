@@ -827,8 +827,8 @@ declare namespace p2 {
 
     export class Utils {
 
-        static appendArray<T>(a: Array<T>, b: Array<T>): Array<T>;
-        static splice<T>(array: Array<T>, index: number, howMany: number): void;
+        static appendArray<T>(a: T[], b: T[]): T[];
+        static splice<T>(array: T[], index: number, howMany: number): void;
         static extend(a: any, b: any): void;
         static defaults(options: any, defaults: any): any;
 

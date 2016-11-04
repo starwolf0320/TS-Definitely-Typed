@@ -133,7 +133,7 @@ declare namespace ShopifyBuy {
             /**
              * Fetches a list of collections matching a specified query.
              */
-            fetchQueryCollections(query?: any): Promise<Array<any>>;
+            fetchQueryCollections(query?: any): Promise<any[]>;
 
             /**
              * Fetches a list of products matching a specified query.

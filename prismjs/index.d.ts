@@ -80,7 +80,7 @@ declare namespace PrismJS {
 	}
 
 	interface Util {
-		encode(tokens: Token | Array<Token> | string): Token | Array<Token> | string;
+		encode(tokens: Token | Token[] | string): Token | Token[] | string;
 		type(o: Object): string;
 		objId(obj: Object): Identifier;
 		clone(o: LanguageDefinition): LanguageDefinition;
@@ -128,7 +128,7 @@ declare namespace PrismJS {
         /**
          * Accepts an object literal with tokens and appends them to the end of the current object literal.
          */
-        rest?: Array<Token>;
+        rest?: Token[];
 	}
 
 	interface Languages extends Array<LanguageDefinition> {
@@ -148,14 +148,14 @@ declare namespace PrismJS {
 	}
 
 	interface Hooks {
-		all: Array<Array<(env: Environment) => void>>;
+		all: ((env: Environment) => void)[][];
 		add(name: string, callback: (env: Environment) => void): void;
 		run(name: string, env: Environment): void;
 	}
 
 	interface Token {
 		type: string;
-		content: Token | Array<Token> | string;
+		content: Token | Token[] | string;
 		alias: string;
 		stringify(o: string| any[], language: LanguageDefinition, parent: HTMLPreElement): string;
 	}

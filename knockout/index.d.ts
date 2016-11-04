@@ -276,7 +276,7 @@ interface KnockoutUtils {
 
     arrayRemoveItem(array: any[], itemToRemove: any): void;
 
-    compareArrays<T>(a: T[], b: T[]): Array<KnockoutArrayChange<T>>;
+    compareArrays<T>(a: T[], b: T[]): KnockoutArrayChange<T>[];
 
     extend(target: Object, source: Object): Object;
 

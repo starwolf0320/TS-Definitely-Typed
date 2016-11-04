@@ -16,7 +16,7 @@ export declare class Producer {
     constructor(client: Client);
     on(eventName: string, cb: () => any): void;
     on(eventName: string, cb: (error: any) => any): void;
-    send(payloads: Array<ProduceRequest>, cb: (error: any, data: any) => any): void;
+    send(payloads: ProduceRequest[], cb: (error: any, data: any) => any): void;
     createTopics(topics: string[], async: boolean, cb?: (error: any, data: any) => any): void;
 }
 
@@ -24,39 +24,39 @@ export declare class HighLevelProducer {
     constructor(client: Client);
     on(eventName: string, cb: () => any): void;
     on(eventName: string, cb: (error: any) => any): void;
-    send(payloads: Array<ProduceRequest>, cb: (error: any, data: any) => any): void;
+    send(payloads: ProduceRequest[], cb: (error: any, data: any) => any): void;
     createTopics(topics: string[], async: boolean, cb?: (error: any, data: any) => any): void;
 }
 
 export declare class Consumer {
-    constructor(client: Client, fetchRequests: Array<OffsetFetchRequest>, options: ConsumerOptions);
+    constructor(client: Client, fetchRequests: OffsetFetchRequest[], options: ConsumerOptions);
     on(eventName: string, cb: (message: string) => any): void;
     on(eventName: string, cb: (error: any) => any): void;
     addTopics(topics: string[], cb: (error: any, added: boolean) => any): void;
-    addTopics(topics: Array<Topic>, cb: (error: any, added: boolean) => any, fromOffset: boolean): void;
+    addTopics(topics: Topic[], cb: (error: any, added: boolean) => any, fromOffset: boolean): void;
     removeTopics(topics: string[], cb: (error: any, removed: boolean) => any): void;
     commit(cb: (error: any, data: any) => any): void;
     setOffset(topic: string, partition: number, offset: number): void;
     pause(): void;
     resume(): void;
-    pauseTopics(topics: any[] /* Array<string|Topic> */): void;
-    resumeTopics(topics: any[] /* Array<string|Topic> */): void;
+    pauseTopics(topics: any[] /* (string|Topic)[] */): void;
+    resumeTopics(topics: any[] /* (string|Topic)[] */): void;
     close(force: boolean, cb: () => any): void;
 }
 
 export declare class HighLevelConsumer {
-    constructor(client: Client, payloads: Array<Topic>, options: ConsumerOptions);
+    constructor(client: Client, payloads: Topic[], options: ConsumerOptions);
     on(eventName: string, cb: (message: string) => any): void;
     on(eventName: string, cb: (error: any) => any): void;
     addTopics(topics: string[], cb: (error: any, added: boolean) => any): void;
-    addTopics(topics: Array<Topic>, cb: (error: any, added: boolean) => any, fromOffset: boolean): void;
+    addTopics(topics: Topic[], cb: (error: any, added: boolean) => any, fromOffset: boolean): void;
     removeTopics(topics: string[], cb: (error: any, removed: boolean) => any): void;
     commit(cb: (error: any, data: any) => any): void;
     setOffset(topic: string, partition: number, offset: number): void;
     pause(): void;
     resume(): void;
-    pauseTopics(topics: any[] /* Array<string|Topic> */): void;
-    resumeTopics(topics: any[] /* Array<string|Topic> */): void;
+    pauseTopics(topics: any[] /* (string|Topic)[] */): void;
+    resumeTopics(topics: any[] /* (string|Topic)[] */): void;
     close(force: boolean, cb: () => any): void;
 }
 
@@ -83,7 +83,7 @@ export interface ZKOptions {
 
 export interface ProduceRequest {
     topic: string;
-    messages: any; // string[] | Array<KeyedMessage> | string | KeyedMessage
+    messages: any; // string[] | KeyedMessage[] | string | KeyedMessage
     partition?: number;
     attributes?: number;
 }

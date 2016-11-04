@@ -20,7 +20,7 @@ declare namespace ParseTorrent {
     comment?: string;
     announce?: string[];
     urlList?: string[];
-    files?: Array<{path: string, name: string, length: number, offset: number}>;
+    files?: {path: string, name: string, length: number, offset: number}[];
     length?: number;
     pieceLength?: number;
     lastPieceLength?: number;

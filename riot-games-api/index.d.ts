@@ -17,7 +17,7 @@ declare namespace RiotGamesAPI {
 			rankedPlayEnabled: boolean;
 		}
 		interface ChampionListDto {
-			champions: Array<ChampionDto>;
+			champions: ChampionDto[];
 		}
 	}
 
@@ -43,7 +43,7 @@ declare namespace RiotGamesAPI {
 	*/
 	namespace CurrentGame {
 		interface CurrentGameInfo {
-			bannedChampion: Array<BannedChampion>;
+			bannedChampion: BannedChampion[];
 			gameId: number;
 			gameLength: number;
 			gameMode: number;
@@ -52,7 +52,7 @@ declare namespace RiotGamesAPI {
 			gameType: string;
 			mapId: number;
 			observers: Observer;
-			participants: Array<CurrentGameParticipant>;
+			participants: CurrentGameParticipant[];
 			platformId: string;
 		}
 		interface BannedChampion {
@@ -63,9 +63,9 @@ declare namespace RiotGamesAPI {
 		interface CurrentGameParticipant {
 			bot: boolean;
 			championId: number;
-			masteries: Array<Mastery>;
+			masteries: Mastery[];
 			profileIconId: number;
-			runes: Array<Rune>;
+			runes: Rune[];
 			spell1Id: number;
 			spell2Id: number;
 			summonerId: number;
@@ -421,7 +421,7 @@ declare namespace RiotGamesAPI {
 			image: ImageDto;
 			inStore: boolean;
 			into: string[];
-			maps: Array<{[str: string]: boolean}>;
+			maps: {[str: string]: boolean}[];
 			name: string;
 			plaintext: string;
 			requiredChampion: string;
@@ -442,7 +442,7 @@ declare namespace RiotGamesAPI {
 			consumed: boolean;
 			depth: number;
 			description: string;
-			effect: Array<{[str: string]: string}>;
+			effect: {[str: string]: string}[];
 			from: string[];
 			gold: GoldDto;
 			group: string;
@@ -451,7 +451,7 @@ declare namespace RiotGamesAPI {
 			image: ImageDto;
 			inStore: boolean;
 			into: string[];
-			maps: Array<{[str: string]: boolean}>;
+			maps: {[str: string]: boolean}[];
 			name: string;
 			plaintext: string;
 			requiredChampion: string;
@@ -545,12 +545,12 @@ declare namespace RiotGamesAPI {
 			type: string;
 		}
 		interface LanguageStringsDto {
-			data: Array<{[str: string]: string}>;
+			data: {[str: string]: string}[];
 			type: string;
 			version: string;
 		}
 		interface MapDataDto {
-			data: Array<{[str: string]: MapDetailsDto}>;
+			data: {[str: string]: MapDetailsDto}[];
 			type: string;
 			version: string;
 		}
@@ -561,7 +561,7 @@ declare namespace RiotGamesAPI {
 			unpurchasableItemList: number[];
 		}
 		interface MasteryListDto {
-			data: Array<{[str: string]: MasteryDto}>;
+			data: {[str: string]: MasteryDto}[];
 			tree: MasteryTreeDto;
 			type: string;
 			version: string;
@@ -577,12 +577,12 @@ declare namespace RiotGamesAPI {
 			sanitizedDescription: string[];
 		}
 		interface MasteryTreeDto {
-			Defense: Array<MasteryTreeListDto>;
-			Offense: Array<MasteryTreeListDto>;
-			Utility: Array<MasteryTreeListDto>;
+			Defense: MasteryTreeListDto[];
+			Offense: MasteryTreeListDto[];
+			Utility: MasteryTreeListDto[];
 		}
 		interface MasteryTreeListDto {
-			masteryTreeItems: Array<MasteryTreeItemDto>;
+			masteryTreeItems: MasteryTreeItemDto[];
 		}
 		interface MasteryTreeItemDto {
 			masteryId: number;
@@ -594,14 +594,14 @@ declare namespace RiotGamesAPI {
 			dd: string;
 			l: string;
 			lg: string;
-			n: Array<{[str: string]: string}>;
+			n: {[str: string]: string}[];
 			profileiconmax: number;
 			storage: string;
 			v: string;
 		}
 		interface RuneListDto {
 			basic: BasicDataDto;
-			data: Array<{[str: string]: RuneDto}>;
+			data: {[str: string]: RuneDto}[];
 			type: string;
 			version: string;
 		}
@@ -618,7 +618,7 @@ declare namespace RiotGamesAPI {
 			image: ImageDto;
 			inStore: boolean;
 			into: string[];
-			maps: Array<{[str: string]: boolean}>;
+			maps: {[str: string]: boolean}[];
 			name: string;
 			plaintext: string;
 			requiredChampion: string;
@@ -630,7 +630,7 @@ declare namespace RiotGamesAPI {
 			tags: string[];
 		}
 		interface SummonerSpellListDto {
-			data: Array<{[str: string]: SummonerSpellDto}>;
+			data: {[str: string]: SummonerSpellDto}[];
 			type: string;
 			version: string;
 		}
@@ -657,7 +657,7 @@ declare namespace RiotGamesAPI {
 			sanitizedTooltip: string;
 			summonerLevel: number;
 			tooltip: string;
-			vars: Array<SpellVarsDto>;
+			vars: SpellVarsDto[];
 		}
 	}
 
@@ -677,11 +677,11 @@ declare namespace RiotGamesAPI {
 			locales: string[];
 			name: string;
 			region_tag: string;
-			services: Array<Service>;
+			services: Service[];
 			slug: string;
 		}
 		interface Service {
-			incidents: Array<Incident>;
+			incidents: Incident[];
 			name: string;
 			slug: string;
 			status: string;
@@ -690,7 +690,7 @@ declare namespace RiotGamesAPI {
 			active: boolean;
 			created_at: string;
 			id: number;
-			updates: Array<Message>;
+			updates: Message[];
 		}
 		interface Message {
 			author: string;
@@ -698,7 +698,7 @@ declare namespace RiotGamesAPI {
 			created_at: string;
 			id: number;
 			severity: string;
-			translations: Array<Translation>;
+			translations: Translation[];
 			updated_at: string;
 		}
 		interface Translation {
@@ -745,7 +745,7 @@ declare namespace RiotGamesAPI {
 			player: Player;
 		}
 		interface Team {
-			bans: Array<BannedChampion>;
+			bans: BannedChampion[];
 			baronKills: number;
 			dominionVictoryScore: number;
 			dragonKills: number;
@@ -762,7 +762,7 @@ declare namespace RiotGamesAPI {
 		}
 		interface Timeline {
 			frameInverval: number;
-			frames: Array<Frame>;
+			frames: Frame[];
 		}
 		interface Mastery {
 			masteryId: number;
@@ -1047,13 +1047,13 @@ declare namespace RiotGamesAPI {
 			summonerLevel: number;
 		}
 		interface MasteryPagesDto {
-			pages: Array<MasteryPageDto>;
+			pages: MasteryPageDto[];
 			summonerId: number;
 		}
 		interface MasteryPageDto {
 			current: boolean;
 			id: number;
-			masteries: Array<MasteryDto>;
+			masteries: MasteryDto[];
 			name: string;
 		}
 		interface MasteryDto {
@@ -1061,14 +1061,14 @@ declare namespace RiotGamesAPI {
 			rank: number;
 		}
 		interface RunePagesDto {
-			pages: Array<RunePageDto>;
+			pages: RunePageDto[];
 			summonerId: number;
 		}
 		interface RunePageDto {
 			current: boolean;
 			id: number;
 			name: string;
-			slots: Array<RuneSlotDto>;
+			slots: RuneSlotDto[];
 		}
 		interface RuneSlotDto {
 			runeId: number;

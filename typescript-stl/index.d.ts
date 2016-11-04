@@ -7629,7 +7629,7 @@ declare namespace std {
          *
          * @param array An array containing elements to be copied and contained.
          */
-        constructor(items: Array<T>);
+        constructor(items: T[]);
         /**
          * <p> Fill Constructor. </p>
          *
@@ -9589,7 +9589,7 @@ declare namespace std {
          *
          * @param array An array containing elements to be copied and contained.
          */
-        constructor(items: Array<T>);
+        constructor(items: T[]);
         /**
          * <p> Fill Constructor. </p>
          *
@@ -10242,7 +10242,7 @@ declare namespace std {
         /**
          * @inheritdoc
          */
-        constructor(array: Array<T>);
+        constructor(array: T[]);
         /**
          * <p> Initializer list Constructor. </p>
          *
@@ -10932,14 +10932,14 @@ declare namespace std {
          *
          * @param array Elements to be contained.
          */
-        constructor(array: Array<T>);
+        constructor(array: T[]);
         /**
          * Contruct from elements with compare.
          *
          * @param array Elements to be contained.
          * @param compare A binary predicate determines order of elements.
          */
-        constructor(array: Array<T>, compare: (left: T, right: T) => boolean);
+        constructor(array: T[], compare: (left: T, right: T) => boolean);
         /**
          * Copy Constructor.
          */
@@ -11242,14 +11242,14 @@ declare namespace std {
          *
          * @param array Elements to be contained.
          */
-        constructor(array: Array<T>);
+        constructor(array: T[]);
         /**
          * Contruct from elements with compare.
          *
          * @param array Elements to be contained.
          * @param compare A binary predicate determines order of elements.
          */
-        constructor(array: Array<T>, compare: (x: T, y: T) => boolean);
+        constructor(array: T[], compare: (x: T, y: T) => boolean);
         /**
          * Copy Constructor.
          */
@@ -11418,27 +11418,27 @@ declare namespace std {
          *
          * @param array Elements to be contained.
          */
-        constructor(array: Array<Pair<Key, T>>);
+        constructor(array: Pair<Key, T>[]);
         /**
          * Contruct from elements.
          *
          * @param array Elements to be contained.
          * @param compare A binary predicate determines order of elements.
          */
-        constructor(array: Array<Pair<Key, T>>, compare: (x: Key, y: Key) => boolean);
+        constructor(array: Pair<Key, T>[], compare: (x: Key, y: Key) => boolean);
         /**
          * Contruct from tuples.
          *
          * @param array Tuples to be contained.
          */
-        constructor(array: Array<[Key, T]>);
+        constructor(array: [Key, T][]);
         /**
          * Contruct from tuples.
          *
          * @param array Tuples to be contained.
          * @param compare A binary predicate determines order of elements.
          */
-        constructor(array: Array<[Key, T]>, compare: (x: Key, y: Key) => boolean);
+        constructor(array: [Key, T][], compare: (x: Key, y: Key) => boolean);
         /**
          * Copy Constructor.
          *
@@ -11614,14 +11614,14 @@ declare namespace std {
          *
          * @param array Elements to be contained.
          */
-        constructor(array: Array<T>);
+        constructor(array: T[]);
         /**
          * Contruct from elements with compare.
          *
          * @param array Elements to be contained.
          * @param compare A binary predicate determines order of elements.
          */
-        constructor(array: Array<T>, compare: (x: T, y: T) => boolean);
+        constructor(array: T[], compare: (x: T, y: T) => boolean);
         /**
          * Copy Constructor.
          */
@@ -11805,27 +11805,27 @@ declare namespace std {
          *
          * @param array Elements to be contained.
          */
-        constructor(array: Array<Pair<Key, T>>);
+        constructor(array: Pair<Key, T>[]);
         /**
          * Contruct from elements.
          *
          * @param array Elements to be contained.
          * @param compare A binary predicate determines order of elements.
          */
-        constructor(array: Array<Pair<Key, T>>, compare: (x: Key, y: Key) => boolean);
+        constructor(array: Pair<Key, T>[], compare: (x: Key, y: Key) => boolean);
         /**
          * Contruct from tuples.
          *
          * @param array Tuples to be contained.
          */
-        constructor(array: Array<[Key, T]>);
+        constructor(array: [Key, T][]);
         /**
          * Contruct from tuples.
          *
          * @param array Tuples to be contained.
          * @param compare A binary predicate determines order of elements.
          */
-        constructor(array: Array<[Key, T]>, compare: (x: Key, y: Key) => boolean);
+        constructor(array: [Key, T][], compare: (x: Key, y: Key) => boolean);
         /**
          * Copy Constructor.
          *

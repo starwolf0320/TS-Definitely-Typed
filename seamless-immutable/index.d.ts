@@ -30,7 +30,7 @@ declare namespace SeamlessImmutable {
 
   export interface ImmutableObject<T> {
     set(property: string, value: any): ImmutableObject<any>;
-    setIn(propertyPath: Array<string>, value: any): ImmutableObject<any>;
+    setIn(propertyPath: string[], value: any): ImmutableObject<any>;
 
     asMutable(): T;
     asMutable(opts: AsMutableOptions): T;
@@ -38,7 +38,7 @@ declare namespace SeamlessImmutable {
     merge(part: any, config?: MergeConfig): ImmutableObject<T>;
 
     update(property: string, updaterFunction: (value: any, ...additionalParamters: any[]) => any, ...additionalArguments: any[]): ImmutableObject<T>;
-    updateIn(propertyPath: Array<string>, updaterFunction: (value: any, ...additionalParamters: any[]) => any, ...additionalArguments: any[]): ImmutableObject<T>;
+    updateIn(propertyPath: string[], updaterFunction: (value: any, ...additionalParamters: any[]) => any, ...additionalArguments: any[]): ImmutableObject<T>;
 
     without(property: string): ImmutableObject<any>;
     without(...properties: string[]): ImmutableObject<any>;
@@ -46,16 +46,16 @@ declare namespace SeamlessImmutable {
   }
 
   export interface ImmutableArray<T> {
-    asMutable(): Array<T>;
-    asMutable(opts: AsMutableOptions): Array<T>;
-    asObject(toKeyValue: (item: T) => Array<any>): ImmutableObject<T>;
-    flatMap(mapFunction: (item: T) => Array<any>): ImmutableArray<any>;
+    asMutable(): T[];
+    asMutable(opts: AsMutableOptions): T[];
+    asObject(toKeyValue: (item: T) => any[]): ImmutableObject<T>;
+    flatMap(mapFunction: (item: T) => any[]): ImmutableArray<any>;
   }
 
   // an immutable object is both of Type T (i.e., looks like a normal T) and of type Immutable<T>
   export type Immutable<T> = T & (ImmutableObject<T> | ImmutableArray<T>);
 
-  export function from<T>(obj: Array<T>, options?: Options): Array<T> & ImmutableArray<T>;
+  export function from<T>(obj: T[], options?: Options): T[] & ImmutableArray<T>;
   export function from<T>(obj: T, options?: Options): T & ImmutableObject<T>;
 
   export function isImmutable(target: any): boolean;

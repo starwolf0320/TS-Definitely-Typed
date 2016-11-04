@@ -22,7 +22,7 @@ declare module "klaw" {
 
         interface Options extends ReadableOptions {
             queueMethod?: QueueMethod;
-            pathSorter?: (a: Array<Item>) => Array<Item>;
+            pathSorter?: (a: Item[]) => Item[];
             fs?: any; // fs or mock-fs
             filter?: (a: Item) => boolean;
         }

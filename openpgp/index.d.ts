@@ -30,7 +30,7 @@ declare namespace openpgp {
 
     interface VerifiedMessage {
         text: string;
-        signatures: Array<Signature>;
+        signatures: Signature[];
     }
 
     /** Decrypts message and verifies signatures
@@ -39,7 +39,7 @@ declare namespace openpgp {
         @param publicKeys array of keys to verify signatures
         @param msg the message object with signed and encrypted data
      */
-    function decryptAndVerifyMessage(privateKey: key.Key, publicKeys: Array<key.Key>, msg: string): Promise<VerifiedMessage>;
+    function decryptAndVerifyMessage(privateKey: key.Key, publicKeys: key.Key[], msg: string): Promise<VerifiedMessage>;
     /** Decrypts message and verifies signatures
 
         @param privateKey private key with decrypted secret key data
@@ -60,7 +60,7 @@ declare namespace openpgp {
         @param text message as native JavaScript string
         @returns encrypted ASCII armored message
      */
-    function encryptMessage(keys: Array<key.Key>, message: string): Promise<string>;
+    function encryptMessage(keys: key.Key[], message: string): Promise<string>;
     /** Encrypts message text with keys
 
         @param single key used to encrypt the message
@@ -79,7 +79,7 @@ declare namespace openpgp {
         @param privateKey private key with decrypted secret key data for signing
         @param text private key with decrypted secret key data for signing
      */
-    function signAndEncryptMessage(publicKeys: Array<key.Key>, privateKey: key.Key, text: string): Promise<string>;
+    function signAndEncryptMessage(publicKeys: key.Key[], privateKey: key.Key, text: string): Promise<string>;
     /** Signs message text and encrypts it
 
         @param publicKeys single key used to encrypt the message
@@ -93,7 +93,7 @@ declare namespace openpgp {
         @param privateKeys array of keys with decrypted secret key data to sign cleartext
         @param text cleartext
      */
-    function signClearMessage(privateKeys: Array<key.Key>, text: string): Promise<string>;
+    function signClearMessage(privateKeys: key.Key[], text: string): Promise<string>;
     /** Signs a cleartext message
 
         @param privateKeys single key with decrypted secret key data to sign cleartext
@@ -106,7 +106,7 @@ declare namespace openpgp {
         @param publicKeys array of keys to verify signatures
         @param msg cleartext message object with signatures
      */
-    function verifyClearSignedMessage(publicKeys: Array<key.Key>, msg: cleartext.CleartextMessage): Promise<VerifiedMessage>;
+    function verifyClearSignedMessage(publicKeys: key.Key[], msg: cleartext.CleartextMessage): Promise<VerifiedMessage>;
     /** Verifies signatures of cleartext signed message
 
         @param publicKeys single key to verify signatures
@@ -144,7 +144,7 @@ declare namespace openpgp.cleartext {
 
         /** Returns the key IDs of the keys that signed the cleartext message
          */
-        getSigningKeyIds(): Array<Keyid>;
+        getSigningKeyIds(): Keyid[];
 
         /** Get cleartext
          */
@@ -153,12 +153,12 @@ declare namespace openpgp.cleartext {
         /** Sign the cleartext message
             @param privateKeys private keys with decrypted secret key data for signing
          */
-        sign(privateKeys: Array<key.Key>): void;
+        sign(privateKeys: key.Key[]): void;
 
         /** Verify signatures of cleartext signed message
             @param keys array of keys to verify signatures
          */
-        verify(keys: Array<key.Key>): Array<VerifiedMessage>;
+        verify(keys: key.Key[]): VerifiedMessage[];
     }
 
     function readArmored(armoredText: string): CleartextMessage;
@@ -203,14 +203,14 @@ declare namespace openpgp.crypto {
         @param secretMPIs Algorithm dependent multiprecision integers of the private key used
         @param data Data to be encrypted as MPI
      */
-    function publicKeyDecrypt(algo: enums.publicKey, publicMPIs: Array<Mpi>, secretMPIs: Array<Mpi>, data: Mpi): Mpi;
+    function publicKeyDecrypt(algo: enums.publicKey, publicMPIs: Mpi[], secretMPIs: Mpi[], data: Mpi): Mpi;
 
     /** Encrypts data using the specified public key multiprecision integers and the specified algorithm.
         @param algo Algorithm to be used
         @param publicMPIs Algorithm dependent multiprecision integers
         @param data Data to be encrypted as MPI
      */
-    function publicKeyEncrypt(algo: enums.publicKey, publicMPIs: Array<Mpi>, data: Mpi): Array<Mpi>;
+    function publicKeyEncrypt(algo: enums.publicKey, publicMPIs: Mpi[], data: Mpi): Mpi[];
 }
 
 declare namespace openpgp.crypto.cfb {
@@ -283,7 +283,7 @@ declare namespace openpgp.crypto.signature {
         @param secretMPIs Private key multiprecision integers which is used to sign the data
         @param data Data to be signed
      */
-    function sign(hash_algo: enums.hash, algo: enums.publicKey, publicMPIs: Array<Mpi>, secretMPIs: Array<Mpi>, data: string): Mpi;
+    function sign(hash_algo: enums.hash, algo: enums.publicKey, publicMPIs: Mpi[], secretMPIs: Mpi[], data: string): Mpi;
 
     /**
         @param algo public Key algorithm
@@ -292,7 +292,7 @@ declare namespace openpgp.crypto.signature {
         @param publickey_MPIs Public key multiprecision integers
         @param data Data on where the signature was computed on
      */
-    function verify(algo: enums.publicKey, hash_algo: enums.hash, msg_MPIs: Array<Mpi>, publickey_MPIs: Array<Mpi>, data: string): boolean;
+    function verify(algo: enums.publicKey, hash_algo: enums.hash, msg_MPIs: Mpi[], publickey_MPIs: Mpi[], data: string): boolean;
 }
 
 declare namespace openpgp.enums {
@@ -375,8 +375,8 @@ declare namespace openpgp.enums {
 declare namespace openpgp.key {
 
     interface KeyResult {
-        keys: Array<Key>;
-        err: Array<Error>;
+        keys: Key[];
+        err: Error[];
     }
 
     /** Class that represents an OpenPGP key. Must contain a primary key. Can contain additional subkeys, signatures, user ids, user attributes.
@@ -385,7 +385,7 @@ declare namespace openpgp.key {
         armor(): string;
         decrypt(passphrase: string): boolean;
         getExpirationTime(): Date;
-        getKeyIds(): Array<Keyid>;
+        getKeyIds(): Keyid[];
         getPreferredHashAlgorithm(): string;
         getPrimaryUser(): any;
         getUserIds(): string[];
@@ -422,16 +422,16 @@ declare namespace openpgp.message {
         /** Decrypt the message
             @param privateKey private key with decrypted secret data
          */
-        decrypt(privateKey: key.Key): Array<Message>;
+        decrypt(privateKey: key.Key): Message[];
 
         /** Encrypt the message
             @param keys array of keys, used to encrypt the message
          */
-        encrypt(keys: Array<key.Key>): Array<Message>;
+        encrypt(keys: key.Key[]): Message[];
 
         /** Returns the key IDs of the keys to which the session key is encrypted
          */
-        getEncryptionKeyIds(): Array<Keyid>;
+        getEncryptionKeyIds(): Keyid[];
 
         /** Get literal data that is the body of the message
          */
@@ -439,7 +439,7 @@ declare namespace openpgp.message {
 
         /** Returns the key IDs of the keys that signed the message
          */
-        getSigningKeyIds(): Array<Keyid>;
+        getSigningKeyIds(): Keyid[];
 
         /** Get literal data as text
          */
@@ -448,7 +448,7 @@ declare namespace openpgp.message {
         /** Sign the message (the literal data packet of the message)
             @param privateKey private keys with decrypted secret key data for signing
          */
-        sign(privateKey: Array<key.Key>): Message;
+        sign(privateKey: key.Key[]): Message;
 
         /** Unwrap compressed message
          */
@@ -457,7 +457,7 @@ declare namespace openpgp.message {
         /** Verify message signatures
             @param keys array of keys to verify signatures
          */
-        verify(keys: Array<key.Key>): Object[];
+        verify(keys: key.Key[]): Object[];
     }
 
     /** creates new message object from binary data

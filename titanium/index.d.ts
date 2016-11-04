@@ -793,7 +793,7 @@ declare namespace Ti {
 				setImage (image: Ti.Filesystem.File): void;
 				setImage (index: number, image: CoverFlowImageType): void;
 				setImages (images: string[]): void;
-				setImages (images: Array<Ti.Blob>): void;
+				setImages (images: Ti.Blob[]): void;
 				setImages (images: Array<Ti.Filesystem.File>): void;
 				setImages (images: Array<CoverFlowImageType>): void;
 				setSelected (selected: number): void;
@@ -814,12 +814,12 @@ declare namespace Ti {
 				openWindow (window: Ti.UI.Window, options: Dictionary<Object>): void;
 			}
 			export interface AttributedString extends Ti.Proxy {
-				attributes: Array<Attribute>;
+				attributes: Attribute[];
 				text: string;
 				addAttribute (attribute: Attribute): void;
-				getAttributes (): Array<Attribute>;
+				getAttributes (): Attribute[];
 				getText (): string;
-				setAttributes (attributes: Array<Attribute>): void;
+				setAttributes (attributes: Attribute[]): void;
 				setText (text: string): void;
 			}
 			export interface AnchorAttachmentBehavior extends Ti.Proxy {
@@ -851,7 +851,7 @@ declare namespace Ti {
 				getStyle (): number;
 				setIndex (index: number): void;
 				setLabels (labels: string[]): void;
-				setLabels (labels: Array<BarItemType>): void;
+				setLabels (labels: BarItemType[]): void;
 				setStyle (style: number): void;
 			}
 			export interface _3DMatrix extends Ti.Proxy {
@@ -1500,7 +1500,7 @@ declare namespace Ti {
 			getStyle (): number;
 			setIndex (index: number): void;
 			setLabels (labels: string[]): void;
-			setLabels (labels: Array<BarItemType>): void;
+			setLabels (labels: BarItemType[]): void;
 			setStyle (style: number): void;
 		}
 		export interface Slider extends Ti.UI.View {
@@ -1676,16 +1676,16 @@ declare namespace Ti {
 		}
 		export interface DashboardView extends Ti.UI.View {
 			columnCount: number;
-			data: Array<Ti.UI.DashboardItem>;
+			data: Ti.UI.DashboardItem[];
 			editable: boolean;
 			rowCount: number;
 			wobble: boolean;
 			getColumnCount (): number;
-			getData (): Array<Ti.UI.DashboardItem>;
+			getData (): Ti.UI.DashboardItem[];
 			getEditable (): boolean;
 			getRowCount (): number;
 			getWobble (): boolean;
-			setData (data: Array<Ti.UI.DashboardItem>): void;
+			setData (data: Ti.UI.DashboardItem[]): void;
 			setEditable (editable: boolean): void;
 			setWobble (wobble: boolean): void;
 			startEditing (): void;
@@ -1775,7 +1775,7 @@ declare namespace Ti {
 			getStyle (): number;
 			setIndex (index: number): void;
 			setLabels (labels: string[]): void;
-			setLabels (labels: Array<BarItemType>): void;
+			setLabels (labels: BarItemType[]): void;
 			setStyle (style: number): void;
 		}
 		export interface Window extends Ti.UI.View {
@@ -2760,7 +2760,7 @@ declare namespace Ti {
 			setImage (image: Ti.Filesystem.File): void;
 			setImage (index: number, image: CoverFlowImageType): void;
 			setImages (images: string[]): void;
-			setImages (images: Array<Ti.Blob>): void;
+			setImages (images: Ti.Blob[]): void;
 			setImages (images: Array<Ti.Filesystem.File>): void;
 			setImages (images: Array<CoverFlowImageType>): void;
 			setSelected (selected: number): void;
@@ -2805,7 +2805,7 @@ declare namespace Ti {
 			setImage (image: Ti.Blob): void;
 			setImage (image: Ti.Filesystem.File): void;
 			setImages (images: string[]): void;
-			setImages (images: Array<Ti.Blob>): void;
+			setImages (images: Ti.Blob[]): void;
 			setImages (images: Array<Ti.Filesystem.File>): void;
 			setPreventDefaultImage (preventDefaultImage: boolean): void;
 			setRepeatCount (repeatCount: number): void;
@@ -3121,12 +3121,12 @@ declare namespace Ti {
 		export interface PickerColumn extends Ti.UI.View {
 			font: Font;
 			rowCount: number;
-			rows: Array<Ti.UI.PickerRow>;
+			rows: Ti.UI.PickerRow[];
 			selectedRow: Ti.UI.PickerRow;
 			addRow (row: Ti.UI.PickerRow): void;
 			getFont (): Font;
 			getRowCount (): number;
-			getRows (): Array<Ti.UI.PickerRow>;
+			getRows (): Ti.UI.PickerRow[];
 			getSelectedRow (): Ti.UI.PickerRow;
 			removeRow (row: Ti.UI.PickerRow): void;
 			setFont (font: Font): void;
@@ -3196,7 +3196,7 @@ declare namespace Ti {
 			useSpinner: boolean;
 			value: Date;
 			visibleItems: number;
-			add (data: Array<Ti.UI.PickerRow>): void;
+			add (data: Ti.UI.PickerRow[]): void;
 			add (data: Ti.UI.PickerRow): void;
 			add (data: Array<Ti.UI.PickerColumn>): void;
 			add (data: Ti.UI.PickerColumn): void;
@@ -4361,10 +4361,10 @@ declare namespace Ti {
 				selected: boolean;
 				createEvent (properties: Dictionary<Ti.Android.Calendar.Event>): Ti.Android.Calendar.Event;
 				getEventById (id: number): Ti.Android.Calendar.Event;
-				getEventsBetweenDates (date1: Date, date2: Date): Array<Ti.Android.Calendar.Event>;
-				getEventsInDate (year: number, month: number, day: number): Array<Ti.Android.Calendar.Event>;
-				getEventsInMonth (year: number, month: number): Array<Ti.Android.Calendar.Event>;
-				getEventsInYear (year: number): Array<Ti.Android.Calendar.Event>;
+				getEventsBetweenDates (date1: Date, date2: Date): Ti.Android.Calendar.Event[];
+				getEventsInDate (year: number, month: number, day: number): Ti.Android.Calendar.Event[];
+				getEventsInMonth (year: number, month: number): Ti.Android.Calendar.Event[];
+				getEventsInYear (year: number): Ti.Android.Calendar.Event[];
 				getHidden (): boolean;
 				getId (): string;
 				getName (): string;
@@ -4655,19 +4655,19 @@ declare namespace Ti {
 		export function createPerson (parameters?: Dictionary<Ti.Contacts.Person>): Ti.Contacts.Person;
 		export function fireEvent (name: string, event: Dictionary<Object>): void;
 		export function getAllGroups (): Array<Ti.Contacts.Group>;
-		export function getAllPeople (limit: number): Array<Ti.Contacts.Person>;
+		export function getAllPeople (limit: number): Ti.Contacts.Person[];
 		export function getApiName (): string;
 		export function getBubbleParent (): boolean;
 		export function getContactsAuthorization (): number;
 		export function getGroupByID (id: number): Ti.Contacts.Group;
-		export function getPeopleWithName (name: string): Array<Ti.Contacts.Person>;
+		export function getPeopleWithName (name: string): Ti.Contacts.Person[];
 		export function getPersonByID (id: number): Ti.Contacts.Person;
 		export function removeEventListener (name: string, callback: (...args: any[]) => any): void;
 		export function removeGroup (group: Ti.Contacts.Group): void;
 		export function removePerson (person: Ti.Contacts.Person): void;
 		export function requestAuthorization (callback: (...args: any[]) => any): void;
 		export function revert (): void;
-		export function save (contacts: Array<Ti.Contacts.Person>): void;
+		export function save (contacts: Ti.Contacts.Person[]): void;
 		export function setBubbleParent (bubbleParent: boolean): void;
 		export function showContacts (params: showContactsParams): void;
 		export namespace Tizen {
@@ -4690,11 +4690,11 @@ declare namespace Ti {
 			add (person: Ti.Contacts.Person): void;
 			getName (): string;
 			getRecordId (): number;
-			members (): Array<Ti.Contacts.Person>;
+			members (): Ti.Contacts.Person[];
 			remove (person: Ti.Contacts.Person): void;
 			setName (name: string): void;
 			setRecordId (recordId: number): void;
-			sortedMembers (sortBy: number): Array<Ti.Contacts.Person>;
+			sortedMembers (sortBy: number): Ti.Contacts.Person[];
 		}
 		export interface Person extends Ti.Proxy {
 			address: Dictionary<Object>;
@@ -4986,7 +4986,7 @@ declare namespace Ti {
 		export function openMusicLibrary (options: MusicLibraryOptionsType): void;
 		export function openPhotoGallery (options: PhotoGalleryOptionsType): void;
 		export function previewImage (options: Dictionary<PreviewImageOptions>): void;
-		export function queryMusicLibrary (query: MediaQueryType): Array<Ti.Media.Item>;
+		export function queryMusicLibrary (query: MediaQueryType): Ti.Media.Item[];
 		export function removeEventListener (name: string, callback: (...args: any[]) => any): void;
 		export function requestAuthorization (callback: (...args: any[]) => any): void;
 		export function saveToPhotoGallery (media: Ti.Blob, callbacks: any): void;
@@ -5197,7 +5197,7 @@ declare namespace Ti {
 			seekForward (): void;
 			setCurrentPlaybackTime (currentPlaybackTime: number): void;
 			setQueue (queue: Ti.Media.Item): void;
-			setQueue (queue: Array<Ti.Media.Item>): void;
+			setQueue (queue: Ti.Media.Item[]): void;
 			setQueue (queue: PlayerQueue): void;
 			setRepeatMode (repeatMode: number): void;
 			setShuffleMode (shuffleMode: number): void;
@@ -5406,26 +5406,26 @@ declare namespace Ti {
 		export var VISIBILITY_DEFAULT: number;
 		export var VISIBILITY_PRIVATE: number;
 		export var VISIBILITY_PUBLIC: number;
-		export var allAlerts: Array<Ti.Calendar.Alert>;
-		export var allCalendars: Array<Ti.Calendar.Calendar>;
-		export var allEditableCalendars: Array<Ti.Calendar.Calendar>;
+		export var allAlerts: Ti.Calendar.Alert[];
+		export var allCalendars: Ti.Calendar.Calendar[];
+		export var allEditableCalendars: Ti.Calendar.Calendar[];
 		export var apiName: string;
 		export var bubbleParent: boolean;
 		export var defaultCalendar: Ti.Calendar.Calendar;
 		export var eventsAuthorization: number;
-		export var selectableCalendars: Array<Ti.Calendar.Calendar>;
+		export var selectableCalendars: Ti.Calendar.Calendar[];
 		export function addEventListener (name: string, callback: (...args: any[]) => any): void;
 		export function applyProperties (props: Dictionary<Object>): void;
 		export function fireEvent (name: string, event: Dictionary<Object>): void;
-		export function getAllAlerts (): Array<Ti.Calendar.Alert>;
-		export function getAllCalendars (): Array<Ti.Calendar.Calendar>;
-		export function getAllEditableCalendars (): Array<Ti.Calendar.Calendar>;
+		export function getAllAlerts (): Ti.Calendar.Alert[];
+		export function getAllCalendars (): Ti.Calendar.Calendar[];
+		export function getAllEditableCalendars (): Ti.Calendar.Calendar[];
 		export function getApiName (): string;
 		export function getBubbleParent (): boolean;
 		export function getCalendarById (id: string): Ti.Calendar.Calendar;
 		export function getDefaultCalendar (): Ti.Calendar.Calendar;
 		export function getEventsAuthorization (): number;
-		export function getSelectableCalendars (): Array<Ti.Calendar.Calendar>;
+		export function getSelectableCalendars (): Ti.Calendar.Calendar[];
 		export function removeEventListener (name: string, callback: (...args: any[]) => any): void;
 		export function requestEventsAuthorization (callback: (...args: any[]) => any): void;
 		export function setBubbleParent (bubbleParent: boolean): void;
@@ -5436,10 +5436,10 @@ declare namespace Ti {
 			selected: boolean;
 			createEvent (properties: Dictionary<Ti.Calendar.Event>): Ti.Calendar.Event;
 			getEventById (id: number): Ti.Calendar.Event;
-			getEventsBetweenDates (date1: Date, date2: Date): Array<Ti.Calendar.Event>;
-			getEventsInDate (year: number, month: number, day: number): Array<Ti.Calendar.Event>;
-			getEventsInMonth (year: number, month: number): Array<Ti.Calendar.Event>;
-			getEventsInYear (year: number): Array<Ti.Calendar.Event>;
+			getEventsBetweenDates (date1: Date, date2: Date): Ti.Calendar.Event[];
+			getEventsInDate (year: number, month: number, day: number): Ti.Calendar.Event[];
+			getEventsInMonth (year: number, month: number): Ti.Calendar.Event[];
+			getEventsInYear (year: number): Ti.Calendar.Event[];
 			getHidden (): boolean;
 			getId (): string;
 			getName (): string;
@@ -5454,7 +5454,7 @@ declare namespace Ti {
 			getMinutes (): number;
 		}
 		export interface Event extends Ti.Proxy {
-			alerts: Array<Ti.Calendar.Alert>;
+			alerts: Ti.Calendar.Alert[];
 			allDay: boolean;
 			availability: number;
 			begin: Date;
@@ -5476,7 +5476,7 @@ declare namespace Ti {
 			createAlert (data: Dictionary<Ti.Calendar.Alert>): Ti.Calendar.Alert;
 			createRecurenceRule (data: Dictionary<Ti.Calendar.RecurrenceRule>): Ti.Calendar.RecurrenceRule;
 			createReminder (data: Dictionary<Ti.Calendar.Reminder>): Ti.Calendar.Reminder;
-			getAlerts (): Array<Ti.Calendar.Alert>;
+			getAlerts (): Ti.Calendar.Alert[];
 			getAllDay (): boolean;
 			getAvailability (): number;
 			getBegin (): Date;
@@ -5499,7 +5499,7 @@ declare namespace Ti {
 			remove (span: number): boolean;
 			removeRecurenceRule (rule: Ti.Calendar.RecurrenceRule): void;
 			save (span: number): boolean;
-			setAlerts (alerts: Array<Ti.Calendar.Alert>): void;
+			setAlerts (alerts: Ti.Calendar.Alert[]): void;
 			setAllDay (allDay: boolean): void;
 			setBegin (begin: Date): void;
 			setEnd (end: Date): void;
@@ -6128,7 +6128,7 @@ declare class ErrorResponse  {
 }
 
 declare class CloudPushNotificationsQueryResponse extends CloudResponse {
-	subscriptions: Array<Dictionary<Object>>;
+	subscriptions: Dictionary<Object>[];
 }
 
 declare class CloudResponse  {
@@ -6188,7 +6188,7 @@ declare namespace Global {
 }
 
 declare class CloudGeoFenceResponse extends CloudResponse {
-	geo_fences: Array<Dictionary<Object>>;
+	geo_fences: Dictionary<Object>[];
 }
 
 declare class ServiceIntentOptions  {
@@ -6255,7 +6255,7 @@ declare class ViewTemplate  {
 }
 
 declare class CloudChatsResponse extends CloudResponse {
-	chats: Array<Dictionary<Object>>;
+	chats: Dictionary<Object>[];
 }
 
 declare class MediaQueryType  {
@@ -6329,7 +6329,7 @@ declare class ForwardGeocodeResponse extends ErrorResponse {
 }
 
 declare class CloudEventsResponse extends CloudResponse {
-	events: Array<Dictionary<Object>>;
+	events: Dictionary<Object>[];
 }
 
 declare class ReadyStatePayload  {
@@ -6394,7 +6394,7 @@ declare enum ContactsAuthorizationResponse {
 }
 
 declare class CloudCheckinsResponse extends CloudResponse {
-	checkins: Array<Dictionary<Object>>;
+	checkins: Dictionary<Object>[];
 }
 
 declare class CreateBufferArgs  {
@@ -6410,7 +6410,7 @@ declare class CloudPushNotificationConfig  {
 }
 
 declare class CloudReviewsResponse extends CloudResponse {
-	reviews: Array<Dictionary<Object>>;
+	reviews: Dictionary<Object>[];
 }
 
 declare class Point  {
@@ -6419,7 +6419,7 @@ declare class Point  {
 }
 
 declare class CloudPhotosResponse extends CloudResponse {
-	photos: Array<Dictionary<Object>>;
+	photos: Dictionary<Object>[];
 }
 
 declare class PushNotificationConfig  {
@@ -6432,7 +6432,7 @@ declare class PushNotificationConfig  {
 declare class MapRouteType  {
 	color: string;
 	name: string;
-	points: Array<MapPointType>;
+	points: MapPointType[];
 	width: number;
 }
 
@@ -6486,11 +6486,11 @@ declare class WriteStreamCallbackArgs extends ErrorResponse {
 }
 
 declare class CloudChatGroupsResponse extends CloudResponse {
-	chat_groups: Array<Dictionary<Object>>;
+	chat_groups: Dictionary<Object>[];
 }
 
 declare class CloudPhotoCollectionsPhotosResponse extends CloudResponse {
-	photos: Array<Dictionary<Object>>;
+	photos: Dictionary<Object>[];
 }
 
 declare class DecodeNumberDict  {
@@ -6505,11 +6505,11 @@ declare class ConnectedCallbackArgs  {
 }
 
 declare class CloudPhotoCollectionsResponse extends CloudResponse {
-	collections: Array<Dictionary<Object>>;
+	collections: Dictionary<Object>[];
 }
 
 declare class CloudObjectsResponse extends CloudResponse {
-	classname: Array<Dictionary<Object>>;
+	classname: Dictionary<Object>[];
 }
 
 declare class PopoverParams  {
@@ -6528,11 +6528,11 @@ declare class CloudPushNotificationsQueryChannelResponse extends CloudResponse {
 }
 
 declare class CloudPostsResponse extends CloudResponse {
-	posts: Array<Dictionary<Object>>;
+	posts: Dictionary<Object>[];
 }
 
 declare class CloudSocialIntegrationsResponse extends CloudResponse {
-	users: Array<Dictionary<Object>>;
+	users: Dictionary<Object>[];
 }
 
 declare class APSConnectionDelegate  {
@@ -6570,17 +6570,17 @@ declare class CloudStreamProgress  {
 }
 
 declare class MusicLibraryResponseType  {
-	items: Array<Ti.Media.Item>;
+	items: Ti.Media.Item[];
 	representative: Ti.Media.Item;
 	types: number;
 }
 
 declare class CloudEventOccurrencesResponse extends CloudResponse {
-	event_occurrences: Array<Dictionary<Object>>;
+	event_occurrences: Dictionary<Object>[];
 }
 
 declare class CloudUsersResponse extends CloudResponse {
-	users: Array<Dictionary<Object>>;
+	users: Dictionary<Object>[];
 }
 
 declare class TableViewContentInsetOption  {
@@ -6589,11 +6589,11 @@ declare class TableViewContentInsetOption  {
 }
 
 declare class CloudFriendRequestsResponse extends CloudResponse {
-	friend_requests: Array<Dictionary<Object>>;
+	friend_requests: Dictionary<Object>[];
 }
 
 declare class CloudACLsResponse extends CloudResponse {
-	acls: Array<Dictionary<Object>>;
+	acls: Dictionary<Object>[];
 }
 
 declare class ListViewMarkerProps  {
@@ -6608,7 +6608,7 @@ declare class EventsAuthorizationResponse  {
 }
 
 declare class PlayerQueue  {
-	items: Array<Ti.Media.Item>;
+	items: Ti.Media.Item[];
 }
 
 declare class CoverFlowImageType  {
@@ -6641,7 +6641,7 @@ declare class PushNotificationErrorArg  {
 }
 
 declare class CloudStatusesResponse extends CloudResponse {
-	statuses: Array<Dictionary<Object>>;
+	statuses: Dictionary<Object>[];
 }
 
 declare class windowToolbarParam  {
@@ -6669,7 +6669,7 @@ declare class GeocodedAddress  {
 }
 
 declare class ContactsCallbackArgs extends ErrorResponse {
-	data: Array<Ti.Contacts.Person>;
+	data: Ti.Contacts.Person[];
 }
 
 declare class zoomScaleOption  {
@@ -6698,7 +6698,7 @@ declare class CloudUsersSecureDialog  {
 }
 
 declare class CloudFriendsResponse extends CloudResponse {
-	users: Array<Dictionary<Object>>;
+	users: Dictionary<Object>[];
 }
 
 declare class PhotoGalleryOptionsType  {
@@ -6814,7 +6814,7 @@ declare class Font  {
 }
 
 declare class CloudPlacesResponse extends CloudResponse {
-	places: Array<Dictionary<Object>>;
+	places: Dictionary<Object>[];
 }
 
 declare class EncodeNumberDict  {
@@ -6847,7 +6847,7 @@ declare class FacebookDialogResponsev1  {
 }
 
 declare class CloudFilesResponse extends CloudResponse {
-	files: Array<Dictionary<Object>>;
+	files: Dictionary<Object>[];
 }
 
 declare class hideParams  {
@@ -6907,7 +6907,7 @@ declare class MapPointType  {
 }
 
 declare class CloudKeyValuesResponse extends CloudResponse {
-	keyvalues: Array<Dictionary<Object>>;
+	keyvalues: Dictionary<Object>[];
 }
 
 declare class TableViewEdgeInsets  {
@@ -6948,7 +6948,7 @@ declare class closeWindowParams  {
 }
 
 declare class CloudLikesResponse extends CloudResponse {
-	likes: Array<Dictionary<Object>>;
+	likes: Dictionary<Object>[];
 }
 
 declare class showParams  {
@@ -6962,7 +6962,7 @@ declare class PreviewImageError  {
 }
 
 declare class CloudMessagesResponse extends CloudResponse {
-	messages: Array<Dictionary<Object>>;
+	messages: Dictionary<Object>[];
 }
 
 declare class CloudPushNotificationsShowChannelResponse extends CloudResponse {

@@ -18,7 +18,7 @@ declare namespace turf {
     * @param aggregations An array of aggregation objects
     * @returns Polygons with properties listed based on outField values in aggregations
     */
-    function aggregate(polygons: GeoJSON.FeatureCollection<GeoJSON.Polygon>, points: GeoJSON.FeatureCollection<GeoJSON.Point>, aggregations: Array<{aggregation: string, inField: string, outField: string}>): GeoJSON.FeatureCollection<GeoJSON.Polygon>;
+    function aggregate(polygons: GeoJSON.FeatureCollection<GeoJSON.Polygon>, points: GeoJSON.FeatureCollection<GeoJSON.Point>, aggregations: {aggregation: string, inField: string, outField: string}[]): GeoJSON.FeatureCollection<GeoJSON.Polygon>;
 
     /**
     * Calculates the average value of a field for a set of points within a set of polygons.
@@ -366,7 +366,7 @@ declare namespace turf {
     * @param features Input features
     * @returns A FeatureCollection of input features
     */
-    function featurecollection(features: Array<GeoJSON.Feature<any>>): GeoJSON.FeatureCollection<any>;
+    function featurecollection(features: GeoJSON.Feature<any>[]): GeoJSON.FeatureCollection<any>;
 
     /**
     * Creates a LineString based on a coordinate array. Properties can be added optionally.
@@ -390,7 +390,7 @@ declare namespace turf {
     * @param [properties] An Object of key-value pairs to add as properties
     * @returns A Polygon feature
     */
-    function polygon(rings: Array<number[][]>, properties?: any): GeoJSON.Feature<GeoJSON.Polygon>;
+    function polygon(rings: number[][][], properties?: any): GeoJSON.Feature<GeoJSON.Polygon>;
 
     //////////////////////////////////////////////////////
     // Data

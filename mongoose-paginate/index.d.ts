@@ -18,7 +18,7 @@ declare module 'mongoose' {
   }
 
   export interface PaginateResult<T> {
-    docs: Array<T>;
+    docs: T[];
     total: number;
     limit: number;
     page?: number;

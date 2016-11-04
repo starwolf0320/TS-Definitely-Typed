@@ -357,7 +357,7 @@ declare namespace __MaterialUI {
         onClick?: React.MouseEventHandler;
     }
     interface DialogProps extends React.Props<Dialog> {
-        actions?: Array<DialogAction | React.ReactElement<any>>;
+        actions?: (DialogAction | React.ReactElement<any>)[];
         actionFocus?: string;
         autoDetectWindowHeight?: boolean;
         autoScrollBodyContent?: boolean;

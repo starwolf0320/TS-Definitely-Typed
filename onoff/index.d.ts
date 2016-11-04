@@ -25,7 +25,7 @@ declare namespace __ONOFF {
         gpioPath: string;
         opts: GpioOptions;
         readBuffer: Buffer;
-        listeners: Array<(error: Error, value: number) => void>;
+        listeners: ((error: Error, value: number) => void)[];
         valueFd: number;
 
         read(cb: (err: Error, value: number) => void): void;
