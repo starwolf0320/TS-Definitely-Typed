@@ -1940,7 +1940,7 @@ declare namespace DevExpress.ui {
         /** A read-only option that holds a File instance representing the selected file. */
         value?: File;
         /** Holds the File instances representing files selected in the widget. */
-        values?: Array<File>;
+        values?: File[];
         buttonText?: string;
         /** The text displayed on the button that opens the file browser. */
         selectButtonText?: string;
@@ -2592,7 +2592,7 @@ declare namespace DevExpress.data {
         /** Specifies data filtering conditions. */
         filter?: Object;
         /** An array of pivot grid fields. */
-        fields?: Array<PivotGridField>;
+        fields?: PivotGridField[];
         /** Indicates whether or not the local sorting of the XMLA data should be performed. */
         localSorting?: boolean;
         /** A handler for the changed event. */
@@ -2602,7 +2602,7 @@ declare namespace DevExpress.data {
         /** A handler for the loadError event. */
         onLoadError?: (e?: Object) => void;
         /** A handler for the fieldsPrepared event. */
-        onFieldsPrepared?: (e?: Array<PivotGridField>) => void;
+        onFieldsPrepared?: (e?: PivotGridField[]) => void;
     }
     /** An object that provides access to data for the dxPivotGrid widget. */
     export class PivotGridDataSource implements EventsMixin<PivotGridDataSource> {
@@ -2614,11 +2614,11 @@ declare namespace DevExpress.data {
         /** Gets data displayed in a PivotGrid. */
         getData(): Object;
         /** Gets all fields within a specified area. */
-        getAreaFields(area: string, collectGroups: boolean): Array<PivotGridField>;
+        getAreaFields(area: string, collectGroups: boolean): PivotGridField[];
         /** Gets all fields from the data source. */
-        fields(): Array<PivotGridField>;
+        fields(): PivotGridField[];
         /** Sets the fields option. */
-        fields(fields: Array<PivotGridField>): void;
+        fields(fields: PivotGridField[]): void;
         /** Gets current options of a specified field. */
         field(id: any): PivotGridField;
         /** Sets one or more options of a specified field. */
@@ -3135,11 +3135,11 @@ declare namespace DevExpress.ui {
             }
         };
         /** An array of grid columns. */
-        columns?: Array<dxDataGridColumn>;
+        columns?: dxDataGridColumn[];
         onContentReady?: Function;
         contentReadyAction?: Function;
         /** Specifies a function that customizes grid columns after they are created. */
-        customizeColumns?: (columns: Array<dxDataGridColumn>) => void;
+        customizeColumns?: (columns: dxDataGridColumn[]) => void;
         dataErrorOccurred?: (errorObject: Error) => void;
         /** Specifies a data source for the grid. */
         dataSource?: any;
@@ -4332,7 +4332,7 @@ declare namespace DevExpress.viz.charts {
          */
         getPointByArg(pointArg: any): Object;
         /** Gets points from the series point collection based on the specified argument. */
-        getPointsByArg(pointArg: any): Array<BasePoint>;
+        getPointsByArg(pointArg: any): BasePoint[];
         /** Gets a point from the series point collection based on the specified point position. */
         getPointByPos(positionIndex: number): Object;
         /** Selects the series. The series is displayed in a 'selected' style until another series is selected or the current series is deselected programmatically. */
@@ -4342,9 +4342,9 @@ declare namespace DevExpress.viz.charts {
         /** Deselects the specified point. The point is displayed in an initial style. */
         deselectPoint(point: BasePoint): void;
         /** Returns an array of all points in the series. */
-        getAllPoints(): Array<BasePoint>;
+        getAllPoints(): BasePoint[];
         /** Returns visible series points. */
-        getVisiblePoints(): Array<BasePoint>;
+        getVisiblePoints(): BasePoint[];
     }
     /** This section describes the methods that can be used in code to manipulate the Point object. */
     export interface BasePoint {
@@ -4397,8 +4397,8 @@ declare namespace DevExpress.viz.charts {
         show(): void;
         selectPoint(point: ChartPoint): void;
         deselectPoint(point: ChartPoint): void;
-        getAllPoints(): Array<ChartPoint>;
-        getVisiblePoints(): Array<ChartPoint>;
+        getAllPoints(): ChartPoint[];
+        getVisiblePoints(): ChartPoint[];
     }
     /** This section describes the methods that can be used in code to manipulate the Point object. */
     export interface ChartPoint extends BasePoint {
@@ -4430,8 +4430,8 @@ declare namespace DevExpress.viz.charts {
     export interface PieSeries extends BaseSeries {
         selectPoint(point: PiePoint): void;
         deselectPoint(point: PiePoint): void;
-        getAllPoints(): Array<PiePoint>;
-        getVisiblePoints(): Array<PiePoint>;
+        getAllPoints(): PiePoint[];
+        getVisiblePoints(): PiePoint[];
     }
     /** This section describes the methods that can be used in code to manipulate the Point object. */
     export interface PiePoint extends BasePoint {
@@ -4465,8 +4465,8 @@ declare namespace DevExpress.viz.charts {
         show(): void;
         selectPoint(point: PolarPoint): void;
         deselectPoint(point: PolarPoint): void;
-        getAllPoints(): Array<PolarPoint>;
-        getVisiblePoints(): Array<PolarPoint>;
+        getAllPoints(): PolarPoint[];
+        getVisiblePoints(): PolarPoint[];
     }
     /** This section describes the methods that can be used in code to manipulate the Point object. */
     export interface PolarPoint extends BasePoint {
@@ -5095,11 +5095,11 @@ declare namespace DevExpress.viz.charts {
         /** Specifies the pane on which the current value axis will be displayed. */
         pane?: string;
         /** Specifies options for value axis strips. */
-        strips?: Array<Strip>;
+        strips?: Strip[];
     }
     export interface ChartAxis extends ChartCommonAxisSettings, Axis {
         /** Defines an array of the value axis constant lines. */
-        constantLines?: Array<ChartConstantLine>;
+        constantLines?: ChartConstantLine[];
         /** Specifies the appearance options for the constant lines of the value axis. */
         constantLineStyle?: ChartCommonConstantLineStyle;
         /** Specifies options for value axis labels. */
@@ -5115,7 +5115,7 @@ declare namespace DevExpress.viz.charts {
     }
     export interface PolarAxis extends PolarCommonAxisSettings, Axis {
         /** Defines an array of the value axis constant lines. */
-        constantLines?: Array<PolarConstantLine>;
+        constantLines?: PolarConstantLine[];
         /** Specifies options for value axis labels. */
         label?: PolarAxisLabel;
     }
@@ -5406,13 +5406,13 @@ declare namespace DevExpress.viz.charts {
         /** Specifies the diameter of the smallest bubble measured in pixels. */
         minBubbleSize?: number;
         /** Defines the dxChart widget's <a href="/Documentation/Guide/Data_Visualization/Charts/Chart_Elements?version=15_1#Panes">pane(s)</a>. */
-        panes?: Array<Pane>;
+        panes?: Pane[];
         /** Swaps the axes round so that the value axis becomes horizontal and the argument axes becomes vertical. */
         rotated?: boolean;
         /** Specifies the options of a chart's legend. */
         legend?: Legend;
         /** Specifies options for dxChart widget series. */
-        series?: Array<SeriesConfig>;
+        series?: SeriesConfig[];
         legendClick?: any;
         seriesClick?: any;
         seriesHoverChanged?: (series: ChartSeries) => void;
@@ -5422,7 +5422,7 @@ declare namespace DevExpress.viz.charts {
         /** Specifies tooltip options. */
         tooltip?: ChartTooltip;
         /** Specifies value axis options for the dxChart widget. */
-        valueAxis?: Array<ChartValueAxis>;
+        valueAxis?: ChartValueAxis[];
         /** Enables scrolling in your chart. */
         scrollingMode?: string;
         /** Enables zooming in your chart. */
@@ -5448,7 +5448,7 @@ declare namespace DevExpress.viz.charts {
         constructor(element: JQuery, options?: dxChartOptions);
         constructor(element: Element, options?: dxChartOptions);
         /** Returns an array of all series in the chart. */
-        getAllSeries(): Array<ChartSeries>;
+        getAllSeries(): ChartSeries[];
         /** Gets a series within the chart's series collection by the specified name (see the name option). */
         getSeriesByName(seriesName: string): ChartSeries;
         /** Gets a series within the chart's series collection by its position number. */
@@ -5492,7 +5492,7 @@ declare namespace DevExpress.viz.charts {
         /** Specifies the options of a chart's legend. */
         legend?: AdvancedLegend;
         /** Specifies options for dxPolarChart widget series. */
-        series?: Array<PolarSeriesConfig>;
+        series?: PolarSeriesConfig[];
         /** Defines options for the series template. */
         seriesTemplate?: PolarSeriesTemplate;
         /** Specifies tooltip options. */
@@ -5505,7 +5505,7 @@ declare namespace DevExpress.viz.charts {
         constructor(element: JQuery, options?: dxPolarChartOptions);
         constructor(element: Element, options?: dxPolarChartOptions);
         /** Returns an array of all series in the chart. */
-        getAllSeries(): Array<PolarSeries>;
+        getAllSeries(): PolarSeries[];
         /** Gets a series within the chart's series collection by the specified name (see the name option). */
         getSeriesByName(seriesName: string): PolarSeries;
         /** Gets a series within the chart's series collection by its position number. */
@@ -5528,7 +5528,7 @@ declare namespace DevExpress.viz.charts {
         /** Specifies dxPieChart legend options. */
         legend?: PieLegend;
         /** Specifies options for the series of the dxPieChart widget. */
-        series?: Array<PieSeriesConfig>;
+        series?: PieSeriesConfig[];
         /** Specifies the diameter of the pie. */
         diameter?: number;
         /** A handler for the legendClick event. */
@@ -5565,7 +5565,7 @@ declare namespace DevExpress.viz.gauges {
         /** Sets the name of the palette or an array of colors to be used for coloring the gauge range container. */
         palette?: any;
         /** An array of objects representing ranges contained in the range container. */
-        ranges?: Array<{ startValue: number; endValue: number; color: string }>;
+        ranges?: { startValue: number; endValue: number; color: string }[];
         /** Specifies a color of a range. */
         color?: string;
         /** Specifies an end value of a range. */
@@ -5938,7 +5938,7 @@ declare namespace DevExpress.viz.rangeSelector {
             /** Sets the name of the palette to be used in the range selector's chart. Alternatively, an array of colors can be set as a custom palette to be used within this chart. */
             palette?: any;
             /** An object defining the chart’s series. */
-            series?: Array<viz.charts.SeriesConfig>;
+            series?: viz.charts.SeriesConfig[];
             /** Defines options for the series template. */
             seriesTemplate?: viz.charts.SeriesTemplate;
             /** Specifies a coefficient for determining an indent from the background's top boundary to the topmost chart point. */
@@ -6339,7 +6339,7 @@ declare namespace DevExpress.viz.map {
         /** Specifies tooltip options. */
         tooltip?: viz.core.Tooltip;
         /** Configures map legends. */
-        legends?: Array<Legend>;
+        legends?: Legend[];
         /** Specifies whether or not the map should respond when a user rolls the mouse wheel. */
         wheelEnabled?: boolean;
         /** Specifies whether the map should respond to touch gestures. */
@@ -6431,9 +6431,9 @@ declare namespace DevExpress.viz.map {
         /** Converts client area coordinates into map coordinates. */
         convertCoordinates(x: number, y: number): number[];
         /** Returns an array with all the map areas. */
-        getAreas(): Array<Area>;
+        getAreas(): Area[];
         /** Returns an array with all the map markers. */
-        getMarkers(): Array<Marker>;
+        getMarkers(): Marker[];
         /** Gets the current coordinates of the map viewport. */
         viewport(): any[];
         /** Sets the coordinates of the map viewport. */

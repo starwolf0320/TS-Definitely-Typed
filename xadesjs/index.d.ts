@@ -781,8 +781,8 @@ declare namespace xadesjs {
          * Returns an enumerator of the KeyInfoClause objects in the KeyInfo object.
          * @param  {any} requestedObjectType?
          */
-        GetEnumerator(): Array<KeyInfoClause>;
-        GetEnumerator(requestedObjectType: any): Array<KeyInfoClause>;
+        GetEnumerator(): KeyInfoClause[];
+        GetEnumerator(requestedObjectType: any): KeyInfoClause[];
         /**
          * Returns an enumerator of the KeyInfoClause objects in the KeyInfo object.
          * @param  {KeyInfoClause} clause The KeyInfoClause to add to the KeyInfo object.
@@ -824,7 +824,7 @@ declare namespace xadesjs {
         /**
          * Gets or sets a list of objects to be signed.
          */
-        ObjectList: Array<DataObject>;
+        ObjectList: DataObject[];
         /**
          * Gets or sets the value of the digital signature.
          */

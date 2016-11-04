@@ -91,10 +91,10 @@ declare namespace RiotGamesAPI {
 	namespace FeaturedGames {
 		interface FeaturedGames {
 			clientRefreshInterval: number;
-			gameList: Array<FeaturedGameInfo>;
+			gameList: FeaturedGameInfo[];
 		}
 		interface FeaturedGameInfo {
-			bannedChampions: Array<BannedChampion>;
+			bannedChampions: BannedChampion[];
 			gameId: number;
 			gameLength: number;
 			gameMode: string;
@@ -103,7 +103,7 @@ declare namespace RiotGamesAPI {
 			gameType: string;
 			mapId: number;
 			observers: Observer;
-			participants: Array<Participant>;
+			participants: Participant[];
 			plateformId: string;
 		}
 		interface Participant {
@@ -130,13 +130,13 @@ declare namespace RiotGamesAPI {
 	*/
 	namespace Game {
 		interface RecentGamesDto {
-			games: Array<GameDto>;
+			games: GameDto[];
 			summonerId: number;
 		}
 		interface GameDto {
 			championId: number;
 			createDate: number;
-			fellowPlayers: Array<PlayerDto>;
+			fellowPlayers: PlayerDto[];
 			gameId: number;
 			gameMode: string;
 			gameType: string;
@@ -242,7 +242,7 @@ declare namespace RiotGamesAPI {
 	*/
 	namespace League {
 		interface LeagueDto {
-			entries: Array<LeagueEntryDto>;
+			entries: LeagueEntryDto[];
 			name: string;
 			participantId: string;
 			queue: string;
@@ -292,15 +292,15 @@ declare namespace RiotGamesAPI {
 			name: string;
 			partype: string;
 			passive: PassiveDto;
-			recommended: Array<RecommendedDto>;
-			skins: Array<SkinDto>;
-			spells: Array<ChampionSpellDto>;
+			recommended: RecommendedDto[];
+			skins: SkinDto[];
+			spells: ChampionSpellDto[];
 			stats: StatsDto;
 			tags: string[];
 			title: string;
 		}
 		interface ChampionSpellDto {
-			altimages: Array<ImageDto>;
+			altimages: ImageDto[];
 			cooldown: number[];
 			cooldownBurn: string;
 			cost: number[];
@@ -320,7 +320,7 @@ declare namespace RiotGamesAPI {
 			sanitizedDescription: string;
 			sanitizedTooltip: string;
 			tooltip: string;
-			vars: Array<SpellVarsDto>;
+			vars: SpellVarsDto[];
 		}
 		interface ImageDto {
 			full: string;
@@ -344,7 +344,7 @@ declare namespace RiotGamesAPI {
 			sanitizedDescription: string;
 		}
 		interface RecommendedDto {
-			block: Array<BlockDto>;
+			block: BlockDto[];
 			champion: string;
 			map: string;
 			mode: string;
@@ -391,7 +391,7 @@ declare namespace RiotGamesAPI {
 			ranksWith: string;
 		}
 		interface BlockDto {
-			items: Array<BlockItemDto>;
+			items: BlockItemDto[];
 			recMath: boolean;
 			type: string;
 		}
@@ -401,9 +401,9 @@ declare namespace RiotGamesAPI {
 		}
 		interface ItemListDto {
 			basic: BasicDataDto;
-			data: Array<{[str: string]: ItemDto}>;
-			groups: Array<GroupDto>;
-			tree: Array<ItemTreeDto>;
+			data: {[str: string]: ItemDto}[];
+			groups: GroupDto[];
+			tree: ItemTreeDto[];
 			type: string;
 			version: string;
 		}
@@ -719,21 +719,21 @@ declare namespace RiotGamesAPI {
 			matchMode: string;
 			matchType: string;
 			matchVersion: string;
-			participantIdentities: Array<ParticipantIdentity>;
-			participants: Array<Participant>;
+			participantIdentities: ParticipantIdentity[];
+			participants: Participant[];
 			plateformId: string;
 			queueType: string;
 			region: string;
 			season: string;
-			teams: Array<Team>;
+			teams: Team[];
 			timeline: Timeline;
 		}
 		interface Participant {
 			championId: number;
 			highestAchievedSeasonTier: string;
-			masteries: Array<Mastery>;
+			masteries: Mastery[];
 			participantId: number;
-			runes: Array<Rune>;
+			runes: Rune[];
 			spell1Id: number;
 			spell2Id: number;
 			stats: ParticipantStats;
@@ -877,8 +877,8 @@ declare namespace RiotGamesAPI {
 			pickTurn: number;
 		}
 		interface Frame {
-			events: Array<Event>;
-			participanFrames: Array<{[str: string]: ParticipantFrame}>;
+			events: Event[];
+			participanFrames: {[str: string]: ParticipantFrame}[];
 			timestamp: number;
 		}
 		interface ParticipantTimelineData {
@@ -934,7 +934,7 @@ declare namespace RiotGamesAPI {
 	namespace MatchList {
 		interface MatchList {
 			endIndex: number;
-			matches: Array<MatchReference>;
+			matches: MatchReference[];
 			startIndex: number;
 			totalGames: number;
 		}
@@ -956,7 +956,7 @@ declare namespace RiotGamesAPI {
 	*/
 	namespace Stats {
 		interface RankedStatsDto {
-			champions: Array<ChampionStatsDto>;
+			champions: ChampionStatsDto[];
 			modifyDate: number;
 			summonerId: number;
 		}
@@ -1023,7 +1023,7 @@ declare namespace RiotGamesAPI {
 			totalUnrealKills: number;
 		}
 		interface PlayerStatsSummaryListDto {
-			playerStatSummaries: Array<PlayerStatsSummaryDto>;
+			playerStatSummaries: PlayerStatsSummaryDto[];
 			summonerId: number;
 		}
 		interface PlayerStatsSummaryDto {
@@ -1086,14 +1086,14 @@ declare namespace RiotGamesAPI {
 			lastGameDate: number;
 			lastJoinDate: number;
 			lastJoinedRankedTeamQueueDate: number;
-			matchHistory: Array<MatchHistorySummaryDto>;
+			matchHistory: MatchHistorySummaryDto[];
 			modifyDate: number;
 			name: string;
 			roster: RosterDto;
 			secondLastJoinDate: number;
 			status: string;
 			tag: string;
-			teamStatDetails: Array<TeamStatDetailDto>;
+			teamStatDetails: TeamStatDetailDto[];
 			thirdLastJoinDate: number;
 		}
 		interface MatchHistorySummaryDto {
@@ -1110,7 +1110,7 @@ declare namespace RiotGamesAPI {
 			win: boolean;
 		}
 		interface RosterDto {
-			memberList: Array<TeamMemberInfoDto>;
+			memberList: TeamMemberInfoDto[];
 			ownerId: number;
 		}
 		interface TeamStatDetailDto {

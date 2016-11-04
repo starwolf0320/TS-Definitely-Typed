@@ -74,7 +74,7 @@ interface WiredepParams {
      * @example:
      *  [ /jquery/, 'bower_components/modernizr/modernizr.js' ]
      */
-    exclude?: Array<string | RegExp>;
+    exclude?: (string | RegExp)[];
 
     /**
      * string or regexp to ignore from the injected filepath

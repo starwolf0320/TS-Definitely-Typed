@@ -379,7 +379,7 @@ declare namespace chrome {
          *     configuration to use.
          * @return {!ServiceBuilder} A self reference.
          */
-        setStdio(config: string|Array<string|number|any>): ServiceBuilder;
+        setStdio(config: string|(string | number | any)[]): ServiceBuilder;
 
 
         /**
@@ -498,7 +498,7 @@ declare namespace edge {
        *     config The configuration to use.
        * @return {!ServiceBuilder} A self reference.
        */
-      setStdio(config: string|Array<string|number|any>): ServiceBuilder;
+      setStdio(config: string|(string | number | any)[]): ServiceBuilder;
 
       /**
        * Sets the port to start the MicrosoftEdgeDriver on.
@@ -1219,7 +1219,7 @@ declare namespace opera {
      *     config The configuration to use.
      * @return {!ServiceBuilder} A self reference.
      */
-    setStdio(config: string|Array<string|number|any>): ServiceBuilder;
+    setStdio(config: string|(string | number | any)[]): ServiceBuilder;
 
     /**
      * Defines the environment to start the server under. This settings will be

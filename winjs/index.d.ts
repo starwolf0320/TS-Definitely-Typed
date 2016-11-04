@@ -4020,7 +4020,7 @@ declare namespace WinJS.UI {
          * Shows the specified commands of the AppBar while hiding all other commands.
          * @param commands The commands to show. The array elements may be ICommand objects, or the string identifiers (IDs) of commands.
         **/
-        showOnlyCommands(commands: Array<string|ICommand>): void;
+        showOnlyCommands(commands: (string|ICommand)[]): void;
 
         /**
          * Opens the AppBar.
@@ -8469,7 +8469,7 @@ declare namespace WinJS.UI {
          * Shows the specified commands of the ToolBar while hiding all other commands.
          * @param commands The commands to show. The array elements may be ICommand objects, or the string identifiers (IDs) of commands.
         **/
-        showOnlyCommands(commands: Array<string|ICommand>): void;
+        showOnlyCommands(commands: (string|ICommand)[]): void;
 
         /**
          * Gets or sets whether the ToolBar is currently opened.

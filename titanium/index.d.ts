@@ -794,8 +794,8 @@ declare namespace Ti {
 				setImage (index: number, image: CoverFlowImageType): void;
 				setImages (images: string[]): void;
 				setImages (images: Ti.Blob[]): void;
-				setImages (images: Array<Ti.Filesystem.File>): void;
-				setImages (images: Array<CoverFlowImageType>): void;
+				setImages (images: Ti.Filesystem.File[]): void;
+				setImages (images: CoverFlowImageType[]): void;
 				setSelected (selected: number): void;
 			}
 			export interface DocumentViewer extends Ti.UI.View {
@@ -2304,7 +2304,7 @@ declare namespace Ti {
 			searchText: string;
 			searchView: any;
 			sectionCount: number;
-			sectionIndexTitles: Array<ListViewIndexEntry>;
+			sectionIndexTitles: ListViewIndexEntry[];
 			sections: Ti.UI.ListSection[];
 			separatorColor: string;
 			separatorInsets: Dictionary<Object>;
@@ -2336,7 +2336,7 @@ declare namespace Ti {
 			getSearchText (): string;
 			getSearchView (): any;
 			getSectionCount (): number;
-			getSectionIndexTitles (): Array<ListViewIndexEntry>;
+			getSectionIndexTitles (): ListViewIndexEntry[];
 			getSections (): Ti.UI.ListSection[];
 			getSeparatorColor (): string;
 			getSeparatorInsets (): Dictionary<Object>;
@@ -2370,7 +2370,7 @@ declare namespace Ti {
 			setSearchText (searchText: string): void;
 			setSearchView (searchView: Ti.UI.SearchBar): void;
 			setSearchView (searchView: Ti.UI.Android.SearchView): void;
-			setSectionIndexTitles (sectionIndexTitles: Array<ListViewIndexEntry>): void;
+			setSectionIndexTitles (sectionIndexTitles: ListViewIndexEntry[]): void;
 			setSections (sections: Ti.UI.ListSection[]): void;
 			setSeparatorColor (separatorColor: string): void;
 			setSeparatorInsets (separatorInsets: Dictionary<Object>): void;
@@ -2510,7 +2510,7 @@ declare namespace Ti {
 			headerTitle: string;
 			headerView: Ti.UI.View;
 			hideSearchOnSelection: boolean;
-			index: Array<TableViewIndexEntry>;
+			index: TableViewIndexEntry[];
 			maxRowHeight: number;
 			minRowHeight: number;
 			moveable: boolean;
@@ -2525,7 +2525,7 @@ declare namespace Ti {
 			searchAsChild: boolean;
 			searchHidden: boolean;
 			sectionCount: number;
-			sections: Array<Ti.UI.TableViewSection>;
+			sections: Ti.UI.TableViewSection[];
 			separatorColor: string;
 			separatorInsets: Dictionary<Object>;
 			separatorStyle: number;
@@ -2533,12 +2533,12 @@ declare namespace Ti {
 			style: number;
 			appendRow (row: Ti.UI.TableViewRow, animation?: TableViewAnimationProperties): void;
 			appendRow (row: Dictionary<Ti.UI.TableViewRow>, animation?: TableViewAnimationProperties): void;
-			appendRow (row: Array<Ti.UI.TableViewRow>, animation?: TableViewAnimationProperties): void;
-			appendRow (row: Array<Dictionary<Ti.UI.TableViewRow>>, animation?: TableViewAnimationProperties): void;
+			appendRow (row: Ti.UI.TableViewRow[], animation?: TableViewAnimationProperties): void;
+			appendRow (row: Dictionary<Ti.UI.TableViewRow>[], animation?: TableViewAnimationProperties): void;
 			appendSection (section: Ti.UI.TableViewSection, animation?: TableViewAnimationProperties): void;
 			appendSection (section: Dictionary<Ti.UI.TableViewSection>, animation?: TableViewAnimationProperties): void;
-			appendSection (section: Array<Ti.UI.TableViewSection>, animation?: TableViewAnimationProperties): void;
-			appendSection (section: Array<Dictionary<Ti.UI.TableViewSection>>, animation?: TableViewAnimationProperties): void;
+			appendSection (section: Ti.UI.TableViewSection[], animation?: TableViewAnimationProperties): void;
+			appendSection (section: Dictionary<Ti.UI.TableViewSection>[], animation?: TableViewAnimationProperties): void;
 			deleteRow (row: number, animation?: TableViewAnimationProperties): void;
 			deleteRow (row: Ti.UI.TableViewRow, animation?: TableViewAnimationProperties): void;
 			deleteSection (section: number, animation?: TableViewAnimationProperties): void;
@@ -2559,7 +2559,7 @@ declare namespace Ti {
 			getHeaderTitle (): string;
 			getHeaderView (): Ti.UI.View;
 			getHideSearchOnSelection (): boolean;
-			getIndex (): Array<TableViewIndexEntry>;
+			getIndex (): TableViewIndexEntry[];
 			getMaxRowHeight (): number;
 			getMinRowHeight (): number;
 			getMoveable (): boolean;
@@ -2574,7 +2574,7 @@ declare namespace Ti {
 			getSearchAsChild (): boolean;
 			getSearchHidden (): boolean;
 			getSectionCount (): number;
-			getSections (): Array<Ti.UI.TableViewSection>;
+			getSections (): Ti.UI.TableViewSection[];
 			getSeparatorColor (): string;
 			getSeparatorInsets (): Dictionary<Object>;
 			getSeparatorStyle (): number;
@@ -2594,9 +2594,9 @@ declare namespace Ti {
 			setAllowsSelection (allowsSelection: boolean): void;
 			setAllowsSelectionDuringEditing (allowsSelectionDuringEditing: boolean): void;
 			setContentInsets (edgeInsets: TableViewEdgeInsets, animated?: TableViewContentInsetOption): void;
-			setData (data: Array<Ti.UI.TableViewRow>, animation: TableViewAnimationProperties): void;
-			setData (data: Array<Dictionary<Ti.UI.TableViewRow>>, animation: TableViewAnimationProperties): void;
-			setData (data: Array<Ti.UI.TableViewSection>, animation: TableViewAnimationProperties): void;
+			setData (data: Ti.UI.TableViewRow[], animation: TableViewAnimationProperties): void;
+			setData (data: Dictionary<Ti.UI.TableViewRow>[], animation: TableViewAnimationProperties): void;
+			setData (data: Ti.UI.TableViewSection[], animation: TableViewAnimationProperties): void;
 			setEditable (editable: boolean): void;
 			setEditing (editing: boolean): void;
 			setFilterAnchored (filterAnchored: boolean): void;
@@ -2608,7 +2608,7 @@ declare namespace Ti {
 			setHeaderTitle (headerTitle: string): void;
 			setHeaderView (headerView: Ti.UI.View): void;
 			setHideSearchOnSelection (hideSearchOnSelection: boolean): void;
-			setIndex (index: Array<TableViewIndexEntry>): void;
+			setIndex (index: TableViewIndexEntry[]): void;
 			setMaxRowHeight (maxRowHeight: number): void;
 			setMinRowHeight (minRowHeight: number): void;
 			setMoveable (moveable: boolean): void;
@@ -2623,7 +2623,7 @@ declare namespace Ti {
 			setSearch (search: Ti.UI.Android.SearchView): void;
 			setSearchAsChild (searchAsChild: boolean): void;
 			setSearchHidden (searchHidden: boolean): void;
-			setSections (sections: Array<Ti.UI.TableViewSection>): void;
+			setSections (sections: Ti.UI.TableViewSection[]): void;
 			setSeparatorColor (separatorColor: string): void;
 			setSeparatorInsets (separatorInsets: Dictionary<Object>): void;
 			setSeparatorStyle (separatorStyle: number): void;
@@ -2761,8 +2761,8 @@ declare namespace Ti {
 			setImage (index: number, image: CoverFlowImageType): void;
 			setImages (images: string[]): void;
 			setImages (images: Ti.Blob[]): void;
-			setImages (images: Array<Ti.Filesystem.File>): void;
-			setImages (images: Array<CoverFlowImageType>): void;
+			setImages (images: Ti.Filesystem.File[]): void;
+			setImages (images: CoverFlowImageType[]): void;
 			setSelected (selected: number): void;
 		}
 		export interface ImageView extends Ti.UI.View {
@@ -2806,7 +2806,7 @@ declare namespace Ti {
 			setImage (image: Ti.Filesystem.File): void;
 			setImages (images: string[]): void;
 			setImages (images: Ti.Blob[]): void;
-			setImages (images: Array<Ti.Filesystem.File>): void;
+			setImages (images: Ti.Filesystem.File[]): void;
 			setPreventDefaultImage (preventDefaultImage: boolean): void;
 			setRepeatCount (repeatCount: number): void;
 			setReverse (reverse: boolean): void;
@@ -2997,14 +2997,14 @@ declare namespace Ti {
 			headerTitle: string;
 			headerView: Ti.UI.View;
 			rowCount: number;
-			rows: Array<Ti.UI.TableViewRow>;
+			rows: Ti.UI.TableViewRow[];
 			add (row: Ti.UI.TableViewRow): void;
 			getFooterTitle (): string;
 			getFooterView (): Ti.UI.View;
 			getHeaderTitle (): string;
 			getHeaderView (): Ti.UI.View;
 			getRowCount (): number;
-			getRows (): Array<Ti.UI.TableViewRow>;
+			getRows (): Ti.UI.TableViewRow[];
 			remove (row: Ti.UI.TableViewRow): void;
 			rowAtIndex (index: number): Ti.UI.TableViewRow;
 			setFooterTitle (footerTitle: string): void;
@@ -3183,7 +3183,7 @@ declare namespace Ti {
 		}
 		export interface Picker extends Ti.UI.View {
 			calendarViewShown: boolean;
-			columns: Array<Ti.UI.PickerColumn>;
+			columns: Ti.UI.PickerColumn[];
 			countDownDuration: number;
 			font: Font;
 			format24: boolean;
@@ -3198,10 +3198,10 @@ declare namespace Ti {
 			visibleItems: number;
 			add (data: Ti.UI.PickerRow[]): void;
 			add (data: Ti.UI.PickerRow): void;
-			add (data: Array<Ti.UI.PickerColumn>): void;
+			add (data: Ti.UI.PickerColumn[]): void;
 			add (data: Ti.UI.PickerColumn): void;
 			getCalendarViewShown (): boolean;
-			getColumns (): Array<Ti.UI.PickerColumn>;
+			getColumns (): Ti.UI.PickerColumn[];
 			getCountDownDuration (): number;
 			getFont (): Font;
 			getFormat24 (): boolean;
@@ -3217,7 +3217,7 @@ declare namespace Ti {
 			getVisibleItems (): number;
 			reloadColumn (column: Ti.UI.PickerColumn): void;
 			setCalendarViewShown (calendarViewShown: boolean): void;
-			setColumns (columns: Array<Ti.UI.PickerColumn>): void;
+			setColumns (columns: Ti.UI.PickerColumn[]): void;
 			setCountDownDuration (countDownDuration: number): void;
 			setFont (font: Font): void;
 			setFormat24 (format24: boolean): void;
@@ -3436,7 +3436,7 @@ declare namespace Ti {
 		export function setBubbleParent (bubbleParent: boolean): void;
 		export interface View extends Ti.UI.View {
 			animated: boolean;
-			annotations: Array<Ti.Map.Annotation>;
+			annotations: Ti.Map.Annotation[];
 			hideAnnotationWhenTouchMap: boolean;
 			latitudeDelta: number;
 			longitudeDelta: number;
@@ -3446,14 +3446,14 @@ declare namespace Ti {
 			userLocation: boolean;
 			addAnnotation (annotation: Dictionary<Ti.Map.Annotation>): void;
 			addAnnotation (annotation: Ti.Map.Annotation): void;
-			addAnnotations (annotations: Array<Ti.Map.Annotation>): void;
-			addAnnotations (annotations: Array<Dictionary<Ti.Map.Annotation>>): void;
+			addAnnotations (annotations: Ti.Map.Annotation[]): void;
+			addAnnotations (annotations: Dictionary<Ti.Map.Annotation>[]): void;
 			addRoute (route: MapRouteType): void;
 			deselectAnnotation (annotation: string): void;
 			deselectAnnotation (annotation: Ti.Map.Annotation): void;
 			getAnimate (): boolean;
 			getAnimated (): boolean;
-			getAnnotations (): Array<Ti.Map.Annotation>;
+			getAnnotations (): Ti.Map.Annotation[];
 			getHideAnnotationWhenTouchMap (): boolean;
 			getLatitudeDelta (): number;
 			getLongitudeDelta (): number;
@@ -3465,13 +3465,13 @@ declare namespace Ti {
 			removeAnnotation (annotation: string): void;
 			removeAnnotation (annotation: Ti.Map.Annotation): void;
 			removeAnnotations (annotations: string[]): void;
-			removeAnnotations (annotations: Array<Ti.Map.Annotation>): void;
+			removeAnnotations (annotations: Ti.Map.Annotation[]): void;
 			removeRoute (route: MapRouteType): void;
 			selectAnnotation (annotation: string): void;
 			selectAnnotation (annotation: Ti.Map.Annotation): void;
 			setAnimate (animate: boolean): void;
 			setAnimated (animated: boolean): void;
-			setAnnotations (annotations: Array<Ti.Map.Annotation>): void;
+			setAnnotations (annotations: Ti.Map.Annotation[]): void;
 			setHideAnnotationWhenTouchMap (hideAnnotationWhenTouchMap: boolean): void;
 			setLocation (location: MapLocationType): void;
 			setMapType (mapType: number): void;
@@ -3934,11 +3934,11 @@ declare namespace Ti {
 				cancel (): void;
 			}
 			export interface UserNotificationCategory extends Ti.Proxy {
-				actionsForDefaultContext: Array<Ti.App.iOS.UserNotificationAction>;
-				actionsForMinimalContext: Array<Ti.App.iOS.UserNotificationAction>;
+				actionsForDefaultContext: Ti.App.iOS.UserNotificationAction[];
+				actionsForMinimalContext: Ti.App.iOS.UserNotificationAction[];
 				identifier: string;
-				getActionsForDefaultContext (): Array<Ti.App.iOS.UserNotificationAction>;
-				getActionsForMinimalContext (): Array<Ti.App.iOS.UserNotificationAction>;
+				getActionsForDefaultContext (): Ti.App.iOS.UserNotificationAction[];
+				getActionsForMinimalContext (): Ti.App.iOS.UserNotificationAction[];
 				getIdentifier (): string;
 			}
 			export interface BackgroundService extends Ti.Proxy {
@@ -4296,24 +4296,24 @@ declare namespace Ti {
 			export var VISIBILITY_DEFAULT: number;
 			export var VISIBILITY_PRIVATE: number;
 			export var VISIBILITY_PUBLIC: number;
-			export var allAlerts: Array<Ti.Android.Calendar.Alert>;
-			export var allCalendars: Array<Ti.Android.Calendar.Calendar>;
+			export var allAlerts: Ti.Android.Calendar.Alert[];
+			export var allCalendars: Ti.Android.Calendar.Calendar[];
 			export var apiName: string;
 			export var bubbleParent: boolean;
-			export var selectableCalendars: Array<Ti.Android.Calendar.Calendar>;
+			export var selectableCalendars: Ti.Android.Calendar.Calendar[];
 			export function addEventListener (name: string, callback: (...args: any[]) => any): void;
 			export function applyProperties (props: Dictionary<Object>): void;
 			export function fireEvent (name: string, event: Dictionary<Object>): void;
-			export function getAllAlerts (): Array<Ti.Android.Calendar.Alert>;
-			export function getAllCalendars (): Array<Ti.Android.Calendar.Calendar>;
+			export function getAllAlerts (): Ti.Android.Calendar.Alert[];
+			export function getAllCalendars (): Ti.Android.Calendar.Calendar[];
 			export function getApiName (): string;
 			export function getBubbleParent (): boolean;
 			export function getCalendarById (id: number): Ti.Android.Calendar.Calendar;
-			export function getSelectableCalendars (): Array<Ti.Android.Calendar.Calendar>;
+			export function getSelectableCalendars (): Ti.Android.Calendar.Calendar[];
 			export function removeEventListener (name: string, callback: (...args: any[]) => any): void;
 			export function setBubbleParent (bubbleParent: boolean): void;
 			export interface Event extends Ti.Proxy {
-				alerts: Array<Ti.Android.Calendar.Alert>;
+				alerts: Ti.Android.Calendar.Alert[];
 				allDay: boolean;
 				begin: Date;
 				description: string;
@@ -4323,13 +4323,13 @@ declare namespace Ti {
 				hasExtendedProperties: boolean;
 				id: string;
 				location: string;
-				reminders: Array<Ti.Android.Calendar.Reminder>;
+				reminders: Ti.Android.Calendar.Reminder[];
 				status: number;
 				title: string;
 				visibility: number;
 				createAlert (data: Dictionary<Ti.Android.Calendar.Alert>): Ti.Android.Calendar.Alert;
 				createReminder (data: Dictionary<Ti.Android.Calendar.Reminder>): Ti.Android.Calendar.Reminder;
-				getAlerts (): Array<Ti.Android.Calendar.Alert>;
+				getAlerts (): Ti.Android.Calendar.Alert[];
 				getAllDay (): boolean;
 				getBegin (): Date;
 				getDescription (): string;
@@ -4340,7 +4340,7 @@ declare namespace Ti {
 				getHasExtendedProperties (): boolean;
 				getId (): string;
 				getLocation (): string;
-				getReminders (): Array<Ti.Android.Calendar.Reminder>;
+				getReminders (): Ti.Android.Calendar.Reminder[];
 				getStatus (): number;
 				getTitle (): string;
 				getVisibility (): number;
@@ -4491,14 +4491,14 @@ declare namespace Ti {
 			setUrl (url: string): void;
 		}
 		export interface Menu extends Ti.Proxy {
-			items: Array<Ti.Android.MenuItem>;
+			items: Ti.Android.MenuItem[];
 			add (options: any): Ti.Android.MenuItem;
 			clear (): void;
 			close (): void;
 			findItem (item: number): Ti.Android.MenuItem;
 			findItem (item: Ti.Android.MenuItem): Ti.Android.MenuItem;
 			getItem (index: number): Ti.Android.MenuItem;
-			getItems (): Array<Ti.Android.MenuItem>;
+			getItems (): Ti.Android.MenuItem[];
 			hasVisibleItems (): boolean;
 			removeGroup (groupId: number): void;
 			removeItem (itemId: number): void;
@@ -4654,7 +4654,7 @@ declare namespace Ti {
 		export function createGroup (parameters?: Dictionary<Ti.Contacts.Group>): Ti.Contacts.Group;
 		export function createPerson (parameters?: Dictionary<Ti.Contacts.Person>): Ti.Contacts.Person;
 		export function fireEvent (name: string, event: Dictionary<Object>): void;
-		export function getAllGroups (): Array<Ti.Contacts.Group>;
+		export function getAllGroups (): Ti.Contacts.Group[];
 		export function getAllPeople (limit: number): Ti.Contacts.Person[];
 		export function getApiName (): string;
 		export function getBubbleParent (): boolean;
@@ -5467,8 +5467,8 @@ declare namespace Ti {
 			location: string;
 			notes: string;
 			recurenceRule: Ti.Calendar.RecurrenceRule;
-			recurenceRules: Array<Ti.Calendar.RecurrenceRule>;
-			reminders: Array<Ti.Calendar.Reminder>;
+			recurenceRules: Ti.Calendar.RecurrenceRule[];
+			reminders: Ti.Calendar.Reminder[];
 			status: number;
 			title: string;
 			visibility: number;
@@ -5490,8 +5490,8 @@ declare namespace Ti {
 			getLocation (): string;
 			getNotes (): string;
 			getRecurenceRule (): Ti.Calendar.RecurrenceRule;
-			getRecurenceRules (): Array<Ti.Calendar.RecurrenceRule>;
-			getReminders (): Array<Ti.Calendar.Reminder>;
+			getRecurenceRules (): Ti.Calendar.RecurrenceRule[];
+			getReminders (): Ti.Calendar.Reminder[];
 			getStatus (): number;
 			getTitle (): string;
 			getVisibility (): number;
@@ -5507,7 +5507,7 @@ declare namespace Ti {
 			setLocation (location: string): void;
 			setNotes (notes: string): void;
 			setRecurenceRule (recurenceRule: Ti.Calendar.RecurrenceRule): void;
-			setRecurenceRules (recurenceRules: Array<Ti.Calendar.RecurrenceRule>): void;
+			setRecurenceRules (recurenceRules: Ti.Calendar.RecurrenceRule[]): void;
 			setTitle (title: string): void;
 		}
 		export interface RecurrenceRule extends Ti.Proxy {
@@ -5670,7 +5670,7 @@ declare namespace Ti {
 		export var TLS_VERSION_1_1: number;
 		export var TLS_VERSION_1_2: number;
 		export var WRITE_MODE: number;
-		export var allHTTPCookies: Array<Ti.Network.Cookie>;
+		export var allHTTPCookies: ATi.Network.Cookie[];
 		export var apiName: string;
 		export var bubbleParent: boolean;
 		export var httpURLFormatter: (...args: any[]) => any;
@@ -5693,11 +5693,11 @@ declare namespace Ti {
 		export function decodeURIComponent (value: string): string;
 		export function encodeURIComponent (value: string): string;
 		export function fireEvent (name: string, event: Dictionary<Object>): void;
-		export function getAllHTTPCookies (): Array<Ti.Network.Cookie>;
+		export function getAllHTTPCookies (): ATi.Network.Cookie[];
 		export function getApiName (): string;
 		export function getBubbleParent (): boolean;
-		export function getHTTPCookies (domain: string, path: string, name: string): Array<Ti.Network.Cookie>;
-		export function getHTTPCookiesForDomain (domain: string): Array<Ti.Network.Cookie>;
+		export function getHTTPCookies (domain: string, path: string, name: string): ATi.Network.Cookie[];
+		export function getHTTPCookiesForDomain (domain: string): ATi.Network.Cookie[];
 		export function getHttpURLFormatter (): (...args: any[]) => any;
 		export function getNetworkType (): number;
 		export function getNetworkTypeName (): string;
@@ -5705,7 +5705,7 @@ declare namespace Ti {
 		export function getRemoteDeviceUUID (): string;
 		export function getRemoteNotificationTypes (): number[];
 		export function getRemoteNotificationsEnabled (): boolean;
-		export function getSystemCookies (domain: string, path: string, name: string): Array<Ti.Network.Cookie>;
+		export function getSystemCookies (domain: string, path: string, name: string): ATi.Network.Cookie[];
 		export function registerForPushNotifications (config: PushNotificationConfig): void;
 		export function removeAllHTTPCookies (): void;
 		export function removeAllSystemCookies (): void;
@@ -6248,7 +6248,7 @@ declare class CloudACLsCheckResponse extends CloudResponse {
 
 declare class ViewTemplate  {
 	bindId: string;
-	childTemplates: Array<ViewTemplate>;
+	childTemplates: ViewTemplate[];
 	events: Dictionary<Object>;
 	properties: Dictionary<Object>;
 	type: string;
@@ -6763,7 +6763,7 @@ declare class ListDataItem  {
 }
 
 declare class ItemTemplate  {
-	childTemplates: Array<ViewTemplate>;
+	childTemplates: ViewTemplate[];
 	events: Dictionary<Object>;
 	properties: Dictionary<Ti.UI.ListItem>;
 }
@@ -6918,7 +6918,7 @@ declare class TableViewEdgeInsets  {
 }
 
 declare class ReverseGeocodeResponse extends ErrorResponse {
-	places: Array<GeocodedAddress>;
+	places: GeocodedAddress[];
 }
 
 declare class contentOffsetOption  {
@@ -6977,7 +6977,7 @@ declare class ImageAsCroppedDict  {
 }
 
 declare class UserNotificationSettings  {
-	categories: Array<Ti.App.iOS.UserNotificationCategory>;
+	categories: Ti.App.iOS.UserNotificationCategory[];
 	types: number[];
 }
 

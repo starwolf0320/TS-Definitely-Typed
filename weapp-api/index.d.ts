@@ -204,9 +204,9 @@ declare namespace wx {
         /** 最多可以选择的图片张数，默认9 */
         count?: number;
         /** original 原图，compressed 压缩图，默认二者都有 */
-        sizeType?: Array<ImageSizeType>;
+        sizeType?: ImageSizeType[];
         /** album 从相册选图，camera 使用相机，默认二者都有 */
-        sourceType?: Array<ImageSourceType>;
+        sourceType?: ImageSourceType[];
         /** 成功则返回图片的本地文件路径列表 tempFilePaths */
         success: (res: TempFilesData) => void;
         /** 接口调用失败的回调函数 */
@@ -392,11 +392,11 @@ declare namespace wx {
     }
     interface ChooseVideoOptions {
         /** album 从相册选视频，camera 使用相机拍摄，默认为：['album', 'camera'] */
-        sourceType?: Array<VideoSourceType>;
+        sourceType?: VideoSourceType[];
         /** 拍摄视频最长拍摄时间，单位秒。最长支持60秒 */
         maxDuration?: number;
         /** 前置或者后置摄像头，默认为前后都有，即：['front', 'back'] */
-        camera?: Array<CameraDevice>;
+        camera?: CameraDevice[];
         /** 接口调用成功，返回视频文件的临时文件路径，详见返回参数说明 */
         success?: (res: VideoData) => void;
         /** 接口调用失败的回调函数 */
@@ -658,10 +658,10 @@ declare namespace wx {
     }
 
     interface Animator {
-        actions: Array<AnimationAction>;
+        actions: AnimationAction[];
     }
     interface AnimationAction {
-        animates: Array<Animate>;
+        animates: Animate[];
         option: AnimationActionOption;
     }
     interface AnimationActionOption {
@@ -787,7 +787,7 @@ declare namespace wx {
 
     interface CanvasAction {
         method: string;
-        data: Array<CanvasAction> | Array<number | string>;
+        data: CanvasAction[] | (number | string)[];
     }
     type LineCapType = 'butt' | 'round' | 'square';
     type LineJoinType = 'bevel' | 'round' | 'miter';
@@ -796,7 +796,7 @@ declare namespace wx {
      */
     interface CanvasContext {
         /** 获取当前context上存储的绘图动作 */
-        getActions(): Array<CanvasAction>;
+        getActions(): CanvasAction[];
         /** 清空当前的存储绘图动作 */
         clearActions(): void;
         /**
@@ -1000,7 +1000,7 @@ declare namespace wx {
          * 绘图动作数组，由 wx.createContext 创建的 context，
          * 调用 getActions 方法导出绘图动作数组。
          */
-        actions: Array<CanvasAction>;
+        actions: CanvasAction[];
     }
     /**
      * 绘制画布

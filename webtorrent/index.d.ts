@@ -87,13 +87,13 @@ declare namespace WebTorrent {
     seed(inputFile: File, opts?: TorrentOptions|any, onSeed?: (torrent: Torrent) => void): void;
     seed(inputFileList: FileList, opts?: TorrentOptions|any, onSeed?: (torrent: Torrent) => void): void;
     seed(inputBuffer: Buffer, opts?: TorrentOptions|any, onSeed?: (torrent: Torrent) => void): void;
-    seed(inputBuffersFilesOrPaths: Array<string|File|Buffer>, opts?: TorrentOptions|any, onSeed?: (torrent: Torrent) => void): void;
+    seed(inputBuffersFilesOrPaths: (string|File|Buffer)[], opts?: TorrentOptions|any, onSeed?: (torrent: Torrent) => void): void;
 
     seed(inputFileOrFolderPath: string, onSeed?: (torrent: Torrent) => void): void;
     seed(inputFile: File, onSeed?: (torrent: Torrent) => void): void;
     seed(inputFileList: FileList, onSeed?: (torrent: Torrent) => void): void;
     seed(inputBuffer: Buffer, onSeed?: (torrent: Torrent) => void): void;
-    seed(inputBuffersFilesOrPaths: Array<string|File|Buffer>, onSeed?: (torrent: Torrent) => void): void;
+    seed(inputBuffersFilesOrPaths: (string|File|Buffer)[], onSeed?: (torrent: Torrent) => void): void;
     //TODO: opts
 
     /**
@@ -109,7 +109,7 @@ declare namespace WebTorrent {
     /**
      * An array of all torrents in the client.
      */
-    torrents: Array<Torrent>;
+    torrents: Torrent[];
 
     /**
      * Returns the torrent with the given torrentId. Convenience method. Easier than searching through the client.torrents array. Returns null if no matching torrent found.
@@ -138,7 +138,7 @@ declare namespace WebTorrent {
     /**
      * An array of all files in the torrent. See the file section for more info on what methods the file has.
      */
-    files: Array<InTorrentFile>;
+    files: InTorrentFile[];
 
     /**
      * The attached bittorrent-swarm instance.

@@ -31,7 +31,7 @@ export interface Element {
             encoding: string | number
         }
     };
-    elements?: Array<Element>;
+    elements?: Element[];
     text?: string | number;
     type?: string | number;
     name?: string | number;

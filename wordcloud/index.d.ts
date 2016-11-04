@@ -14,7 +14,7 @@ declare namespace WordCloud {
 		 * List of words/text to paint on the canvas in a 2-d array, in the form of [word, size],
 		 * e.g. [['foo', 12] , ['bar', 6]].
 		 */
-		list?: Array<ListEntry> | any[];
+		list?: ListEntry[] | any[];
 		/** font to use. */
 		fontFamily?: string;
 		/** font weight to use, e.g. normal, bold or 600 */

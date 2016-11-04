@@ -71,7 +71,7 @@ declare namespace OuterXRegExp {
     function replace(str: string, search: string, replacement: Function, scope?: string): string;
     function replace(str: string, search: RegExp, replacement: string, scope?: string): string;
     function replace(str: string, search: RegExp, replacement: Function, scope?: string): string;
-    function replaceEach(str: string, replacements: Array<RegExp | string>[]): string;
+    function replaceEach(str: string, replacements: (RegExp | string)[]): string;
 
     function split(str: string, separator: string, limit?: number): string[];
     function split(str: string, separator: RegExp, limit?: number): string[];
@@ -114,7 +114,7 @@ declare namespace OuterXRegExp {
         function replace(str: string, search: string, replacement: Function, scope?: string): string;
         function replace(str: string, search: RegExp, replacement: string, scope?: string): string;
         function replace(str: string, search: RegExp, replacement: Function, scope?: string): string;
-        function replaceEach(str: string, replacements: Array<RegExp | string>[]): string;
+        function replaceEach(str: string, replacements: (RegExp | string)[]): string;
 
         function split(str: string, separator: string, limit?: number): string[];
         function split(str: string, separator: RegExp, limit?: number): string[];

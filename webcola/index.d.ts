@@ -184,7 +184,7 @@ declare namespace cola.vpsc {
          * @param y2 number second y coord of line
          * @return any intersection points found
          */
-        lineIntersections(x1: number, y1: number, x2: number, y2: number): Array<Point>;
+        lineIntersections(x1: number, y1: number, x2: number, y2: number): Point[];
         /**
          * return any intersection points between a line extending from the centre of this rectangle to the given point,
          *  and the sides of this rectangle
@@ -814,8 +814,8 @@ declare namespace cola {
          * @property links {array}
          * @default empty list
          */
-        links(): Array<Link<Node | number>>;
-        links(x: Array<Link<Node | number>>): Layout;
+        links(): Link<Node | number>[];
+        links(x: Link<Node | number>[]): Layout;
         /**
          * list of constraints of various types
          * @property constraints
