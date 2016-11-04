@@ -41,7 +41,7 @@ declare namespace MediumEditor {
         createLink(opts: CreateLinkOptions): void;
         execAction(action: string, opts?: string): boolean;
         execAction(action: string, opts?: CreateLinkOptions): boolean;
-        pasteHTML(html: string, options?:PasteHTMLOptions): void;
+        pasteHTML(html: string, options?: PasteHTMLOptions): void;
         queryCommandState(action: string): boolean;
 
         // Helper Functions
@@ -63,7 +63,7 @@ declare namespace MediumEditor {
             revision: number;
             preRelease: string;
             toString: Function;
-        }
+        };
     }
 
     export interface CoreOptions {
@@ -131,11 +131,11 @@ declare namespace MediumEditor {
     export interface PasteOptions {
         forcePlainText?: boolean;
         cleanPastedHTML?: boolean;
-        preCleanReplacements?: any[],
-        cleanReplacements?: any[],
+        preCleanReplacements?: any[];
+        cleanReplacements?: any[];
         cleanAttrs?: string[];
         cleanTags?: string[];
-        unwrapTags?: string[],
+        unwrapTags?: string[];
     }
 
     export interface KeyboardCommandsOptions {
@@ -156,7 +156,7 @@ declare namespace MediumEditor {
         buttonClass?: string;
     }
 
-    export interface PasteHTMLOptions{
+    export interface PasteHTMLOptions {
         cleanAttrs?: string[];
         cleanTags?: string[];
         unwrapTags?: string[];

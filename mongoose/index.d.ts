@@ -1260,7 +1260,7 @@ declare module "mongoose" {
     // constructor exposes static methods of mongodb.ObjectID and ObjectId(id)
     type ObjectIdConstructor = typeof mongodb.ObjectID & {
       (s?: string | number): mongodb.ObjectID;
-    }
+    };
 
     // var objectId: mongoose.Types.ObjectId should reference mongodb.ObjectID not
     //   the ObjectIdConstructor, so we add the interface below

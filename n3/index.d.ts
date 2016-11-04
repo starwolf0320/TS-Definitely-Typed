@@ -22,15 +22,15 @@ declare namespace N3 {
     }
 
     interface Triple {
-        subject: string,
-        predicate: string,
-        object: string,
-        graph?: string
+        subject: string;
+        predicate: string;
+        object: string;
+        graph?: string;
     }
 
     interface BlankTriple {
-        predicate: string,
-        object: string
+        predicate: string;
+        object: string;
     }
 
 
@@ -47,8 +47,8 @@ declare namespace N3 {
     const StreamParser: StreamParserConstructor;
 
     interface ParserOptions {
-        format?: string,
-        prefixes?: string[]
+        format?: string;
+        prefixes?: string[];
     }
 
     interface ParseCallback {
@@ -97,8 +97,8 @@ declare namespace N3 {
     }
 
     interface WriterOptions {
-        format?: string,
-        prefixes?: Prefixes
+        format?: string;
+        prefixes?: Prefixes;
     }
 
     interface N3StoreWriter extends N3Writer {

@@ -73,7 +73,7 @@ export interface ICatBoxCacheOptions {
     /**   if true, allows multiple cache users to share the same segment (e.g. multiple methods using the same cache storage container). Default to false.  */
     shared?: boolean;
 }
-	
+
 	/** policy configuration for the "CatBox" module and server method options. */
 	export interface ICatBoxCachePolicyOptions {
 		/** the cache name configured in server.cache. Defaults to the default cache. */
@@ -1909,7 +1909,7 @@ export class Server extends Events.EventEmitter {
 		});*/
 			strategy(name: string, scheme: string, mode?: boolean | string, options?: any): void;
 			strategy(name: string, scheme: string, mode?: boolean | string): void;
-			strategy(name: string, scheme: string, options?:any): void;
+			strategy(name: string, scheme: string, options?: any): void;
 
 		/** server.auth.test(strategy, request, next)
 		 Tests a request against an authentication strategy where:

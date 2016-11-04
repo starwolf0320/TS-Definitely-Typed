@@ -74,7 +74,7 @@ export declare function emptyDir(path: string, callback?: (err: Error) => void):
 export declare function emptyDirSync(path: string): boolean;
 
 export interface CopyFilterFunction {
-    (src: string): boolean
+    (src: string): boolean;
 }
 
 export type CopyFilter = CopyFilterFunction | RegExp;
@@ -88,7 +88,7 @@ export interface CopyOptions {
 }
 
 	export interface MoveOptions {
-		clobber? : boolean;
+		clobber?: boolean;
 		limit?: number;
 	}
 

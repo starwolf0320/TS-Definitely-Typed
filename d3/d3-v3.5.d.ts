@@ -1128,12 +1128,12 @@ declare namespace d3 {
     export function bisector<T, U>(accessor: (x: T) => U): {
         left: (array: T[], x: U, lo?: number, hi?: number) => number;
         right: (array: T[], x: U, lo?: number, hi?: number) => number;
-    }
+    };
 
     export function bisector<T, U>(comparator: (a: T, b: U) => number): {
         left: (array: T[], x: U, lo?: number, hi?: number) => number;
         right: (array: T[], x: U, lo?: number, hi?: number) => number;
-    }
+    };
 
     export function shuffle<T>(array: T[], lo?: number, hi?: number): T[];
 
@@ -1354,7 +1354,7 @@ declare namespace d3 {
 
     export function nest<T>(): Nest<T>;
 
-    export module random {
+    export namespace random {
         export function normal(mean?: number, deviation?: number): () => number;
         export function logNormal(mean?: number, deviation?: number): () => number;
         export function bates(count: number): () => number;
@@ -1449,7 +1449,7 @@ declare namespace d3 {
 
         (l: number, a: number, b: number): Lab;
         (color: string): Lab;
-    }
+    };
 
     interface Lab extends Color {
         l: number;
@@ -1472,7 +1472,7 @@ declare namespace d3 {
         rgb(): Rgb;
     }
 
-    export module ns {
+    export namespace ns {
         interface Qualified {
             space: string;
             local: string;
@@ -1495,7 +1495,7 @@ declare namespace d3 {
         [event: string]: (...args: any[]) => void;
     }
 
-    export module scale {
+    export namespace scale {
         export function identity(): Identity;
 
         interface Identity {
@@ -1679,7 +1679,7 @@ declare namespace d3 {
         export function category20<Domain extends { toString(): string }>(): Ordinal<Domain, string>;
         export function category20b(): Ordinal<string, string>;
         export function category20b<Domain extends { toString(): string }>(): Ordinal<Domain, string>;
-        export function category20c(): Ordinal<string,string>;
+        export function category20c(): Ordinal<string, string>;
         export function category20c<Domain extends { toString(): string }>(): Ordinal<Domain, string>;
 
         interface Ordinal<Domain extends { toString(): string }, Range> {
@@ -1745,7 +1745,7 @@ declare namespace d3 {
 
     export var interpolators: Array<(a: any, b: any) => (t: number) => any>;
 
-    export module time {
+    export namespace time {
         export var second: Interval;
         export var minute: Interval;
         export var hour: Interval;
@@ -1786,7 +1786,7 @@ declare namespace d3 {
                 range(start: Date, stop: Date, step?: number): Date[];
 
                 offset(date: Date, step: number): Date;
-            }
+            };
         }
 
         export function seconds(start: Date, stop: Date, step?: number): Date[];
@@ -1815,7 +1815,7 @@ declare namespace d3 {
 
         export function format(specifier: string): Format;
 
-        export module format {
+        export namespace format {
             export function multi(formats: Array<[string, (d: Date) => boolean|number]>): Format;
             export function utc(specifier: string): Format;
             namespace utc {
@@ -1834,7 +1834,7 @@ declare namespace d3 {
         export function scale<Output>(): Scale<Output, Output>;
         export function scale<Range, Output>(): Scale<Range, Output>;
 
-        export module scale {
+        export namespace scale {
             export function utc(): Scale<number, number>;
             export function utc<Output>(): Scale<Output, Output>;
             export function utc<Range, Output>(): Scale<Range, Output>;
@@ -1874,7 +1874,7 @@ declare namespace d3 {
         }
     }
 
-    export module behavior {
+    export namespace behavior {
         export function drag<Datum>(): Drag<Datum>;
 
         interface Drag<Datum> {
@@ -1933,7 +1933,7 @@ declare namespace d3 {
         }
     }
 
-    export module geo {
+    export namespace geo {
         export function path(): Path;
 
         interface Path {
@@ -2390,7 +2390,7 @@ declare namespace d3 {
                 outerRadius: number;
                 startAngle: number;
                 endAngle: number;
-                padAngle: number
+                padAngle: number;
             }
         }
 
@@ -2459,7 +2459,7 @@ declare namespace d3 {
             interface Node {
                 radius: number;
                 startAngle: number;
-                endAngle: number
+                endAngle: number;
             }
         }
 
@@ -2572,7 +2572,7 @@ declare namespace d3 {
 
             tickFormat(): (t: any) => string;
             tickFormat(format: (t: any) => string): Axis;
-            tickFormat(format:string): Axis;
+            tickFormat(format: string): Axis;
         }
 
         export function brush(): Brush<any>;
@@ -2758,12 +2758,12 @@ declare namespace d3 {
             (specifier: string): time.Format;
             utc(specifier: string): time.Format;
             multi(formats: Array<[string, (d: Date) => boolean|number]>): time.Format;
-        }
+        };
     }
 
     namespace layout {
         export function bundle(): Bundle<bundle.Node>;
-        export function bundle<T extends bundle.Node>(): Bundle<T>
+        export function bundle<T extends bundle.Node>(): Bundle<T>;
 
         namespace bundle {
             interface Node {

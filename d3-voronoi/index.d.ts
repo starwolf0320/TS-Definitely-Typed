@@ -276,7 +276,7 @@ export interface VoronoiDiagram<T> {
      * @param y y-coordinate
      * @param radius Optional parameter for search radius around [x, y]
      */
-    find(x: number, y:number, radius?:number): VoronoiSite<T> | null;
+    find(x: number, y: number, radius?: number): VoronoiSite<T> | null;
 }
 
 // --------------------------------------------------------------------------

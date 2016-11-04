@@ -455,7 +455,7 @@ interface RTCPeerConnection extends EventTarget {
     // Extension: https://www.w3.org/TR/webrtc/#h-rtcpeerconnection-interface-extensions-1
     readonly sctp: RTCSctpTransport | null;
     createDataChannel(label: string | null, dataChannelDict?: RTCDataChannelInit): RTCDataChannel;
-    ondatachannel: (event: 	RTCDataChannelEvent) => void;
+    ondatachannel: (event: RTCDataChannelEvent) => void;
 
     // Extension: https://www.w3.org/TR/webrtc/#h-rtcpeerconnection-interface-extensions-2
     getStats(selector?: MediaStreamTrack | null): Promise<RTCStatsReport>;

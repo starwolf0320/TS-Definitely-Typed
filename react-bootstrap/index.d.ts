@@ -205,8 +205,8 @@ declare namespace ReactBootstrap {
         open?: boolean;
         title?: string;
         useAnchor?: boolean;
-        bsClass?:string; // Added since v0.30.0
-        bsStyle?:string;
+        bsClass?: string; // Added since v0.30.0
+        bsStyle?: string;
     }
     class DropdownToggle extends React.Component<DropdownToggleProps, any> { }
 

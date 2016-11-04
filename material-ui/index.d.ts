@@ -1328,7 +1328,7 @@ declare namespace __MaterialUI {
         onDragStop?: React.MouseEventHandler<{}>;
         onFocus?: React.FocusEventHandler<{}>;
         required?: boolean;
-        sliderStyle?: React.CSSProperties,
+        sliderStyle?: React.CSSProperties;
         step?: number;
         style?: React.CSSProperties;
         value?: number;
@@ -8572,11 +8572,11 @@ declare module 'material-ui/internal/ExpandTransitionChild' {
 }
 declare module 'material-ui/internal/FocusRipple' {
     interface FocusRippleProps extends React.Props<FocusRipple> {
-        color?: string,
-        innerStyle?: React.CSSProperties,
-        opacity?: number,
-        show?: boolean,
-        style?: React.CSSProperties
+        color?: string;
+        innerStyle?: React.CSSProperties;
+        opacity?: number;
+        show?: boolean;
+        style?: React.CSSProperties;
     }
     class FocusRipple extends React.Component<FocusRippleProps, {}> { }
     export default FocusRipple;
@@ -8633,7 +8633,7 @@ declare module 'material-ui/internal/SlideIn' {
 }
 declare module 'material-ui/internal/SlideInChild' {
     interface SlideInChildProps extends React.Props<SlideInChild> {
-        direction?: string,
+        direction?: string;
         enterDelay?: number;
         getLeaveDirection: Function;
         style?: React.CSSProperties;

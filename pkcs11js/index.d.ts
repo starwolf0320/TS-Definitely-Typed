@@ -35,7 +35,7 @@ declare namespace Pkcs11js {
         manufacturerID: string;
         flags: number;
         hardwareVersion: Version;
-        firmwareVersion: Version
+        firmwareVersion: Version;
     }
 
     interface TokenInfo {
@@ -52,7 +52,7 @@ declare namespace Pkcs11js {
         minPinLen: number;
         hardwareVersion: Version;
         firmwareVersion: Version;
-        utcTime: string
+        utcTime: string;
         totalPublicMemory: number;
         freePublicMemory: number;
         totalPrivateMemory: number;
@@ -134,8 +134,8 @@ declare namespace Pkcs11js {
     }
 
     interface KeyPair {
-        privateKey: Handle,
-        publicKey: Handle,
+        privateKey: Handle;
+        publicKey: Handle;
     }
 
     export class PKCS11 {

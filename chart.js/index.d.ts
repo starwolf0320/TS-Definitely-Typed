@@ -408,5 +408,5 @@ declare class Chart {
 
     defaults: {
         global: ChartOptions;
-    }
+    };
 }

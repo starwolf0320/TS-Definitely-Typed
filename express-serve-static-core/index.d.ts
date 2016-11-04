@@ -148,7 +148,7 @@ interface IRoute {
     subscribe: IRouterHandler<this>;
     trace: IRouterHandler<this>;
     unlock: IRouterHandler<this>;
-    unsubscribe: IRouterHandler<this>
+    unsubscribe: IRouterHandler<this>;
 }
 
 export interface Router extends IRouter { }

@@ -33,18 +33,18 @@ declare namespace Asn1js {
         constructor(params?: LocalBaseBlockParams);
         /**
          * Aux function, need to get a block name. Need to have it here for inhiritence
-         * 
+         *
          * @static
          * @returns {string}
-         * 
+         *
          * @memberOf LocalBaseBlock
          */
         static blockName(): string;
         /**
          * Convertion for the block to JSON object
-         * 
+         *
          * @returns {JsonLocalBaseBlock}
-         * 
+         *
          * @memberOf LocalBaseBlock
          */
         toJSON(): JsonLocalBaseBlock;
@@ -60,21 +60,21 @@ declare namespace Asn1js {
         valueHex: ArrayBuffer;
         /**
          * Base function for converting block from BER encoded array of bytes
-         * 
+         *
          * @param {ArrayBuffer} inputBuffer ASN.1 BER encoded array
          * @param {number} inputOffset Offset in ASN.1 BER encoded array where decoding should be started
          * @param {number} inputLength Maximum length of array of bytes which can be using in this function
          * @returns {number} Offset after least decoded byte
-         * 
+         *
          * @memberOf LocalHexBlockMixin
          */
         fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
         /**
          * Encoding of current ASN.1 block into ASN.1 encoded array (BER rules)
-         * 
+         *
          * @param {boolean} [sizeOnly=false] Flag that we need only a size of encoding, not a real array of bytes
          * @returns {ArrayBuffer}
-         * 
+         *
          * @memberOf LocalHexBlockMixin
          */
         toBER(sizeOnly?: boolean): ArrayBuffer;
@@ -91,30 +91,30 @@ declare namespace Asn1js {
         constructor(params: any);
         /**
          * Aux function, need to get a block name. Need to have it here for inhiritence
-         * 
+         *
          * @static
          * @returns {string}
-         * 
+         *
          * @memberOf LocalHexBlockMixin
          */
         static blockName(): string;
         /**
          * Base function for converting block from BER encoded array of bytes
-         * 
+         *
          * @param {ArrayBuffer} inputBuffer ASN.1 BER encoded array
          * @param {number} inputOffset Offset in ASN.1 BER encoded array where decoding should be started
          * @param {number} inputLength Maximum length of array of bytes which can be using in this function
          * @returns {number} Offset after least decoded byte
-         * 
+         *
          * @memberOf LocalHexBlockMixin
          */
         fromBER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number): number;
         /**
          * Encoding of current ASN.1 block into ASN.1 encoded array (BER rules)
-         * 
+         *
          * @param {boolean} [sizeOnly=false] Flag that we need only a size of encoding, not a real array of bytes
          * @returns {ArrayBuffer}
-         * 
+         *
          * @memberOf LocalHexBlockMixin
          */
         toBER(sizeOnly?: boolean): ArrayBuffer;
@@ -152,7 +152,7 @@ declare namespace Asn1js {
             isIndefiniteForm?: boolean;
             longFormUsed?: boolean;
             length: number;
-        }
+        };
     }
 
     class LocalLengthBlock extends LocalBaseBlock {
@@ -257,10 +257,10 @@ declare namespace Asn1js {
         constructor(params?: LocalOctetStringValueBlockParams);
         /**
          * Checking that two OCTETSTRINGs are equal
-         * 
+         *
          * @param {OctetString} octetString
          * @returns {boolean}
-         * 
+         *
          * @memberOf OctetString
          */
         isEqual(octetString: OctetString): boolean;
@@ -302,7 +302,7 @@ declare namespace Asn1js {
         toBER(sizeOnly?: boolean): ArrayBuffer;
         /**
          * Base function for converting block from DER encoded array of bytes
-         * 
+         *
          * @param {ArrayBuffer} inputBuffer ASN.1 DER encoded array
          * @param {number} inputOffset Offset in ASN.1 DER encoded array where decoding should be started
          * @param {number} inputLength Maximum length of array of bytes which can be using in this function
@@ -312,7 +312,7 @@ declare namespace Asn1js {
         fromDER(inputBuffer: ArrayBuffer, inputOffset: number, inputLength: number, expectedLength?: number): number;
         /**
          * Encoding of current ASN.1 block into ASN.1 encoded array (DER rules)
-         * 
+         *
          * @param {boolean} [sizeOnly=false] Flag that we need only a size of encoding, not a real array of bytes
          * @returns {ArrayBuffer}
          */
@@ -326,16 +326,16 @@ declare namespace Asn1js {
         constructor(params?: IntegerParams)
         /**
          * Compare two Integer object, or Integer and ArrayBuffer objects
-         * 
+         *
          * @param {(Integer | ArrayBuffer)} otherValue
          * @returns {boolean}
-         * 
+         *
          * @memberOf Integer
          */
         isEqual(otherValue: Integer | ArrayBuffer): boolean;
         /**
          * Convert current Integer value from BER into DER format
-         * 
+         *
          * @returns {Integer}
          */
         convertToDER(): Integer;
@@ -373,16 +373,16 @@ declare namespace Asn1js {
 
         /**
          * Create "LocalObjectIdentifierValueBlock" class from string
-         * 
+         *
          * @param {string} string Input string to convert from
          * @returns {boolean}
          */
         fromString(data: string): boolean;
         /**
          * Converts "LocalObjectIdentifierValueBlock" class to string
-         * 
+         *
          * @returns {string}
-         * 
+         *
          * @memberOf LocalObjectIdentifierValueBlock
          */
         toString(): string;
@@ -412,17 +412,17 @@ declare namespace Asn1js {
         constructor(params?: Utf8StringParams);
         /**
          * Function converting ArrayBuffer into ASN.1 internal string
-         * 
+         *
          * @param {ArrayBuffer} inputBuffer ASN.1 BER encoded array
-         * 
+         *
          * @memberOf Utf8String
          */
         fromBuffer(inputBuffer: ArrayBuffer): void;
         /**
          * Function converting JavaScript string into ASN.1 internal class
-         * 
+         *
          * @param {string} inputString ASN.1 BER encoded array
-         * 
+         *
          * @memberOf Utf8String
          */
         fromString(inputString: string): void;
@@ -450,17 +450,17 @@ declare namespace Asn1js {
         constructor(params?: BmpStringParams);
         /**
          * Function converting ArrayBuffer into ASN.1 internal string
-         * 
+         *
          * @param {ArrayBuffer} inputBuffer ASN.1 BER encoded array
-         * 
+         *
          * @memberOf BmpString
          */
         fromBuffer(inputBuffer: ArrayBuffer): void;
         /**
          * Function converting JavaScript string into ASN.1 internal class
-         * 
+         *
          * @param {string} inputString ASN.1 BER encoded array
-         * 
+         *
          * @memberOf BmpString
          */
         fromString(inputString: string): void;
@@ -488,17 +488,17 @@ declare namespace Asn1js {
         constructor(params?: UniversalStringParams);
         /**
          * Function converting ArrayBuffer into ASN.1 internal string
-         * 
+         *
          * @param {ArrayBuffer} inputBuffer ASN.1 BER encoded array
-         * 
+         *
          * @memberOf UniversalString
          */
         fromBuffer(inputBuffer: ArrayBuffer): void;
         /**
          * Function converting JavaScript string into ASN.1 internal class
-         * 
+         *
          * @param {string} inputString ASN.1 BER encoded array
-         * 
+         *
          * @memberOf UniversalString
          */
         fromString(inputString: string): void;
@@ -524,17 +524,17 @@ declare namespace Asn1js {
         constructor(params?: LocalSimpleStringBlockParams);
         /**
          * Function converting ArrayBuffer into ASN.1 internal string
-         * 
+         *
          * @param {ArrayBuffer} inputBuffer ASN.1 BER encoded array
-         * 
+         *
          * @memberOf LocalSimpleStringBlock
          */
         fromBuffer(inputBuffer: ArrayBuffer): void;
         /**
          * Function converting JavaScript string into ASN.1 internal class
-         * 
+         *
          * @param {string} inputString ASN.1 BER encoded array
-         * 
+         *
          * @memberOf LocalSimpleStringBlock
          */
         fromString(inputString: string): void;
@@ -565,25 +565,25 @@ declare namespace Asn1js {
         constructor(params?: UTCTimeParams);
         /**
          * Function converting ASN.1 internal string into ArrayBuffer
-         * 
+         *
          * @returns {ArrayBuffer}
-         * 
+         *
          * @memberOf UTCTime
          */
         toBuffer(): ArrayBuffer;
         /**
          * Function converting "Date" object into ASN.1 internal string
-         * 
+         *
          * @param {Date} inputDate JavaScript "Date" object
-         * 
+         *
          * @memberOf UTCTime
          */
         fromDate(inputDate: Date): void;
         /**
          * Function converting ASN.1 internal string into "Date" object
-         * 
+         *
          * @returns {Date}
-         * 
+         *
          * @memberOf UTCTime
          */
         toDate(): Date;
@@ -647,7 +647,7 @@ declare namespace Asn1js {
 
     /**
      * Major function for decoding ASN.1 BER array into internal library structuries
-     * 
+     *
      * @param {ArrayBuffer} inputBuffer ASN.1 BER encoded array of bytes
      * @returns {{ offset: number; result: LocalBaseBlock }}
      */
@@ -655,7 +655,7 @@ declare namespace Asn1js {
 
     /**
      * Compare of two ASN.1 object trees
-     * 
+     *
      * @param {*} root Root of input ASN.1 object tree
      * @param {*} inputData Input ASN.1 object tree
      * @param {*} inputSchema Input ASN.1 schema to compare with
@@ -665,7 +665,7 @@ declare namespace Asn1js {
 
     /**
      * ASN.1 schema verification for ArrayBuffer data
-     * 
+     *
      * @param {ArrayBuffer} inputBuffer Input BER-encoded ASN.1 data
      * @param {*} inputSchema Input ASN.1 schema to verify against to
      * @returns {{ verified: boolean, result?: any }}

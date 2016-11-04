@@ -106,7 +106,7 @@ interface JQueryFileInputOptions {
     redirectParamName?: string;
 
 	// The HTTP request method must be "POST" or "PUT"
-	type?: string,
+	type?: string;
 
     /**
      * Set the following option to the location of a postMessage window,

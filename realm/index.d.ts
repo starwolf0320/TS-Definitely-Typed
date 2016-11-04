@@ -115,7 +115,7 @@ declare namespace Realm {
          * @returns Results
          */
         sorted(descriptor: string | SortDescriptor, reverse?: boolean): Results;
- 
+
         /**
          * @returns Iterator<any>
          */

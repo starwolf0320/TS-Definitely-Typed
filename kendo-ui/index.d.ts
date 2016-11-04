@@ -89,7 +89,7 @@ declare namespace kendo {
         };
     };
 
-    var cultures: {[culture: string] : {
+    var cultures: {[culture: string]: {
         name?: string;
         calendar?: {
             AM: string[];

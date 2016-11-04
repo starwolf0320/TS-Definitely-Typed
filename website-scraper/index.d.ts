@@ -19,7 +19,7 @@ declare namespace websiteScraper {
         attr: string;
     }
     interface RequestOptions {
-        headers: request.Headers
+        headers: request.Headers;
     }
     interface Options {
         urls: Array<string | Url>;

@@ -21,7 +21,7 @@ declare module 'js-data' {
     }
 
     interface DSResourceDefinition<T> {
-        bindAll(params: DSFilterParams, scope: ng.IScope, expr: string, cb?: (err: DSError, items:(T & DSInstanceShorthands<T>)[]) => void): Function;
+        bindAll(params: DSFilterParams, scope: ng.IScope, expr: string, cb?: (err: DSError, items: (T & DSInstanceShorthands<T>)[]) => void): Function;
         bindOne(id: string | number, scope: ng.IScope, expr: string, cb?: (err: DSError, item: T & DSInstanceShorthands<T>) => void): Function;
     }
 }

@@ -2552,7 +2552,7 @@ declare module 'gl-matrix' {
          * @returns {mat4} out
          */
         public static perspectiveFromFieldOfView(out: mat4,
-                                                 fov:{upDegrees: number, downDegrees: number, leftDegrees: number, rightDegrees: number},
+                                                 fov: {upDegrees: number, downDegrees: number, leftDegrees: number, rightDegrees: number},
                                                  near: number, far: number): mat4
 
         /**

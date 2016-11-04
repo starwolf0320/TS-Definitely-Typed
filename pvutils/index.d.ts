@@ -3,7 +3,7 @@
 // Definitions by: Stepan Miroshin <https://github.com/microshine>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-export = PvUtils
+export = PvUtils;
 
 declare namespace PvUtils {
     /**

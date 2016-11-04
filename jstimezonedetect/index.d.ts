@@ -4,9 +4,9 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 interface JsTimezoneDetect {
-    determine: ()=> {
-        name: ()=> string;
-    }
+    determine: () => {
+        name: () => string;
+    };
 }
 
 declare var jstimezonedetect: JsTimezoneDetect;

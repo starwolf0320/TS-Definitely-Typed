@@ -792,7 +792,7 @@ declare namespace Highcharts {
              * @since 2.1.5
              */
             y?: number;
-        }
+        };
         /**
          * For datetime axes, this decides where to put the tick between weeks. 0 = Sunday, 1 = Monday.
          * @default 1
@@ -2046,7 +2046,7 @@ declare namespace Highcharts {
              * @since 3.0.8
              */
             theme?: ButtonStatesTheme;
-        }
+        };
         /**
          * An array of series configurations for the drill down. Each series configuration uses the same syntax as the
          * series option set. These drilldown series are hidden by default. The drilldown series is linked to the parent
@@ -4572,7 +4572,7 @@ declare namespace Highcharts {
              * Options for the hovered series
              */
             hover?: BarStates;
-        }
+        };
     }
 
     interface LineChart extends SeriesChart {
@@ -4884,7 +4884,7 @@ declare namespace Highcharts {
              * Options for the hovered series
              */
             hover?: BarStates;
-        }
+        };
     }
 
     interface WaterFallChart extends BarChart {

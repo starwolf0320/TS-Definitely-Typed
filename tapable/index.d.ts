@@ -202,4 +202,4 @@ declare namespace Tapable {
     }
 }
 
-export = Tapable
+export = Tapable;
