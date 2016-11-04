@@ -370,7 +370,7 @@ declare namespace CacheFactory {
 		 * Call.removeExpired() on all registered caches.Returns a hash of any expired items, keyed by cache id.
 		 * @returns {}
 		 */
-		removeExpiredFromAll(): Array<{ [key: string]: Array<{ [key: string]: any }> }>;
+		removeExpiredFromAll(): { [key: string]: { [key: string]: any }[] }[];
 	}
 
 	export interface IUtils {
@@ -391,7 +391,7 @@ declare namespace CacheFactory {
 	export interface IBinaryHeap {
 		(w?: IWeightFunc, c?: ICompareFunc): void;
 
-		heap: Array<HeapItem>;
+		heap: HeapItem[];
 		weightFunc: IWeightFunc;
 		compareFunc: ICompareFunc;
 

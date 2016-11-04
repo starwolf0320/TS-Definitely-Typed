@@ -61,25 +61,25 @@ export interface PieArcDatum<T> {
 
 
 export interface Pie<This, Datum> {
-    (this: This, data: Array<Datum>, ...args: any[]): Array<PieArcDatum<Datum>>;
-    value(): (d: Datum, i: number, data: Array<Datum>) => number;
+    (this: This, data: Datum[], ...args: any[]): PieArcDatum<Datum>[];
+    value(): (d: Datum, i: number, data: Datum[]) => number;
     value(value: number): this;
-    value(value: (d: Datum, i: number, data: Array<Datum>) => number): this;
+    value(value: (d: Datum, i: number, data: Datum[]) => number): this;
     sort(): ((a: Datum, b: Datum) => number) | null;
     sort(comparator: (a: Datum, b: Datum) => number): this;
     sort(comparator: null): this;
     sortValues(): ((a: number, b: number) => number) | null;
     sortValues(comparator: (a: number, b: number) => number): this;
     sortValues(comparator: null): this;
-    startAngle(): (this: This, data: Array<Datum>, ...args: any[]) => number;
+    startAngle(): (this: This, data: Datum[], ...args: any[]) => number;
     startAngle(angle: number): this;
-    startAngle(angle: (this: This, data: Array<Datum>, ...args: any[]) => number): this;
-    endAngle(): (this: This, data: Array<Datum>, ...args: any[]) => number;
+    startAngle(angle: (this: This, data: Datum[], ...args: any[]) => number): this;
+    endAngle(): (this: This, data: Datum[], ...args: any[]) => number;
     endAngle(angle: number): this;
-    endAngle(angle: (this: This, data: Array<Datum>, ...args: any[]) => number): this;
-    padAngle(): (this: This, data: Array<Datum>, ...args: any[]) => number;
+    endAngle(angle: (this: This, data: Datum[], ...args: any[]) => number): this;
+    padAngle(): (this: This, data: Datum[], ...args: any[]) => number;
     padAngle(angle: number): this;
-    padAngle(angle: (this: This, data: Array<Datum>, ...args: any[]) => number): this;
+    padAngle(angle: (this: This, data: Datum[], ...args: any[]) => number): this;
 }
 
 export function pie(): Pie<any, number | { valueOf(): number }>;
@@ -92,16 +92,16 @@ export function pie<This, Datum>(): Pie<This, Datum>;
 
 
 export interface Line<Datum> {
-    (data: Array<Datum>): string | undefined;
-    x(): (d: Datum, index: number, data: Array<Datum>) => number;
+    (data: Datum[]): string | undefined;
+    x(): (d: Datum, index: number, data: Datum[]) => number;
     x(x: number): this;
-    x(x: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    y(): (d: Datum, index: number, data: Array<Datum>) => number;
+    x(x: (d: Datum, index: number, data: Datum[]) => number): this;
+    y(): (d: Datum, index: number, data: Datum[]) => number;
     y(y: number): this;
-    y(y: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    defined(): (d: Datum, index: number, data: Array<Datum>) => boolean;
+    y(y: (d: Datum, index: number, data: Datum[]) => number): this;
+    defined(): (d: Datum, index: number, data: Datum[]) => boolean;
     defined(defined: boolean): this;
-    defined(defined: (d: Datum, index: number, data: Array<Datum>) => boolean): this;
+    defined(defined: (d: Datum, index: number, data: Datum[]) => boolean): this;
     curve(): CurveFactory | CurveFactoryLineOnly;
     curve(curve: CurveFactory | CurveFactoryLineOnly): this;
     context(): CanvasRenderingContext2D | null;
@@ -113,16 +113,16 @@ export function line<Datum>(): Line<Datum>;
 export function line<This, Datum>(): Line<Datum>;
 
 export interface RadialLine<Datum> {
-    (data: Array<Datum>): string | undefined;
-    angle(): (d: Datum, index: number, data: Array<Datum>) => number;
+    (data: Datum[]): string | undefined;
+    angle(): (d: Datum, index: number, data: Datum[]) => number;
     angle(angle: number): this;
-    angle(angle: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    radius(): (d: Datum, index: number, data: Array<Datum>) => number;
+    angle(angle: (d: Datum, index: number, data: Datum[]) => number): this;
+    radius(): (d: Datum, index: number, data: Datum[]) => number;
     radius(radius: number): this;
-    radius(radius: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    defined(): (d: Datum, index: number, data: Array<Datum>) => boolean;
+    radius(radius: (d: Datum, index: number, data: Datum[]) => number): this;
+    defined(): (d: Datum, index: number, data: Datum[]) => boolean;
     defined(defined: boolean): this;
-    defined(defined: (d: Datum, index: number, data: Array<Datum>) => boolean): this;
+    defined(defined: (d: Datum, index: number, data: Datum[]) => boolean): this;
     curve(): CurveFactory | CurveFactoryLineOnly;
     curve(curve: CurveFactory | CurveFactoryLineOnly): this;
     context(): CanvasRenderingContext2D | null;
@@ -139,28 +139,28 @@ export function radialLine<Datum>(): RadialLine<Datum>;
 
 
 export interface Area<Datum> {
-    (data: Array<Datum>): string | undefined;
-    x(): (d: Datum, index: number, data: Array<Datum>) => number;
+    (data: Datum[]): string | undefined;
+    x(): (d: Datum, index: number, data: Datum[]) => number;
     x(x: number): this;
-    x(x: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    x0(): (d: Datum, index: number, data: Array<Datum>) => number;
+    x(x: (d: Datum, index: number, data: Datum[]) => number): this;
+    x0(): (d: Datum, index: number, data: Datum[]) => number;
     x0(x0: number): this;
-    x0(x0: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    x1(): ((d: Datum, index: number, data: Array<Datum>) => number) | null;
+    x0(x0: (d: Datum, index: number, data: Datum[]) => number): this;
+    x1(): ((d: Datum, index: number, data: Datum[]) => number) | null;
     x1(x: number): this;
-    x1(x: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    y(): (d: Datum, index: number, data: Array<Datum>) => number;
+    x1(x: (d: Datum, index: number, data: Datum[]) => number): this;
+    y(): (d: Datum, index: number, data: Datum[]) => number;
     y(y: number): this;
-    y(y: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    y0(): (d: Datum, index: number, data: Array<Datum>) => number;
+    y(y: (d: Datum, index: number, data: Datum[]) => number): this;
+    y0(): (d: Datum, index: number, data: Datum[]) => number;
     y0(y: number): this;
-    y0(y: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    y1(): (d: Datum, index: number, data: Array<Datum>) => number;
+    y0(y: (d: Datum, index: number, data: Datum[]) => number): this;
+    y1(): (d: Datum, index: number, data: Datum[]) => number;
     y1(y: number): this;
-    y1(y: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    defined(): (d: Datum, index: number, data: Array<Datum>) => boolean;
+    y1(y: (d: Datum, index: number, data: Datum[]) => number): this;
+    defined(): (d: Datum, index: number, data: Datum[]) => boolean;
     defined(defined: boolean): this;
-    defined(defined: (d: Datum, index: number, data: Array<Datum>) => boolean): this;
+    defined(defined: (d: Datum, index: number, data: Datum[]) => boolean): this;
     curve(): CurveFactory;
     curve(curve: CurveFactory): this;
     context(): CanvasRenderingContext2D | null;
@@ -177,28 +177,28 @@ export function area<Datum>(): Area<Datum>;
 
 
 export interface RadialArea<Datum> {
-    (data: Array<Datum>): string | undefined;
-    angle(): (d: Datum, index: number, data: Array<Datum>) => number;
+    (data: Datum[]): string | undefined;
+    angle(): (d: Datum, index: number, data: Datum[]) => number;
     angle(angle: number): this;
-    angle(angle: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    startAngle(): (d: Datum, index: number, data: Array<Datum>) => number;
+    angle(angle: (d: Datum, index: number, data: Datum[]) => number): this;
+    startAngle(): (d: Datum, index: number, data: Datum[]) => number;
     startAngle(angle: number): this;
-    startAngle(angle: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    endAngle(): ((d: Datum, index: number, data: Array<Datum>) => number) | null;
+    startAngle(angle: (d: Datum, index: number, data: Datum[]) => number): this;
+    endAngle(): ((d: Datum, index: number, data: Datum[]) => number) | null;
     endAngle(angle: number): this;
-    endAngle(angle: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    radius(): (d: Datum, index: number, data: Array<Datum>) => number;
+    endAngle(angle: (d: Datum, index: number, data: Datum[]) => number): this;
+    radius(): (d: Datum, index: number, data: Datum[]) => number;
     radius(radius: number): this;
-    radius(radius: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    innerRadius(): (d: Datum, index: number, data: Array<Datum>) => number;
+    radius(radius: (d: Datum, index: number, data: Datum[]) => number): this;
+    innerRadius(): (d: Datum, index: number, data: Datum[]) => number;
     innerRadius(radius: number): this;
-    innerRadius(radius: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    outerRadius(): (d: Datum, index: number, data: Array<Datum>) => number;
+    innerRadius(radius: (d: Datum, index: number, data: Datum[]) => number): this;
+    outerRadius(): (d: Datum, index: number, data: Datum[]) => number;
     outerRadius(radius: number): this;
-    outerRadius(radius: (d: Datum, index: number, data: Array<Datum>) => number): this;
-    defined(): (d: Datum, index: number, data: Array<Datum>) => boolean;
+    outerRadius(radius: (d: Datum, index: number, data: Datum[]) => number): this;
+    defined(): (d: Datum, index: number, data: Datum[]) => boolean;
     defined(defined: boolean): this;
-    defined(defined: (d: Datum, index: number, data: Array<Datum>) => boolean): this;
+    defined(defined: (d: Datum, index: number, data: Datum[]) => boolean): this;
     curve(): CurveFactory;
     curve(curve: CurveFactory): this;
     context(): CanvasRenderingContext2D | null;
@@ -308,7 +308,7 @@ export function symbol(): Symbol<any, any>;
 export function symbol<Datum>(): Symbol<any, Datum>;
 export function symbol<This, Datum>(): Symbol<This, Datum>;
 
-export var symbols: Array<SymbolType>;
+export var symbols: SymbolType[];
 
 
 export var symbolCircle: SymbolType;
@@ -329,7 +329,7 @@ export var symbolWye: SymbolType;
 // SeriesPoint is a [number, number] two-element Array with added
 // data and index properties related to the data element which formed the basis for the
 // SeriesPoint
-export interface SeriesPoint<Datum> extends number[] {
+export interface SeriesPoint<Datum> extends Array<number> {
     0: number;
     1: number;
     index: number;
@@ -341,15 +341,15 @@ export interface Series<Datum, Key> extends Array<SeriesPoint<Datum>> {
 }
 
 export interface Stack<This, Datum, Key> {
-    (data: Array<Datum>, ...args: any[]): Array<Series<Datum, Key>>;
+    (data: Datum[], ...args: any[]): Series<Datum, Key>[];
 
-    keys(): (this: This, data: Array<Datum>, ...args: any[]) => Array<Key>;
-    keys(keys: Array<Key>): this;
-    keys(keys: (this: This, data: Array<Datum>, ...args: any[]) => Array<Key>): this;
+    keys(): (this: This, data: Datum[], ...args: any[]) => Key[];
+    keys(keys: Key[]): this;
+    keys(keys: (this: This, data: Datum[], ...args: any[]) => Key[]): this;
 
-    value(): (d: Datum, key: Key, j: number, data: Array<Datum>) => number;
+    value(): (d: Datum, key: Key, j: number, data: Datum[]) => number;
     value(value: number): this;
-    value(value: (d: Datum, key: Key, j: number, data: Array<Datum>) => number): this;
+    value(value: (d: Datum, key: Key, j: number, data: Datum[]) => number): this;
 
     order(): (series: Series<Datum, Key>) => number[];
     order(order: null): this;

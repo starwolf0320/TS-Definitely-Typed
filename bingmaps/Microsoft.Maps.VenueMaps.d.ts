@@ -40,12 +40,12 @@ declare namespace Microsoft.Maps.VenueMaps {
 
     export interface Floor {
         name: string;
-        primitives: Array<Primitive>;
+        primitives: Primitive[];
         zoomRange: number[];
     }
 
     export interface Footprint {
-        polygons: Array<Polygon>;
+        polygons: Polygon[];
         zoomRange: number[];
     }
 
@@ -54,7 +54,7 @@ declare namespace Microsoft.Maps.VenueMaps {
         CenterLongitude: number;
         DefaultFloor: string;
         FloorHeader: string;
-        Floors: Array<Floor>;
+        Floors: Floor[];
         Footprint: Footprint;
         MapId: string;
         MapType: string;
@@ -68,7 +68,7 @@ declare namespace Microsoft.Maps.VenueMaps {
     }
 
     export interface NearbyVenueOptions {
-        callback?: (maps: Array<VenueMap>) => any;
+        callback?: (maps: VenueMap[]) => any;
         location?: Location;
         map?: Map;
         radius?: number;
@@ -77,7 +77,7 @@ declare namespace Microsoft.Maps.VenueMaps {
     export interface Polygon {
         bounds: LocationRect;
         center: Location;
-        locations: Array<Location>;
+        locations: Location[];
     }
 
     export interface Primitive {
@@ -89,7 +89,7 @@ declare namespace Microsoft.Maps.VenueMaps {
         center: Location;
         floor: Floor;
         id: string;
-        locations: Array<Location>;
+        locations: Location[];
         name: string;
 
         highlight(): void;
@@ -105,7 +105,7 @@ declare namespace Microsoft.Maps.VenueMaps {
         defaultFloor: string;
         directory: Directory;
         floorHeader: string;
-        floors: Array<Floor>;
+        floors: Floor[];
         footprint: Footprint;
         id: string;
         name: string;

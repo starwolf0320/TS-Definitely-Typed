@@ -224,7 +224,7 @@ declare namespace dygraphs {
             pixels: number,
             opts: (name: string) => any,
             dygraph: Dygraph,
-            vals: number[]) => Array<{v: number, label: string}>;
+            vals: number[]) => {v: number, label: string}[];
 
 
         /**

@@ -47,8 +47,8 @@ export namespace policies {
     }
 
     interface DCAwareRoundRobinPolicy extends LoadBalancingPolicy {
-      localHostsArray: Array<Host>;
-      remoteHostsArray: Array<Host>;
+      localHostsArray: Host[];
+      remoteHostsArray: Host[];
     }
 
     interface RoundRobinPolicyStatic {
@@ -346,15 +346,15 @@ export namespace types {
       warnings: string[],
       customPayload: any
     };
-    rows: Array<Row>;
+    rows: Row[];
     rowLength: number;
-    columns: Array<{ [key: string]: string; }>;
+    columns: { [key: string]: string }[];
     pageState: string;
     nextPage: any; // function
 
     first(): Row;
     getPageState(): string;
-    getColumns(): Array<{ [key: string]: string; }>;
+    getColumns(): { [key: string]: string }[];
   }
 
   interface ResultStreamStatic {
@@ -370,12 +370,12 @@ export namespace types {
   }
 
   interface RowStatic {
-    new (columns: Array<{ [key: string]: string; }>): Row;
+    new (columns: { [key: string]: string }[]): Row;
   }
 
   interface Row {
     get(columnName: string | number): { [key: string]: any; };
-    values(): Array<{ [key: string]: any; }>;
+    values(): { [key: string]: any; }[];
     keys(): string[];
     forEach(callback: Callback): void;
   }
@@ -489,7 +489,7 @@ export interface QueryOptions {
   retry?: policies.retry.RetryPolicy;
   retryOnTimeout?: boolean;
   routingIndexes?: number[];
-  routingKey?: Buffer | Array<Buffer>;
+  routingKey?: Buffer | Buffer[];
   routingNames?: string[];
   serialConsistency?: number;
   timestamp?: number | _Long;
@@ -505,7 +505,7 @@ export interface Client extends events.EventEmitter {
   keyspace: string;
   metadata: metadata.Metadata;
 
-  batch(queries: string[] | Array<{ query: string, params?: any }>, options: QueryOptions, callback: ResultCallback): void;
+  batch(queries: string[] | { query: string, params?: any }[], options: QueryOptions, callback: ResultCallback): void;
   connect(callback: Callback): void;
   eachRow(query: string, params?: any, options?: QueryOptions, rowCallback?: Callback, callback?: Callback): void;
   execute(query: string, params?: any, options?: QueryOptions, callback?: ResultCallback): void;
@@ -543,7 +543,7 @@ export interface HostMap extends events.EventEmitter {
   remove(key: string): void;
   removeMultiple(keys: string[]): void;
   set(key: string, value: Host): void;
-  values(): Array<Host>;
+  values(): Host[];
 }
 
 export interface EncoderStatic {
@@ -629,7 +629,7 @@ export namespace metadata {
   }
 
   interface Aggregate {
-    argumentTypes: Array<{ code: number, info: any }>;
+    argumentTypes: { code: number, info: any }[];
     finalFunction: string;
     initCondition: string;
     keyspaceName: string;
@@ -641,7 +641,7 @@ export namespace metadata {
 
   interface DataTypeInfo {
     code: number;
-    info: string | DataTypeInfo | Array<DataTypeInfo>;
+    info: string | DataTypeInfo | DataTypeInfo[];
     options: {
       frozen: boolean,
       reversed: boolean
@@ -656,9 +656,9 @@ export namespace metadata {
   interface DataCollection {
     bloomFilterFalsePositiveChance: number;
     caching: caching;
-    clusterKeys: Array<{ c: ColumnInfo, index: number, order: string }>;
+    clusterKeys: { c: ColumnInfo, index: number, order: string }[];
     clusteringOrder: string[];
-    columns: Array<ColumnInfo>;
+    columns: ColumnInfo[];
     columnsByName: { [key: string]: ColumnInfo };
     comment: string;
     compactionClass: string;
@@ -672,7 +672,7 @@ export namespace metadata {
     maxIndexInterval?: number;
     minIndexInterval?: number;
     name: string;
-    partitionKeys: Array<{ c: ColumnInfo, index: number }>;
+    partitionKeys: { c: ColumnInfo, index: number }[];
     populateCacheOnFlush: boolean;
     readRepairChance: number;
     speculateRetry: string;
@@ -687,8 +687,8 @@ export namespace metadata {
   interface IndexStatic {
     new (name: string, target: string, kind: IndexType, options: Object): Index;
 
-    fromRows(indexRows: Array<types.Row>): Array<Index>;
-    fromColumnRows(columnRows: Array<types.Row>, columnsByName: { [key: string]: ColumnInfo }): Array<Index>;
+    fromRows(indexRows: types.Row[]): Index[];
+    fromColumnRows(columnRows: types.Row[], columnsByName: { [key: string]: ColumnInfo }): Index[];
   }
 
   interface Index {
@@ -715,9 +715,9 @@ export namespace metadata {
   interface Metadata {
     clearPrepared(): void;
 
-    getAggregate(keyspaceName: string, name: string, signature: string[] | Array<{ code: number, info: any }>, callback: Callback): void;
+    getAggregate(keyspaceName: string, name: string, signature: string[] | { code: number, info: any }[], callback: Callback): void;
     getAggregates(keyspaceName: string, name: string, callback: Callback): void;
-    getFunction(keyspaceName: string, name: string, signature: string[] | Array<{ code: number, info: any }>, callback: Callback): void;
+    getFunction(keyspaceName: string, name: string, signature: string[] | { code: number, info: any }[], callback: Callback): void;
     getFunctions(keyspaceName: string, name: string, callback: Callback): void;
     getMaterializedView(keyspaceName: string, name: string, callback: Callback): void;
     getReplicas(keyspaceName: string, tokenBuffer: Buffer): any[];
@@ -734,7 +734,7 @@ export namespace metadata {
 
   interface SchemaFunction {
     argumentNames: string[];
-    argumentTypes: Array<{ code: number, info: any }>;
+    argumentTypes: { code: number, info: any }[];
     body: string;
     calledOnNullInput: boolean;
     keyspaceName: string;
@@ -749,7 +749,7 @@ export namespace metadata {
   }
 
   interface TableMetadata extends DataCollection {
-    indexes: Array<Index>;
+    indexes: Index[];
     indexInterval?: number;
     isCompact: boolean;
     memtableFlushPeriod: number;

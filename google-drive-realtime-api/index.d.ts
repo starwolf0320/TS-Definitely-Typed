@@ -319,10 +319,10 @@ declare namespace gapi.drive.realtime {
 		create(ref: string|Function, ...var_args: any[]): any;
 
 		// Creates a collaborative list.
-		createList<T>(opt_initialValue?: Array<T>): CollaborativeList<T>;
+		createList<T>(opt_initialValue?: T[]): CollaborativeList<T>;
 
 		// Creates a collaborative map.
-		createMap<T>(opt_initialValue?: Array<[string, T]>): CollaborativeMap<T>;
+		createMap<T>(opt_initialValue?: [string, T][]): CollaborativeMap<T>;
 
 		// Creates a collaborative string.
 		createString(opt_initialValue?: string): CollaborativeString;

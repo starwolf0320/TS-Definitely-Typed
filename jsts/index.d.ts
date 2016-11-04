@@ -1496,7 +1496,7 @@ declare namespace jsts {
             /**
              * @constructor
              */
-            constructor(points: Array<Coordinate>, factory?: any);
+            constructor(points: Coordinate[], factory?: any);
 
             /**
              * @return {jsts.geom.Coordinate} The n'th coordinate of this
@@ -1574,7 +1574,7 @@ declare namespace jsts {
             /**
              * @constructor
              */
-            constructor(shell: LinearRing, holes?: Array<LinearRing>, factory?: any);
+            constructor(shell: LinearRing, holes?: LinearRing[], factory?: any);
 
             /**
              * Gets the exterior ring.

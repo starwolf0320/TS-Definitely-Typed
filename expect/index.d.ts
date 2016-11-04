@@ -48,7 +48,7 @@ export interface Call {
 
 export interface Spy {
     __isSpy: Boolean;
-    calls: Array<Call>;
+    calls: Call[];
     andCall(fn: Function): Spy;
     andCallThrough(): Spy;
     andThrow(object: Object): Spy;

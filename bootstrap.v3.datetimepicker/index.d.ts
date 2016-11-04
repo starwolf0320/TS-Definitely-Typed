@@ -105,7 +105,7 @@ export interface Datetimepicker {
 	 */
 	defaultDate(date: string | Date | moment.Moment | boolean): void;
 	/**Returns the options.disabledDates option.
-	 * NOTES: probably should be: disabledDates(): boolean | Array<moment.Moment>; see: DatetimepickerOptions
+	 * NOTES: probably should be: disabledDates(): boolean | moment.Moment[]; see: DatetimepickerOptions
 	*/
 	disabledDates(): boolean | any;
 	/**Takes an array of values and disallows the user to select those days.
@@ -113,7 +113,7 @@ export interface Datetimepicker {
 	 * Also calling this function removes the configuration of options.enabledDates if such exist.
 	 * Note: These values are matched with Day granularity.
 	 */
-	disabledDates(dates: boolean | Array<string | Date | moment.Moment>): void;
+	disabledDates(dates: boolean | (string | Date | moment.Moment)[]): void;
 	/**Returns the options.disabledHours option.
 	 * NOTES: probably should be: disabledHours(): boolean | number[]; see: DatetimepickerOptions
 	*/
@@ -126,13 +126,13 @@ export interface Datetimepicker {
 	 * eg { "0": [<moment.Moment1>, <moment.Moment2>], "1": [...] }
 	 * https://github.com/Eonasdan/bootstrap-datetimepicker/issues/1498
 	 */
-	disabledTimeIntervals(): boolean | Array<Array<moment.Moment>>;
+	disabledTimeIntervals(): boolean | moment.Moment[][];
 	/**Disables time selection between the given moments
 	 * eg: [[moment({ h: 0 }), moment({ h: 8 })], [moment({ h: 18 }), moment({ h: 24 })]]
 	 */
-	disabledTimeIntervals(value: boolean | Array<Array<moment.Moment>>): void;
+	disabledTimeIntervals(value: boolean | moment.Moment[][]): void;
 	/**Returns the options.enabledDates option
-	 * NOTES: probably should be: enabledDates(): boolean | Array<moment.Moment>; see: DatetimepickerOptions
+	 * NOTES: probably should be: enabledDates(): boolean | moment.Moment[]; see: DatetimepickerOptions
 	*/
 	enabledDates(): boolean | any;
 	/**Takes an array of values and allows the user to select only from those days.
@@ -140,7 +140,7 @@ export interface Datetimepicker {
 	 * Also calling this function removes the configuration of options.disabledDates if such exist.
 	 * Note: These values are matched with Day granularity.
 	 */
-	enabledDates(dates: boolean | Array<string | Date | moment.Moment>): void;
+	enabledDates(dates: boolean | (string | Date | moment.Moment)[]): void;
 	/**Returns the options.enabledHours option.
 	 * NOTES: probably should be: enabledHours(): boolean | number[]; see: DatetimepickerOptions
 	*/
@@ -334,7 +334,7 @@ export interface DatetimepickerOptions {
 	 * eg disabledDates = ["2010-10-10"]; -> disabledDated will be { "2010-01-01": true }
 	 * https://github.com/Eonasdan/bootstrap-datetimepicker/issues/1499
 	 */
-    disabledDates?: boolean | Array<moment.Moment | Date | string> | any;
+    disabledDates?: boolean | (moment.Moment | Date | string)[] | any;
 	/**Will allow or disallow hour selections (much like disabledTimeIntervals) but will affect all days
 	 * @default: false
 	 * IMPORTANT! The getter returns an Object NOT an Array, with keys being the hours, values being true.
@@ -346,14 +346,14 @@ export interface DatetimepickerOptions {
 	 * eg: [[moment({ h: 0 }), moment({ h: 8 })], [moment({ h: 18 }), moment({ h: 24 })]]
 	 * @default: false
 	 */
-	disabledTimeIntervals?: boolean | Array<Array<moment.Moment>>;
+	disabledTimeIntervals?: boolean | moment.Moment[][];
 	/**Disables selection of dates NOT in the array, e.g. holidays
 	 * @default: false
 	 * IMPORTANT! The getter returns an Object NOT an Array, with keys being the dates, values being true.
 	 * eg enabledDates = ["2010-10-10"]; -> enabledDated will be { "2010-01-01": true }
 	 * https://github.com/Eonasdan/bootstrap-datetimepicker/issues/1499
 	 */
-    enabledDates?: boolean | Array<moment.Moment | Date | string> | any;
+    enabledDates?: boolean | (moment.Moment | Date | string)[] | any;
 	/**Will allow or disallow hour selections (much like disabledTimeIntervals) but will affect all days
 	 * @default: false
 	 * IMPORTANT! The getter returns an Object NOT an Array, with keys being the hours, values being true.

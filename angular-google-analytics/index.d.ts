@@ -17,13 +17,13 @@ declare module 'angular' {
        * @summary If logging is enabled then all outbound calls are accessible via an in-memory array.
        * This is useful for troubleshooting and seeing the order of outbound calls with parameters.
        */
-      log: Array<Object>;
+      log: Object[];
 
       /**
        * @summary If in offline mode then all calls are queued to an in-memory array for future processing.
        * All calls queued to the offlineQueue are not outbound calls yet and hence do not show up in the log.
        */
-      offlineQueue: Array<Object>;
+      offlineQueue: Object[];
 
       /**
        * @summary Returns the current URL that would be sent if a `trackPage` call was made.
@@ -109,7 +109,7 @@ declare module 'angular' {
        * @param {Object} tracker The account identifier(s).
        * @return {angular.google.analytics.IAnalyticsProvider} The object instance.
        */
-      setAccount(tracker: string | Object | Array<Object>): AnalyticsProvider;
+      setAccount(tracker: string | Object | Object[]): AnalyticsProvider;
 
       /**
        * @summary Set Cookie Configuration.
@@ -121,10 +121,10 @@ declare module 'angular' {
 
       /**
        * @summary Set cross-linked domains.
-       * @param {Array<string>} domains The domains.
+       * @param {string[]} domains The domains.
        * @return {angular.google.analytics.IAnalyticsProvider} The object instance.
        */
-      setCrossLinkDomains(domains: Array<string>): AnalyticsProvider;
+      setCrossLinkDomains(domains: string[]): AnalyticsProvider;
 
       /**
        * @summary Set currency.

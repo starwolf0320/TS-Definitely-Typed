@@ -122,7 +122,7 @@ declare namespace jasmine {
     }
 
     interface CustomMatcherFactory {
-        (util: MatchersUtil, customEqualityTesters: Array<CustomEqualityTester>): CustomMatcher;
+        (util: MatchersUtil, customEqualityTesters: CustomEqualityTester[]): CustomMatcher;
     }
 
     interface CustomMatcherFactories {
@@ -135,8 +135,8 @@ declare namespace jasmine {
     }
 
     interface MatchersUtil {
-        equals(a: any, b: any, customTesters?: Array<CustomEqualityTester>): boolean;
-        contains<T>(haystack: ArrayLike<T> | string, needle: any, customTesters?: Array<CustomEqualityTester>): boolean;
+        equals(a: any, b: any, customTesters?: CustomEqualityTester[]): boolean;
+        contains<T>(haystack: ArrayLike<T> | string, needle: any, customTesters?: CustomEqualityTester[]): boolean;
         buildFailureMessage(matcherName: string, isNot: boolean, actual: any, ...expected: any[]): string;
     }
 

@@ -36,7 +36,7 @@ declare namespace Microsoft.Maps {
 
         static fromCorners(northwest: Location, southeast: Location): LocationRect;
         static fromEdges(north: number, west: number, south: number, east: number, altitude: number, altitudeReference: AltitudeReference): LocationRect;
-        static fromLocations(locations: Array<Location>): LocationRect;
+        static fromLocations(locations: Location[]): LocationRect;
         static fromString(value: string): LocationRect;
 
         clone(): LocationRect;
@@ -139,9 +139,9 @@ declare namespace Microsoft.Maps {
         setOptions(options: MapOptions): void;
         setView(options: ViewOptions): void;
         tryLocationToPixel(locations: Location, reference?: PixelReference): Point;
-        tryLocationToPixel(locations: Array<Location>, reference?: PixelReference): Array<Point>;
+        tryLocationToPixel(locations: Location[], reference?: PixelReference): Point[];
         tryPixelToLocation(points: Point, reference?: PixelReference): Location;
-        tryPixelToLocation(points: Array<Point>, reference?: PixelReference): Array<Location>;
+        tryPixelToLocation(points: Point[], reference?: PixelReference): Location[];
     }
 
     export class MapMode {
@@ -327,7 +327,7 @@ declare namespace Microsoft.Maps {
 
     export interface InfoboxOptions {
 
-        actions?: Array<Action>;
+        actions?: Action[];
         description?: string;
         htmlContent?: string;
         id?: string;
@@ -355,14 +355,14 @@ declare namespace Microsoft.Maps {
 
     export class Polyline implements Entity {
 
-        constructor(locations: Array<Location>, options?: PolylineOptions);
+        constructor(locations: Location[], options?: PolylineOptions);
 
-        getLocations(): Array<Location>;
+        getLocations(): Location[];
         getStrokeColor(): Color;
         getStrokeDashArray(): string;
         getStrokeThickness(): number;
         getVisible(): boolean;
-        setLocations(locations: Array<Location>): void;
+        setLocations(locations: Location[]): void;
         setOptions(options: PolylineOptions): void;
         toString(): string;
     }
@@ -381,10 +381,10 @@ declare namespace Microsoft.Maps {
 
     export class Polygon implements Entity {
 
-        constructor(locations: Array<Location>, options?: PolygonOptions);
+        constructor(locations: Location[], options?: PolygonOptions);
 
         getFillColor(): Color;
-        getLocations(): Array<Location>;
+        getLocations(): Location[];
         getStrokeColor(): Color;
         getStrokeDashArray(): string;
         getStrokeThickness(): number;

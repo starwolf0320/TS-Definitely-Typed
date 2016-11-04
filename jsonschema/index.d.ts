@@ -5,9 +5,9 @@
 declare module "jsonschema" {
 
     export interface IJSONSchemaResult {
-        errors: Array<IJSONSchemaValidationError>;
+        errors: IJSONSchemaValidationError[];
         instance: any;
-        arguments: Array<{}>;
+        arguments: {}[];
         propertyPath: string;
         name: string;
         schema: {};
@@ -49,7 +49,7 @@ declare module "jsonschema" {
      *       }
      *   };
      *
-     * const validationResults: { errors: Array<IJSONSchemaValidationError> } =
+     * const validationResults: { errors: IJSONSchemaValidationError[] } =
      * v.validate({ key: "Name", value: "A10" }, {"type": "string"});
      *
      */
@@ -91,7 +91,7 @@ declare module "jsonschema" {
          * Sets all the schemas of the Validator instance.
          * @param schemas
          */
-        setSchemas (schemas: Array<{}>): void;
+        setSchemas (schemas: {}[]): void;
 
         /**
          * Returns the schema of a certain urn

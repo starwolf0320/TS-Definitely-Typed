@@ -958,9 +958,9 @@ declare namespace go {
 
         /**
         * Highlight all of the Parts supplied in the given collection, and clear all other highlighted Parts.
-        * @param {Iterable<Part>|Array<Part>} coll an Iterable of Parts
+        * @param {Iterable<Part>|Part[]} coll an Iterable of Parts
         */
-        highlightCollection(coll: Iterable<Part> | Array<Part>): void;
+        highlightCollection(coll: Iterable<Part> | Part[]): void;
 
         /**
         * This static function declares that a class (constructor function) derives from another class -- but please note that most classes do not support inheritance.
@@ -1079,10 +1079,10 @@ declare namespace go {
 
         /**
         * This method removes from this Diagram all of the Parts in a collection.
-        * @param {Iterable<Part>|Array<Part>} coll A List or Set or Iterator of Parts.
+        * @param {Iterable<Part>|Part[]} coll A List or Set or Iterator of Parts.
         * @param {boolean} check Whether to check Part.canDelete on each part.
         */
-        removeParts(coll: Iterable<Part> | Array<Part>, check: boolean): void;
+        removeParts(coll: Iterable<Part> | Part[], check: boolean): void;
 
         /**
         * Requests that in the near-future the diagram makes sure all GraphObjects are arranged,
@@ -1126,9 +1126,9 @@ declare namespace go {
 
         /**
         * Select all of the Parts supplied in the given collection.
-        * @param {Iterable<Part>|Array<Part>} coll a List or Set of Parts to be selected.
+        * @param {Iterable<Part>|Part[]} coll a List or Set of Parts to be selected.
         */
-        selectCollection(coll: Iterable<Part> | Array<Part>): void;
+        selectCollection(coll: Iterable<Part> | Part[]): void;
 
         /**
         * This method sets a collection of properties according to the property/value pairs that have been set on the given Object,
@@ -2292,7 +2292,7 @@ declare namespace go {
         protected computeCorner(): number;  // undocumented
         protected computeShortLength(from: boolean): number;  // undocumented
         findMidLabel(): GraphObject;  // undocumented
-        protected arrangeBundledLinks(links: Array<Link>, reroute: boolean): void;  // undocumented
+        protected arrangeBundledLinks(links: Link[], reroute: boolean): void;  // undocumented
         protected setPointAt(i: number, x: number, y: number): void;  // undocumented
         protected insertPointAt(i: number, x: number, y: number): void;  // undocumented
         protected addPointAt(x: number, y: number): void;  // undocumented
@@ -5202,7 +5202,7 @@ declare namespace go {
         * This method only works if .linkLabelKeysProperty has been set to something other than an empty string.
         * @param {Object} linkdata a JavaScript object representing a link.
         */
-        getLabelKeysForLinkData(linkdata: Object): Array<Key>;
+        getLabelKeysForLinkData(linkdata: Object): Key[];
 
         /**
         * From a link data retrieve a value uniquely identifying the node data
@@ -5323,7 +5323,7 @@ declare namespace go {
         * @param {Object} linkdata a JavaScript object representing a link.
         * @param arr an Array of node keys; an empty Array if the property was not present.
         */
-        setLabelKeysForLinkData(linkdata: Object, arr: Array<Key>): void;
+        setLabelKeysForLinkData(linkdata: Object, arr: Key[]): void;
 
         /**
         * Change the node key that the given link data references as the
@@ -6459,7 +6459,7 @@ declare namespace go {
         * @param Array<*> layerRects an Array of Rects with the bounds of each of the "layers"
         * @param {Point} offset the position of the top-left corner of the banded area relative to the coordinates given by the layerRects
         */
-        commitLayers(layerRects: Array<Rect>, offset: Point): void;
+        commitLayers(layerRects: Rect[], offset: Point): void;
 
         /**
         * Updates the physical location of "real" nodes and links to reflect the layout.
@@ -7128,7 +7128,7 @@ declare namespace go {
         * @param Array<*> layerRects an Array of Rects with the bounds of each of the "layers"
         * @param {Point} offset the position of the top-left corner of the banded area relative to the coordinates given by the layerRects
         */
-        commitLayers(layerRects: Array<Rect>, offset: Point): void;
+        commitLayers(layerRects: Rect[], offset: Point): void;
 
         /**
         * Set the fromSpot and toSpot for each Vertex, position each Node according to the Vertex position, and then position the Links.
@@ -7279,7 +7279,7 @@ declare namespace go {
         childPortSpot: Spot;
 
         /**Gets or sets the logical children for this node.*/
-        children: Array<TreeVertex>;
+        children: TreeVertex[];
 
         /**This read-only property returns the number of immediate children this node has.*/
         childrenCount: number;
@@ -7288,7 +7288,7 @@ declare namespace go {
         commentMargin: number;
 
         /**Gets or sets an array of Nodes that will be positioned near this node.*/
-        comments: Array<Node>;
+        comments: Node[];
 
         /**Gets or sets the space to leave between consecutive comments.*/
         commentSpacing: number;
@@ -8951,9 +8951,9 @@ declare namespace go {
 
         /**
         * Adds all of the values of a collection (either an Iterable or an Array) to the end of this List.
-        * @param {Iterable<T>|Array<T>} coll
+        * @param {Iterable<T>|T[]} coll
         */
-        addAll(coll: Iterable<T> | Array<T>): List<T>;
+        addAll(coll: Iterable<T> | T[]): List<T>;
 
         /**
         * This is true if all invocations of the given predicate on items in the collection are true.
@@ -9114,7 +9114,7 @@ declare namespace go {
         /**
         * Produces a JavaScript Array from the contents of this List.
         */
-        toArray(): Array<T>;
+        toArray(): T[];
 
         /**
         * Converts the List to a Set.
@@ -9187,7 +9187,7 @@ declare namespace go {
         * Adds all of the key-value pairs of another Map to this Map.
         * @param {Iterable.<KeyValuePair.<K, V>>|Array} coll
         */
-        addAll(coll: Iterable<KeyValuePair<K, V>> | Array<KeyValuePair<K, V>>): Map<K, V>;
+        addAll(coll: Iterable<KeyValuePair<K, V>> | KeyValuePair<K, V>[]): Map<K, V>;
 
         /**
         * This is true if all invocations of the given predicate on key-value pairs in the collection are true.
@@ -9289,7 +9289,7 @@ declare namespace go {
         /**
         * Produces a JavaScript Array of key/value pair objects from the contents of this Map.
         */
-        toArray(): Array<KeyValuePair<K, V>>;
+        toArray(): KeyValuePair<K, V>[];
 
         /**
         * Produces a Set that provides a read-only view onto the keys of this Map.
@@ -9330,9 +9330,9 @@ declare namespace go {
 
         /**
         * Adds all of the values of a collection (either an Iterable or an Array) to this Set.
-        * @param {Iterable<T>|Array<T>} coll
+        * @param {Iterable<T>|T[]} coll
         */
-        addAll(coll: Iterable<T> | Array<T>): Set<T>;
+        addAll(coll: Iterable<T> | T[]): Set<T>;
 
         /**
         * This is true if all invocations of the given predicate on items in the collection are true.
@@ -9432,9 +9432,9 @@ declare namespace go {
 
         /**
         * Removes all of the values of a collection from this Set.
-        * @param {Array<T>} coll
+        * @param {T[]} coll
         */
-        removeAll(coll: Array<T>): Set<T>;
+        removeAll(coll: T[]): Set<T>;
 
         /**
         * Removes from this Set all items that are not in the given collection.
@@ -9445,7 +9445,7 @@ declare namespace go {
         /**
         * Produces a JavaScript Array from the contents of this Set.
         */
-        toArray(): Array<T>;
+        toArray(): T[];
 
         /**
         * Converts the Set to a List.

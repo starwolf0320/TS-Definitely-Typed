@@ -145,7 +145,7 @@ interface ArrayConstructor {
       * @param mapfn A mapping function to call on every element of the array.
       * @param thisArg Value of 'this' used to invoke the mapfn.
       */
-    from<T, U>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): Array<U>;
+    from<T, U>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];
 
     /**
       * Creates an array from an iterable object.
@@ -153,25 +153,25 @@ interface ArrayConstructor {
       * @param mapfn A mapping function to call on every element of the array.
       * @param thisArg Value of 'this' used to invoke the mapfn.
       */
-    from<T, U>(iterable: IterableShim<T>, mapfn: (v: T, k: number) => U, thisArg?: any): Array<U>;
+    from<T, U>(iterable: IterableShim<T>, mapfn: (v: T, k: number) => U, thisArg?: any): U[];
 
     /**
       * Creates an array from an array-like object.
       * @param arrayLike An array-like object to convert to an array.
       */
-    from<T>(arrayLike: ArrayLike<T>): Array<T>;
+    from<T>(arrayLike: ArrayLike<T>): T[];
 
     /**
       * Creates an array from an iterable object.
       * @param iterable An iterable object to convert to an array.
       */
-    from<T>(iterable: IterableShim<T>): Array<T>;
+    from<T>(iterable: IterableShim<T>): T[];
 
     /**
       * Returns a new array from a set of elements.
       * @param items A set of elements to include in the new array object.
       */
-    of<T>(...items: T[]): Array<T>;
+    of<T>(...items: T[]): T[];
 }
 
 interface Array<T> {
@@ -184,7 +184,7 @@ interface Array<T> {
       * @param thisArg If provided, it will be used as the this value for each invocation of
       * predicate. If it is not provided, undefined is used instead.
       */
-    find(predicate: (value: T, index: number, obj: Array<T>) => boolean, thisArg?: any): T;
+    find(predicate: (value: T, index: number, obj: T[]) => boolean, thisArg?: any): T;
 
     /**
       * Returns the index of the first element in the array where predicate is true, and undefined
@@ -633,7 +633,7 @@ declare namespace Reflect {
     function getPrototypeOf(target: any): any;
     function has(target: any, propertyKey: PropertyKey): boolean;
     function isExtensible(target: any): boolean;
-    function ownKeys(target: any): Array<PropertyKey>;
+    function ownKeys(target: any): PropertyKey[];
     function preventExtensions(target: any): boolean;
     function set(target: any, propertyKey: PropertyKey, value: any, receiver?: any): boolean;
     function setPrototypeOf(target: any, proto: any): boolean;
@@ -661,7 +661,7 @@ declare module "es6-shim" {
         function getPrototypeOf(target: any): any;
         function has(target: any, propertyKey: PropertyKey): boolean;
         function isExtensible(target: any): boolean;
-        function ownKeys(target: any): Array<PropertyKey>;
+        function ownKeys(target: any): PropertyKey[];
         function preventExtensions(target: any): boolean;
         function set(target: any, propertyKey: PropertyKey, value: any, receiver?: any): boolean;
         function setPrototypeOf(target: any, proto: any): boolean;

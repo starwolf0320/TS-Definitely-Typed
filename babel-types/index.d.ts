@@ -967,13 +967,13 @@ export function exportDefaultDeclaration(declaration?: FunctionDeclaration | Cla
 export function exportNamedDeclaration(declaration?: Declaration, specifiers?: ExportSpecifier[], source?: StringLiteral): ExportNamedDeclaration;
 export function exportSpecifier(local?: Identifier, exported?: Identifier): ExportSpecifier;
 export function forOfStatement(left?: VariableDeclaration | LVal, right?: Expression, body?: Statement): ForOfStatement;
-export function importDeclaration(specifiers?: Array<ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier>, source?: StringLiteral): ImportDeclaration;
+export function importDeclaration(specifiers?: (ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier)[], source?: StringLiteral): ImportDeclaration;
 export function importDefaultSpecifier(local?: Identifier): ImportDefaultSpecifier;
 export function importNamespaceSpecifier(local?: Identifier): ImportNamespaceSpecifier;
 export function importSpecifier(local?: Identifier, imported?: Identifier): ImportSpecifier;
 export function metaProperty(meta?: string, property?: string): MetaProperty;
 export function classMethod(kind?: "constructor" | "method" | "get" | "set", key?: Expression, params?: Pattern[], body?: BlockStatement, computed?: boolean, _static?: boolean): ClassMethod;
-export function objectPattern(properties?: Array<AssignmentProperty | RestProperty>, typeAnnotation?: TypeAnnotation): ObjectPattern;
+export function objectPattern(properties?: (AssignmentProperty | RestProperty)[], typeAnnotation?: TypeAnnotation): ObjectPattern;
 export function spreadElement(argument?: Expression): SpreadElement;
 export function taggedTemplateExpression(tag?: Expression, quasi?: TemplateLiteral): TaggedTemplateExpression;
 export function templateElement(value?: {cooked?: string; raw?: string}, tail?: boolean): TemplateElement;
@@ -1022,7 +1022,7 @@ export function unionTypeAnnotation(types?: FlowTypeAnnotation[]): UnionTypeAnno
 export function voidTypeAnnotation(): VoidTypeAnnotation;
 export function jSXAttribute(name?: JSXIdentifier | JSXNamespacedName, value?: JSXElement | StringLiteral | JSXExpressionContainer): JSXAttribute;
 export function jSXClosingElement(name?: JSXIdentifier | JSXMemberExpression): JSXClosingElement;
-export function jSXElement(openingElement?: JSXOpeningElement, closingElement?: JSXClosingElement, children?: Array<JSXElement | JSXExpressionContainer | JSXText>, selfClosing?: boolean): JSXElement;
+export function jSXElement(openingElement?: JSXOpeningElement, closingElement?: JSXClosingElement, children?: (JSXElement | JSXExpressionContainer | JSXText)[], selfClosing?: boolean): JSXElement;
 export function jSXEmptyExpression(): JSXEmptyExpression;
 export function jSXExpressionContainer(expression?: Expression): JSXExpressionContainer;
 export function jSXIdentifier(name?: string): JSXIdentifier;

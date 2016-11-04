@@ -129,7 +129,7 @@ declare namespace JQueryDynatable {
          */
         defaultColumnIdStyle?: string;
         /** Generated internally by the plugin, will be reset by the DomColumns at init */
-        columns?: Array<JQueryDynatable.Column>;
+        columns?: JQueryDynatable.Column[];
         /**
          * Selector used by dynatable in order to find the table header row
          *
@@ -499,7 +499,7 @@ declare namespace JQueryDynatable {
          *     return '<tr>' + tr + '</tr>';
          * };
          */
-        _rowWriter?: (rowIndex: number, record: any, columns: Array<Column>, cellWriter: Function) => string;
+        _rowWriter?: (rowIndex: number, record: any, columns: Column[], cellWriter: Function) => string;
         /**
          * Function that returns the HTML code that will be injected for the cell
          *

@@ -65,7 +65,7 @@ export type CustomEventParameters = {
 /**
  * Callback type for selections and transitions
  */
-export type ValueFn<Element, Datum, Result> = (this: Element, datum: Datum, index: number, groups: Array<Element> | ArrayLike<Element>) => Result;
+export type ValueFn<Element, Datum, Result> = (this: Element, datum: Datum, index: number, groups: Element[] | ArrayLike<Element>) => Result;
 
 
 /**
@@ -239,7 +239,7 @@ interface Selection<GElement extends BaseType, Datum, PElement extends BaseType,
      * the current index (i), and the current group (nodes), with this as the current DOM element. It must return an array of elements
      * (or a pseudo-array, such as a NodeList), or the empty array if there are no matching elements.
      */
-    selectAll<DescElement extends BaseType, OldDatum>(selector: ValueFn<GElement, Datum, Array<DescElement> | ArrayLike<DescElement>>): Selection<DescElement, OldDatum, GElement, Datum>;
+    selectAll<DescElement extends BaseType, OldDatum>(selector: ValueFn<GElement, Datum, DescElement[] | ArrayLike<DescElement>>): Selection<DescElement, OldDatum, GElement, Datum>;
 
     // Modifying -------------------------------
 
@@ -699,7 +699,7 @@ interface Selection<GElement extends BaseType, Datum, PElement extends BaseType,
      * The datum for a given key is assigned to the element with the matching key. If multiple elements have the same key,
      * the duplicate elements are put into the exit selection; if multiple data have the same key, the duplicate data are put into the enter selection.
      */
-    data<NewDatum>(data: Array<NewDatum>, key?: ValueFn<GElement | PElement, Datum | NewDatum, string>): Selection<GElement, NewDatum, PElement, PDatum>;
+    data<NewDatum>(data: NewDatum[], key?: ValueFn<GElement | PElement, Datum | NewDatum, string>): Selection<GElement, NewDatum, PElement, PDatum>;
     /**
      * Joins the data returned by the specified value function with the selected elements, returning a new selection that it represents
      * the update selection: the elements successfully bound to data. Also defines the enter and exit selections on
@@ -731,7 +731,7 @@ interface Selection<GElement extends BaseType, Datum, PElement extends BaseType,
      * The datum for a given key is assigned to the element with the matching key. If multiple elements have the same key,
      * the duplicate elements are put into the exit selection; if multiple data have the same key, the duplicate data are put into the enter selection.
      */
-    data<NewDatum>(data: ValueFn<PElement, PDatum, Array<NewDatum>>, key?: ValueFn<GElement | PElement, Datum | NewDatum, string>): Selection<GElement, NewDatum, PElement, PDatum>;
+    data<NewDatum>(data: ValueFn<PElement, PDatum, NewDatum[]>, key?: ValueFn<GElement | PElement, Datum | NewDatum, string>): Selection<GElement, NewDatum, PElement, PDatum>;
 
     /**
      * Return the enter selection: placeholder nodes for each datum that had no corresponding DOM element
@@ -850,7 +850,7 @@ interface Selection<GElement extends BaseType, Datum, PElement extends BaseType,
     /**
      * Return an array of all (non-null) elements in this selection.
      */
-    nodes(): Array<GElement>;
+    nodes(): GElement[];
 
     /**
      * Returns the total number of elements in this selection.
@@ -983,7 +983,7 @@ export function touch(container: ContainerElement, touches: TouchList, identifie
  * @param container Container element relative to which coordinates are calculated.
  * @param touches TouchList to be used.
  */
-export function touches(container: ContainerElement, touches?: TouchList): Array<[number, number]>;
+export function touches(container: ContainerElement, touches?: TouchList): [number, number][];
 
 // ---------------------------------------------------------------------------
 // local.js related

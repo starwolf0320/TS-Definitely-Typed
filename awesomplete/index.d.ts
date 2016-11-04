@@ -5,7 +5,7 @@
 
 declare class Awesomplete {
 	constructor(input: Element | HTMLElement | string, o?: AwesompleteOptions);
-	static all: Array<any>;
+	static all: any[];
 	static $$: (expr: string | NodeSelector, con?: any) => NodeList;
 	static ITEM: (text: string, input: string) => HTMLElement;
 	static $: {

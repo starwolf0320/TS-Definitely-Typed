@@ -51,7 +51,7 @@ declare namespace Gijgo {
         //Configuration options
         autoGenerateColumns?: boolean;
         autoLoad?: boolean;
-        columns?: Array<GridColumn>;
+        columns?: GridColumn[];
         dataSource?: any;
         defaultColumnSettings?: GridColumn;
         defaultParams?: GridDefaultParams;
@@ -80,8 +80,8 @@ declare namespace Gijgo {
         cellDataChanged?: (e: any, $cell: JQuery, column: GridColumn, record: Entity, oldValue: any, newValue: any) => any;
         columnHide?: (e: any, column: GridColumn) => any;
         columnShow?: (e: any, column: GridColumn) => any;
-        dataBinding?: (e: any, records: Array<Entity>) => any;
-        dataBound?: (e: any, records: Array<Entity>, totalRecords: number) => any;
+        dataBinding?: (e: any, records: Entity[]) => any;
+        dataBound?: (e: any, records: Entity[], totalRecords: number) => any;
         destroying?: (e: any) => any;
         detailCollapse?: (e: any, detailWrapper: JQuery, record: Entity) => any;
         detailExpand?: (e: any, detailWrapper: JQuery, record: Entity) => any;
@@ -101,9 +101,9 @@ declare namespace Gijgo {
         count(): number;
         destroy(keepTableTag?: boolean, keepWrapperTag?: boolean): void;
         //get(position: number): Entity; //TODO: rename to getByPosition to avoid conflicts with jquery.get
-        getAll(): Array<Entity>;
+        getAll(): Entity[];
         getById(id: string): Entity;
-        getChanges(): Array<Entity>;
+        getChanges(): Entity[];
         getSelected(): string;
         getSelections(): string[];
         hideColumn(field: string): Grid<Entity, Params>;

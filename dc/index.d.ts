@@ -315,8 +315,8 @@ declare namespace DC {
         useRightAxisGridLines: IGetSet<boolean, ICompositeChart<T>>;
         childOptions: IGetSet<any, ICompositeChart<T>>;
         rightYAxisLabel: IGetSet<string, ICompositeChart<T>>;
-        compose: IGetSet<Array<BaseMixin<any>>, ICompositeChart<T>>;
-        children(): Array<BaseMixin<any>>;
+        compose: IGetSet<BaseMixin<any>[], ICompositeChart<T>>;
+        children(): BaseMixin<any>[];
         shareColors: IGetSet<boolean, ICompositeChart<T>>;
         shareTitle: IGetSet<boolean, ICompositeChart<T>>;
         rightY: IGetSet<(n: any) => any, ICompositeChart<T>>;
@@ -341,7 +341,7 @@ declare namespace DC {
     export interface GeoChoroplethChart extends ColorMixin<GeoChoroplethChart>, BaseMixin<GeoChoroplethChart> {
         overlayGeoJson(json: any, name: string, keyAccessor: Accessor<any, any>): void;
         projection: IGetSet<d3.geo.Projection, GeoChoroplethChart>;
-        geoJsons(): Array<GeoChoroplethLayer>;
+        geoJsons(): GeoChoroplethLayer[];
         geoPath(): d3.geo.Path;
         removeGeoJson(name: string): void;
     }
@@ -404,7 +404,7 @@ declare namespace DC {
         register(chart: BaseMixin<any>, group?: string): void;
         deregister(chart: BaseMixin<any>, group?: string): void;
         clear(group?: string): void;
-        list(group?: string): Array<BaseMixin<any>>;
+        list(group?: string): BaseMixin<any>[];
     }
 
     export interface Base {

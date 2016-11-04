@@ -109,8 +109,8 @@ interface MockOptions {
 type MockCall = [string, MockRequest];
 
 interface MatchedRoutes {
-    matched: Array<MockCall>;
-    unmatched: Array<MockCall>;
+    matched: MockCall[];
+    unmatched: MockCall[];
 }
 
 interface MockOptionsMethodGet extends MockOptions {
@@ -225,7 +225,7 @@ interface FetchMockStatic {
     /**
      * Returns all calls to fetch matching matcherName.
      */
-    calls(matcherName?: string): Array<MockCall>;
+    calls(matcherName?: string): MockCall[];
     /**
      * Returns a Boolean indicating whether fetch was called and a route
        was matched.

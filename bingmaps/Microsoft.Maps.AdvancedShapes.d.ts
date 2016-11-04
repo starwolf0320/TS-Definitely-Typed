@@ -26,10 +26,10 @@ declare namespace Microsoft.Maps.AdvancedShapes {
 
     export class Polygon implements Entity {
 
-        constructor(locations: Array<Location>, options?: PolygonOptions);
+        constructor(locations: Location[], options?: PolygonOptions);
 
         getFillColor(): Color;
-        getLocations(): Array<Location>;
+        getLocations(): Location[];
         getStrokeColor(): Color;
         getStrokeDashArray(): string;
         getStrokeThickness(): number;

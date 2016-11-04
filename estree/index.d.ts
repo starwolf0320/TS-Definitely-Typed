@@ -26,8 +26,8 @@ interface BaseNode {
   // The type property should be a string literal. For example, Identifier
   // has: `type: "Identifier"`
 
-  leadingComments?: Array<Comment>;
-  trailingComments?: Array<Comment>;
+  leadingComments?: Comment[];
+  trailingComments?: Comment[];
   loc?: SourceLocation;
   range?: [number, number];
 }
@@ -57,11 +57,11 @@ export interface Position {
 export interface Program extends BaseNode {
   type: "Program";
   sourceType: "script" | "module";
-  body: Array<Statement | ModuleDeclaration>;
+  body: (Statement | ModuleDeclaration)[];
 }
 
 interface BaseFunction extends BaseNode {
-  params: Array<Pattern>;
+  params: Pattern[];
   generator?: boolean;
   async?: boolean;
   // The body is either BlockStatement or Expression because arrow functions
@@ -88,7 +88,7 @@ export interface EmptyStatement extends BaseStatement {
 
 export interface BlockStatement extends BaseStatement {
   type: "BlockStatement";
-  body: Array<Statement>;
+  body: Statement[];
 }
 
 export interface ExpressionStatement extends BaseStatement {
@@ -128,7 +128,7 @@ export interface WithStatement extends BaseStatement {
 export interface SwitchStatement extends BaseStatement {
   type: "SwitchStatement";
   discriminant: Expression;
-  cases: Array<SwitchCase>;
+  cases: SwitchCase[];
 }
 
 export interface ReturnStatement extends BaseStatement {
@@ -194,7 +194,7 @@ export interface FunctionDeclaration extends BaseFunction, BaseDeclaration {
 
 export interface VariableDeclaration extends BaseDeclaration {
   type: "VariableDeclaration";
-  declarations: Array<VariableDeclarator>;
+  declarations: VariableDeclarator[];
   kind: "var" | "let" | "const";
 }
 
@@ -220,12 +220,12 @@ export interface ThisExpression extends BaseExpression {
 
 export interface ArrayExpression extends BaseExpression {
   type: "ArrayExpression";
-  elements: Array<Expression | SpreadElement>;
+  elements: (Expression | SpreadElement)[];
 }
 
 export interface ObjectExpression extends BaseExpression {
   type: "ObjectExpression";
-  properties: Array<Property>;
+  properties: Property[];
 }
 
 export interface Property extends BaseNode {
@@ -246,7 +246,7 @@ export interface FunctionExpression extends BaseFunction, BaseExpression {
 
 export interface SequenceExpression extends BaseExpression {
   type: "SequenceExpression";
-  expressions: Array<Expression>;
+  expressions: Expression[];
 }
 
 export interface UnaryExpression extends BaseExpression {
@@ -293,7 +293,7 @@ export interface ConditionalExpression extends BaseExpression {
 
 interface BaseCallExpression extends BaseExpression {
   callee: Expression | Super;
-  arguments: Array<Expression | SpreadElement>;
+  arguments: (Expression | SpreadElement)[];
 }
 export type CallExpression = SimpleCallExpression | NewExpression;
 
@@ -320,7 +320,7 @@ interface BasePattern extends BaseNode { }
 export interface SwitchCase extends BaseNode {
   type: "SwitchCase";
   test?: Expression;
-  consequent: Array<Statement>;
+  consequent: Statement[];
 }
 
 export interface CatchClause extends BaseNode {
@@ -395,8 +395,8 @@ export interface YieldExpression extends BaseExpression {
 
 export interface TemplateLiteral extends BaseExpression {
   type: "TemplateLiteral";
-  quasis: Array<TemplateElement>;
-  expressions: Array<Expression>;
+  quasis: TemplateElement[];
+  expressions: Expression[];
 }
 
 export interface TaggedTemplateExpression extends BaseExpression {
@@ -422,12 +422,12 @@ export interface AssignmentProperty extends Property {
 
 export interface ObjectPattern extends BasePattern {
   type: "ObjectPattern";
-  properties: Array<AssignmentProperty>;
+  properties: AssignmentProperty[];
 }
 
 export interface ArrayPattern extends BasePattern {
   type: "ArrayPattern";
-  elements: Array<Pattern>;
+  elements: Pattern[];
 }
 
 export interface RestElement extends BasePattern {
@@ -449,7 +449,7 @@ interface BaseClass extends BaseNode {
 
 export interface ClassBody extends BaseNode {
   type: "ClassBody";
-  body: Array<MethodDefinition>;
+  body: MethodDefinition[];
 }
 
 export interface MethodDefinition extends BaseNode {
@@ -491,7 +491,7 @@ interface BaseModuleSpecifier extends BaseNode {
 
 export interface ImportDeclaration extends BaseModuleDeclaration {
   type: "ImportDeclaration";
-  specifiers: Array<ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier>;
+  specifiers: (ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier)[];
   source: Literal;
 }
 
@@ -511,7 +511,7 @@ export interface ImportNamespaceSpecifier extends BaseModuleSpecifier {
 export interface ExportNamedDeclaration extends BaseModuleDeclaration {
   type: "ExportNamedDeclaration";
   declaration?: Declaration;
-  specifiers: Array<ExportSpecifier>;
+  specifiers: ExportSpecifier[];
   source?: Literal;
 }
 

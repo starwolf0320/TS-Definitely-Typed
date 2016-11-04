@@ -1565,7 +1565,7 @@ declare namespace Immutable {
        *     )
        *     // Seq [ 1, 'A', 'X', 2, 'B', 'Y' ]
        */
-      interleave(...iterables: Array<Iterable<any, T>>): this;
+      interleave(...iterables: Iterable<any, T>[]): this;
 
       /**
        * Splice returns a new indexed Iterable by replacing a region of this
@@ -1582,7 +1582,7 @@ declare namespace Immutable {
       splice(
         index: number,
         removeNum: number,
-        ...values: Array<Iterable.Indexed<T> | T>
+        ...values: (Iterable.Indexed<T> | T)[]
       ): this;
 
       /**
@@ -2185,7 +2185,7 @@ declare namespace Immutable {
      * For Seqs, all entries will be present in
      * the resulting iterable, even if they have the same key.
      */
-    concat(...valuesOrIterables: Array<Iterable<K, V>|V>): this;
+    concat(...valuesOrIterables: (Iterable<K, V>|V)[]): this;
 
     /**
      * Flattens nested Iterables.

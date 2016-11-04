@@ -381,7 +381,7 @@ declare class SessionObject extends HandleObject {
 declare class SessionObjectCollection extends Collection<SessionObject> {
     session: Session;
 
-    constructor(items: Array<Handle>, session: Session, lib: pkcs11.PKCS11, classType?: any);
+    constructor(items: Handle[], session: Session, lib: pkcs11.PKCS11, classType?: any);
 
     items(index: number): SessionObject;
 }
@@ -2108,7 +2108,7 @@ declare class Slot extends HandleObject {
 declare class SlotCollection extends Collection<Slot> {
     module: Module;
     items(index: number): Slot;
-    constructor(items: Array<Buffer>, module: Module, lib: pkcs11.PKCS11, classType?: any);
+    constructor(items: Buffer[], module: Module, lib: pkcs11.PKCS11, classType?: any);
 }
 
 declare enum TokenFlag {

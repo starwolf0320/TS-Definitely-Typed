@@ -11,7 +11,7 @@ interface Options {
     base?: string;
     noAssets?: boolean;
     noconcat?: boolean;
-    additionalStreams?: Array<NodeJS.ReadWriteStream>;
+    additionalStreams?: NodeJS.ReadWriteStream[];
     transformPath?: (filePath: string) => void;
 }
 

@@ -116,7 +116,7 @@ declare namespace d3kit {
 
         constructor(container: d3.Selection<any>, tag?: string);
 
-        create(config: string|string[]|LayerConfig|Array<LayerConfig>|any): d3.Selection<any>|Array<d3.Selection<any>>;
+        create(config: string|string[]|LayerConfig|LayerConfig[]|any): d3.Selection<any>|d3.Selection<any>[];
         get(name: string): d3.Selection<any>;
         has(name: string): boolean;
     }
@@ -140,7 +140,7 @@ declare namespace d3kit {
         export function trim(str: string, characters: string): string;
         export function dasherize(str: string): string;
         export function $(s: Element|string): Element;
-        export function $$(s: Array<Node>|NodeList): Array<Element>;
+        export function $$(s: Node[]|NodeList): Element[];
         export function isArray(value: any): boolean;
         export function isNumber(value: any): boolean;
         export function isObject(value: any): boolean;

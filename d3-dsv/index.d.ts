@@ -31,12 +31,12 @@ export function csvParse<ParsedRow extends DSVRowAny>(csvString: string, row: (r
 // csvParseRows(...) ========================================================================
 
 export function csvParseRows(csvString: string): string[][];
-export function csvParseRows<ParsedRow extends DSVRowAny>(csvString: string, row: (rawRow: string[], index: number) => ParsedRow): Array<ParsedRow>;
+export function csvParseRows<ParsedRow extends DSVRowAny>(csvString: string, row: (rawRow: string[], index: number) => ParsedRow): ParsedRow[];
 
 // csvFormat(...) ============================================================================
 
-export function csvFormat(rows: Array<DSVRowAny>): string;
-export function csvFormat(rows: Array<DSVRowAny>, columns: string[]): string;
+export function csvFormat(rows: DSVRowAny[]): string;
+export function csvFormat(rows: DSVRowAny[], columns: string[]): string;
 
 // csvFormatRows(...) ========================================================================
 
@@ -54,12 +54,12 @@ export function tsvParse<MappedRow extends DSVRowAny>(tsvString: string, row: (r
 // tsvParseRows(...) ========================================================================
 
 export function tsvParseRows(tsvString: string): string[][];
-export function tsvParseRows<MappedRow extends DSVRowAny>(tsvString: string, row: (rawRow: string[], index: number) => MappedRow): Array<MappedRow>;
+export function tsvParseRows<MappedRow extends DSVRowAny>(tsvString: string, row: (rawRow: string[], index: number) => MappedRow): MappedRow[];
 
 // tsvFormat(...) ============================================================================
 
-export function tsvFormat(rows: Array<DSVRowAny>): string;
-export function tsvFormat(rows: Array<DSVRowAny>, columns: string[]): string;
+export function tsvFormat(rows: DSVRowAny[]): string;
+export function tsvFormat(rows: DSVRowAny[], columns: string[]): string;
 
 // tsvFormatRows(...) ========================================================================
 
@@ -73,9 +73,9 @@ export interface DSV {
     parse(dsvString: string): DSVParsedArray<DSVRowString>;
     parse<ParsedRow extends DSVRowAny>(dsvString: string, row: (rawRow: DSVRowString, index: number, columns: string[]) => ParsedRow): DSVParsedArray<ParsedRow>;
     parseRows(dsvString: string): string[][];
-    parseRows<ParsedRow extends DSVRowAny>(dsvString: string, row: (rawRow: string[], index: number) => ParsedRow): Array<ParsedRow>;
-    format(rows: Array<DSVRowAny>): string;
-    format(rows: Array<DSVRowAny>, columns: string[]): string;
+    parseRows<ParsedRow extends DSVRowAny>(dsvString: string, row: (rawRow: string[], index: number) => ParsedRow): ParsedRow[];
+    format(rows: DSVRowAny[]): string;
+    format(rows: DSVRowAny[], columns: string[]): string;
     formatRows(rows: string[][]): string;
 }
 

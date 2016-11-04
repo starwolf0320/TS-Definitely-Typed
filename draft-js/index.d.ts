@@ -124,10 +124,10 @@ declare namespace Draft {
 
                 handlePastedText?(text: string, html?: string): boolean;
 
-                handlePastedFiles?(files: Array<Blob>): boolean;
+                handlePastedFiles?(files: Blob[]): boolean;
 
                 // Handle dropped files
-                handleDroppedFiles?(selection: SelectionState, files: Array<Blob>): boolean;
+                handleDroppedFiles?(selection: SelectionState, files: Blob[]): boolean;
 
                 // Handle other drops to prevent default text movement/insertion behaviour
                 handleDrop?(selection: SelectionState, dataTransfer: Object, isInternal: DraftDragType): boolean;
@@ -369,7 +369,7 @@ declare namespace Draft {
              * preserved and the new match is discarded.
              */
             class CompositeDraftDecorator {
-                constructor(decorators: Array<DraftDecorator>);
+                constructor(decorators: DraftDecorator[]);
 
                 getDecorations(block: ContentBlock): Immutable.List<string>;
                 getComponentForKey(key: string): Function;
@@ -426,8 +426,8 @@ declare namespace Draft {
                 type: DraftBlockType;
                 text: string;
                 depth: number;
-                inlineStyleRanges: Array<InlineStyleRange>;
-                entityRanges: Array<EntityRange>;
+                inlineStyleRanges: InlineStyleRange[];
+                entityRanges: EntityRange[];
                 data?: Object;
             }
 
@@ -441,11 +441,11 @@ declare namespace Draft {
              * immutable objects.
              */
             interface RawDraftContentState {
-                blocks: Array<RawDraftContentBlock>;
+                blocks: RawDraftContentBlock[];
                 entityMap: { [key: string]: RawDraftEntity };
             }
 
-            function convertFromHTMLtoContentBlocks(html: string, DOMBuilder: Function, blockRenderMap?: DraftBlockRenderMap): Array<ContentBlock>;
+            function convertFromHTMLtoContentBlocks(html: string, DOMBuilder: Function, blockRenderMap?: DraftBlockRenderMap): ContentBlock[];
             function convertFromRawToDraftState(rawState: RawDraftContentState): ContentState;
             function convertFromDraftStateToRaw(contentState: ContentState): RawDraftContentState;
         }
@@ -685,7 +685,7 @@ declare namespace Draft {
             }
 
             class ContentState extends Record {
-                static createFromBlockArray(blocks: Array<ContentBlock>): ContentState;
+                static createFromBlockArray(blocks: ContentBlock[]): ContentState;
                 static createFromText(text: string, delimiter?: string): ContentState;
 
                 getBlockMap(): BlockMap;
@@ -698,7 +698,7 @@ declare namespace Draft {
                 getBlockAfter(key: string): ContentBlock;
                 getBlockBefore(key: string): ContentBlock;
 
-                getBlocksAsArray(): Array<ContentBlock>;
+                getBlocksAsArray(): ContentBlock[];
                 getFirstBlock(): ContentBlock;
                 getLastBlock(): ContentBlock;
                 getPlainText(delimiter?: string): string;
@@ -768,7 +768,7 @@ declare namespace Draft {
                 "undo";
 
             interface BlockMapBuilder {
-                createFromArray(blocks: Array<ContentBlock>): BlockMap;
+                createFromArray(blocks: ContentBlock[]): BlockMap;
             }
 
             const DefaultDraftBlockRenderMap: Immutable.Map<any, any>;

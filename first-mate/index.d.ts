@@ -53,7 +53,7 @@ declare namespace AtomFirstMate {
 		 * @param text A string containing one or more lines.
 		 * @return An array of token arrays, one token array per line.
 		 */
-		tokenizeLines(text: string): Array<Array<IToken>>;
+		tokenizeLines(text: string): IToken[][];
 		/**
 		 * Tokenizes a line of text.
 		 *

@@ -31,12 +31,12 @@ export interface Quadtree<T> {
     extent(extend: [[number, number], [number, number]]): this;
     cover(x: number, y: number): this;
     add(datum: T): this;
-    addAll(data: Array<T>): this;
+    addAll(data: T[]): this;
     remove(datum: T): this;
-    removeAll(data: Array<T>): this;
+    removeAll(data: T[]): this;
     copy(): Quadtree<T>;
     root(): QuadtreeInternalNode<T> | QuadtreeLeaf<T>;
-    data(): Array<T>;
+    data(): T[];
     size(): number;
     find(x: number, y: number, radius?: number): T | undefined;
     visit(callback: (node: QuadtreeInternalNode<T> | QuadtreeLeaf<T>, x0: number, y0: number, x1: number, y1: number) => (void | boolean)): this;
@@ -45,6 +45,6 @@ export interface Quadtree<T> {
 
 
 export function quadtree(): Quadtree<[number, number]>;
-export function quadtree(data: Array<[number, number]>): Quadtree<[number, number]>;
+export function quadtree(data: [number, number][]): Quadtree<[number, number]>;
 export function quadtree<T>(): Quadtree<T>;
-export function quadtree<T>(data: Array<T>, x?: (d: T) => number, y?: (d: T) => number): Quadtree<T>;
+export function quadtree<T>(data: T[], x?: (d: T) => number, y?: (d: T) => number): Quadtree<T>;

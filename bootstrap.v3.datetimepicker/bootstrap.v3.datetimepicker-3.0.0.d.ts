@@ -43,8 +43,8 @@ export interface DatetimepickerOptions {
     collapse?: boolean;
     language?: string;
     defaultDate?: moment.Moment | Date | string;
-    disabledDates?: Array<moment.Moment | Date | string>;
-    enabledDates?: Array<moment.Moment | Date | string>;
+    disabledDates?: (moment.Moment | Date | string)[];
+    enabledDates?: (moment.Moment | Date | string)[];
     icons?: DatetimepickerIcons;
     useStrict?: boolean;
     direction?: string;

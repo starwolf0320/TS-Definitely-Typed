@@ -47,7 +47,7 @@ declare module "draft-js" {
         }
 
         interface BlockMapBuilder {
-            createFromArray(blocks: Array<ContentBlock>): BlockMap;
+            createFromArray(blocks: ContentBlock[]): BlockMap;
         }
 
         interface CharacterMetadata {
@@ -93,7 +93,7 @@ declare module "draft-js" {
 
         interface ContentState {
             createFromText(text: string): ContentState;
-            createFromBlockArray(blocks: Array<ContentBlock>): ContentState;
+            createFromBlockArray(blocks: ContentBlock[]): ContentState;
 
             getBlockMap(): BlockMap;
             getSelectionBefore(): SelectionState;
@@ -106,7 +106,7 @@ declare module "draft-js" {
             getBlockBefore(key: string): ContentBlock;
             getBlockAfter(key: string): ContentBlock;
 
-            getBlocksAsArray(): Array<ContentBlock>;
+            getBlocksAsArray(): ContentBlock[];
 
             getPlainText(): string;
             hasText(): boolean;
@@ -224,8 +224,8 @@ declare module "draft-js" {
             handleReturn?: (e: any) => boolean;
             handleKeyCommand?: (command: string) => boolean;
             handleBeforeInput?: (chars: string) => boolean;
-            handlePastedFiles?: (files: Array<Blob>) => boolean;
-            handleDroppedFiles?: (selection: SelectionState, files: Array<Blob>) => boolean;
+            handlePastedFiles?: (files: Blob[]) => boolean;
+            handleDroppedFiles?: (selection: SelectionState, files: Blob[]) => boolean;
             handleDrop?: (selection: SelectionState, dataTransfer: any, isInternal: any) => boolean;
 
             onEscape?: (e: any) => void;
@@ -265,7 +265,7 @@ declare module "draft-js" {
         var Modifier: Modifier;
         var RichUtils: RichUtils;
 
-        function convertFromRaw(rawState: any): Array<ContentBlock>;
+        function convertFromRaw(rawState: any): ContentBlock[];
 
         function convertToRaw(contentState: ContentState): any;
 

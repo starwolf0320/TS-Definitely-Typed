@@ -83,10 +83,10 @@ declare namespace HTMLMinifier {
         minifyURLs?: boolean | RelateUrl.Options;
 
         // Array of regex'es that allow to ignore certain comments, when matched
-        ignoreCustomComments?: Array<RegExp>;
+        ignoreCustomComments?: RegExp[];
 
         // Array of regex'es that allow to ignore certain fragments, when matched (e.g. <?php ... ?>, {{ ... }}, etc.)
-        ignoreCustomFragments?: Array<RegExp>;
+        ignoreCustomFragments?: RegExp[];
 
         // Array of strings corresponding to types of script elements to process through minifier (e.g. text/ng-template, text/x-handlebars-template, etc.)
         processScripts?: string[];
@@ -95,10 +95,10 @@ declare namespace HTMLMinifier {
         maxLineLength?: number;
 
         // Arrays of regex'es that allow to support custom attribute assign expressions (e.g. '<div flex?="{{mode != cover}}"></div>')
-        customAttrAssign?: Array<RegExp>;
+        customAttrAssign?: RegExp[];
 
         // Arrays of regex'es that allow to support custom attribute surround expressions (e.g. <input {{#if value}}checked="checked"{{/if}}>)
-        customAttrSurround?: Array<RegExp>;
+        customAttrSurround?: RegExp[];
 
         // Regex that specifies custom attribute to strip newlines from (e.g. /ng\-class/)
         customAttrCollapse?: RegExp;

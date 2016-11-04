@@ -28,14 +28,14 @@ export interface ScaleLinear<Range, Output> {
      */
     invert(value: number | { valueOf(): number }): number;
     domain(): number[];
-    domain(domain: Array<number | { valueOf(): number }>): this;
-    range(): Array<Range>;
-    range(range: Array<Range>): this;
+    domain(domain: (number | { valueOf(): number })[]): this;
+    range(): Range[];
+    range(range: Range[]): this;
     /**
      * Important: While value should come out of range R, this is method is only applicable to
      * values that can be coerced to numeric.
      */
-    rangeRound(range: Array<number | { valueOf(): number }>): this;
+    rangeRound(range: (number | { valueOf(): number })[]): this;
     clamp(): boolean;
     clamp(clamp: boolean): ScaleLinear<Range, Output>;
     interpolate(): InterpolatorFactory<any, any>;
@@ -64,14 +64,14 @@ export interface ScalePower<Range, Output> {
      */
     invert(value: number | { valueOf(): number }): number;
     domain(): number[];
-    domain(domain: Array<number | { valueOf(): number }>): this;
-    range(): Array<Range>;
-    range(range: Array<Range>): this;
+    domain(domain: (number | { valueOf(): number })[]): this;
+    range(): Range[];
+    range(range: Range[]): this;
     /**
      * Important: While value should come out of range R, this is method is only applicable to
      * values that can be coerced to numeric.
      */
-    rangeRound(range: Array<number | { valueOf(): number }>): this;
+    rangeRound(range: (number | { valueOf(): number })[]): this;
     clamp(): boolean;
     clamp(clamp: boolean): this;
     interpolate(): InterpolatorFactory<any, any>;
@@ -107,14 +107,14 @@ export interface ScaleLogarithmic<Range, Output> {
      */
     invert(value: number | { valueOf(): number }): number;
     domain(): number[];
-    domain(domain: Array<number | { valueOf(): number }>): this;
-    range(): Array<Range>;
-    range(range: Array<Range>): this;
+    domain(domain: (number | { valueOf(): number })[]): this;
+    range(): Range[];
+    range(range: Range[]): this;
     /**
      * Important: While value should come out of range R, this is method is only applicable to
      * values that can be coerced to numeric.
      */
-    rangeRound(range: Array<number | { valueOf(): number }>): this;
+    rangeRound(range: (number | { valueOf(): number })[]): this;
     clamp(): boolean;
     clamp(clamp: boolean): this;
     interpolate(): InterpolatorFactory<any, any>;
@@ -146,9 +146,9 @@ export interface ScaleIdentity {
      */
     invert(value: number | { valueOf(): number }): number;
     domain(): number[];
-    domain(domain: Array<number | { valueOf(): number }>): this;
+    domain(domain: (number | { valueOf(): number })[]): this;
     range(): number[];
-    range(range: Array<Range | { valueOf(): number }>): this;
+    range(range: (Range | { valueOf(): number })[]): this;
     ticks(count?: number): number[];
     tickFormat(count?: number, specifier?: string): ((d: number | { valueOf(): number }) => string);
     nice(count?: number): this;
@@ -169,23 +169,23 @@ export interface ScaleTime<Range, Output> {
      * values that can be coerced to numeric. Otherwise, returns NaN
      */
     invert(value: number | { valueOf(): number }): Date;
-    domain(): Array<Date>;
-    domain(domain: Array<Date>): this;
-    range(): Array<Range>;
-    range(range: Array<Range>): this;
+    domain(): Date[];
+    domain(domain: Date[]): this;
+    range(): Range[];
+    range(range: Range[]): this;
     /**
      * Important: While value should come out of range R, this is method is only applicable to
      * values that can be coerced to numeric.
      */
-    rangeRound(range: Array<number | { valueOf(): number }>): this;
+    rangeRound(range: (number | { valueOf(): number })[]): this;
     clamp(): boolean;
     clamp(clamp: boolean): this;
     interpolate(): InterpolatorFactory<any, any>;
     interpolate(interpolate: InterpolatorFactory<Range, Output>): this;
     interpolate<NewOutput>(interpolate: InterpolatorFactory<Range, NewOutput>): ScaleTime<Range, NewOutput>;
-    ticks(): Array<Date>;
-    ticks(count: number): Array<Date>;
-    ticks(interval: TimeInterval): Array<Date>;
+    ticks(): Date[];
+    ticks(count: number): Date[];
+    ticks(interval: TimeInterval): Date[];
     tickFormat(): ((d: Date) => string);
     tickFormat(count: number, specifier?: string): ((d: Date) => string);
     tickFormat(interval: TimeInterval, specifier?: string): ((d: Date) => string);
@@ -256,8 +256,8 @@ export interface ScaleQuantize<Range> {
     invertExtent(value: Range): [number, number];
     domain(): [number, number];
     domain(domain: [number | { valueOf(): number }, number | { valueOf(): number }]): this;
-    range(): Array<Range>;
-    range(range: Array<Range>): this;
+    range(): Range[];
+    range(range: Range[]): this;
     ticks(count?: number): number[];
     tickFormat(count?: number, specifier?: string): ((d: number | { valueOf(): number }) => string);
     nice(count?: number): this;
@@ -275,9 +275,9 @@ export interface ScaleQuantile<Range> {
     (value: number | { valueOf(): number }): Range;
     invertExtent(value: Range): [number, number];
     domain(): number[];
-    domain(domain: Array<number | { valueOf(): number }>): this;
-    range(): Array<Range>;
-    range(range: Array<Range>): this;
+    domain(domain: (number | { valueOf(): number })[]): this;
+    range(): Range[];
+    range(range: Range[]): this;
     quantiles(): number[];
     copy(): ScaleQuantile<Range>;
 }
@@ -297,10 +297,10 @@ export interface ScaleThreshold<Domain extends number | string | Date, Range> {
      * values that can be coerced to numeric. Otherwise, returns NaN
      */
     invertExtent(value: Range): [Domain, Domain] | [undefined, Domain] | [Domain, undefined] | [undefined, undefined];
-    domain(): Array<Domain>;
-    domain(domain: Array<Domain>): this;
-    range(): Array<Range>;
-    range(range: Array<Range>): this;
+    domain(): Domain[];
+    domain(domain: Domain[]): this;
+    range(): Range[];
+    range(range: Range[]): this;
     copy(): ScaleThreshold<Domain, Range>;
 }
 
@@ -314,17 +314,17 @@ export function scaleThreshold<Domain extends number | string | Date, Range>(): 
 
 export interface ScaleOrdinal<Domain extends { toString(): string }, Range> {
     (x: Domain): Range;
-    domain(): Array<Domain>;
-    domain(domain: Array<Domain>): this;
-    range(): Array<Range>;
-    range(range: Array<Range>): this;
+    domain(): Domain[];
+    domain(domain: Domain[]): this;
+    range(): Range[];
+    range(range: Range[]): this;
     unknown(): Range | { name: 'implicit' };
     unknown(value: Range | { name: 'implicit' }): this;
     copy(): ScaleOrdinal<Domain, Range>;
 }
 
-export function scaleOrdinal<Range>(range?: Array<Range>): ScaleOrdinal<string, Range>;
-export function scaleOrdinal<Domain extends { toString(): string }, Range>(range?: Array<Range>): ScaleOrdinal<Domain, Range>;
+export function scaleOrdinal<Range>(range?: Range[]): ScaleOrdinal<string, Range>;
+export function scaleOrdinal<Domain extends { toString(): string }, Range>(range?: Range[]): ScaleOrdinal<Domain, Range>;
 
 export const scaleImplicit: { name: 'implicit' };
 
@@ -335,8 +335,8 @@ export const scaleImplicit: { name: 'implicit' };
 
 export interface ScaleBand<Domain extends { toString(): string }> {
     (x: Domain): number | undefined;
-    domain(): Array<Domain>;
-    domain(domain: Array<Domain>): this;
+    domain(): Domain[];
+    domain(domain: Domain[]): this;
     range(): [number, number];
     range(range: [number | { valueOf(): number }, number | { valueOf(): number }]): this;
     rangeRound(range: [number | { valueOf(): number }, number | { valueOf(): number }]): this;
@@ -370,8 +370,8 @@ export function scaleBand<Domain extends { toString(): string }>(): ScaleBand<Do
 
 export interface ScalePoint<Domain extends { toString(): string }> {
     (x: Domain): number | undefined;
-    domain(): Array<Domain>;
-    domain(domain: Array<Domain>): this;
+    domain(): Domain[];
+    domain(domain: Domain[]): this;
     range(): [number, number];
     range(range: [number | { valueOf(): number }, number | { valueOf(): number }]): this;
     rangeRound(range: [number | { valueOf(): number }, number | { valueOf(): number }]): this;

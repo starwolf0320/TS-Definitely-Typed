@@ -373,12 +373,12 @@ interface JQuery {
     /**
      * Retrieves events that FullCalendar has in memory.
      */
-    fullCalendar(method: 'clientEvents', idOrfilter?: any): Array<FullCalendar.EventObject>;
+    fullCalendar(method: 'clientEvents', idOrfilter?: any): FullCalendar.EventObject[];
 
     /**
      * Retrieves events that FullCalendar has in memory.
      */
-    fullCalendar(method: 'clientEvents', idOrfilter?: (e: FullCalendar.EventObject) => boolean): Array<FullCalendar.EventObject>;
+    fullCalendar(method: 'clientEvents', idOrfilter?: (e: FullCalendar.EventObject) => boolean): FullCalendar.EventObject[];
 
     /**
      * Removes events from the calendar.

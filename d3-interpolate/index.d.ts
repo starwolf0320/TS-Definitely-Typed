@@ -72,14 +72,14 @@ export function interpolateTransformSvg(a: string, b: string): ((t: number) => s
 export function interpolateZoom(a: ZoomView, b: ZoomView): ZoomInterpolator;
 
 
-export function quantize<T>(interpolator: ((t: number) => T), n: number): Array<T>;
+export function quantize<T>(interpolator: ((t: number) => T), n: number): T[];
 
 // Color interpolation related
 
 export var interpolateRgb: ColorGammaInterpolationFactory;
 
-export function interpolateRgbBasis(colors: Array<string | ColorCommonInstance>): ((t: number) => string);
-export function interpolateRgbBasisClosed(colors: Array<string | ColorCommonInstance>): ((t: number) => string);
+export function interpolateRgbBasis(colors: (string | ColorCommonInstance)[]): ((t: number) => string);
+export function interpolateRgbBasisClosed(colors: (string | ColorCommonInstance)[]): ((t: number) => string);
 
 export function interpolateHsl(a: string | ColorCommonInstance, b: string | ColorCommonInstance): ((t: number) => string);
 export function interpolateHslLong(a: string | ColorCommonInstance, b: string | ColorCommonInstance): ((t: number) => string);

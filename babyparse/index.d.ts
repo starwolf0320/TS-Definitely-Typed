@@ -120,7 +120,7 @@ declare namespace BabyParse {
      */
     interface ParseResult {
         data: any[];
-        errors: Array<ParseError>;
+        errors: ParseError[];
         meta: ParseMeta;
     }
     interface ParserConstructor { new (config: ParseConfig): Parser; }

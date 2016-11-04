@@ -171,7 +171,7 @@ export interface IServerOptions {
 	 sharedif true, allows multiple cache users to share the same segment (e.g. multiple methods using the same cache storage container). Default to false.
 	 other options passed to the catbox strategy used.
 	 an array of the above object for configuring multiple cache instances, each with a unique name. When an array of objects is provided, multiple cache connections are established and each array item (except one) must include a name.  */
-    cache?: string | ICatBoxCacheOptions | Array<ICatBoxCacheOptions> | any;
+    cache?: string | ICatBoxCacheOptions | ICatBoxCacheOptions[] | any;
     /**  sets the default connections configuration which can be overridden by each connection where:  */
     connections?: IConnectionConfigurationServerDefaults;
     /** determines which logged events are sent to the console (this should only be used for development and does not affect which events are actually logged internally and recorded). Set to false to disable all console logging, or to an object*/
@@ -871,7 +871,7 @@ export interface IRouteHandlerConfig {
         plugins: {
             [name: string]: any;
         };
-        pre: Array<() => void>;
+        pre: (() => void)[];
         validate: {
             headers: any;
             params: any;
@@ -1532,7 +1532,7 @@ export class Response extends Events.EventEmitter {
 
 	/** replacer(method) - sets the JSON.stringify() replacer argument where:
 	 method - the replacer function or array. Defaults to none.*/
-    replacer(method: Function | Array<Function>): Response;
+    replacer(method: Function | Function[]): Response;
 
 	/** spaces(count) - sets the JSON.stringify() space argument where:
 	 count - the number of spaces to indent nested object keys. Defaults to no indentation. */
@@ -1677,7 +1677,7 @@ export class Server extends Events.EventEmitter {
 	 // server.connections.length === 2
 	 var a = server.select('a');
 	 // a.connections.length === 1*/
-    connections: Array<ServerConnection>;
+    connections: ServerConnection[];
 	/** When the server contains exactly one connection, info is an object containing information about the sole connection.
 	 * When the server contains more than one connection, each server.connections array member provides its own connection.info.
 	 var server = new Hapi.Server();
@@ -2279,9 +2279,9 @@ export class Server extends Events.EventEmitter {
 	});*/
     method(methods: {
         name: string; method: IServerMethod; options?: IServerMethodOptions
-    } | Array<{
+    } | {
         name: string; method: IServerMethod; options?: IServerMethodOptions
-    }>): void;
+    }[]): void;
 
 	/**server.path(relativeTo)
 	 Sets the path prefix used to locate static resources (files and view templates) when relative paths are used where:

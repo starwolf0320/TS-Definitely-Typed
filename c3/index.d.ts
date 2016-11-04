@@ -10,7 +10,7 @@ export as namespace c3;
 
 declare namespace c3 {
 
-    type PrimitiveArray = Array<string | boolean | number>;
+    type PrimitiveArray = (string | boolean | number)[];
     type FormatFunction = (v: any, id: string, i: number, j: number) => void;
 
     interface TargetIds {
@@ -124,7 +124,7 @@ declare namespace c3 {
          * This option accepts array including object that has axis, start, end and class. The keys start, end and class are optional.
          * axis must be x, y or y2. start and end should be the value where regions start and end. If not specified, the edge values will be used. If timeseries x axis, date string, Date object and unixtime integer can be used. If class is set, the region element will have it as class.
          */
-        regions?: Array<RegionOptions>;
+        regions?: RegionOptions[];
 
         legend?: LegendOptions;
 
@@ -262,11 +262,11 @@ declare namespace c3 {
         /**
          * Load data from a multidimensional array, with the first element containing the data names, the following containing related data in that order.
          */
-        rows?: Array<PrimitiveArray>;
+        rows?: PrimitiveArray[];
         /*
          * Load data from a multidimensional array, with each element containing an array consisting of a datum name and associated data values.
          */
-        columns?: Array<PrimitiveArray>;
+        columns?: PrimitiveArray[];
         /**
          * Used if loading JSON via data.url
          */
@@ -304,7 +304,7 @@ declare namespace c3 {
         /**
          * Set groups for the data for stacking.
          */
-        groups?: Array<string[]>;
+        groups?: string[][];
         /**
          * Set y axis the data related to. y and y2 can be used.
          */
@@ -586,7 +586,7 @@ declare namespace c3 {
              * This option accepts array including object that has value, text, position and class. text, position and class are optional. For position, start, middle and end (default) are available.
              * If x axis is category axis, value can be category name. If x axis is timeseries axis, value can be date string, Date object and unixtime integer.
              */
-            lines?: Array<LineOptions>;
+            lines?: LineOptions[];
         };
         y?: {
             /**
@@ -597,7 +597,7 @@ declare namespace c3 {
              * Show additional grid lines along y axis.
              * This option accepts array including object that has value, text, position and class.
              */
-            lines?: Array<LineOptions>;
+            lines?: LineOptions[];
         };
     }
 
@@ -825,8 +825,8 @@ declare namespace c3 {
             url?: string;
             json?: Object;
             keys?: { x?: string; value: string[]; }
-            rows?: Array<PrimitiveArray>;
-            columns?: Array<PrimitiveArray>;
+            rows?: PrimitiveArray[];
+            columns?: PrimitiveArray[];
             classes?: { [key: string]: string };
             categories?: string[];
             axes?: { [key: string]: string };
@@ -856,8 +856,8 @@ declare namespace c3 {
         flow(args: {
             json?: Object;
             keys?: { x?: string; value: string[]; }
-            rows?: Array<PrimitiveArray>;
-            columns?: Array<PrimitiveArray>;
+            rows?: PrimitiveArray[];
+            columns?: PrimitiveArray[];
             to?: any;
             length?: number;
             duration?: number;
@@ -891,7 +891,7 @@ declare namespace c3 {
          * Update groups for the targets.
          * @param groups This argument needs to be an Array that includes one or more Array that includes target ids to be grouped.
          */
-        groups(groups: Array<string[]>): void;
+        groups(groups: string[][]): void;
 
         xgrids: GridOperations;
 

@@ -36,7 +36,7 @@ declare namespace Microsoft.Maps.Search {
          parsedAddress: Address;
          parsedKeyword: string;
          parsedSeparator: string;
-         results: Array<PlaceResult>;
+         results: PlaceResult[];
      }
 
      export enum LocationPrecision {
@@ -62,7 +62,7 @@ declare namespace Microsoft.Maps.Search {
      export interface PlaceResult {
          bestView: LocationRect;
          location: GeocodeLocation;
-         locations: Array<GeocodeLocation>;
+         locations: GeocodeLocation[];
          matchCode: MatchCode;
          matchConfidence: MatchConfidence;
          name: string;
@@ -93,7 +93,7 @@ declare namespace Microsoft.Maps.Search {
 
      export interface SearchRegion {
          address: Address;
-         geocodeLocations: Array<GeocodeLocation>;
+         geocodeLocations: GeocodeLocation[];
          explicitLocation: GeocodeLocation;
          mapBounds: LocationRect;
          matchCode: MatchCode;
@@ -115,12 +115,12 @@ declare namespace Microsoft.Maps.Search {
      }
 
      export interface SearchResponse {
-         alternateSearchRegions: Array<SearchRegion>;
+         alternateSearchRegions: SearchRegion[];
          hasMore: boolean;
-         parseResults: Array<SearchParseResult>;
+         parseResults: SearchParseResult[];
          responseSummary: SearchResponseSummary;
          searchRegion: SearchRegion;
-         searchResults: Array<SearchResult>;
+         searchResults: SearchResult[];
      }
 
      export interface SearchResponseSummary {

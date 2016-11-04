@@ -638,7 +638,7 @@ id(value: number|string): this;
         /* options include 'silhouette', 'wiggle', 'expand', 'zero', or a custom function*/
         stackOffset(offset: string): this;
         /* options include 'silhouette', 'wiggle', 'expand', 'zero', or a custom function*/
-        stackOffset(offset: (data: Array<[number, number]>) => number[]): this;
+        stackOffset(offset: (data: [number, number][]) => number[]): this;
         /* The width the graph or component created inside the SVG should be made*/
         width(): number;
         /*The width the graph or component created inside the SVG should be made.*/
@@ -730,7 +730,7 @@ id(value: number|string): this;
         /* options include 'silhouette', 'wiggle', 'expand', 'zero', or a custom function*/
         stackOffset(offset: string): this;
         /* options include 'silhouette', 'wiggle', 'expand', 'zero', or a custom function*/
-        stackOffset(offset: (data: Array<[number, number]>) => number[]): this;
+        stackOffset(offset: (data: [number, number][]) => number[]): this;
         /*D3 Format object for the label of pie/donut, discrete bar and multibar charts.*/
         valueFormat(): string;
         /*D3 Format object for the label of pie/donut, discrete bar and multibar charts.*/
@@ -1233,7 +1233,7 @@ id(value: number|string): this;
         /* options include 'silhouette', 'wiggle', 'expand', 'zero', or a custom function*/
         offset(offset: string): this;
         /* options include 'silhouette', 'wiggle', 'expand', 'zero', or a custom function*/
-        offset(offset: (data: Array<[number, number]>) => number[]): this;
+        offset(offset: (data: [number, number][]) => number[]): this;
         order(): string;
         order(value: string): this;
         style(offset: 'stack'): this;
@@ -2499,7 +2499,7 @@ id(value: number|string): this;
         /* options include 'silhouette', 'wiggle', 'expand', 'zero', or a custom function*/
         stackOffset(offset: string): this;
         /* options include 'silhouette', 'wiggle', 'expand', 'zero', or a custom function*/
-        stackOffset(offset: (data: Array<[number, number]>) => number[]): this;
+        stackOffset(offset: (data: [number, number][]) => number[]): this;
         /*Makes the X labels stagger at different distances from the axis so they're less likely to overlap.*/
         staggerLabels(): boolean;
         /*Makes the X labels stagger at different distances from the axis so they're less likely to overlap.*/

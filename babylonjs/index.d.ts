@@ -1609,7 +1609,7 @@ declare namespace BABYLON {
         private _trackConvolver;
         private _scene;
         id: number;
-        soundCollection: Array<Sound>;
+        soundCollection: Sound[];
         private _isMainTrack;
         private _connectedAnalyser;
         private _options;
@@ -2164,7 +2164,7 @@ declare namespace BABYLON {
         boxMinimum: number[];
         boxMaximum: number[];
         worldMatrixFromCache: any;
-        subMeshes: Array<SerializedSubMesh>;
+        subMeshes: SerializedSubMesh[];
         checkCollisions: boolean;
     }
     interface SerializedSubMesh {
@@ -4153,7 +4153,7 @@ declare namespace BABYLON {
          * @param type the type of simplification to run.
          * @param successCallback optional success callback to be called after the simplification finished processing all settings.
          */
-        simplify(settings: Array<ISimplificationSettings>, parallelProcessing?: boolean, simplificationType?: SimplificationType, successCallback?: (mesh?: Mesh, submeshIndex?: number) => void): void;
+        simplify(settings: ISimplificationSettings[], parallelProcessing?: boolean, simplificationType?: SimplificationType, successCallback?: (mesh?: Mesh, submeshIndex?: number) => void): void;
         /**
          * Optimization of the mesh's indices, in case a mesh has duplicated vertices.
          * The function will only reorder the indices and will not remove unused vertices to avoid problems with submeshes.
@@ -4227,12 +4227,12 @@ declare namespace BABYLON {
         static Center(meshesOrMinMaxVector: any): Vector3;
         /**
          * Merge the array of meshes into a single mesh for performance reasons.
-         * @param {Array<Mesh>} meshes - The vertices source.  They should all be of the same material.  Entries can empty
+         * @param {Mesh[]} meshes - The vertices source.  They should all be of the same material.  Entries can empty
          * @param {boolean} disposeSource - When true (default), dispose of the vertices from the source meshes
          * @param {boolean} allow32BitsIndices - When the sum of the vertices > 64k, this must be set to true.
          * @param {Mesh} meshSubclass - When set, vertices inserted into this Mesh.  Meshes can then be merged into a Mesh sub-class.
          */
-        static MergeMeshes(meshes: Array<Mesh>, disposeSource?: boolean, allow32BitsIndices?: boolean, meshSubclass?: Mesh): Mesh;
+        static MergeMeshes(meshes: Mesh[], disposeSource?: boolean, allow32BitsIndices?: boolean, meshSubclass?: Mesh): Mesh;
     }
 }
 
@@ -4648,7 +4648,7 @@ declare namespace BABYLON {
         constructor(quality: number, distance: number, optimizeMesh?: boolean);
     }
     interface ISimplificationTask {
-        settings: Array<ISimplificationSettings>;
+        settings: ISimplificationSettings[];
         simplificationType: SimplificationType;
         mesh: Mesh;
         successCallback?: () => void;
@@ -4671,7 +4671,7 @@ declare namespace BABYLON {
         QUADRATIC = 0,
     }
     class DecimationTriangle {
-        vertices: Array<DecimationVertex>;
+        vertices: DecimationVertex[];
         normal: Vector3;
         error: number[];
         deleted: boolean;
@@ -4679,7 +4679,7 @@ declare namespace BABYLON {
         borderFactor: number;
         deletePending: boolean;
         originalOffset: number;
-        constructor(vertices: Array<DecimationVertex>);
+        constructor(vertices: DecimationVertex[]);
     }
     class DecimationVertex {
         position: Vector3;
@@ -6034,8 +6034,8 @@ declare namespace BABYLON {
         rootUrl: string;
         sceneFilename: string;
         loadedMeshes: AbstractMesh[];
-        loadedParticleSystems: Array<ParticleSystem>;
-        loadedSkeletons: Array<Skeleton>;
+        loadedParticleSystems: ParticleSystem[];
+        loadedSkeletons: Skeleton[];
         onSuccess: (task: IAssetTask) => void;
         onError: (task: IAssetTask) => void;
         isCompleted: boolean;
@@ -6472,7 +6472,7 @@ declare namespace BABYLON.Internals {
 
 declare namespace BABYLON {
     interface IAnimatable {
-        animations: Array<Animation>;
+        animations: Animation[];
     }
     interface ISize {
         width: number;

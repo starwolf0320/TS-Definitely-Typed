@@ -50,7 +50,7 @@ export interface Options extends AgendaOptions, EventDraggingResizingOptions, Dr
     weekMode?: string;
     weekNumbers?: boolean;
     weekNumberCalculation?: any; // String/Function
-    businessHours?: boolean | BusinessHours | Array<BusinessHours>;
+    businessHours?: boolean | BusinessHours | BusinessHours[];
     height?: number;
     contentHeight?: number;
     aspectRatio?: number;
@@ -366,12 +366,12 @@ declare global {
         /**
          * Retrieves events that FullCalendar has in memory.
          */
-        fullCalendar(method: 'clientEvents', idOrfilter?: any): Array<EventObject>;
+        fullCalendar(method: 'clientEvents', idOrfilter?: any): EventObject[];
 
         /**
          * Retrieves events that FullCalendar has in memory.
          */
-        fullCalendar(method: 'clientEvents', idOrfilter?: (e: EventObject) => boolean): Array<EventObject>;
+        fullCalendar(method: 'clientEvents', idOrfilter?: (e: EventObject) => boolean): EventObject[];
 
         /**
          * Removes events from the calendar.

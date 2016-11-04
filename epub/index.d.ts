@@ -49,7 +49,7 @@ declare module "epub" {
 		manifest: Object;
 		spine: Object;
 		flow: Object[];
-		toc: Array<TocElement>;
+		toc: TocElement[];
 
 		parse(): void;
 

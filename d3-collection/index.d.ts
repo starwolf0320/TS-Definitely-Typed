@@ -20,8 +20,8 @@ export function keys(object: Object): string[];
 export function values<T>(object: { [key: string]: T }): T[];
 export function values(object: Object): any[];
 
-export function entries<T>(object: { [key: string]: T }): Array<{ key: string, value: T }>;
-export function entries(object: Object): Array<{ key: string, value: any }>;
+export function entries<T>(object: { [key: string]: T }): { key: string, value: T }[];
+export function entries(object: Object): { key: string, value: any }[];
 
 // ---------------------------------------------------------------------
 // map / Map
@@ -36,7 +36,7 @@ export interface Map<T> {
     clear(): void;
     keys(): string[];
     values(): T[];
-    entries(): Array<{ key: string, value: T }>;
+    entries(): { key: string, value: T }[];
     each(func: (value: T, key: string, map: Map<T>) => void): void;
     empty(): boolean;
     size(): number;
@@ -73,7 +73,7 @@ export interface Set {
 
 export function set(): Set;
 export function set(d3Set: Set): Set;
-export function set(array: Array<string | Stringifiable>): Set;
+export function set(array: (string | Stringifiable)[]): Set;
 export function set<T>(array: T[], key: (value: T, index?: number, array?: T[]) => string): Set;
 
 // ---------------------------------------------------------------------
@@ -93,14 +93,14 @@ export function set<T>(array: T[], key: (value: T, index?: number, array?: T[]) 
 
 // Also note, that the below return types for Nest.entries(...), Nest.map(...) and Nest.object(...) strictly only work,
 // if AT LEAST ONE KEY was set. This seems a reasonable constraint in practice, given the intent of the nest operator.
-// Otherwise, an additional '| Array<Datum> | RollupType` would have to be added to the union type. This would cover
+// Otherwise, an additional '| Datum[] | RollupType` would have to be added to the union type. This would cover
 // cases (a) without key or rollup (b) without key but with rollup. However, again, the union types make it cumbersome
 // without much gain.
 
-export interface NestedArray<Datum, RollupType> extends Array<{ key: string, values: NestedArray<Datum, RollupType> | Array<Datum> | undefined, value: RollupType | undefined }> { }
-export interface NestedMap<Datum, RollupType> extends Map<NestedMap<Datum, RollupType> | Array<Datum> | RollupType> { }
+export interface NestedArray<Datum, RollupType> extends Array<{ key: string, values: NestedArray<Datum, RollupType> | Datum[] | undefined, value: RollupType | undefined }> { }
+export interface NestedMap<Datum, RollupType> extends Map<NestedMap<Datum, RollupType> | Datum[] | RollupType> { }
 export interface NestedObject<Datum, RollupType> {
-    [key: string]: NestedObject<Datum, RollupType> | Array<Datum> | RollupType;
+    [key: string]: NestedObject<Datum, RollupType> | Datum[] | RollupType;
 }
 
 interface Nest<Datum, RollupType> {
@@ -110,7 +110,7 @@ interface Nest<Datum, RollupType> {
     rollup(func: (values: Datum[]) => RollupType): this;
     map(array: Datum[]): Map<any>; // more specifically it returns NestedMap<Datum, RollupType>
     object(array: Datum[]): { [key: string]: any };  // more specifically it returns NestedObject<Datum, RollupType>
-    entries(array: Datum[]): Array<{ key: string; values: any; value: RollupType | undefined }>;  // more specifically it returns NestedArray<Datum, RollupType>
+    entries(array: Datum[]): { key: string; values: any; value: RollupType | undefined }[];  // more specifically it returns NestedArray<Datum, RollupType>
 }
 
 export function nest<Datum>(): Nest<Datum, undefined>;

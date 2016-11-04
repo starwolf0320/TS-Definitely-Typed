@@ -366,7 +366,7 @@ declare namespace d3 {
              * Creates a subselection by using a function to find descendent elements. Bound data is not inherited.
              * @param selector the function to find matching descendents
              */
-            selectAll(selector: (datum: Datum, index: number, outerIndex: number) => Array<EventTarget> | NodeList): Update<any>;
+            selectAll(selector: (datum: Datum, index: number, outerIndex: number) => EventTarget[] | NodeList): Update<any>;
 
             /**
              * Invoke the given function for each element in the selection. The return value of the function is ignored.
@@ -766,7 +766,7 @@ declare namespace d3 {
          * Creates a subselection by using a function to find descendent elements. Bound data is not inherited.
          * @param selector the function to find matching descendents
          */
-        selectAll(selector: (datum: Datum, index: number, outerIndex: number) => Array<EventTarget> | NodeList): Selection<any>;
+        selectAll(selector: (datum: Datum, index: number, outerIndex: number) => EventTarget[] | NodeList): Selection<any>;
 
         /**
          * Creates a subselection by using a function to find descendent elements. Bound data is not inherited.
@@ -774,7 +774,7 @@ declare namespace d3 {
          * Use this overload when data-binding a subselection (that is, sel.selectAll('.foo').data(d => ...)). The type will carry over.
          * @param selector the function to find matching descendents
          */
-        selectAll<T>(selector: (datum: Datum, index: number, outerIndex: number) => Array<EventTarget> | NodeList): Selection<T>;
+        selectAll<T>(selector: (datum: Datum, index: number, outerIndex: number) => EventTarget[] | NodeList): Selection<T>;
 
         /**
          * Invoke the given function for each element in the selection. The return value of the function is ignored.
@@ -979,7 +979,7 @@ declare namespace d3 {
      * @param container the container element
      * @param touches an optional list of touches (defaults to d3.event.touches)
      */
-    export function touches(container: EventTarget, touches?: TouchList): Array<[number, number]>;
+    export function touches(container: EventTarget, touches?: TouchList): [number, number][];
 
     // NB. this is limited to primitive values due to D3's use of the <, >, and >= operators. Results get weird for object instances.
     /**
@@ -1070,7 +1070,7 @@ declare namespace d3 {
     /**
      * Return the min and max simultaneously.
      */
-    export function extent<T extends Numeric>(array: Array<T | Primitive>): [T | Primitive, T | Primitive];
+    export function extent<T extends Numeric>(array: (T | Primitive)[]): [T | Primitive, T | Primitive];
 
     /**
      * Return the min and max simultaneously.
@@ -1340,7 +1340,7 @@ declare namespace d3 {
      * For each adjacent pair of elements in the specified array, returns a new array of tuples of elements i and i - 1.
      * Returns the empty array if the input array has fewer than two elements.
      */
-    export function pairs<T>(array: T[]): Array<[T, T]>;
+    export function pairs<T>(array: T[]): [T, T][];
 
     interface Nest<T> {
         key(func: (datum: T) => string): Nest<T>;
@@ -1707,7 +1707,7 @@ declare namespace d3 {
     export function interpolate(a: number, b: number): (t: number) => number;
     export function interpolate(a: string, b: string): (t: number) => string;
     export function interpolate(a: string | Color, b: Color): (t: number) => string;
-    export function interpolate(a: Array<string | Color>, b: Color[]): (t: number) => string;
+    export function interpolate(a: (string | Color)[], b: Color[]): (t: number) => string;
     export function interpolate<Range, Output>(a: Range[], b: Output[]): (t: number) => Output[];
     export function interpolate<Range, Output>(a: Range[], b: Range[]): (t: number) => Output[];
     export function interpolate(a: { [key: string]: string | Color }, b: { [key: string]: Color }): (t: number) => { [key: string]: string };
@@ -1728,7 +1728,7 @@ declare namespace d3 {
 
     export function interpolateHcl(a: string | Color, b: string | Color): (t: number) => string;
 
-    export function interpolateArray(a: Array<string | Color>, b: Color[]): (t: number) => string[];
+    export function interpolateArray(a: (string | Color)[], b: Color[]): (t: number) => string[];
     export function interpolateArray<Range, Output>(a: Range[], b: Range[]): (t: number) => Output[];
     export function interpolateArray<Range, Output>(a: Range[], b: Output[]): (t: number) => Output[];
 
@@ -1743,7 +1743,7 @@ declare namespace d3 {
         duration: number;
     };
 
-    export var interpolators: Array<(a: any, b: any) => (t: number) => any>;
+    export var interpolators: ((a: any, b: any) => (t: number) => any)[];
 
     export namespace time {
         export var second: Interval;
@@ -1816,10 +1816,10 @@ declare namespace d3 {
         export function format(specifier: string): Format;
 
         export namespace format {
-            export function multi(formats: Array<[string, (d: Date) => boolean|number]>): Format;
+            export function multi(formats: [string, (d: Date) => boolean|number][]): Format;
             export function utc(specifier: string): Format;
             namespace utc {
-                export function multi(formats: Array<[string, (d: Date) => boolean|number]>): Format;
+                export function multi(formats: [string, (d: Date) => boolean|number][]): Format;
             }
 
             export var iso: Format;
@@ -2219,7 +2219,7 @@ declare namespace d3 {
             y(x: number): Line<T>;
             y(y: (d: T, i: number) => number): Line<T>;
 
-            interpolate(): string | ((points: Array<[number, number]>) => string);
+            interpolate(): string | ((points: [number, number][]) => string);
             interpolate(interpolate: "linear"): Line<T>;
             interpolate(interpolate: "linear-closed"): Line<T>;
             interpolate(interpolate: "step"): Line<T>;
@@ -2233,7 +2233,7 @@ declare namespace d3 {
             interpolate(interpolate: "cardinal-open"): Line<T>;
             interpolate(interpolate: "cardinal-closed"): Line<T>;
             interpolate(interpolate: "monotone"): Line<T>;
-            interpolate(interpolate: string | ((points: Array<[number, number]>) => string)): Line<T>;
+            interpolate(interpolate: string | ((points: [number, number][]) => string)): Line<T>;
 
             tension(): number;
             tension(tension: number): Line<T>;
@@ -2257,7 +2257,7 @@ declare namespace d3 {
                 angle(angle: number): Radial<T>;
                 angle(angle: (d: T, i: number) => number): Radial<T>;
 
-                interpolate(): string | ((points: Array<[number, number]>) => string);
+                interpolate(): string | ((points: [number, number][]) => string);
                 interpolate(interpolate: "linear"): Radial<T>;
                 interpolate(interpolate: "linear-closed"): Radial<T>;
                 interpolate(interpolate: "step"): Radial<T>;
@@ -2271,7 +2271,7 @@ declare namespace d3 {
                 interpolate(interpolate: "cardinal-open"): Radial<T>;
                 interpolate(interpolate: "cardinal-closed"): Radial<T>;
                 interpolate(interpolate: "monotone"): Radial<T>;
-                interpolate(interpolate: string | ((points: Array<[number, number]>) => string)): Radial<T>;
+                interpolate(interpolate: string | ((points: [number, number][]) => string)): Radial<T>;
 
                 tension(): number;
                 tension(tension: number): Radial<T>;
@@ -2311,7 +2311,7 @@ declare namespace d3 {
             y1(y1: number): Area<T>;
             y1(y1: (d: T, i: number) => number): Area<T>;
 
-            interpolate(): string | ((points: Array<[number, number]>) => string);
+            interpolate(): string | ((points: [number, number][]) => string);
             interpolate(interpolate: "linear"): Area<T>;
             interpolate(interpolate: "step"): Area<T>;
             interpolate(interpolate: "step-before"): Area<T>;
@@ -2321,7 +2321,7 @@ declare namespace d3 {
             interpolate(interpolate: "cardinal"): Area<T>;
             interpolate(interpolate: "cardinal-open"): Area<T>;
             interpolate(interpolate: "monotone"): Area<T>;
-            interpolate(interpolate: string | ((points: Array<[number, number]>) => string)): Area<T>;
+            interpolate(interpolate: string | ((points: [number, number][]) => string)): Area<T>;
 
             tension(): number;
             tension(tension: number): Area<T>;
@@ -2361,7 +2361,7 @@ declare namespace d3 {
                 endAngle(endAngle: number): Radial<T>;
                 endAngle(endAngle: (d: T, i: number) => number): Radial<T>;
 
-                interpolate(): string | ((points: Array<[number, number]>) => string);
+                interpolate(): string | ((points: [number, number][]) => string);
                 interpolate(interpolate: "linear"): Radial<T>;
                 interpolate(interpolate: "step"): Radial<T>;
                 interpolate(interpolate: "step-before"): Radial<T>;
@@ -2371,7 +2371,7 @@ declare namespace d3 {
                 interpolate(interpolate: "cardinal"): Radial<T>;
                 interpolate(interpolate: "cardinal-open"): Radial<T>;
                 interpolate(interpolate: "monotone"): Radial<T>;
-                interpolate(interpolate: string | ((points: Array<[number, number]>) => string)): Radial<T>;
+                interpolate(interpolate: string | ((points: [number, number][]) => string)): Radial<T>;
 
                 tension(): number;
                 tension(tension: number): Radial<T>;
@@ -2757,7 +2757,7 @@ declare namespace d3 {
         timeFormat: {
             (specifier: string): time.Format;
             utc(specifier: string): time.Format;
-            multi(formats: Array<[string, (d: Date) => boolean|number]>): time.Format;
+            multi(formats: [string, (d: Date) => boolean|number][]): time.Format;
         };
     }
 
@@ -3145,20 +3145,20 @@ declare namespace d3 {
             values(): (layer: Series, index: number) => Value[];
             values(accessor: (layer: Series, index: number) => Value[]): Stack<Series, Value>;
 
-            offset(): (data: Array<[number, number]>) => number[];
+            offset(): (data: [number, number][]) => number[];
             offset(offset: "silhouette"): Stack<Series, Value>;
             offset(offset: "wiggle"): Stack<Series, Value>;
             offset(offset: "expand"): Stack<Series, Value>;
             offset(offset: "zero"): Stack<Series, Value>;
             offset(offset: string): Stack<Series, Value>;
-            offset(offset: (data: Array<[number, number]>) => number[]): Stack<Series, Value>;
+            offset(offset: (data: [number, number][]) => number[]): Stack<Series, Value>;
 
-            order(): (data: Array<[number, number]>) => number[];
+            order(): (data: [number, number][]) => number[];
             order(order: "inside-out"): Stack<Series, Value>;
             order(order: "reverse"): Stack<Series, Value>;
             order(order: "default"): Stack<Series, Value>;
             order(order: string): Stack<Series, Value>;
-            order(order: (data: Array<[number, number]>) => number[]): Stack<Series, Value>;
+            order(order: (data: [number, number][]) => number[]): Stack<Series, Value>;
 
             x(): (value: Value, index: number) => number;
             x(accessor: (value: Value, index: number) => number): Stack<Series, Value>;
@@ -3290,7 +3290,7 @@ declare namespace d3 {
         }
 
         interface Voronoi<T> {
-            (data: T[]): Array<[number, number]>;
+            (data: T[]): [number, number][];
 
             x(): (vertex: T) => number;
             x(x: (vertex: T) => number): Voronoi<T>;
@@ -3303,13 +3303,13 @@ declare namespace d3 {
 
             links(data: T[]): voronoi.Link<T>[];
 
-            triangles(data: T[]): Array<[T, T, T]>;
+            triangles(data: T[]): [T, T, T][];
         }
 
         /**
          * @deprecated use d3.geom.voronoi().triangles() instead
          */
-        export function delaunay(vertices: Array<[number, number]>): Array<[[number, number], [number, number], [number, number]]>;
+        export function delaunay(vertices: [number, number][]): [[number, number], [number, number], [number, number]][];
 
         export function quadtree(): Quadtree<[number, number]>;
         export function quadtree<T>(nodes: T[], x1?: number, y1?: number, x2?: number, y2?: number): quadtree.Quadtree<T>;
@@ -3345,12 +3345,12 @@ declare namespace d3 {
             extent(extent: [[number, number], [number, number]]): Quadtree<T>;
         }
 
-        export function hull(vertices: Array<[number, number]>): Array<[number, number]>;
+        export function hull(vertices: [number, number][]): [number, number][];
         export function hull(): Hull<[number, number]>;
         export function hull<T>(): Hull<T>;
 
         interface Hull<T> {
-            (vertices: T[]): Array<[number, number]>;
+            (vertices: T[]): [number, number][];
 
             x(): (datum: T) => number;
             x(x: (datum: T) => number): Hull<T>;
@@ -3359,14 +3359,14 @@ declare namespace d3 {
             y(y: (datum: T) => number): Hull<T>;
         }
 
-        export function polygon(vertices: Array<[number, number]>): Polygon;
+        export function polygon(vertices: [number, number][]): Polygon;
 
         interface Polygon {
             area(): number;
 
             centroid(): [number, number];
 
-            clip(subject: Array<[number, number]>): Array<[number, number]>;
+            clip(subject: [number, number][]): [number, number][];
         }
     }
 }

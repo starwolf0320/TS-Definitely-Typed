@@ -41,7 +41,7 @@ declare namespace FalcorModel {
         /**
          * The get method retrieves values from the DataSource's associated JSONGraph object.
          **/
-        get(pathSets: Array<PathSet>): Observable<JSONGraphEnvelope>;
+        get(pathSets: PathSet[]): Observable<JSONGraphEnvelope>;
 
 
         /**
@@ -53,7 +53,7 @@ declare namespace FalcorModel {
         /**
          * Invokes a function in the DataSource's JSONGraph object.
          **/
-        call(functionPath: Path, args?: any[], refSuffixes?: Array<PathSet>, thisPaths?: Array<PathSet>): Observable<JSONGraphEnvelope>;
+        call(functionPath: Path, args?: any[], refSuffixes?: PathSet[], thisPaths?: PathSet[]): Observable<JSONGraphEnvelope>;
     }
 
 
@@ -101,35 +101,35 @@ declare namespace FalcorModel {
         /**
          * The get method retrieves several {@link Path}s or {@link PathSet}s from a {@link Model}. The get method loads each value into a JSON object and returns in a ModelResponse.
          **/
-        get(...path: Array<string | PathSet>): ModelResponse<JSONEnvelope<any>>;
-        get<T>(...path: Array<string | PathSet>): ModelResponse<JSONEnvelope<T>>;
+        get(...path: (string | PathSet)[]): ModelResponse<JSONEnvelope<any>>;
+        get<T>(...path: (string | PathSet)[]): ModelResponse<JSONEnvelope<T>>;
 
         /**
          * Sets the value at one or more places in the JSONGraph model. The set method accepts one or more {@link PathValue}s, each of which is a combination of a location in the document and the value to place there.  In addition to accepting  {@link PathValue}s, the set method also returns the values after the set operation is complete.
          **/
-        set(...args: Array<PathValue>): ModelResponse<JSONEnvelope<any>>;
-        set<T>(...args: Array<PathValue>): ModelResponse<JSONEnvelope<T>>;
+        set(...args: PathValue[]): ModelResponse<JSONEnvelope<any>>;
+        set<T>(...args: PathValue[]): ModelResponse<JSONEnvelope<T>>;
         set(jsonGraph: JSONGraph): ModelResponse<JSONEnvelope<any>>;
         set<T>(jsonGraph: JSONGraph): ModelResponse<JSONEnvelope<T>>;
 
         /**
          * The preload method retrieves several {@link Path}s or {@link PathSet}s from a {@link Model} and loads them into the Model cache.
          **/
-        preload(...path: Array<PathSet>): void;
+        preload(...path: PathSet[]): void;
 
         /**
          * Invokes a function in the JSON Graph.
          **/
-        // NOTE: In http://netflix.github.io/falcor/doc/Model.html#call, it says that refPaths should be an array<PathSet>.
-        // However, model implementation returns an error with setting refPaths as Array<PathSet> and it works with refPaths as PathSet.
+        // NOTE: In http://netflix.github.io/falcor/doc/Model.html#call, it says that refPaths should be a PathSet[].
+        // However, model implementation returns an error with setting refPaths as PathSet[] and it works with refPaths as PathSet.
         // So refPaths is defined as a PathSet in this .d.ts.
-        call(functionPath: string | Path, args?: any[], refPaths?: PathSet, thisPaths?: Array<PathSet>): ModelResponse<JSONEnvelope<any>>;
-        call<T>(functionPath: string | Path, args?: any[], refPaths?: PathSet, thisPaths?: Array<PathSet>): ModelResponse<JSONEnvelope<T>>;
+        call(functionPath: string | Path, args?: any[], refPaths?: PathSet, thisPaths?: PathSet[]): ModelResponse<JSONEnvelope<any>>;
+        call<T>(functionPath: string | Path, args?: any[], refPaths?: PathSet, thisPaths?: PathSet[]): ModelResponse<JSONEnvelope<T>>;
 
         /**
          * The invalidate method synchronously removes several {@link Path}s or {@link PathSet}s from a {@link Model} cache.
          **/
-        invalidate(...path: Array<PathSet>): void;
+        invalidate(...path: PathSet[]): void;
 
         /**
          * Returns a new {@link Model} bound to a location within the {@link JSONGraph}. The bound location is never a {@link Reference}: any {@link Reference}s encountered while resolving the bound {@link Path} are always replaced with the {@link Reference}s target value. For subsequent operations on the {@link Model}, all paths will be evaluated relative to the bound path. Deref allows you to:
@@ -159,7 +159,7 @@ declare namespace FalcorModel {
         /**
          * Get the local {@link JSONGraph} cache. This method can be a useful to store the state of the cache.
          **/
-        getCache(...path: Array<PathSet>): JSONGraph;
+        getCache(...path: PathSet[]): JSONGraph;
 
         /**
          * Retrieves a number which is incremented every single time a value is changed underneath the Model or the object at an optionally-provided Path beneath the Model.

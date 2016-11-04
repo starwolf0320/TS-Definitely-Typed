@@ -1590,7 +1590,7 @@ declare namespace google.maps {
         getVisible(): boolean;
         getZoom(): number;
         registerPanoProvider(provider: (input: string) => StreetViewPanoramaData): void;
-        setLinks(links: Array<StreetViewLink>): void;
+        setLinks(links: StreetViewLink[]): void;
         setOptions(options: StreetViewPanoramaOptions): void;
         setPano(pano: string): void;
         setPosition(latLng: LatLng|LatLngLiteral): void;

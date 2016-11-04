@@ -28,7 +28,7 @@ export interface ChordGroup {
 }
 
 export interface Chords extends Array<Chord> {
-    groups: Array<ChordGroup>;
+    groups: ChordGroup[];
 }
 
 export interface ChordLayout {

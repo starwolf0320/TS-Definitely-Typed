@@ -50,10 +50,10 @@ declare namespace Microsoft.Maps.Directions {
 
     export interface Disambiguation {
 
-        businessSuggestions?: Array<BusinessDisambiguationSuggestion>;
+        businessSuggestions?: BusinessDisambiguationSuggestion[];
         hasMoreSuggestions?: boolean;
         headerText?: string;
-        locationSuggestions?: Array<LocationDisambiguationSuggestion>;
+        locationSuggestions?: LocationDisambiguationSuggestion[];
     }
 
     export interface WaypointEventArgs {
@@ -149,7 +149,7 @@ declare namespace Microsoft.Maps.Directions {
         avoidTraffic?: boolean;
         distanceUnit?: DistanceUnit;
         maxRoutes?: number;
-        routeAvoidance?: Array<RouteAvoidance>;
+        routeAvoidance?: RouteAvoidance[];
         routeDraggable?: boolean;
         routeIndex?: boolean;
         routeMode?: RouteMode;
@@ -166,12 +166,12 @@ declare namespace Microsoft.Maps.Directions {
         calculateDirections(): void;
         clearDisplay(): void;
         dispose(): void;
-        getAllWaypoints(): Array<Waypoint>;
+        getAllWaypoints(): Waypoint[];
         getMap(): Map;
         getNearbyMajorRoads(location: Location, callback: any, errorCallback: any, userData: any): void;
         getRenderOptions(): DirectionsRenderOptions;
         getRequestOptions(): DirectionsRequestOptions;
-        getRouteResult(): Array<Route>;
+        getRouteResult(): Route[];
         removeWaypoint(waypoint: Waypoint): void;
         removeWaypoint(index: number): void;
         resetDirections(options: ResetDirectionsOptions): void;
@@ -197,8 +197,8 @@ declare namespace Microsoft.Maps.Directions {
     }
 
     export interface DirectionsEventArgs {
-        routeSummary: Array<RouteSummary>;
-        route: Array<Route>;
+        routeSummary: RouteSummary[];
+        route: Route[];
     }
 
     export interface DisambiguationRenderEventArgs {
@@ -232,7 +232,7 @@ declare namespace Microsoft.Maps.Directions {
 
     export interface DirectionsStep {
 
-        childItineraryItems: Array<DirectionsStep>;
+        childItineraryItems: DirectionsStep[];
         coordinate: Location;
         distance: string;
         durationInSeconds: number;
@@ -249,7 +249,7 @@ declare namespace Microsoft.Maps.Directions {
         transitStepIcon: string;
         transitStopId: string;
         transitTerminus: string;
-        warnings: Array<DirectionsStepWarning>;
+        warnings: DirectionsStepWarning[];
     }
 
     export enum IconType {
@@ -360,17 +360,17 @@ declare namespace Microsoft.Maps.Directions {
     }
 
     export interface Route {
-        routeLegs: Array<RouteLeg>;
+        routeLegs: RouteLeg[];
     }
 
     export interface RouteLeg {
         endTime: Date;
         endWaypointLocation: Location;
-        itineraryItems: Array<DirectionsStep>;
+        itineraryItems: DirectionsStep[];
         originalRouteIndex: number;
         startTime: Date;
         startWaypointLocation: Location;
-        subLegs: Array<RouteSubLeg>;
+        subLegs: RouteSubLeg[];
         summary: RouteSummary;
     }
 

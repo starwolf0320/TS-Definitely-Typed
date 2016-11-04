@@ -18,7 +18,7 @@ export interface HierarchyNode<Datum> {
     readonly depth: number;
     readonly height: number;
     parent: HierarchyNode<Datum> | null;
-    children?: Array<HierarchyNode<Datum>>;
+    children?: HierarchyNode<Datum>[];
     /**
      * Aggregated numeric value as calculated by sum(value),
      * if previously invoked.
@@ -29,11 +29,11 @@ export interface HierarchyNode<Datum> {
      * hierarchical data was created from tabular data using stratify()
      */
     readonly id?: string;
-    ancestors(): Array<HierarchyNode<Datum>>;
-    descendants(): Array<HierarchyNode<Datum>>;
-    leaves(): Array<HierarchyNode<Datum>>;
-    path(target: HierarchyNode<Datum>): Array<HierarchyNode<Datum>>;
-    links(): Array<HierarchyLink<Datum>>;
+    ancestors(): HierarchyNode<Datum>[];
+    descendants(): HierarchyNode<Datum>[];
+    leaves(): HierarchyNode<Datum>[];
+    path(target: HierarchyNode<Datum>): HierarchyNode<Datum>[];
+    links(): HierarchyLink<Datum>[];
     sum(value: (d: Datum) => number): this;
     sort(compare: (a: HierarchyNode<Datum>, b: HierarchyNode<Datum>) => number): this;
     each(func: (node: HierarchyNode<Datum>) => void): this;
@@ -43,7 +43,7 @@ export interface HierarchyNode<Datum> {
 }
 
 
-export function hierarchy<Datum>(data: Datum, children?: (d: Datum) => (Array<Datum> | null)): HierarchyNode<Datum>;
+export function hierarchy<Datum>(data: Datum, children?: (d: Datum) => (Datum[] | null)): HierarchyNode<Datum>;
 
 // -----------------------------------------------------------------------
 // Stratify
@@ -53,11 +53,11 @@ export function hierarchy<Datum>(data: Datum, children?: (d: Datum) => (Array<Da
 
 
 export interface StratifyOperator<Datum> {
-    (data: Array<Datum>): HierarchyNode<Datum>;
-    id(): (d: Datum, i: number, data: Array<Datum>) => (string | null | '' | undefined);
-    id(id: (d: Datum, i?: number, data?: Array<Datum>) => (string | null | '' | undefined)): this;
-    parentId(): (d: Datum, i: number, data: Array<Datum>) => (string | null | '' | undefined);
-    parentId(parentId: (d: Datum, i?: number, data?: Array<Datum>) => (string | null | '' | undefined)): this;
+    (data: Datum[]): HierarchyNode<Datum>;
+    id(): (d: Datum, i: number, data: Datum[]) => (string | null | '' | undefined);
+    id(id: (d: Datum, i?: number, data?: Datum[]) => (string | null | '' | undefined)): this;
+    parentId(): (d: Datum, i: number, data: Datum[]) => (string | null | '' | undefined);
+    parentId(parentId: (d: Datum, i?: number, data?: Datum[]) => (string | null | '' | undefined)): this;
 }
 
 export function stratify<Datum>(): StratifyOperator<Datum>;
@@ -78,7 +78,7 @@ export interface HierarchyPointNode<Datum> {
     readonly depth: number;
     readonly height: number;
     parent: HierarchyPointNode<Datum> | null;
-    children?: Array<HierarchyPointNode<Datum>>;
+    children?: HierarchyPointNode<Datum>[];
     /**
      * Aggregated numeric value as calculated by sum(value),
      * if previously invoked.
@@ -89,11 +89,11 @@ export interface HierarchyPointNode<Datum> {
      * hierarchical data was created from tabular data using stratify()
      */
     readonly id?: string;
-    ancestors(): Array<HierarchyPointNode<Datum>>;
-    descendants(): Array<HierarchyPointNode<Datum>>;
-    leaves(): Array<HierarchyPointNode<Datum>>;
-    path(target: HierarchyPointNode<Datum>): Array<HierarchyPointNode<Datum>>;
-    links(): Array<HierarchyPointLink<Datum>>;
+    ancestors(): HierarchyPointNode<Datum>[];
+    descendants(): HierarchyPointNode<Datum>[];
+    leaves(): HierarchyPointNode<Datum>[];
+    path(target: HierarchyPointNode<Datum>): HierarchyPointNode<Datum>[];
+    links(): HierarchyPointLink<Datum>[];
     sum(value: (d: Datum) => number): this;
     sort(compare: (a: HierarchyPointNode<Datum>, b: HierarchyPointNode<Datum>) => number): this;
     each(func: (node: HierarchyPointNode<Datum>) => void): this;
@@ -148,7 +148,7 @@ export interface HierarchyRectangularNode<Datum> {
     readonly depth: number;
     readonly height: number;
     parent: HierarchyRectangularNode<Datum> | null;
-    children?: Array<HierarchyRectangularNode<Datum>>;
+    children?: HierarchyRectangularNode<Datum>[];
     /**
      * Aggregated numeric value as calculated by sum(value),
      * if previously invoked.
@@ -159,11 +159,11 @@ export interface HierarchyRectangularNode<Datum> {
      * hierarchical data was created from tabular data using stratify()
      */
     readonly id?: string;
-    ancestors(): Array<HierarchyRectangularNode<Datum>>;
-    descendants(): Array<HierarchyRectangularNode<Datum>>;
-    leaves(): Array<HierarchyRectangularNode<Datum>>;
-    path(target: HierarchyRectangularNode<Datum>): Array<HierarchyRectangularNode<Datum>>;
-    links(): Array<HierarchyRectangularLink<Datum>>;
+    ancestors(): HierarchyRectangularNode<Datum>[];
+    descendants(): HierarchyRectangularNode<Datum>[];
+    leaves(): HierarchyRectangularNode<Datum>[];
+    path(target: HierarchyRectangularNode<Datum>): HierarchyRectangularNode<Datum>[];
+    links(): HierarchyRectangularLink<Datum>[];
     sum(value: (d: Datum) => number): this;
     sort(compare: (a: HierarchyRectangularNode<Datum>, b: HierarchyRectangularNode<Datum>) => number): this;
     each(func: (node: HierarchyRectangularNode<Datum>) => void): this;
@@ -256,7 +256,7 @@ export interface HierarchyCircularNode<Datum> {
     readonly depth: number;
     readonly height: number;
     parent: HierarchyCircularNode<Datum> | null;
-    children?: Array<HierarchyCircularNode<Datum>>;
+    children?: HierarchyCircularNode<Datum>[];
     /**
      * Aggregated numeric value as calculated by sum(value),
      * if previously invoked.
@@ -267,11 +267,11 @@ export interface HierarchyCircularNode<Datum> {
      * hierarchical data was created from tabular data using stratify()
      */
     readonly id?: string;
-    ancestors(): Array<HierarchyCircularNode<Datum>>;
-    descendants(): Array<HierarchyCircularNode<Datum>>;
-    leaves(): Array<HierarchyCircularNode<Datum>>;
-    path(target: HierarchyCircularNode<Datum>): Array<HierarchyCircularNode<Datum>>;
-    links(): Array<HierarchyCircularLink<Datum>>;
+    ancestors(): HierarchyCircularNode<Datum>[];
+    descendants(): HierarchyCircularNode<Datum>[];
+    leaves(): HierarchyCircularNode<Datum>[];
+    path(target: HierarchyCircularNode<Datum>): HierarchyCircularNode<Datum>[];
+    links(): HierarchyCircularLink<Datum>[];
     sum(value: (d: Datum) => number): this;
     sort(compare: (a: HierarchyCircularNode<Datum>, b: HierarchyCircularNode<Datum>) => number): this;
     each(func: (node: HierarchyCircularNode<Datum>) => void): this;
@@ -310,6 +310,6 @@ export interface PackCircle {
 // For invocation of packEnclose the x and y coordinates are mandatory. It seems easier to just comment
 // on the mandatory nature, then to create separate interfaces and having to deal with recasting.
 
-export function packSiblings<Datum extends PackCircle>(circles: Array<Datum>): Array<Datum>;
+export function packSiblings<Datum extends PackCircle>(circles: Datum[]): Datum[];
 
-export function packEnclose<Datum extends PackCircle>(circles: Array<Datum>): { r: number, x: number, y: number };
+export function packEnclose<Datum extends PackCircle>(circles: Datum[]): { r: number, x: number, y: number };

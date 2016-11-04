@@ -106,7 +106,7 @@ export function extent<T extends Numeric>(array: T[]): [T, T] | [undefined, unde
 /**
  * Return the min and max simultaneously.
  */
-export function extent<T extends Numeric>(array: Array<T | Primitive>): [T | Primitive, T | Primitive] | [undefined, undefined];
+export function extent<T extends Numeric>(array: (T | Primitive)[]): [T | Primitive, T | Primitive] | [undefined, undefined];
 
 /**
  * Return the min and max simultaneously.
@@ -224,7 +224,7 @@ export function merge<T>(arrays: T[][]): T[];
  * For each adjacent pair of elements in the specified array, returns a new array of tuples of elements i and i - 1.
  * Returns the empty array if the input array has fewer than two elements.
  */
-export function pairs<T>(array: T[]): Array<[T, T]>;
+export function pairs<T>(array: T[]): [T, T][];
 
 /**
  * Given the specified array, return an array corresponding to the list of indices in 'keys'.
@@ -282,7 +282,7 @@ export function zip<T>(...arrays: T[][]): T[][];
 // Histogram
 // --------------------------------------------------------------------------------------
 
-export interface Bin<Datum, Value extends number | Date> extends Array<Datum> {
+export interface Bin<Datum, Value extends number | Date> extends Datum[] {
     x0: Value;
     x1: Value;
 }
@@ -300,7 +300,7 @@ export type ThresholdArrayGenerator<Value extends number | Date> = (values: Valu
 
 
 export interface HistogramGenerator<Datum, Value extends number | Date> {
-    (data: Datum[]): Array<Bin<Datum, Value>>;
+    (data: Datum[]): Bin<Datum, Value>[];
     value(): (d: Datum, i: number, data: Datum[]) => Value;
     value(valueAccessor: (d: Datum, i: number, data: Datum[]) => Value): this;
     domain(): (values: Value[]) => [Value, Value];

@@ -23,7 +23,7 @@ export interface VoronoiPoint extends number[] {
  * for each point containing the respective x and y coordinates. However, it is used as a base for interface definitions, and
  * [[number, number], [number, number]] cannot be extended.
  */
-export interface VoronoiPointPair extends Array<[number, number]> {
+export interface VoronoiPointPair extends [number, number][] {
     0: [number, number];
     1: [number, number];
 }
@@ -35,7 +35,7 @@ export interface VoronoiPointPair extends Array<[number, number]> {
  *
  * The generic refers to the type of the data for the corresponding element.
  */
-export interface VoronoiPolygon<T> extends Array<[number, number]> {
+export interface VoronoiPolygon<T> extends [number, number][] {
     /**
      * The input data corresponding to this Voronoi polygon.
      */
@@ -80,7 +80,7 @@ export interface VoronoiCell<T> {
     /**
      * An array of indexes into diagram.edges representing the cell’s polygon.
      */
-    halfEdges: Array<number>;
+    halfEdges: number[];
 }
 
 
@@ -128,7 +128,7 @@ export interface VoronoiLayout<T> {
      * Computes the Voronoi diagram for the specified data points.
      * @param data Array of data elements
      */
-    (data: Array<T>): VoronoiDiagram<T>;
+    (data: T[]): VoronoiDiagram<T>;
 
     /**
      * Return the current x-coordinate accessor,
@@ -206,21 +206,21 @@ export interface VoronoiLayout<T> {
      *
      * @param data Array of data points.
      */
-    polygons(data: Array<T>): Array<VoronoiPolygon<T>>;
+    polygons(data: T[]): VoronoiPolygon<T>[];
     /**
      * Return the Delaunay triangulation of the specified data array as an array of triangles.
      * Each triangle is a three-element array of elements from data.
      *
      * @param data Array of data points.
      */
-    triangles(data: Array<T>): Array<VoronoiTriangle<T>>;
+    triangles(data: T[]): VoronoiTriangle<T>[];
     /**
      * Return the Delaunay triangulation of the specified data array as an array of links.
      * Each link has source and target attributes referring to elements in data.
      *
      * @param data Array of data points.
      */
-    links(data: Array<T>): Array<VoronoiLink<T>>;
+    links(data: T[]): VoronoiLink<T>[];
 }
 
 
@@ -233,11 +233,11 @@ export interface VoronoiDiagram<T> {
     /**
      * Array of Voronoi Edges
      */
-    edges: Array<VoronoiEdge<T>>;
+    edges: VoronoiEdge<T>[];
     /**
      * Array of Voronoi Cells, one per input point; a cell may be null for a coincident point.
      */
-    cells: Array<VoronoiCell<T> | null>;
+    cells: (VoronoiCell<T> | null)[];
     /**
      * Return an array of polygons clipped to the extent, one for each cell in the diagram.
      * Each polygon is represented as an array of points [x, y] where x and y are the point coordinates,
@@ -248,7 +248,7 @@ export interface VoronoiDiagram<T> {
      *
      * If the cell’s site is coincident with an earlier site, the associated polygon is null.
      */
-    polygons(): Array<VoronoiPolygon<T>>;
+    polygons(): VoronoiPolygon<T>[];
 
     /**
      * Returns the Delaunay triangulation of the specified data array as an array of triangles.
@@ -256,7 +256,7 @@ export interface VoronoiDiagram<T> {
      * Since the triangulation is computed as the dual of the Voronoi diagram, and the Voronoi diagram is clipped by the extent,
      * a subset of the Delaunay triangulation is returned.
      */
-    triangles(): Array<VoronoiTriangle<T>>;
+    triangles(): VoronoiTriangle<T>[];
 
     /**
      * Returns the Delaunay triangulation of the specified data array as an array of links, one for each edge in the mesh.
@@ -266,7 +266,7 @@ export interface VoronoiDiagram<T> {
      *
      * Since the triangulation is computed as the dual of the Voronoi diagram, and the Voronoi diagram is clipped by the extent, a subset of the Delaunay links is returned.
      */
-    links(): Array<VoronoiLink<T>>;
+    links(): VoronoiLink<T>[];
 
     /**
      * Return the nearest Voronoi Site to point [x, y]. If radius is specified, only sites within radius distance are considered.
