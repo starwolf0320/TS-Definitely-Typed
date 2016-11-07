@@ -118,27 +118,27 @@ declare module "react" {
     export var Promise: PromiseConstructor;
 
     export type MeasureOnSuccessCallback = (
-        x: number,
-        y: number,
-        width: number,
-        height: number,
-        pageX: number,
-        pageY: number
-    ) => void;
+            x: number,
+            y: number,
+            width: number,
+            height: number,
+            pageX: number,
+            pageY: number
+      ) => void
 
     export type MeasureInWindowOnSuccessCallback = (
-        x: number,
-        y: number,
-        width: number,
-        height: number
-    ) => void;
+            x: number,
+            y: number,
+            width: number,
+            height: number
+      ) => void
 
     export type MeasureLayoutOnSuccessCallback = (
-        left: number,
-        top: number,
-        width: number,
-        height: number
-    ) => void;
+            left: number,
+            top: number,
+            width: number,
+            height: number
+      ) => void
 
     /**
      * EventSubscription represents a subscription to a particular event. It can
@@ -444,65 +444,65 @@ declare module "react" {
 
     // Similar to React.SyntheticEvent except for nativeEvent
     interface NativeSyntheticEvent<T> {
-        bubbles: boolean;
-        cancelable: boolean;
-        currentTarget: EventTarget;
-        defaultPrevented: boolean;
-        eventPhase: number;
-        isTrusted: boolean;
-        nativeEvent: T;
-        preventDefault(): void;
-        stopPropagation(): void;
-        target: EventTarget;
-        timeStamp: Date;
-        type: string;
+        bubbles: boolean
+        cancelable: boolean
+        currentTarget: EventTarget
+        defaultPrevented: boolean
+        eventPhase: number
+        isTrusted: boolean
+        nativeEvent: T
+        preventDefault(): void
+        stopPropagation(): void
+        target: EventTarget
+        timeStamp: Date
+        type: string
     }
 
     export interface NativeTouchEvent {
         /**
          * Array of all touch events that have changed since the last event
          */
-        changedTouches: NativeTouchEvent[];
+        changedTouches: NativeTouchEvent[]
 
         /**
          * The ID of the touch
          */
-        identifier: string;
+        identifier: string
 
         /**
          * The X position of the touch, relative to the element
          */
-        locationX: number;
+        locationX: number
 
         /**
          * The Y position of the touch, relative to the element
          */
-        locationY: number;
+        locationY: number
 
         /**
          * The X position of the touch, relative to the screen
          */
-        pageX: number;
+        pageX: number
 
         /**
          * The Y position of the touch, relative to the screen
          */
-        pageY: number;
+        pageY: number
 
         /**
          * The node id of the element receiving the touch event
          */
-        target: string;
+        target: string
 
         /**
          * A time identifier for the touch, useful for velocity calculation
          */
-        timestamp: number;
+        timestamp: number
 
         /**
          * Array of all current touches on the screen
          */
-        touches: NativeTouchEvent[];
+        touches: NativeTouchEvent[]
     }
 
     export interface GestureResponderEvent extends NativeSyntheticEvent<NativeTouchEvent> {
@@ -510,15 +510,15 @@ declare module "react" {
 
 
     export interface PointProperties {
-        x: number;
-        y: number;
+        x: number
+        y: number
     }
 
     export interface Insets {
-        top?: number;
-        left?: number;
-        bottom?: number;
-        right?: number;
+        top?: number
+        left?: number
+        bottom?: number
+        right?: number
     }
 
     /**
@@ -526,11 +526,11 @@ declare module "react" {
      * @see React.DOMAtributes
      */
     export interface Touchable {
-        onTouchStart?: (event: GestureResponderEvent) => void;
-        onTouchMove?: (event: GestureResponderEvent) => void;
-        onTouchEnd?: (event: GestureResponderEvent) => void;
-        onTouchCancel?: (event: GestureResponderEvent) => void;
-        onTouchEndCapture?: (event: GestureResponderEvent) => void;
+        onTouchStart?: (event: GestureResponderEvent) => void
+        onTouchMove?: (event: GestureResponderEvent) => void
+        onTouchEnd?: (event: GestureResponderEvent) => void
+        onTouchCancel?: (event: GestureResponderEvent) => void
+        onTouchEndCapture?: (event: GestureResponderEvent) => void
     }
 
     export type ComponentProvider = () => React.ComponentClass<any>
@@ -539,7 +539,7 @@ declare module "react" {
         appKey: string;
         component?: ComponentProvider
         run?: Runnable;
-    };
+    }
 
     // https://github.com/facebook/react-native/blob/master/Libraries/AppRegistry/AppRegistry.js
     /**
@@ -572,32 +572,32 @@ declare module "react" {
     }
 
     export interface LayoutAnimationTypes {
-        spring: string;
-        linear: string;
-        easeInEaseOut: string;
-        easeIn: string;
-        easeOut: string;
+        spring: string
+        linear: string
+        easeInEaseOut: string
+        easeIn: string
+        easeOut: string
     }
 
     export interface LayoutAnimationProperties {
-        opacity: string;
-        scaleXY: string;
+        opacity: string
+        scaleXY: string
     }
 
     export interface LayoutAnimationAnim {
-        duration?: number;
-        delay?: number;
-        springDamping?: number;
-        initialVelocity?: number;
-        type?: string; //LayoutAnimationTypes
-        property?: string; //LayoutAnimationProperties
+        duration?: number
+        delay?: number
+        springDamping?: number
+        initialVelocity?: number
+        type?: string //LayoutAnimationTypes
+        property?: string //LayoutAnimationProperties
     }
 
     export interface LayoutAnimationConfig {
-        duration: number;
-        create?: LayoutAnimationAnim;
-        update?: LayoutAnimationAnim;
-        delete?: LayoutAnimationAnim;
+        duration: number
+        create?: LayoutAnimationAnim
+        update?: LayoutAnimationAnim
+        delete?: LayoutAnimationAnim
     }
 
     /** Automatically animates views to their new positions when the next layout happens.
@@ -611,20 +611,20 @@ declare module "react" {
          * `update`, config for animating views that have been updated (see Anim type)
          * @param onAnimationDidEnd Called when the animation finished. Only supported on iOS.
          */
-        configureNext: ( config: LayoutAnimationConfig, onAnimationDidEnd?: () => void ) => void;
+        configureNext: ( config: LayoutAnimationConfig, onAnimationDidEnd?: () => void ) => void
         /** Helper for creating a config for configureNext. */
-        create: (duration: number, type?: string, creationProp?: string) => LayoutAnimationConfig;
-        Types: LayoutAnimationTypes;
-        Properties: LayoutAnimationProperties;
-        configChecker: (shapeTypes: {[key: string]: any}) => any;
+        create: (duration: number, type?: string, creationProp?: string) => LayoutAnimationConfig
+        Types: LayoutAnimationTypes
+        Properties: LayoutAnimationProperties
+        configChecker: (shapeTypes: {[key: string]: any}) => any
         Presets: {
-            easeInEaseOut: LayoutAnimationConfig,
-            linear: LayoutAnimationConfig,
+            easeInEaseOut: LayoutAnimationConfig
+            linear: LayoutAnimationConfig
             spring: LayoutAnimationConfig
         }
-        easeInEaseOut: (config: LayoutAnimationConfig, onAnimationDidEnd?: () => void) => void;
-        linear: (config: LayoutAnimationConfig, onAnimationDidEnd?: () => void) => void;
-        spring: (config: LayoutAnimationConfig, onAnimationDidEnd?: () => void) => void;
+        easeInEaseOut: (config: LayoutAnimationConfig, onAnimationDidEnd?: () => void) => void
+        linear: (config: LayoutAnimationConfig, onAnimationDidEnd?: () => void) => void
+        spring: (config: LayoutAnimationConfig, onAnimationDidEnd?: () => void) => void
     }
 
     export type FlexAlignType = "flex-start" | "flex-end" | "center" | "stretch";
@@ -640,49 +640,49 @@ declare module "react" {
 
         alignItems?: FlexAlignType;
         alignSelf?: "auto" | FlexAlignType;
-        borderBottomWidth?: number;
-        borderLeftWidth?: number;
-        borderRightWidth?: number;
-        borderTopWidth?: number;
-        borderWidth?: number;
-        bottom?: number;
-        flex?: number;
-        flexGrow?: number;
-        flexShrink?: number;
-        flexBasis?: number;
-        flexDirection?: FlexDirection;
-        flexWrap?: "wrap" | "nowrap";
-        height?: number;
-        justifyContent?: FlexJustifyType;
-        left?: number;
-        minWidth?: number;
-        maxWidth?: number;
-        minHeight?: number;
-        maxHeight?: number;
-        margin?: number;
-        marginBottom?: number;
-        marginHorizontal?: number;
-        marginLeft?: number;
-        marginRight?: number;
-        marginTop?: number;
-        marginVertical?: number;
-        overflow?: "visible" | "hidden" | "scroll";
-        padding?: number;
-        paddingBottom?: number;
-        paddingHorizontal?: number;
-        paddingLeft?: number;
-        paddingRight?: number;
-        paddingTop?: number;
-        paddingVertical?: number;
-        position?: "absolute" | "relative";
-        right?: number;
-        top?: number;
-        width?: number;
+        borderBottomWidth?: number
+        borderLeftWidth?: number
+        borderRightWidth?: number
+        borderTopWidth?: number
+        borderWidth?: number
+        bottom?: number
+        flex?: number
+        flexGrow?: number
+        flexShrink?: number
+        flexBasis?: number
+        flexDirection?: FlexDirection
+        flexWrap?: "wrap" | "nowrap"
+        height?: number
+        justifyContent?: FlexJustifyType
+        left?: number
+        minWidth?: number
+        maxWidth?: number
+        minHeight?: number
+        maxHeight?: number
+        margin?: number
+        marginBottom?: number
+        marginHorizontal?: number
+        marginLeft?: number
+        marginRight?: number
+        marginTop?: number
+        marginVertical?: number
+        overflow?: "visible" | "hidden" | "scroll"
+        padding?: number
+        paddingBottom?: number
+        paddingHorizontal?: number
+        paddingLeft?: number
+        paddingRight?: number
+        paddingTop?: number
+        paddingVertical?: number
+        position?: "absolute" | "relative"
+        right?: number
+        top?: number
+        width?: number
 
         /**
          * @platform ios
          */
-        zIndex?: number;
+        zIndex?: number
     }
 
     /**
@@ -693,70 +693,70 @@ declare module "react" {
          * Sets the drop shadow color
          * @platform ios
          */
-        shadowColor: string;
+        shadowColor: string
 
         /**
          * Sets the drop shadow offset
          * @platform ios
          */
-        shadowOffset: { width: number, height: number };
+        shadowOffset: { width: number, height: number }
 
         /**
          * Sets the drop shadow opacity (multiplied by the color's alpha component)
          * @platform ios
          */
-        shadowOpacity: number;
+        shadowOpacity: number
 
         /**
          * Sets the drop shadow blur radius
          * @platform ios
          */
-        shadowRadius: number;
+        shadowRadius: number
     }
 
     type GetCurrentPositionOptions = {
-        timeout: number;
-        maximumAge: number;
-        enableHighAccuracy: boolean;
-        distanceFilter: number;
-    };
+        timeout: number
+        maximumAge: number
+        enableHighAccuracy: boolean
+        distanceFilter: number
+    }
 
     type WatchPositionOptions = {
-        timeout: number;
-        maximumAge: number;
-        enableHighAccuracy: boolean;
-        distanceFilter: number;
-    };
+        timeout: number
+        maximumAge: number
+        enableHighAccuracy: boolean
+        distanceFilter: number
+    }
 
     type GeolocationReturnType = {
         coords: {
-            latitude: number;
-            longitude: number;
-            altitude?: number;
-            accuracy?: number;
-            altitudeAccuracy?: number;
-            heading?: number;
-            speed?: number;
+            latitude: number
+            longitude: number
+            altitude?: number
+            accuracy?: number
+            altitudeAccuracy?: number
+            heading?: number
+            speed?: number
         }
-        timestamp: number;
+        timestamp: number
     }
 
 
     export interface TransformsStyle {
 
-        transform?: [{ perspective: number }, { rotate: string }, { rotateX: string }, { rotateY: string }, { rotateZ: string }, { scale: number }, { scaleX: number }, { scaleY: number }, { translateX: number }, { translateY: number }, { skewX: string }, { skewY: string }];
-        transformMatrix?: number[];
-        rotation?: number;
-        scaleX?: number;
-        scaleY?: number;
-        translateX?: number;
-        translateY?: number;
+        transform?: [{ perspective: number }, { rotate: string }, { rotateX: string }, { rotateY: string }, { rotateZ: string }, { scale: number }, { scaleX: number }, { scaleY: number }, { translateX: number }, { translateY: number }, { skewX: string }, { skewY: string }]
+        transformMatrix?: Array<number>
+        rotation?: number
+        scaleX?: number
+        scaleY?: number
+        translateX?: number
+        translateY?: number
     }
 
 
     export interface StyleSheetProperties {
-        hairlineWidth: number;
-        flatten<T extends string>(style: T): T;
+        hairlineWidth: number
+        flatten<T extends string>(style: T): T
     }
 
     export interface LayoutRectangle {
@@ -769,47 +769,47 @@ declare module "react" {
     // @see TextProperties.onLayout
     export interface LayoutChangeEvent {
         nativeEvent: {
-            layout: LayoutRectangle;
-        };
+            layout: LayoutRectangle
+        }
     }
 
     export interface TextStyleIOS extends ViewStyle {
-        letterSpacing?: number;
-        textDecorationColor?: string;
-        textDecorationStyle?: "solid" | "double" | "dotted" | "dashed";
-        writingDirection?: "auto" | "ltr" | "rtl";
+        letterSpacing?: number
+        textDecorationColor?: string
+        textDecorationStyle?: "solid" | "double" | "dotted" | "dashed"
+        writingDirection?: "auto" | "ltr" | "rtl"
     }
 
     export interface TextStyleAndroid extends ViewStyle {
-        textAlignVertical?: "auto" | "top" | "bottom" | "center";
+        textAlignVertical?: "auto" | "top" | "bottom" | "center"
     }
 
     // @see https://facebook.github.io/react-native/docs/text.html#style
     export interface TextStyle extends TextStyleIOS, TextStyleAndroid, ViewStyle {
-        color?: string;
-        fontFamily?: string;
-        fontSize?: number;
-        fontStyle?: "normal" | "italic";
+        color?: string
+        fontFamily?: string
+        fontSize?: number
+        fontStyle?: "normal" | "italic"
         /**
          * Specifies font weight. The values 'normal' and 'bold' are supported
          * for most fonts. Not all fonts have a variant for each of the numeric
          * values, in that case the closest one is chosen.
          */
-        fontWeight?: "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900";
-        letterSpacing?: number;
-        lineHeight?: number;
+        fontWeight?: "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"
+        letterSpacing?: number
+        lineHeight?: number
         /**
          * Specifies text alignment.
          * The value 'justify' is only supported on iOS.
          */
-        textAlign?: "auto" | "left" | "right" | "center";
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through";
-        textDecorationStyle?: "solid" | "double" | "dotted" | "dashed";
-        textDecorationColor?: string;
-        textShadowColor?: string;
-        textShadowOffset?: { width: number, height: number };
-        textShadowRadius?: number;
-        testID?: string;
+        textAlign?: "auto" | "left" | "right" | "center"
+        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through"
+        textDecorationStyle?: "solid" | "double" | "dotted" | "dashed"
+        textDecorationColor?: string
+        textShadowColor?: string
+        textShadowOffset?: { width: number, height: number }
+        textShadowRadius?: number
+        testID?: string
     }
 
     export interface TextPropertiesIOS {
@@ -817,23 +817,23 @@ declare module "react" {
          * Specifies whether fonts should scale to respect Text Size accessibility setting on iOS. The
          * default is `true`.
          */
-        allowFontScaling?: boolean;
+        allowFontScaling?: boolean
 
         /**
          * Specifies whether font should be scaled down automatically to fit given style constraints.
          */
-        adjustsFontSizeToFit?: boolean;
+        adjustsFontSizeToFit?: boolean
 
         /**
          * Specifies smallest possible scale a font can reach when adjustsFontSizeToFit is enabled. (values 0.01-1.0).
          */
-        minimumFontScale?: number;
+        minimumFontScale?: number
 
         /**
          * When `true`, no visual change is made when text is pressed down. By
          * default, a gray oval highlights the text on press down.
          */
-        suppressHighlighting?: boolean;
+        suppressHighlighting?: boolean
     }
 
     export interface TextPropertiesAndroid {
@@ -879,7 +879,7 @@ declare module "react" {
          * Line Break mode. Works only with numberOfLines.
          * clip is working only for iOS
          */
-        lineBreakMode?: 'head' | 'middle' | 'tail' | 'clip';
+        lineBreakMode?: 'head' | 'middle' | 'tail' | 'clip'
 
         /**
          * Used to truncate the text with an ellipsis after computing the text
@@ -888,20 +888,20 @@ declare module "react" {
          *
          * This prop is commonly used with `ellipsizeMode`.
          */
-        numberOfLines?: number;
+        numberOfLines?: number
 
         /**
          * Invoked on mount and layout changes with
          *
          * {nativeEvent: { layout: {x, y, width, height}}}.
          */
-        onLayout?: (event: LayoutChangeEvent) => void;
+        onLayout?: (event: LayoutChangeEvent) => void
 
         /**
          * This function is called on press.
          * Text intrinsically supports press handling with a default highlight state (which can be disabled with suppressHighlighting).
          */
-        onPress?: () => void;
+        onPress?: () => void
 
         /**
          * This function is called on long press.
@@ -912,12 +912,12 @@ declare module "react" {
         /**
          * @see https://facebook.github.io/react-native/docs/text.html#style
          */
-        style?: TextStyle;
+        style?: TextStyle
 
         /**
          * Used to locate this view in end-to-end tests.
          */
-        testID?: string;
+        testID?: string
     }
 
     /**
@@ -982,12 +982,12 @@ declare module "react" {
          * enum('never', 'while-editing', 'unless-editing', 'always')
          * When the clear button should appear on the right side of the text view
          */
-        clearButtonMode?: 'never' | 'while-editing' | 'unless-editing' | 'always';
+        clearButtonMode?: 'never' | 'while-editing' | 'unless-editing' | 'always'
 
         /**
          * If true, clears the text field automatically when editing begins
          */
-        clearTextOnFocus?: boolean;
+        clearTextOnFocus?: boolean
 
         /**
          * Determines the types of data converted to clickable URLs in the text input.
@@ -1011,7 +1011,7 @@ declare module "react" {
          * If true, the keyboard disables the return key when there is no text and automatically enables it when there is text.
          * The default value is false.
          */
-        enablesReturnKeyAutomatically?: boolean;
+        enablesReturnKeyAutomatically?: boolean
 
         /**
          * Determines the color of the keyboard.
@@ -1023,11 +1023,12 @@ declare module "react" {
          * Pressed key value is passed as an argument to the callback handler.
          * Fires before onChange callbacks.
          */
-        onKeyPress?: (key: string) => void;
+        onKeyPress?: (key: string) => void
+
         /**
          * See DocumentSelectionState.js, some state that is responsible for maintaining selection information for a document
          */
-        selectionState?: DocumentSelectionState;
+        selectionState?: DocumentSelectionState
 
 
     }
@@ -1041,29 +1042,29 @@ declare module "react" {
         /**
          * If defined, the provided image resource will be rendered on the left.
          */
-        inlineImageLeft?: string;
+        inlineImageLeft?: string
 
         /**
          * Padding between the inline image, if any, and the text input itself.
          */
-        inlineImagePadding?: number;
+        inlineImagePadding?: number
 
         /**
          * Sets the number of lines for a TextInput.
          * Use it with multiline set to true to be able to fill the lines.
          */
-        numberOfLines?: number;
+        numberOfLines?: number
 
         /**
          * Sets the return key to the label. Use it instead of `returnKeyType`.
          * @platform android
          */
-        returnKeyLabel?: string;
+        returnKeyLabel?: string
 
         /**
          * The color of the textInput underline.
          */
-        underlineColorAndroid?: string;
+        underlineColorAndroid?: string
     }
 
     export type KeyboardType = "default" | "email-address" | "numeric" | "phone-pad"
@@ -1087,71 +1088,71 @@ declare module "react" {
          *
          * https://facebook.github.io/react-native/docs/textinput.html#autocapitalize
          */
-        autoCapitalize?: "none" | "sentences" | "words" | "characters";
+        autoCapitalize?: "none" | "sentences" | "words" | "characters"
 
         /**
          * If false, disables auto-correct.
          * The default value is true.
          */
-        autoCorrect?: boolean;
+        autoCorrect?: boolean
 
         /**
          * If true, focuses the input on componentDidMount.
          * The default value is false.
          */
-        autoFocus?: boolean;
+        autoFocus?: boolean
 
         /**
          * If true, the text field will blur when submitted.
          * The default value is true.
          */
-        blurOnSubmit?: boolean;
+        blurOnSubmit?: boolean
 
         /**
          * Provides an initial value that will change when the user starts typing.
          * Useful for simple use-cases where you don't want to deal with listening to events
          * and updating the value prop to keep the controlled state in sync.
          */
-        defaultValue?: string;
+        defaultValue?: string
 
         /**
          * If false, text is not editable. The default value is true.
          */
-        editable?: boolean;
+        editable?: boolean
 
         /**
          * enum("default", 'numeric', 'email-address', "ascii-capable", 'numbers-and-punctuation', 'url', 'number-pad', 'phone-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search')
          * Determines which keyboard to open, e.g.numeric.
          * The following values work across platforms: - default - numeric - email-address - phone-pad
          */
-        keyboardType?: KeyboardType | KeyboardTypeIOS;
+        keyboardType?: KeyboardType | KeyboardTypeIOS
 
         /**
          * Limits the maximum number of characters that can be entered.
          * Use this instead of implementing the logic in JS to avoid flicker.
          */
-        maxLength?: number;
+        maxLength?: number
 
         /**
          * If true, the text input can be multiple lines. The default value is false.
          */
-        multiline?: boolean;
+        multiline?: boolean
 
         /**
          * Callback that is called when the text input is blurred
          */
-        onBlur?: () => void;
+        onBlur?: () => void
 
         /**
          * Callback that is called when the text input's text changes.
          */
-        onChange?: (event: { nativeEvent: { text: string } }) => void;
+        onChange?: (event: { nativeEvent: { text: string } }) => void
 
         /**
          * Callback that is called when the text input's text changes.
          * Changed text is passed as an argument to the callback handler.
          */
-        onChangeText?: (text: string) => void;
+        onChangeText?: (text: string) => void
 
         /**
          * Callback that is called when the text input's content size changes.
@@ -1165,32 +1166,32 @@ declare module "react" {
         /**
          * Callback that is called when text input ends.
          */
-        onEndEditing?: (event: { nativeEvent: { text: string } }) => void;
+        onEndEditing?: (event: { nativeEvent: { text: string } }) => void
 
         /**
          * Callback that is called when the text input is focused
          */
-        onFocus?: () => void;
+        onFocus?: () => void
 
         /**
          * Callback that is called when the text input selection is changed.
          */
-        onSelectionChange?: () => void;
+        onSelectionChange?: () => void
 
         /**
          * Callback that is called when the text input's submit button is pressed.
          */
-        onSubmitEditing?: (event: { nativeEvent: { text: string } }) => void;
+        onSubmitEditing?: (event: { nativeEvent: { text: string } }) => void
 
         /**
          * The string that will be rendered before text input has been entered
          */
-        placeholder?: string;
+        placeholder?: string
 
         /**
          * The text color of the placeholder string
          */
-        placeholderTextColor?: string;
+        placeholderTextColor?: string
 
         /**
          * enum('default', 'go', 'google', 'join', 'next', 'route', 'search', 'send', 'yahoo', 'done', 'emergency-call')
@@ -1202,12 +1203,12 @@ declare module "react" {
          * If true, the text input obscures the text entered so that sensitive text like passwords stay secure.
          * The default value is false.
          */
-        secureTextEntry?: boolean;
+        secureTextEntry?: boolean
 
         /**
          * If true, all text will automatically be selected on focus
          */
-        selectTextOnFocus?: boolean;
+        selectTextOnFocus?: boolean
 
         /**
          * The start and end of the text input's selection. Set start and end to
@@ -1218,17 +1219,17 @@ declare module "react" {
         /**
          * The highlight (and cursor on ios) color of the text input
          */
-        selectionColor?: string;
+        selectionColor?: string
 
         /**
          * Styles
          */
-        style?: TextStyle;
+        style?: TextStyle
 
         /**
          * Used to locate this view in end-to-end tests
          */
-        testID?: string;
+        testID?: string
 
         /**
          * The value to show for the text input. TextInput is a controlled component,
@@ -1278,7 +1279,7 @@ declare module "react" {
         /**
          * Returns if the input is currently focused.
          */
-        isFocused: () => boolean;
+        isFocused: () => boolean
 
         /**
          * Removes all text from the input.
@@ -1290,7 +1291,7 @@ declare module "react" {
         /**
          *  title: required, the title of this action
          */
-        title: string;
+        title: string
 
         /**
          * icon: the icon for this action, e.g. require('./some_icon.png')
@@ -1300,13 +1301,13 @@ declare module "react" {
         /**
          * show: when to show this action as an icon or hide it in the overflow menu: always, ifRoom or never
          */
-        show?: "always" | "ifRoom" | "never";
+        show?: "always" | "ifRoom" | "never"
 
         /**
          * showWithText: boolean, whether to show text alongside the icon or not
          */
-        showWithText?: boolean;
-    };
+        showWithText?: boolean
+    }
 
     export interface ToolbarAndroidProperties extends ViewProperties, React.Props<ToolbarAndroidStatic> {
 
@@ -1332,7 +1333,7 @@ declare module "react" {
          * margin for these components and can be used to effectively align
          * Toolbar content along well-known gridlines.
          */
-        contentInsetEnd?: number;
+        contentInsetEnd?: number
 
         /**
          * Sets the content inset for the toolbar starting edge.
@@ -1341,7 +1342,7 @@ declare module "react" {
          * minimum margin for these components and can be used to effectively
          * align Toolbar content along well-known gridlines.
          */
-        contentInsetStart?: number;
+        contentInsetStart?: number
 
         /**
          * Sets the toolbar logo.
@@ -1358,17 +1359,17 @@ declare module "react" {
          * argument that is passed to the callback is the position of the
          * action in the actions array.
          */
-        onActionSelected?: (position: number) => void;
+        onActionSelected?: (position: number) => void
 
         /**
          * Callback called when the icon is selected.
          */
-        onIconClicked?: () => void;
+        onIconClicked?: () => void
 
         /**
          * Sets the overflow icon.
          */
-        overflowIcon?: ImageURISource;
+        overflowIcon?: ImageURISource
 
         /**
          * Used to set the toolbar direction to RTL.
@@ -1378,34 +1379,34 @@ declare module "react" {
          * setLayoutDirection(LayoutDirection.RTL) in your MainActivity
          * onCreate method.
          */
-        rtl?: boolean;
+        rtl?: boolean
 
         /**
          * Sets the toolbar subtitle.
          */
-        subtitle?: string;
+        subtitle?: string
 
         /**
          * Sets the toolbar subtitle color.
          */
-        subtitleColor?: string;
+        subtitleColor?: string
 
         /**
          * Used to locate this view in end-to-end tests.
          */
-        testID?: string;
+        testID?: string
 
         /**
          * Sets the toolbar title.
          */
-        title?: string;
+        title?: string
 
         /**
          * Sets the toolbar title color.
          */
-        titleColor?: string;
+        titleColor?: string
 
-        ref?: Ref<ToolbarAndroidStatic>;
+        ref?: Ref<ToolbarAndroidStatic>
     }
 
     /**
@@ -1464,12 +1465,12 @@ declare module "react" {
         /**
          * Does this view want to become responder on the start of a touch?
          */
-        onStartShouldSetResponder?: (event: GestureResponderEvent) => boolean;
+        onStartShouldSetResponder?: (event: GestureResponderEvent) => boolean
 
         /**
          * Called for every touch move on the View when it is not the responder: does this view want to "claim" touch responsiveness?
          */
-        onMoveShouldSetResponder?: (event: GestureResponderEvent) => boolean;
+        onMoveShouldSetResponder?: (event: GestureResponderEvent) => boolean
 
         /**
          * If the View returns true and attempts to become the responder, one of the following will happen:
@@ -1481,12 +1482,12 @@ declare module "react" {
          * The View is now responding for touch events.
          * This is the time to highlight and show the user what is happening
          */
-        onResponderGrant?: (event: GestureResponderEvent) => void;
+        onResponderGrant?: (event: GestureResponderEvent) => void
 
         /**
          * Something else is the responder right now and will not release it
          */
-        onResponderReject?: (event: GestureResponderEvent) => void;
+        onResponderReject?: (event: GestureResponderEvent) => void
 
         /**
          * If the view is responding, the following handlers can be called:
@@ -1495,12 +1496,12 @@ declare module "react" {
         /**
          * The user is moving their finger
          */
-        onResponderMove?: (event: GestureResponderEvent) => void;
+        onResponderMove?: (event: GestureResponderEvent) => void
 
         /**
          * Fired at the end of the touch, ie "touchUp"
          */
-        onResponderRelease?: (event: GestureResponderEvent) => void;
+        onResponderRelease?: (event: GestureResponderEvent) => void
 
         onResponderStart?: ( event: GestureResponderEvent ) => void
 
@@ -1508,14 +1509,14 @@ declare module "react" {
          *  Something else wants to become responder.
          *  Should this view release the responder? Returning true allows release
          */
-        onResponderTerminationRequest?: (event: GestureResponderEvent) => boolean;
+        onResponderTerminationRequest?: (event: GestureResponderEvent) => boolean
 
         /**
          * The responder has been taken from the View.
          * Might be taken by other views after a call to onResponderTerminationRequest,
          * or might be taken by the OS without asking (happens with control center/ notification center on iOS)
          */
-        onResponderTerminate?: (event: GestureResponderEvent) => void;
+        onResponderTerminate?: (event: GestureResponderEvent) => void
 
         /**
          * onStartShouldSetResponder and onMoveShouldSetResponder are called with a bubbling pattern,
@@ -1530,7 +1531,7 @@ declare module "react" {
          * So if a parent View wants to prevent the child from becoming responder on a touch start,
          * it should have a onStartShouldSetResponderCapture handler which returns true.
          */
-        onStartShouldSetResponderCapture?: (event: GestureResponderEvent) => boolean;
+        onStartShouldSetResponderCapture?: (event: GestureResponderEvent) => boolean
 
         /**
          * onStartShouldSetResponder and onMoveShouldSetResponder are called with a bubbling pattern,
@@ -1551,7 +1552,7 @@ declare module "react" {
 
     // @see https://facebook.github.io/react-native/docs/view.html#style
     export interface ViewStyle extends FlexStyle, TransformsStyle {
-        backfaceVisibility?: "visible" | "hidden";
+        backfaceVisibility?: "visible" | "hidden"
         backgroundColor?: string;
         borderBottomColor?: string;
         borderBottomLeftRadius?: number;
@@ -1562,13 +1563,13 @@ declare module "react" {
         borderRadius?: number;
         borderRightColor?: string;
         borderRightWidth?: number;
-        borderStyle?: "solid" | "dotted" | "dashed";
+        borderStyle?: "solid" | "dotted" | "dashed"
         borderTopColor?: string;
         borderTopLeftRadius?: number;
         borderTopRightRadius?: number;
-        borderTopWidth?: number;
+        borderTopWidth?: number
         opacity?: number;
-        overflow?: "visible" | "hidden";
+        overflow?: "visible" | "hidden"
         shadowColor?: string;
         shadowOffset?: { width: number, height: number };
         shadowOpacity?: number;
@@ -1598,7 +1599,7 @@ declare module "react" {
          * Rasterization incurs an off-screen drawing pass and the bitmap consumes memory.
          * Test and measure when using this property.
          */
-        shouldRasterizeIOS?: boolean;
+        shouldRasterizeIOS?: boolean
     }
 
     export interface ViewPropertiesAndroid {
@@ -1609,7 +1610,7 @@ declare module "react" {
          *
          * @enum('none', 'button', 'radiobutton_checked', 'radiobutton_unchecked' )
          */
-        accessibilityComponentType?: 'none' | 'button' | 'radiobutton_checked' | 'radiobutton_unchecked';
+        accessibilityComponentType?: 'none' | 'button' | 'radiobutton_checked' | 'radiobutton_unchecked'
 
 
         /**
@@ -1617,14 +1618,14 @@ declare module "react" {
          * Works for Android API >= 19 only.
          * See http://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion for references.
          */
-        accessibilityLiveRegion?: 'none' | 'polite' | 'assertive';
+        accessibilityLiveRegion?: 'none' | 'polite' | 'assertive'
 
         /**
          * Views that are only used to layout their children or otherwise don't draw anything
          * may be automatically removed from the native hierarchy as an optimization.
          * Set this property to false to disable this optimization and ensure that this View exists in the native view hierarchy.
          */
-        collapsable?: boolean;
+        collapsable?: boolean
 
 
         /**
@@ -1638,7 +1639,7 @@ declare module "react" {
          *      'no' - The view is not important for accessibility.
          *      'no-hide-descendants' - The view is not important for accessibility, nor are any of its descendant views.
          */
-        importantForAccessibility?: 'auto' | 'yes' | 'no' | 'no-hide-descendants';
+        importantForAccessibility?: 'auto' | 'yes' | 'no' | 'no-hide-descendants'
 
 
         /**
@@ -1655,7 +1656,7 @@ declare module "react" {
          * If that property is enabled, this View will be rendered off-screen once,
          * saved in a hardware texture, and then composited onto the screen with an alpha each frame without having to switch rendering targets on the GPU.
          */
-        needsOffscreenAlphaCompositing?: boolean;
+        needsOffscreenAlphaCompositing?: boolean
 
 
         /**
@@ -1695,7 +1696,8 @@ declare module "react" {
         * the Z-index of sibling views always takes precedence if a touch
         * hits two overlapping views.
         */
-        hitSlop?: Insets;
+
+        hitSlop?: Insets
 
         /**
          * When `accessible` is true, the system will try to invoke this function when the user performs accessibility tap gesture.
@@ -1737,7 +1739,7 @@ declare module "react" {
          * But since pointerEvents does not affect layout/appearance, and we are already deviating from the spec by adding additional modes,
          * we opt to not include pointerEvents on style. On some platforms, we would need to implement it as a className anyways. Using style or not is an implementation detail of the platform.
          */
-        pointerEvents?: "box-none" | "none" | "box-only" | "auto";
+        pointerEvents?: "box-none" | "none" | "box-only" | "auto"
 
         /**
          *
@@ -1745,7 +1747,7 @@ declare module "react" {
          * most of which are offscreen. For this property to be effective, it must be applied to a view that contains many subviews that extend outside its bound.
          * The subviews must also have overflow: hidden, as should the containing view (or one of its superviews).
          */
-        removeClippedSubviews?: boolean;
+        removeClippedSubviews?: boolean
 
         style?: ViewStyle;
 
@@ -1877,7 +1879,7 @@ declare module "react" {
          * A helper function to scroll to a specific page in the ViewPager.
          * The transition between pages will *not* be animated.
          */
-        setPageWithoutAnimation(selectedPage: number): void;
+        setPageWithoutAnimation(selectedPage: number): void
     }
 
     /**
@@ -1890,7 +1892,7 @@ declare module "react" {
 
     export interface KeyboardAvoidingViewProps extends ViewProperties, React.Props<KeyboardAvoidingViewStatic> {
 
-        behavior?: 'height' | 'position' | 'padding';
+        behavior?: 'height' | 'position' | 'padding'
 
         /**
          * The style of the content container(View) when behavior is 'position'.
@@ -1901,9 +1903,9 @@ declare module "react" {
          * This is the distance between the top of the user screen and the react native view,
          * may be non-zero in some use cases.
          */
-        keyboardVerticalOffset: number;
+        keyboardVerticalOffset: number
 
-        ref?: Ref<KeyboardAvoidingViewStatic & ViewStatic>;
+        ref?: Ref<KeyboardAvoidingViewStatic & ViewStatic>
     }
 
     /**
@@ -1911,13 +1913,13 @@ declare module "react" {
      */
     export interface NavState {
 
-        url?: string;
-        title?: string;
-        loading?: boolean;
-        canGoBack?: boolean;
+        url?: string
+        title?: string
+        loading?: boolean
+        canGoBack?: boolean
         canGoForward?: boolean;
 
-        [key: string]: any;
+        [key: string]: any
     }
 
     export interface WebViewPropertiesAndroid {
@@ -1925,24 +1927,24 @@ declare module "react" {
         /**
          * Used for android only, JS is enabled by default for WebView on iOS
          */
-        javaScriptEnabled?: boolean;
+        javaScriptEnabled?: boolean
 
         /**
          * Used on Android only, controls whether DOM Storage is enabled
          * or not android
          */
-        domStorageEnabled?: boolean;
+        domStorageEnabled?: boolean
     }
 
     export interface WebViewIOSLoadRequestEvent {
-        target: number;
-        canGoBack: boolean;
-        lockIdentifier: number;
-        loading: boolean;
-        title: string;
-        canGoForward: boolean;
-        navigationType: 'other' | 'click';
-        url: string;
+        target: number
+        canGoBack: boolean
+        lockIdentifier: number
+        loading: boolean
+        title: string
+        canGoForward: boolean
+        navigationType: 'other' | 'click'
+        url: string
     }
 
     export interface WebViewPropertiesIOS {
@@ -1955,14 +1957,14 @@ declare module "react" {
          * in the HTML document must also include the webkit-playsinline
          * attribute."
          */
-        allowsInlineMediaPlayback?: boolean;
+        allowsInlineMediaPlayback?: boolean
 
         /**
          * Boolean value that determines whether the web view bounces
          * when it reaches the edge of the content. The default value is `true`.
          * @platform ios
          */
-        bounces?: boolean;
+        bounces?: boolean
 
         /**
          * A floating-point number that determines how quickly the scroll
@@ -1972,20 +1974,20 @@ declare module "react" {
          * and UIScrollViewDecelerationRateFast respectively.
          * - normal: 0.998 - fast: 0.99 (the default for iOS WebView)
          */
-        decelerationRate?: "normal" | "fast" | number;
+        decelerationRate?: "normal" | "fast" | number
 
         /**
          * Allows custom handling of any webview requests by a JS handler.
          * Return true or false from this method to continue loading the
          * request.
          */
-        onShouldStartLoadWithRequest?: (event: WebViewIOSLoadRequestEvent) => boolean;
+        onShouldStartLoadWithRequest?: (event: WebViewIOSLoadRequestEvent) => boolean
 
         /**
          * Boolean value that determines whether scrolling is enabled in the
          * `WebView`. The default value is `true`.
          */
-        scrollEnabled?: boolean;
+        scrollEnabled?: boolean
     }
 
     export interface WebViewUriSource {
@@ -2039,85 +2041,85 @@ declare module "react" {
          * placed behind a navigation bar, tab bar, or toolbar. The default value
          * is `true`.
          */
-        automaticallyAdjustContentInsets?: boolean;
+        automaticallyAdjustContentInsets?: boolean
 
         /**
          * The amount by which the web view content is inset from the edges of
          * the scroll view. Defaults to {top: 0, left: 0, bottom: 0, right: 0}.
          */
-        contentInset?: Insets;
+        contentInset?: Insets
 
         /**
          * @deprecated
          */
-        html?: string;
+        html?: string
 
         /**
          * Set this to provide JavaScript that will be injected into the web page
          * when the view loads.
          */
-        injectedJavaScript?: string;
+        injectedJavaScript?: string
 
         /**
          * Invoked when load fails
          */
-        onError?: (event: NavState) => void;
+        onError?: (event: NavState) => void
 
         /**
          * Invoked when load finish
          */
-        onLoad?: (event: NavState) => void;
+        onLoad?: (event: NavState) => void
 
         /**
          * Invoked when load either succeeds or fails
          */
-        onLoadEnd?: (event: NavState) => void;
+        onLoadEnd?: (event: NavState) => void
 
         /**
          * Invoked on load start
          */
-        onLoadStart?: (event: NavState) => void;
+        onLoadStart?: (event: NavState) => void
 
         /**
          * Function that is invoked when the `WebView` loading starts or ends.
          */
-        onNavigationStateChange?: ( event: NavState ) => void;
+        onNavigationStateChange?: ( event: NavState ) => void
 
         /**
          * Function that returns a view to show if there's an error.
          */
-        renderError?: () => React.ReactElement<ViewProperties>;
+        renderError?: () => React.ReactElement<ViewProperties>
 
         /**
          * Function that returns a loading indicator.
          */
-        renderLoading?: () => React.ReactElement<ViewProperties>;
+        renderLoading?: () => React.ReactElement<ViewProperties>
 
         /**
          * Boolean value that forces the `WebView` to show the loading view
          * on the first load.
          */
-        startInLoadingState?: boolean;
+        startInLoadingState?: boolean
 
-        style?: ViewStyle;
+        style?: ViewStyle
 
         // Deprecated: Use the `source` prop instead.
-        url?: string;
+        url?: string
 
-        source?: WebViewUriSource | WebViewHtmlSource | number;
+        source?: WebViewUriSource | WebViewHtmlSource | number
 
         /**
          * Determines whether HTML5 audio & videos require the user to tap
          * before they can start playing. The default value is false.
          */
-        mediaPlaybackRequiresUserAction?: boolean;
+        mediaPlaybackRequiresUserAction?: boolean
 
         /**
          * sets whether the webpage scales to fit the view and the user can change the scale
          */
-        scalesPageToFit?: boolean;
+        scalesPageToFit?: boolean
 
-        ref?: Ref<WebViewStatic & ViewStatic>;
+        ref?: Ref<WebViewStatic & ViewStatic>
     }
 
 
@@ -2126,17 +2128,17 @@ declare module "react" {
         /**
          * Go back one page in the webview's history.
          */
-        goBack: () => void;
+        goBack: () => void
 
         /**
          * Go forward one page in the webview's history.
          */
-        goForward: () => void;
+        goForward: () => void
 
         /**
          * Reloads the current page.
          */
-        reload: () => void;
+        reload: () => void
 
         /**
          * Stop loading the current page.
@@ -2146,7 +2148,7 @@ declare module "react" {
         /**
              * Returns the native webview node.
          */
-        getWebViewHandle: () => any;
+        getWebViewHandle: () => any
     }
 
 
@@ -2155,9 +2157,9 @@ declare module "react" {
  * @see SegmentedControlIOS.ios.js
      */
     export interface NativeSegmentedControlIOSChangeEvent {
-        value: string;
-        selectedSegmentIndex: number;
-        target: number;
+        value: string
+        selectedSegmentIndex: number
+        target: number
     }
 
     export interface SegmentedControlIOSProperties extends ViewProperties, React.Props<SegmentedControlIOSStatic> {
@@ -2165,43 +2167,43 @@ declare module "react" {
         /**
          * If false the user won't be able to interact with the control. Default value is true.
          */
-        enabled?: boolean;
+        enabled?: boolean
 
         /**
          * If true, then selecting a segment won't persist visually.
          * The onValueChange callback will still work as expected.
          */
-        momentary?: boolean;
+        momentary?: boolean
 
         /**
          * Callback that is called when the user taps a segment;
          * passes the event as an argument
          * @param event
          */
-        onChange?: (event: NativeSyntheticEvent<NativeSegmentedControlIOSChangeEvent>) => void;
+        onChange?: (event: NativeSyntheticEvent<NativeSegmentedControlIOSChangeEvent>) => void
 
         /**
          * Callback that is called when the user taps a segment; passes the segment's value as an argument
          * @param value
          */
-        onValueChange?: (value: string) => void;
+        onValueChange?: (value: string) => void
 
         /**
          * The index in props.values of the segment to be (pre)selected.
          */
-        selectedIndex?: number;
+        selectedIndex?: number
 
         /**
          * Accent color of the control.
          */
-        tintColor?: string;
+        tintColor?: string
 
         /**
          * The labels for the control's segment buttons, in order.
          */
-        values?: string[];
+        values?: string[]
 
-        ref?: Ref<SegmentedControlIOSStatic>;
+        ref?: Ref<SegmentedControlIOSStatic>
     }
 
     /**
@@ -2233,19 +2235,19 @@ declare module "react" {
         /**
          * The default background color of the navigation bar.
          */
-        barTintColor?: string;
+        barTintColor?: string
 
         /**
          * NavigatorIOS uses "route" objects to identify child views, their props, and navigation bar configuration.
          * "push" and all the other navigation operations expect routes to be like this
          */
-        initialRoute: Route;
+        initialRoute: Route
 
         /**
          * The default wrapper style for components in the navigator.
          * A common use case is to set the backgroundColor for every page
          */
-        itemWrapperStyle?: ViewStyle;
+        itemWrapperStyle?: ViewStyle
 
         /**
          * Boolean value that indicates whether the interactive pop gesture is
@@ -2263,32 +2265,32 @@ declare module "react" {
         /**
          * A Boolean value that indicates whether the navigation bar is hidden
          */
-        navigationBarHidden?: boolean;
+        navigationBarHidden?: boolean
 
         /**
          * A Boolean value that indicates whether to hide the 1px hairline shadow
          */
-        shadowHidden?: boolean;
+        shadowHidden?: boolean
 
         /**
          * The color used for buttons in the navigation bar
          */
-        tintColor?: string;
+        tintColor?: string
 
         /**
          * The text color of the navigation bar title
          */
-        titleTextColor?: string;
+        titleTextColor?: string
 
         /**
          * A Boolean value that indicates whether the navigation bar is translucent
          */
-        translucent?: boolean;
+        translucent?: boolean
 
         /**
          * NOT IN THE DOC BUT IN THE EXAMPLES
          */
-        style?: ViewStyle;
+        style?: ViewStyle
     }
 
     /**
@@ -2303,47 +2305,47 @@ declare module "react" {
         /**
          * Navigate forward to a new route
          */
-        push: (route: Route) => void;
+        push: (route: Route) => void
 
         /**
          * Go back one page
          */
-        pop: () => void;
+        pop: () => void
 
         /**
          * Go back N pages at once. When N=1, behavior matches pop()
          */
-        popN: (n: number) => void;
+        popN: (n: number) => void
 
         /**
          * Replace the route for the current page and immediately load the view for the new route
          */
-        replace: (route: Route) => void;
+        replace: (route: Route) => void
 
         /**
          * Replace the route/view for the previous page
          */
-        replacePrevious: (route: Route) => void;
+        replacePrevious: (route: Route) => void
 
         /**
          * Replaces the previous route/view and transitions back to it
          */
-        replacePreviousAndPop: (route: Route) => void;
+        replacePreviousAndPop: (route: Route) => void
 
         /**
          * Replaces the top item and popToTop
          */
-        resetTo: (route: Route) => void;
+        resetTo: (route: Route) => void
 
         /**
          * Go back to the item for a particular route object
          */
-        popToRoute(route: Route): void;
+        popToRoute(route: Route): void
 
         /**
          * Go back to the top item
          */
-        popToTop(): void;
+        popToTop(): void
     }
 
     export interface NavigatorIOSStatic extends NavigationIOS, React.ComponentClass<NavigatorIOSProperties> {
@@ -2358,17 +2360,17 @@ declare module "react" {
         /**
          * Whether to show the indicator (true, the default) or hide it (false).
          */
-        animating?: boolean;
+        animating?: boolean
 
         /**
          * The foreground color of the spinner (default is gray).
          */
-        color?: string;
+        color?: string
 
         /**
          * Whether the indicator should hide when not animating (true by default).
          */
-        hidesWhenStopped?: boolean;
+        hidesWhenStopped?: boolean
 
         /**
          * Size of the indicator.
@@ -2376,11 +2378,11 @@ declare module "react" {
          *
          * enum('small', 'large')
          */
-        size?: number | 'small' | 'large';
+        size?: number | 'small' | 'large'
 
-        style?: ViewStyle;
+        style?: ViewStyle
 
-        ref?: Ref<ActivityIndicatorStatic>;
+        ref?: Ref<ActivityIndicatorStatic>
     }
 
     export interface ActivityIndicatorStatic extends React.NativeMethodsMixin, React.ClassicComponentClass<ActivityIndicatorProperties> {
@@ -2395,22 +2397,22 @@ declare module "react" {
         /**
          * Whether to show the indicator (true, the default) or hide it (false).
          */
-        animating?: boolean;
+        animating?: boolean
 
         /**
          * The foreground color of the spinner (default is gray).
          */
-        color?: string;
+        color?: string
 
         /**
          * Whether the indicator should hide when not animating (true by default).
          */
-        hidesWhenStopped?: boolean;
+        hidesWhenStopped?: boolean
 
         /**
          * Invoked on mount and layout changes with
          */
-        onLayout?: (event: { nativeEvent: { layout: { x: number, y: number, width: number, height: number } } }) => void;
+        onLayout?: (event: { nativeEvent: { layout: { x: number, y: number, width: number, height: number } } }) => void
 
         /**
          * Size of the indicator.
@@ -2418,11 +2420,11 @@ declare module "react" {
          *
          * enum('small', 'large')
          */
-        size?: 'small' | 'large';
+        size?: 'small' | 'large'
 
-        style?: ViewStyle;
+        style?: ViewStyle
 
-        ref?: Ref<ActivityIndicatorIOSStatic>;
+        ref?: Ref<ActivityIndicatorIOSStatic>
     }
 
     /**
@@ -2437,48 +2439,48 @@ declare module "react" {
         /**
          * The currently selected date.
          */
-        date: Date;
+        date: Date
 
 
         /**
          * Maximum date.
          * Restricts the range of possible date/time values.
          */
-        maximumDate?: Date;
+        maximumDate?: Date
 
         /**
          * Maximum date.
          * Restricts the range of possible date/time values.
          */
-        minimumDate?: Date;
+        minimumDate?: Date
 
         /**
          *  enum(1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30)
          *  The interval at which minutes can be selected.
          */
-        minuteInterval?: number;
+        minuteInterval?: number
 
         /**
          *  enum('date', 'time', 'datetime')
          *  The date picker mode.
          */
-        mode?: "date" | "time" | "datetime";
+        mode?: "date" | "time" | "datetime"
 
         /**
          * Date change handler.
          * This is called when the user changes the date or time in the UI.
          * The first and only argument is a Date object representing the new date and time.
          */
-        onDateChange: ( newDate: Date ) => void;
+        onDateChange: ( newDate: Date ) => void
 
         /**
          * Timezone offset in minutes.
          * By default, the date picker will use the device's timezone. With this parameter, it is possible to force a certain timezone offset.
          * For instance, to show times in Pacific Standard Time, pass -7 * 60.
          */
-        timeZoneOffsetInMinutes?: number;
+        timeZoneOffsetInMinutes?: number
 
-        ref?: Ref<DatePickerIOSStatic & ViewStatic>;
+        ref?: Ref<DatePickerIOSStatic & ViewStatic>
     }
 
     export interface DatePickerIOSStatic extends React.NativeMethodsMixin, React.ComponentClass<DatePickerIOSProperties> {
@@ -2536,23 +2538,23 @@ declare module "react" {
          * - 'none' (the default), drags do not dismiss the keyboard.
          * - 'on-drag', the keyboard is dismissed when a drag begins.
          */
-        keyboardDismissMode?: "none" | "on-drag";
+        keyboardDismissMode?: "none" | "on-drag"
 
         /**
          * Function called whenever the navigation view has been closed.
          */
-        onDrawerClose?: () => void;
+        onDrawerClose?: () => void
 
         /**
          * Function called whenever the navigation view has been opened.
          */
-        onDrawerOpen?: () => void;
+        onDrawerOpen?: () => void
 
         /**
          * Function called whenever there is an interaction with the navigation view.
          * @param event
          */
-        onDrawerSlide?: (event: DrawerSlideEvent) => void;
+        onDrawerSlide?: (event: DrawerSlideEvent) => void
 
         /**
          * Function called when the drawer state has changed.
@@ -2566,22 +2568,22 @@ declare module "react" {
          *   it's closing or opening animation
          * @param event
          */
-        onDrawerStateChanged?: (event: "Idle" | "Dragging" | "Settling") => void;
+        onDrawerStateChanged?: (event: "Idle" | "Dragging" | "Settling") => void
 
         /**
          * The navigation view that will be rendered to the side of the
          * screen and can be pulled in.
          */
-        renderNavigationView: () => JSX.Element;
+        renderNavigationView: () => JSX.Element
 
         /**
          * Make the drawer take the entire screen and draw the background of
          * the status bar to allow it to open over the status bar. It will
          * only have an effect on API 21+.
          */
-        statusBarBackgroundColor?: string;
+        statusBarBackgroundColor?: string
 
-        ref?: Ref<DrawerLayoutAndroidStatic & ViewStatic>;
+        ref?: Ref<DrawerLayoutAndroidStatic & ViewStatic>
     }
 
     export interface DrawerLayoutAndroidStatic extends NativeMethodsMixin, React.ClassicComponentClass<DrawerLayoutAndroidProperties> {
@@ -2589,12 +2591,12 @@ declare module "react" {
         /**
          * Opens the drawer.
          */
-        openDrawer(): void;
+        openDrawer(): void
 
         /**
          * Closes the drawer.
          */
-        closeDrawer(): void;
+        closeDrawer(): void
     }
 
 
@@ -2602,8 +2604,8 @@ declare module "react" {
      * @see PickerIOS.ios.js
      */
     export interface PickerIOSItemProperties extends React.Props<PickerIOSItemStatic> {
-        value?: string | number;
-        label?: string;
+        value?: string | number
+        label?: string
     }
 
     /**
@@ -2616,24 +2618,26 @@ declare module "react" {
      * @see Picker.js
      */
     export interface PickerItemProperties extends React.Props<PickerItemStatic> {
-        label: string;
-        value?: any;
+        label: string
+        value?: any
     }
 
     export interface PickerItemStatic extends React.ComponentClass<PickerItemProperties> {
     }
 
     export interface PickerPropertiesIOS extends ViewProperties, React.Props<PickerStatic> {
+
         /**
          * Style to apply to each of the item labels.
          * @platform ios
          */
-        itemStyle?: ViewStyle;
+        itemStyle?: ViewStyle,
 
-        ref?: Ref<PickerStatic & ViewStatic>;
+        ref?: Ref<PickerStatic & ViewStatic>
     }
 
     export interface PickerPropertiesAndroid extends ViewProperties, React.Props<PickerStatic> {
+
         /**
          * If set to false, the picker will be disabled, i.e. the user will not be able to make a
          * selection.
@@ -2655,9 +2659,9 @@ declare module "react" {
          * Prompt string for this picker, used on Android in dialog mode as the title of the dialog.
          * @platform android
          */
-        prompt?: string;
+        prompt?: string
 
-        ref?: Ref<PickerStatic & ViewStatic>;
+        ref?: Ref<PickerStatic & ViewStatic>
     }
 
     /**
@@ -2674,22 +2678,22 @@ declare module "react" {
          * @param itemValue
          * @param itemPosition
          */
-        onValueChange?: (itemValue: any, itemPosition: number) => void;
+        onValueChange?: (itemValue: any, itemPosition: number) => void
 
         /**
          * Value matching value of one of the items.
          * Can be a string or an integer.
          */
-        selectedValue?: any;
+        selectedValue?: any
 
-        style?: ViewStyle;
+        style?: ViewStyle
 
         /**
          * Used to locate this view in end-to-end tests.
          */
-        testId?: string;
+        testId?: string
 
-        ref?: Ref<PickerStatic>;
+        ref?: Ref<PickerStatic>
     }
 
     /**
@@ -2697,6 +2701,7 @@ declare module "react" {
      * @see Picker.js
      */
     export interface PickerStatic extends React.ComponentClass<PickerProperties> {
+
          /**
          * On Android, display the options in a dialog.
          */
@@ -2706,7 +2711,7 @@ declare module "react" {
          */
         MODE_DROPDOWN: string
 
-        Item?: PickerItemStatic;
+        Item?: PickerItemStatic
     }
 
     /**
@@ -2714,11 +2719,12 @@ declare module "react" {
      * @see PickerIOS.ios.js
      */
     export interface PickerIOSProperties extends ViewProperties, React.Props<PickerIOSStatic> {
-        itemStyle?: TextStyle;
-        onValueChange?: ( value: string | number ) => void;
-        selectedValue?: string | number;
 
-        ref?: Ref<PickerIOSStatic & ViewStatic>;
+        itemStyle?: TextStyle
+        onValueChange?: ( value: string | number ) => void
+        selectedValue?: string | number
+
+        ref?: Ref<PickerIOSStatic & ViewStatic>
     }
 
     /**
@@ -2727,7 +2733,7 @@ declare module "react" {
      */
     export interface PickerIOSStatic extends NativeMethodsMixin, React.ClassicComponentClass<PickerIOSProperties> {
 
-        Item: PickerIOSItemStatic;
+        Item: PickerIOSItemStatic
     }
 
     /**
@@ -2735,6 +2741,7 @@ declare module "react" {
      * @see ProgressBarAndroid.android.js
      */
     export interface ProgressBarAndroidProperties extends ViewProperties, React.Props<ProgressBarAndroidStatic> {
+
         /**
          * Style of the ProgressBar. One of:
              Horizontal
@@ -2745,30 +2752,30 @@ declare module "react" {
              SmallInverse
              LargeInverse
          */
-        styleAttr?: "Horizontal" | "Normal" | "Small" | "Large" | "Inverse" | "SmallInverse" | "LargeInverse";
+        styleAttr?: "Horizontal" | "Normal" | "Small" | "Large" | "Inverse" | "SmallInverse" | "LargeInverse"
 
         /**
          * If the progress bar will show indeterminate progress.
          * Note that this can only be false if styleAttr is Horizontal.
          */
-        indeterminate?: boolean;
+        indeterminate?: boolean
 
         /**
          * The progress value (between 0 and 1).
          */
-        progress?: number;
+        progress?: number
 
         /**
          * Color of the progress bar.
          */
-        color?: string;
+        color?: string
 
         /**
          * Used to locate this view in end-to-end tests.
          */
-        testID?: string;
+        testID?: string
 
-        ref?: Ref<ProgressBarAndroidStatic>;
+        ref?: Ref<ProgressBarAndroidStatic>
     }
     /**
      * React component that wraps the Android-only `ProgressBar`. This component is used to indicate
@@ -2782,58 +2789,60 @@ declare module "react" {
      * @see ProgressViewIOS.ios.js
      */
     export interface ProgressViewIOSProperties extends ViewProperties, React.Props<ProgressViewIOSStatic> {
+
         /**
          * The progress bar style.
          */
-        progressViewStyle?: "default" | "bar";
+        progressViewStyle?: "default" | "bar"
 
         /**
          * The progress value (between 0 and 1).
          */
-        progress?: number;
+        progress?: number
 
         /**
          * The tint color of the progress bar itself.
          */
-        progressTintColor?: string;
+        progressTintColor?: string
 
         /**
          * The tint color of the progress bar track.
          */
-        trackTintColor?: string;
+        trackTintColor?: string
 
         /**
          * A stretchable image to display as the progress bar.
          */
-        progressImage?: ImageURISource | ImageURISource[];
+        progressImage?: ImageURISource | ImageURISource[]
 
         /**
          * A stretchable image to display behind the progress bar.
          */
-        trackImage?: ImageURISource | ImageURISource[];
+        trackImage?: ImageURISource | ImageURISource[]
 
-        ref?: Ref<ProgressViewIOSStatic>;
+        ref?: Ref<ProgressViewIOSStatic>
     }
     export interface ProgressViewIOSStatic extends NativeMethodsMixin, React.ClassicComponentClass<ProgressViewIOSProperties> {
     }
 
     export interface RefreshControlPropertiesIOS extends ViewProperties, React.Props<RefreshControlStatic> {
+
         /**
          * The color of the refresh indicator.
          */
-        tintColor?: string;
+        tintColor?: string
 
         /**
          * The title displayed under the refresh indicator.
          */
-        title?: string;
+        title?: string
 
         /**
          * Title color.
          */
-        titleColor?: string;
+        titleColor?: string
 
-        ref?: Ref<RefreshControlStatic & ViewStatic>;
+        ref?: Ref<RefreshControlStatic & ViewStatic>
     }
 
     export interface RefreshControlPropertiesAndroid extends ViewProperties, React.Props<RefreshControlStatic> {
@@ -2841,30 +2850,30 @@ declare module "react" {
         /**
          * The colors (at least one) that will be used to draw the refresh indicator.
          */
-        colors?: string[];
+        colors?: string[]
 
         /**
          * Whether the pull to refresh functionality is enabled.
          */
-        enabled?: boolean;
+        enabled?: boolean
 
         /**
          * The background color of the refresh indicator.
          */
-        progressBackgroundColor?: string;
+        progressBackgroundColor?: string
 
         /**
          * Size of the refresh indicator, see RefreshControl.SIZE.
          */
-        size?: number;
+        size?: number
 
         /**
          * Progress view top offset
          * @platform android
          */
-        progressViewOffset?: number;
+        progressViewOffset?: number
 
-        ref?: Ref<RefreshControlStatic & ViewStatic>;
+        ref?: Ref<RefreshControlStatic & ViewStatic>
     }
 
     export interface RefreshControlProperties extends RefreshControlPropertiesIOS, RefreshControlPropertiesAndroid, React.Props<RefreshControl> {
@@ -2872,14 +2881,14 @@ declare module "react" {
         /**
          * Called when the view starts refreshing.
          */
-        onRefresh?: () => void;
+        onRefresh?: () => void
 
         /**
          * Whether the view should be indicating an active refresh.
          */
-        refreshing: boolean;
+        refreshing: boolean
 
-        ref?: Ref<RefreshControlStatic>;
+        ref?: Ref<RefreshControlStatic>
     }
 
     /**
@@ -2891,11 +2900,11 @@ declare module "react" {
      * in the `onRefresh` function otherwise the refresh indicator will stop immediately.
      */
     export interface RefreshControlStatic extends NativeMethodsMixin, React.ClassicComponentClass<RefreshControlProperties> {
-        SIZE: Object; // Undocumented
+        SIZE: Object // Undocumented
     }
 
     export interface RecyclerViewBackedScrollViewProperties extends ScrollViewProperties, React.Props<RecyclerViewBackedScrollViewStatic> {
-        ref?: Ref<RecyclerViewBackedScrollViewProperties & ScrollViewProperties>;
+        ref?: Ref<RecyclerViewBackedScrollViewProperties & ScrollViewProperties>
     }
 
     /**
@@ -2946,39 +2955,39 @@ declare module "react" {
          * Assigns a maximum track image. Only static images are supported.
          * The leftmost pixel of the image will be stretched to fill the track.
          */
-        maximumTrackImage?: ImageURISource;
+        maximumTrackImage?: ImageURISource
 
         /**
          * The color used for the track to the right of the button.
          * Overrides the default blue gradient image.
          */
-        maximumTrackTintColor?: string;
+        maximumTrackTintColor?: string
 
         /**
          * Assigns a minimum track image. Only static images are supported.
          * The rightmost pixel of the image will be stretched to fill the track.
          */
-        minimumTrackImage?: ImageURISource;
+        minimumTrackImage?: ImageURISource
 
         /**
          * The color used for the track to the left of the button.
          * Overrides the default blue gradient image.
          */
-        minimumTrackTintColor?: string;
+        minimumTrackTintColor?: string
 
         /**
          * Sets an image for the thumb. Only static images are supported.
          */
-        thumbImage?: ImageURISource;
+        thumbImage?: ImageURISource
 
         /**
          * Assigns a single image for the track. Only static images
          * are supported. The center pixel of the image will be stretched
          * to fill the track.
          */
-        trackImage?: ImageURISource;
+        trackImage?: ImageURISource
 
-        ref?: Ref<SliderStatic>;
+        ref?: Ref<SliderStatic>
     }
 
     export interface SliderProperties extends SliderPropertiesIOS, React.Props<SliderStatic> {
@@ -2987,44 +2996,44 @@ declare module "react" {
          * If true the user won't be able to move the slider.
          * Default value is false.
          */
-        disabled?: boolean;
+        disabled?: boolean
 
         /**
          * Initial maximum value of the slider. Default value is 1.
          */
-        maximumValue?: number;
+        maximumValue?: number
 
         /**
          * Initial minimum value of the slider. Default value is 0.
          */
-        minimumValue?: number;
+        minimumValue?: number
 
         /**
          * Callback called when the user finishes changing the value (e.g. when the slider is released).
          * @param value
          */
-        onSlidingComplete?: (value: number) => void;
+        onSlidingComplete?: (value: number) => void
 
         /**
          * Callback continuously called while the user is dragging the slider.
          * @param value
          */
-        onValueChange?: (value: number) => void;
+        onValueChange?: (value: number) => void
 
         /**
          * Step value of the slider. The value should be between 0 and (maximumValue - minimumValue). Default value is 0.
          */
-        step?: number;
+        step?: number
 
         /**
          * Used to style and layout the Slider. See StyleSheet.js and ViewStylePropTypes.js for more info.
          */
-        style?: ViewStyle;
+        style?: ViewStyle
 
         /**
          * Used to locate this view in UI automation tests.
          */
-        testID?: string;
+        testID?: string
 
         /**
          * Initial value of the slider. The value should be between minimumValue
@@ -3033,13 +3042,14 @@ declare module "react" {
          * This is not a controlled component, you don't need to update
          * the value during dragging.
          */
-        value?: number;
+        value?: number
     }
 
     /**
      * A component used to select a single value from a range of values.
      */
     export interface SliderStatic extends NativeMethodsMixin, React.ClassicComponentClass<SliderProperties> {
+
     }
 
     /**
@@ -3050,34 +3060,34 @@ declare module "react" {
         /**
          * If true the user won't be able to toggle the switch. Default value is false.
          */
-        disabled?: boolean;
+        disabled?: boolean
 
         /**
          * Background color when the switch is turned on.
          */
-        onTintColor?: string;
+        onTintColor?: string
 
         /**
          * Callback that is called when the user toggles the switch.
          */
-        onValueChange?: (value: boolean) => void;
+        onValueChange?: (value: boolean) => void
 
         /**
          * Background color for the switch round button.
          */
-        thumbTintColor?: string;
+        thumbTintColor?: string
 
         /**
          * Background color when the switch is turned off.
          */
-        tintColor?: string;
+        tintColor?: string
 
         /**
          * The value of the switch, if true the switch will be turned on. Default value is false.
          */
-        value?: boolean;
+        value?: boolean
 
-        ref?: Ref<SwitchIOSStatic>;
+        ref?: Ref<SwitchIOSStatic>
     }
 
     /**
@@ -3103,37 +3113,37 @@ declare module "react" {
          * contain - The image will be resized such that it will be completely
          * visible, contained within the frame of the View.
          */
-        contain: ImageResizeMode;
+        contain: ImageResizeMode
         /**
          * cover - The image will be resized such that the entire area of the view
          * is covered by the image, potentially clipping parts of the image.
          */
-        cover: ImageResizeMode;
+        cover: ImageResizeMode
         /**
          * stretch - The image will be stretched to fill the entire frame of the
          * view without clipping.  This may change the aspect ratio of the image,
          * distoring it.  Only supported on iOS.
          */
-        stretch: ImageResizeMode;
+        stretch: ImageResizeMode
         /**
          * center - The image will be scaled down such that it is completely visible,
          * if bigger than the area of the view.
          * The image will not be scaled up.
          */
-        center: ImageResizeMode;
+        center: ImageResizeMode,
 
         /**
          * repeat - The image will be repeated to cover the frame of the View. The
          * image will keep it's size and aspect ratio.
          */
-        repeat: ImageResizeMode;
+        repeat: ImageResizeMode,
     }
 
     export interface ShadowStyleIOS {
-        shadowColor?: string;
-        shadowOffset?: {width: number, height: number};
-        shadowOpacity?: number;
-        shadowRadius?: number;
+        shadowColor?: string
+        shadowOffset?: {width: number, height: number}
+        shadowOpacity?: number
+        shadowRadius?: number
     }
 
     /**
@@ -3141,20 +3151,20 @@ declare module "react" {
      * @see https://facebook.github.io/react-native/docs/image.html#style
      */
     export interface ImageStyle extends FlexStyle, TransformsStyle, ShadowStyleIOS {
-        resizeMode?: ImageResizeMode;
-        backfaceVisibility?: "visible" | "hidden";
-        borderBottomLeftRadius?: number;
-        borderBottomRightRadius?: number;
-        backgroundColor?: string;
-        borderColor?: string;
-        borderWidth?: number;
-        borderRadius?: number;
-        borderTopLeftRadius?: number;
-        borderTopRightRadius?: number;
-        overflow?: "visible" | "hidden";
-        overlayColor?: string;
-        tintColor?: string;
-        opacity?: number;
+        resizeMode?: ImageResizeMode
+        backfaceVisibility?: "visible" | "hidden"
+        borderBottomLeftRadius?: number
+        borderBottomRightRadius?: number
+        backgroundColor?: string
+        borderColor?: string
+        borderWidth?: number
+        borderRadius?: number
+        borderTopLeftRadius?: number
+        borderTopRightRadius?: number
+        overflow?: "visible" | "hidden"
+        overlayColor?: string
+        tintColor?: string
+        opacity?: number
     }
 
     export interface ImagePropertiesIOS {
@@ -3180,22 +3190,22 @@ declare module "react" {
          * This is useful for creating resizable rounded buttons, shadows, and other resizable assets.
          * More info on Apple documentation
          */
-        capInsets?: Insets;
+        capInsets?: Insets
 
         /**
          * A static image to display while downloading the final image off the network.
          */
-        defaultSource?: ImageURISource | number;
+        defaultSource?: ImageURISource | number
 
         /**
          * Invoked on load error with {nativeEvent: {error}}
          */
-        onError?: (error: { nativeEvent: any }) => void;
+        onError?: (error: { nativeEvent: any }) => void
 
         /**
          * Invoked on download progress with {nativeEvent: {loaded, total}}
          */
-        onProgress?: () => void;
+        onProgress?: () => void
 
         /**
          * Invoked when a partial load of the image is complete. The definition of
@@ -3203,7 +3213,7 @@ declare module "react" {
          * for progressive JPEG loads.
          * @platform ios
          */
-        onPartialLoad?: () => void;
+        onPartialLoad?: () => void,
     }
 
     /*
@@ -3216,39 +3226,39 @@ declare module "react" {
          * resource (which should be wrapped in the `require('./path/to/image.png')`
          * function).
          */
-        uri?: string;
+        uri?: string,
         /**
          * `bundle` is the iOS asset bundle which the image is included in. This
          * will default to [NSBundle mainBundle] if not set.
          * @platform ios
          */
-        bundle?: string;
+        bundle?: string,
         /**
          * `method` is the HTTP Method to use. Defaults to GET if not specified.
          */
-        method?: string;
+        method?: string,
         /**
          * `headers` is an object representing the HTTP headers to send along with the
          * request for a remote image.
          */
-        headers?: {[key: string]: string};
+        headers?: {[key: string]: string},
         /**
          * `body` is the HTTP body to send with the request. This must be a valid
          * UTF-8 string, and will be sent exactly as specified, with no
          * additional encoding (e.g. URL-escaping or base64) applied.
          */
-        body?: string;
+        body?: string,
         /**
          * `width` and `height` can be specified if known at build time, in which case
          * these will be used to set the default `<Image/>` component dimensions.
          */
-        width?: number;
-        height?: number;
+        width?: number,
+        height?: number,
         /**
          * `scale` is used to indicate the scale factor of the image. Defaults to 1.0 if
          * unspecified, meaning that one image pixel equates to one display point / DIP.
          */
-        scale?: number;
+        scale?: number,
     }
 
     /**
@@ -3268,17 +3278,17 @@ declare module "react" {
         /**
          * Invoked when load completes successfully
          */
-        onLoad?: () => void;
+        onLoad?: () => void
 
         /**
          * Invoked when load either succeeds or fails
          */
-        onLoadEnd?: () => void;
+        onLoadEnd?: () => void
 
         /**
          * Invoked on load start
          */
-        onLoadStart?: () => void;
+        onLoadStart?: () => void
 
         progressiveRenderingEnabled?: boolean
 
@@ -3332,7 +3342,8 @@ declare module "react" {
          * their width and height. The native side will then choose the best `uri` to display
          * based on the measured size of the image container.
          */
-        source: ImageURISource | ImageURISource[];
+        source: ImageURISource | ImageURISource[]
+
         /**
          * similarly to `source`, this property represents the resource used to render
          * the loading indicator for the image, displayed until image is ready to be
@@ -3354,21 +3365,22 @@ declare module "react" {
     }
 
     export interface ImageStatic extends React.NativeMethodsMixin, React.ComponentClass<ImageProperties> {
-        resizeMode: ImageResizeMode;
-        getSize(uri: string, success: (width: number, height: number) => void, failure: (error: any) => void): any;
-        prefetch(url: string): any;
-        abortPrefetch?(requestId: number): void;
-        queryCache?(urls: string[]): Promise<Map<string, 'memory' | 'disk'>>;
+        resizeMode: ImageResizeMode
+        getSize(uri: string, success: (width: number, height: number) => void, failure: (error: any) => void): any
+        prefetch(url: string): any
+        abortPrefetch?(requestId: number): void
+        queryCache?(urls: string[]): Promise<Map<string, 'memory' | 'disk'>>
     }
 
     /**
      * @see https://facebook.github.io/react-native/docs/listview.html#props
      */
     export interface ListViewProperties extends ScrollViewProperties, React.Props<ListViewStatic> {
+
         /**
          * An instance of [ListView.DataSource](docs/listviewdatasource.html) to use
          */
-        dataSource: ListViewDataSource;
+        dataSource: ListViewDataSource
 
         /**
          * Flag indicating whether empty section headers should be rendered.
@@ -3377,14 +3389,14 @@ declare module "react" {
          * desired to be rendered their indices should be excluded from
          * sectionID object.
          */
-        enableEmptySections?: boolean;
+        enableEmptySections?: boolean
 
         /**
          * How many rows to render on initial component mount.  Use this to make
          * it so that the first screen worth of data apears at one time instead of
          * over the course of multiple frames.
          */
-        initialListSize?: number;
+        initialListSize?: number
 
         /**
          * (visibleRows, changedRows) => void
@@ -3395,31 +3407,31 @@ declare module "react" {
          * that have changed their visibility, with true indicating visible, and
          * false indicating the view has moved out of view.
          */
-        onChangeVisibleRows?: (visibleRows: Array<{ [sectionId: string]: { [rowID: string]: boolean } }>, changedRows: Array<{ [sectionId: string]: { [rowID: string]: boolean } }>) => void;
+        onChangeVisibleRows?: (visibleRows: Array<{ [sectionId: string]: { [rowID: string]: boolean } }>, changedRows: Array<{ [sectionId: string]: { [rowID: string]: boolean } }>) => void
 
         /**
          * Called when all rows have been rendered and the list has been scrolled
          * to within onEndReachedThreshold of the bottom.  The native scroll
          * event is provided.
          */
-        onEndReached?: () => void;
+        onEndReached?: () => void
 
         /**
          * Threshold in pixels for onEndReached.
          */
-        onEndReachedThreshold?: number;
+        onEndReachedThreshold?: number
 
         /**
          * Number of rows to render per event loop.
          */
-        pageSize?: number;
+        pageSize?: number
 
         /**
          * A performance optimization for improving scroll perf of
          * large lists, used in conjunction with overflow: 'hidden' on the row
          * containers.  Use at your own risk.
          */
-        removeClippedSubviews?: boolean;
+        removeClippedSubviews?: boolean
 
         /**
          * () => renderable
@@ -3429,7 +3441,7 @@ declare module "react" {
          * in StaticContainer or other mechanism as appropriate.  Footer is always
          * at the bottom of the list, and header at the top, on every render pass.
          */
-        renderFooter?: () => React.ReactElement<any>;
+        renderFooter?: () => React.ReactElement<any>
 
         /**
          * () => renderable
@@ -3439,7 +3451,7 @@ declare module "react" {
          * in StaticContainer or other mechanism as appropriate.  Footer is always
          * at the bottom of the list, and header at the top, on every render pass.
          */
-        renderHeader?: () => React.ReactElement<any>;
+        renderHeader?: () => React.ReactElement<any>
 
         /**
          * (rowData, sectionID, rowID) => renderable
@@ -3448,14 +3460,14 @@ declare module "react" {
          * is exactly what was put into the data source, but it's also possible to
          * provide custom extractors.
          */
-        renderRow: ( rowData: any, sectionID: string | number, rowID: string | number, highlightRow?: boolean ) => React.ReactElement<any>;
+        renderRow: ( rowData: any, sectionID: string | number, rowID: string | number, highlightRow?: boolean ) => React.ReactElement<any>
 
 
         /**
          * A function that returns the scrollable component in which the list rows are rendered.
          * Defaults to returning a ScrollView with the given props.
          */
-        renderScrollComponent?: (props: ScrollViewProperties) => React.ReactElement<ScrollViewProperties>;
+        renderScrollComponent?: (props: ScrollViewProperties) => React.ReactElement<ScrollViewProperties>
 
         /**
          * (sectionData, sectionID) => renderable
@@ -3466,7 +3478,7 @@ declare module "react" {
          * stick to the top until it is pushed off the screen by the next section
          * header.
          */
-        renderSectionHeader?: (sectionData: any, sectionId: string | number) => React.ReactElement<any>;
+        renderSectionHeader?: (sectionData: any, sectionId: string | number) => React.ReactElement<any>
 
 
         /**
@@ -3475,13 +3487,13 @@ declare module "react" {
          * but not the last row if there is a section header below.
          * Take a sectionID and rowID of the row above and whether its adjacent row is highlighted.
          */
-        renderSeparator?: (sectionID: string | number, rowID: string | number, adjacentRowHighlighted?: boolean) => React.ReactElement<any>;
+        renderSeparator?: (sectionID: string | number, rowID: string | number, adjacentRowHighlighted?: boolean) => React.ReactElement<any>
 
         /**
          * How early to start rendering rows before they come on screen, in
          * pixels.
          */
-        scrollRenderAheadDistance?: number;
+        scrollRenderAheadDistance?: number
 
         /**
          * An array of child indices determining which children get docked to the
@@ -3493,7 +3505,7 @@ declare module "react" {
          */
         stickyHeaderIndices?: number[]
 
-        ref?: Ref<ListViewStatic & ScrollViewStatic & ViewStatic>;
+        ref?: Ref<ListViewStatic & ScrollViewStatic & ViewStatic>
     }
 
 
@@ -3536,41 +3548,41 @@ declare module "react" {
 
 
     export interface MapViewAnnotation {
-        latitude: number;
-        longitude: number;
-        animateDrop?: boolean;
-        draggable?: boolean;
-        onDragStateChange?: () => any;
-        onFocus?: () => any;
-        onBlur?: () => any;
-        title?: string;
-        subtitle?: string;
-        leftCalloutView?: ReactElement<any>;
-        rightCalloutView?: ReactElement<any>;
-        detailCalloutView?: ReactElement<any>;
-        tintColor?: string;
-        image?: ImageURISource;
-        view?: ReactElement<any>;
-        hasLeftCallout?: boolean;
-        hasRightCallout?: boolean;
-        onLeftCalloutPress?: () => void;
-        onRightCalloutPress?: () => void;
-        id?: string;
+        latitude: number
+        longitude: number
+        animateDrop?: boolean
+        draggable?: boolean
+        onDragStateChange?: () => any,
+        onFocus?: () => any,
+        onBlur?: () => any,
+        title?: string
+        subtitle?: string
+        leftCalloutView?: ReactElement<any>
+        rightCalloutView?: ReactElement<any>
+        detailCalloutView?: ReactElement<any>
+        tintColor?: string
+        image?: ImageURISource
+        view?: ReactElement<any>
+        hasLeftCallout?: boolean
+        hasRightCallout?: boolean
+        onLeftCalloutPress?: () => void
+        onRightCalloutPress?: () => void
+        id?: string
     }
 
     export interface MapViewRegion {
-        latitude: number;
-        longitude: number;
-        latitudeDelta?: number;
-        longitudeDelta?: number;
+        latitude: number
+        longitude: number
+        latitudeDelta?: number
+        longitudeDelta?: number
     }
 
     export interface MapViewOverlay {
-        coordinates: ({ latitude: number, longitude: number })[];
-        lineWidth?: number;
-        strokeColor?: string;
-        fillColor?: string;
-        id?: string;
+        coordinates: ({ latitude: number, longitude: number })[]
+        lineWidth?: number
+        strokeColor?: string
+        fillColor?: string
+        id?: string
     }
 
     export interface MapViewProperties extends ViewProperties, React.Props<MapViewStatic> {
@@ -3579,24 +3591,24 @@ declare module "react" {
          * If false points of interest won't be displayed on the map.
          * Default value is true.
          */
-        showsPointsOfInterest?: boolean;
+        showsPointsOfInterest?: boolean
 
         /**
          * Map annotations with title/subtitle.
          */
-        annotations?: MapViewAnnotation[];
+        annotations?: MapViewAnnotation[]
 
         /**
          * If true the map will follow the user's location whenever it changes.
          * Note that this has no effect unless showsUserLocation is enabled.
          * Default value is true.
          */
-        followUserLocation?: boolean;
+        followUserLocation?: boolean
 
         /**
          * Insets for the map's legal label, originally at bottom left of the map. See EdgeInsetsPropType.js for more information.
          */
-        legalLabelInsets?: Insets;
+        legalLabelInsets?: Insets
 
         /**
          * The map type to be displayed.
@@ -3606,43 +3618,43 @@ declare module "react" {
          *
          * enum('standard', 'satellite', 'hybrid')
          */
-        mapType?: 'standard' |'satellite' |'hybrid';
+        mapType?: 'standard' |'satellite' |'hybrid'
 
         /**
          * Maximum size of area that can be displayed.
          */
-        maxDelta?: number;
+        maxDelta?: number
 
         /**
          * Minimum size of area that can be displayed.
          */
-        minDelta?: number;
+        minDelta?: number
 
         /**
          * Map overlays
          */
-        overlays?: MapViewOverlay[];
+        overlays?: MapViewOverlay[]
 
         /**
          * If false compass won't be displayed on the map.
          * Default value is true.
          */
-        showsCompass?: boolean;
+        showsCompass?: boolean
 
         /**
          * Callback that is called once, when the user taps an annotation.
          */
-        onAnnotationPress?: () => void;
+        onAnnotationPress?: () => void
 
         /**
          * Callback that is called continuously when the user is dragging the map.
          */
-        onRegionChange?: (region: MapViewRegion) => void;
+        onRegionChange?: (region: MapViewRegion) => void
 
         /**
          * Callback that is called once, when the user is done moving the map.
          */
-        onRegionChangeComplete?: (region: MapViewRegion) => void;
+        onRegionChangeComplete?: (region: MapViewRegion) => void
 
         /**
          * When this property is set to true and a valid camera is associated with the map,
@@ -3651,13 +3663,13 @@ declare module "react" {
          * When this property is set to false, the camera’s pitch angle is ignored and
          * the map is always displayed as if the user is looking straight down onto it.
          */
-        pitchEnabled?: boolean;
+        pitchEnabled?: boolean
 
         /**
          * The region to be displayed by the map.
          * The region is defined by the center coordinates and the span of coordinates to display.
          */
-        region?: MapViewRegion;
+        region?: MapViewRegion
 
         /**
          * When this property is set to true and a valid camera is associated with the map,
@@ -3666,13 +3678,13 @@ declare module "react" {
          * When this property is set to false, the camera’s heading angle is ignored and the map is always oriented
          * so that true north is situated at the top of the map view
          */
-        rotateEnabled?: boolean;
+        rotateEnabled?: boolean
 
         /**
          * If false the user won't be able to change the map region being displayed.
          * Default value is true.
          */
-        scrollEnabled?: boolean;
+        scrollEnabled?: boolean
 
         /**
          * If true the app will ask for the user's location and focus on it.
@@ -3681,21 +3693,21 @@ declare module "react" {
          * NOTE: You need to add NSLocationWhenInUseUsageDescription key in Info.plist to enable geolocation,
          * otherwise it is going to fail silently!
          */
-        showsUserLocation?: boolean;
+        showsUserLocation?: boolean
 
         /**
          * Used to style and layout the MapView.
          * See StyleSheet.js and ViewStylePropTypes.js for more info.
          */
-        style?: ViewStyle;
+        style?: ViewStyle
 
         /**
          * If false the user won't be able to pinch/zoom the map.
          * Default value is true.
          */
-        zoomEnabled?: boolean;
+        zoomEnabled?: boolean
 
-        ref?: Ref<MapViewStatic & ViewStatic>;
+        ref?: Ref<MapViewStatic & ViewStatic>
     }
 
     /**
@@ -3713,7 +3725,7 @@ declare module "react" {
 
         // Only `animated` is documented. The JS code says `animated` is
         // deprecated and `animationType` is preferred.
-        animated?: boolean;
+        animated?: boolean
         /**
          * The `animationType` prop controls how the modal animates.
          *
@@ -3721,37 +3733,37 @@ declare module "react" {
          * - `fade` fades into view
          * - `none` appears without an animation
          */
-        animationType?: "none" | "slide" | "fade";
+        animationType?: "none" | "slide" | "fade"
         /**
          * The `transparent` prop determines whether your modal will fill the entire view.
          * Setting this to `true` will render the modal over a transparent background.
          */
-        transparent?: boolean;
+        transparent?: boolean
         /**
          * The `visible` prop determines whether your modal is visible.
          */
-        visible?: boolean;
+        visible?: boolean
         /**
          * The `onRequestClose` prop allows passing a function that will be called once the modal has been dismissed.
          * _On the Android platform, this is a required function._
          */
-        onRequestClose?: () => void;
+        onRequestClose?: () => void
         /**
          * The `onShow` prop allows passing a function that will be called once the modal has been shown.
          */
-        onShow?: (event: NativeSyntheticEvent<any>) => void;
+        onShow?: (event: NativeSyntheticEvent<any>) => void
         /**
          * The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations.
          * On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field.
          * @platform ios
          */
-        supportedOrientations: ('portrait' | 'portrait-upside-down' | 'landscape' | 'landscape-left' | 'landscape-right')[];
+        supportedOrientations: ('portrait' | 'portrait-upside-down' | 'landscape' | 'landscape-left' | 'landscape-right')[]
         /**
          * The `onOrientationChange` callback is called when the orientation changes while the modal is being displayed.
          * The orientation provided is only 'portrait' or 'landscape'. This callback is also called on initial render, regardless of the current orientation.
          * @platform ios
          */
-        onOrientationChange: () => void;
+        onOrientationChange: () => void,
     }
 
     export interface ModalStatic extends React.ComponentClass<ModalProperties> {
@@ -3825,7 +3837,7 @@ declare module "react" {
          *
          * @enum('none', 'button', 'radiobutton_checked', 'radiobutton_unchecked' )
          */
-        accessibilityComponentType?: 'none' | 'button' | 'radiobutton_checked' | 'radiobutton_unchecked';
+        accessibilityComponentType?: 'none' | 'button' | 'radiobutton_checked' | 'radiobutton_unchecked'
     }
 
     type ViewAccessibilityTraits = 'none' | 'button' | 'link' | 'header' | 'search' | 'image' | 'selected' | 'plays' | 'key' | 'text' | 'summary' | 'disabled' | 'frequentUpdates' | 'startsMedia' | 'adjustable' | 'allowsDirectInteraction' | 'pageTurn'
@@ -3851,7 +3863,7 @@ declare module "react" {
         /**
          * Called when the touch is released, but not if cancelled (e.g. by a scroll that steals the responder lock).
          */
-        accessible?: boolean;
+        accessible?: boolean
 
         /**
          * Delay in ms, from onPressIn, before onLongPress is called.
@@ -3871,7 +3883,7 @@ declare module "react" {
         /**
          * If true, disable all interactions for this component.
          */
-        disabled?: boolean;
+        disabled?: boolean
 
         /**
          * This defines how far your touch can start away from the button.
@@ -3880,13 +3892,13 @@ declare module "react" {
          * the Z-index of sibling views always takes precedence if a touch hits
          * two overlapping views.
          */
-        hitSlop?: Insets;
+        hitSlop?: Insets
 
         /**
          * Invoked on mount and layout changes with
          * {nativeEvent: {layout: {x, y, width, height}}}
          */
-        onLayout?: (event: LayoutChangeEvent) => void;
+        onLayout?: (event: LayoutChangeEvent) => void
 
         onLongPress?: () => void;
 
@@ -3903,7 +3915,7 @@ declare module "react" {
         /**
          * //FIXME: not in doc but available in examples
          */
-        style?: ViewStyle;
+        style?: ViewStyle
 
         /**
          * When the scroll view is disabled, this defines how far your
@@ -3913,7 +3925,7 @@ declare module "react" {
          * while the scroll view is disabled. Ensure you pass in a constant
          * to reduce memory allocations.
          */
-        pressRetentionOffset?: Insets;
+        pressRetentionOffset?: Insets
     }
 
 
@@ -3940,29 +3952,29 @@ declare module "react" {
         /**
          * Determines what the opacity of the wrapped view should be when touch is active.
          */
-        activeOpacity?: number;
+        activeOpacity?: number
 
         /**
          *
          * Called immediately after the underlay is hidden
          */
-        onHideUnderlay?: () => void;
+        onHideUnderlay?: () => void
 
         /**
          * Called immediately after the underlay is shown
          */
-        onShowUnderlay?: () => void;
+        onShowUnderlay?: () => void
 
         /**
          * @see https://facebook.github.io/react-native/docs/view.html#style
          */
-        style?: ViewStyle;
+        style?: ViewStyle
 
 
         /**
          * The color of the underlay that will show through when the touch is active.
          */
-        underlayColor?: string;
+        underlayColor?: string
     }
 
     /**
@@ -3990,7 +4002,7 @@ declare module "react" {
          * Determines what the opacity of the wrapped view should be when touch is active.
          * Defaults to 0.2
          */
-        activeOpacity?: number;
+        activeOpacity?: number
     }
 
     /**
@@ -4005,7 +4017,7 @@ declare module "react" {
         /**
          * Animate the touchable to a new opacity.
          */
-        setOpacityTo: (value: number) => void;
+        setOpacityTo: (value: number) => void
     }
 
     interface BaseBackgroundPropType {
@@ -4037,7 +4049,7 @@ declare module "react" {
          *      2) TouchableNativeFeedback.SelectableBackgroundBorderless() - will create object that represent android theme's default background for borderless selectable elements (?android:attr/selectableItemBackgroundBorderless). Available on android API level 21+
          *      3) TouchableNativeFeedback.Ripple(color, borderless) - will create object that represents ripple drawable with specified color (as a string). If property borderless evaluates to true the ripple will render outside of the view bounds (see native actionbar buttons as an example of that behavior). This background type is available on Android API level 21+
          */
-        background?: BackgroundPropType;
+        background?: BackgroundPropType
     }
 
     /**
@@ -4051,6 +4063,7 @@ declare module "react" {
      * @see https://facebook.github.io/react-native/docs/touchablenativefeedback.html#content
      */
     export interface TouchableNativeFeedbackStatic extends TouchableMixin, React.ClassicComponentClass<TouchableNativeFeedbackProperties> {
+
         /**
          * Creates an object that represents android theme's default background for
          * selectable elements (?android:attr/selectableItemBackground).
@@ -4109,7 +4122,7 @@ declare module "react" {
         // A list of all gestures that are enabled on this scene
         gestures?: {
             pop?: LeftToRightGesture,
-        };
+        },
 
         // Rebound spring parameters when transitioning FROM this scene
         springFriction: number;
@@ -4148,23 +4161,23 @@ declare module "react" {
     }
 
     export interface Route {
-        component?: React.ComponentClass<ViewProperties>;
-        id?: string;
-        title?: string;
+        component?: React.ComponentClass<ViewProperties>
+        id?: string
+        title?: string
         passProps?: Object;
 
         //anything else
-        [key: string]: any;
+        [key: string]: any
 
         //Commonly found properties
-        backButtonTitle?: string;
-        content?: string;
+        backButtonTitle?: string
+        content?: string
         message?: string;
-        index?: number;
-        onRightButtonPress?: () => void;
-        rightButtonTitle?: string;
-        sceneConfig?: SceneConfig;
-        wrapperStyle?: any;
+        index?: number
+        onRightButtonPress?: () => void
+        rightButtonTitle?: string
+        sceneConfig?: SceneConfig
+        wrapperStyle?: any
     }
 
 
@@ -4181,40 +4194,40 @@ declare module "react" {
          * @param route
          * @param routeStack
          */
-        configureScene?: (route: Route, routeStack: Route[]) => SceneConfig;
+        configureScene?: (route: Route, routeStack: Route[]) => SceneConfig
         /**
          * Specify a route to start on.
          * A route is an object that the navigator will use to identify each scene to render.
          * initialRoute must be a route in the initialRouteStack if both props are provided.
          * The initialRoute will default to the last item in the initialRouteStack.
          */
-        initialRoute?: Route;
+        initialRoute?: Route
         /**
          * Provide a set of routes to initially mount.
          * Required if no initialRoute is provided.
          * Otherwise, it will default to an array containing only the initialRoute
          */
-        initialRouteStack?: Route[];
+        initialRouteStack?: Route[]
 
         /**
          * Optionally provide a navigation bar that persists across scene transitions
          */
-        navigationBar?: React.ReactElement<NavigatorStatic.NavigationBarProperties>;
+        navigationBar?: React.ReactElement<NavigatorStatic.NavigationBarProperties>
 
         /**
          * Optionally provide the navigator object from a parent Navigator
          */
-        navigator?: Navigator;
+        navigator?: Navigator
 
         /**
          * @deprecated Use navigationContext.addListener('willfocus', callback) instead.
          */
-        onDidFocus?: Function;
+        onDidFocus?: Function
 
         /**
          * @deprecated Use navigationContext.addListener('willfocus', callback) instead.
          */
-        onWillFocus?: Function;
+        onWillFocus?: Function
 
         /**
          * Required function which renders the scene for a given route.
@@ -4222,12 +4235,13 @@ declare module "react" {
          * @param route
          * @param navigator
          */
-        renderScene: ( route: Route, navigator: Navigator ) => React.ReactElement<ViewProperties>;
+        renderScene: ( route: Route, navigator: Navigator ) => React.ReactElement<ViewProperties>
 
         /**
          * Styles to apply to the container of each scene
          */
-        sceneStyle?: ViewStyle;
+        sceneStyle?: ViewStyle
+
     }
 
     /**
@@ -4370,8 +4384,8 @@ declare module "react" {
 
 
         export interface NavState {
-            routeStack: Route[];
-            presentedIndex: number;
+            routeStack: Route[]
+            presentedIndex: number
         }
 
         // @see NavigationBarStyle.ios.js
@@ -4419,15 +4433,15 @@ declare module "react" {
          * @see NavigatorNavigationBar.js
          */
         export interface NavigationBarProperties extends React.Props<NavigationBarStatic> {
-            navigator?: Navigator;
-            routeMapper?: NavigationBarRouteMapper;
-            navState?: NavState;
-            navigationStyles?: NavigationBarStyle;
-            style?: ViewStyle;
+            navigator?: Navigator
+            routeMapper?: NavigationBarRouteMapper
+            navState?: NavState
+            navigationStyles?: NavigationBarStyle
+            style?: ViewStyle
         }
 
         export interface NavigationBarStatic extends React.ComponentClass<NavigationBarProperties> {
-            Styles: NavigationBarStyle;
+            Styles: NavigationBarStyle
             StylesAndroid: NavigationBarStyle;
             StylesIOS: NavigationBarStyle;
 
@@ -4438,8 +4452,8 @@ declare module "react" {
             immediatelyRefresh(): void;
         }
 
-        export type NavigationBar = NavigationBarStatic;
-        export var NavigationBar: NavigationBarStatic;
+        export type NavigationBar = NavigationBarStatic
+        export var NavigationBar: NavigationBarStatic
 
 
         export interface BreadcrumbNavigationBarStyle {
@@ -4447,31 +4461,31 @@ declare module "react" {
         }
 
         export interface BreadcrumbNavigationBarRouteMapper {
-            rightContentForRoute: (route: Route, navigator: Navigator) => React.ReactElement<any>;
-            titleContentForRoute: (route: Route, navigator: Navigator) => React.ReactElement<any>;
-            iconForRoute: (route: Route, navigator: Navigator) => React.ReactElement<any>;
+            rightContentForRoute: (route: Route, navigator: Navigator) => React.ReactElement<any>
+            titleContentForRoute: (route: Route, navigator: Navigator) => React.ReactElement<any>
+            iconForRoute: (route: Route, navigator: Navigator) => React.ReactElement<any>
             //in samples...
-            separatorForRoute: (route: Route, navigator: Navigator) => React.ReactElement<any>;
+            separatorForRoute: (route: Route, navigator: Navigator) => React.ReactElement<any>
         }
 
         /**
          * @see NavigatorNavigationBar.js
          */
         export interface BreadcrumbNavigationBarProperties extends React.Props<BreadcrumbNavigationBarStatic> {
-            navigator?: Navigator;
-            routeMapper?: BreadcrumbNavigationBarRouteMapper;
-            navState?: NavState;
-            style?: ViewStyle;
+            navigator?: Navigator
+            routeMapper?: BreadcrumbNavigationBarRouteMapper
+            navState?: NavState
+            style?: ViewStyle
         }
 
         export interface BreadcrumbNavigationBarStatic extends React.ComponentClass<BreadcrumbNavigationBarProperties> {
-            Styles: BreadcrumbNavigationBarStyle;
+            Styles: BreadcrumbNavigationBarStyle
 
-            immediatelyRefresh(): void;
+            immediatelyRefresh(): void
         }
 
-        export type BreadcrumbNavigationBar = BreadcrumbNavigationBarStatic;
-        var BreadcrumbNavigationBar: BreadcrumbNavigationBarStatic;
+        export type BreadcrumbNavigationBar = BreadcrumbNavigationBarStatic
+        var BreadcrumbNavigationBar: BreadcrumbNavigationBarStatic
 
     }
 
@@ -4524,7 +4538,7 @@ declare module "react" {
          * their respective objects, merged as one and then returned. This also explains
          * the alternative use.
          */
-        export function flatten(style?: Style | Style[]): Style;
+        export function flatten(style?: Style | Style[]): Style
 
         /**
          * This is defined as the width of a thin line on the platform. It can be
@@ -4543,14 +4557,14 @@ declare module "react" {
          * constant size, because on different platforms and screen densities its
          * value may be calculated differently.
          */
-        export var hairlineWidth: number;
+        export var hairlineWidth: number
 
         /**
          * A very common pattern is to create overlays with position absolute and zero positioning,
          * so `absoluteFill` can be used for convenience and to reduce duplication of these repeated
          * styles.
          */
-        export var absoluteFill: number;
+        export var absoluteFill: number
 
         /**
          * Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillObject` can be
@@ -4570,7 +4584,7 @@ declare module "react" {
             right: number
             top: number
             bottom: number
-        };
+        }
     }
 
     export interface RelayProfiler {
@@ -4636,10 +4650,10 @@ declare module "react" {
      * //FIXME: Could not find docs. Inferred from examples and jscode : ListViewDataSource.js
      */
     export interface DataSourceAssetCallback {
-        rowHasChanged?: (r1: any, r2: any) => boolean;
-        sectionHeaderHasChanged?: (h1: any, h2: any) => boolean;
-        getRowData?: <T>(dataBlob: any, sectionID: number | string, rowID: number | string) => T;
-        getSectionHeaderData?: <T>(dataBlob: any, sectionID: number | string) => T;
+        rowHasChanged?: (r1: any, r2: any) => boolean
+        sectionHeaderHasChanged?: (h1: any, h2: any) => boolean
+        getRowData?: <T>(dataBlob: any, sectionID: number | string, rowID: number | string) => T
+        getSectionHeaderData?: <T>(dataBlob: any, sectionID: number | string) => T
     }
 
     /**
@@ -4699,7 +4713,7 @@ declare module "react" {
          * handle merging of old and new data separately and then pass that into
          * this function as the `dataBlob`.
          */
-        cloneWithRows<T>(dataBlob: any[] | { [key: string]: any }, rowIdentities?: Array<string | number>): ListViewDataSource;
+        cloneWithRows<T>(dataBlob: Array<any> | { [key: string]: any }, rowIdentities?: Array<string | number>): ListViewDataSource
 
         /**
          * This performs the same function as the `cloneWithRows` function but here
@@ -4712,47 +4726,47 @@ declare module "react" {
          *
          * Note: this returns a new object!
          */
-        cloneWithRowsAndSections(dataBlob: any[] | { [key: string]: any }, sectionIdentities?: Array<string | number>, rowIdentities?: Array<Array<string | number>>): ListViewDataSource;
+        cloneWithRowsAndSections(dataBlob: Array<any> | { [key: string]: any }, sectionIdentities?: Array<string | number>, rowIdentities?: Array<Array<string | number>>): ListViewDataSource
 
-        getRowCount(): number;
-        getRowAndSectionCount(): number;
+        getRowCount(): number
+        getRowAndSectionCount(): number
 
         /**
          * Returns if the row is dirtied and needs to be rerendered
          */
-        rowShouldUpdate(sectionIndex: number, rowIndex: number): boolean;
+        rowShouldUpdate(sectionIndex: number, rowIndex: number): boolean
 
         /**
          * Gets the data required to render the row.
          */
-        getRowData(sectionIndex: number, rowIndex: number): any;
+        getRowData(sectionIndex: number, rowIndex: number): any
 
         /**
          * Gets the rowID at index provided if the dataSource arrays were flattened,
          * or null of out of range indexes.
          */
-        getRowIDForFlatIndex(index: number): string;
+        getRowIDForFlatIndex(index: number): string
 
         /**
          * Gets the sectionID at index provided if the dataSource arrays were flattened,
          * or null for out of range indexes.
          */
-        getSectionIDForFlatIndex(index: number): string;
+        getSectionIDForFlatIndex(index: number): string
 
         /**
          * Returns an array containing the number of rows in each section
          */
-        getSectionLengths(): number[];
+        getSectionLengths(): Array<number>
 
         /**
          * Returns if the section header is dirtied and needs to be rerendered
          */
-        sectionHeaderShouldUpdate(sectionIndex: number): boolean;
+        sectionHeaderShouldUpdate(sectionIndex: number): boolean
 
         /**
          * Gets the data required to render the section header
          */
-        getSectionHeaderData(sectionIndex: number): any;
+        getSectionHeaderData(sectionIndex: number): any
     }
 
 
@@ -4764,18 +4778,18 @@ declare module "react" {
         /**
          * Little red bubble that sits at the top right of the icon.
          */
-        badge?: string | number;
+        badge?: string | number
 
         /**
          * A custom icon for the tab. It is ignored when a system icon is defined.
          */
-        icon?: ImageURISource;
+        icon?: ImageURISource
 
         /**
          * Callback when this tab is being selected,
          * you should change the state of your component to set selected={true}.
          */
-        onPress?: () => void;
+        onPress?: () => void
 
         /**
          * If set to true it renders the image as original,
@@ -4786,7 +4800,7 @@ declare module "react" {
         /**
          * It specifies whether the children are visible or not. If you see a blank content, you probably forgot to add a selected one.
          */
-        selected?: boolean;
+        selected?: boolean
 
         /**
          * A custom icon when the tab is selected.
@@ -4797,7 +4811,7 @@ declare module "react" {
         /**
          * React style object.
          */
-        style?: ViewStyle;
+        style?: ViewStyle
 
         /**
          * Items comes with a few predefined system icons.
@@ -4805,14 +4819,14 @@ declare module "react" {
          *
          *  enum('bookmarks', 'contacts', 'downloads', 'favorites', 'featured', 'history', 'more', 'most-recent', 'most-viewed', 'recents', 'search', 'top-rated')
          */
-        systemIcon?: "bookmarks" | "contacts" | "downloads" | "favorites" | "featured" | "history" | "more" | "most-recent" | "most-viewed" | "recents" | "search" | "top-rated";
+        systemIcon?: "bookmarks" | "contacts" | "downloads" | "favorites" | "featured" | "history" | "more" | "most-recent" | "most-viewed" | "recents" | "search" | "top-rated"
 
         /**
          * Text that appears under the icon. It is ignored when a system icon is defined.
          */
-        title?: string;
+        title?: string
 
-        ref?: Ref<TabBarItemStatic & ViewStatic>;
+        ref?: Ref<TabBarItemStatic & ViewStatic>
     }
 
     export interface TabBarItemStatic extends React.ComponentClass<TabBarItemProperties> {
@@ -4826,7 +4840,7 @@ declare module "react" {
         /**
          * Background color of the tab bar
          */
-        barTintColor?: string;
+        barTintColor?: string
 
         /**
          * Specifies tab bar item positioning. Available values are:
@@ -4837,24 +4851,24 @@ declare module "react" {
          * this value defaults to `fill`, in a horizontally regular one (e.g. iPad)
          * it defaults to center.
          */
-        itemPositioning?: 'fill' | 'center' | 'auto';
+        itemPositioning?: 'fill' | 'center' | 'auto'
 
         /**
          * Color of the currently selected tab icon
          */
-        tintColor?: string;
+        tintColor?: string
 
         /**
          * A Boolean value that indicates whether the tab bar is translucent
          */
-        translucent?: boolean;
+        translucent?: boolean
 
         /**
          * Color of text on unselected tabs
          */
-        unselectedTintColor?: string;
+        unselectedTintColor?: string
 
-        ref?: Ref<TabBarIOSStatic & ViewStatic>;
+        ref?: Ref<TabBarIOSStatic & ViewStatic>
     }
 
     export interface TabBarIOSStatic extends React.ComponentClass<TabBarIOSProperties> {
@@ -4894,14 +4908,14 @@ declare module "react" {
           preference set in Settings > Display > Font size,
            on iOS it will always return the default pixel ratio.
          */
-        getFontScale(): number;
+        getFontScale(): number
 
         /**
          * Converts a layout size (dp) to pixel size (px).
          * Guaranteed to return an integer number.
          * @param layoutSize
          */
-        getPixelSizeForLayoutSize(layoutSize: number): number;
+        getPixelSizeForLayoutSize(layoutSize: number): number
 
         /**
          * Rounds a layout size (dp) to the nearest layout size that
@@ -4911,22 +4925,22 @@ declare module "react" {
          * which corresponds to exactly (8.33 * 3) = 25 pixels.
          * @param layoutSize
          */
-        roundToNearestPixel(layoutSize: number): number;
+        roundToNearestPixel(layoutSize: number): number
 
         /**
          * No-op for iOS, but used on the web. Should not be documented. [sic]
          */
-        startDetecting(): void;
+        startDetecting(): void
     }
 
     /**
      * @see https://facebook.github.io/react-native/docs/platform-specific-code.html#content
      */
-    export type PlatformOSType = 'ios' | 'android';
+    export type PlatformOSType = 'ios' | 'android'
 
     interface PlatformStatic {
-        OS: PlatformOSType;
-        Version?: number;
+        OS: PlatformOSType
+        Version?: number
 
         /**
          * @see https://facebook.github.io/react-native/docs/platform-specific-code.html#content
@@ -4939,7 +4953,7 @@ declare module "react" {
      * adding all event listeners directly to RCTDeviceEventEmitter.
      */
     interface DeviceEventEmitterStatic extends EventEmitter {
-        sharedSubscriber: EventSubscriptionVendor;
+        sharedSubscriber: EventSubscriptionVendor
         new(): DeviceEventEmitterStatic;
         addListener<T>( type: string, listener: ( data: T ) => void, context?: any ): EmitterSubscription;
     }
@@ -4989,7 +5003,7 @@ declare module "react" {
          * This should only be called from native code by sending the didUpdateDimensions event.
          * @param {object} dims Simple string-keyed object of dimensions to set
          */
-        set( dims: {[key: string]: any} ): void;
+        set( dims: {[key: string]: any} ): void
     }
 
     export type SimpleTask = {
@@ -4999,9 +5013,9 @@ declare module "react" {
     export type PromiseTask = {
         name: string
         gen: () => Promise<any>
-    };
+    }
 
-    export type Handle = number;
+    export type Handle = number
 
     export interface InteractionManagerStatic {
         Events: {
@@ -5018,54 +5032,54 @@ declare module "react" {
          * @param fn
          */
         runAfterInteractions( task: Function | SimpleTask | PromiseTask):
-          {then: Function, done: Function, cancel: Function};
+          {then: Function, done: Function, cancel: Function}
 
         /**
          * Notify manager that an interaction has started.
          */
-        createInteractionHandle(): Handle;
+        createInteractionHandle(): Handle
 
         /**
          * Notify manager that an interaction has completed.
          */
-        clearInteractionHandle(handle: Handle): void;
+        clearInteractionHandle(handle: Handle): void
 
         /**
          * A positive number will use setTimeout to schedule any tasks after
          * the eventLoopRunningTime hits the deadline value, otherwise all
          * tasks will be executed in one setImmediate batch (default).
          */
-        setDeadline(deadline: number): void;
+        setDeadline(deadline: number): void
     }
 
 
     export interface ScrollViewStyle extends FlexStyle, TransformsStyle {
 
-        backfaceVisibility?: "visible" | "hidden";
-        backgroundColor?: string;
-        borderColor?: string;
-        borderTopColor?: string;
-        borderRightColor?: string;
-        borderBottomColor?: string;
-        borderLeftColor?: string;
-        borderRadius?: number;
-        borderTopLeftRadius?: number;
-        borderTopRightRadius?: number;
-        borderBottomLeftRadius?: number;
-        borderBottomRightRadius?: number;
-        borderStyle?: "solid" | "dotted" | "dashed";
-        borderWidth?: number;
-        borderTopWidth?: number;
-        borderRightWidth?: number;
-        borderBottomWidth?: number;
-        borderLeftWidth?: number;
-        opacity?: number;
-        overflow?: "visible" | "hidden";
-        shadowColor?: string;
-        shadowOffset?: { width: number; height: number };
-        shadowOpacity?: number;
-        shadowRadius?: number;
-        elevation?: number;
+        backfaceVisibility?: "visible" | "hidden"
+        backgroundColor?: string
+        borderColor?: string
+        borderTopColor?: string
+        borderRightColor?: string
+        borderBottomColor?: string
+        borderLeftColor?: string
+        borderRadius?: number
+        borderTopLeftRadius?: number
+        borderTopRightRadius?: number
+        borderBottomLeftRadius?: number
+        borderBottomRightRadius?: number
+        borderStyle?: "solid" | "dotted" | "dashed"
+        borderWidth?: number
+        borderTopWidth?: number
+        borderRightWidth?: number
+        borderBottomWidth?: number
+        borderLeftWidth?: number
+        opacity?: number
+        overflow?: "visible" | "hidden"
+        shadowColor?: string
+        shadowOffset?: { width: number; height: number }
+        shadowOpacity?: number
+        shadowRadius?: number
+        elevation?: number
     }
 
 
@@ -5329,19 +5343,19 @@ declare module "react" {
          * even if the content is smaller than the scroll view itself. The default
          * value is true when `horizontal={true}` and false otherwise.
          */
-        alwaysBounceHorizontal?: boolean;
+        alwaysBounceHorizontal?: boolean
         /**
          * When true the scroll view bounces vertically when it reaches the end
          * even if the content is smaller than the scroll view itself. The default
          * value is false when `horizontal={true}` and true otherwise.
          */
-        alwaysBounceVertical?: boolean;
+        alwaysBounceVertical?: boolean
 
         /**
          * Controls whether iOS should automatically adjust the content inset for scroll views that are placed behind a navigation bar or tab bar/ toolbar.
          * The default value is true.
          */
-        automaticallyAdjustContentInsets?: boolean; // true
+        automaticallyAdjustContentInsets?: boolean // true
 
         /**
          * When true the scroll view bounces when it reaches the end of the
@@ -5349,19 +5363,19 @@ declare module "react" {
          * the scroll direction. When false it disables all bouncing even if
          * the `alwaysBounce*` props are true. The default value is true.
          */
-        bounces?: boolean;
+        bounces?: boolean
         /**
          * When true gestures can drive zoom past min/max and the zoom will animate
          * to the min/max value at gesture end otherwise the zoom will not exceed
          * the limits.
          */
-        bouncesZoom?: boolean;
+        bouncesZoom?: boolean
 
         /**
          * When false once tracking starts won't try to drag if the touch moves.
          * The default value is true.
          */
-        canCancelContentTouches?: boolean;
+        canCancelContentTouches?: boolean
 
         /**
          * When true the scroll view automatically centers the content when the
@@ -5369,19 +5383,19 @@ declare module "react" {
          * larger than the scroll view this property has no effect. The default
          * value is false.
          */
-        centerContent?: boolean;
+        centerContent?: boolean
 
         /**
          * The amount by which the scroll view content is inset from the edges of the scroll view.
          * Defaults to {0, 0, 0, 0}.
          */
-        contentInset?: Insets; // zeros
+        contentInset?: Insets // zeros
 
         /**
          * Used to manually set the starting scroll offset.
          * The default value is {x: 0, y: 0}
          */
-        contentOffset?: PointProperties; // zeros
+        contentOffset?: PointProperties // zeros
 
         /**
          * A floating-point number that determines how quickly the scroll view
@@ -5389,13 +5403,13 @@ declare module "react" {
          *   - Normal: 0.998 (the default)
          *   - Fast: 0.9
          */
-        decelerationRate?: "fast" | "normal" | number;
+        decelerationRate?: "fast" | "normal" | number
 
         /**
          * When true the ScrollView will try to lock to only vertical or horizontal
          * scrolling while dragging.  The default value is false.
          */
-        directionalLockEnabled?: boolean;
+        directionalLockEnabled?: boolean
 
         /**
          * The style of the scroll indicators.
@@ -5405,27 +5419,27 @@ declare module "react" {
          * - white, scroll indicator is white. This style is good against
          *   a black content background.
          */
-        indicatorStyle?: "default" | "black" | "white";
+        indicatorStyle?: "default" | "black" | "white"
 
         /**
          * The maximum allowed zoom scale. The default value is 1.0.
          */
-        maximumZoomScale?: number;
+        maximumZoomScale?: number
 
         /**
          * The minimum allowed zoom scale. The default value is 1.0.
          */
-        minimumZoomScale?: number;
+        minimumZoomScale?: number
 
         /**
          * Called when a scrolling animation ends.
          */
-        onScrollAnimationEnd?: () => void;
+        onScrollAnimationEnd?: () => void
 
         /**
          * When false, the content does not scroll. The default value is true
          */
-        scrollEnabled?: boolean; // true
+        scrollEnabled?: boolean // true
 
         /**
          * This controls how often the scroll event will be fired while scrolling (in events per seconds).
@@ -5433,20 +5447,20 @@ declare module "react" {
          * but can lead to scroll performance problems due to the volume of information being send over the bridge.
          * The default value is zero, which means the scroll event will be sent only once each time the view is scrolled.
          */
-        scrollEventThrottle?: number; // null
+        scrollEventThrottle?: number // null
 
         /**
          * The amount by which the scroll view indicators are inset from the edges of the scroll view.
          * This should normally be set to the same value as the contentInset.
          * Defaults to {0, 0, 0, 0}.
          */
-        scrollIndicatorInsets?: Insets; //zeroes
+        scrollIndicatorInsets?: Insets //zeroes
 
         /**
          * When true the scroll view scrolls to top when the status bar is tapped.
          * The default value is true.
          */
-        scrollsToTop?: boolean;
+        scrollsToTop?: boolean
 
         /**
          * When snapToInterval is set, snapToAlignment will define the relationship of the the snapping to the scroll view.
@@ -5454,14 +5468,14 @@ declare module "react" {
          *      - center will align the snap in the center
          *      - end will align the snap at the right (horizontal) or bottom (vertical)
          */
-        snapToAlignment?: "start" | "center" | "end";
+        snapToAlignment?: "start" | "center" | "end"
 
         /**
          * When set, causes the scroll view to stop at multiples of the value of snapToInterval.
          * This can be used for paginating through children that have lengths smaller than the scroll view.
          * Used in combination with snapToAlignment.
          */
-        snapToInterval?: number;
+        snapToInterval?: number
 
         /**
          * An array of child indices determining which children get docked to the
@@ -5470,12 +5484,12 @@ declare module "react" {
          * top of the scroll view. This property is not supported in conjunction
          * with `horizontal={true}`.
          */
-        stickyHeaderIndices?: number[];
+        stickyHeaderIndices?: number[]
 
         /**
          * The current scale of the scroll view content. The default value is 1.0.
          */
-        zoomScale?: number;
+        zoomScale?: number
     }
 
     export interface ScrollViewPropertiesAndroid {
@@ -5487,7 +5501,7 @@ declare module "react" {
          * unnecessary overdraw. This is an advanced optimization that is not
          * needed in the general case.
          */
-        endFillColor?: string;
+        endFillColor?: string
 
         /**
          * Tag used to log scroll performance on this scroll view. Will force
@@ -5496,7 +5510,7 @@ declare module "react" {
          * FpsListener for it to be useful.
          * @platform android
          */
-        scrollPerfTag?: string;
+        scrollPerfTag?: string
 
     }
 
@@ -5517,13 +5531,13 @@ declare module "react" {
          *     }
          *   });
          */
-        contentContainerStyle?: ViewStyle;
+        contentContainerStyle?: ViewStyle
 
         /**
          * When true the scroll view's children are arranged horizontally in a row
          * instead of vertically in a column. The default value is false.
          */
-        horizontal?: boolean;
+        horizontal?: boolean
 
         /**
          * Determines whether the keyboard gets dismissed in response to a drag.
@@ -5533,7 +5547,7 @@ declare module "react" {
          *     and moves in synchrony with the touch; dragging upwards cancels the
          *     dismissal.
          */
-        keyboardDismissMode?: string;
+        keyboardDismissMode?: string
 
         /**
          * When false tapping outside of the focused text input when the keyboard
@@ -5541,20 +5555,20 @@ declare module "react" {
          * taps and the keyboard will not dismiss automatically. The default value
          * is false.
          */
-        keyboardShouldPersistTaps?: boolean;
+        keyboardShouldPersistTaps?: boolean
 
         /**
          * Fires at most once per frame during scrolling.
          * The frequency of the events can be contolled using the scrollEventThrottle prop.
          */
-        onScroll?: (event?: { nativeEvent: NativeScrollEvent }) => void;
+        onScroll?: (event?: { nativeEvent: NativeScrollEvent }) => void
 
         /**
          * When true the scroll view stops on multiples of the scroll view's size
          * when scrolling. This can be used for horizontal pagination. The default
          * value is false.
          */
-        pagingEnabled?: boolean;
+        pagingEnabled?: boolean
 
         /**
          * Experimental: When true offscreen child views (whose `overflow` value is
@@ -5562,37 +5576,38 @@ declare module "react" {
          * This canimprove scrolling performance on long lists. The default value is
          * false.
          */
-        removeClippedSubviews?: boolean;
+        removeClippedSubviews?: boolean
 
         /**
          * When true, shows a horizontal scroll indicator.
          */
-        showsHorizontalScrollIndicator?: boolean;
+        showsHorizontalScrollIndicator?: boolean
 
         /**
          * When true, shows a vertical scroll indicator.
          */
-        showsVerticalScrollIndicator?: boolean;
+        showsVerticalScrollIndicator?: boolean
 
         /**
          * Style
          */
-        style?: ScrollViewStyle;
+        style?: ScrollViewStyle
 
         /**
          * A RefreshControl component, used to provide pull-to-refresh
          * functionality for the ScrollView.
          */
-        refreshControl?: React.ReactElement<RefreshControlProperties>;
+        refreshControl?: React.ReactElement<RefreshControlProperties>
 
-        ref?: Ref<ScrollViewStatic & ViewStatic>;
+        ref?: Ref<ScrollViewStatic & ViewStatic>
     }
 
     export interface ScrollViewProps extends ScrollViewProperties, React.Props<ScrollViewStatic> {
-        ref?: Ref<ScrollViewStatic>;
+        ref?: Ref<ScrollViewStatic>
     }
 
     interface ScrollViewStatic extends ScrollResponderMixin, React.ComponentClass<ScrollViewProps> {
+
         /**
          * Scrolls to a given x, y offset, either immediately or with a smooth animation.
          * Syntax:
@@ -5623,7 +5638,7 @@ declare module "react" {
         getInnerViewNode(): any;
 
         // Deprecated, do not use.
-        scrollWithoutAnimationTo?: (y: number, x: number) => void;
+        scrollWithoutAnimationTo?: (y: number, x: number) => void
     }
 
 
@@ -5678,12 +5693,12 @@ declare module "react" {
      */
     export interface SwipeableListViewDataSource {
         cloneWithRowsAndSections(dataBlob: any,
-                                 sectionIdentities?: string[],
-                                 rowIdentities?: string[][]): SwipeableListViewDataSource
-        getDataSource(): ListViewDataSource;
-        getOpenRowID(): string;
-        getFirstRowID(): string;
-        setOpenRowID(rowID: string): SwipeableListViewDataSource;
+                                 sectionIdentities?: Array<string>,
+                                 rowIdentities?: Array<Array<string>>): SwipeableListViewDataSource
+        getDataSource(): ListViewDataSource
+        getOpenRowID(): string
+        getFirstRowID(): string
+        setOpenRowID(rowID: string): SwipeableListViewDataSource
     }
 
     export interface SwipeableListViewProps extends React.Props<SwipeableListViewStatic> {
@@ -5701,13 +5716,13 @@ declare module "react" {
         dataSource: SwipeableListViewDataSource
 
         // Maximum distance to open to after a swipe
-        maxSwipeDistance: number;
+        maxSwipeDistance: number
 
         // Callback method to render the swipeable view
-        renderRow: (rowData: any, sectionID: string | number, rowID: string | number, highlightRow?: boolean) => React.ReactElement<any>;
+        renderRow: (rowData: any, sectionID: string | number, rowID: string | number, highlightRow?: boolean) => React.ReactElement<any>
 
         // Callback method to render the view that will be unveiled on swipe
-        renderQuickActions(rowData: any, sectionID: string | number, rowID: string | number): React.ReactElement<any>;
+        renderQuickActions(rowData: any, sectionID: string | number, rowID: string | number): React.ReactElement<any>
     }
 
     /**
@@ -5729,7 +5744,7 @@ declare module "react" {
      * - More to come
      */
     export interface SwipeableListViewStatic extends React.ComponentClass<SwipeableListViewProps> {
-        getNewDataSource(): SwipeableListViewDataSource;
+        getNewDataSource(): SwipeableListViewDataSource
     }
 
 
@@ -5743,21 +5758,21 @@ declare module "react" {
      * @see: http://facebook.github.io/react-native/docs/actionsheetios.html#content
      */
     export interface ActionSheetIOSOptions {
-        title?: string;
-        options: string[];
-        cancelButtonIndex?: number;
-        destructiveButtonIndex?: number;
-        message?: string;
+        title?: string
+        options: string[]
+        cancelButtonIndex?: number
+        destructiveButtonIndex?: number
+        message?: string
     }
 
     export interface ShareActionSheetIOSOptions {
-        message?: string;
-        url?: string;
-        subject?: string;
+        message?: string
+        url?: string
+        subject?: string
         /** The activities to exclude from the ActionSheet.
          * For example: ['com.apple.UIKit.activity.PostToTwitter']
          */
-        excludedActivityTypes?: string[];
+        excludedActivityTypes?: string[]
     }
 
     /**
@@ -5773,7 +5788,7 @@ declare module "react" {
          * - `title` (string) - a title to show above the action sheet
          * - `message` (string) - a message to show below the title
          */
-        showActionSheetWithOptions: (options: ActionSheetIOSOptions, callback: (buttonIndex: number) => void) => void;
+        showActionSheetWithOptions: (options: ActionSheetIOSOptions, callback: (buttonIndex: number) => void) => void
 
         /**
          * Display the iOS share sheet. The `options` object should contain
@@ -5789,7 +5804,7 @@ declare module "react" {
          * uri, the file it points to will be loaded and shared directly.
          * In this way, you can share images, videos, PDF files, etc.
          */
-        showShareActionSheetWithOptions: (options: ShareActionSheetIOSOptions, failureCallback: (error: Error) => void, successCallback: (success: boolean, method: string) => void) => void;
+        showShareActionSheetWithOptions: (options: ShareActionSheetIOSOptions, failureCallback: (error: Error) => void, successCallback: (success: boolean, method: string) => void) => void
     }
 
     export type ShareContent = {
@@ -5848,9 +5863,9 @@ declare module "react" {
      * @see https://facebook.github.io/react-native/docs/alert.html#content
      */
     export interface AlertButton {
-        text?: string;
-        onPress?: () => void;
-        style?: "default" | "cancel" | "destructive";
+        text?: string
+        onPress?: () => void
+        style?: "default" | "cancel" | "destructive"
     }
 
     interface AlertOptions {
@@ -5897,7 +5912,7 @@ declare module "react" {
      * ```
      */
     export interface AlertStatic {
-        alert: (title: string, message?: string, buttons?: AlertButton[], options?: AlertOptions, type?: string) => void;
+        alert: (title: string, message?: string, buttons?: AlertButton[], options?: AlertOptions, type?: string) => void
     }
 
     /**
@@ -5911,14 +5926,14 @@ declare module "react" {
      * //FIXME: No documentation - inferred from RCTAdSupport.m
      */
     export interface AdSupportIOSStatic {
-        getAdvertisingId: (onSuccess: (deviceId: string) => void, onFailure: (err: Error) => void) => void;
-        getAdvertisingTrackingEnabled: (onSuccess: (hasTracking: boolean) => void, onFailure: (err: Error) => void) => void;
+        getAdvertisingId: (onSuccess: (deviceId: string) => void, onFailure: (err: Error) => void) => void
+        getAdvertisingTrackingEnabled: (onSuccess: (hasTracking: boolean) => void, onFailure: (err: Error) => void) => void
     }
 
     interface AlertIOSButton {
-        text: string;
-        onPress?: () => void;
-        style?: "default" | "cancel" | "destructive";
+        text: string
+        onPress?: () => void
+        style?: "default" | "cancel" | "destructive"
     }
 
     export type AlertType = "default" | "plain-text" | "secure-text" | "login-password"
@@ -5972,7 +5987,7 @@ declare module "react" {
          *    'secure-text' or 'login-password'.
          * @param defaultValue The default text in text input.
          */
-        prompt: ( title: string, message?: string, callbackOrButtons?: ((value: string) => void) | Array<AlertIOSButton>, type?: AlertType, defaultValue?: string ) => void;
+        prompt: ( title: string, message?: string, callbackOrButtons?: ((value: string) => void) | Array<AlertIOSButton>, type?: AlertType, defaultValue?: string ) => void
     }
 
     /**
@@ -5991,23 +6006,23 @@ declare module "react" {
      *
      * @see https://facebook.github.io/react-native/docs/appstateios.html#content
      */
-    export type AppStateEvent = "change" | "memoryWarning";
-    export type AppStateStatus = "active" | "background" | "inactive";
+    export type AppStateEvent = "change" | "memoryWarning"
+    export type AppStateStatus = "active" | "background" | "inactive"
 
     export interface AppStateStatic {
 
-        currentState: string;
+        currentState: string
 
         /**
          * Add a handler to AppState changes by listening to the change event
          * type and providing the handler
          */
-        addEventListener(type: AppStateEvent, listener: (state: AppStateStatus) => void): void;
+        addEventListener(type: AppStateEvent, listener: (state: AppStateStatus) => void): void
 
         /**
          * Remove a handler by passing the change event type and the handler
          */
-        removeEventListener(type: AppStateEvent, listener: (state: AppStateStatus) => void): void;
+        removeEventListener(type: AppStateEvent, listener: (state: AppStateStatus) => void): void
     }
 
     /**
@@ -6030,48 +6045,48 @@ declare module "react" {
         /**
          * Fetches key and passes the result to callback, along with an Error if there is any.
          */
-        getItem(key: string, callback?: (error?: Error, result?: string) => void): Promise<string>;
+        getItem(key: string, callback?: (error?: Error, result?: string) => void): Promise<string>
 
         /**
          * Sets value for key and calls callback on completion, along with an Error if there is any
          */
-        setItem(key: string, value: string, callback?: (error?: Error) => void): Promise<string>;
+        setItem(key: string, value: string, callback?: (error?: Error) => void): Promise<string>
 
-        removeItem(key: string, callback?: (error?: Error) => void): Promise<string>;
+        removeItem(key: string, callback?: (error?: Error) => void): Promise<string>
 
         /**
          * Merges existing value with input value, assuming they are stringified json. Returns a Promise object.
          * Not supported by all native implementation
          */
-        mergeItem(key: string, value: string, callback?: (error?: Error) => void): Promise<string>;
+        mergeItem(key: string, value: string, callback?: (error?: Error) => void): Promise<string>
 
         /**
          * Erases all AsyncStorage for all clients, libraries, etc. You probably don't want to call this.
          * Use removeItem or multiRemove to clear only your own keys instead.
          */
-        clear(callback?: (error?: Error) => void): Promise<string>;
+        clear(callback?: (error?: Error) => void): Promise<string>
 
         /**
          * Gets all keys known to the app, for all callers, libraries, etc
          */
-        getAllKeys(callback?: (error?: Error, keys?: string[]) => void): Promise<string>;
+        getAllKeys(callback?: (error?: Error, keys?: string[]) => void): Promise<string>
 
         /**
          * multiGet invokes callback with an array of key-value pair arrays that matches the input format of multiSet
          */
-        multiGet(keys: string[], callback?: (errors?: Error[], result?: string[][]) => void): Promise<string>;
+        multiGet(keys: string[], callback?: (errors?: Error[], result?: string[][]) => void): Promise<string>
 
         /**
          * multiSet and multiMerge take arrays of key-value array pairs that match the output of multiGet,
          *
          * multiSet([['k1', 'val1'], ['k2', 'val2']], cb);
          */
-        multiSet(keyValuePairs: string[][], callback?: (errors?: Error[]) => void): Promise<string>;
+        multiSet(keyValuePairs: string[][], callback?: (errors?: Error[]) => void): Promise<string>
 
         /**
          * Delete all the keys in the keys array.
          */
-        multiRemove(keys: string[], callback?: (errors?: Error[]) => void): Promise<string>;
+        multiRemove(keys: string[], callback?: (errors?: Error[]) => void): Promise<string>
 
         /**
          * Merges existing values with input values, assuming they are stringified json.
@@ -6079,7 +6094,7 @@ declare module "react" {
          *
          * Not supported by all native implementations.
          */
-        multiMerge(keyValuePairs: string[][], callback?: (errors?: Error[]) => void): Promise<string>;
+        multiMerge(keyValuePairs: string[][], callback?: (errors?: Error[]) => void): Promise<string>
     }
 
     export type BackPressEventName = "hardwareBackPress"
@@ -6102,9 +6117,9 @@ declare module "react" {
     export interface CameraRollFetchParams {
         first: number;
         after?: string;
-        groupTypes?: CameraRollGroupType;
-        groupName?: string;
-        assetType?: CameraRollAssetType;
+        groupTypes?: CameraRollGroupType
+        groupName?: string
+        assetType?: CameraRollAssetType
     }
 
     export interface CameraRollNodeInfo {
@@ -6127,24 +6142,24 @@ declare module "react" {
     }
 
     export interface GetPhotosParamType {
-        first: number;
-        after?: string;
-        groupTypes?: CameraRollGroupType;
-        groupName?: string;
-        assetType?: CameraRollAssetType;
-        mimeTypes?: string[];
+        first: number
+        after?: string
+        groupTypes?: CameraRollGroupType
+        groupName?: string
+        assetType?: CameraRollAssetType
+        mimeTypes?: string[]
     }
 
     export interface GetPhotosReturnType {
         edges: {
             node: {
-                type: string;
-                group_name: string;
+                type: string
+                group_name: string
                 image: {
-                    uri: string;
-                    height: number;
-                    width: number;
-                    isStored?: boolean;
+                    uri: string
+                    height: number
+                    width: number
+                    isStored?: boolean
                 }
               timestamp: number
               location: {
@@ -6155,13 +6170,13 @@ declare module "react" {
                 speed: number
               }
             }
-        }[];
+        }[]
 
         page_info: {
-            has_next_page: boolean;
-            start_cursor?: string;
-            end_cursor?: string;
-        };
+            has_next_page: boolean
+            start_cursor?: string
+            end_cursor?: string
+        }
     }
 
     /**
@@ -6170,8 +6185,9 @@ declare module "react" {
      * You can refer to (Linking)[https://facebook.github.io/react-native/docs/linking-libraries-ios.html] for help.
      */
     export interface CameraRollStatic {
-        GroupTypesOptions: CameraRollGroupType[]; //'Album','All','Event','Faces','Library','PhotoStream','SavedPhotos'
-        AssetTypeOptions: CameraRollAssetType[]; // "All", "Videos", "Photos"
+
+        GroupTypesOptions: CameraRollGroupType[] //'Album','All','Event','Faces','Library','PhotoStream','SavedPhotos'
+        AssetTypeOptions: CameraRollAssetType[] // "All", "Videos", "Photos"
 
         /**
          * Saves the image to the camera roll / gallery.
@@ -6184,7 +6200,7 @@ declare module "react" {
          *
          * @deprecated use saveToCameraRoll instead
          */
-        saveImageWithTag(tag: string): Promise<string>;
+        saveImageWithTag(tag: string): Promise<string>
 
         /**
          * Saves the photo or video to the camera roll / gallery.
@@ -6200,7 +6216,7 @@ declare module "react" {
          *
          * Returns a Promise which will resolve with the new URI.
          */
-        saveToCameraRoll(tag: string, type?: 'photo' | 'video'): Promise<string>;
+        saveToCameraRoll(tag: string, type?: 'photo' | 'video'): Promise<string>
 
         /**
          * Saves the photo or video to the camera roll / gallery.
@@ -6216,7 +6232,7 @@ declare module "react" {
          *
          * Returns a Promise which will resolve with the new URI.
          */
-        saveToCameraRoll(tag: string, type?: 'photo' | 'video'): Promise<string>;
+        saveToCameraRoll(tag: string, type?: 'photo' | 'video'): Promise<string>
 
         /**
          * Invokes callback with photo identifier objects from the local camera roll of the device matching shape defined by getPhotosReturnChecker.
@@ -6233,17 +6249,17 @@ declare module "react" {
     }
 
     export interface DatePickerAndroidOpenOption {
-        date?: Date | number;
-        minDate?: Date | number;
-        maxDate?: Date | number;
+        date?: Date | number
+        minDate?: Date | number
+        maxDate?: Date | number
     }
 
     // Deduced from DatePickerAndroid.android.js
     export interface DatePickerAndroidOpenReturn {
-        action: string; // "dateSetAction" | "dismissedAction"
-        year?: number;
-        month?: number;
-        day?: number;
+        action: string // "dateSetAction" | "dismissedAction"
+        year?: number
+        month?: number
+        day?: number
     }
 
     export interface DatePickerAndroidStatic {
@@ -6259,33 +6275,33 @@ declare module "react" {
 
          Note the native date picker dialog has some UI glitches on Android 4 and lower when using the minDate and maxDate options.
          */
-        open(options?: DatePickerAndroidOpenOption): Promise<DatePickerAndroidOpenReturn>;
+        open(options?: DatePickerAndroidOpenOption): Promise<DatePickerAndroidOpenReturn>
 
         /**
          * A date has been selected.
          */
-        dateSetAction: string;
+        dateSetAction: string
 
         /**
          * The dialog has been dismissed.
          */
-        dismissedAction: string;
+        dismissedAction: string
     }
 
     export interface FetchableListenable<T> {
-        fetch: () => Promise<T>;
+        fetch: () => Promise<T>
 
         /**
          * eventName is expected to be `change`
          * //FIXME: No doc - inferred from NetInfo.js
          */
-        addEventListener: (eventName: string, listener: (result: T) => void) => void;
+        addEventListener: (eventName: string, listener: (result: T) => void) => void
 
         /**
          * eventName is expected to be `change`
          * //FIXME: No doc - inferred from NetInfo.js
          */
-        removeEventListener: (eventName: string, listener: (result: T) => void) => void;
+        removeEventListener: (eventName: string, listener: (result: T) => void) => void
     }
 
     export interface IntentAndroidStatic {
@@ -6302,7 +6318,7 @@ declare module "react" {
 
          @deprecated
          */
-        openURL(url: string): void;
+        openURL(url: string): void
 
         /**
          * Determine whether or not an installed app can handle a given URL.
@@ -6315,7 +6331,7 @@ declare module "react" {
 
          @deprecated
          */
-        canOpenURL(url: string, callback: (supported: boolean) => void): void;
+        canOpenURL(url: string, callback: (supported: boolean) => void): void
 
         /**
          * If the app launch was triggered by an app link with {@code Intent.ACTION_VIEW}, it will give the link url, otherwise it will give null
@@ -6324,7 +6340,7 @@ declare module "react" {
 
          @deprecated
          */
-        getInitialURL(callback: (url: string) => void): void;
+        getInitialURL(callback: (url: string) => void): void
     }
 
     export interface LinkingStatic extends NativeEventEmitter {
@@ -6332,12 +6348,12 @@ declare module "react" {
          * Add a handler to Linking changes by listening to the `url` event type
          * and providing the handler
          */
-        addEventListener(type: string, handler: (event: { url: string }) => void): void;
+        addEventListener(type: string, handler: (event: { url: string }) => void): void
 
         /**
          * Remove a handler by passing the `url` event type and the handler
          */
-        removeEventListener(type: string, handler: (event: { url: string }) => void): void;
+        removeEventListener(type: string, handler: (event: { url: string }) => void): void
 
         /**
          * Try to open the given url with any of the installed apps.
@@ -6345,7 +6361,7 @@ declare module "react" {
          * NOTE: This method will fail if the system doesn't know how to open the specified URL. If you're passing in a non-http(s) URL, it's best to check {@code canOpenURL} first.
          * NOTE: For web URLs, the protocol ("http://", "https://") must be set accordingly!
          */
-        openURL(url: string): Promise<any>;
+        openURL(url: string): Promise<any>
 
         /**
          * Determine whether or not an installed app can handle a given URL.
@@ -6353,13 +6369,13 @@ declare module "react" {
          * NOTE: As of iOS 9, your app needs to provide the LSApplicationQueriesSchemes key inside Info.plist.
          * @param URL the URL to open
          */
-        canOpenURL(url: string): Promise<boolean>;
+        canOpenURL(url: string): Promise<boolean>
 
         /**
          * If the app launch was triggered by an app link with, it will give the link url, otherwise it will give null
          * NOTE: To support deep linking on Android, refer http://developer.android.com/training/app-indexing/deep-linking.html#handling-intents
          */
-        getInitialURL(): Promise<string>;
+        getInitialURL(): Promise<string>
     }
 
     export interface LinkingIOSStatic {
@@ -6367,26 +6383,26 @@ declare module "react" {
          * Add a handler to LinkingIOS changes by listening to the url event type and providing the handler
          @deprecated
          */
-        addEventListener(type: string, handler: (event: { url: string }) => void): void;
+        addEventListener(type: string, handler: (event: { url: string }) => void): void
 
         /**
          * Remove a handler by passing the url event type and the handler
          @deprecated
          */
-        removeEventListener(type: string, handler: (event: { url: string }) => void): void;
+        removeEventListener(type: string, handler: (event: { url: string }) => void): void
 
         /**
          * Try to open the given url with any of the installed apps.
          @deprecated
          */
-        openURL(url: string): void;
+        openURL(url: string): void
 
         /**
          * Determine whether or not an installed app can handle a given URL. The callback function will be called with bool supported as the only argument
          NOTE: As of iOS 9, your app needs to provide the LSApplicationQueriesSchemes key inside Info.plist.
          @deprecated
          */
-        canOpenURL(url: string, callback: (supported: boolean) => void): void;
+        canOpenURL(url: string, callback: (supported: boolean) => void): void
 
         /**
          * If the app launch was triggered by an app link, it will pop the link url, otherwise it will return null
@@ -6413,7 +6429,7 @@ declare module "react" {
         "NONE" | "MOBILE" | "WIFI" | "MOBILE_MMS" | "MOBILE_SUPL" | "MOBILE_DUN" |
         "MOBILE_HIPRI" | "WIMAX" | "BLUETOOTH" | "DUMMY" | "ETHERNET" | "MOBILE_FOTA" |
         "MOBILE_IMS" | "MOBILE_CBS" | "WIFI_P2P" | "MOBILE_IA" | "MOBILE_EMERGENCY" |
-        "PROXY" | "VPN" | "UNKNOWN";
+        "PROXY" | "VPN" | "UNKNOWN"
 
     export interface NetInfoStatic extends FetchableListenable<NetInfoReturnType> {
 
@@ -6422,7 +6438,7 @@ declare module "react" {
          * Available on all platforms.
          * Asynchronously fetch a boolean to determine internet connectivity.
          */
-        isConnected: FetchableListenable<boolean>;
+        isConnected: FetchableListenable<boolean>
 
         /**
          * Available on Android. Detect if the current active connection is
@@ -6430,7 +6446,7 @@ declare module "react" {
          * sensitive to heavy data usage on that connection due to monetary
          * costs, data limitations or battery/performance issues.
          */
-        isConnectionExpensive: Promise<boolean>;
+        isConnectionExpensive: Promise<boolean>
     }
 
 
@@ -6439,56 +6455,56 @@ declare module "react" {
         /**
          *  ID of the gestureState- persisted as long as there at least one touch on
          */
-        stateID: number;
+        stateID: number
 
         /**
          *  the latest screen coordinates of the recently-moved touch
          */
-        moveX: number;
+        moveX: number
 
         /**
          *  the latest screen coordinates of the recently-moved touch
          */
-        moveY: number;
+        moveY: number
 
         /**
          * the screen coordinates of the responder grant
          */
-        x0: number;
+        x0: number
 
         /**
          * the screen coordinates of the responder grant
          */
-        y0: number;
+        y0: number
 
         /**
          * accumulated distance of the gesture since the touch started
          */
-        dx: number;
+        dx: number
 
         /**
          * accumulated distance of the gesture since the touch started
          */
-        dy: number;
+        dy: number
 
         /**
          * current velocity of the gesture
          */
-        vx: number;
+        vx: number
 
         /**
          * current velocity of the gesture
          */
-        vy: number;
+        vy: number
 
         /**
          * Number of touches currently on screen
          */
-        numberActiveTouches: number;
+        numberActiveTouches: number
 
 
         // All `gestureState` accounts for timeStamps up until:
-        _accountsForMovesUpTo: number;
+        _accountsForMovesUpTo: number
     }
 
 
@@ -6496,23 +6512,23 @@ declare module "react" {
      * @see documentation of GestureResponderHandlers
      */
     export interface PanResponderCallbacks {
-        onMoveShouldSetPanResponder?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => boolean;
-        onStartShouldSetPanResponder?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void;
-        onPanResponderGrant?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void;
-        onPanResponderMove?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void;
-        onPanResponderRelease?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void;
-        onPanResponderTerminate?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void;
+        onMoveShouldSetPanResponder?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => boolean
+        onStartShouldSetPanResponder?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void
+        onPanResponderGrant?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void
+        onPanResponderMove?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void
+        onPanResponderRelease?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void
+        onPanResponderTerminate?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void
 
-        onMoveShouldSetPanResponderCapture?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => boolean;
-        onStartShouldSetPanResponderCapture?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => boolean;
-        onPanResponderReject?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void;
-        onPanResponderStart?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void;
-        onPanResponderEnd?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void;
-        onPanResponderTerminationRequest?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => boolean;
+        onMoveShouldSetPanResponderCapture?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => boolean
+        onStartShouldSetPanResponderCapture?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => boolean
+        onPanResponderReject?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void
+        onPanResponderStart?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void
+        onPanResponderEnd?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => void
+        onPanResponderTerminationRequest?: (e: GestureResponderEvent, gestureState: PanResponderGestureState) => boolean
     }
 
     export interface PanResponderInstance {
-        panHandlers: GestureResponderHandlers;
+        panHandlers: GestureResponderHandlers
     }
 
     /**
@@ -6555,7 +6571,7 @@ declare module "react" {
          *  accordingly. (numberActiveTouches) may not be totally accurate unless you
          *  are the responder.
          */
-        create(config: PanResponderCallbacks): PanResponderInstance;
+        create(config: PanResponderCallbacks): PanResponderInstance
     }
 
     export interface Rationale {
@@ -6590,9 +6606,9 @@ declare module "react" {
     }
 
     export interface PushNotificationPermissions {
-        alert?: boolean;
-        badge?: boolean;
-        sound?: boolean;
+        alert?: boolean
+        badge?: boolean
+        sound?: boolean
     }
 
     export interface PushNotification {
@@ -6601,27 +6617,27 @@ declare module "react" {
         /**
          * An alias for `getAlert` to get the notification's main message string
          */
-        getMessage(): string | Object;
+        getMessage(): string | Object
 
         /**
          * Gets the sound string from the `aps` object
          */
-        getSound(): string;
+        getSound(): string
 
         /**
          * Gets the notification's main message from the `aps` object
          */
-        getAlert(): string | Object;
+        getAlert(): string | Object
 
         /**
          * Gets the badge count number from the `aps` object
          */
-        getBadgeCount(): number;
+        getBadgeCount(): number
 
         /**
          * Gets the data object on the notif
          */
-        getData(): Object;
+        getData(): Object
 
     }
 
@@ -6633,7 +6649,7 @@ declare module "react" {
         category?: string
         userInfo?: Object
         applicationIconBadgeNumber?: number
-    };
+    }
 
     type ScheduleLocalNotificationDetails = {
         fireDate: Date
@@ -6643,7 +6659,7 @@ declare module "react" {
         category?: string
         userInfo?: Object
         applicationIconBadgeNumber?: number
-    };
+    }
 
     export type PushNotificationEventName = "notification" | "localNotification" | "register" | "registrationError"
 
@@ -6665,7 +6681,7 @@ declare module "react" {
          * userInfo : An optional object containing additional notification data.
          * applicationIconBadgeNumber (optional) : The number to display as the app's icon badge. The default value of this property is 0, which means that no badge is displayed.
          */
-        presentLocalNotification(details: PresentLocalNotificationDetails): void;
+        presentLocalNotification(details: PresentLocalNotificationDetails): void
 
         /**
          * Schedules the localNotification for future presentation.
@@ -6678,28 +6694,28 @@ declare module "react" {
          * userInfo : An optional object containing additional notification data.
          * applicationIconBadgeNumber (optional) : The number to display as the app's icon badge. Setting the number to 0 removes the icon badge.
          */
-        scheduleLocalNotification(details: ScheduleLocalNotificationDetails): void;
+        scheduleLocalNotification(details: ScheduleLocalNotificationDetails): void
 
         /**
          * Cancels all scheduled localNotifications
          */
-        cancelAllLocalNotifications(): void;
+        cancelAllLocalNotifications(): void
 
         /**
          * Cancel local notifications.
          * Optionally restricts the set of canceled notifications to those notifications whose userInfo fields match the corresponding fields in the userInfo argument.
          */
-        cancelLocalNotifications(userInfo: Object): void;
+        cancelLocalNotifications(userInfo: Object): void
 
         /**
          * Sets the badge number for the app icon on the home screen
          */
-        setApplicationIconBadgeNumber(number: number): void;
+        setApplicationIconBadgeNumber(number: number): void
 
         /**
          * Gets the current badge number for the app icon on the home screen
          */
-        getApplicationIconBadgeNumber(callback: (badge: number) => void): void;
+        getApplicationIconBadgeNumber(callback: (badge: number) => void): void
 
         /**
          * Gets the local notifications that are currently scheduled.
@@ -6714,25 +6730,25 @@ declare module "react" {
          *
          * The type MUST be 'notification'
          */
-        addEventListener( type: PushNotificationEventName, handler: ( notification: PushNotification ) => void ): void;
+        addEventListener( type: PushNotificationEventName, handler: ( notification: PushNotification ) => void ):void
 
         /**
          * Removes the event listener. Do this in `componentWillUnmount` to prevent
          * memory leaks
          */
-        removeEventListener( type: PushNotificationEventName, handler: ( notification: PushNotification ) => void ): void;
+        removeEventListener( type: PushNotificationEventName, handler: ( notification: PushNotification ) => void ): void
 
         /**
          * Requests all notification permissions from iOS, prompting the user's
          * dialog box.
          */
-        requestPermissions(permissions?: PushNotificationPermissions[]): void;
+        requestPermissions(permissions?: PushNotificationPermissions[]): void
 
         /**
          * Requests all notification permissions from iOS, prompting the user's
          * dialog box.
          */
-        requestPermissions( permissions?: PushNotificationPermissions ): Promise<PushNotificationPermissions>;
+        requestPermissions( permissions?: PushNotificationPermissions ): Promise<PushNotificationPermissions>
 
         /**
          * Unregister for all remote notifications received via Apple Push
@@ -6744,7 +6760,7 @@ declare module "react" {
          * Settings app. Apps unregistered through this method can always
          * re-register.
          */
-        abandonPermissions(): void;
+        abandonPermissions(): void
 
         /**
          * See what push permissions are currently enabled. `callback` will be
@@ -6754,63 +6770,63 @@ declare module "react" {
          *  - `badge` :boolean
          *  - `sound` :boolean
          */
-        checkPermissions(callback: (permissions: PushNotificationPermissions) => void): void;
+        checkPermissions(callback: (permissions: PushNotificationPermissions) => void): void
 
         /**
          * This method returns a promise that resolves to either the notification
          * object if the app was launched by a push notification, or `null` otherwise.
          */
-        getInitialNotification(): PushNotification;
+        getInitialNotification(): PushNotification
     }
 
     export interface SettingsStatic {
-        get(key: string): any;
-        set(settings: Object): void;
-        watchKeys(keys: string | Array<string>, callback: (() => void)): number;
-        clearWatch(watchId: number): void;
+        get(key: string): any
+        set(settings: Object): void
+        watchKeys(keys: string | Array<string>, callback: (() => void)): number
+        clearWatch(watchId: number): void
     }
 
 
     /**
      * @enum('default', 'light-content')
      */
-    export type StatusBarStyle = "default" | "light-content";
+    export type StatusBarStyle = "default" | "light-content"
 
     /**
      * @enum('fade', 'slide')
      */
-    export type StatusBarAnimation = "none" | "fade" | "slide";
+    export type StatusBarAnimation = "none" | "fade" | "slide"
 
     export interface StatusBarPropertiesIOS extends React.Props<StatusBarStatic> {
         /**
          * Sets the color of the status bar text.
          */
-        barStyle?: StatusBarStyle;
+        barStyle?: StatusBarStyle
 
         /**
          * If the network activity indicator should be visible.
          */
-        networkActivityIndicatorVisible?: boolean;
+        networkActivityIndicatorVisible?: boolean
 
         /**
          * The transition effect when showing and hiding the status bar using
          * the hidden prop. Defaults to 'fade'.
          */
-        showHideTransition?: "fade" | "slide";
+        showHideTransition?: "fade" | "slide"
     }
 
     export interface StatusBarPropertiesAndroid extends React.Props<StatusBarStatic> {
         /**
          * The background color of the status bar.
          */
-        backgroundColor?: string;
+        backgroundColor?: string
 
         /**
          * If the status bar is translucent. When translucent is set to true,
          * the app will draw under the status bar. This is useful when using a
          * semi transparent status bar color.
          */
-        translucent?: boolean;
+        translucent?: boolean
     }
 
     export interface StatusBarProperties extends StatusBarPropertiesIOS, StatusBarPropertiesAndroid, React.Props<StatusBarStatic> {
@@ -6819,15 +6835,16 @@ declare module "react" {
          * If the transition between status bar property changes should be
          * animated. Supported for backgroundColor, barStyle and hidden.
          */
-        animated?: boolean;
+        animated?: boolean
 
         /**
          * If the status bar is hidden.
          */
-        hidden?: boolean;
+        hidden?: boolean
     }
 
     export interface StatusBarStatic extends React.ComponentClass<StatusBarProperties> {
+
         /**
          * The current height of the status bar on the device.
          * @platform android
@@ -6840,33 +6857,33 @@ declare module "react" {
          * @param animation Optional animation when
          *    changing the status bar hidden property.
          */
-        setHidden: (hidden: boolean, animation?: StatusBarAnimation) => void;
+        setHidden: (hidden: boolean, animation?: StatusBarAnimation) => void
 
         /**
          * Set the status bar style
          * @param style Status bar style to set
          * @param animated Animate the style change.
          */
-        setBarStyle: (style: StatusBarStyle, animated?: boolean) => void;
+        setBarStyle: (style: StatusBarStyle, animated?: boolean) => void
 
         /**
          * Control the visibility of the network activity indicator
          * @param visible Show the indicator.
          */
-        setNetworkActivityIndicatorVisible: (visible: boolean) => void;
+        setNetworkActivityIndicatorVisible: (visible: boolean) => void
 
         /**
          * Set the background color for the status bar
          * @param color Background color.
          * @param animated Animate the style change.
          */
-        setBackgroundColor: (color: string, animated?: boolean) => void;
+        setBackgroundColor: (color: string, animated?: boolean) => void
 
         /**
          * Control the translucency of the status bar
          * @param translucent Set as translucent.
          */
-        setTranslucent: (translucent: boolean) => void;
+        setTranslucent: (translucent: boolean) => void
     }
 
     /**
@@ -6877,10 +6894,10 @@ declare module "react" {
     }
 
     type TimePickerAndroidOpenOptions = {
-        hour?: number;
-        minute?: number;
-        is24Hour?: boolean;
-    };
+        hour?: number
+        minute?: number
+        is24Hour?: boolean
+    }
 
     /**
      * Opens the standard Android time picker dialog.
@@ -6919,17 +6936,17 @@ declare module "react" {
          * still be resolved with action being `TimePickerAndroid.dismissedAction` and all the other keys
          * being undefined. **Always** check whether the `action` before reading the values.
          */
-        open(options: TimePickerAndroidOpenOptions): Promise<{ action: string, hour: number, minute: number }>;
+        open(options: TimePickerAndroidOpenOptions): Promise<{ action: string, hour: number, minute: number }>
 
         /**
          * A time has been selected.
          */
-        timeSetAction: string;
+        timeSetAction: string
 
         /**
          * The dialog has been dismissed.
          */
-        dismissedAction: string;
+        dismissedAction: string
     }
 
     /**
@@ -6948,20 +6965,20 @@ declare module "react" {
          * int duration: The duration of the toast.
          * May be ToastAndroid.SHORT or ToastAndroid.LONG
          */
-        show(message: string, duration: number): void;
+        show(message: string, duration: number): void
         /** `gravity` may be ToastAndroid.TOP, ToastAndroid.BOTTOM, ToastAndroid.CENTER */
         showWithGravity(
             message: string,
             duration: number,
             gravity: number
-        ): void;
+        ): void
         // Toast duration constants
-        SHORT: number;
-        LONG: number;
+        SHORT: number
+        LONG: number
         // Toast gravity constants
-        TOP: number;
-        BOTTOM: number;
-        CENTER: number;
+        TOP: number
+        BOTTOM: number
+        CENTER: number
     }
 
     export interface UIManagerStatic {
@@ -6990,7 +7007,7 @@ declare module "react" {
                 format ?: 'png' | 'jpeg',
                 quality ?: number,
             }
-        ) => Promise<string>;
+        ) => Promise<string>
     }
 
     export interface SwitchPropertiesIOS extends ViewProperties, React.Props<SwitchStatic> {
@@ -6998,19 +7015,19 @@ declare module "react" {
         /**
          * Background color when the switch is turned on.
          */
-        onTintColor?: string;
+        onTintColor?: string
 
         /**
          * Color of the foreground switch grip.
          */
-        thumbTintColor?: string;
+        thumbTintColor?: string
 
         /**
          * Background color when the switch is turned off.
          */
-        tintColor?: string;
+        tintColor?: string
 
-        ref?: Ref<SwitchStatic>;
+        ref?: Ref<SwitchStatic>
     }
 
     export interface SwitchProperties extends SwitchPropertiesIOS, React.Props<SwitchStatic> {
@@ -7019,24 +7036,24 @@ declare module "react" {
          * If true the user won't be able to toggle the switch.
          * Default value is false.
          */
-        disabled?: boolean;
+        disabled?: boolean
 
         /**
          * Invoked with the new value when the value changes.
          */
-        onValueChange?: (value: boolean) => void;
+        onValueChange?: (value: boolean) => void
 
         /**
          * Used to locate this view in end-to-end tests.
          */
-        testID?: string;
+        testID?: string
 
         /**
          * The value of the switch. If true the switch will be turned on.
          * Default value is false.
          */
-        value?: boolean;
-	    style?: ViewStyle;
+        value?: boolean
+	    style?: ViewStyle
     }
 
     /**
@@ -7068,7 +7085,7 @@ declare module "react" {
         /**
          * @deprecated
          */
-        vibrate(): void;
+        vibrate(): void
     }
 
     /**
@@ -7095,12 +7112,12 @@ declare module "react" {
      * V(fixed) --wait(1s)--> V(fixed) --wait(2s)--> V(fixed) --wait(3s)--> V(fixed)
      */
     export interface VibrationStatic {
-        vibrate(pattern: number | number[], repeat: boolean): void;
+        vibrate(pattern: number | number[], repeat: boolean): void
 
         /**
          * Stop vibration
          */
-        cancel(): void;
+        cancel(): void
     }
 
     /**
@@ -7132,7 +7149,7 @@ declare module "react" {
         inOut(easing: EasingFunction): EasingFunction;
     }
 
-    export namespace Animated {
+    export module Animated {
         // Most (all?) functions where AnimatedValue is used any subclass of Animated can be used as well.
         type AnimatedValue = Animated;
         type AnimatedValueXY = ValueXY;
@@ -7234,7 +7251,7 @@ declare module "react" {
 
             setOffset(offset: { x: number; y: number }): void;
 
-            flattenOffset(): void;
+            flattenOffset(): void
 
         stopAnimation(callback?: (value: {x: number, y: number}) => void): void;
 
@@ -7387,7 +7404,7 @@ declare module "react" {
         export function stagger(
             time: number,
             animations: Array<CompositeAnimation>
-        ): CompositeAnimation;
+        ): CompositeAnimation
 
         /**
          * Spring animation based on Rebound and Origami.  Tracks velocity state to
@@ -7400,7 +7417,7 @@ declare module "react" {
 
         type ParallelConfig = {
             stopTogether?: boolean; // If one is stopped, stop all.  default: true
-        };
+        }
 
         /**
          * Starts an array of animations all at the same time.  By default, if one
@@ -7414,7 +7431,7 @@ declare module "react" {
 
         type Mapping = { [key: string]: Mapping } | AnimatedValue;
         interface EventConfig {
-            listener?: Function;
+            listener?: Function
         }
 
         /**
@@ -7465,17 +7482,17 @@ declare module "react" {
          * On Android, this can return almost immediately if the location is cached or
          * request an update, which might take a while.
          */
-        getCurrentPosition(geo_success: (position: GeolocationReturnType) => void, geo_error?: (error: Error) => void, geo_options?: GetCurrentPositionOptions): void;
+        getCurrentPosition(geo_success: (position: GeolocationReturnType) => void, geo_error?: (error: Error) => void, geo_options?: GetCurrentPositionOptions): void
 
         /*
          * Invokes the success callback whenever the location changes.  Supported
          * options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool), distanceFilter(m)
          */
-        watchPosition(success: (position: Geolocation) => void, error?: (error: Error) => void, options?: WatchPositionOptions): void;
+        watchPosition(success: (position: Geolocation) => void, error?: (error: Error) => void, options?: WatchPositionOptions): void
 
-        clearWatch(watchID: number): void;
+        clearWatch(watchID: number): void
 
-        stopObserving(): void;
+        stopObserving(): void
     }
 
     export interface OpenCameraDialogOptions {
@@ -7555,18 +7572,18 @@ declare module "react" {
 	export const fetch: fetch;
 
     // Timers polyfill
-    export type timedScheduler = (fn: string | Function, time: number) => number;
-    export type untimedScheduler = (fn: string | Function) => number;
-    export type setTimeout = timedScheduler;
-    export type setInterval = timedScheduler;
-    export type setImmediate = untimedScheduler;
-    export type requestAnimationFrame = untimedScheduler;
+    export type timedScheduler = (fn: string | Function, time: number) => number
+    export type untimedScheduler = (fn: string | Function) => number
+    export type setTimeout = timedScheduler
+    export type setInterval = timedScheduler
+    export type setImmediate = untimedScheduler
+    export type requestAnimationFrame = untimedScheduler
 
-    export type schedulerCanceller = (id: number) => void;
-    export type clearTimeout = schedulerCanceller;
-    export type clearInterval = schedulerCanceller;
-    export type clearImmediate = schedulerCanceller;
-    export type cancelAnimationFrame = schedulerCanceller;
+    export type schedulerCanceller = (id: number) => void
+    export type clearTimeout = schedulerCanceller
+    export type clearInterval = schedulerCanceller
+    export type clearImmediate = schedulerCanceller
+    export type cancelAnimationFrame = schedulerCanceller
 
 
     export interface TabsReducerStatic {
@@ -7616,21 +7633,21 @@ declare module "react" {
         /**
          * Custom style applied to the card.
          */
-        cardStyle?: ViewStyle;
+        cardStyle?: ViewStyle
         /**
          * Direction of the cards movement. Value could be `horizontal` or
          * `vertical`. Default value is `horizontal`.
          */
-        direction?: 'horizontal' | 'vertical';
+        direction?: 'horizontal' | 'vertical'
         /**
          * The distance from the edge of the card which gesture response can start
          * for. Defaults value is `30`.
          */
-        gestureResponseDistance?: number;
+        gestureResponseDistance?: number
         /**
          * Enable gestures. Default value is true
          */
-        enableGestures?: boolean;
+        enableGestures?: boolean,
         /**
          * The controlled navigation state. Typically, the navigation state
          * look like this:
@@ -7645,27 +7662,27 @@ declare module "react" {
          * };
          * ```
          */
-        navigationState: NavigationState;
+        navigationState: NavigationState,
         /**
          * Callback that is called when the "back" action is performed.
          * This happens when the back button is pressed or the back gesture is
          * performed.
          */
-        onNavigateBack?: Function;
+        onNavigateBack?: Function,
         /**
          * Function that renders the header.
          */
-        renderHeader?: Function;
+        renderHeader?: Function,
 
         /**
          * Function that renders the a scene for a route.
          */
-        renderScene: Function;
+        renderScene: Function,
 
         /**
          * Custom style applied to the cards stack.
          */
-        style?: ViewStyle;
+        style?: ViewStyle,
     }
 
     // Object Instances
@@ -7938,231 +7955,231 @@ declare module "react" {
     // TODO: The following components need to be added
     // - [ ] ART
 
-    export var ActivityIndicator: ActivityIndicatorStatic;
-    export type ActivityIndicator = ActivityIndicatorStatic;
+    export var ActivityIndicator: ActivityIndicatorStatic
+    export type ActivityIndicator = ActivityIndicatorStatic
 
-    export var ActivityIndicatorIOS: ActivityIndicatorIOSStatic;
-    export type ActivityIndicatorIOS = ActivityIndicatorIOSStatic;
+    export var ActivityIndicatorIOS: ActivityIndicatorIOSStatic
+    export type ActivityIndicatorIOS = ActivityIndicatorIOSStatic
 
-    export var DatePickerIOS: DatePickerIOSStatic;
-    export type DatePickerIOS = DatePickerIOSStatic;
+    export var DatePickerIOS: DatePickerIOSStatic
+    export type DatePickerIOS = DatePickerIOSStatic
 
-    export var DrawerLayoutAndroid: DrawerLayoutAndroidStatic;
-    export type DrawerLayoutAndroid = DrawerLayoutAndroidStatic;
+    export var DrawerLayoutAndroid: DrawerLayoutAndroidStatic
+    export type DrawerLayoutAndroid = DrawerLayoutAndroidStatic
 
-    export var Image: ImageStatic;
-    export type Image = ImageStatic;
+    export var Image: ImageStatic
+    export type Image = ImageStatic
 
-    export var ImagePickerIOS: ImagePickerIOSStatic;
-    export type ImagePickerIOS = ImagePickerIOSStatic;
+    export var ImagePickerIOS: ImagePickerIOSStatic
+    export type ImagePickerIOS = ImagePickerIOSStatic
 
-    export var LayoutAnimation: LayoutAnimationStatic;
-    export type LayoutAnimation = LayoutAnimationStatic;
+    export var LayoutAnimation: LayoutAnimationStatic
+    export type LayoutAnimation = LayoutAnimationStatic
 
-    export var ListView: ListViewStatic;
-    export type ListView = ListViewStatic;
+    export var ListView: ListViewStatic
+    export type ListView = ListViewStatic
 
-    export var MapView: MapViewStatic;
-    export type MapView = MapViewStatic;
+    export var MapView: MapViewStatic
+    export type MapView = MapViewStatic
 
-    export var Modal: ModalStatic;
-    export type Modal = ModalStatic;
+    export var Modal: ModalStatic
+    export type Modal = ModalStatic
 
-    export var Navigator: NavigatorStatic;
-    export type Navigator = NavigatorStatic;
+    export var Navigator: NavigatorStatic
+    export type Navigator = NavigatorStatic
 
-    export var NavigatorIOS: NavigatorIOSStatic;
-    export type NavigatorIOS = NavigatorIOSStatic;
+    export var NavigatorIOS: NavigatorIOSStatic
+    export type NavigatorIOS = NavigatorIOSStatic
 
-    export var Picker: PickerStatic;
-    export type Picker = PickerStatic;
+    export var Picker: PickerStatic
+    export type Picker = PickerStatic
 
-    export var PickerIOS: PickerIOSStatic;
-    export type PickerIOS = PickerIOSStatic;
+    export var PickerIOS: PickerIOSStatic
+    export type PickerIOS = PickerIOSStatic
 
-    export var ProgressBarAndroid: ProgressBarAndroidStatic;
-    export type ProgressBarAndroid = ProgressBarAndroidStatic;
+    export var ProgressBarAndroid: ProgressBarAndroidStatic
+    export type ProgressBarAndroid = ProgressBarAndroidStatic
 
-    export var ProgressViewIOS: ProgressViewIOSStatic;
-    export type ProgressViewIOS = ProgressViewIOSStatic;
+    export var ProgressViewIOS: ProgressViewIOSStatic
+    export type ProgressViewIOS = ProgressViewIOSStatic
 
-    export var RefreshControl: RefreshControlStatic;
-    export type RefreshControl = RefreshControlStatic;
+    export var RefreshControl: RefreshControlStatic
+    export type RefreshControl = RefreshControlStatic
 
-    export var RecyclerViewBackedScrollView: RecyclerViewBackedScrollViewStatic;
-    export type RecyclerViewBackedScrollView = RecyclerViewBackedScrollViewStatic;
+    export var RecyclerViewBackedScrollView: RecyclerViewBackedScrollViewStatic
+    export type RecyclerViewBackedScrollView = RecyclerViewBackedScrollViewStatic
 
-    export var SegmentedControlIOS: SegmentedControlIOSStatic;
-    export type SegmentedControlIOS = SegmentedControlIOSStatic;
+    export var SegmentedControlIOS: SegmentedControlIOSStatic
+    export type SegmentedControlIOS = SegmentedControlIOSStatic
 
-    export var Slider: SliderStatic;
-    export type Slider = SliderStatic;
+    export var Slider: SliderStatic
+    export type Slider = SliderStatic
 
-    export var SliderIOS: SliderStatic;
-    export type SliderIOS = SliderStatic;
+    export var SliderIOS: SliderStatic
+    export type SliderIOS = SliderStatic
 
-    export var StatusBar: StatusBarStatic;
-    export type StatusBar = StatusBarStatic;
+    export var StatusBar: StatusBarStatic
+    export type StatusBar = StatusBarStatic
 
-    export var ScrollView: ScrollViewStatic;
-    export type ScrollView = ScrollViewStatic;
+    export var ScrollView: ScrollViewStatic
+    export type ScrollView = ScrollViewStatic
 
-    export var SnapshotViewIOS: SnapshotViewIOSStatic;
-    export type SnapshotViewIOS = SnapshotViewIOSStatic;
+    export var SnapshotViewIOS: SnapshotViewIOSStatic
+    export type SnapshotViewIOS = SnapshotViewIOSStatic
 
-    export var Systrace: SystraceStatic;
-    export type Systrace = SystraceStatic;
+    export var Systrace: SystraceStatic
+    export type Systrace = SystraceStatic
 
-    export var SwipeableListView: SwipeableListViewStatic;
-    export type SwipeableListView = SwipeableListViewStatic;
+    export var SwipeableListView: SwipeableListViewStatic
+    export type SwipeableListView = SwipeableListViewStatic
 
-    export var Switch: SwitchStatic;
-    export type Switch = SwitchStatic;
+    export var Switch: SwitchStatic
+    export type Switch = SwitchStatic
 
-    export var SwitchIOS: SwitchIOSStatic;
-    export type SwitchIOS = SwitchIOSStatic;
+    export var SwitchIOS: SwitchIOSStatic
+    export type SwitchIOS = SwitchIOSStatic
 
-    export var TabBarIOS: TabBarIOSStatic;
-    export type TabBarIOS = TabBarIOSStatic;
+    export var TabBarIOS: TabBarIOSStatic
+    export type TabBarIOS = TabBarIOSStatic
 
-    export var Text: TextStatic;
-    export type Text = TextStatic;
+    export var Text: TextStatic
+    export type Text = TextStatic
 
-    export var TextInput: TextInputStatic;
-    export type TextInput = TextInputStatic;
+    export var TextInput: TextInputStatic
+    export type TextInput = TextInputStatic
 
-    export var ToolbarAndroid: ToolbarAndroidStatic;
-    export type ToolbarAndroid = ToolbarAndroidStatic;
+    export var ToolbarAndroid: ToolbarAndroidStatic
+    export type ToolbarAndroid = ToolbarAndroidStatic
 
-    export var TouchableHighlight: TouchableHighlightStatic;
-    export type TouchableHighlight = TouchableHighlightStatic;
+    export var TouchableHighlight: TouchableHighlightStatic
+    export type TouchableHighlight = TouchableHighlightStatic
 
-    export var TouchableNativeFeedback: TouchableNativeFeedbackStatic;
-    export type TouchableNativeFeedback = TouchableNativeFeedbackStatic;
+    export var TouchableNativeFeedback: TouchableNativeFeedbackStatic
+    export type TouchableNativeFeedback = TouchableNativeFeedbackStatic
 
-    export var TouchableOpacity: TouchableOpacityStatic;
-    export type TouchableOpacity = TouchableOpacityStatic;
+    export var TouchableOpacity: TouchableOpacityStatic
+    export type TouchableOpacity = TouchableOpacityStatic
 
-    export var TouchableWithoutFeedback: TouchableWithoutFeedbackStatic;
-    export type TouchableWithoutFeedback = TouchableWithoutFeedbackStatic;
+    export var TouchableWithoutFeedback: TouchableWithoutFeedbackStatic
+    export type TouchableWithoutFeedback = TouchableWithoutFeedbackStatic
 
-    export var View: ViewStatic;
-    export type View = ViewStatic;
+    export var View: ViewStatic
+    export type View = ViewStatic
 
-    export var ViewPagerAndroid: ViewPagerAndroidStatic;
-    export type ViewPagerAndroid = ViewPagerAndroidStatic;
+    export var ViewPagerAndroid: ViewPagerAndroidStatic
+    export type ViewPagerAndroid = ViewPagerAndroidStatic
 
-    export var WebView: WebViewStatic;
-    export type WebView = WebViewStatic;
+    export var WebView: WebViewStatic
+    export type WebView = WebViewStatic
 
 
     //////////// APIS //////////////
-    export var ActionSheetIOS: ActionSheetIOSStatic;
-    export type ActionSheetIOS = ActionSheetIOSStatic;
+    export var ActionSheetIOS: ActionSheetIOSStatic
+    export type ActionSheetIOS = ActionSheetIOSStatic
 
-    export var Share: ShareStatic;
-    export type Share = ShareStatic;
+    export var Share: ShareStatic
+    export type Share = ShareStatic
 
-    export var AdSupportIOS: AdSupportIOSStatic;
-    export type AdSupportIOS = AdSupportIOSStatic;
+    export var AdSupportIOS: AdSupportIOSStatic
+    export type AdSupportIOS = AdSupportIOSStatic
 
-    export var Alert: AlertStatic;
-    export type Alert = AlertStatic;
+    export var Alert: AlertStatic
+    export type Alert = AlertStatic
 
-    export var AlertAndroid: AlertAndroidStatic;
-    export type AlertAndroid = AlertAndroidStatic;
+    export var AlertAndroid: AlertAndroidStatic
+    export type AlertAndroid = AlertAndroidStatic
 
-    export var AlertIOS: AlertIOSStatic;
-    export type AlertIOS = AlertIOSStatic;
+    export var AlertIOS: AlertIOSStatic
+    export type AlertIOS = AlertIOSStatic
 
     export var AppState: AppStateStatic;
     export type AppState = AppStateStatic;
 
-    export var AppStateIOS: AppStateStatic;
-    export type AppStateIOS = AppStateStatic;
+    export var AppStateIOS: AppStateStatic
+    export type AppStateIOS = AppStateStatic
 
-    export var AsyncStorage: AsyncStorageStatic;
-    export type AsyncStorage = AsyncStorageStatic;
+    export var AsyncStorage: AsyncStorageStatic
+    export type AsyncStorage = AsyncStorageStatic
 
-    export var BackAndroid: BackAndroidStatic;
-    export type BackAndroid = BackAndroidStatic;
+    export var BackAndroid: BackAndroidStatic
+    export type BackAndroid = BackAndroidStatic
 
-    export var CameraRoll: CameraRollStatic;
-    export type CameraRoll = CameraRollStatic;
+    export var CameraRoll: CameraRollStatic
+    export type CameraRoll = CameraRollStatic
 
-    export var Clipboard: ClipboardStatic;
-    export type Clipboard = ClipboardStatic;
+    export var Clipboard: ClipboardStatic
+    export type Clipboard = ClipboardStatic
 
-    export var DatePickerAndroid: DatePickerAndroidStatic;
-    export type DatePickerAndroid = DatePickerAndroidStatic;
+    export var DatePickerAndroid: DatePickerAndroidStatic
+    export type DatePickerAndroid = DatePickerAndroidStatic
 
-    export var Geolocation: GeolocationStatic;
-    export type Geolocation = GeolocationStatic;
+    export var Geolocation: GeolocationStatic
+    export type Geolocation = GeolocationStatic
 
     /** http://facebook.github.io/react-native/blog/2016/08/19/right-to-left-support-for-react-native-apps.html */
-    export var I18nManager: I18nManagerStatic;
-    export type I18nManager = I18nManagerStatic;
+    export var I18nManager: I18nManagerStatic
+    export type I18nManager = I18nManagerStatic
 
-    export var ImageEditor: ImageEditorStatic;
-    export type ImageEditor = ImageEditorStatic;
+    export var ImageEditor: ImageEditorStatic
+    export type ImageEditor = ImageEditorStatic
 
-    export var ImageStore: ImageStoreStatic;
-    export type ImageStore = ImageStoreStatic;
+    export var ImageStore: ImageStoreStatic
+    export type ImageStore = ImageStoreStatic
 
-    export var InteractionManager: InteractionManagerStatic;
+    export var InteractionManager: InteractionManagerStatic
 
-    export var IntentAndroid: IntentAndroidStatic;
-    export type IntentAndroid = IntentAndroidStatic;
+    export var IntentAndroid: IntentAndroidStatic
+    export type IntentAndroid = IntentAndroidStatic
 
-    export var Keyboard: NativeEventEmitter;
+    export var Keyboard: NativeEventEmitter
 
-    export var KeyboardAvoidingView: KeyboardAvoidingViewStatic;
-    export type KeyboardAvoidingView = KeyboardAvoidingViewStatic;
+    export var KeyboardAvoidingView: KeyboardAvoidingViewStatic
+    export type KeyboardAvoidingView = KeyboardAvoidingViewStatic
 
-    export var Linking: LinkingStatic;
-    export type Linking = LinkingStatic;
+    export var Linking: LinkingStatic
+    export type Linking = LinkingStatic
 
-    export var LinkingIOS: LinkingIOSStatic;
-    export type LinkingIOS = LinkingIOSStatic;
+    export var LinkingIOS: LinkingIOSStatic
+    export type LinkingIOS = LinkingIOSStatic
 
-    export var NativeMethodsMixin: NativeMethodsMixinStatic;
-    export type NativeMethodsMixin = NativeMethodsMixinStatic;
+    export var NativeMethodsMixin: NativeMethodsMixinStatic
+    export type NativeMethodsMixin = NativeMethodsMixinStatic
 
-    export var NativeComponent: NativeMethodsMixinStatic;
-    export type NativeComponent = NativeMethodsMixinStatic;
+    export var NativeComponent: NativeMethodsMixinStatic
+    export type NativeComponent = NativeMethodsMixinStatic
 
-    export var NetInfo: NetInfoStatic;
-    export type NetInfo = NetInfoStatic;
+    export var NetInfo: NetInfoStatic
+    export type NetInfo = NetInfoStatic
 
-    export var PanResponder: PanResponderStatic;
-    export type PanResponder = PanResponderStatic;
+    export var PanResponder: PanResponderStatic
+    export type PanResponder = PanResponderStatic
 
-    export var PermissionsAndroid: PermissionsAndroidStatic;
-    export type PermissionsAndroid = PermissionsAndroidStatic;
+    export var PermissionsAndroid: PermissionsAndroidStatic
+    export type PermissionsAndroid = PermissionsAndroidStatic
 
-    export var PushNotificationIOS: PushNotificationIOSStatic;
-    export type PushNotificationIOS = PushNotificationIOSStatic;
+    export var PushNotificationIOS: PushNotificationIOSStatic
+    export type PushNotificationIOS = PushNotificationIOSStatic
 
-    export var Settings: SettingsStatic;
-    export type Settings = SettingsStatic;
+    export var Settings: SettingsStatic
+    export type Settings = SettingsStatic
 
-    export var StatusBarIOS: StatusBarIOSStatic;
-    export type StatusBarIOS = StatusBarIOSStatic;
+    export var StatusBarIOS: StatusBarIOSStatic
+    export type StatusBarIOS = StatusBarIOSStatic
 
-    export var TimePickerAndroid: TimePickerAndroidStatic;
-    export type TimePickerAndroid = TimePickerAndroidStatic;
+    export var TimePickerAndroid: TimePickerAndroidStatic
+    export type TimePickerAndroid = TimePickerAndroidStatic
 
-    export var ToastAndroid: ToastAndroidStatic;
-    export type ToastAndroid = ToastAndroidStatic;
+    export var ToastAndroid: ToastAndroidStatic
+    export type ToastAndroid = ToastAndroidStatic
 
-    export var UIManager: UIManagerStatic;
-    export type UIManager = UIManagerStatic;
+    export var UIManager: UIManagerStatic
+    export type UIManager = UIManagerStatic
 
-    export var VibrationIOS: VibrationIOSStatic;
-    export type VibrationIOS = VibrationIOSStatic;
+    export var VibrationIOS: VibrationIOSStatic
+    export type VibrationIOS = VibrationIOSStatic
 
-    export var Vibration: VibrationStatic;
-    export type Vibration = VibrationStatic;
+    export var Vibration: VibrationStatic
+    export type Vibration = VibrationStatic
 
     export var Dimensions: Dimensions;
     export var ShadowPropTypesIOS: ShadowPropTypesIOSStatic;
@@ -8194,14 +8211,14 @@ declare module "react" {
      * Use:
      * <code>const MyModule = NativeModules.ModuleName</code>
      */
-    export var NativeModules: any;
-    export var Platform: PlatformStatic;
-    export var PixelRatio: PixelRatioStatic;
+    export var NativeModules: any
+    export var Platform: PlatformStatic
+    export var PixelRatio: PixelRatioStatic
 
     export interface ComponentInterface<P> {
         name?: string;
         displayName?: string;
-        propTypes: P;
+        propTypes: P
     }
 
     /**
@@ -8255,13 +8272,13 @@ declare module "react" {
         //FIXME: Documentation ?
         export interface TestModuleStatic {
 
-            verifySnapshot: (done: (indicator?: any) => void) => void;
-            markTestPassed: (indicator: any) => void;
-            markTestCompleted: () => void;
+            verifySnapshot: (done: (indicator?: any) => void) => void
+            markTestPassed: (indicator: any) => void
+            markTestCompleted: () => void
         }
 
-        export var TestModule: TestModuleStatic;
-        export type TestModule = TestModuleStatic;
+        export var TestModule: TestModuleStatic
+        export type TestModule = TestModuleStatic
     }
 
     //
@@ -8282,4 +8299,4 @@ declare global {
  * Typical usage:
  * <code> if (__DEV__) console.log('Running in dev mode')</code>
  */
-declare var __DEV__: boolean;
+declare var __DEV__: boolean
