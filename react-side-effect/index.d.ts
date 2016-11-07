@@ -14,7 +14,7 @@ declare function withSideEffect(
 declare class ElementClass extends React.Component<any, any> {}
 
 interface ClassDecorator {
-    <T extends (typeof ElementClass)>(component:T): T;
+    <T extends (typeof ElementClass)>(component: T): T;
 }
 
 declare namespace withSideEffect {} // https://github.com/Microsoft/TypeScript/issues/5073

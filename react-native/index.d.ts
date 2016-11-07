@@ -7899,7 +7899,7 @@ declare module "react" {
      * @see https://github.com/facebook/react-native/blob/0.34-stable\Libraries\EventEmitter\RCTNativeAppEventEmitter.js
      * @see https://facebook.github.io/react-native/docs/native-modules-ios.html#sending-events-to-javascript
      */
-    type RCTNativeAppEventEmitter = DeviceEventEmitterStatic
+    type RCTNativeAppEventEmitter = DeviceEventEmitterStatic;
 
     interface ImageCropData {
         /**
@@ -7955,231 +7955,231 @@ declare module "react" {
     // TODO: The following components need to be added
     // - [ ] ART
 
-    export var ActivityIndicator: ActivityIndicatorStatic
-    export type ActivityIndicator = ActivityIndicatorStatic
+    export var ActivityIndicator: ActivityIndicatorStatic;
+    export type ActivityIndicator = ActivityIndicatorStatic;
 
-    export var ActivityIndicatorIOS: ActivityIndicatorIOSStatic
-    export type ActivityIndicatorIOS = ActivityIndicatorIOSStatic
+    export var ActivityIndicatorIOS: ActivityIndicatorIOSStatic;
+    export type ActivityIndicatorIOS = ActivityIndicatorIOSStatic;
 
-    export var DatePickerIOS: DatePickerIOSStatic
-    export type DatePickerIOS = DatePickerIOSStatic
+    export var DatePickerIOS: DatePickerIOSStatic;
+    export type DatePickerIOS = DatePickerIOSStatic;
 
-    export var DrawerLayoutAndroid: DrawerLayoutAndroidStatic
-    export type DrawerLayoutAndroid = DrawerLayoutAndroidStatic
+    export var DrawerLayoutAndroid: DrawerLayoutAndroidStatic;
+    export type DrawerLayoutAndroid = DrawerLayoutAndroidStatic;
 
-    export var Image: ImageStatic
-    export type Image = ImageStatic
+    export var Image: ImageStatic;
+    export type Image = ImageStatic;
 
-    export var ImagePickerIOS: ImagePickerIOSStatic
-    export type ImagePickerIOS = ImagePickerIOSStatic
+    export var ImagePickerIOS: ImagePickerIOSStatic;
+    export type ImagePickerIOS = ImagePickerIOSStatic;
 
-    export var LayoutAnimation: LayoutAnimationStatic
-    export type LayoutAnimation = LayoutAnimationStatic
+    export var LayoutAnimation: LayoutAnimationStatic;
+    export type LayoutAnimation = LayoutAnimationStatic;
 
-    export var ListView: ListViewStatic
-    export type ListView = ListViewStatic
+    export var ListView: ListViewStatic;
+    export type ListView = ListViewStatic;
 
-    export var MapView: MapViewStatic
-    export type MapView = MapViewStatic
+    export var MapView: MapViewStatic;
+    export type MapView = MapViewStatic;
 
-    export var Modal: ModalStatic
-    export type Modal = ModalStatic
+    export var Modal: ModalStatic;
+    export type Modal = ModalStatic;
 
-    export var Navigator: NavigatorStatic
-    export type Navigator = NavigatorStatic
+    export var Navigator: NavigatorStatic;
+    export type Navigator = NavigatorStatic;
 
-    export var NavigatorIOS: NavigatorIOSStatic
-    export type NavigatorIOS = NavigatorIOSStatic
+    export var NavigatorIOS: NavigatorIOSStatic;
+    export type NavigatorIOS = NavigatorIOSStatic;
 
-    export var Picker: PickerStatic
-    export type Picker = PickerStatic
+    export var Picker: PickerStatic;
+    export type Picker = PickerStatic;
 
-    export var PickerIOS: PickerIOSStatic
-    export type PickerIOS = PickerIOSStatic
+    export var PickerIOS: PickerIOSStatic;
+    export type PickerIOS = PickerIOSStatic;
 
-    export var ProgressBarAndroid: ProgressBarAndroidStatic
-    export type ProgressBarAndroid = ProgressBarAndroidStatic
+    export var ProgressBarAndroid: ProgressBarAndroidStatic;
+    export type ProgressBarAndroid = ProgressBarAndroidStatic;
 
-    export var ProgressViewIOS: ProgressViewIOSStatic
-    export type ProgressViewIOS = ProgressViewIOSStatic
+    export var ProgressViewIOS: ProgressViewIOSStatic;
+    export type ProgressViewIOS = ProgressViewIOSStatic;
 
-    export var RefreshControl: RefreshControlStatic
-    export type RefreshControl = RefreshControlStatic
+    export var RefreshControl: RefreshControlStatic;
+    export type RefreshControl = RefreshControlStatic;
 
-    export var RecyclerViewBackedScrollView: RecyclerViewBackedScrollViewStatic
-    export type RecyclerViewBackedScrollView = RecyclerViewBackedScrollViewStatic
+    export var RecyclerViewBackedScrollView: RecyclerViewBackedScrollViewStatic;
+    export type RecyclerViewBackedScrollView = RecyclerViewBackedScrollViewStatic;
 
-    export var SegmentedControlIOS: SegmentedControlIOSStatic
-    export type SegmentedControlIOS = SegmentedControlIOSStatic
+    export var SegmentedControlIOS: SegmentedControlIOSStatic;
+    export type SegmentedControlIOS = SegmentedControlIOSStatic;
 
-    export var Slider: SliderStatic
-    export type Slider = SliderStatic
+    export var Slider: SliderStatic;
+    export type Slider = SliderStatic;
 
-    export var SliderIOS: SliderStatic
-    export type SliderIOS = SliderStatic
+    export var SliderIOS: SliderStatic;
+    export type SliderIOS = SliderStatic;
 
-    export var StatusBar: StatusBarStatic
-    export type StatusBar = StatusBarStatic
+    export var StatusBar: StatusBarStatic;
+    export type StatusBar = StatusBarStatic;
 
-    export var ScrollView: ScrollViewStatic
-    export type ScrollView = ScrollViewStatic
+    export var ScrollView: ScrollViewStatic;
+    export type ScrollView = ScrollViewStatic;
 
-    export var SnapshotViewIOS: SnapshotViewIOSStatic
-    export type SnapshotViewIOS = SnapshotViewIOSStatic
+    export var SnapshotViewIOS: SnapshotViewIOSStatic;
+    export type SnapshotViewIOS = SnapshotViewIOSStatic;
 
-    export var Systrace: SystraceStatic
-    export type Systrace = SystraceStatic
+    export var Systrace: SystraceStatic;
+    export type Systrace = SystraceStatic;
 
-    export var SwipeableListView: SwipeableListViewStatic
-    export type SwipeableListView = SwipeableListViewStatic
+    export var SwipeableListView: SwipeableListViewStatic;
+    export type SwipeableListView = SwipeableListViewStatic;
 
-    export var Switch: SwitchStatic
-    export type Switch = SwitchStatic
+    export var Switch: SwitchStatic;
+    export type Switch = SwitchStatic;
 
-    export var SwitchIOS: SwitchIOSStatic
-    export type SwitchIOS = SwitchIOSStatic
+    export var SwitchIOS: SwitchIOSStatic;
+    export type SwitchIOS = SwitchIOSStatic;
 
-    export var TabBarIOS: TabBarIOSStatic
-    export type TabBarIOS = TabBarIOSStatic
+    export var TabBarIOS: TabBarIOSStatic;
+    export type TabBarIOS = TabBarIOSStatic;
 
-    export var Text: TextStatic
-    export type Text = TextStatic
+    export var Text: TextStatic;
+    export type Text = TextStatic;
 
-    export var TextInput: TextInputStatic
-    export type TextInput = TextInputStatic
+    export var TextInput: TextInputStatic;
+    export type TextInput = TextInputStatic;
 
-    export var ToolbarAndroid: ToolbarAndroidStatic
-    export type ToolbarAndroid = ToolbarAndroidStatic
+    export var ToolbarAndroid: ToolbarAndroidStatic;
+    export type ToolbarAndroid = ToolbarAndroidStatic;
 
-    export var TouchableHighlight: TouchableHighlightStatic
-    export type TouchableHighlight = TouchableHighlightStatic
+    export var TouchableHighlight: TouchableHighlightStatic;
+    export type TouchableHighlight = TouchableHighlightStatic;
 
-    export var TouchableNativeFeedback: TouchableNativeFeedbackStatic
-    export type TouchableNativeFeedback = TouchableNativeFeedbackStatic
+    export var TouchableNativeFeedback: TouchableNativeFeedbackStatic;
+    export type TouchableNativeFeedback = TouchableNativeFeedbackStatic;
 
-    export var TouchableOpacity: TouchableOpacityStatic
-    export type TouchableOpacity = TouchableOpacityStatic
+    export var TouchableOpacity: TouchableOpacityStatic;
+    export type TouchableOpacity = TouchableOpacityStatic;
 
-    export var TouchableWithoutFeedback: TouchableWithoutFeedbackStatic
-    export type TouchableWithoutFeedback = TouchableWithoutFeedbackStatic
+    export var TouchableWithoutFeedback: TouchableWithoutFeedbackStatic;
+    export type TouchableWithoutFeedback = TouchableWithoutFeedbackStatic;
 
-    export var View: ViewStatic
-    export type View = ViewStatic
+    export var View: ViewStatic;
+    export type View = ViewStatic;
 
-    export var ViewPagerAndroid: ViewPagerAndroidStatic
-    export type ViewPagerAndroid = ViewPagerAndroidStatic
+    export var ViewPagerAndroid: ViewPagerAndroidStatic;
+    export type ViewPagerAndroid = ViewPagerAndroidStatic;
 
-    export var WebView: WebViewStatic
-    export type WebView = WebViewStatic
+    export var WebView: WebViewStatic;
+    export type WebView = WebViewStatic;
 
 
     //////////// APIS //////////////
-    export var ActionSheetIOS: ActionSheetIOSStatic
-    export type ActionSheetIOS = ActionSheetIOSStatic
+    export var ActionSheetIOS: ActionSheetIOSStatic;
+    export type ActionSheetIOS = ActionSheetIOSStatic;
 
-    export var Share: ShareStatic
-    export type Share = ShareStatic
+    export var Share: ShareStatic;
+    export type Share = ShareStatic;
 
-    export var AdSupportIOS: AdSupportIOSStatic
-    export type AdSupportIOS = AdSupportIOSStatic
+    export var AdSupportIOS: AdSupportIOSStatic;
+    export type AdSupportIOS = AdSupportIOSStatic;
 
-    export var Alert: AlertStatic
-    export type Alert = AlertStatic
+    export var Alert: AlertStatic;
+    export type Alert = AlertStatic;
 
-    export var AlertAndroid: AlertAndroidStatic
-    export type AlertAndroid = AlertAndroidStatic
+    export var AlertAndroid: AlertAndroidStatic;
+    export type AlertAndroid = AlertAndroidStatic;
 
-    export var AlertIOS: AlertIOSStatic
-    export type AlertIOS = AlertIOSStatic
+    export var AlertIOS: AlertIOSStatic;
+    export type AlertIOS = AlertIOSStatic;
 
-    export var AppState: AppStateStatic;
-    export type AppState = AppStateStatic;
+    export var AppState: AppStateStatic;;
+    export type AppState = AppStateStatic;;
 
-    export var AppStateIOS: AppStateStatic
-    export type AppStateIOS = AppStateStatic
+    export var AppStateIOS: AppStateStatic;
+    export type AppStateIOS = AppStateStatic;
 
-    export var AsyncStorage: AsyncStorageStatic
-    export type AsyncStorage = AsyncStorageStatic
+    export var AsyncStorage: AsyncStorageStatic;
+    export type AsyncStorage = AsyncStorageStatic;
 
-    export var BackAndroid: BackAndroidStatic
-    export type BackAndroid = BackAndroidStatic
+    export var BackAndroid: BackAndroidStatic;
+    export type BackAndroid = BackAndroidStatic;
 
-    export var CameraRoll: CameraRollStatic
-    export type CameraRoll = CameraRollStatic
+    export var CameraRoll: CameraRollStatic;
+    export type CameraRoll = CameraRollStatic;
 
-    export var Clipboard: ClipboardStatic
-    export type Clipboard = ClipboardStatic
+    export var Clipboard: ClipboardStatic;
+    export type Clipboard = ClipboardStatic;
 
-    export var DatePickerAndroid: DatePickerAndroidStatic
-    export type DatePickerAndroid = DatePickerAndroidStatic
+    export var DatePickerAndroid: DatePickerAndroidStatic;
+    export type DatePickerAndroid = DatePickerAndroidStatic;
 
-    export var Geolocation: GeolocationStatic
-    export type Geolocation = GeolocationStatic
+    export var Geolocation: GeolocationStatic;
+    export type Geolocation = GeolocationStatic;
 
     /** http://facebook.github.io/react-native/blog/2016/08/19/right-to-left-support-for-react-native-apps.html */
-    export var I18nManager: I18nManagerStatic
-    export type I18nManager = I18nManagerStatic
+    export var I18nManager: I18nManagerStatic;
+    export type I18nManager = I18nManagerStatic;
 
-    export var ImageEditor: ImageEditorStatic
-    export type ImageEditor = ImageEditorStatic
+    export var ImageEditor: ImageEditorStatic;
+    export type ImageEditor = ImageEditorStatic;
 
-    export var ImageStore: ImageStoreStatic
-    export type ImageStore = ImageStoreStatic
+    export var ImageStore: ImageStoreStatic;
+    export type ImageStore = ImageStoreStatic;
 
-    export var InteractionManager: InteractionManagerStatic
+    export var InteractionManager: InteractionManagerStatic;
 
-    export var IntentAndroid: IntentAndroidStatic
-    export type IntentAndroid = IntentAndroidStatic
+    export var IntentAndroid: IntentAndroidStatic;
+    export type IntentAndroid = IntentAndroidStatic;
 
     export var Keyboard: NativeEventEmitter
 
-    export var KeyboardAvoidingView: KeyboardAvoidingViewStatic
-    export type KeyboardAvoidingView = KeyboardAvoidingViewStatic
+    export var KeyboardAvoidingView: KeyboardAvoidingViewStatic;
+    export type KeyboardAvoidingView = KeyboardAvoidingViewStatic;
 
-    export var Linking: LinkingStatic
-    export type Linking = LinkingStatic
+    export var Linking: LinkingStatic;
+    export type Linking = LinkingStatic;
 
-    export var LinkingIOS: LinkingIOSStatic
-    export type LinkingIOS = LinkingIOSStatic
+    export var LinkingIOS: LinkingIOSStatic;
+    export type LinkingIOS = LinkingIOSStatic;
 
-    export var NativeMethodsMixin: NativeMethodsMixinStatic
-    export type NativeMethodsMixin = NativeMethodsMixinStatic
+    export var NativeMethodsMixin: NativeMethodsMixinStatic;
+    export type NativeMethodsMixin = NativeMethodsMixinStatic;
 
-    export var NativeComponent: NativeMethodsMixinStatic
-    export type NativeComponent = NativeMethodsMixinStatic
+    export var NativeComponent: NativeMethodsMixinStatic;
+    export type NativeComponent = NativeMethodsMixinStatic;
 
-    export var NetInfo: NetInfoStatic
-    export type NetInfo = NetInfoStatic
+    export var NetInfo: NetInfoStatic;
+    export type NetInfo = NetInfoStatic;
 
-    export var PanResponder: PanResponderStatic
-    export type PanResponder = PanResponderStatic
+    export var PanResponder: PanResponderStatic;
+    export type PanResponder = PanResponderStatic;
 
-    export var PermissionsAndroid: PermissionsAndroidStatic
-    export type PermissionsAndroid = PermissionsAndroidStatic
+    export var PermissionsAndroid: PermissionsAndroidStatic;
+    export type PermissionsAndroid = PermissionsAndroidStatic;
 
-    export var PushNotificationIOS: PushNotificationIOSStatic
-    export type PushNotificationIOS = PushNotificationIOSStatic
+    export var PushNotificationIOS: PushNotificationIOSStatic;
+    export type PushNotificationIOS = PushNotificationIOSStatic;
 
-    export var Settings: SettingsStatic
-    export type Settings = SettingsStatic
+    export var Settings: SettingsStatic;
+    export type Settings = SettingsStatic;
 
-    export var StatusBarIOS: StatusBarIOSStatic
-    export type StatusBarIOS = StatusBarIOSStatic
+    export var StatusBarIOS: StatusBarIOSStatic;
+    export type StatusBarIOS = StatusBarIOSStatic;
 
-    export var TimePickerAndroid: TimePickerAndroidStatic
-    export type TimePickerAndroid = TimePickerAndroidStatic
+    export var TimePickerAndroid: TimePickerAndroidStatic;
+    export type TimePickerAndroid = TimePickerAndroidStatic;
 
-    export var ToastAndroid: ToastAndroidStatic
-    export type ToastAndroid = ToastAndroidStatic
+    export var ToastAndroid: ToastAndroidStatic;
+    export type ToastAndroid = ToastAndroidStatic;
 
-    export var UIManager: UIManagerStatic
-    export type UIManager = UIManagerStatic
+    export var UIManager: UIManagerStatic;
+    export type UIManager = UIManagerStatic;
 
-    export var VibrationIOS: VibrationIOSStatic
-    export type VibrationIOS = VibrationIOSStatic
+    export var VibrationIOS: VibrationIOSStatic;
+    export type VibrationIOS = VibrationIOSStatic;
 
-    export var Vibration: VibrationStatic
-    export type Vibration = VibrationStatic
+    export var Vibration: VibrationStatic;
+    export type Vibration = VibrationStatic;
 
     export var Dimensions: Dimensions;
     export var ShadowPropTypesIOS: ShadowPropTypesIOSStatic;
@@ -8192,18 +8192,18 @@ declare module "react" {
 
     //////////// Plugins //////////////
 
-    export var DeviceEventEmitter: DeviceEventEmitterStatic
+    export var DeviceEventEmitter: DeviceEventEmitterStatic;
     /**
      * Abstract base class for implementing event-emitting modules. This implements
      * a subset of the standard EventEmitter node module API.
      */
     export interface NativeEventEmitter extends EventEmitter {}
-    export var NativeEventEmitter: NativeEventEmitter
+    export var NativeEventEmitter: NativeEventEmitter;
     /**
      * Deprecated - subclass NativeEventEmitter to create granular event modules instead of
      * adding all event listeners directly to RCTNativeAppEventEmitter.
      */
-    export var NativeAppEventEmitter: RCTNativeAppEventEmitter
+    export var NativeAppEventEmitter: RCTNativeAppEventEmitter;
     /**
      * Native Modules written in ObjectiveC/Swift/Java exposed via the RCTBridge
      * Define lazy getters for each module. These will return the module if already loaded, or load it if not.
@@ -8211,14 +8211,14 @@ declare module "react" {
      * Use:
      * <code>const MyModule = NativeModules.ModuleName</code>
      */
-    export var NativeModules: any
-    export var Platform: PlatformStatic
-    export var PixelRatio: PixelRatioStatic
+    export var NativeModules: any;
+    export var Platform: PlatformStatic;
+    export var PixelRatio: PixelRatioStatic;
 
     export interface ComponentInterface<P> {
         name?: string;
         displayName?: string;
-        propTypes: P
+        propTypes: P;
     }
 
     /**
@@ -8272,21 +8272,21 @@ declare module "react" {
         //FIXME: Documentation ?
         export interface TestModuleStatic {
 
-            verifySnapshot: (done: (indicator?: any) => void) => void
-            markTestPassed: (indicator: any) => void
-            markTestCompleted: () => void
+            verifySnapshot: (done: (indicator?: any) => void) => void'
+            markTestPassed: (indicator: any) => void'
+            markTestCompleted: () => void'
         }
 
-        export var TestModule: TestModuleStatic
-        export type TestModule = TestModuleStatic
+        export var TestModule: TestModuleStatic;
+        export type TestModule = TestModuleStatic;
     }
 
     //
     // Prop Types
     //
-    export var ColorPropType: Requireable<any>
-    export var EdgeInsetsPropType: Requireable<any>
-    export var PointPropType: Requireable<any>
+    export var ColorPropType: Requireable<any>;
+    export var EdgeInsetsPropType: Requireable<any>;
+    export var PointPropType: Requireable<any>;
 }
 
 declare global {
@@ -8299,4 +8299,4 @@ declare global {
  * Typical usage:
  * <code> if (__DEV__) console.log('Running in dev mode')</code>
  */
-declare var __DEV__: boolean
+declare var __DEV__: boolean;

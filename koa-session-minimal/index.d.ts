@@ -32,7 +32,7 @@ declare function session(opts?: {
     /**
      * cookie options
      */
-    cookie?:  cookies.IOptions | { (ctx?: Koa.Context): cookies.IOptions };
+    cookie?: cookies.IOptions | { (ctx?: Koa.Context): cookies.IOptions };
 
     /**
      * session store

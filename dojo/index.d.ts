@@ -3,6 +3,8 @@
 // Definitions by: Michael Van Sickle <https://github.com/vansimke>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
+// tslint:disable
+
 declare namespace dojox.dtl {
     interface __StringArgs { }
     interface __ObjectArgs { }

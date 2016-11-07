@@ -13,7 +13,7 @@ declare module "angular" {
 			| (string | ((...args: any[]) => string))[]
 			| (string | ((...args: any[]) => ng.IPromise<string>))[];
 		interface IState {
-			default?: StateDefaultSpecifier
+			default?: StateDefaultSpecifier;
 		}
 	}
 }

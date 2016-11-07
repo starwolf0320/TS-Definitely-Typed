@@ -11,6 +11,6 @@ declare function AsyncPolling<Result>(pollingFunc: (end: (err?: Error, result?: 
     run: () => any;
     stop: () => any;
     on: (eventName: AsyncPolling.EventName, listener: Function) => any;
-}
+};
 
 export = AsyncPolling;

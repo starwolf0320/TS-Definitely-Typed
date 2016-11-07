@@ -55,12 +55,12 @@ declare namespace Common {
     export type ArtifactHash = string;
     export type Name = string;
 
-    export type Metadata = {}
+    export type Metadata = {};
     export class Node {
         constructor();
     }
 
-    export type DataObject = {}
+    export type DataObject = {};
     export type Buffer = GLbyte[];
     export type Payload = string | Buffer | Buffer[];
     export type Content = DataObject | Buffer | Buffer[];
@@ -104,7 +104,7 @@ declare namespace Blobs {
         contentType: string;
     }
 
-    export type BlobMetadataDescriptor = {}
+    export type BlobMetadataDescriptor = {};
 
     export class BlobClient {
         constructor();
@@ -113,7 +113,7 @@ declare namespace Blobs {
         getArtifact: {
             (metadataHash: Common.MetadataHash, callback: Core.ArtifactCallback): void;
             (metadataHash: Common.MetadataHash): Promise<Core.Artifact>;
-        }
+        };
         getMetadataURL(metadataHash: Common.MetadataHash): string;
         getRelativeMetadataURL(metadataHash: Common.MetadataHash): string;
         getViewURL(metadataHash: Common.MetadataHash, subpath: string): string;
@@ -124,40 +124,40 @@ declare namespace Blobs {
         getSubObject: {
             (metadataHash: Common.MetadataHash, subpath: string, callback: Common.ObjectCallback): void;
             (metadataHash: Common.MetadataHash, subpath: string): Promise<Common.DataObject>;
-        }
+        };
         getObject: {
             (metadataHash: Common.MetadataHash, callback: Common.ObjectCallback, subpath: string): Common.Content;
             (metadataHash: Common.MetadataHash, subpath: string): Promise<Common.Content>;
-        }
+        };
         getObjectAsString: {
             (metadataHash: Common.MetadataHash, callback: Common.MetadataHashCallback): Common.ContentString;
             (metadataHash: Common.MetadataHash): Promise<Common.ContentString>;
-        }
+        };
         getObjectAsJSON: {
             (metadataHash: Common.MetadataHash, callback: Common.JSONCallback): void;
             (metadataHash: Common.MetadataHash): Promise<JSON>;
-        }
+        };
         getMetadata: {
             (metadataHash: Common.MetadataHash, callback: Common.MetadataCallback): Common.Metadata;
             (metadataHash: Common.MetadataHash): Promise<Common.Metadata>;
-        }
+        };
         getHumanSize(bytes: number, si: boolean): string;
         putFile: {
             (name: Common.Name, data: Common.Payload, callback: Common.MetadataHashCallback): void;
             (name: Common.Name, data: Common.Payload): Promise<Common.MetadataHash>;
-        }
+        };
         putMetadata: {
             (metadataDescriptor: BlobMetadataDescriptor, callback: Common.MetadataHashCallback): void;
             (metadataDescriptor: BlobMetadataDescriptor): Promise<Common.MetadataHash>;
-        }
+        };
         putFiles: {
             (o: { [name: string]: Common.Payload }, callback: Common.MetadataHashArrayCallback): void;
             (o: { [name: string]: Common.Payload }): Promise<Common.MetadataHashArray>;
-        }
+        };
         saveAllArtifacts: {
             (callback: Common.MetadataHashArrayCallback): void;
             (): Promise<Common.MetadataHashArray>;
-        }
+        };
     }
 
 }
@@ -189,22 +189,22 @@ declare namespace Core {
         addFile: {
             (name: Common.Name, content: Blobs.ObjectBlob, callback: Common.MetadataHashCallback): void;
             (name: Common.Name, content: Blobs.ObjectBlob): Promise<Common.MetadataHash>;
-        }
+        };
         /** Adds files as soft-link. */
         addFileAsSoftLink: {
             (name: Common.Name, content: Blobs.ObjectBlob, callback: Common.MetadataHashCallback): void;
             (name: Common.Name, content: Blobs.ObjectBlob): Promise<Common.MetadataHash>;
-        }
+        };
         /** Adds multiple files. */
         addFiles: {
             (files: { [name: string]: Blobs.ObjectBlob }, callback: Common.MetadataHashArrayCallback): void;
             (files: { [name: string]: Blobs.ObjectBlob }): Promise<Common.MetadataHashArray> | Promise<string>;
-        }
+        };
         /** Adds multiple files as soft-links. */
         addFilesAsSoftLinks: {
             (files: { [name: string]: Blobs.ObjectBlob }, callback: Common.MetadataHashArrayCallback): void;
             (files: { [name: string]: Blobs.ObjectBlob }): Promise<Common.MetadataHashArray>;
-        }
+        };
         /** Adds a metadataHash to the artifact using the given file path. */
         addMetadataHash: {
             (name: Common.Name, metadataHash: Common.MetadataHash, size: number, callback: Common.MetadataHashCallback): void;
@@ -212,7 +212,7 @@ declare namespace Core {
 
             (objectHashes: { [name: string]: string }, callback: Common.MetadataHashCallback): void;
             (objectHashes: { [name: string]: string }): Promise<Common.MetadataHash>;
-        }
+        };
         /** Adds metadataHashes to the artifact using the given file paths. */
         addMetadataHashes: {
             (name: Common.Name, metadataHash: Common.MetadataHash, size: number, callback: Common.MetadataHashArrayCallback): void;
@@ -220,22 +220,22 @@ declare namespace Core {
 
             (objectHashes: { [name: string]: string }, callback: Common.MetadataHashArrayCallback): void;
             (objectHashes: { [name: string]: string }): Promise<Common.MetadataHashArray>;
-        }
+        };
         /** Adds a metadataHash to the artifact using the given file path. */
         addObjectHash: {
             (name: Common.Name, metadataHash: Common.MetadataHash, callback: Common.MetadataHashCallback): void;
             (name: Common.Name, metadataHash: Common.MetadataHash): Promise<Common.MetadataHash>;
-        }
+        };
         /** Adds metadataHashes to the artifact using the given file paths. */
         addObjectHashes: {
             (objectHashes: { [name: string]: string }, callback: Common.MetadataHashArrayCallback): void;
             (objectHashes: { [name: string]: string }): Promise<Common.MetadataHashArray>;
-        }
+        };
         /** Saves this artifact and uploads the metadata to the server's storage. */
         save: {
             (callback: Common.MetadataHashCallback): void;
             (message?: string): Promise<Common.MetadataHash>;
-        }
+        };
     }
     /**
      commitHash - metadataHash of the commit.
@@ -342,7 +342,7 @@ declare namespace Core {
         absolutePathOfTarget?: {
             min?: number;
             max?: number;
-        }
+        };
     }
 
     export interface Constraint {
@@ -362,7 +362,7 @@ declare namespace Core {
         message?: string;
         hint?: string;
     }
-    export interface GmePersisted { rootHash: Common.MetadataHash }
+    export interface GmePersisted { rootHash: Common.MetadataHash; }
     export enum TraversalOrder { 'BFS', 'DFS' }
     export type GUID = string;
 
@@ -402,14 +402,14 @@ declare namespace Core {
                 libraryInfo: LibraryInfo, callback: Common.ObjectCallback): void;
             (node: Common.Node, name: Common.Name, libraryRootHash: string,
                 libraryInfo: LibraryInfo): Promise<Common.DataObject>;
-        }
+        };
         addMember(node: Common.Node, name: Common.Name, member: Common.Node): undefined | Error;
         addMixin(node: Common.Node, mixinPath: string): undefined | Error;
         applyResolution(conflict: {}): {};
         applyTreeDiff: {
             (root: Common.Node, patch: Common.DataObject, callback: Common.ObjectCallback): void;
             (root: Common.Node, patch: Common.DataObject): Promise<Common.DataObject>;
-        }
+        };
         canSetAsMixin(node: Common.Node, mixinPath: string): boolean | string;
         clearMetaRules(node: Common.Node): undefined | Error;
         clearMixins(node: Common.Node): undefined | Error;
@@ -436,7 +436,7 @@ declare namespace Core {
         generateTreeDiff: {
             (sourceRoot: Common.Node, targetRoot: Common.Node, callBack: Common.ObjectCallback): void;
             (sourceRoot: Common.Node, targetRoot: Common.Node): Promise<Common.DataObject>;
-        }
+        };
         getAllMetaNodes(node: Common.Node): { [name: string]: Common.Node };
         getAspectMeta(node: Common.Node, name: Common.Name): string[];
         /**
@@ -627,14 +627,14 @@ declare namespace Core {
                 options: TraversalOptions,
                 visitFn: (node: Common.Node, finished: Common.VoidFn) => void)
                 : Promise<void>;
-        }
+        };
         tryToConcatChanges(mine: Common.DataObject, theirs: Common.DataObject): Common.DataObject;
         updateLibrary: {
             (node: Common.Node, name: Common.Name, libraryRootHash: Common.MetadataHash,
                 libraryInfo: LibraryInfo, callback: Common.ObjectCallback): void;
             (node: Common.Node, name: Common.Name, libraryRootHash: Common.MetadataHash,
                 libraryInfo: LibraryInfo): Promise<Common.DataObject>;
-        }
+        };
     }
 
     export interface Dictionary {
@@ -753,16 +753,16 @@ declare namespace Core {
           - Always log with the provided logger.[error,warning,info,debug].
           - Do NOT put any user interaction logic UI, etc. inside this method.
           - handler always has to be called even if error happened.
-     
+
           When this runs the core api is used to extract the essential
           meta-model and the model-instance, these are then written to the mega-model.
           The mega-model contains all of the models used to describe the target system.
-     
+
           https://github.com/ptaoussanis/sente
           and https://github.com/cognitect/transit-format
           will be used to connect to the
           graph database (immortals) where the mega-model is stored.
-     
+
           @param {function(string, plugin.PluginResult)} handler - the result handler
          */
         main(callback: ResultCallback): void;
@@ -770,7 +770,7 @@ declare namespace Core {
         sendNotification: {
             (message: string, callback: Common.ObjectCallback): void;
             (message: string): Promise<Common.DataObject>;
-        }
+        };
         setCurrentConfig(newConfig: Config.GmeConfig): void;
         updateMeta(generatedMeta: any): void;
         updateSuccess(value: boolean, message: TemplateStringsArray): void;
@@ -814,7 +814,7 @@ declare namespace Core {
         sendNotification: {
             (message: string, callback: Core.ResultCallback): void;
             (message: string): Promise<Common.DataObject>;
-        }
+        };
         setCurrentConfig(newConfig: Config.GmeConfig): void;
         updateMeta(generatedMeta: any): void;
         updateSuccess(value: boolean, message: TemplateStringsArray): void;
@@ -825,7 +825,7 @@ declare namespace Core {
 /**
  * Each Plugin has a configuration specified via a metadata.json file.
  * This interface prescribes that configuration file.
- * 
+ *
  */
 declare namespace Config {
 
@@ -841,7 +841,7 @@ declare namespace Config {
         // the value of the item: if valueItem is provided it must be one of those values.
         value: string;
         // the datatype of the value: 'string', 'integer', ...
-        valueType: string,
+        valueType: string;
         // an enumeration of the allowed values for the value field
         valueItems?: string[];
         // a regular expression limiting the values allowed.
@@ -856,7 +856,7 @@ declare namespace Config {
 
 
     /**
-       https://editor.webgme.org/docs/source/global.html#GmeConfig	
+       https://editor.webgme.org/docs/source/global.html#GmeConfig
        https://github.com/webgme/webgme/blob/master/config/README.md
     */
     export class GmeConfig {

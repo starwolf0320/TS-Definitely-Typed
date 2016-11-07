@@ -42,27 +42,27 @@ export interface Service {
     txt: Object;
     published: boolean;
 
-    stop: (cb: ()=>any) => void;
+    stop: (cb: () => any) => void;
     start: () => void;
 }
 
 export class Bonjour {
 
     constructor(opts: BonjourOptions);
-    publish(options: ServiceOptions):Service;
-    unpublishAll(cb: ()=>any): void;
-    find(options:BrowserOptions, onUp: ()=>any): Browser;
-    findOne(options:any, cb: (service: Service)=>any): Browser;
-    destroy():void;
+    publish(options: ServiceOptions): Service;
+    unpublishAll(cb: () => any): void;
+    find(options: BrowserOptions, onUp: () => any): Browser;
+    findOne(options: any, cb: (service: Service) => any): Browser;
+    destroy(): void;
 }
 
 export class Browser {
     services: Service[];
 
-    start():void;
-    update():void;
-    stop():void;
+    start(): void;
+    update(): void;
+    stop(): void;
 }
 
-export function find(options: BrowserOptions, onUp?: ()=>any): Browser;
+export function find(options: BrowserOptions, onUp?: () => any): Browser;
 export function findOne(options: BrowserOptions): Browser;

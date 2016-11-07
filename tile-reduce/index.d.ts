@@ -7,7 +7,7 @@
 
 declare namespace NodeJS  {
     interface Global {
-        mapOptions: any
+        mapOptions: any;
     }
 }
 
@@ -123,5 +123,5 @@ declare namespace TileReduce {
 }
 
 declare module "tile-reduce" {
-    export = TileReduce
+    export = TileReduce;
 }

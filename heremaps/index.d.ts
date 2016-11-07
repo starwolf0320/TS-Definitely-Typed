@@ -180,7 +180,7 @@ declare namespace H {
          * @param x {number} - map viewport x-axis pixel coordinate
          * @param y {number} - map viewport y-axis pixel coordinate
          * @returns {?H.geo.Point}
-         */map.
+         */
         screenToGeo(x: number, y: number): H.geo.Point;
 
         /**
