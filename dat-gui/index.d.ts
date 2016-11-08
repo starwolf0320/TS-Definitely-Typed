@@ -26,7 +26,7 @@ declare namespace dat {
         remove(controller: GUIController): void;
         destroy(): void;
 
-        addFolder(propName:string): GUI;
+        addFolder(propName: string): GUI;
 
         open(): void;
         close(): void;
@@ -36,8 +36,8 @@ declare namespace dat {
 
         getSaveObject(): Object;
         save(): void;
-        saveAs(presetName:string): void;
-        revert(gui:GUI): void;
+        saveAs(presetName: string): void;
+        revert(gui: GUI): void;
 
         listen(controller: GUIController): void;
         updateDisplay(): void;
@@ -84,7 +84,7 @@ declare namespace dat {
         fire(): GUIController;
 
         // augmentController in dat/gui/GUI.js
-        options(option:any):GUIController;
+        options(option: any): GUIController;
         name(s: string): GUIController;
         listen(): GUIController;
         remove(): GUIController;

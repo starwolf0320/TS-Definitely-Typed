@@ -100,7 +100,7 @@ declare module "amqplib" {
 
     import events = require("events");
     import when = require("when");
-    import shared = require("amqplib/properties")
+    import shared = require("amqplib/properties");
     export import Replies = shared.Replies;
     export import Options = shared.Options;
     export import Message = shared.Message;
@@ -156,7 +156,7 @@ declare module "amqplib" {
 declare module "amqplib/callback_api" {
 
     import events = require("events");
-    import shared = require("amqplib/properties")
+    import shared = require("amqplib/properties");
     export import Replies = shared.Replies;
     export import Options = shared.Options;
     export import Message = shared.Message;
@@ -170,11 +170,11 @@ declare module "amqplib/callback_api" {
     interface Channel extends events.EventEmitter {
         close(callback: (err: any) => void): void;
 
-        assertQueue(queue?: string, options?: Options.AssertQueue, callback?: (err:any, ok: Replies.AssertQueue) => void): void;
+        assertQueue(queue?: string, options?: Options.AssertQueue, callback?: (err: any, ok: Replies.AssertQueue) => void): void;
         checkQueue(queue: string, callback?: (err: any, ok: Replies.AssertQueue) => void): void;
 
-        deleteQueue(queue: string, options?: Options.DeleteQueue, callback?: (err:any, ok: Replies.DeleteQueue) => void): void;
-        purgeQueue(queue: string, callback?: (err:any, ok: Replies.PurgeQueue) => void): void;
+        deleteQueue(queue: string, options?: Options.DeleteQueue, callback?: (err: any, ok: Replies.DeleteQueue) => void): void;
+        purgeQueue(queue: string, callback?: (err: any, ok: Replies.PurgeQueue) => void): void;
 
         bindQueue(queue: string, source: string, pattern: string, args?: any, callback?: (err: any, ok: Replies.Empty) => void): void;
         unbindQueue(queue: string, source: string, pattern: string, args?: any, callback?: (err: any, ok: Replies.Empty) => void): void;

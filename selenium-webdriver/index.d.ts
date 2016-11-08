@@ -2496,7 +2496,7 @@ declare namespace webdriver {
              * @param {ControlFlow=} opt_flow The control flow
              *     this instance was created under. Defaults to the currently active flow.
              */
-            constructor(resolver: (resolve: IFulfilledCallback<T>, reject: IRejectedCallback)=>void, opt_flow?: ControlFlow);
+            constructor(resolver: (resolve: IFulfilledCallback<T>, reject: IRejectedCallback) => void, opt_flow?: ControlFlow);
 
             //region Methods
 
