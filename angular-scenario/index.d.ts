@@ -46,8 +46,7 @@ declare namespace angularScenario {
     }
 
     export interface Browser {
-        navigateTo(url: string): void;
-        navigateTo(urlDescription: string, urlFunction: () => string): void;
+        navigateTo(url: string, urlFunction?: () => string): void;
         reload(): void;
         window(): testWindow;
         location(): testLocation;
@@ -95,7 +94,6 @@ declare namespace angularScenario {
     }
 
     export interface Select {
-        option(value: any): any;
         option(...listOfValues: any[]): any;
     }
 

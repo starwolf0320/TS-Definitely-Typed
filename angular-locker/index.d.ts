@@ -81,16 +81,9 @@ declare module 'angular' {
             /**
             * Remove specified item(s) from storage
             *
-            * @param  {String}  key  The key to remove
+            * @param  {String}  key  The key or array of keys to remove
             */
-            forget(key: string): ILockerService;
-            /**
-            * Remove specified item(s) from storage
-            *
-            * @param  {Array}  keys  The array of keys to remove
-            *
-            */
-            forget(keys: string[]): ILockerService;
+            forget(keyOrKeys: string): ILockerService;
             /**
             * Retrieve the specified item from storage and then remove it
             *

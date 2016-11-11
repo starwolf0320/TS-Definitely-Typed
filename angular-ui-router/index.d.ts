@@ -35,7 +35,7 @@ declare module 'angular' {
             /**
              * Function, returns HTML content string
              */
-            templateProvider?: Function | (string | Function)[];
+            templateProvider?: Function | Array<string | Function>;
             /**
              * String, component name
              */
@@ -43,12 +43,12 @@ declare module 'angular' {
             /**
              * A controller paired to the state. Function, annotated array or name as String
              */
-            controller?: Function | string | (string | Function)[];
+            controller?: Function | string | Array<string | Function>;
             controllerAs?: string;
             /**
              * Function (injectable), returns the actual controller function or string.
              */
-            controllerProvider?: Function | (string | Function)[];
+            controllerProvider?: Function | Array<string | Function>;
 
             /**
              * Specifies the parent state of this state
@@ -74,12 +74,12 @@ declare module 'angular' {
              * Callback function for when a state is entered. Good way to trigger an action or dispatch an event, such as opening a dialog.
              * If minifying your scripts, make sure to explicitly annotate this function, because it won't be automatically annotated by your build tools.
              */
-            onEnter?: Function | (string | Function)[];
+            onEnter?: Function | Array<string | Function>;
             /**
              * Callback functions for when a state is entered and exited. Good way to trigger an action or dispatch an event, such as opening a dialog.
              * If minifying your scripts, make sure to explicitly annotate this function, because it won't be automatically annotated by your build tools.
              */
-            onExit?: Function | (string | Function)[];
+            onExit?: Function | Array<string | Function>;
             /**
              * Arbitrary data object, useful for custom configuration.
              */

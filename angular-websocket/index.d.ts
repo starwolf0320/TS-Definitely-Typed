@@ -122,7 +122,7 @@ declare module "angular" {
             /**
              * List of callbacks to be executed when the socket is opened.
              */
-            onOpenCallbacks: ((evt: Event) => void)[];
+            onOpenCallbacks: Array<(evt: Event) => void>;
 
             /**
              * List of callbacks to be executed when a message is received from the socket.
@@ -132,12 +132,12 @@ declare module "angular" {
             /**
              * List of callbacks to be executed when an error is received from the socket.
              */
-            onErrorCallbacks: ((evt: Event) => void)[];
+            onErrorCallbacks: Array<(evt: Event) => void>;
 
             /**
              * List of callbacks to be executed when the socket is closed.
              */
-            onCloseCallbacks: ((evt: CloseEvent) => void)[];
+            onCloseCallbacks: Array<(evt: CloseEvent) => void>;
 
             /**
              * Returns either the readyState value from the underlying WebSocket instance

@@ -49,8 +49,7 @@ declare module 'angular' {
             (translationId: string[], interpolateParams?: any, interpolationId?: string): angular.IPromise<{ [key: string]: string }>;
             cloakClassName(): string;
             cloakClassName(name: string): ITranslateProvider;
-            fallbackLanguage(langKey?: string): string;
-            fallbackLanguage(langKey?: string[]): string;
+            fallbackLanguage(langKey?: string | string[]): string;
             instant(translationId: string, interpolateParams?: any, interpolationId?: string): string;
             instant(translationId: string[], interpolateParams?: any, interpolationId?: string): { [key: string]: string };
             isPostCompilingEnabled(): boolean;
@@ -78,16 +77,13 @@ declare module 'angular' {
             useMessageFormatInterpolation(): ITranslateProvider;
             useInterpolation(factory: string): ITranslateProvider;
             useSanitizeValueStrategy(value: string): ITranslateProvider;
-            preferredLanguage(): ITranslateProvider;
-            preferredLanguage(language: string): ITranslateProvider;
+            preferredLanguage(language?: string): ITranslateProvider;
             translationNotFoundIndicator(indicator: string): ITranslateProvider;
             translationNotFoundIndicatorLeft(): string;
             translationNotFoundIndicatorLeft(indicator: string): ITranslateProvider;
             translationNotFoundIndicatorRight(): string;
             translationNotFoundIndicatorRight(indicator: string): ITranslateProvider;
-            fallbackLanguage(): ITranslateProvider;
-            fallbackLanguage(language: string): ITranslateProvider;
-            fallbackLanguage(languages: string[]): ITranslateProvider;
+            fallbackLanguage(languages?: string | string[]): ITranslateProvider;
             forceAsyncReload(value: boolean): ITranslateProvider;
             use(): string;
             use(key: string): ITranslateProvider;

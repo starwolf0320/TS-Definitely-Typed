@@ -73,40 +73,28 @@ declare namespace OData {
     // https://github.com/angular/angular.js/blob/v1.2.0/src/ngResource/resource.js#L538-L549
     interface IResourceClass<T> {
         new(dataOrParams?: any): IResource<T>;
-        get(): IResource<T>;
-        get(params: Object): IResource<T>;
-        get(success: Function, error?: Function): IResource<T>;
-        get(params: Object, success: Function, error?: Function): IResource<T>;
+        get(success?: Function, error?: Function): IResource<T>;
+        get(params: Object, success?: Function, error?: Function): IResource<T>;
         get(params: Object, data: Object, success?: Function, error?: Function): IResource<T>;
 
-        query(): IResourceArray<T>;
-        query(params: Object): IResourceArray<T>;
-        query(success: Function, error?: Function): IResourceArray<T>;
-        query(params: Object, success: Function, error?: Function): IResourceArray<T>;
+        query(success?: Function, error?: Function): IResourceArray<T>;
+        query(params: Object, success?: Function, error?: Function): IResourceArray<T>;
         query(params: Object, data: Object, success?: Function, error?: Function): IResourceArray<T>;
 
-        save(): IResource<T>;
-        save(data: Object): IResource<T>;
-        save(success: Function, error?: Function): IResource<T>;
-        save(data: Object, success: Function, error?: Function): IResource<T>;
+        save(success?: Function, error?: Function): IResource<T>;
+        save(data: Object, success?: Function, error?: Function): IResource<T>;
         save(params: Object, data: Object, success?: Function, error?: Function): IResource<T>;
 
-        update(): IResource<T>;
-        update(data: Object): IResource<T>;
-        update(success: Function, error?: Function): IResource<T>;
-        update(data: Object, success: Function, error?: Function): IResource<T>;
+        update(success?: Function, error?: Function): IResource<T>;
+        update(data: Object, success?: Function, error?: Function): IResource<T>;
         update(params: Object, data: Object, success?: Function, error?: Function): IResource<T>;
 
-        remove(): IResource<T>;
-        remove(params: Object): IResource<T>;
-        remove(success: Function, error?: Function): IResource<T>;
-        remove(params: Object, success: Function, error?: Function): IResource<T>;
+        remove(success?: Function, error?: Function): IResource<T>;
+        remove(params: Object, success?: Function, error?: Function): IResource<T>;
         remove(params: Object, data: Object, success?: Function, error?: Function): IResource<T>;
 
-        delete(): IResource<T>;
-        delete(params: Object): IResource<T>;
-        delete(success: Function, error?: Function): IResource<T>;
-        delete(params: Object, success: Function, error?: Function): IResource<T>;
+        delete(success?: Function, error?: Function): IResource<T>;
+        delete(params: Object, success?: Function, error?: Function): IResource<T>;
         delete(params: Object, data: Object, success?: Function, error?: Function): IResource<T>;
 
         odata(): OData.Provider<T>;

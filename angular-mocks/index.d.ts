@@ -41,8 +41,7 @@ declare module 'angular' {
     };
 
     // see https://docs.angularjs.org/api/ngMock/type/angular.mock.TzDate
-    TzDate(offset: number, timestamp: number): Date;
-    TzDate(offset: number, timestamp: string): Date;
+    TzDate(offset: number, timestamp: number | string): Date;
   }
 
   ///////////////////////////////////////////////////////////////////////////

@@ -49,9 +49,7 @@ declare module 'angular' {
 
             iterate<T>(iteratorCallback: (value: string | number, key: string) => T): angular.IPromise<T>;
 
-            bind($scope: angular.IScope, key: string): angular.IPromise<any>;
-
-            bind($scope: angular.IScope, config: {
+            bind($scope: angular.IScope, key: string | {
                 key: string;
                 defaultValue?: any;
                 scopeKey?: string;

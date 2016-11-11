@@ -10,8 +10,8 @@ declare module "angular" {
 		export type StateDefaultSpecifier = string
 			| ((...args: any[]) => string)
 			| ((...args: any[]) => ng.IPromise<string>)
-			| (string | ((...args: any[]) => string))[]
-			| (string | ((...args: any[]) => ng.IPromise<string>))[];
+			| Array<string | ((...args: any[]) => string)>
+			| Array<string | ((...args: any[]) => ng.IPromise<string>)>;
 		interface IState {
 			default?: StateDefaultSpecifier;
 		}
