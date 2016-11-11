@@ -277,11 +277,7 @@ declare namespace AdmZip {
         /**
          * Set the (uncompressed) data to be associated with this entry.
          */
-        setData(value: string): void;
-        /**
-         * Set the (uncompressed) data to be associated with this entry.
-         */
-        setData(value: Buffer): void;
+        setData(value: string | Buffer): void;
         /**
          * Get the decompressed data associated with this entry.
          */

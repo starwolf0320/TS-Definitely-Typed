@@ -116,27 +116,14 @@ declare namespace AceAjax {
          * Embeds the Ace editor into the DOM, at the element provided by `el`.
          * @param el Either the id of an element, or the element itself
         **/
-        edit(el: string): Editor;
-
-        /**
-         * Embeds the Ace editor into the DOM, at the element provided by `el`.
-         * @param el Either the id of an element, or the element itself
-        **/
-        edit(el: HTMLElement): Editor;
+        edit(el: string | HTMLElement): Editor;
 
         /**
          * Creates a new [[EditSession]], and returns the associated [[Document]].
          * @param text {:textParam}
          * @param mode {:modeParam}
         **/
-        createEditSession(text: Document, mode: TextMode): IEditSession;
-
-        /**
-         * Creates a new [[EditSession]], and returns the associated [[Document]].
-         * @param text {:textParam}
-         * @param mode {:modeParam}
-        **/
-        createEditSession(text: string, mode: TextMode): IEditSession;
+        createEditSession(text: Document | string, mode: TextMode): IEditSession;
     }
 
     ////////////////
@@ -650,16 +637,7 @@ declare namespace AceAjax {
          * @param type Identify the type of the marker
          * @param inFront Set to `true` to establish a front marker
         **/
-        addMarker(range: Range, clazz: string, type: Function, inFront: boolean): number;
-
-        /**
-         * Adds a new marker to the given `Range`. If `inFront` is `true`, a front marker is defined, and the `'changeFrontMarker'` event fires; otherwise, the `'changeBackMarker'` event fires.
-         * @param range Define the range of the marker
-         * @param clazz Set the CSS class for the marker
-         * @param type Identify the type of the marker
-         * @param inFront Set to `true` to establish a front marker
-        **/
-        addMarker(range: Range, clazz: string, type: string, inFront: boolean): number;
+        addMarker(range: Range, clazz: string, type: Function | string, inFront: boolean): number;
 
         /**
          * Adds a dynamic marker to the session.

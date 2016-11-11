@@ -24,17 +24,15 @@ declare namespace AltJS {
     registerAsync?(datasource: Source): void;
 
     //state
-    setState?(state: S): void;
-    setState?(stateFn: (currentState: S, nextState: S) => S): void;
+    setState?(state: S | ((currentState: S, nextState: S) => S)): void;
     getState?(): S;
-    waitFor?(store: AltStore<any>): void;
+    waitFor?(storeOrStores: AltStore<any> | AltStore<any>[]): void;
 
     //events
     onSerialize?(fn: (data: any) => any): void;
     onDeserialize?(fn: (data: any) => any): void;
     on?(event: AltJS.lifeCycleEvents, callback: () => any): void;
     emitChange?(): void;
-    waitFor?(storeOrStores: AltStore<any> | AltStore<any>[]): void;
     otherwise?(data: any, action: AltJS.Action<any>): void;
     observe?(alt: Alt): any;
     reduce?(state: any, config: StoreReduce): Object;

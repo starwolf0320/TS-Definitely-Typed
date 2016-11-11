@@ -34,7 +34,7 @@ declare class Ajv {
      * Validates schema.
      * This method should be used to validate schemas rather than validate due to the inconsistency of uri format in JSON-Schema standard.
      */
-    validateSchema(schema: any): Boolean;
+    validateSchema(schema: any): boolean;
     /**
      * Retrieve compiled schema previously added with addSchema by the key passed to addSchema or by its full reference (id).
      * Returned validating function has schema property with the reference to the original schema.
