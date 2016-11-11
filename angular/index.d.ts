@@ -27,7 +27,7 @@ import ng = angular;
 ///////////////////////////////////////////////////////////////////////////////
 declare namespace angular {
 
-    type Injectable<T extends Function> = T | (string | T)[];
+    type Injectable<T extends Function> = T | Array<string | T>;
 
     // not directly implemented, but ensures that constructed class implements $get
     interface IServiceProviderClass {
@@ -64,7 +64,7 @@ declare namespace angular {
          * @param config an object for defining configuration options for the application. The following keys are supported:
          *     - `strictDi`: disable automatic function annotation for the application. This is meant to assist in finding bugs which break minified code.
          */
-        bootstrap(element: string|Element|JQuery|Document, modules?: (string|Function|any[])[], config?: IAngularBootstrapConfig): auto.IInjectorService;
+        bootstrap(element: string|Element|JQuery|Document, modules?: Array<string|Function|any[]>, config?: IAngularBootstrapConfig): auto.IInjectorService;
 
         /**
          * Creates a deep copy of source, which should be an object or an array.
@@ -745,7 +745,7 @@ declare namespace angular {
          * @param reverse Reverse the order of the array.
          * @return Reverse the order of the array.
          */
-        <T>(array: T[], expression: string|((value: T) => any)|(((value: T) => any)|string)[], reverse?: boolean): T[];
+        <T>(array: T[], expression: string|((value: T) => any)|Array<((value: T) => any)|string>, reverse?: boolean): T[];
     }
 
     /**
@@ -1519,7 +1519,7 @@ declare namespace angular {
          * Register service factories (names or implementations) for interceptors which are called before and after
          * each request.
          */
-        interceptors: (string | Injectable<IHttpInterceptorFactory>)[];
+        interceptors: Array<string | Injectable<IHttpInterceptorFactory>>;
         useApplyAsync(): boolean;
         useApplyAsync(value: boolean): IHttpProvider;
 

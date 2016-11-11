@@ -302,8 +302,7 @@ declare module 'angular' {
     }
 
     interface IModule {
-        animation(name: string, animationFactory: angular.animate.IAnimateFactory): IModule;
-        animation(name: string, inlineAnnotatedFunction: any[]): IModule;
+        animation(name: string, animationFactoryOrInlineAnnotatedFunction: angular.animate.IAnimateFactory | any[]): IModule;
         animation(object: Object): IModule;
     }
 }

@@ -25,9 +25,7 @@ declare module 'angular' {
 
             bindTo(scope: ng.IScope): ng.hotkeys.HotkeysProviderChained;
 
-            del(combo: string | string[]): void;
-
-            del(hotkeyObj: ng.hotkeys.Hotkey): void;
+            del(combo: string | string[] | ng.hotkeys.Hotkey): void;
 
             get(combo: string | string[]): ng.hotkeys.Hotkey;
 

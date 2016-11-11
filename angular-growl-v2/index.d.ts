@@ -61,18 +61,13 @@ declare module 'angular' {
             /**
              * Pre-defined server error interceptor.
              */
-            serverMessagesInterceptor: (string | IHttpInterceptorFactory)[];
+            serverMessagesInterceptor: Array<string | IHttpInterceptorFactory>;
 
             /**
              * Set default TTL settings.
-             * @param ttl configuration of TTL for different type of message
+             * @param ttl configuration of TTL for different type of message, or ttl in milliseconds
              */
-            globalTimeToLive(ttl: IGrowlTTLConfig): IGrowlProvider;
-            /**
-             * Set default TTL settings.
-             * @param ttl ttl in milliseconds
-             */
-            globalTimeToLive(ttl: number): IGrowlProvider;
+            globalTimeToLive(ttl: IGrowlTTLConfig | number): IGrowlProvider;
             /**
              * Set default setting for disabling close button.
              * @param disableCloseButton
@@ -143,69 +138,38 @@ declare module 'angular' {
             /**
              * Show warning message.
              * @param message text to display (or code for angular-translate)
-             */
-            warning(message: string): IGrowlMessage;
-            /**
-             * Show warning message.
-             * @param message text to display (or code for angular-translate)
              * @param config additional message configuration
              */
-            warning(message: string, config: IGrowlMessageConfig): IGrowlMessage;
+            warning(message: string, config?: IGrowlMessageConfig): IGrowlMessage;
 
             /**
              * Show error message.
              * @param message text to display (or code for angular-translate)
-             */
-            error(message: string): IGrowlMessage;
-            /**
-             * Show error message.
-             * @param message text to display (or code for angular-translate)
              * @param config additional message configuration
              */
-            error(message: string, config: IGrowlMessageConfig): IGrowlMessage;
+            error(message: string, config?: IGrowlMessageConfig): IGrowlMessage;
 
             /**
              * Show information message.
              * @param message text to display (or code for angular-translate)
-             */
-            info(message: string): IGrowlMessage;
-            /**
-             * Show information message.
-             * @param message text to display (or code for angular-translate)
              * @param config additional message configuration
              */
-            info(message: string, config: IGrowlMessageConfig): IGrowlMessage;
+            info(message: string, config?: IGrowlMessageConfig): IGrowlMessage;
 
             /**
              * Show success message.
              * @param message text to display (or code for angular-translate)
              * @param config additional message configuration
              */
-            success(message: string): IGrowlMessage;
-            /**
-             * Show success message.
-             * @param message text to display (or code for angular-translate)
-             */
-            success(message: string, config: IGrowlMessageConfig): IGrowlMessage;
+            success(message: string, config?: IGrowlMessageConfig): IGrowlMessage;
 
-            /**
-             * Show message (generic).
-             * @param message text to display (or code for angular-translate)
-             */
-            general(message: string): IGrowlMessage;
-            /**
-             * Show message (generic).
-             * @param message text to display (or code for angular-translate)
-             * @param config additional message configuration
-             */
-            general(message: string, config: IGrowlMessageConfig): IGrowlMessage;
             /**
              * Show message (generic).
              * @param message text to display (or code for angular-translate)
              * @param config additional message configuration
              * @param severity message severity (error, warning, success, info).
              */
-            general(message: string, config: IGrowlMessageConfig, severity: string): IGrowlMessage;
+            general(message: string, config?: IGrowlMessageConfig, severity?: string): IGrowlMessage;
 
             /**
              * Get current setting for displaying only unique messages.
