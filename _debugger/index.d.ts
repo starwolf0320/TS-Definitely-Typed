@@ -52,6 +52,7 @@ declare namespace NodeJS {
             execute(data: string): void;
             serialize(rq: Request): string;
             onResponse: (pkt: Packet) => void;
+            serialize(x: number): void;
         }
 
         export var NO_FRAME: number;
