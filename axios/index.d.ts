@@ -44,13 +44,13 @@ declare namespace Axios {
         /**
          * URL parameters to be sent with the request
          */
-        params?: Object;
+        params?: {};
 
         /**
          * optional function in charge of serializing `params`
          * (e.g. https://www.npmjs.com/package/qs, http://api.jquery.com/jquery.param/)
          */
-        paramsSerializer?: (params: Object) => string;
+        paramsSerializer?: (params: {}) => string;
 
         /**
          * specifies the number of milliseconds before the request times out.
@@ -159,7 +159,7 @@ declare namespace Axios {
         /**
          * headers that the server responded with
          */
-        headers: Object;
+        headers: {};
 
         /**
          * config that was provided to `axios` for the request
@@ -186,11 +186,7 @@ declare namespace Axios {
          * <U> - request body data type
          */
 
-        use<U>(fulfilledFn: (config: AxiosXHRConfig<U>) => AxiosXHRConfig<U>): InterceptorId;
-
-        use<U>(fulfilledFn: (config: AxiosXHRConfig<U>) => AxiosXHRConfig<U>,
-               rejectedFn: (error: any) => any
-        ): InterceptorId;
+        use<U>(fulfilledFn: (config: AxiosXHRConfig<U>) => AxiosXHRConfig<U>, rejectedFn: (error: any) => any): InterceptorId;
 
         eject(interceptorId: InterceptorId): void;
     }
@@ -200,11 +196,7 @@ declare namespace Axios {
          * <T> - expected response type
          */
 
-        use<T>(fulfilledFn: (config: Axios.AxiosXHR<T>) => Axios.AxiosXHR<T>): InterceptorId;
-
-        use<T>(fulfilledFn: (config: Axios.AxiosXHR<T>) => Axios.AxiosXHR<T>,
-               rejectedFn: (error: any) => any
-        ): InterceptorId;
+        use<T>(fulfilledFn: (config: Axios.AxiosXHR<T>) => Axios.AxiosXHR<T>, rejectedFn: (error: any) => any): InterceptorId;
 
         eject(interceptorId: InterceptorId): void;
     }

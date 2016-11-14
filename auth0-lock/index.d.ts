@@ -111,10 +111,8 @@ interface Auth0LockStatic {
     hide(): void;
     logout(query: any): void;
 
-    on(event: "show", callback: () => void): void;
-    on(event: "hide", callback: () => void): void;
-    on(event: "unrecoverable_error", callback: (error: Auth0Error) => void): void;
-    on(event: "authorization_error", callback: (error: Auth0Error) => void): void;
+    on(event: "show" | "hide", callback: () => void): void;
+    on(event: "unrecoverable_error" | "authorization_error", callback: (error: Auth0Error) => void): void;
     on(event: "authenticated", callback: (authResult: any) => void): void;
     on(event: string, callback: (...args: any[]) => void): void;
 }

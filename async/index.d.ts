@@ -28,10 +28,15 @@ interface AsyncQueue<T> {
     running(): number;
     idle(): boolean;
     concurrency: number;
+<<<<<<< 5f14588b80a1b1313ad02186d73e535d63fa6616
     push<E>(task: T, callback?: ErrorCallback<E>): void;
     push<E>(task: T[], callback?: ErrorCallback<E>): void;
     unshift<E>(task: T, callback?: ErrorCallback<E>): void;
     unshift<E>(task: T[], callback?: ErrorCallback<E>): void;
+=======
+    push(task: T | T[], callback?: ErrorCallback): void;
+    unshift(task: T | T[], callback?: ErrorCallback): void;
+>>>>>>> WIP
     saturated: () => any;
     empty: () => any;
     drain: () => any;
@@ -53,8 +58,12 @@ interface AsyncPriorityQueue<T> {
     concurrency: number;
     started: boolean;
     paused: boolean;
+<<<<<<< 5f14588b80a1b1313ad02186d73e535d63fa6616
     push<E>(task: T, priority: number, callback?: AsyncResultArrayCallback<T, E>): void;
     push<E>(task: T[], priority: number, callback?: AsyncResultArrayCallback<T, E>): void;
+=======
+    push(task: T | T[], priority: number, callback?: AsyncResultArrayCallback<T>): void;
+>>>>>>> WIP
     saturated: () => any;
     empty: () => any;
     drain: () => any;
@@ -76,8 +85,7 @@ interface AsyncPriorityQueue<T> {
 interface AsyncCargo {
     length(): number;
     payload: number;
-    push(task: any, callback?: Function): void;
-    push(task: any[], callback?: Function): void;
+    push(task: any | any[], callback?: Function): void;
     saturated(): void;
     empty(): void;
     drain(): void;

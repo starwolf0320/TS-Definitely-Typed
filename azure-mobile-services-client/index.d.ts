@@ -14,9 +14,8 @@ declare namespace Microsoft.WindowsAzure {
         push: Push;
         //for provider:string use one of ProviderEnum: 'microsoftaccount', 'facebook', 'twitter', 'google'
         login(provider: string, token: string, callback: (error: any, user: User) => void ): void;
-        login(provider: string, token: string): asyncPromise;
+        login(provider: string, token?: string): asyncPromise;
         login(provider: string, callback: (error: any, user: User) => void ): void;
-        login(provider: string): asyncPromise;
         logout(): asyncPromise;
         getTable(tableName: string): MobileServiceTable;
         withFilter(serviceFilter: (request: any, next: (request: any, callback: (error: any, response: any) => void) => void, callback: (error: any, response: any) => void) => void): MobileServiceClient;
@@ -57,8 +56,8 @@ declare namespace Microsoft.WindowsAzure {
     interface InvokeApiOptions {
 		method?: string;
 		body?: any;
-		headers?: Object;
-		parameters?: Object;
+		headers?: {};
+		parameters?: {};
 	}
 
     // User object based on Microsoft Azure documentation: http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx
@@ -83,33 +82,27 @@ declare namespace Microsoft.WindowsAzure {
         getTableName(): string;
         getMobileServiceClient(): MobileServiceClient;
 
-        insert(instance: any, paramsQS: Object, callback: (error: any, retInserted: any) => any): void;
-        insert(instance: any, paramsQS: Object): asyncPromise;
-        insert(instance: any): asyncPromise;
+        insert(instance: any, paramsQS: {}, callback: (error: any, retInserted: any) => any): void;
+        insert(instance: any, paramsQS?: {}): asyncPromise;
 
-        update(instance: any, paramsQS: Object, callback: (error: any, retUpdated: any) => any): void;
-        update(instance: any, paramsQS: Object): asyncPromise;
-        update(instance: any): asyncPromise;
+        update(instance: any, paramsQS: {}, callback: (error: any, retUpdated: any) => any): void;
+        update(instance: any, paramsQS?: {}): asyncPromise;
 
-        lookup(id: number, paramsQS: Object, callback: (error: any, retValue: any) => any): void;
-        lookup(id: number, paramsQS: Object): asyncPromise;
-        lookup(id: number): asyncPromise;
+        lookup(id: number, paramsQS: {}, callback: (error: any, retValue: any) => any): void;
+        lookup(id: number, paramsQS?: {}): asyncPromise;
 
-        del(instance: any, paramsQS: Object, callback: (error?: any) => void ): void;
-        del(instance: any, paramsQS: Object): asyncPromise;
-        del(instance: any): asyncPromise;
+        del(instance: any, paramsQS: {}, callback: (error?: any) => void ): void;
+        del(instance: any, paramsQS?: {}): asyncPromise;
 
 
-        read(query: IQuery, paramsQS: Object, callback: (error: any, retValues: any) => any): void;
-        read(query: IQuery, paramsQS: Object): asyncPromise;
-        read(query: IQuery): asyncPromise;
-        read(): asyncPromise;
+        read(query: IQuery, paramsQS: {}, callback: (error: any, retValues: any) => any): void;
+        read(query?: IQuery, paramsQS?: {}): asyncPromise;
     }
 
 
     // Interface to describe Query object fluent creation based on Microsoft Azure documentation: http://msdn.microsoft.com/en-us/library/windowsazure/jj613353.aspx
     interface IQuery {
-        read(paramsQS?: Object): asyncPromise;
+        read(paramsQS?: {}): asyncPromise;
 
         orderBy(...propName: string[]): IQuery;
         orderByDescending(...propName: string[]): IQuery;

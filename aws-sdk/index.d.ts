@@ -344,7 +344,7 @@ export class Kinesis {
     increaseStreamRetentionPeriod(params: KINESIS.IncreaseStreamRetentionPeriodParams, callback: (error: Error, data: any) => void): void;
   }
 
-  export module KINESIS {
+  export namespace KINESIS {
     export interface Record {
         Data: Buffer | string | Blob;
         PartitionKey: string;
@@ -375,7 +375,7 @@ export class Kinesis {
 
     export interface PutRecordsResult {
         FailedRecordCount: number;
-        Records: RecordResult[]
+        Records: RecordResult[];
     }
 
     export interface IncreaseStreamRetentionPeriodParams {
@@ -1642,7 +1642,7 @@ export namespace Swf {
         identity?: string;
         nextPageToken?: string;
         maximumPageSize?: number;
-        reverseOrder?: Boolean;
+        reverseOrder?: boolean;
     }
 
     export interface StartWorkflowExecutionRequest {

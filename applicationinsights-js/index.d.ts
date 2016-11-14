@@ -657,7 +657,7 @@ declare namespace Microsoft.ApplicationInsights {
     interface IAppInsights {
         config: IConfig;
         context: ITelemetryContext;
-        queue: (() => void)[];
+        queue: Array<() => void>;
         /**
         * Starts timing how long the user views a page or other item. Call this when the page opens.
         * This method doesn't send any telemetry. Call {@link stopTrackTelemetry} to log the page when it closes.

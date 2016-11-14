@@ -12,15 +12,12 @@ declare namespace asyncblock {
 
     export interface IFlow {
         add(responseFormat?: string[]): IExecuteFunction;
-        add(key: string, responseFormat?: string[]): IExecuteFunction;
-        add(key: number, responseFormat?: string[]): IExecuteFunction;
+        add(key: string | number, responseFormat?: string[]): IExecuteFunction;
         add(options: IFlowOptions): IExecuteFunction;
         callback(responseFormat?: string[]): IExecuteFunction;
-        callback(key: string, responseFormat?: string[]): IExecuteFunction;
-        callback(key: number, responseFormat?: string[]): IExecuteFunction;
+        callback(key: string | number, responseFormat?: string[]): IExecuteFunction;
         callback(options: IFlowOptions): IExecuteFunction;
-        wait<T>(key?: string): T;
-        wait<T>(key?: number): T;
+        wait<T>(key?: string | number): T;
 
         get<T>(key: string): T;
         set(key: string, responseFormat?: string[]): IExecuteFunction;
@@ -29,11 +26,9 @@ declare namespace asyncblock {
 
         sync<T>(task: any): T;
         queue(toExecute: IExecuteFunction): void;
-        queue(key: string, toExecute: IExecuteFunction): void;
-        queue(key: number, toExecute: IExecuteFunction): void;
+        queue(key: string | number, toExecute: IExecuteFunction): void;
         queue(responseFormat: string[], toExecute: IExecuteFunction): void;
-        queue(key: string, responseFormat: string[], toExecute: IExecuteFunction): void;
-        queue(key: number, responseFormat: string[], toExecute: IExecuteFunction): void;
+        queue(key: string | number, responseFormat: string[], toExecute: IExecuteFunction): void;
         queue(options: IFlowOptions, toExecute: IExecuteFunction): void;
         doneAdding(): void;
         forceWait<T>(): T;

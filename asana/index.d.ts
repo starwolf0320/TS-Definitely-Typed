@@ -906,11 +906,11 @@ declare namespace asana {
             }
 
             interface FollowersParams {
-                followers: (number | string)[];
+                followers: Array<number | string>;
             }
 
             interface MembersParams {
-                members: (number | string)[];
+                members: Array<number | string>;
             }
 
             interface Status {
@@ -1466,7 +1466,7 @@ declare namespace asana {
             }
 
             interface FollowersParams {
-                followers: (number | string)[];
+                followers: Array<number | string>;
             }
 
             interface AddProjectParams {

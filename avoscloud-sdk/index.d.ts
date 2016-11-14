@@ -63,8 +63,7 @@ declare module "avoscloud-sdk" {
     interface IPromise<T> {
 
         then<U>(resolvedCallback: (value: T) => IPromise<U>, rejectedCallback?: (reason: any) => IPromise<U>): IPromise<T>;
-        then<U>(resolvedCallback: (value: T) => U, rejectedCallback?: (reason: any) => IPromise<U>): IPromise<U>;
-        then<U>(resolvedCallback: (value: T) => U, rejectedCallback?: (reason: any) => U): IPromise<U>;
+        then<U>(resolvedCallback: (value: T) => U, rejectedCallback?: (reason: any) => U | IPromise<U>): IPromise<U>;
     }
 
     class Promise<T> {

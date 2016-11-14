@@ -258,8 +258,7 @@ interface appFrameworkStatic {
      ```
      @returns matrix with postion
      */
-    getCssMatrix(node: HTMLElement): appFrameworkCssMatrix;
-    getCssMatrix(elem: appFrameworkCollection): appFrameworkCssMatrix;
+    getCssMatrix(node: HTMLElement | appFrameworkCollection): appFrameworkCssMatrix;
 
     /**
      * $.create - a faster alertnative to $("<div id='main'>this is some text</div>");
@@ -384,8 +383,7 @@ interface appFrameworkStatic {
      * @param {String|DOM} content
      * @title $.parseJS(content);
      */
-    parseJS(content: string): void;
-    parseJS(content: HTMLElement): void;
+    parseJS(content: string | HTMLElement): void;
 
     /**
      * Helper function to parse the user agent.  Sets the following
@@ -507,9 +505,7 @@ interface appFrameworkCollection {
      * @return {Object} an appframework object
      * @title $().html([html])
      */
-    html(): string;
-    html(html: string): appFrameworkCollection;
-    html(html: string, cleanup: boolean): appFrameworkCollection;
+    html(html?: string, cleanup?: boolean): appFrameworkCollection;
 
     /**
      * Gets or sets the innerText for the collection.
@@ -647,8 +643,7 @@ interface appFrameworkCollection {
      */
     attr(attribute: string): any;
     attr(attributeHash: Object): appFrameworkCollection;
-    attr(attribute: string, value: string): appFrameworkCollection;
-    attr(attribute: string, value: any): appFrameworkCollection;
+    attr(attribute: string, value: string | any): appFrameworkCollection;
 
     /**
      * Removes an attribute on the elements
@@ -678,8 +673,7 @@ interface appFrameworkCollection {
      */
     prop(attribute: string): any;
     prop(attributeHash: Object): appFrameworkCollection;
-    prop(attribute: string, value: string): appFrameworkCollection;
-    prop(attribute: string, value: any): appFrameworkCollection;
+    prop(attribute: string, value: string | any): appFrameworkCollection;
 
     /**
      * Removes a property on the elements
@@ -708,11 +702,7 @@ interface appFrameworkCollection {
      * @return {Object} appframework object
      * @title $().remove(selector)
      */
-    remove(): appFrameworkCollection;
-    remove(selector: string): appFrameworkCollection;
-    remove(element: HTMLElement): appFrameworkCollection;
-    remove(elements: any[]): appFrameworkCollection;
-    remove(elements: appFrameworkCollection): appFrameworkCollection;
+    remove(elements?: string | HTMLElement | any[] | appFrameworkCollection): appFrameworkCollection;
 
     /**
      * Adds a css class to elements.
@@ -1020,8 +1010,7 @@ interface appFrameworkCollection {
      * @title $().data(key,[value]);
      */
     data(attribute: string): any;
-    data(attribute: string, value: string): appFrameworkCollection;
-    data(attribute: string, value: any): appFrameworkCollection;
+    data(attribute: string, value: string | any): appFrameworkCollection;
 
     /**
      * Rolls back the appframework elements when filters were applied
@@ -1090,8 +1079,7 @@ interface appFrameworkCollection {
      * @return integer - index of selected element
      * @title $().index(elem)
      */
-    index(): number;
-    index(selector: any): number;
+    index(selector?: any): number;
 
     /**
      * Returns boolean if the object is a type of the selector
@@ -1131,8 +1119,7 @@ interface appFrameworkCollection {
      * @title $().unbind(event,[callback]);
      */
     unbind(eventHash: {}): appFrameworkCollection;
-    unbind(eventName?: string): appFrameworkCollection;
-    unbind(eventName: string, fn?: (e: Event) => any): appFrameworkCollection;
+    unbind(eventName?: string, fn?: (e: Event) => any): appFrameworkCollection;
 
     /**
      * Binds an event to each element in the collection that will only execute once.  When it executes, we remove the event listener then right away so it no longer happens
@@ -1225,8 +1212,7 @@ interface appFrameworkCollection {
      * @return {Object} appframework object
      * @title $().trigger(event,data);
      */
-    trigger(eventName: string, data?: any): appFrameworkCollection;
-    trigger(eventHash: {}, data?: any): appFrameworkCollection;
+    trigger(eventNameOrHash: string | {}, data?: any): appFrameworkCollection;
 
     /**
      custom events since people want to do $().click instead of $().bind("click")
