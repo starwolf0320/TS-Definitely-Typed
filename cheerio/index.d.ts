@@ -16,9 +16,7 @@ interface Cheerio {
     attr(name: string): string;
     attr(name: string, value: any): Cheerio;
 
-    data(): any;
-    data(name: string): any;
-    data(name: string, value: any): any;
+    data(name?: string, value?: any): any;
 
     val(): string;
     val(value: string): Cheerio;
@@ -35,14 +33,12 @@ interface Cheerio {
     removeClass(className: string): Cheerio;
     removeClass(func: (index: number, className: string) => string): Cheerio;
 
-    toggleClass(className: string): Cheerio;
-    toggleClass(className: string, toggleSwitch: boolean): Cheerio;
+    toggleClass(className: string, toggleSwitch?: boolean): Cheerio;
     toggleClass(toggleSwitch?: boolean): Cheerio;
     toggleClass(func: (index: number, className: string, toggleSwitch: boolean) => string, toggleSwitch?: boolean): Cheerio;
 
     is(selector: string): boolean;
-    is(element: CheerioElement): boolean;
-    is(element: CheerioElement[]): boolean;
+    is(element: CheerioElement | CheerioElement[]): boolean;
     is(selection: Cheerio): boolean;
     is(func: (index: number, element: CheerioElement) => boolean): boolean;
 
@@ -57,8 +53,7 @@ interface Cheerio {
     parent(selector?: string): Cheerio;
     parents(selector?: string): Cheerio;
     parentsUntil(selector?: string, filter?: string): Cheerio;
-    parentsUntil(element: CheerioElement, filter?: string): Cheerio;
-    parentsUntil(element: Cheerio, filter?: string): Cheerio;
+    parentsUntil(element: CheerioElement | Cheerio, filter?: string): Cheerio;
 
     closest(): Cheerio;
     closest(selector: string): Cheerio;
@@ -68,16 +63,14 @@ interface Cheerio {
     nextAll(selector: string): Cheerio;
 
     nextUntil(selector?: string, filter?: string): Cheerio;
-    nextUntil(element: CheerioElement, filter?: string): Cheerio;
-    nextUntil(element: Cheerio, filter?: string): Cheerio;
+    nextUntil(element: CheerioElement | Cheerio, filter?: string): Cheerio;
 
     prev(selector?: string): Cheerio;
     prevAll(): Cheerio;
     prevAll(selector: string): Cheerio;
 
     prevUntil(selector?: string, filter?: string): Cheerio;
-    prevUntil(element: CheerioElement, filter?: string): Cheerio;
-    prevUntil(element: Cheerio, filter?: string): Cheerio;
+    prevUntil(element: CheerioElement | Cheerio, filter?: string): Cheerio;
 
     slice(start: number, end?: number): Cheerio;
 
@@ -92,8 +85,7 @@ interface Cheerio {
 
     filter(selector: string): Cheerio;
     filter(selection: Cheerio): Cheerio;
-    filter(element: CheerioElement): Cheerio;
-    filter(elements: CheerioElement[]): Cheerio;
+    filter(elements: CheerioElement | CheerioElement[]): Cheerio;
     filter(func: (index: number, element: CheerioElement) => boolean): Cheerio;
 
     not(selector: string): Cheerio;
@@ -111,57 +103,34 @@ interface Cheerio {
     get(index: number): CheerioElement;
 
     index(): number;
-    index(selector: string): number;
-    index(selection: Cheerio): number;
+    index(selector?: string | Cheerio): number;
 
     end(): Cheerio;
 
     add(selectorOrHtml: string): Cheerio;
     add(selector: string, context: Document): Cheerio;
-    add(element: CheerioElement): Cheerio;
-    add(elements: CheerioElement[]): Cheerio;
+    add(elements: CheerioElement | CheerioElement[]): Cheerio;
     add(selection: Cheerio): Cheerio;
 
-    addBack(): Cheerio;
-    addBack(filter: string): Cheerio;
+    addBack(filter?: string): Cheerio;
 
     // Manipulation
 
-    append(content: string, ...contents: any[]): Cheerio;
-    append(content: Document, ...contents: any[]): Cheerio;
-    append(content: Document[], ...contents: any[]): Cheerio;
-    append(content: Cheerio, ...contents: any[]): Cheerio;
+    append(content: string | Document | Document[] | Cheerio, ...contents: any[]): Cheerio;
 
-    prepend(content: string, ...contents: any[]): Cheerio;
-    prepend(content: Document, ...contents: any[]): Cheerio;
-    prepend(content: Document[], ...contents: any[]): Cheerio;
-    prepend(content: Cheerio, ...contents: any[]): Cheerio;
+    prepend(content: string | Document | Document[] | Cheerio, ...contents: any[]): Cheerio;
 
-    after(content: string, ...contents: any[]): Cheerio;
-    after(content: Document, ...contents: any[]): Cheerio;
-    after(content: Document[], ...contents: any[]): Cheerio;
-    after(content: Cheerio, ...contents: any[]): Cheerio;
+    after(content: string | Document | Document[] | Cheerio, ...contents: any[]): Cheerio;
 
-    insertAfter(content: string): Cheerio;
-    insertAfter(content: Document): Cheerio;
-    insertAfter(content: Cheerio): Cheerio;
+    insertAfter(content: string | Document | Cheerio): Cheerio;
 
-    before(content: string, ...contents: any[]): Cheerio;
-    before(content: Document, ...contents: any[]): Cheerio;
-    before(content: Document[], ...contents: any[]): Cheerio;
-    before(content: Cheerio, ...contents: any[]): Cheerio;
+    before(content: string | Document | Document[] | Cheerio, ...contents: any[]): Cheerio;
 
-    insertBefore(content: string): Cheerio;
-    insertBefore(content: Document): Cheerio;
-    insertBefore(content: Cheerio): Cheerio;
+    insertBefore(content: string | Document | Cheerio): Cheerio;
 
     remove(selector?: string): Cheerio;
 
-    replaceWith(content: string): Cheerio;
-    replaceWith(content: CheerioElement): Cheerio;
-    replaceWith(content: CheerioElement[]): Cheerio;
-    replaceWith(content: Cheerio): Cheerio;
-    replaceWith(content: () => Cheerio): Cheerio;
+    replaceWith(content: string | CheerioElement | CheerioElement[] | Cheerio | (() => Cheerio)): Cheerio;
 
     empty(): Cheerio;
 
@@ -178,11 +147,9 @@ interface Cheerio {
 
     css(propertyName: string): string;
     css(propertyNames: string[]): string[];
-    css(propertyName: string, value: string): Cheerio;
-    css(propertyName: string, value: number): Cheerio;
-    css(propertyName: string, func: (index: number, value: string) => string): Cheerio;
-    css(propertyName: string, func: (index: number, value: string) => number): Cheerio;
-    css(properties: Object): Cheerio;
+    css(propertyName: string, value: string | number): Cheerio;
+    css(propertyName: string, func: (index: number, value: string) => string | number): Cheerio;
+    css(properties: {}): Cheerio;
 
     // Rendering
 
@@ -234,8 +201,7 @@ interface CheerioStatic extends CheerioSelector {
 
     html(options?: CheerioOptionsInterface): string;
     html(selector: string, options?: CheerioOptionsInterface): string;
-    html(element: Cheerio, options?: CheerioOptionsInterface): string;
-    html(element: CheerioElement, options?: CheerioOptionsInterface): string;
+    html(element: Cheerio | CheerioElement, options?: CheerioOptionsInterface): string;
 }
 
 interface CheerioElement {
@@ -244,7 +210,7 @@ interface CheerioElement {
     tagName: string;
     type: string;
     name: string;
-    attribs: Object;
+    attribs: {};
     children: CheerioElement[];
     childNodes: CheerioElement[];
     lastChild: CheerioElement;

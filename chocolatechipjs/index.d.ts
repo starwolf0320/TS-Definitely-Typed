@@ -58,7 +58,7 @@ interface ChocolateChipStatic {
    * @param object The object to add to ChocolateChipJS.
    * @return The ChocolateChipJS object.
    */
-  extend(object: Object): Object;
+  extend(object: {}): {};
 
   /**
    * Extend a target object with another object.
@@ -67,7 +67,7 @@ interface ChocolateChipStatic {
    * @param object The object to add to the target.
    * @return The extended object.
    */
-  extend(target: Object, object: Object): Object;
+  extend(target: {}, object: {}): {};
 
   /**
    * The base for extending ChocolateChipJS collections, which are arrays of elements.
@@ -79,7 +79,7 @@ interface ChocolateChipStatic {
      * @param object And object to add to element arrays.
      * @return The extended array of elements.
      */
-    extend(object: Object): HTMLElement[];
+    extend(object: {}): HTMLElement[];
   };
 
   /**
@@ -446,7 +446,7 @@ interface ChocolateChipStatic {
    * @param delimiter string A delimiter to namespace your form values. The default is "."
    * You use the form input's name to set up the namespace structure for your JSON, e.g. name="newUser.name.first".
    */
-  form2JSON(rootNode: string | HTMLElement, delimiter: string): Object;
+  form2JSON(rootNode: string | HTMLElement, delimiter: string): {};
 
   /**
    * Subscribe to a publication. You provide the topic you want to subscribe to, as well as a callback to execute when a publication occurs.
@@ -1268,7 +1268,7 @@ interface PromiseConstructor {
    * @param values An array of Promises.
    * @return Promise A new Promise.
    */
-  all<T>(values: (T | Promise<T>)[]): Promise<T[]>;
+  all<T>(values: Array<T | Promise<T>>): Promise<T[]>;
 
   /**
    * Creates a Promise that is resolved with an array of results when all of the provided Promises resolve, or rejected when any Promise is rejected.
@@ -1284,7 +1284,7 @@ interface PromiseConstructor {
    * @param values An array of Promises.
    * @return Promise A new Promise.
    */
-  race<T>(values: (T | Promise<T>)[]): Promise<T>;
+  race<T>(values: Array<T | Promise<T>>): Promise<T>;
 
   /**
    * Creates a new rejected promise for the provided reason.
