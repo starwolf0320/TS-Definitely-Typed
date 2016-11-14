@@ -237,7 +237,7 @@ declare namespace Chartist {
     height?: number | string;
     high?: number;
     low?: number;
-    ticks?: (string | number)[];
+    ticks?: Array<string | number>;
     onlyInteger?: boolean;
     chartPadding?: IChartPadding;
     seriesBarDistance?: number;
@@ -292,7 +292,7 @@ declare namespace Chartist {
     lineSmooth?: Function | boolean;
     low?: number;
     high?: number;
-    ticks?: (string | number)[];
+    ticks?: Array<string | number>;
     chartPadding?: IChartPadding;
     fullWidth?: boolean;
     classNames?: ILineChartClasses;

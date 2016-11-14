@@ -105,10 +105,10 @@ declare namespace CamlBuilder {
     interface IFieldExpression {
         /** Adds And clauses to the query. Use for creating bracket-expressions in conjuction with CamlBuilder.Expression(). */
         All(...conditions: IExpression[]): IExpression;
-        /** Adds Or clauses to the query. Use for creating bracket-expressions in conjuction with CamlBuilder.Expression(). */
-        Any(...conditions: IExpression[]): IExpression;
         /** Adds And clauses to the query. Use for creating bracket-expressions in conjuction with CamlBuilder.Expression(). */
         All(conditions: IExpression[]): IExpression;
+        /** Adds Or clauses to the query. Use for creating bracket-expressions in conjuction with CamlBuilder.Expression(). */
+        Any(...conditions: IExpression[]): IExpression;
         /** Adds Or clauses to the query. Use for creating bracket-expressions in conjuction with CamlBuilder.Expression(). */
         Any(conditions: IExpression[]): IExpression;
         /** Specifies that a condition will be tested against the field with the specified internal name, and the type of this field is Text */
@@ -189,41 +189,27 @@ declare namespace CamlBuilder {
         IsNull(): IExpression;
         /** Checks whether the value of the field was not specified by user */
         IsNotNull(): IExpression;
-        /** Checks whether the value of the field is equal to the specified value */
-        EqualTo(value: Date): IExpression;
-        /** Checks whether the value of the field is not equal to the specified value */
-        NotEqualTo(value: Date): IExpression;
-        /** Checks whether the value of the field is greater than the specified value */
-        GreaterThan(value: Date): IExpression;
-        /** Checks whether the value of the field is less than the specified value */
-        LessThan(value: Date): IExpression;
-        /** Checks whether the value of the field is greater than or equal to the specified value */
-        GreaterThanOrEqualTo(value: Date): IExpression;
-        /** Checks whether the value of the field is less than or equal to the specified value */
-        LessThanOrEqualTo(value: Date): IExpression;
-        /** Checks whether the value of the field is equal to one of the specified values */
-        In(arrayOfValues: Date[]): IExpression;
         /** Checks whether the value of the field is equal to the specified value.
             The datetime value should be defined in ISO 8601 format! */
-        EqualTo(value: string): IExpression;
+        EqualTo(value: Date | string): IExpression;
         /** Checks whether the value of the field is not equal to the specified value.
             The datetime value should be defined in ISO 8601 format! */
-        NotEqualTo(value: string): IExpression;
+        NotEqualTo(value: Date | string): IExpression;
         /** Checks whether the value of the field is greater than the specified value.
             The datetime value should be defined in ISO 8601 format! */
-        GreaterThan(value: string): IExpression;
+        GreaterThan(value: Date | string): IExpression;
         /** Checks whether the value of the field is less than the specified value.
             The datetime value should be defined in ISO 8601 format! */
-        LessThan(value: string): IExpression;
+        LessThan(value: Date | string): IExpression;
         /** Checks whether the value of the field is greater than or equal to the specified value.
             The datetime value should be defined in ISO 8601 format! */
-        GreaterThanOrEqualTo(value: string): IExpression;
+        GreaterThanOrEqualTo(value: Date | string): IExpression;
         /** Checks whether the value of the field is less than or equal to the specified value.
             The datetime value should be defined in ISO 8601 format! */
-        LessThanOrEqualTo(value: string): IExpression;
+        LessThanOrEqualTo(value: Date | string): IExpression;
         /** Checks whether the value of the field is equal to one of the specified values.
             The datetime value should be defined in ISO 8601 format! */
-        In(arrayOfValues: string[]): IExpression;
+        In(arrayOfValues: Date[] | string[]): IExpression;
     }
     interface ITextFieldExpression {
         /** Checks whether the value of the field is equal to the specified value */

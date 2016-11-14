@@ -10,7 +10,7 @@ export as namespace c3;
 
 declare namespace c3 {
 
-    type PrimitiveArray = (string | boolean | number)[];
+    type PrimitiveArray = Array<string | boolean | number>;
     type FormatFunction = (v: any, id: string, i: number, j: number) => void;
 
     interface TargetIds {
@@ -258,7 +258,7 @@ declare namespace c3 {
         /**
          * Parse a JSON object for data.
          */
-        json?: Object;
+        json?: {};
         /**
          * Load data from a multidimensional array, with the first element containing the data names, the following containing related data in that order.
          */
@@ -823,7 +823,7 @@ declare namespace c3 {
          */
         load(args: {
             url?: string;
-            json?: Object;
+            json?: {};
             keys?: { x?: string; value: string[]; }
             rows?: PrimitiveArray[];
             columns?: PrimitiveArray[];
@@ -854,7 +854,7 @@ declare namespace c3 {
          * If done is given, the specified function will be called when flow ends.
          */
         flow(args: {
-            json?: Object;
+            json?: {};
             keys?: { x?: string; value: string[]; }
             rows?: PrimitiveArray[];
             columns?: PrimitiveArray[];
@@ -907,7 +907,7 @@ declare namespace c3 {
              * Add new region. This API adds new region instead of replacing like regions.
              * @param grids New region will be added. The format of this argument is the same as regions and it's possible to give an Object if only one region will be added.
              */
-            add(regions: any[] | Object): void;
+            add(regions: any[] | {}): void;
             /**
              * Remove regions. This API removes regions.
              * @param args This argument should include classes. If classes is given, the regions that have one of the specified classes will be removed. If args is not given, all of regions will be removed.
@@ -1060,7 +1060,7 @@ declare namespace c3 {
          * Add x/y grid lines. This API adds new x/y grid lines instead of replacing like xgrids.
          * @param grids New x/y grid lines will be added. The format of this argument is the same as grid.x.lines or grid.y.lines and it's possible to give an Object if only one line will be added.
          */
-        add(grids: any[] | Object): void;
+        add(grids: any[] | {}): void;
         /**
          * Remove x/y grid lines. This API removes x/y grid lines.
          * @param args This argument should include value or class. If value is given, the x/y grid lines that have specified x/y value will be removed. If class is given, the x/y grid lines that have specified class will be removed. If args is not given, all of x/y grid lines will be removed.

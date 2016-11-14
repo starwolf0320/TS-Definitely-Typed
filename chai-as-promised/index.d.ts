@@ -185,8 +185,7 @@ declare namespace Chai {
         becomes(promise: PromisesAPlus.Thenable<any>, expected: any, message?: string): PromisesAPlus.Thenable<void>;
         doesNotBecome(promise: PromisesAPlus.Thenable<any>, expected: any, message?: string): PromisesAPlus.Thenable<void>;
         isRejected(promise: PromisesAPlus.Thenable<any>, message?: string): PromisesAPlus.Thenable<void>;
-        isRejected(promise: PromisesAPlus.Thenable<any>, expected: any, message?: string): PromisesAPlus.Thenable<void>;
-        isRejected(promise: PromisesAPlus.Thenable<any>, match: RegExp, message?: string): PromisesAPlus.Thenable<void>;
+        isRejected(promise: PromisesAPlus.Thenable<any>, expected: RegExp | any, message?: string): PromisesAPlus.Thenable<void>;
         notify(fn: Function): PromisesAPlus.Thenable<void>;
     }
 
@@ -238,11 +237,9 @@ declare namespace Chai {
         instanceOf(val: any, type: Function, msg?: string): PromisesAPlus.Thenable<void>;
         notInstanceOf(val: any, type: Function, msg?: string): PromisesAPlus.Thenable<void>;
 
-        include(exp: string, inc: any, msg?: string): PromisesAPlus.Thenable<void>;
-        include(exp: any[], inc: any, msg?: string): PromisesAPlus.Thenable<void>;
+        include(exp: string | any[], inc: any, msg?: string): PromisesAPlus.Thenable<void>;
 
-        notInclude(exp: string, inc: any, msg?: string): PromisesAPlus.Thenable<void>;
-        notInclude(exp: any[], inc: any, msg?: string): PromisesAPlus.Thenable<void>;
+        notInclude(exp: string | any[], inc: any, msg?: string): PromisesAPlus.Thenable<void>;
 
         match(exp: any, re: RegExp, msg?: string): PromisesAPlus.Thenable<void>;
         notMatch(exp: any, re: RegExp, msg?: string): PromisesAPlus.Thenable<void>;

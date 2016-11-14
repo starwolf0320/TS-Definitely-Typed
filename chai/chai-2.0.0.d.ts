@@ -233,11 +233,9 @@ declare namespace Chai {
         instanceOf(val: any, type: Function, msg?: string): void;
         notInstanceOf(val: any, type: Function, msg?: string): void;
 
-        include(exp: string, inc: any, msg?: string): void;
-        include(exp: any[], inc: any, msg?: string): void;
+        include(exp: string | any[], inc: any, msg?: string): void;
 
-        notInclude(exp: string, inc: any, msg?: string): void;
-        notInclude(exp: any[], inc: any, msg?: string): void;
+        notInclude(exp: string | any[], inc: any, msg?: string): void;
 
         match(exp: any, re: RegExp, msg?: string): void;
         notMatch(exp: any, re: RegExp, msg?: string): void;

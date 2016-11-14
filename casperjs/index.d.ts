@@ -31,10 +31,7 @@ interface Casper extends EventEmitter {
 	click(selector: string): boolean;
 	clickLabel(label: string, tag?: string): boolean;
 	capture(targetFilePath: string, clipRect: ClipRect): Casper;
-	captureBase64(format: string): string;
-	captureBase64(format: string, area: string): string;
-	captureBase64(format: string, area: ClipRect): string;
-	captureBase64(format: string, area: any): string;
+	captureBase64(format: string, area?: string | ClipRect | any): string;
 	captureSelector(targetFile: string, selector: string): Casper;
 	clear(): Casper;
 	debugHTML(selector?: string, outer?: boolean): Casper;
@@ -69,8 +66,7 @@ interface Casper extends EventEmitter {
 	open(location: string, settings: OpenSettings): Casper;
 	reload(then?: (response: HttpResponse) => void): Casper;
 	repeat(times: number, then: Function): Casper;
-	resourceExists(test: Function): boolean;
-	resourceExists(test: string): boolean;
+	resourceExists(test: Function | string): boolean;
 	run(onComplete: Function, time?: number): Casper;
 	scrollTo(x: number, y: number): Casper;
 	scrollToBottom(): Casper;
@@ -95,22 +91,17 @@ interface Casper extends EventEmitter {
 	wait(timeout: number, then?: Function): Casper;
 	waitFor(testFx: Function, then?: Function, onTimeout?: Function, timeout?: number): Casper;
 	waitForAlert(then: Function, onTimeout?: Function, timeout?: number): Casper;
-	waitForPopup(urlPattern: string, then?: Function, onTimeout?: Function, timeout?: number): Casper;
-	waitForPopup(urlPattern: RegExp, then?: Function, onTimeout?: Function, timeout?: number): Casper;
-	waitForUrl(url: string, then?: Function, onTimeout?: Function, timeout?: number): Casper;
-	waitForUrl(url: RegExp, then?: Function, onTimeout?: Function, timeout?: number): Casper;
+	waitForPopup(urlPattern: string | RegExp, then?: Function, onTimeout?: Function, timeout?: number): Casper;
+	waitForUrl(url: string | RegExp, then?: Function, onTimeout?: Function, timeout?: number): Casper;
 	waitForSelector(selector: string, then?: Function, onTimeout?: Function, timeout?: number): Casper;
 	waitWhileSelector(selector: string, then?: Function, onTimeout?: Function, timeout?: number): Casper;
 	waitForResource(testFx: Function, then?: Function, onTimeout?: Function, timeout?: number): Casper;
-	waitForText(pattern: string, then?: Function, onTimeout?: Function, timeout?: number): Casper;
-	waitForText(pattern: RegExp, then?: Function, onTimeout?: Function, timeout?: number): Casper;
+	waitForText(pattern: string | RegExp, then?: Function, onTimeout?: Function, timeout?: number): Casper;
 	waitUntilVisible(selector: string, then?: Function, onTimeout?: Function, timeout?: number): Casper;
 	waitWhileVisible(selector: string, then?: Function, onTimeout?: Function, timeout?: number): Casper;
 	warn(message: string): Casper;
-	withFrame(frameInfo: string, then: Function): Casper;
-	withFrame(frameInfo: number, then: Function): Casper;
-	withPopup(popupInfo: string, step: Function): Casper;
-	withPopup(popupInfo: RegExp, step: Function): Casper;
+	withFrame(frameInfo: string | number, then: Function): Casper;
+	withPopup(popupInfo: string | RegExp, step: Function): Casper;
 	zoom(factor: number): Casper;
 }
 
@@ -237,8 +228,7 @@ interface Tester {
 	assertTruthy(subject: any, message?: string): any;
 	assertType(input: any, type: string, message?: string): any;
 	assertInstanceOf(input: any, ctor: Function, message?: string): any;
-	assertUrlMatch(pattern: string, message?: string): any;
-	assertUrlMatch(pattern: RegExp, message?: string): any;
+	assertUrlMatch(pattern: string | RegExp, message?: string): any;
 	assertVisible(selector: string, message?: string): any;
 
     /* since 1.1 */

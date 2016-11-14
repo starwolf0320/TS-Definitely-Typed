@@ -20,8 +20,7 @@ declare namespace Chai {
 
 	interface Assertion {
 		status(code: number): Assertion;
-		header(key: string, value?: string): Assertion;
-		header(key: string, value?: RegExp): Assertion;
+		header(key: string, value?: string | RegExp): Assertion;
 		headers: Assertion;
 		json: Assertion;
 		text: Assertion;
@@ -51,8 +50,8 @@ declare namespace ChaiHttp {
 	interface Request extends FinishedRequest {
 		attach(field: string, file: string|Buffer, filename: string): Request;
 		set(field: string, val: string): Request;
-		query(params: Object): Request;
-		send(data: Object): Request;
+		query(params: {}): Request;
+		send(data: {}): Request;
 		auth(user: string, name: string): Request;
 		field(name: string, val: string): Request;
 		end(callback?: (err: any, res: Response) => void): FinishedRequest;
