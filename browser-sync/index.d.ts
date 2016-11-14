@@ -28,7 +28,7 @@ declare namespace browserSync {
          * patterns.
          * Default: false
          */
-        files?: string | (string | FileCallback)[];
+        files?: string | Array<string | FileCallback>;
         /**
          * File watching options that get passed along to Chokidar. Check their docs for available options
          * Default: undefined
@@ -243,7 +243,7 @@ declare namespace browserSync {
          * Note: requires at least version 1.6.2
          */
         socket?: SocketOptions;
-        middleware?: MiddlewareHandler | PerRouteMiddleware | (MiddlewareHandler | PerRouteMiddleware)[];
+        middleware?: MiddlewareHandler | PerRouteMiddleware | Array<MiddlewareHandler | PerRouteMiddleware>;
     }
 
     interface Hash<T> {
@@ -278,7 +278,7 @@ declare namespace browserSync {
          */
         routes?: Hash<string>;
         /** configure custom middleware */
-        middleware?: (MiddlewareHandler | PerRouteMiddleware)[];
+        middleware?: Array<MiddlewareHandler | PerRouteMiddleware>;
     }
 
     interface ProxyOptions {
@@ -360,23 +360,11 @@ declare namespace browserSync {
          */
         init(config?: Options, callback?: (err: Error, bs: Object) => any): BrowserSyncInstance;
         /**
-         * Reload the browser
-         * The reload method will inform all browsers about changed files and will either cause the browser
-         * to refresh, or inject the files where possible.
-         */
-        reload(): void;
-        /**
          * Reload a single file
          * The reload method will inform all browsers about changed files and will either cause the browser
          * to refresh, or inject the files where possible.
          */
-        reload(file: string): void;
-        /**
-         * Reload multiple files
-         * The reload method will inform all browsers about changed files and will either cause the browser
-         * to refresh, or inject the files where possible.
-         */
-        reload(files: string[]): void;
+        reload(files?: string | string[]): void;
         /**
          * The reload method will inform all browsers about changed files and will either cause the browser
          * to refresh, or inject the files where possible.

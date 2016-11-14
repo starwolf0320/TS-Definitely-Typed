@@ -5,7 +5,7 @@
 
 /// <reference types="jquery"/>
 
-interface TimeickerOptions {
+interface TimepickerOptions {
     defaultTime?: string;
     disableFocus?: boolean;
     isOpen?: boolean;
@@ -20,8 +20,6 @@ interface TimeickerOptions {
 }
 
 interface JQuery {
-    timepicker(): JQuery;
-    timepicker(methodName: string): JQuery;
-    timepicker(methodName: string, params: any): JQuery;
-    timepicker(options: TimeickerOptions): JQuery;
+    timepicker(methodName?: string, params?: any): JQuery;
+    timepicker(options: TimepickerOptions): JQuery;
 }

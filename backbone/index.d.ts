@@ -221,7 +221,7 @@ declare namespace Backbone {
         comparator: string | ((element: TModel) => number | string) | ((compare: TModel, to?: TModel) => number);
 
         add(model: {}|TModel, options?: AddOptions): TModel;
-        add(models: ({}|TModel)[], options?: AddOptions): TModel[];
+        add(models: Array<{}|TModel>, options?: AddOptions): TModel[];
         at(index: number): TModel;
         /**
          * Get a model from a collection, specified by an id, a cid, or by passing in a model.
@@ -233,7 +233,7 @@ declare namespace Backbone {
         push(model: TModel, options?: AddOptions): TModel;
         pop(options?: Silenceable): TModel;
         remove(model: {}|TModel, options?: Silenceable): TModel;
-        remove(models: ({}|TModel)[], options?: Silenceable): TModel[];
+        remove(models: Array<{}|TModel>, options?: Silenceable): TModel[];
         reset(models?: TModel[], options?: Silenceable): TModel[];
         set(models?: TModel[], options?: Silenceable): TModel[];
         shift(options?: Silenceable): TModel;

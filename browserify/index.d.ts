@@ -93,8 +93,7 @@ interface BrowserifyObject extends NodeJS.EventEmitter {
    * Add an entry file from file that will be executed when the bundle loads.
    * If file is an array, each item in file will be added as an entry file.
    */
-  add(file: InputFile[], opts?: FileOptions): BrowserifyObject;
-  add(file: InputFile, opts?: FileOptions): BrowserifyObject;
+  add(file: InputFile | InputFile[], opts?: FileOptions): BrowserifyObject;
   /**
    * Make file available from outside the bundle with require(file).
    * The file param is anything that can be resolved by require.resolve().
@@ -113,8 +112,7 @@ interface BrowserifyObject extends NodeJS.EventEmitter {
    * If file is an array, each item in file will be externalized.
    * If file is another bundle, that bundle's contents will be read and excluded from the current bundle as the bundle in file gets bundled.
    */
-  external(file: string[], opts?: { basedir?: string }): BrowserifyObject;
-  external(file: string, opts?: { basedir?: string }): BrowserifyObject;
+  external(file: string | string[], opts?: { basedir?: string }): BrowserifyObject;
   external(file: BrowserifyObject): BrowserifyObject;
   /**
    * Prevent the module name or file at file from showing up in the output bundle.
@@ -131,14 +129,12 @@ interface BrowserifyObject extends NodeJS.EventEmitter {
    * If tr is a function, it will be called with tr(file) and it should return a through-stream that takes the raw file contents and produces the transformed source.
    * If tr is a string, it should be a module name or file path of a transform module
    */
-  transform<T extends { basedir?: string }>(tr: string, opts?: T): BrowserifyObject;
-  transform<T extends { basedir?: string }>(tr: (file: string, opts: T) => NodeJS.ReadWriteStream, opts?: T): BrowserifyObject;
+  transform<T extends { basedir?: string }>(tr: string | ((file: string, opts: T) => NodeJS.ReadWriteStream), opts?: T): BrowserifyObject;
   /**
    * Register a plugin with opts. Plugins can be a string module name or a function the same as transforms.
    * plugin(b, opts) is called with the Browserify instance b.
    */
-  plugin<T extends { basedir?: string }>(plugin: string, opts?: T): BrowserifyObject;
-  plugin<T extends { basedir?: string }>(plugin: (b: BrowserifyObject, opts: T) => any, opts?: T): BrowserifyObject;
+  plugin<T extends { basedir?: string }>(plugin: string | ((b: BrowserifyObject, opts: T) => any), opts?: T): BrowserifyObject;
   /**
    * Reset the pipeline back to a normal state. This function is called automatically when bundle() is called multiple times.
    * This function triggers a 'reset' event.

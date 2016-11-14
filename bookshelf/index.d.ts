@@ -264,13 +264,13 @@ declare namespace Bookshelf {
 	}
 
 	interface LoadOptions extends SyncOptions {
-		withRelated: (string | WithRelatedQuery)[];
+		withRelated: Array<string | WithRelatedQuery>;
 	}
 
 	interface FetchOptions extends SyncOptions {
 		require?: boolean;
 		columns?: string | string[];
-		withRelated?: (string | WithRelatedQuery)[];
+		withRelated?: Array<string | WithRelatedQuery>;
 	}
 
 	interface WithRelatedQuery {

@@ -42,10 +42,7 @@ declare namespace busboy {
                filename: string,
                encoding: string,
                mimetype: string) => void): this;
-        on(event: 'finish', callback: () => void): this;
-        on(event: 'partsLimit', callback: () => void): this;
-        on(event: 'filesLimit', callback: () => void): this;
-        on(event: 'fieldsLimit', callback: () => void): this;
+        on(event: 'finish' | 'partsLimit' | 'filesLimit' | 'fieldsLimit', callback: () => void): this;
         on(event: string, listener: Function): this;
     }
 

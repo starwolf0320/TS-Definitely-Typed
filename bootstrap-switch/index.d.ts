@@ -49,8 +49,7 @@ declare namespace BootstrapSwitch {
         destroy(): JQuery;
 
         state(): boolean;
-        state(value: any): JQuery;
-        state(value: any, skip: boolean): JQuery;
+        state(value: any, skip?: boolean): JQuery;
         toggleState(skip?: boolean): JQuery;
         radioAllOff(): boolean;
         radioAllOff(state: boolean): JQuery;
@@ -60,7 +59,6 @@ declare namespace BootstrapSwitch {
         animate(state: boolean): JQuery;
         disabled(): boolean;
         disabled(state: boolean): JQuery;
-        toggleDisabled(): JQuery;
         readonly(): boolean;
         readonly(state: boolean): JQuery;
         toggleReadOnly(): JQuery;
@@ -82,11 +80,8 @@ declare namespace BootstrapSwitch {
 }
 
 interface JQuery {
-    bootstrapSwitch(): JQuery;
-    bootstrapSwitch(options: BootstrapSwitch.BootstrapSwitchOptions): JQuery;
-    bootstrapSwitch(method: string): JQuery;
-    bootstrapSwitch(method: string, param: any): JQuery;
-    bootstrapSwitch(method: string, param1: any, param2: any): JQuery;
+    bootstrapSwitch(options?: BootstrapSwitch.BootstrapSwitchOptions): JQuery;
+    bootstrapSwitch(method: string, param1?: any, param2?: any): JQuery;
 
     off(events: "init.bootstrapSwitch", selector?: string, handler?: (eventobject: BootstrapSwitch.BootstrapSwitchEventObject) => any): JQuery;
     off(events: "init.bootstrapSwitch", handler?: (eventobject: BootstrapSwitch.BootstrapSwitchEventObject) => any): JQuery;

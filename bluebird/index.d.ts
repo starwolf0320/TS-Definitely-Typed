@@ -439,7 +439,7 @@ declare class Bluebird<R> implements Bluebird.Thenable<R>, Bluebird.Inspection<R
   static all<T1, T2>(values: [Bluebird.Thenable<T1> | T1, Bluebird.Thenable<T2> | T2]): Bluebird<[T1, T2]>;
   static all<T1>(values: [Bluebird.Thenable<T1> | T1]): Bluebird<[T1]>;
   // array with values
-  static all<R>(values: Bluebird.Thenable<(Bluebird.Thenable<R> | R)[]> | (Bluebird.Thenable<R> | R)[]): Bluebird<R[]>;
+  static all<R>(values: Bluebird.Thenable<Array<Bluebird.Thenable<R> | R>> | Array<Bluebird.Thenable<R> | R>): Bluebird<R[]>;
 
   /**
    * Like ``Promise.all`` but for object properties instead of array items. Returns a promise that is fulfilled when all the properties of the object are fulfilled. The promise's fulfillment value is an object with fulfillment values at respective keys to the original object. If any promise in the object rejects, the returned promise is rejected with the rejection reason.
@@ -457,14 +457,14 @@ declare class Bluebird<R> implements Bluebird.Thenable<R>, Bluebird.Inspection<R
   /**
    * Like `Promise.some()`, with 1 as `count`. However, if the promise fulfills, the fulfillment value is not an array of 1 but the value directly.
    */
-  static any<R>(values: Bluebird.Thenable<(Bluebird.Thenable<R> | R)[]> | (Bluebird.Thenable<R> | R)[]): Bluebird<R>;
+  static any<R>(values: Bluebird.Thenable<Array<Bluebird.Thenable<R> | R>> | Array<Bluebird.Thenable<R> | R>): Bluebird<R>;
 
   /**
    * Given an array, or a promise of an array, which contains promises (or a mix of promises and values) return a promise that is fulfilled or rejected as soon as a promise in the array is fulfilled or rejected with the respective rejection reason or fulfillment value.
    *
    * **Note** If you pass empty array or a sparse array with no values, or a promise/thenable for such, it will be forever pending.
    */
-  static race<R>(values: Bluebird.Thenable<(Bluebird.Thenable<R> | R)[]> | (Bluebird.Thenable<R> | R)[]): Bluebird<R>;
+  static race<R>(values: Bluebird.Thenable<Array<Bluebird.Thenable<R> | R>> | Array<Bluebird.Thenable<R> | R>): Bluebird<R>;
 
   /**
    * Initiate a competetive race between multiple promises or values (values will become immediately fulfilled promises). When `count` amount of promises have been fulfilled, the returned promise is fulfilled with an array that contains the fulfillment values of the winners in order of resolution.
@@ -499,7 +499,7 @@ declare class Bluebird<R> implements Bluebird.Thenable<R>, Bluebird.Inspection<R
 
   // variadic array
   /** @deprecated use .all instead */
-  static join<R>(...values: (R | Bluebird.Thenable<R>)[]): Bluebird<R[]>;
+  static join<R>(...values: Array<R | Bluebird.Thenable<R>>): Bluebird<R[]>;
 
   /**
    * Map an array, or a promise of an array, which contains a promises (or a mix of promises and values) with the given `mapper` function with the signature `(item, index, arrayLength)` where `item` is the resolved value of a respective promise in the input array. If any promise in the input array is rejected the returned promise is rejected as well.
@@ -577,7 +577,7 @@ declare class Bluebird<R> implements Bluebird.Thenable<R>, Bluebird.Inspection<R
    *
    * If any promise in the input array is rejected or any promise returned by the iterator function is rejected, the result will be rejected as well.
    */
-  static mapSeries<R, U>(values: (R | Bluebird.Thenable<R>)[] | Bluebird.Thenable<(R | Bluebird.Thenable<R>)[]>, iterator: (item: R, index: number, arrayLength: number) => U | Bluebird.Thenable<U>): Bluebird<U[]>;
+  static mapSeries<R, U>(values: Array<R | Bluebird.Thenable<R>> | Bluebird.Thenable<Array<R | Bluebird.Thenable<R>>>, iterator: (item: R, index: number, arrayLength: number) => U | Bluebird.Thenable<U>): Bluebird<U[]>;
 
   /**
    * A meta method used to specify the disposer method that cleans up a resource when using `Promise.using`.

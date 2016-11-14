@@ -14,19 +14,19 @@ declare namespace BootstrapMaxlength {
         /**
          * The top position of the counter (Number of pixels, or a px or percent string)
          */
-        top?: Number | string;
+        top?: number | string;
         /**
          * The right position of the counter (Number of pixels, or a px or percent string)
          */
-        right?: Number | string;
+        right?: number | string;
         /**
          * The bottom position of the counter (Number of pixels, or a px or percent string)
          */
-        bottom?: Number | string;
+        bottom?: number | string;
         /**
          * The left position of the counter (Number of pixels, or a px or percent string)
          */
-        left?: Number | string;
+        left?: number | string;
         /**
          * The positioning to use. For example 'relative', 'absolute'
          */
@@ -37,12 +37,12 @@ declare namespace BootstrapMaxlength {
      * Representation of the current input position
      */
     interface PositionParam {
-        top: Number;
-        right: Number;
-        bottom: Number;
-        left: Number;
-        width: Number;
-        height: Number;
+        top: number;
+        right: number;
+        bottom: number;
+        left: number;
+        width: number;
+        height: number;
     }
 
     export interface Options {
@@ -50,12 +50,12 @@ declare namespace BootstrapMaxlength {
          * If true the threshold will be ignored and the remaining length indication will be always showing up while typing or on focus on the input
          * @default false
          */
-        alwaysShow?: Boolean;
+        alwaysShow?: boolean;
         /**
          * This is a number indicating how many chars are left to start displaying the indications
          * @default 10
          */
-        threshold?: Number;
+        threshold?: number;
         /**
          * It's the class of the element with the indicator. By default is the bootstrap "label label-success" but can be changed to anything you'd like.
          * @default 'label label-success'
@@ -85,12 +85,12 @@ declare namespace BootstrapMaxlength {
          * If false, will display just the number of typed characters, e.g. will not display the max length.
          * @default true
          */
-        showMaxLength?: Boolean;
+        showMaxLength?: boolean;
         /**
          * If false, will display just the remaining length, e.g. will display remaining lenght instead of number of typed characters.
          * @default true
          */
-        showCharsTyped?: Boolean;
+        showCharsTyped?: boolean;
         /**
          * Is a string, define where to output the counter.
          * Options:  bottom, left, top, right, bottom-right, top-right, top-left, bottom-left and centered-right
@@ -110,7 +110,7 @@ declare namespace BootstrapMaxlength {
          * Function example: function(currentText, maxLength) { return '' + Math.ceil(currentText.length / 160) + ' SMS Message(s)'; }
          * @default null
          */
-        message?: string | ((currentText: string, maxLength: Number) => string);
+        message?: string | ((currentText: string, maxLength: number) => string);
         /**
          * If true the input will count using utf8 bytesize/encoding. For example: the '�' character is counted as two characters.
          * @default false
@@ -151,8 +151,7 @@ declare namespace BootstrapMaxlength {
 interface JQuery {
     /** Apply the maxlength plugin on the selected elemens */
     maxlength(options?: BootstrapMaxlength.Options): JQuery;
-    on(events: 'maxlength.shown', handler: (eventObject: JQueryEventObject, ...args: any[]) => any): JQuery;
-    on(events: 'maxlength.hidden', handler: (eventObject: JQueryEventObject, ...args: any[]) => any): JQuery;
-    trigger(eventType: 'maxlength.reposition', extraParameters?: any[]|Object): JQuery;
+    on(events: 'maxlength.shown' | 'maxlength.hidden', handler: (eventObject: JQueryEventObject, ...args: any[]) => any): JQuery;
+    trigger(eventType: 'maxlength.reposition', extraParameters?: any[]|{}): JQuery;
 
 }

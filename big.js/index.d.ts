@@ -80,15 +80,10 @@ declare namespace BigJsLibrary {
             @param exp integer, -1e+6 to 1e+6 inclusive */
         pow(exp: number): BigJS;
 
-        /** Returns a Big number whose value is the value of this Big number rounded to a whole number.     */
-        round(): BigJS;
-        /** Returns a Big number whose value is the value of this Big number rounded using rounding mode rm to a maximum of dp decimal places.
-            @param dp Number of decimal places (0 to 1e+6 inclusive).  If dp is omitted or is null or undefined, the return value is n rounded to a whole number.    */
-        round(dp: number): BigJS;
         /** Returns a Big number whose value is the value of this Big number rounded using rounding mode rm to a maximum of dp decimal places.
             @param dp Number of decimal places (0 to 1e+6 inclusive).  If dp is omitted or is null or undefined, the return value is n rounded to a whole number.
             @param rm Rounding mode.  If rm is omitted or is null or undefined, the current Big.RM setting is used.     */
-        round(dp: number, rm: RoundingMode): BigJS;
+        round(dp?: number, rm?: RoundingMode): BigJS;
 
         /** Returns a Big number whose value is the square root of this Big number.  */
         sqrt(): BigJS;
@@ -96,23 +91,17 @@ declare namespace BigJsLibrary {
         /** Returns a Big number whose value is the value of this Big number times n.  */
         times(n: BigNumberInputType): BigJS;
 
-        /** Returns a string representing the value of this Big number in exponential notation to a fixed number of decimal places dp.    */
-        toExponential(): string;
         /** Returns a string representing the value of this Big number in exponential notation to a fixed number of decimal places dp.
             @param dp Number of decimal places (0 to 1e+6 inclusive).  If dp is omitted, or is null or undefined, the number of digits after the decimal point defaults to the minimum number of digits necessary to represent the value exactly.    */
-        toExponential(dp: number): string;
+        toExponential(dp?: number): string;
 
-        /** Returns a string representing the value of this Big number in normal notation to a fixed number of decimal places dp.  */
-        toFixed(): string;
         /** Returns a string representing the value of this Big number in normal notation to a fixed number of decimal places dp.
             @param dp Number of decimal places (0 to 1e+6 inclusive). If dp is omitted, or is null or undefined, then the return value is simply the value in normal notation. This is also unlike Number.prototype.toFixed, which returns the value to zero decimal places.     */
-        toFixed(dp: number): string;
+        toFixed(dp?: number): string;
 
-        /** Returns a string representing the value of this Big number to the specified number of significant digits sd.  */
-        toPrecision(): string;
         /** Returns a string representing the value of this Big number to the specified number of significant digits sd.
             @param sd significant digits.  If sd is omitted, or is null or undefined, then the return value is the same as .toString().     */
-        toPrecision(sd: number /** number of significant digits (0 to 1e+6 inclusive) */): string;
+        toPrecision(sd?: number /** number of significant digits (0 to 1e+6 inclusive) */): string;
 
         /** Returns a string representing the value of this Big number. */
         toString(): string;

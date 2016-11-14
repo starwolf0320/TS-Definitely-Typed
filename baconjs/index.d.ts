@@ -100,7 +100,7 @@ declare namespace Bacon {
      *     return [new Bacon.Next(n), new Bacon.Next(() => n), new Bacon.End()];
      * });
      */
-    function fromPromise<E, A, B>(promise: Promise<A>|JQueryXHR, abort: boolean, eventTransformer: (value: A) => (Initial<B>|Next<B>|End<B>|Error<E>)[]): EventStream<E, B>;
+    function fromPromise<E, A, B>(promise: Promise<A>|JQueryXHR, abort: boolean, eventTransformer: (value: A) => Array<Initial<B>|Next<B>|End<B>|Error<E>>): EventStream<E, B>;
 
     /**
      * @function
@@ -266,7 +266,7 @@ declare namespace Bacon {
      * @example
      * Bacon.fromArray([1, new Bacon.Error("")]);
      */
-    function fromArray<E, A>(values: (A|Error<E>)[]): EventStream<E, A>;
+    function fromArray<E, A>(values: Array<A|Error<E>>): EventStream<E, A>;
 
     /**
      * @function
@@ -378,7 +378,7 @@ declare namespace Bacon {
      * });
      * stream.log();
      */
-    function fromBinder<E, A>(subscribe: (sink: (value: More|NoMore|(A|Initial<A>|Next<A>|End<A>|Error<E>)|(A|Initial<A>|Next<A>|End<A>|Error<E>)[]) => void) => (() => void)): EventStream<E, A>;
+    function fromBinder<E, A>(subscribe: (sink: (value: More|NoMore|(A|Initial<A>|Next<A>|End<A>|Error<E>)|Array<A|Initial<A>|Next<A>|End<A>|Error<E>>) => void) => (() => void)): EventStream<E, A>;
 
     /**
      * @interface
@@ -718,7 +718,7 @@ declare namespace Bacon {
     	 *     }
     	 * });
          */
-        withStateMachine<B, C>(initState: B, f: (state: B, event: Initial<A>|Next<A>|End<A>|Error<E>) => [B, (Initial<C>|Next<C>|End<C>|Error<E>)[]]): EventStream<E, C>;
+        withStateMachine<B, C>(initState: B, f: (state: B, event: Initial<A>|Next<A>|End<A>|Error<E>) => [B, Array<Initial<C>|Next<C>|End<C>|Error<E>>]): EventStream<E, C>;
 
         /**
          * @method
@@ -1345,7 +1345,7 @@ declare namespace Bacon {
          * @param {EventStream#new~subscribe} subscribe
          * @returns {EventStream<E, A>}
          */
-        new<E, A>(subscribe: (sink: (value: More|NoMore|(A|Initial<A>|Next<A>|End<A>|Error<E>)|(A|Initial<A>|Next<A>|End<A>|Error<E>)[]) => void) => (() => void)): EventStream<E, A>;
+        new<E, A>(subscribe: (sink: (value: More|NoMore|(A|Initial<A>|Next<A>|End<A>|Error<E>)|Array<A|Initial<A>|Next<A>|End<A>|Error<E>>) => void) => (() => void)): EventStream<E, A>;
     };
 
     /**
@@ -1851,7 +1851,7 @@ declare namespace Bacon {
      * @param {(A|Observable<E, A>)[]} streams
      * @returns {Property<E, A[]>}
      */
-    function combineAsArray<E, A>(streams: (A|Observable<E, A>)[]): Property<E, A[]>;
+    function combineAsArray<E, A>(streams: Array<A|Observable<E, A>>): Property<E, A[]>;
 
     /**
      * @function
@@ -1859,7 +1859,7 @@ declare namespace Bacon {
      * @param {...(A|Observable<E, A>)} streams
      * @returns {Property<E, A[]>}
      */
-    function combineAsArray<E, A>(...streams: (A|Observable<E, A>)[]): Property<E, A[]>;
+    function combineAsArray<E, A>(...streams: Array<A|Observable<E, A>>): Property<E, A[]>;
 
     /**
      * @callback Property#combineWith~f
@@ -1873,7 +1873,7 @@ declare namespace Bacon {
      * @param {...(A|Observable<E, A>)} streams
      * @returns {Property<E, B>}
      */
-    function combineWith<A, B>(f: (...args: A[]) => B, ...streams: (A|Observable<ErrorEvent, A>)[]): Property<ErrorEvent, B>;
+    function combineWith<A, B>(f: (...args: A[]) => B, ...streams: Array<A|Observable<ErrorEvent, A>>): Property<ErrorEvent, B>;
 
     /**
      * @function

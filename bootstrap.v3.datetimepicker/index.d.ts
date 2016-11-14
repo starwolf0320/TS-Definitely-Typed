@@ -113,7 +113,7 @@ export interface Datetimepicker {
 	 * Also calling this function removes the configuration of options.enabledDates if such exist.
 	 * Note: These values are matched with Day granularity.
 	 */
-	disabledDates(dates: boolean | (string | Date | moment.Moment)[]): void;
+	disabledDates(dates: boolean | Array<string | Date | moment.Moment>): void;
 	/**Returns the options.disabledHours option.
 	 * NOTES: probably should be: disabledHours(): boolean | number[]; see: DatetimepickerOptions
 	*/
@@ -140,7 +140,7 @@ export interface Datetimepicker {
 	 * Also calling this function removes the configuration of options.disabledDates if such exist.
 	 * Note: These values are matched with Day granularity.
 	 */
-	enabledDates(dates: boolean | (string | Date | moment.Moment)[]): void;
+	enabledDates(dates: boolean | Array<string | Date | moment.Moment>): void;
 	/**Returns the options.enabledHours option.
 	 * NOTES: probably should be: enabledHours(): boolean | number[]; see: DatetimepickerOptions
 	*/
@@ -334,7 +334,7 @@ export interface DatetimepickerOptions {
 	 * eg disabledDates = ["2010-10-10"]; -> disabledDated will be { "2010-01-01": true }
 	 * https://github.com/Eonasdan/bootstrap-datetimepicker/issues/1499
 	 */
-    disabledDates?: boolean | (moment.Moment | Date | string)[] | any;
+    disabledDates?: boolean | Array<moment.Moment | Date | string> | any;
 	/**Will allow or disallow hour selections (much like disabledTimeIntervals) but will affect all days
 	 * @default: false
 	 * IMPORTANT! The getter returns an Object NOT an Array, with keys being the hours, values being true.
@@ -353,7 +353,7 @@ export interface DatetimepickerOptions {
 	 * eg enabledDates = ["2010-10-10"]; -> enabledDated will be { "2010-01-01": true }
 	 * https://github.com/Eonasdan/bootstrap-datetimepicker/issues/1499
 	 */
-    enabledDates?: boolean | (moment.Moment | Date | string)[] | any;
+    enabledDates?: boolean | Array<moment.Moment | Date | string> | any;
 	/**Will allow or disallow hour selections (much like disabledTimeIntervals) but will affect all days
 	 * @default: false
 	 * IMPORTANT! The getter returns an Object NOT an Array, with keys being the hours, values being true.

@@ -118,13 +118,8 @@ interface TouchSpinOptions {
 
 interface JQuery {
     /**
-     * Initialize TouchSpin
-     */
-    TouchSpin(): JQuery;
-
-    /**
-     * Inialize TouchSpin with options
+     * Inialize TouchSpin
      * @param options a TouchSpinOptions object with one or more options
      */
-    TouchSpin(options: TouchSpinOptions): JQuery;
+    TouchSpin(options?: TouchSpinOptions): JQuery;
 }

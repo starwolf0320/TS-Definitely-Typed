@@ -1102,12 +1102,8 @@ declare namespace breeze.config {
 declare namespace breeze.promises {
 
     export interface IPromise<T> {
-        then<U>(onFulfill: (value: T) => U, onReject?: (reason: any) => U): IPromise<U>;
-        then<U>(onFulfill: (value: T) => IPromise<U>, onReject?: (reason: any) => U): IPromise<U>;
-        then<U>(onFulfill: (value: T) => U, onReject?: (reason: any) => IPromise<U>): IPromise<U>;
-        then<U>(onFulfill: (value: T) => IPromise<U>, onReject?: (reason: any) => IPromise<U>): IPromise<U>;
-        catch<U>(onRejected: (reason: any) => U): IPromise<U>;
-        catch<U>(onRejected: (reason: any) => IPromise<U>): IPromise<U>;
+        then<U>(onFulfill: (value: T) => U | IPromise<U>, onReject?: (reason: any) => U | IPromise<U>): IPromise<U>;
+        catch<U>(onRejected: (reason: any) => U | IPromise<U>): IPromise<U>;
         finally(finallyCallback: () => any): IPromise<T>;
     }
 
@@ -1120,8 +1116,7 @@ declare namespace breeze.promises {
     export interface IPromiseService {
         defer<T>(): IDeferred<T>;
         reject(reason?: any): IPromise<any>;
-        resolve<T>(object: T): IPromise<T>;
-        resolve<T>(object: IPromise<T>): IPromise<T>;
+        resolve<T>(object: T | IPromise<T>): IPromise<T>;
     }
 }
 

@@ -64,17 +64,14 @@ interface Static {
      * models/collection fetch. This might be useful for debugging and
      * testing.
      */
-    getCache(key: () => string, opts?: GetCacheOptions): Cache;
-    getCache(key: GetCacheKeyOptions, opts?: GetCacheOptions): Cache;
+    getCache(key: (() => string) | GetCacheKeyOptions, opts?: GetCacheOptions): Cache;
 
-    getCacheKey(key: () => string, opts?: GetCacheOptions): string;
-    getCacheKey(key: GetCacheKeyOptions, opts?: GetCacheOptions): string;
+    getCacheKey(key: (() => string) | GetCacheKeyOptions, opts?: GetCacheOptions): string;
 
     /**
      * If you want to know when was the last (server) sync of a given key, you can use.
      */
-    getLastSync(key: () => string, opts?: GetCacheOptions): number;
-    getLastSync(key: GetCacheKeyOptions, opts?: GetCacheOptions): number;
+    getLastSync(key: (() => string) | GetCacheKeyOptions, opts?: GetCacheOptions): number;
 
     getLocalStorage(): void;
     getLocalStorageKey(): string;
@@ -91,8 +88,7 @@ interface Static {
 
     reset(): void;
 
-    setCache(instance: () => string, opts?: SetCacheOptions, attrs?: any): void;
-    setCache(instance: GetCacheKeyOptions, opts?: SetCacheOptions, attrs?: any): void;
+    setCache(instance: (() => string) | GetCacheKeyOptions, opts?: SetCacheOptions, attrs?: any): void;
 
     setLocalStorage(...args: any[]): any;
 

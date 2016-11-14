@@ -36,7 +36,7 @@ export interface TransformOptions {
     filenameRelative?: string;
 
     /** A source map object that the output source map will be based on. */
-    inputSourceMap?: Object;
+    inputSourceMap?: {};
 
     /**
      * This is an object of keys that represent different environments. For example, you may have:
@@ -44,7 +44,7 @@ export interface TransformOptions {
      * which will use those options when the enviroment variable `BABEL_ENV` is set to `"production"`.
      * If `BABEL_ENV` isn't set then `NODE_ENV` will be used, if it's not set then it defaults to `"development"`.
      */
-    env?: Object;
+    env?: {};
 
     /** Retain line numbers - will result in really ugly code. Default: `false` */
     retainLines?: boolean;
@@ -65,7 +65,7 @@ export interface TransformOptions {
      * A glob, regex, or mixed array of both, matching paths to only compile. Can also be an array of arrays containing
      * paths to explicitly match. When attempting to compile a non-matching file it's returned verbatim.
      */
-    only?: string | RegExp | (string | RegExp)[];
+    only?: string | RegExp | Array<string | RegExp>;
 
     /** Enable code generation. Default: `true`. */
     code?: boolean;
@@ -138,7 +138,7 @@ export interface TransformOptions {
 export interface BabelFileResult {
     ast?: Node;
     code?: string;
-    map?: Object;
+    map?: {};
 }
 export as namespace babel;
 

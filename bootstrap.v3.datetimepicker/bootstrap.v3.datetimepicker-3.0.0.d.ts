@@ -43,8 +43,8 @@ export interface DatetimepickerOptions {
     collapse?: boolean;
     language?: string;
     defaultDate?: moment.Moment | Date | string;
-    disabledDates?: (moment.Moment | Date | string)[];
-    enabledDates?: (moment.Moment | Date | string)[];
+    disabledDates?: Array<moment.Moment | Date | string>;
+    enabledDates?: Array<moment.Moment | Date | string>;
     icons?: DatetimepickerIcons;
     useStrict?: boolean;
     direction?: string;
@@ -77,8 +77,7 @@ export interface Datetimepicker {
 
 declare global {
     interface JQuery {
-        datetimepicker(): JQuery;
-        datetimepicker(options: DatetimepickerOptions): JQuery;
+        datetimepicker(options?: DatetimepickerOptions): JQuery;
 
         off(events: "dp.change", selector?: string, handler?: (eventobject: DatetimepickerChangeEventObject) => any): JQuery;
         off(events: "dp.change", handler: (eventobject: DatetimepickerChangeEventObject) => any): JQuery;

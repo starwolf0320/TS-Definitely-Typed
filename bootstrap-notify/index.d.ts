@@ -9,8 +9,7 @@ interface JQueryStatic {
     notify(message: string): NotifyReturn;
 	notify(opts: NotifyOptions, settings?: NotifySettings): NotifyReturn;
 	notifyDefaults(settings: NotifySettings): void;
-	notifyClose(): void;
-	notifyClose(command: string): void;
+	notifyClose(command?: string): void;
 }
 
 interface NotifyOptions {

@@ -18,11 +18,7 @@ declare namespace BabyParse {
         /**
          * Unparses javascript data objects and returns a csv string
          */
-        unparse(data: Object[], config?: UnparseConfig): string;
-
-        unparse(data: any[][], config?: UnparseConfig): string;
-
-        unparse(data: UnparseObject, config?: UnparseConfig): string;
+        unparse(data: {}[] | {}[][] | UnparseObject, config?: UnparseConfig): string;
 
         /**
          * Read-Only Properties

@@ -159,7 +159,7 @@ declare namespace BootstrapFileInput {
         Note:
         You need to be careful in case you are setting both allowedFileTypes and allowedFileExtensions. In this case, the allowedFileTypes property is validated first and generally precedes the allowedFileExtensions setting (and the latter validation maybe skipped).
         */
-        allowedFileTypes?: ("image" | "html" | "text" | "video" | "audio" | "flash" | "object")[];
+        allowedFileTypes?: Array<"image" | "html" | "text" | "video" | "audio" | "flash" | "object">;
         /**
         the list of allowed file extensions for upload.
         This by default is set to null which means the plugin supports all file extensions for upload.
@@ -175,7 +175,7 @@ declare namespace BootstrapFileInput {
         To disable this behavior, you can remove object from the list of allowedPreviewTypes OR fine tune it through allowedPreviewMimeTypes.
         To disable content preview for all file-types and show the previewIcon instead as a thumbnail, set this to null, empty, or false.
         */
-        allowedPreviewTypes?: ("image" | "html" | "text" | "video" | "audio" | "flash" | "object")[];
+        allowedPreviewTypes?: Array<"image" | "html" | "text" | "video" | "audio" | "flash" | "object">;
         /**
         the list of allowed mime types for preview.
         This is set to null by default which means all possible mime types are allowed.

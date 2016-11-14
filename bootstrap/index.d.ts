@@ -84,18 +84,15 @@ interface TransitionEventNames {
 }
 
 interface JQuery {
-    modal(options?: ModalOptions): JQuery;
-    modal(options?: ModalOptionsBackdropString): JQuery;
+    modal(options?: ModalOptions | ModalOptionsBackdropString): JQuery;
     modal(command: string): JQuery;
 
-    dropdown(): JQuery;
-    dropdown(command: string): JQuery;
+    dropdown(command?: string): JQuery;
 
     scrollspy(command: string): JQuery;
     scrollspy(options?: ScrollSpyOptions): JQuery;
 
-    tab(): JQuery;
-    tab(command: string): JQuery;
+    tab(command?: string): JQuery;
 
     tooltip(options?: TooltipOptions): JQuery;
     tooltip(command: string): JQuery;
@@ -103,11 +100,9 @@ interface JQuery {
     popover(options?: PopoverOptions): JQuery;
     popover(command: string): JQuery;
 
-    alert(): JQuery;
-    alert(command: string): JQuery;
+    alert(command?: string): JQuery;
 
-    button(): JQuery;
-    button(command: string): JQuery;
+    button(command?: string): JQuery;
 
     collapse(options?: CollapseOptions): JQuery;
     collapse(command: string): JQuery;
