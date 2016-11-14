@@ -19,7 +19,7 @@ export interface ConnectionOptions {
     /**
      * An array of trusted certificates. Each element should contain either a filename to load, or a Buffer/String (in PEM format) to be used directly. If this is omitted several well known "root" CAs will be used. - You may need to use this as some environments don't include the CA used by Apple (entrust_2048).
      */
-    ca?: (string | Buffer)[];
+    ca?: Array<string | Buffer>;
     /**
      * File path for private key, certificate and CA certs in PFX or PKCS12 format, or a Buffer containing the PFX data. If supplied will always be used instead of certificate and key above.
      */
@@ -84,7 +84,7 @@ export declare class Connection extends events.EventEmitter {
      *
      * A "recipient" is either a `Device` object, a `String`, or a `Buffer` containing the device token. `Device` objects are used internally and will be created if necessary. Where applicable, all events will return a `Device` regardless of the type passed to this method.
      */
-    pushNotification(notification: Notification, recipient: Device | string | Buffer | (Device | string | Buffer)[]): void;
+    pushNotification(notification: Notification, recipient: Device | string | Buffer | Array<Device | string | Buffer>): void;
     /**
      * Used to manually adjust the "cacheLength" property in the options. This is ideal if you choose to use the `cacheTooSmall` event to tweak your environment. It is safe for increasing and reducing cache size.
      */
@@ -276,7 +276,7 @@ export interface FeedbackOptions {
     /**
      * An array of trusted certificates. Each element should contain either a filename to load, or a Buffer/String (in PEM format) to be used directly. If this is omitted several well known "root" CAs will be used. - You may need to use this as some environments don't include the CA used by Apple (entrust_2048).
      */
-    ca?: (string | Buffer)[];
+    ca?: Array<string | Buffer>;
     /**
      * File path for private key, certificate and CA certs in PFX or PKCS12 format, or a Buffer containing the PFX data. If supplied will be used instead of certificate and key above.
      */

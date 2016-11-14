@@ -72,7 +72,6 @@ declare namespace anydbSQL {
 
     export interface Query<T> extends Executable<T>, Queryable<T> {
         from(table: TableNode): Query<T>;
-        update(o: Dictionary<any>): ModifyingQuery;
         update(o: {}): ModifyingQuery;
         group(...nodes: any[]): Query<T>;
         order(...criteria: OrderByValueNode[]): Query<T>;
@@ -91,8 +90,7 @@ declare namespace anydbSQL {
     }
 
     export interface JoinTableNode extends TableNode {
-        on(filter: BinaryNode): TableNode;
-        on(filter: string): TableNode;
+        on(filter: BinaryNode | string): TableNode;
     }
 
     interface CreateQuery extends Executable<void> {
@@ -106,8 +104,7 @@ declare namespace anydbSQL {
         drop(): DropQuery;
         as(name: string): Table<T>;
         update(o: any): ModifyingQuery;
-        insert(row: T): ModifyingQuery;
-        insert(rows: T[]): ModifyingQuery;
+        insert(rows: T | T[]): ModifyingQuery;
         select(): Query<T>;
         select<U>(...nodes: any[]): Query<U>;
         from<U>(table: TableNode): Query<U>;
@@ -125,8 +122,7 @@ declare namespace anydbSQL {
         addColumn(column: Column<any>): AlterQuery<T>;
         addColumn(name: string, options: string): AlterQuery<T>;
         dropColumn(column: Column<any>): AlterQuery<T>;
-        renameColumn(column: Column<any>, newColumn: Column<any>): AlterQuery<T>;
-        renameColumn(column: Column<any>, newName: string): AlterQuery<T>;
+        renameColumn(column: Column<any>, newColumnOrName: Column<any> | string): AlterQuery<T>;
         renameColumn(name: string, newName: string): AlterQuery<T>;
         rename(newName: string): AlterQuery<T>;
     }
@@ -143,8 +139,7 @@ declare namespace anydbSQL {
     }
 
     export interface Column<T> {
-        in(arr: T[]): BinaryNode;
-        in(subQuery: SubQuery<T>): BinaryNode;
+        in(subQuery: T[] | SubQuery<T>): BinaryNode;
         notIn(arr: T[]): BinaryNode;
         equals(node: any): BinaryNode;
         notEquals(node: any): BinaryNode;
@@ -160,8 +155,7 @@ declare namespace anydbSQL {
         isNull(): BinaryNode;
         isNotNull(): BinaryNode;
         sum(): Column<number>;
-        count(): Column<number>;
-        count(name: string): Column<number>;
+        count(name?: string): Column<number>;
         distinct(): Column<T>;
         as(name: string): Column<T>;
         ascending: OrderByValueNode;
