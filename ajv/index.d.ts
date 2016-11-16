@@ -57,7 +57,7 @@ declare class Ajv {
     static ValidationError: Function;
 }
 declare namespace Ajv {
-    type AjvOptions = {
+    interface AjvOptions {
         v5?: boolean;
         allErrors?: boolean;
         verbose?: boolean;
@@ -82,21 +82,21 @@ declare namespace Ajv {
         loopRequired?: number;
         ownProperties?: boolean;
         multipleOfPrecision?: boolean | number;
-        errorDataPath?: string,
+        errorDataPath?: string;
         messages?: boolean;
         beautify?: boolean;
         cache?: any;
-    };
+    }
     type AjvValidate = ((data: any) => boolean | PromiseLike<boolean>) & {
         errors: ValidationError[];
     };
-    type AjxKeywordDefinition = {
+    interface AjxKeywordDefinition {
         async?: boolean;
         type: string;
         compile?: (schema: any, parentsSchema: any) => ((data: any) => boolean | PromiseLike<boolean>);
         validate?: (schema: any, data: any) => boolean;
-    };
-    type ValidationError = {
+    }
+    interface ValidationError {
         keyword: string;
         dataPath: string;
         schemaPath: string;
@@ -105,7 +105,7 @@ declare namespace Ajv {
         schema: any;
         parentSchema: any;
         data: any;
-    };
+    }
 }
 
 export = Ajv;

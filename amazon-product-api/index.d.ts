@@ -11,9 +11,7 @@ interface ICredentials {
     awsTag: string;
 }
 
-interface IAmazonProductQueryCallback {
-    (err: string, results: Object[]): void;
-}
+type IAmazonProductQueryCallback = (err: string, results: Object[]) => void;
 
 interface IAmazonProductClient {
     itemSearch(query: any, callback?: IAmazonProductQueryCallback): Promise<Object[]>;

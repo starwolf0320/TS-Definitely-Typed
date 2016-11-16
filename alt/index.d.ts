@@ -26,7 +26,7 @@ declare namespace AltJS {
     //state
     setState?(state: S | ((currentState: S, nextState: S) => S)): void;
     getState?(): S;
-    waitFor?(storeOrStores: AltStore<any> | AltStore<any>[]): void;
+    waitFor?(storeOrStores: AltStore<any> | Array<AltStore<any>>): void;
 
     //events
     onSerialize?(fn: (data: any) => any): void;
@@ -48,7 +48,9 @@ declare namespace AltJS {
     displayName?: string;
   }
 
-  export type Source = {[name: string]: () => SourceModel<any>};
+  export interface Source {
+    [name: string]: () => SourceModel<any>;
+  }
 
   export interface SourceModel<S> {
     local(state: any, ...args: any[]): any;
@@ -75,7 +77,9 @@ declare namespace AltJS {
     error
   }
 
-  export type Actions = {[action: string]: Action<any>};
+  export interface Actions {
+    [action: string]: Action<any>;
+  }
 
   export interface Action<T> {
     ( args: T): void;
@@ -104,13 +108,12 @@ declare namespace AltJS {
     bootstrap(jsonData: string): void;
     takeSnapshot( ...storeNames: string[]): string;
     flush(): Object;
-    recycle( ...stores: AltJS.AltStore<any>[]): void;
+    recycle( ...stores: Array<AltJS.AltStore<any>>): void;
     rollback(): void;
     dispatch(action?: AltJS.Action<any>, data?: Object, details?: any): void;
 
     //Actions methods
     addActions(actionsName: string, ActionsClass: ActionsClassConstructor): void;
-    createActions<T>(ActionsClass: ActionsClassConstructor, exportObj?: Object): T;
     createActions<T>(ActionsClass: ActionsClassConstructor, exportObj?: Object, ...constructorArgs: any[]): T;
     generateActions<T>( ...actions: string[]): T;
     getActions(actionsName: string): AltJS.Actions;
@@ -128,7 +131,9 @@ declare namespace AltJS {
   type ActionsClassConstructor = new (alt: Alt) => AltJS.ActionsClass;
 
   type ActionHandler = ( ...data: any[]) => any;
-  type ExportConfig = {[key: string]: (...args: any[]) => any};
+  interface ExportConfig {
+    [key: string]: (...args: any[]) => any;
+  }
 }
 
 declare module "alt/utils/chromeDebug" {
@@ -142,7 +147,7 @@ declare module "alt/AltContainer" {
 
   interface ContainerProps {
     store?: AltJS.AltStore<any>;
-    stores?: AltJS.AltStore<any>[];
+    stores?: Array<AltJS.AltStore<any>>;
     inject?: {[key: string]: any};
     actions?: {[key: string]: Object};
     render?: (...props: any[]) => React.ReactElement<any>;

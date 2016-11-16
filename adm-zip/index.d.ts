@@ -18,72 +18,36 @@ declare class AdmZip {
     /**
      * Extracts the given entry from the archive and returns the content as a
      * Buffer object.
-     * @param entry String with the full path of the entry
+     * @param entry ZipEntry object or String with the full path of the entry
      * @return Buffer or Null in case of error
      */
-    readFile(entry: string): Buffer;
-    /**
-     * Extracts the given entry from the archive and returns the content as a
-     * Buffer object.
-     * @param entry ZipEntry object
-     * @return Buffer or Null in case of error
-     */
-    readFile(entry: AdmZip.IZipEntry): Buffer;
+    readFile(entry: AdmZip.IZipEntry | string): Buffer;
     /**
      * Asynchronous readFile
-     * @param entry String with the full path of the entry
+     * @param entry ZipEntry object or String with the full path of the entry
      * @param callback Called with a Buffer or Null in case of error
      */
-    readFileAsync(entry: string, callback: (data: Buffer, err: string) => any): void;
-    /**
-     * Asynchronous readFile
-     * @param entry ZipEntry object
-     * @param callback Called with a Buffer or Null in case of error
-     * @return Buffer or Null in case of error
-     */
-    readFileAsync(entry: AdmZip.IZipEntry, callback: (data: Buffer, err: string) => any): void;
+    readFileAsync(entry: AdmZip.IZipEntry | string, callback: (data: Buffer, err: string) => any): void;
     /**
      * Extracts the given entry from the archive and returns the content as
      * plain text in the given encoding
-     * @param entry String with the full path of the entry
+     * @param entry ZipEntry object or String with the full path of the entry
      * @param encoding Optional. If no encoding is specified utf8 is used
      * @return String
      */
-    readAsText(fileName: string, encoding?: string): string;
-    /**
-     * Extracts the given entry from the archive and returns the content as
-     * plain text in the given encoding
-     * @param entry ZipEntry object
-     * @param encoding Optional. If no encoding is specified utf8 is used
-     * @return String
-     */
-    readAsText(fileName: AdmZip.IZipEntry, encoding?: string): string;
+    readAsText(fileName: AdmZip.IZipEntry | string, encoding?: string): string;
     /**
      * Asynchronous readAsText
-     * @param entry String with the full path of the entry
+     * @param entry ZipEntry object or String with the full path of the entry
      * @param callback Called with the resulting string.
      * @param encoding Optional. If no encoding is specified utf8 is used
      */
-    readAsTextAsync(fileName: string, callback: (data: string) => any, encoding?: string): void;
-    /**
-     * Asynchronous readAsText
-     * @param entry ZipEntry object
-     * @param callback Called with the resulting string.
-     * @param encoding Optional. If no encoding is specified utf8 is used
-     */
-    readAsTextAsync(fileName: AdmZip.IZipEntry, callback: (data: string) => any, encoding?: string): void;
+    readAsTextAsync(fileName: AdmZip.IZipEntry | string, callback: (data: string) => any, encoding?: string): void;
     /**
      * Remove the entry from the file or the entry and all its nested directories
      * and files if the given entry is a directory
-     * @param entry String with the full path of the entry
+     * @param entry ZipEntry object or String with the full path of the entry
      */
-    deleteFile(entry: string): void;
-    /**
-     * Remove the entry from the file or the entry and all its nested directories
-     * and files if the given entry is a directory
-     * @param entry A ZipEntry object.
-     */
-    deleteFile(entry: AdmZip.IZipEntry): void;
     /**
      * Adds a comment to the zip. The zip must be rewritten after
      * adding the comment.
@@ -99,44 +63,23 @@ declare class AdmZip {
      * Adds a comment to a specified zipEntry. The zip must be rewritten after
      * adding the comment.
      * The comment cannot exceed 65535 characters in length.
-     * @param entry String with the full path of the entry
+     * @param entry ZipEntry object or String with the full path of the entry
      * @param comment The comment to add to the entry.
      */
-    addZipEntryComment(entry: string, comment: string): void;
-    /**
-     * Adds a comment to a specified zipEntry. The zip must be rewritten after
-     * adding the comment.
-     * The comment cannot exceed 65535 characters in length.
-     * @param entry ZipEntry object.
-     * @param comment The comment to add to the entry.
-     */
-    addZipEntryComment(entry: AdmZip.IZipEntry, comment: string): void;
+    addZipEntryComment(entry: AdmZip.IZipEntry | string, comment: string): void;
     /**
      * Returns the comment of the specified entry.
-     * @param entry String with the full path of the entry.
+     * @param entry ZipEntry object or String with the full path of the entry.
      * @return String The comment of the specified entry.
      */
-    getZipEntryComment(entry: string): string;
-    /**
-     * Returns the comment of the specified entry
-     * @param entry ZipEntry object.
-     * @return String The comment of the specified entry.
-     */
-    getZipEntryComment(entry: AdmZip.IZipEntry): string;
+    getZipEntryComment(entry: AdmZip.IZipEntry | string): string;
     /**
      * Updates the content of an existing entry inside the archive. The zip
      * must be rewritten after updating the content
-     * @param entry String with the full path of the entry.
+     * @param entry ZipEntry object or String with the full path of the entry.
      * @param content The entry's new contents.
      */
-    updateFile(entry: string, content: Buffer): void;
-    /**
-     * Updates the content of an existing entry inside the archive. The zip
-     * must be rewritten after updating the content
-     * @param entry ZipEntry object.
-     * @param content The entry's new contents.
-     */
-    updateFile(entry: AdmZip.IZipEntry, content: Buffer): void;
+    updateFile(entry: AdmZip.IZipEntry | string, content: Buffer): void;
     /**
      * Adds a file from the disk to the archive.
      * @param localPath Path to a file on disk.
@@ -179,7 +122,7 @@ declare class AdmZip {
      * Extracts the given entry to the given targetPath.
      * If the entry is a directory inside the archive, the entire directory and
      * its subdirectories will be extracted.
-     * @param entry String with the full path of the entry
+     * @param entry ZipEntry object or String with the full path of the entry
      * @param targetPath Target folder where to write the file
      * @param maintainEntryPath If maintainEntryPath is true and the entry is
      *   inside a folder, the entry folder will be created in targetPath as
@@ -189,21 +132,7 @@ declare class AdmZip {
      *
      * @return Boolean
      */
-    extractEntryTo(entryPath: string, targetPath: string, maintainEntryPath?: boolean, overwrite?: boolean): boolean;
-    /**
-     * Extracts the given entry to the given targetPath.
-     * If the entry is a directory inside the archive, the entire directory and
-     * its subdirectories will be extracted.
-     * @param entry ZipEntry object
-     * @param targetPath Target folder where to write the file
-     * @param maintainEntryPath If maintainEntryPath is true and the entry is
-     *   inside a folder, the entry folder will be created in targetPath as
-     *   well. Default is TRUE
-     * @param overwrite If the file already exists at the target path, the file
-     *   will be overwriten if this is true. Default is FALSE
-     * @return Boolean
-     */
-    extractEntryTo(entryPath: AdmZip.IZipEntry, targetPath: string, maintainEntryPath?: boolean, overwrite?: boolean): boolean;
+    extractEntryTo(entryPath: AdmZip.IZipEntry | string, targetPath: string, maintainEntryPath?: boolean, overwrite?: boolean): boolean;
     /**
      * Extracts the entire archive to the given location
      * @param targetPath Target location

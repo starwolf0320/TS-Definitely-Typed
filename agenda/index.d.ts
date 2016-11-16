@@ -10,13 +10,9 @@ import { Db, Collection, ObjectID } from "mongodb";
 
 export = Agenda;
 
-interface Callback {
-    (err?: Error): void;
-}
+type Callback = (err?: Error) => void;
 
-interface ResultCallback<T> {
-    (err?: Error, result?: T): void;
-}
+type ResultCallback<T> = (err?: Error, result?: T) => void;
 
 
 declare class Agenda extends EventEmitter {
