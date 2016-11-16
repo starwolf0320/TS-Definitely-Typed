@@ -34,6 +34,12 @@
             "typingsPackageName": "protractor",
             "sourceRepoURL": "https://github.com/angular/protractor",
             "asOfVersion": "4.0.0"
+        },
+        {
+            "libraryName": "amplify-deferred",
+            "typingsPackageName": "amplify-deferred",
+            "sourceRepoURL": "https://github.com/laurentiustamate94/amplify-deferred",
+            "asOfVersion": "0.0.6"
         }
     ]
 }
