@@ -6,14 +6,14 @@ new PlugAPI({
 }, function (err, bot) {
     if (!err) {
         const ROOM = "roomslug";
-        bot.connect(ROOM); // The part after https://plug.dj 
+        bot.connect(ROOM); // The part after https://plug.dj
 
         bot.on(PlugAPI.events.ROOM_JOIN, function (room) {
             console.log("Joined " + room);
         });
 
         bot.on("chat", function (data) {
-            if (data.type == "emote") {
+            if (data.type === "emote") {
                 console.log(data.from + data.message);
             } else {
                 console.log(data.from + "> " + data.message);

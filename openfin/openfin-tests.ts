@@ -232,11 +232,11 @@ function test_system() {
 	});
 	// downloadAsset
 	let dirAppAsset = {
-		'src': 'http://local:8000/dir.zip',
-		'alias': 'dirApp',
-		'version': '1.23.24',
-		'target': 'dir.bat',
-		'args': ''
+		src: 'http://local:8000/dir.zip',
+		alias: 'dirApp',
+		version: '1.23.24',
+		target: 'dir.bat',
+		args: ''
 	};
 	fin.desktop.System.downloadAsset(dirAppAsset, progress => {
 		let downloadedPercent = Math.floor((progress.downloadedBytes / progress.totalBytes) * 100);

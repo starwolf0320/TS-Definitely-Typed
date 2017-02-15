@@ -65,7 +65,7 @@ bounds = new L.Bounds(pointTuple, pointTuple);
 bounds = new L.Bounds([point, point]);
 bounds = new L.Bounds(boundsLiteral);
 
-let points: Array<L.Point>;
+let points: L.Point[];
 points = L.LineUtil.simplify([point, point], 1);
 points = L.LineUtil.simplify([pointTuple, pointTuple], 2);
 
@@ -175,7 +175,7 @@ doesItHaveLayer = map.hasLayer(L.tileLayer(''));
 
 let html: HTMLElement;
 html = map.createPane('foo');
-html = map.createPane('foo', htmlElement)
+html = map.createPane('foo', htmlElement);
 html = map.getPane('foo');
 html = map.getPane(htmlElement);
 html = map.getContainer();
@@ -266,10 +266,10 @@ L.DomEvent
 	.addListener(htmlElement, 'click', eventHandler)
 	.off(htmlElement, 'click', eventHandler)
 	.removeListener(htmlElement, 'click', eventHandler)
-	.on(htmlElement, {'click': eventHandler})
-	.addListener(htmlElement, {'click': eventHandler})
-	.off(htmlElement, {'click': eventHandler}, eventHandler)
-	.removeListener(htmlElement, {'click': eventHandler}, eventHandler)
+	.on(htmlElement, {click: eventHandler})
+	.addListener(htmlElement, {click: eventHandler})
+	.off(htmlElement, {click: eventHandler}, eventHandler)
+	.removeListener(htmlElement, {click: eventHandler}, eventHandler)
 	.stopPropagation(domEvent)
 	.disableScrollPropagation(htmlElement)
 	.disableClickPropagation(htmlElement)

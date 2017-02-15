@@ -29,7 +29,7 @@ var marker2 = L.mapbox.featureLayer({
 		coordinates: [-73.9840, 40.7271]
 	},
 	properties: {
-		title: 'Hello world!',
+		'title': 'Hello world!',
 		'marker-color': '#f86767'
 	}
 }).addTo(map);

@@ -12,4 +12,4 @@ semverDiff('0.1.0', '0.1.0+foo'); //=> 'build'
 
 semverDiff('0.0.1', '0.0.1'); //=> null
 
-semverDiff('0.0.2', '0.0.1'); //=> null 
+semverDiff('0.0.2', '0.0.1'); //=> null

@@ -1,4 +1,4 @@
-import * as Mailgen from "mailgen"
+import * as Mailgen from "mailgen";
 
 const generator: Mailgen = new Mailgen({
     theme: "default",

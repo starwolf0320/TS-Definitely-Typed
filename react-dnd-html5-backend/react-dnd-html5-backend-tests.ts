@@ -120,7 +120,7 @@ namespace Square {
                 style: {
                     backgroundColor: fill
                 }
-            })
+            });
         }
     }
 
@@ -168,7 +168,7 @@ namespace BoardSquare {
                     backgroundColor: color
                 }
             });
-        };
+        }
 
         render() {
             var black = (this.props.x + this.props.y) % 2 === 1;
@@ -204,7 +204,7 @@ namespace BoardSquare {
 namespace CustomDragLayer {
     interface CustomDragLayerP extends React.Props<CustomDragLayer> {
         isDragging?: boolean;
-        item?: Object;
+        item?: {};
     }
 
     function dragLayerCollect(monitor: ReactDnd.DragLayerMonitor) {
@@ -240,7 +240,7 @@ namespace Board {
             return x === knightX && y === knightY ?
                     Knight.create() :
                     null;
-        };
+        }
 
         private _renderSquare = (i: number) => {
             var x = i % 8;
@@ -256,10 +256,10 @@ namespace Board {
                 x: x,
                 y: y
             }, this._renderPiece(x, y)));
-        };
+        }
 
         render() {
-            var squares: React.ReactHTMLElement<HTMLDivElement>[] = [];
+            var squares: Array<React.ReactHTMLElement<HTMLDivElement>> = [];
             for (let i = 0; i < 64; i++) {
                 squares.push(this._renderSquare(i));
             }

@@ -91,9 +91,9 @@ const oauth2 = oauth2lib.create(credentials);
 (function () {
     // Sample of a JSON access token (you got it through previous steps)
     const tokenObject = {
-        'access_token': '<access-token>',
-        'refresh_token': '<refresh-token>',
-        'expires_in': '7200'
+        access_token: '<access-token>',
+        refresh_token: '<refresh-token>',
+        expires_in: '7200'
     };
 
     // Create the access token wrapper
@@ -104,7 +104,7 @@ const oauth2 = oauth2lib.create(credentials);
         // Callbacks
         token.refresh((error, result) => {
             token = result;
-        })
+        });
 
         // Promises
         token.refresh()

@@ -80,7 +80,7 @@ var keys: IKey[] = [
 class Dog {
     constructor(public name: string) { }
 
-    public bark() {
+    bark() {
         console.log('Woof, woof!');
     }
 }
@@ -7475,7 +7475,7 @@ namespace TestIsWeakMap {
 }
 
 // _.isWeakSet
-module TestIsWeakSet {
+namespace TestIsWeakSet {
     {
         let value: number|WeakSet<string>;
 
@@ -10496,7 +10496,7 @@ namespace TestValuesIn {
         let result: TResult[];
 
         // Without this type hint, this will fail to compile, as expected.
-        result = _.valuesIn<TResult>(new Object);
+        result = _.valuesIn<TResult>({});
     }
 
     {
@@ -11705,7 +11705,7 @@ namespace TestNoConflict {
 // _.noop
 namespace TestNoop {
     {
-        let result: void;
+        let result: void; // tslint:disable-line:void-return
 
         result = _.noop();
         result = _.noop(1);

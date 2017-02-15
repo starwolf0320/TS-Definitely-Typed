@@ -269,7 +269,7 @@ function thumbsGalleryLoop() {
         prevButton: '.swiper-button-prev',
         spaceBetween: 10,
         loop: true,
-        loopedSlides: 5, //looped slides should be the same     
+        loopedSlides: 5, //looped slides should be the same
     });
     var galleryThumbs = new Swiper('.gallery-thumbs', {
         spaceBetween: 10,
@@ -441,8 +441,8 @@ function scrollContainer() {
 // 32-slideable-menu.html
 function slideableMenu() {
     var toggleMenu = function () {
-        if (swiper.previousIndex == 0)
-            swiper.slidePrev()
+        if (swiper.previousIndex === 0)
+            swiper.slidePrev();
     }
         , menuButton = document.getElementsByClassName('menu-button')[0]
         , swiper = new Swiper('.swiper-container', {
@@ -450,20 +450,20 @@ function slideableMenu() {
             , initialSlide: 1
             , resistanceRatio: .00000000000001
             , onSlideChangeStart: function (slider) {
-                if (slider.activeIndex == 0) {
-                    menuButton.classList.add('cross')
-                    menuButton.removeEventListener('click', toggleMenu, false)
+                if (slider.activeIndex === 0) {
+                    menuButton.classList.add('cross');
+                    menuButton.removeEventListener('click', toggleMenu, false);
                 } else
-                    menuButton.classList.remove('cross')
+                    menuButton.classList.remove('cross');
             }
             , onSlideChangeEnd: function (slider) {
-                if (slider.activeIndex == 0)
-                    menuButton.removeEventListener('click', toggleMenu, false)
+                if (slider.activeIndex === 0)
+                    menuButton.removeEventListener('click', toggleMenu, false);
                 else
-                    menuButton.addEventListener('click', toggleMenu, false)
+                    menuButton.addEventListener('click', toggleMenu, false);
             }
             , slideToClickedSlide: true
-        })
+        });
 }
 // 33-responsive-breakpoints.html
 function responsiveBreakpoints() {

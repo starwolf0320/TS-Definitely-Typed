@@ -240,7 +240,7 @@ const client = zookeeper.createClient(
 {
     client.create('/test/demo', function (error, path) {
         if (error) {
-            if ((error as zookeeper.Exception).getCode() == zookeeper.Exception.NODE_EXISTS) {
+            if ((error as zookeeper.Exception).getCode() === zookeeper.Exception.NODE_EXISTS) {
                 console.log('Node exists.');
             } else {
                 console.log((error as Error).stack);

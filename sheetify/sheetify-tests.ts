@@ -15,6 +15,6 @@ const test8 = sheetify`
 .test {
   border: 1px soild black;
 }
-`
+`;
 
 const prefix = sheetify.getPrefix('boop');

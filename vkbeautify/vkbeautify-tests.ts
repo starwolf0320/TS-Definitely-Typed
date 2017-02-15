@@ -2,12 +2,12 @@ import VKBeautify from 'vkbeautify';
 
 /*
  * Beautifying
- *  
+ *
  * vkbeautify.xml(text [,indent_pattern]);
  * vkbeautify.json(text [,indent_pattern]);
  * vkbeautify.css(text [,indent_pattern]);
  * vkbeautify.sql(text [,indent_pattern]);
- * 
+ *
  * @text - String; text to beatufy;
  * @indent_pattern - Integer | String;
  *         Integer:  number of white spaces;
@@ -71,12 +71,12 @@ function sqlWithStringPattern() {
 
 /*
  * Minifying
- * 
+ *
  * vkbeautify.xmlmin(text [,preserve_comments]);
  * vkbeautify.jsonmin(text);
  * vkbeautify.cssmin(text [,preserve_comments]);
  * vkbeautify.sqlmin(text);
- * 
+ *
  * @text - String; text to minify;
  * @preserve_comments - Bool; [optional];
  *         Set this flag to true to prevent removing comments from @text ( minxml and mincss functions only. )

@@ -132,7 +132,7 @@ test('streams end properly', t => {
 
     elem.push({ toy: 'Transformers' });
     elem.push({ toy: 'GI Joe' });
-    elem.push({ toy: [{name:'He-man'}] });
+    elem.push({ toy: [{name: 'He-man'}] });
     elem.close();
 
     xmlStream.on('data',  (data: any) => {

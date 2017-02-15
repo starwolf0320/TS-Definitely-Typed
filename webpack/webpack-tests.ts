@@ -328,9 +328,9 @@ plugin = new CommonsChunkPlugin({
 plugin = new webpack.optimize.AggressiveMergingPlugin(options);
 plugin = new webpack.DefinePlugin(definitions);
 plugin = new webpack.DefinePlugin({
-    VERSION: JSON.stringify("5fa3b9"),
-    BROWSER_SUPPORTS_HTML5: true,
-    TWO: "1+1",
+    "VERSION": JSON.stringify("5fa3b9"),
+    "BROWSER_SUPPORTS_HTML5": true,
+    "TWO": "1+1",
     "typeof window": JSON.stringify("object")
 });
 plugin = new webpack.ProvidePlugin(definitions);
@@ -550,7 +550,7 @@ function loader(this: webpack.loader.LoaderContext, source: string, sourcemap: s
     this.callback(null, source);
 }
 
-module loader {
+namespace loader {
     export const raw: boolean = true;
     export const pitch = (remainingRequest: string, precedingRequest: string, data: any) => {};
 }

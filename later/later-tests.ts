@@ -6,7 +6,7 @@ namespace LaterTest_DefineSchedule {
     var textSched = later.parse.text('at 10:15am every weekday');
     var cronSched = later.parse.cron('0 0/5 14,18 * * ?');
     var recurSched = later.parse.recur().last().dayOfMonth();
-    var manualSched = <later.ScheduleData>{ schedules: [ <later.Recurrence>{ M: [ 3 ], D: [ 21 ] } ] };
+    var manualSched = <later.ScheduleData> { schedules: [ <later.Recurrence> { M: [ 3 ], D: [ 21 ] } ] };
 
     // this schedule will fire on the closest weekday to the 15th
     // every month at 2:00 am except in March
@@ -406,13 +406,13 @@ namespace LaterTest_TimePeriods {
         // 'Mon, 31 Dec 2012 23:59:59 GMT'
     }
 
-    export interface IPartOfDayLater extends later.Static {
+    export interface PartOfDayLater extends later.Static {
         partOfDay: later.TimePeriod;
     }
 
     export function custom() {
 
-        var customLater = <IPartOfDayLater>later;
+        var customLater = <PartOfDayLater> later;
 
         customLater.partOfDay = {
 
@@ -578,7 +578,7 @@ namespace LaterTest_GenerateRecurences {
         var sched = later.parse.recur()
             .every(2).hour().first().dayOfMonth()
             .and()
-            .on(8, 20).hour().last().dayOfMonth()
+            .on(8, 20).hour().last().dayOfMonth();
     }
 
     export function except_method() {

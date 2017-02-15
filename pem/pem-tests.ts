@@ -55,7 +55,7 @@ const tests = {
   },
 
   'Create 2048bit Private key with Password': (test: any) => {
-    pem.createPrivateKey(2048,{cipher:'des',password:'TestMe'}, (error: any, data: any) => {
+    pem.createPrivateKey(2048, {cipher: 'des', password: 'TestMe'}, (error: any, data: any) => {
       var key = (data && data.key || '').toString();
       test.ifError(error);
       test.ok(key);
@@ -525,7 +525,7 @@ const tests = {
     });
   },
   'Create PKCS12 with key password': (test: any) => {
-    pem.createPrivateKey({cipher:'aes128',password:'xxx'}, (error: any, data: any) => {
+    pem.createPrivateKey({cipher: 'aes128', password: 'xxx'}, (error: any, data: any) => {
       var key = (data && data.key || '').toString();
 
       pem.createCertificate({

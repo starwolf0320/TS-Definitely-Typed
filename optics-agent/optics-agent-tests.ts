@@ -8,7 +8,6 @@ import OpticsAgent, {
 import { GraphQLSchema } from 'graphql';
 import * as express from 'express';
 import * as hapi from 'hapi';
-var OpticsAgentRequired = require('optics-agent');
 
 const configOptions = {
   apiKey: "",
@@ -20,7 +19,7 @@ const configOptions = {
   proxyUrl: "",
   reportIntervalMs: 1,
 };
-OpticsAgent.configureAgent(configOptions)
+OpticsAgent.configureAgent(configOptions);
 
 let expressServer = express();
 expressServer.use(OpticsAgent.middleware());

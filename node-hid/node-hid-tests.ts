@@ -1,6 +1,6 @@
 import HID = require('node-hid');
 
-var devices = HID.devices()
+var devices = HID.devices();
 
 
 var device = new HID.HID("path");

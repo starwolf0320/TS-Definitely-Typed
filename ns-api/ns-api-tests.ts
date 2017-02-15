@@ -8,7 +8,7 @@ let ns: NsApi = NsApi({
     timeout: 1500
 });
 
-ns.vertrektijden("", (err: any, data: Object) => {
+ns.vertrektijden("", (err, data) => {
     if(err) {
         console.log(err);
     } else {
@@ -17,7 +17,7 @@ ns.vertrektijden("", (err: any, data: Object) => {
 });
 
 // Get travel advise
-ns.reisadvies ({}, (err: any, data: Object) => {
+ns.reisadvies ({}, (err, data) => {
     if(err) {
         console.log(err);
     } else {
@@ -25,7 +25,7 @@ ns.reisadvies ({}, (err: any, data: Object) => {
     }
 });
 
-ns.prijzen({}, (err: any, data: Object) => {
+ns.prijzen({}, (err, data) => {
     if(err) {
         console.log(err);
     } else {
@@ -33,7 +33,7 @@ ns.prijzen({}, (err: any, data: Object) => {
     }
 });
 
-ns.stations("code", (err: any, data: Object) => {
+ns.stations("code", (err, data) => {
     if(err) {
         console.log(err);
     } else {
@@ -41,7 +41,7 @@ ns.stations("code", (err: any, data: Object) => {
     }
 });
 
-ns.stations((err: any, data: Object) => {
+ns.stations((err, data) => {
     if(err) {
         console.log(err);
     } else {
@@ -49,7 +49,7 @@ ns.stations((err: any, data: Object) => {
     }
 });
 
-ns.storingen({}, (err: any, data: Object) => {
+ns.storingen({}, (err, data) => {
     if(err) {
         console.log(err);
     } else {

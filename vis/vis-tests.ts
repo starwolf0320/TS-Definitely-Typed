@@ -55,7 +55,7 @@ console.log('item1', item1);
 // retrieve a filtered subset of the data
 var items = data.get({
   filter: function (item) {
-    return item.group == 1;
+    return item.group === 1;
   }
 });
 console.log('filtered items', items);
@@ -133,7 +133,7 @@ var dataset = new vis.DataSet<TestData>();
 // retrieve all items having a property group with value 2
 var group2 = dataset.get({
   filter: function (item) {
-    return (item.group == 2);
+    return (item.group === 2);
   }
 });
 
@@ -166,7 +166,7 @@ var edges = new vis.DataSet([
 ]);
 
 // create a network
-var container = <HTMLElement>document.getElementById('mynetwork');
+var container = <HTMLElement> document.getElementById('mynetwork');
 
 // provide the data in the vis format
 var data2 = {
@@ -190,6 +190,6 @@ var options2 = {
     container: container,
     showButton: true
   }
-}
+};
 
 network.setOptions(options2);
