@@ -12,7 +12,7 @@ if (pkg.includes("/") && pkg[pkg.length - 1] !== "/") {
     tslintPath = path.join("..", tslintPath);
 }
 
-const cmd = `node ${tslintPath}/lib/tslint-cli --format stylish --project tsconfig.json --type-check "**/*.ts"`;
+const cmd = `node ${tslintPath}/lib/tslint-cli --format stylish --project tsconfig.json --type-check`;
 console.log(cmd);
 
 try {
