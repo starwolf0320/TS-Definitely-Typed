@@ -1,6 +1,7 @@
 {
     "extends": "../tslint.json",
     "rules": {
-        "callable-types": false
+        "callable-types": false,
+        "void-return": false,
     }
 }

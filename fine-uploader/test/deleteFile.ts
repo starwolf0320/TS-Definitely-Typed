@@ -1,5 +1,3 @@
-/// <reference path="../index.d.ts" />
-
 function deleteFileTest() {
     interface CustomHeader {
         myOption: string;

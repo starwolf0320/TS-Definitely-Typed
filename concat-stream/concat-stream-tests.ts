@@ -1,4 +1,4 @@
-import concat = require("concat-stream")
+import concat = require("concat-stream");
 
 import { Readable } from "stream";
 

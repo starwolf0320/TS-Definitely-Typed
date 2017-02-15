@@ -30,7 +30,7 @@ navigator.geolocation.getCurrentPosition(
       }) + ' meters away from 51.525, 7.4575');
   },
   function() {
-    alert('Position could not be determined.')
+    alert('Position could not be determined.');
   },
   {
     enableHighAccuracy: true
@@ -157,7 +157,7 @@ let speed: number = geolib.getSpeed(
   {unit: 'mph'}
 ); // -> 66.9408 (mph)
 
-speed= geolib.getSpeed(
+speed = geolib.getSpeed(
   [
     {latitude: 51.567294, longitude: 7.38896, time: 1360231200880},
     {latitude: 52.54944, longitude: 13.468509, time: 1360245600880}
@@ -170,15 +170,15 @@ let point3 = {latitude: 0, longitude: 15.5};
 let start  = {latitude: 0, longitude: 0};
 let end    = {latitude: 0, longitude: 15};
 
-let isInLine1 = geolib.isPointInLine(point1, start, end) //-> false;
-let isInLine2 = geolib.isPointInLine(point2, start, end) //-> true;
-let isInLine3 = geolib.isPointInLine(point3, start, end) //-> false;
+let isInLine1 = geolib.isPointInLine(point1, start, end); //-> false;
+let isInLine2 = geolib.isPointInLine(point2, start, end); //-> true;
+let isInLine3 = geolib.isPointInLine(point3, start, end); //-> false;
 
 
-let convertResult: number = geolib.convertUnit('km', 14213, 2) // -> 14,21
-convertResult = geolib.convertUnit('km', 14213) // -> 14,21
+let convertResult: number = geolib.convertUnit('km', 14213, 2); // -> 14,21
+convertResult = geolib.convertUnit('km', 14213); // -> 14,21
 
-let result: number = geolib.sexagesimal2decimal("51° 29' 46\" N")
+let result: number = geolib.sexagesimal2decimal("51° 29' 46\" N");
 
 let resultString: string = geolib.decimal2sexagesimal(51.49611111); // -> 51° 29' 46.00
 
@@ -186,11 +186,11 @@ result = geolib.latitude({lat: 51.49611, lng: 7.38896}); // -> 51.49611
 result = geolib.longitude({lat: 51.49611, lng: 7.38896}); // -> 7.38896
 
 result = geolib.useDecimal("51° 29' 46\" N"); // -> 51.59611111
-result = geolib.useDecimal(51.59611111) // -> 51.59611111
+result = geolib.useDecimal(51.59611111); // -> 51.59611111
 
 result = geolib.elevation({lat: 51.49611, lng: 7.38896});
 
-let initialPoint = {latitude: 51.516272, longitude: 0.45425}
+let initialPoint = {latitude: 51.516272, longitude: 0.45425};
 let radius = 100;
 dist = 1234;
 bearing = 45;

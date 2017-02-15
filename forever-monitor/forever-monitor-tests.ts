@@ -20,4 +20,4 @@ child.start()
   .on("start", () => console.log("started"))
   .restart()
   .stop()
-  .on("exit", () => console.log("STOPPED"))
+  .on("exit", () => console.log("STOPPED"));

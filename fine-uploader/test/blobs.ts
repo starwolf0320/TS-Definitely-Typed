@@ -1,5 +1,3 @@
-/// <reference path="../index.d.ts" />
-
 function testBlob() {
     let config: qq.BasicOptions = {
         blobs: {

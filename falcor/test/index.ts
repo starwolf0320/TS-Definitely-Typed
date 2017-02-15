@@ -84,7 +84,7 @@ model.invalidate(['items', 0, 'name'], ['items', 1, 'name']);
 model.invalidate(['items', {from: 0, to: 1}, 'name']);
 
 model.get('items[0].["name", "id"]').then(res => {
-    const derefedModel = model.deref(res.json.items[0])
+    const derefedModel = model.deref(res.json.items[0]);
     derefedModel.get('name', 'id');
 });
 

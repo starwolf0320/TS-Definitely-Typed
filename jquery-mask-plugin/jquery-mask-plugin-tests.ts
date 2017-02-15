@@ -15,7 +15,7 @@ $(document).ready(function () {
     $('.money2').mask("#.##0,00", { reverse: true });
     $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
         translation: {
-            'Z': {
+            Z: {
                 pattern: /[0-9]/, optional: true
             }
         }
@@ -30,7 +30,7 @@ $(document).ready(function () {
     });
     $('.fallback').mask("00r00r0000", {
         translation: {
-            'r': {
+            r: {
                 pattern: /[\/]/,
                 fallback: '/'
             },
@@ -87,13 +87,13 @@ $('.sp_celphones').mask(maskBehavior, options);
 // translation
 // now the digit 0 on your mask pattern will be interpreted
 // as valid characters like 0,1,2,3,4,5,6,7,8,9 and *
-$('.your-field').mask('00/00/0000', {'translation': {0: {pattern: /[0-9*]/}}});
+$('.your-field').mask('00/00/0000', {translation: {0: {pattern: /[0-9*]/}}});
 
 // optional digits
 // way 1
 $('.ip_address').mask('099.099.099.099');
 // way 2
-$('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {translation:  {'Z': {pattern: /[0-9]/, optional: true}}});
+$('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {translation:  {Z: {pattern: /[0-9]/, optional: true}}});
 
 // recursive digits
 $('.money_example').mask('#.##0,00', {reverse: true});
@@ -101,7 +101,7 @@ $('.money_example').mask('#.##0,00', {reverse: true});
 // fallback digits
 $('.field_with_fallback').mask("00r00r0000", {
   translation: {
-    'r': {
+    r: {
       pattern: /[\/]/,
       fallback: '/'
     },

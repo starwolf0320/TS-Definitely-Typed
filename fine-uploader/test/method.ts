@@ -1,13 +1,11 @@
-/// <reference path="../index.d.ts" />
-
 class TestMethods {
     constructor(private uploader: qq.FineUploaderBasic) {
     }
 
     testAddFiles() {
-        type ParamType = {
+        interface ParamType {
             field: string;
-        };
+        }
 
         const params: ParamType = {
             field: 'hiiiii'
@@ -21,9 +19,9 @@ class TestMethods {
     }
 
     testAddInitialFiles() {
-        type InitialFiles = {
+        interface InitialFiles {
             myField: number;
-        };
+        }
 
         const initialFiles: InitialFiles[] = [{
             myField: 1324
@@ -43,11 +41,11 @@ class TestMethods {
                     return new Blob();
                 });
             }
-        )
+        );
     }
 
     testGetUploads() {
-        type ResponseType  = {
+        interface ResponseType {
             hi: string;
         }
         let response: ResponseType | ResponseType[] = this.uploader.getUploads<ResponseType>({
@@ -56,9 +54,9 @@ class TestMethods {
     }
 
     testSetCustomHeaders() {
-        type CustomHeader = {
-            customField: number
-        };
+        interface CustomHeader {
+            customField: number;
+        }
 
         this.uploader.setCustomHeaders<CustomHeader>({
             customField: 1234
@@ -66,9 +64,9 @@ class TestMethods {
     }
 
     testSetDeleteCustomHeaders() {
-        type CustomHeader = {
-            customField: number
-        };
+        interface CustomHeader {
+            customField: number;
+        }
 
         this.uploader.setDeleteFileCustomHeaders<CustomHeader>({
             customField: 1234
@@ -76,7 +74,7 @@ class TestMethods {
     }
 
     testSetDeleteFileParams() {
-        type CustomParams = {
+        interface CustomParams {
             paramField: boolean;
         }
         this.uploader.setDeleteFileParams<CustomParams>({
@@ -85,9 +83,9 @@ class TestMethods {
     }
 
     testSetParams() {
-        type CustomParams = {
+        interface CustomParams {
             customParams: number;
-        };
+        }
 
         this.uploader.setParams<CustomParams>({
             customParams: 1234

@@ -1,9 +1,7 @@
-/// <reference path="../index.d.ts" />
-
 function extraButtons() {
-    type Validation = {
-        myValue: string
-    };
+    interface Validation {
+        myValue: string;
+    }
 
     let element: HTMLElement = new HTMLElement();
 

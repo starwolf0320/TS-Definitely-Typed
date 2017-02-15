@@ -1,5 +1,3 @@
-/// <reference path="../index.d.ts" />
-
 class CallbacksTest {
     constructor(private opts: qq.CallbackOptions) {
 
@@ -8,7 +6,7 @@ class CallbacksTest {
     testCallbacks() {
         let opts = this.opts;
 
-        type CustomType = {
+        interface CustomType {
             myTypeOfClass: string;
         };
 

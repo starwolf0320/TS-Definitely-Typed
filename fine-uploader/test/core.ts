@@ -1,7 +1,5 @@
-/// <reference path="../index.d.ts" />
-
 function testCore() {
-    let button: HTMLElement = new HTMLButtonElement()
+    let button: HTMLElement = new HTMLButtonElement();
 
     let config: qq.BasicOptions = {
         autoUpload: true,

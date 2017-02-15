@@ -1,5 +1,3 @@
-/// <reference types="jui-core"/>
-
 import {jui} from 'jui-core';
 import {
     UIAccordion, UIAutoComplete, UIColorPicker, UICombo, UIDatePicker, UIDropdown, UIModal, UINotify,
@@ -53,7 +51,7 @@ jui.ready([
 
     let comboInstance: UICombo = combo("#test", {
         keydown: true
-    })
+    });
 
     console.log(comboInstance.getValue());
 
@@ -69,7 +67,7 @@ jui.ready([
 
     let dropdownInstance: UIDropdown = dropdown("#test", {
         width: 100
-    })
+    });
 
     dropdownInstance.update([]);
 
@@ -77,7 +75,7 @@ jui.ready([
 
     dropdownInstance.reload();
 
-    let m : UIModal = modal("#test", {autoHide: true});
+    let m: UIModal = modal("#test", {autoHide: true});
 
     m.show();
 
@@ -87,7 +85,7 @@ jui.ready([
     n.add({ title: "Caution message Send!!!", message: "Feb 15, 2013-12-24 02:24:19", color: 'success' }, 1000);
     n.reset();
 
-    let p: UIPaging = paging("#test", { count :100, pageCount : 5 });
+    let p: UIPaging = paging("#test", { count: 100, pageCount : 5 });
 
     p.first();
     p.last();
@@ -106,7 +104,7 @@ jui.ready([
             { type : 'group', title : 'Sample Category'},
             { type : 'text', title : 'Category Name',  key: 'sample-category-name', value : 'test'}
         ]
-    })
+    });
 
     console.log(propertyView.getValue());
 

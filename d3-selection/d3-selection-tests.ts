@@ -857,7 +857,7 @@ const typeValueFunction = function (
   g: HTMLBodyElement[] | d3Selection.ArrayLike<HTMLBodyElement>
 ) {
     return this.ownerDocument.createElement('p'); // this-type HTMLParagraphElement
-}
+};
 
 const beforeValueFunction = function (
   this: HTMLBodyElement,
@@ -865,8 +865,8 @@ const beforeValueFunction = function (
   i: number,
   g: HTMLBodyElement[] | d3Selection.ArrayLike<HTMLBodyElement>
 ) {
-    return this.children[0]; 
-}
+    return this.children[0];
+};
 
 let newParagraph2: d3Selection.Selection<HTMLParagraphElement, BodyDatum, HTMLElement, any>;
 
@@ -915,7 +915,7 @@ let emptyFlag = gElementsOldData.empty();
 
 // node() and nodes() --------------------------------------------------------------------
 
-let bodyNode: HTMLBodyElement | null= body.node();
+let bodyNode: HTMLBodyElement | null = body.node();
 
 let gElementsNodes: SVGGElement[] = gElementsOldData.nodes();
 

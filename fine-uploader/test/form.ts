@@ -1,5 +1,3 @@
-/// <reference path="../index.d.ts" />
-
 function formTest() {
     let formOptions: qq.FormOptions = {
         element: "qq-form",

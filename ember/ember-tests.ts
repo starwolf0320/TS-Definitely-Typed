@@ -1,4 +1,4 @@
-var App : any;
+var App: any;
 
 App = Em.Application.create<Em.Application>();
 

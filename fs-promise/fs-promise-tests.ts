@@ -34,8 +34,8 @@ async function test() {
     await fs.move(src, dst);
     await fs.outputFile(path, "test");
     await fs.outputFile(path, "test", writeOptions);
-    await fs.outputFile(path, new Buffer([1,2]));
-    await fs.outputFile(path, new Buffer([1,2]), writeOptions);
+    await fs.outputFile(path, new Buffer([1, 2]));
+    await fs.outputFile(path, new Buffer([1, 2]), writeOptions);
     await fs.outputJson(path, data);
     await fs.outputJson(path, data, writeJsonOptions);
     await fs.outputJSON(path, data, writeJsonOptions);

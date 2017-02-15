@@ -537,7 +537,6 @@ namespace TestPromise {
         (reason) => anyOf3(reject, tresult, tresultPromise)
     ));
 
-
     assertPromiseType<ng.IHttpPromiseCallbackArg<TResult>>(promise.then((result) => tresultHttpPromise));
 
     assertPromiseType<TResult | TOther>(promise.then((result) => result, (any) => tother));
@@ -1272,12 +1271,12 @@ function testIHttpParamSerializerJQLikeProvider() {
 }
 
 function anyOf2<T1, T2>(v1: T1, v2: T2) {
-    return Math.random() < 1/2 ? v1 : v2;
+    return Math.random() < 0.5 ? v1 : v2;
 }
 
 function anyOf3<T1, T2, T3>(v1: T1, v2: T2, v3: T3) {
     const rnd = Math.random();
-    return rnd < 1/3 ? v1 : rnd < 2/3 ? v2 : v3;
+    return rnd < 0.33 ? v1 : rnd < 0.66 ? v2 : v3;
 }
 
 function toPromise<T>(val: T): ng.IPromise<T> {

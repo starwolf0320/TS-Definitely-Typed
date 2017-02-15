@@ -7,7 +7,7 @@ var constructorOptions = new Dropkick('#my-select', {});
 var constructorOptions2 = new Dropkick(new HTMLSelectElement(), {});
 
 //options
-var options : DropkickOptions = {
+var options: DropkickOptions = {
     disabled: true,
     form: new HTMLFormElement(),
     length: 1,
@@ -21,7 +21,7 @@ var options : DropkickOptions = {
     close() { },
     open() { },
     initialize: () => { }
-}
+};
 var withFullOptions = new Dropkick('#test', options);
 
 var dk = new Dropkick('#test');
@@ -77,9 +77,9 @@ var node6 = dk.selectOne(4, true);
 
 //real life example
 var fieldValue = '';
-var selectOptions : DropkickOptions = {
+var selectOptions: DropkickOptions = {
     open(this: Dropkick) {
-        const optionsList = (<any>this).data.elem.lastChild; //undocumented but useful data field
+        const optionsList = (<any> this).data.elem.lastChild; //undocumented but useful data field
         if (optionsList.scrollWidth > optionsList.offsetWidth) {
             optionsList.style.width = optionsList.scrollWidth + 25 + 'px';
         }

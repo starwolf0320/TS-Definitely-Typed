@@ -82,5 +82,5 @@ myCalendar
     .today()
     .setEvents([])
     .addEvents([])
-    .removeEvents(event => { return event.id === 'idToRemove'; })
+    .removeEvents(event => event.id === 'idToRemove')
     .destroy();

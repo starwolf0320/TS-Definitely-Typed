@@ -1,5 +1,3 @@
-/// <reference path="../index.d.ts" />
-
 function messageTest() {
     let messageOptions: qq.MessagesOptions = {
         emptyError: "emptyError",

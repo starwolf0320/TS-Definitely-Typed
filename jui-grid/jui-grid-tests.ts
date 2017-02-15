@@ -22,7 +22,7 @@ jui.ready([ "grid.table" ], function(table: GridTable) {
 });
 
 jui.ready([ "grid.table" ], function(table: GridTable) {
-    let table_3:GridTable = table("#table_3", {
+    let table_3: GridTable = table("#table_3", {
         event: {
             expand: function(row: any, e: any): void {
                 $(row.list[0]).html("<i class='icon-right'></i>");
@@ -48,7 +48,7 @@ jui.ready([ "grid.table" ], function(table: GridTable) {
         //noinspection TypeScriptValidateTypes
         table_3.update(index, { name: name, age: age, location: location });
         table_3.hideExpand();
-    }
+    };
 });
 
 jui.ready([ "grid.xtable" ], function(xtable: GridXTable) {
@@ -72,18 +72,18 @@ jui.ready([ "grid.xtable" ], function(xtable: GridXTable) {
         page = 1;
         xtable_2.update(result);
         xtable_2.resize();
-    }
+    };
 
     let xtable_2_page: Function  = function(no: number) {
         page += no;
         page = (page < 1) ? 1 : page;
         xtable_2.page(page);
-    }
+    };
 });
 
 
 jui.ready([ "grid.xtable" ], function(xtable: GridXTable) {
-    let xtable_4:GridXTable  = xtable("#xtable_4", {
+    let xtable_4: GridXTable  = xtable("#xtable_4", {
         fields: [ "name", "age", "location" ],
         data: [
             { name: "Hong", age: "20", location: "Ilsan" },
@@ -99,18 +99,18 @@ jui.ready([ "grid.xtable" ], function(xtable: GridXTable) {
     let xtable_4_submit: Function = function(isMulti: boolean) {
         if(isMulti) {
             xtable_4.filter(function(data: any) {
-                if(data.age >= 30 || data.name.indexOf("ng") != -1) {
+                if(data.age >= 30 || data.name.indexOf("ng") !== -1) {
                     return true;
                 }
             });
         } else {
             xtable_4.filter(function(data: any) {
-                if(data.location.indexOf("eo") != -1) {
+                if(data.location.indexOf("eo") !== -1) {
                     return true;
                 }
             });
         }
-    }
+    };
 });
 
 jui.ready([ "grid.xtable" ], function(xtable: GridXTable) {
@@ -137,7 +137,7 @@ jui.ready([ "grid.xtable" ], function(xtable: GridXTable) {
         }
 
         xtable_6.update(result);
-    }
+    };
 });
 
 jui.ready([ "grid.xtable" ], function(xtable: GridXTable) {
@@ -152,8 +152,8 @@ jui.ready([ "grid.xtable" ], function(xtable: GridXTable) {
             none: $("#tpl_none").html()
         },
         event: {
-            select: function(row: GridRow, e:any) {
-                if(row.type == "fold") {
+            select: function(row: GridRow, e: any) {
+                if(row.type === "fold") {
                     xtable_8.open(row.index);
                 } else {
                     xtable_8.fold(row.index);
