@@ -47,7 +47,7 @@ channel.publish('greeting', 'Hello World!', function(err) {
   } else {
     console.log('publish succeeded');
   }
-})
+});
 
 // Publish several messages at once
 channel.publish([{name: 'greeting', data: 'Hello World!'}], function() { });
@@ -64,7 +64,7 @@ channel.history(function(err, messagesPage) {
 });
 
 // Can optionally take an options param, see https://www.ably.io/documentation/rest-api/#message-history
-channel.history({ start: Date.now()-10000, end: Date.now(), limit: 100, direction: 'forwards'}, function(err, messagesPage) {
+channel.history({ start: Date.now() - 10000, end: Date.now(), limit: 100, direction: 'forwards'}, function(err, messagesPage) {
   console.log(messagesPage.items.length);
 });
 
@@ -108,7 +108,7 @@ channel.presence.history(function(err, messagesPage) { // PaginatedResult
 });
 
 // Can optionally take an options param, see https://www.ably.io/documentation/rest-api/#message-history
-channel.history({ start: Date.now()-10000, end: Date.now(), limit: 100, direction: 'forwards' }, function(err, messagesPage) {});
+channel.history({ start: Date.now() - 10000, end: Date.now(), limit: 100, direction: 'forwards' }, function(err, messagesPage) {});
 
 // Symmetrical end-to-end encrypted payloads on a channel
 
@@ -117,7 +117,7 @@ channel.history({ start: Date.now()-10000, end: Date.now(), limit: 100, directio
 // Generate a random 256-bit key for demonstration purposes (in
 // practice you need to create one and distribute it to clients yourselves)
 Ably.Realtime.Crypto.generateRandomKey(function(err, key) {
-    var channel = client.channels.get('channelName', { cipher: { key: key } });
+    var channel = client.channels.get('channelName', { cipher: { key } });
 
     channel.subscribe(function(message) {
         message.name; // 'name is not encrypted'
@@ -149,7 +149,7 @@ restChannel.publish('greeting', 'Hello World!', function(err) {
   } else {
     console.log('publish succeeded');
   }
-})
+});
 
 // Publish several messages at once
 restChannel.publish([{name: 'greeting', data: 'Hello World!'}], function() {});
@@ -167,7 +167,7 @@ restChannel.history(function(err, messagesPage) {
 });
 
 // Can optionally take an options param, see https://www.ably.io/documentation/rest-api/#message-history
-restChannel.history({ start: Date.now()-10000, end: Date.now(), limit: 100, direction: 'forwards' }, function(err, messagesPage) {});
+restChannel.history({ start: Date.now() - 10000, end: Date.now(), limit: 100, direction: 'forwards' }, function(err, messagesPage) {});
 
 // Presence on a channel
 
@@ -192,7 +192,7 @@ restChannel.presence.history(function(err, messagesPage) { // PaginatedResult
 });
 
 // Can optionally take an options param, see https://www.ably.io/documentation/rest-api/#message-history
-restChannel.history({ start: Date.now()-10000, end: Date.now(), limit: 100, direction: 'forwards' }, function(err, messagesPage) {});
+restChannel.history({ start: Date.now() - 10000, end: Date.now(), limit: 100, direction: 'forwards' }, function(err, messagesPage) {});
 
 
 // Generate Token and Token Request

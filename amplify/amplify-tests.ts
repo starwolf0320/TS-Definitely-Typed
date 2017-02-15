@@ -108,14 +108,14 @@ amplify.request("ajaxExample2", function (data) {
 // a second call will result in pulling from the cache
 amplify.request("ajaxExample2", function (data) {
     data.baz; // qux
-})
+});
 
 // Set up and use a RESTful request utilizing Ajax
 
 amplify.request.define("ajaxRESTFulExample", "ajax", {
     url: "/myRestFulApi/{type}/{id}",
     type: "GET"
-})
+});
 
 // later in code
 amplify.request("ajaxRESTFulExample",
@@ -132,9 +132,9 @@ amplify.request("ajaxRESTFulExample",
 // POST data with Ajax
 
 amplify.request.define("ajaxPostExample", "ajax", {
-        url: "/myRestFulApi",
-        type: "POST"
-    })
+    url: "/myRestFulApi",
+    type: "POST"
+});
 
 // later in code
 amplify.request("ajaxPostExample",
