@@ -2,6 +2,6 @@
     "extends": "../tslint.json",
     "rules": {
         "callable-types": false,
-        "void-return": false,
+        "void-return": false
     }
 }
