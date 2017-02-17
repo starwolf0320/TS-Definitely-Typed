@@ -52,7 +52,7 @@ generator.installDependencies();
 generator.installDependencies({
   bower: true,
   npm: true,
-  callback: function () {
+  callback() {
     console.log('Everything is ready!');
   }
 });

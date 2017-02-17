@@ -1,5 +1,3 @@
-/// <reference path="index.d.ts" />
-
 import { expect } from 'chai';
 import { assert } from 'chai';
 

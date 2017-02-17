@@ -37,7 +37,7 @@ function testModal() {
     UIkit.modal.confirm("Are you sure?", () => {}, () => {}, {});
     UIkit.modal.confirm("Are you sure?", () => {}, {});
 
-    UIkit.modal.prompt("Name:", 'value', function (newvalue: string) {
+    UIkit.modal.prompt("Name:", 'value', (newvalue: string) => {
         // will be executed on submit.
     });
     var modal = UIkit.modal.blockUI("Any content...");
@@ -142,7 +142,7 @@ function testTooltip() {
 }
 
 function testUpload() {
-    $(function(){
+    $(() => {
 
         var progressbar = $("#progressbar"),
             bar         = progressbar.find('.uk-progress-bar'),
@@ -152,21 +152,21 @@ function testUpload() {
 
                 allow : '*.(jpg|jpeg|gif|png)', // allow only images
 
-                loadstart: function() {
+                loadstart() {
                     bar.css("width", "0%").text("0%");
                     progressbar.removeClass("uk-hidden");
                 },
 
-                progress: function(percent: number) {
+                progress(percent: number) {
                     percent = Math.ceil(percent);
                     bar.css("width", percent + "%").text(percent + "%");
                 },
 
-                allcomplete: function(response: any) {
+                allcomplete(response: any) {
 
                     bar.css("width", "100%").text("100%");
 
-                    setTimeout(function(){
+                    setTimeout(() => {
                         progressbar.addClass("uk-hidden");
                     }, 250);
 
@@ -185,15 +185,15 @@ function testUpload() {
 
         allow: '*.(jpg|jpeg|gif|png)', // allow only images
 
-        loadstart: function () {
+        loadstart: () => {
 
         },
 
-        progress: function (percent: number) {
+        progress: (percent: number) => {
 
         },
 
-        allcomplete: function (response: any) {
+        allcomplete: (response: any) => {
 
         }
     });
@@ -203,15 +203,15 @@ function testUpload() {
 
         allow: '*.(jpg|jpeg|gif|png)', // allow only images
 
-        loadstart: function () {
+        loadstart: () => {
 
         },
 
-        progress: function (percent: number) {
+        progress: (percent: number) => {
 
         },
 
-        allcomplete: function (response: any) {
+        allcomplete: (response: any) => {
         }
     });
 

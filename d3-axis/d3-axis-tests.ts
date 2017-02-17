@@ -121,8 +121,8 @@ topAxis = topAxis.tickFormat(null);
 
 let formatFn: ((domainValue: string, index: number) => string) | null = bottomAxis.tickFormat();
 
-bottomAxis.tickFormat(function (d, i) { return '#' + i; });
-bottomAxis.tickFormat(function (d) { return d + '!'; });
+bottomAxis.tickFormat((d, i) => '#' + i);
+bottomAxis.tickFormat(d => d + '!');
 // tickSize(...) ----------------------------------------------------------------
 
 rightAxis = rightAxis.tickSize(5);

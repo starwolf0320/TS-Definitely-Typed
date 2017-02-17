@@ -28,7 +28,7 @@
 	// addEventListener
 	application.addEventListener("closed", function (event) {
 		console.log("The application has closed");
-	}, function () {
+	}, () => {
 		console.log("The registration was successful");
 	}, function (reason) {
 		console.log("failure: " + reason);
@@ -76,32 +76,32 @@
 	// registerCustomData
 	application.registerCustomData({
 		someData: "this is custom"
-	}, function () {
+	}, () => {
 		console.log("You will not read this.");
 	}, function (err) {
 		console.log("failure:", err);
 	});
 	// removeEventListener
 	let previousCallback = function (event: fin.WindowEvent) { };
-	application.removeEventListener("closed", previousCallback, function () {
+	application.removeEventListener("closed", previousCallback, () => {
 		console.log("The unregistration was successful");
 	}, function (err) {
 		console.log("failure:", err);
 	});
 	// removeTrayIcon
-	application.removeTrayIcon(function () {
+	application.removeTrayIcon(() => {
 		console.log("Removed the tray icon.");
 	}, function (err) {
 		console.log("failure:", err);
 	});
 	// restart
-	application.restart(function () {
+	application.restart(() => {
 		console.log("You will not read this.");
 	}, function (err) {
 		console.log("failure:", err);
 	});
 	// schedule restart
-	application.scheduleRestart(function () {
+	application.scheduleRestart(() => {
 		console.log("You will not read this.");
 	}, function (err) {
 		console.log("failure:", err);
@@ -111,7 +111,7 @@
 		desktop: true,
 		startMenu: false,
 		systemStartup: true
-	}, function () {
+	}, () => {
 		console.log("Successfully set new shortcut states");
 	}, function (error) {
 		console.log("Failed to set new shortcut states. Error: ", error);
@@ -123,7 +123,7 @@
 	// terminate
 	application.terminate();
 	// wait
-	application.addEventListener("not-responding", function () {
+	application.addEventListener("not-responding", () => {
 		console.log("waiting for hung application");
 		application.wait();
 	});
@@ -142,7 +142,7 @@ function test_external_application() {
 		console.log(`Error Message: ${err.message} Error Stack: ${err.stack}`);
 	});
 	// removeEventListener
-	let previousCallback = function () { };
+	let previousCallback = () => { };
 	externalApp.removeEventListener('connected', previousCallback, () => {
 		console.log('The unregistration was successful');
 	}, (reason, err) => {
@@ -211,7 +211,7 @@ function test_system() {
 	// addEventListener
 	fin.desktop.System.addEventListener('monitor-info-changed', function (event) {
 		console.log("The monitor information has changed to: ", event);
-	}, function () {
+	}, () => {
 		console.log("The registration was successful");
 	}, function (err) {
 		console.log("failure: " + err);
@@ -225,7 +225,7 @@ function test_system() {
 		userData: true
 	});
 	// deleteCacheOnExit
-	fin.desktop.System.deleteCacheOnExit(function () {
+	fin.desktop.System.deleteCacheOnExit(() => {
 		console.log("successful");
 	}, function (err) {
 		console.log("failure: " + err);
@@ -249,7 +249,7 @@ function test_system() {
 		console.log(reason, err);
 	});
 	// exit
-	fin.desktop.System.exit(function () {
+	fin.desktop.System.exit(() => {
 		console.log("successful");
 	}, function (err) {
 		console.log("failure: " + err);
@@ -392,7 +392,7 @@ function test_system() {
 		console.log('Error:', error);
 	});
 	// log
-	fin.desktop.System.log("info", "An example log message", function () {
+	fin.desktop.System.log("info", "An example log message", () => {
 		console.log("message successfully logged");
 	}, function (err) {
 		console.log(err);
@@ -409,13 +409,13 @@ function test_system() {
 		console.log("Error:", error);
 	});
 	// openUrlWithBrowser
-	fin.desktop.System.openUrlWithBrowser("https://developer.openf.in/", function () {
+	fin.desktop.System.openUrlWithBrowser("https://developer.openf.in/", () => {
 		console.log("successful");
 	}, function (err) {
 		console.log("failure: " + err);
 	});
 	// registerExternalConnection
-	fin.desktop.System.registerExternalConnection("remote-connection-uuid", function () {
+	fin.desktop.System.registerExternalConnection("remote-connection-uuid", function() {
 		console.log(arguments);
 	});
 	// releaseExternalProcess
@@ -429,7 +429,7 @@ function test_system() {
 		console.log("Result UUID is " + result.uuid);
 
 		//release it.
-		fin.desktop.System.releaseExternalProcess(result.uuid, function () {
+		fin.desktop.System.releaseExternalProcess(result.uuid, () => {
 			console.log("Process has been unmapped!");
 		}, function (reason) {
 			console.log("failure: " + reason);
@@ -437,13 +437,13 @@ function test_system() {
 	});
 	// removeEventListener
 	let aRegisteredListener = (event: fin.SystemBaseEvent) => { };
-	fin.desktop.System.removeEventListener("monitor-info-changed", aRegisteredListener, function () {
+	fin.desktop.System.removeEventListener("monitor-info-changed", aRegisteredListener, () => {
 		console.log("successful");
 	}, function (err) {
 		console.log("failure: " + err);
 	});
 	// showDeveloperTools
-	fin.desktop.System.showDeveloperTools("uuid", "name", function () {
+	fin.desktop.System.showDeveloperTools("uuid", "name", () => {
 		console.log("successful");
 	}, function (err) {
 		console.log("failure: " + err);
@@ -468,7 +468,7 @@ function test_system() {
 		});
 	});
 	// updateProxySettings
-	fin.desktop.System.updateProxySettings("type", "proxyAddress", 8080, function () {
+	fin.desktop.System.updateProxySettings("type", "proxyAddress", 8080, () => {
 		console.log('success');
 	}, function (err) {
 		console.log(err);
@@ -543,9 +543,9 @@ function test_window() {
 		frame: false,
 		resizable: false,
 		state: "normal"
-	}, function () {
+	}, () => {
 		var _win = finWindow.getNativeWindow();
-		_win.addEventListener("DOMContentLoaded", function () { finWindow.show(); });
+		_win.addEventListener("DOMContentLoaded", () => { finWindow.show(); });
 	}, function (error) {
 		console.log("Error creating window:", error);
 	});
@@ -565,7 +565,7 @@ function test_window() {
 	// addEventListener
 	finWindow.addEventListener("bounds-changed", function (event) {
 		console.log("The window has been moved or resized");
-	}, function () {
+	}, () => {
 		console.log("The registration was successful");
 	}, function (reason) {
 		console.log("failure:" + reason);
@@ -607,34 +607,34 @@ function test_window() {
 	// focus
 	finWindow.focus();
 	// getBounds
-	finWindow.getBounds(function (bounds) {
+	finWindow.getBounds(bounds => {
 		console.log("top: " + bounds.top +
 			"left: " + bounds.left +
 			"height: " + bounds.height +
 			"width: " + bounds.width);
 	});
 	// getOptions
-	finWindow.getOptions(function (options) {
+	finWindow.getOptions(options => {
 		console.log(options);
 	});
 	// getSnapshot
-	finWindow.getSnapshot(function (base64Snapshot) {
+	finWindow.getSnapshot(base64Snapshot => {
 		console.log("data:image/png;base64," + base64Snapshot);
 	});
 	// getState
-	finWindow.getState(function (state) {
+	finWindow.getState(state => {
 		console.log("state: " + state);
 	});
 	// getZoomLevel
-	finWindow.getZoomLevel(function (level) {
+	finWindow.getZoomLevel(level => {
 		console.log("zoom level: " + level);
-	}, function (error) {
+	}, error => {
 		console.log('error:', error);
 	});
 	// hide
 	finWindow.hide();
 	// isShowing
-	finWindow.isShowing(function (showing) {
+	finWindow.isShowing(showing => {
 		console.log("the window is " + (showing ? "showing" : "hidden"));
 	});
 	// joinGroup
@@ -642,7 +642,7 @@ function test_window() {
 		url: "http://www.openfin.co",
 		name: "secondWindow",
 		autoShow: true
-	}, function () {
+	}, () => {
 		// When mainWindow moves or is moved, secondWindow moves by the same amount
 		secondWindow.joinGroup(finWindow);
 	});
@@ -651,9 +651,9 @@ function test_window() {
 		url: "http://www.openfin.co",
 		name: "secondWindow",
 		autoShow: true
-	}, function () {
+	}, () => {
 		// When finWindow moves or is moved, secondWindow moves by the same amount
-		secondWindow.joinGroup(finWindow, function () {
+		secondWindow.joinGroup(finWindow, () => {
 			//once we are in the group, lets leave it.
 			secondWindow.leaveGroup();
 		});

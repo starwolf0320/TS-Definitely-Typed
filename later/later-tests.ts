@@ -420,7 +420,7 @@ namespace LaterTest_TimePeriods {
 
             range: later.hour.range * 6,
 
-            val: function(d: Date): number {
+            val(d: Date): number {
                 return later.hour.val(d) < 12
                     ? 0
                     : later.hour.val(d) < 18
@@ -428,15 +428,15 @@ namespace LaterTest_TimePeriods {
                         : 2;
             },
 
-            isValid: function(d: Date, val: any) {
+            isValid(d: Date, val: any) {
                 return customLater.partOfDay.val(d) === val;
             },
 
-            extent: function(date?: Date) {
+            extent(date?: Date) {
                 return [0, 2];
             },
 
-            start: function(date: Date) {
+            start(date: Date) {
                 var hour = customLater.partOfDay.val(date) === 0
                     ? 0
                     : customLater.partOfDay.val(date) === 1
@@ -451,7 +451,7 @@ namespace LaterTest_TimePeriods {
                 );
             },
 
-            end: function(date: Date) {
+            end(date: Date) {
                 var hour = customLater.partOfDay.val(date) === 0
                     ? 11
                     : customLater.partOfDay.val(date) === 1
@@ -466,7 +466,7 @@ namespace LaterTest_TimePeriods {
                 );
             },
 
-            next: function(date: Date, val: any) {
+            next(date: Date, val: any) {
                 var hour = val === 0
                     ? 0
                     : val === 1
@@ -482,7 +482,7 @@ namespace LaterTest_TimePeriods {
                 );
             },
 
-            prev: function(date: Date, val: any) {
+            prev(date: Date, val: any) {
                 var hour = val === 0
                     ? 11
                     : val === 1

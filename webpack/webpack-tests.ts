@@ -208,7 +208,7 @@ declare var path: any;
 configuration = {
     plugins: [
         function(this: webpack.Compiler) {
-            this.plugin("done", function(stats: any) {
+            this.plugin("done", stats => {
                 require("fs").writeFileSync(
                     path.join(__dirname, "...", "stats.json"),
                     JSON.stringify(stats.toJson()));
@@ -284,9 +284,7 @@ plugin = new webpack.optimize.UglifyJsPlugin({
     }
 });
 plugin = new webpack.optimize.UglifyJsPlugin({
-    comments: function(astNode: any, comment: any) {
-        return false;
-    }
+    comments: (astNode: any, comment: any) => false
 });
 plugin = new webpack.optimize.CommonsChunkPlugin(options);
 plugin = new CommonsChunkPlugin({
@@ -374,7 +372,7 @@ plugin = new webpack.LoaderOptionsPlugin({
 // returns a Compiler instance
 webpack({
     // configuration
-}, function(err, stats) {
+}, (err, stats) => {
     // ...
 });
 
@@ -383,7 +381,7 @@ var compiler = webpack({
     // configuration
 });
 
-compiler.run(function(err, stats) {
+compiler.run((err, stats) => {
     // ...
 });
 // or
@@ -391,19 +389,19 @@ compiler.watch({ // watch options:
     aggregateTimeout: 300, // wait so long for more changes
     poll: true // use polling instead of native watchers
     // pass a number to set the polling interval
-}, function(err, stats) {
+}, (err, stats) => {
     // ...
 });
 // or
 compiler.watch({ // watch options:
     ignored: 'foo/**/*'
-}, function(err, stats) {
+}, (err, stats) => {
     // ...
 });
 // or
 compiler.watch({ // watch options:
     ignored: /node_modules/
-}, function(err, stats) {
+}, (err, stats) => {
     // ...
 });
 
@@ -414,7 +412,7 @@ declare function successfullyCompiled(): void;
 
 webpack({
     // configuration
-}, function(err, stats) {
+}, (err, stats) => {
     if(err)
         return handleFatalError(err);
     var jsonStats = stats.toJson();
@@ -451,7 +449,7 @@ declare var fs: any;
 
 compiler = webpack({ });
 compiler.outputFileSystem = fs;
-compiler.run(function(err, stats) {
+compiler.run((err, stats) => {
     // ...
     var fileContent = fs.readFileSync("...");
 });
@@ -469,7 +467,7 @@ rule = {
     },
     loader: "./loader",
     options: "third"
-}
+};
 
 configuration = {
     module: {
@@ -499,7 +497,7 @@ configuration = {
                         {
                             loader: "./loader",
                             options: {
-                                get: function() { return "second-3"; }
+                                get: () => "second-3"
                             }
                         }
                     ]
@@ -517,19 +515,17 @@ configuration = {
             ]}
         ]
     }
-}
+};
 
 const resolve: webpack.Resolve = {
     cachePredicate: 'boo' // why does this test _not_ fail!?
-}
+};
 
 const performance: webpack.Options.Performance = {
     hints: 'error',
     maxEntrypointSize: 400000,
     maxAssetSize: 100000,
-    assetFilter: function(assetFilename) {
-        return assetFilename.endsWith('.js');
-    },
+    assetFilter: assetFilename => assetFilename.endsWith('.js'),
 };
 
 configuration = {

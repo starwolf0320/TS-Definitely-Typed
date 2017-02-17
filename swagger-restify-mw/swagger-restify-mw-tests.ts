@@ -7,7 +7,7 @@ let config = {
   appRoot: __dirname // required config
 } as SwaggerRestify.Config;
 
-SwaggerRestify.create(config, function(err, swaggerRestify) {
+SwaggerRestify.create(config, (err, swaggerRestify) => {
   if (err) { throw err; }
 
   swaggerRestify.register(app);

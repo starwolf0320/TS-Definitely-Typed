@@ -136,8 +136,7 @@ class CustomError extends Error {
     call: (message: string) => Error;
 }
 
-const throws = function () {
-
+const throws = () => {
     throw new CustomError("Oh no!");
 };
 

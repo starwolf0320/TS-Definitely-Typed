@@ -22,7 +22,7 @@ print(slug('i <3 unicode'));
 
 // options is either object or replacement (sets options.replacement)
 slug('string', { } || 'replacement');
-slug.defaults.mode ='pretty';
+slug.defaults.mode = 'pretty';
 slug.defaults.modes['rfc3986'] = {
     replacement: '-',      // replace spaces with replacement
     symbols: true,         // replace unicode symbols or not

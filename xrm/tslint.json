@@ -1,6 +1,10 @@
 {
     "extends": "../tslint.json",
     "rules": {
+        // TODOs
+        "callable-types": false,
+        "unified-signatures": false,
+
         "class-name": true,
         "comment-format": [
             true,

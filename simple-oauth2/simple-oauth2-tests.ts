@@ -19,7 +19,7 @@ const oauth2 = oauth2lib.create(credentials);
 
 
 // #Authorization Code flow
-(function () {
+(() => {
 
     // Authorization oauth2 URI
     const authorizationUri = oauth2.authorizationCode.authorizeURL({
@@ -60,7 +60,7 @@ const oauth2 = oauth2lib.create(credentials);
 
 
 // #Client Credentials Flow
-(function () {
+(() => {
     const tokenConfig = {};
 
     // Callbacks
@@ -88,7 +88,7 @@ const oauth2 = oauth2lib.create(credentials);
 
 
 // #Access Token object
-(function () {
+(() => {
     // Sample of a JSON access token (you got it through previous steps)
     const tokenObject = {
         access_token: '<access-token>',

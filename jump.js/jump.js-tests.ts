@@ -12,5 +12,5 @@ jump('.target', {
 });
 jump(100);
 jump(-100, {
-  callback: () => { console.log('Done!') }
+  callback: () => { console.log('Done!'); }
 });

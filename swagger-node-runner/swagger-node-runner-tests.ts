@@ -49,7 +49,7 @@ SwaggerNodeRunner.create(config, (err, runner) => {
 
 //Hapi Middleware
 var hapiapp = new Hapi.Server();
-SwaggerNodeRunner.create(config, function(err, runner) {
+SwaggerNodeRunner.create(config, (err, runner) => {
   if (err) { throw err; }
 
   var port = process.env.PORT || 10010;
@@ -65,7 +65,7 @@ SwaggerNodeRunner.create(config, function(err, runner) {
 
   let pluginAttributes = hapiMiddleware.plugin.register.attributes.name + hapiMiddleware.plugin.register.attributes.version;
 
-  hapiapp.register(hapiMiddleware.plugin, function(err) {
+  hapiapp.register(hapiMiddleware.plugin, err => {
     if (err) { return console.error("Failed to load plugin:", err); }
     // stat app etc..
   });
@@ -74,7 +74,7 @@ SwaggerNodeRunner.create(config, function(err, runner) {
 
 // Restify Middelware
 let app = restify.createServer();
-SwaggerNodeRunner.create(config, function(err, runner) {
+SwaggerNodeRunner.create(config, (err, runner) => {
   if (err) { throw err; }
 
   let restifyMiddelware = runner.restifyMiddleware();

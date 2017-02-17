@@ -7,8 +7,8 @@ declare var it: any;
 declare var describe: any;
 declare var assert: any;
 
-describe('bitcoinjs-lib (basic)', function () {
-    it('can generate a random bitcoin address', function () {
+describe('bitcoinjs-lib (basic)', () => {
+    it('can generate a random bitcoin address', () => {
         // for testing only
         function rng() { return new Buffer('zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'); }
 
@@ -19,7 +19,7 @@ describe('bitcoinjs-lib (basic)', function () {
         assert.strictEqual(address, '1F5VhMHukdnUES9kfXqzPzMeF1GPHKiF64');
     });
 
-    it('can generate an address from a SHA256 hash', function () {
+    it('can generate an address from a SHA256 hash', () => {
         var hash = bitcoin.crypto.sha256('correct horse battery staple');
         var d = bigi.fromBuffer(hash);
 
@@ -29,7 +29,7 @@ describe('bitcoinjs-lib (basic)', function () {
         assert.strictEqual(address, '1C7zdTfnkzmr13HfA2vNm5SJYRK6nEKyq8');
     });
 
-    it('can generate a random keypair for alternative networks', function () {
+    it('can generate a random keypair for alternative networks', () => {
         // for testing only
         function rng() { return new Buffer('zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'); }
 
@@ -43,14 +43,14 @@ describe('bitcoinjs-lib (basic)', function () {
         assert.strictEqual(wif, 'T7A4PUSgTDHecBxW1ZiYFrDNRih2o7M8Gf9xpoCgudPF9gDiNvuS');
     });
 
-    it('can import an address via WIF', function () {
+    it('can import an address via WIF', () => {
         var keyPair = bitcoin.ECPair.fromWIF('Kxr9tQED9H44gCmp6HAdmemAzU3n84H3dGkuWTKvE23JgHMW8gct');
         var address = keyPair.getAddress();
 
         assert.strictEqual(address, '19AAjaTUbRjQCMuVczepkoPswiZRhjtg31');
     });
 
-    it('can create a Transaction', function () {
+    it('can create a Transaction', () => {
         var keyPair = bitcoin.ECPair.fromWIF('L1uyy5qTuGrVXrmrsvHWHgVzW9kKdrp27wBC7Vs6nZDTF2BRUVwy');
         var tx = new bitcoin.TransactionBuilder();
 

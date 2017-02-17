@@ -23,13 +23,13 @@ dist = geolib.getDistance(
 
 // Working with W3C Geolocation API
 navigator.geolocation.getCurrentPosition(
-  function(position) {
+  position => {
     alert('You are ' + geolib.getDistance(position.coords, {
         latitude: 51.525,
         longitude: 7.4575
       }) + ' meters away from 51.525, 7.4575');
   },
-  function() {
+  () => {
     alert('Position could not be determined.');
   },
   {

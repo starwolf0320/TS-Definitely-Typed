@@ -34,7 +34,7 @@ data.add([
 ]);
 
 // subscribe to any change in the DataSet
-data.on('*', function (event, properties, senderId) {
+data.on('*', (event, properties, senderId) => {
   console.log('event', event, properties);
 });
 
@@ -54,7 +54,7 @@ console.log('item1', item1);
 
 // retrieve a filtered subset of the data
 var items = data.get({
-  filter: function (item) {
+  filter: (item) => {
     return item.group === 1;
   }
 });
@@ -77,7 +77,7 @@ console.log('formatted items', items);
 var data = new vis.DataSet<TestData>();
 
 // subscribe to any change in the DataSet
-data.on('*', function (event, properties, senderId) {
+data.on('*', (event, properties, senderId) => {
   console.log('event:', event, 'properties:', properties, 'senderId:', senderId);
 });
 
@@ -132,14 +132,14 @@ var dataset = new vis.DataSet<TestData>();
 
 // retrieve all items having a property group with value 2
 var group2 = dataset.get({
-  filter: function (item) {
+  filter: (item) => {
     return (item.group === 2);
   }
 });
 
 // retrieve all items having a property balance with a value above zero
 var positiveBalance = dataset.get({
-  filter: function (item) {
+  filter: (item) => {
     return (item.balance > 0);
   }
 });

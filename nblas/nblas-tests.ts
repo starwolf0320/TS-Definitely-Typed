@@ -4,7 +4,7 @@ const a = new Float32Array(0);
 const n = 1;
 let res: number;
 
-function test () {
+function test() {
     // BLAS Level 1 Routines and Functions
     res = nblas.asum(a);
     nblas.axpy(a, a, n);

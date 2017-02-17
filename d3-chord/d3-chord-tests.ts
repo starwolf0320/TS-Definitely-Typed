@@ -126,7 +126,7 @@ svgRibbon = svgRibbon.context(null);
 
 // source() -----------------------------------------------------------
 
-svgRibbon = svgRibbon.source(function (d) {
+svgRibbon = svgRibbon.source(d => {
     return d.source; // datum is of type Chord
 });
 
@@ -134,7 +134,7 @@ subgroupAccessor = svgRibbon.source();
 
 // target() -----------------------------------------------------------
 
-svgRibbon = svgRibbon.target(function (d) {
+svgRibbon = svgRibbon.target(d => {
     return d.target; // datum is of type Chord
 });
 

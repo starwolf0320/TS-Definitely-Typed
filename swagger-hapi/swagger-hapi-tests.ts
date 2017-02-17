@@ -9,7 +9,7 @@ var config = {
   appRoot: __dirname // required config
 } as SwaggerHapi.Config;
 
-SwaggerHapi.create(config, function(err, swaggerHapi) {
+SwaggerHapi.create(config, (err, swaggerHapi) => {
   if (err) { throw err; }
 
   var port = process.env.PORT || 10010;
@@ -22,7 +22,7 @@ SwaggerHapi.create(config, function(err, swaggerHapi) {
     let appRootFromMw = swaggerHapi.config.swagger.appRoot;
   }
 
-  app.register(swaggerHapi.plugin, function(err) {
+  app.register(swaggerHapi.plugin, err => {
     if (err) { return console.error("Failed to load plugin:", err); }
     // stat app etc..
   });
