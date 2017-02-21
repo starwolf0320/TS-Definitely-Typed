@@ -5,7 +5,7 @@ import { EventEmitter } from 'events';
 class MyES2015Generator extends Base {}
 
 const MyGenerator = Base.extend({
-  writing: function(this: Base): void {
+  writing(this: Base): void {
     this.fs.write('var foo = 1;', this.destinationPath('index.js'));
   }
 });

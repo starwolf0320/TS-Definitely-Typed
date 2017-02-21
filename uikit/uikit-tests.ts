@@ -2,7 +2,7 @@ function testDropdown() {
     UIkit.dropdown("#parent");
     UIkit.dropdown($("#parent"));
 
-    let options: UIkit.DropdownOptions = {
+    const options: UIkit.DropdownOptions = {
         pos: 'bottom-center',
         mode: 'click',
         remaintime: 150,
@@ -24,7 +24,7 @@ function testDropdown() {
 function testModal() {
     UIkit.modal.alert("Attention!");
 
-    let options: UIkit.ModalOptions = {
+    const options: UIkit.ModalOptions = {
         keyboard: true,
         bgclose: true,
         minScrollHeight: 150,

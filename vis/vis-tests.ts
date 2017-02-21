@@ -169,10 +169,7 @@ var edges = new vis.DataSet([
 var container = <HTMLElement> document.getElementById('mynetwork');
 
 // provide the data in the vis format
-var data2 = {
-  nodes: nodes,
-  edges: edges
-};
+var data2 = { nodes, edges };
 var options = {};
 
 // initialize your network!
@@ -187,7 +184,7 @@ var options2 = {
   configure: {
     enabled: true,
     filter: 'nodes,edges',
-    container: container,
+    container,
     showButton: true
   }
 };
