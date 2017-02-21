@@ -30,7 +30,7 @@ interface ArcDatum {
     pAngle: number;
 }
 
-let arcDefaultDatum: d3Shape.DefaultArcObject = {
+const arcDefaultDatum: d3Shape.DefaultArcObject = {
     innerRadius: 40,
     outerRadius: 60,
     startAngle: 0,
@@ -51,7 +51,7 @@ let accessorArcDatumNumberOrNull: ((this: any, d: ArcDatum, ...args: any[]) => n
 
 // DefaultArcObject interface ========================================================
 
-let defaultArcObject: d3Shape.DefaultArcObject = {
+const defaultArcObject: d3Shape.DefaultArcObject = {
     innerRadius: 0,
     outerRadius: 100,
     startAngle: 0,
@@ -152,7 +152,7 @@ accessorArcDatumNumberOrNull = svgArc.padRadius();
 
 // centroid(...) ---------------------------------------------------------------------
 
-let centroid: [number, number] = svgArc.centroid(arcDatum);
+const centroid: [number, number] = svgArc.centroid(arcDatum);
 // centroid = svgArc.centroid(arcDefaultDatum); // fails, wrong datum type
 
 // generate arc ----------------------------------------------------------------------
@@ -163,9 +163,9 @@ canvasArc(arcDefaultDatum);
 
 // use with svg
 
-let pArc: Selection<SVGPathElement, ArcDatum, any, any> = select<SVGPathElement, ArcDatum>('.arc-paths'); // mock
-let wrongArc1: Selection<SVGCircleElement, ArcDatum, any, any> = select<SVGCircleElement, ArcDatum>('.arc-paths'); // mock
-let wrongArc2: Selection<SVGPathElement, { test: string }, any, any> = select<SVGPathElement, { test: string }>('.arc-paths'); // mock
+const pArc: Selection<SVGPathElement, ArcDatum, any, any> = select<SVGPathElement, ArcDatum>('.arc-paths'); // mock
+const wrongArc1: Selection<SVGCircleElement, ArcDatum, any, any> = select<SVGCircleElement, ArcDatum>('.arc-paths'); // mock
+const wrongArc2: Selection<SVGPathElement, { test: string }, any, any> = select<SVGPathElement, { test: string }>('.arc-paths'); // mock
 
 pArc.attr('d', svgArc);
 // wrongArc1.attr('d', svgArc); // fails, incompatible this contexts
@@ -216,7 +216,7 @@ class Arcer {
     }
 }
 
-let arcer = new Arcer(100, 120);
+const arcer = new Arcer(100, 120);
 
 pathStringMaybe = arcer.getPathString();
 pathStringMaybe = arcer.getPathString({ innerRadius: 10, outerRadius: 20 });
@@ -236,7 +236,7 @@ let accessorPieDatumNumber: (this: any, data: PieDatum[], ...args: any[]) => num
 // PieArcDatum interface =============================================================
 
 
-let pieArcObject: d3Shape.PieArcDatum<PieDatum> = {
+const pieArcObject: d3Shape.PieArcDatum<PieDatum> = {
     data: {
         val: 10,
         name: "Segment 1"
@@ -248,7 +248,7 @@ let pieArcObject: d3Shape.PieArcDatum<PieDatum> = {
     padAngle: 0
 };
 
-let pieDatum: PieDatum = pieArcObject.data;
+const pieDatum: PieDatum = pieArcObject.data;
 num = pieArcObject.value;
 num = pieArcObject.index;
 num = pieArcObject.startAngle;
@@ -342,7 +342,7 @@ let defaultPieChart: Array<d3Shape.PieArcDatum<number | { valueOf(): number }>>;
 
 defaultPieChart = defaultPie([20, 10, 30, 40]);
 
-let pieData: PieDatum[] = [
+const pieData: PieDatum[] = [
     { name: 'John', val: 20 },
     { name: 'Jill', val: 10 },
     { name: 'Rodrigo', val: 30 }
@@ -439,13 +439,13 @@ let currentCurveFactory: d3Shape.CurveFactory | d3Shape.CurveFactoryLineOnly = l
 
 defaultLine([[10, 10], [20, 10], [20, 20]]);
 
-let lineData: LineDatum[] = [
+const lineData: LineDatum[] = [
     { x: 10, y: 10, missing: false },
     { x: 20, y: 10, missing: false },
     { x: 20, y: 20, missing: false }
 ];
 
-let linePathStringMaybe: string | null = line(lineData);
+const linePathStringMaybe: string | null = line(lineData);
 
 // radialLine(...) create Line generator =====================================================
 
@@ -511,13 +511,13 @@ currentCurveFactory = radialLine.curve();
 
 defaultRadialLine([[10, 10], [20, 10], [20, 20]]);
 
-let radialLineData: RadialLineDatum[] = [
+const radialLineData: RadialLineDatum[] = [
     { angle: 0, radius: 10, missing: false },
     { angle: Math.PI / 2, radius: 20, missing: false },
     { angle: 2 * Math.PI, radius: 10, missing: false }
 ];
 
-let radialLinePathStringMaybe: string | null = radialLine(radialLineData);
+const radialLinePathStringMaybe: string | null = radialLine(radialLineData);
 
 
 // -----------------------------------------------------------------------------------
@@ -661,13 +661,13 @@ currentCurveFactory = area.curve();
 
 defaultArea([[10, 10], [20, 10], [20, 20]]);
 
-let areaData: AreaDatum[] = [
+const areaData: AreaDatum[] = [
     { x0: 10, y0: 10, x1: 10, y1: 30, missing: false },
     { x0: 20, y0: 20, x1: 20, y1: 40, missing: false },
     { x0: 30, y0: 30, x1: 30, y1: 30, missing: false }
 ];
 
-let areaPathStringMaybe: string | null = area(areaData);
+const areaPathStringMaybe: string | null = area(areaData);
 
 // Get Line Generators from Area generator ========================================================
 
@@ -791,13 +791,13 @@ currentCurveFactory = radialArea.curve();
 
 defaultRadialArea([[10, 10], [20, 10], [20, 20]]);
 
-let radialAreaData: RadialAreaDatum[] = [
+const radialAreaData: RadialAreaDatum[] = [
     { startAngle: 0, innerRadius: 10, endAngle: 0, outerRadius: 30, missing: false },
     { startAngle: Math.PI / 2, innerRadius: 20, endAngle: Math.PI / 2, outerRadius: 40, missing: false },
     { startAngle: Math.PI, innerRadius: 30, endAngle: Math.PI, outerRadius: 30, missing: false }
 ];
 
-let radialAreaPathStringMaybe: string | null = radialArea(radialAreaData);
+const radialAreaPathStringMaybe: string | null = radialArea(radialAreaData);
 
 // Get RadialLine Generators from RadialArea generator ========================================================
 
@@ -817,7 +817,7 @@ areaRadialLineGenerator = radialArea.lineOuterRadius();
 
 let lineOnlyGenerator: d3Shape.CurveGeneratorLineOnly;
 
-let lineOnlyFactory: d3Shape.CurveFactoryLineOnly = d3Shape.curveBundle;
+const lineOnlyFactory: d3Shape.CurveFactoryLineOnly = d3Shape.curveBundle;
 
 lineOnlyGenerator = lineOnlyFactory(path());
 lineOnlyGenerator = lineOnlyFactory(context!); // force context to be non-null with post-fix for mock
@@ -989,14 +989,14 @@ typeAccessorFn = svgSymbol.type();
 // use with canvas
 canvasSymbol();
 
-let symbolDatum: SymbolDatum = {
+const symbolDatum: SymbolDatum = {
     size: 30,
     type: 'circle'
 };
 
-let pSymbol: Selection<SVGPathElement, SymbolDatum, any, any> = select<SVGPathElement, SymbolDatum>('.symbol-path'); // mock
-let wrongSymbol1: Selection<SVGCircleElement, SymbolDatum, any, any> = select<SVGCircleElement, SymbolDatum>('.symbol-path'); // mock
-let wrongSymbol2: Selection<SVGPathElement, { test: string }, any, any> = select<SVGPathElement, { test: string }>('.symbol-path'); // mock
+const pSymbol: Selection<SVGPathElement, SymbolDatum, any, any> = select<SVGPathElement, SymbolDatum>('.symbol-path'); // mock
+const wrongSymbol1: Selection<SVGCircleElement, SymbolDatum, any, any> = select<SVGCircleElement, SymbolDatum>('.symbol-path'); // mock
+const wrongSymbol2: Selection<SVGPathElement, { test: string }, any, any> = select<SVGPathElement, { test: string }>('.symbol-path'); // mock
 
 pSymbol.attr('d', svgSymbol);
 // wrongSymbol1.attr('d', svgSymbol); // fails, incompatible this contexts
@@ -1051,7 +1051,7 @@ class Symbolizer {
     }
 }
 
-let sym = new Symbolizer(100, 'square');
+const sym = new Symbolizer(100, 'square');
 
 pathStringMaybe = sym.getPathString();
 pathStringMaybe = sym.getPathString({ size: 10, type: 'circle' });
@@ -1059,7 +1059,7 @@ pathStringMaybe = sym.getPathString({ size: 10, type: 'circle' });
 
 // Test pre-fab symbols ===============================================================
 
-let symbolArray: d3Shape.SymbolType[] = d3Shape.symbols;
+const symbolArray: d3Shape.SymbolType[] = d3Shape.symbols;
 
 customSymbol = d3Shape.symbolCircle;
 customSymbol = d3Shape.symbolCross;
@@ -1086,13 +1086,13 @@ interface StackKey {
 
 let key: StackKey;
 
-let keys: StackKey[] = [
+const keys: StackKey[] = [
     { name: 'bananas', label: 'Bananas' },
     { name: 'apples', label: 'Apples' },
     { name: 'oranges', label: 'Oranges' }
 ];
 
-let stackData: StackDatum[] = [
+const stackData: StackDatum[] = [
     { values: { bananas: 10, apples: 20, oranges: 10 } },
     { values: { bananas: 10, apples: 25, oranges: 0 } },
     { values: { bananas: 20, apples: 20, oranges: 30 } },
@@ -1171,7 +1171,7 @@ seriesArray = overlyComplicatedStack(stackData, keys);
 
 // Test SeriesPoint and Series interfaces ============================================
 
-let series: d3Shape.Series<StackDatum, StackKey> = seriesArray[0];
+const series: d3Shape.Series<StackDatum, StackKey> = seriesArray[0];
 let seriesPoint: d3Shape.SeriesPoint<StackDatum>;
 seriesPoint = series[0];
 key = series.key;
@@ -1186,7 +1186,7 @@ seriesDatum = seriesPoint.data;
 // Test stack orders ===============================================================
 
 let order: number[];
-let seriesAnyAny: d3Shape.Series<any, any> = seriesArray[0];
+const seriesAnyAny: d3Shape.Series<any, any> = seriesArray[0];
 
 order = d3Shape.stackOrderAscending(seriesAnyAny);
 order = d3Shape.stackOrderDescending(seriesAnyAny);

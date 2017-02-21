@@ -4,12 +4,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.1
 
-/// <reference types="geojson" />
-
 import * as Leaflet from 'leaflet';
 import * as React from 'react';
 
-//All events need to be lowercase so they don't collide with React.DOMAttributes<T>
+// All events need to be lowercase so they don't collide with React.DOMAttributes<T>
 // which already declares things with some of the same names
 
 interface LeafletLayerEvents {
@@ -94,16 +92,16 @@ interface PaneProps {
 declare const Pane: React.ComponentClass<PaneProps>;
 
 
-//There is no Layer class, these are the base props for all layers on the map
+// There is no Layer class, these are the base props for all layers on the map
 interface LayerProps extends LeafletInteractionEvents {
     onadd?: (event: Leaflet.Event) => void;
     onremove?: (event: Leaflet.Event) => void;
 
-    //Popup events
+    // Popup events
     onpopupopen?: (event: Leaflet.PopupEvent) => void;
     onpopupclose?: (event: Leaflet.PopupEvent) => void;
 
-    //Tooltip events
+    // Tooltip events
     ontooltipopen?: (event: Leaflet.TooltipEvent) => void;
     ontooltipclose?: (event: Leaflet.TooltipEvent) => void;
 }
@@ -126,7 +124,7 @@ interface PopupProps extends LayerProps, Leaflet.PopupOptions {
 }
 declare const Popup: React.ComponentClass<PopupProps>;
 
-//tslint:disable-next-line:no-empty-interface
+// tslint:disable-next-line:no-empty-interface
 interface TooltipProps extends LayerProps, Leaflet.TooltipOptions { }
 declare const Tooltip: React.ComponentClass<TooltipProps>;
 
@@ -159,8 +157,8 @@ interface WMSTileLayerProps extends TileLayerProps {
 }
 declare const WMSTileLayer: React.ComponentClass<WMSTileLayerProps>;
 
-//Path is an abstract class
-//tslint:disable-next-line:no-empty-interface
+// Path is an abstract class
+// tslint:disable-next-line:no-empty-interface
 interface PathProps extends LeafletLayerEvents, LeafletInteractionEvents, Leaflet.PathOptions {
 }
 
@@ -193,11 +191,11 @@ interface RectangleProps extends PathProps {
 declare const Rectangle: React.ComponentClass<RectangleProps>;
 
 
-//tslint:disable-next-line:no-empty-interface
+// tslint:disable-next-line:no-empty-interface
 interface LayerGroupProps extends LayerProps { }
 declare const LayerGroup: React.ComponentClass<LayerGroupProps>;
 
-//tslint:disable-next-line:no-empty-interface
+// tslint:disable-next-line:no-empty-interface
 interface FeatureGroupProps extends LayerGroupProps, Leaflet.PathOptions { }
 declare const FeatureGroup: React.ComponentClass<FeatureGroupProps>;
 

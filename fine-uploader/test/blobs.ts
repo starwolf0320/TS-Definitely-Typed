@@ -1,9 +1,9 @@
 function testBlob() {
-    let config: qq.BasicOptions = {
+    const config: qq.BasicOptions = {
         blobs: {
             defaultName: "hi.png"
         }
     };
 
-    let uploader = new qq.FineUploaderBasic(config);
+    const uploader = new qq.FineUploaderBasic(config);
 }

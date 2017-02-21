@@ -55,8 +55,8 @@ function customExtensionTypes() {
   codec.addExtUnpacker(0x3F, myVectorUnpacker);
 
   var data = new MyVector(1, 2);
-  var encoded = msgpack.encode(data, {codec: codec});
-  var decoded = msgpack.decode(encoded, {codec: codec});
+  var encoded = msgpack.encode(data, {codec});
+  var decoded = msgpack.decode(encoded, {codec});
 
   class MyVector {
     constructor(public x: number, public y: number) {}

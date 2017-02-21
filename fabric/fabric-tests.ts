@@ -125,7 +125,7 @@ function sample3() {
     }
   });
 
-  fabric.Image.fromURL('../assets/printio.png', function(img) {
+  fabric.Image.fromURL('../assets/printio.png', img => {
     var oImg = img.set({ left: 300, top: 300, angle: -15 }).scale(0.9);
     canvas.add(oImg).renderAll();
     canvas.setActiveObject(oImg);
@@ -213,7 +213,7 @@ function sample3() {
 function sample4() {
 
   var canvas = new fabric.Canvas('c');
-  var $: (id: string) => HTMLElement = function(id: string) { return document.getElementById(id); };
+  var $: (id: string) => HTMLElement = id => document.getElementById(id);
 
   var rect = new fabric.Rect({
     width: 100,
@@ -274,10 +274,10 @@ declare module "fabric" {
 }
 
 function sample5() {
-  var makeCircle = function(left: number, top: number, line1?: fabric.Line, line2?: fabric.Line, line3?: fabric.Line, line4?: fabric.Line): fabric.Circle {
+  var makeCircle = (left: number, top: number, line1?: fabric.Line, line2?: fabric.Line, line3?: fabric.Line, line4?: fabric.Line): fabric.Circle => {
     var c = <fabric.CircleWithLineInfos> new fabric.Circle({
-      left: left,
-      top: top,
+      left,
+      top,
       strokeWidth: 5,
       radius: 12,
       fill: '#fff',
@@ -453,14 +453,14 @@ function sample8() {
       top = fabric.util.getRandomInt(0 + offset, 500 - offset),
       angle = fabric.util.getRandomInt(-20, 40),
       width = fabric.util.getRandomInt(30, 50),
-      opacity = (function(min: number, max: number) { return Math.random() * (max - min) + min; })(0.5, 1);
+      opacity = ((min: number, max: number) => Math.random() * (max - min) + min)(0.5, 1);
 
 
     switch (className) {
       case 'rect':
         canvas.add(new fabric.Rect({
-          left: left,
-          top: top,
+          left,
+          top,
           fill: '#' + getRandomColor(),
           width: 50,
           height: 50,
@@ -470,8 +470,8 @@ function sample8() {
 
       case 'circle':
         canvas.add(new fabric.Circle({
-          left: left,
-          top: top,
+          left,
+          top,
           fill: '#' + getRandomColor(),
           radius: 50,
           opacity: 0.8
@@ -480,8 +480,8 @@ function sample8() {
 
       case 'triangle':
         canvas.add(new fabric.Triangle({
-          left: left,
-          top: top,
+          left,
+          top,
           fill: '#' + getRandomColor(),
           width: 50,
           height: 50,
@@ -490,11 +490,11 @@ function sample8() {
         break;
 
       case 'image1':
-        fabric.Image.fromURL('../assets/pug.jpg', function(image) {
+        fabric.Image.fromURL('../assets/pug.jpg', image => {
           image.set({
-            left: left,
-            top: top,
-            angle: angle,
+            left,
+            top,
+            angle,
             padding: 10,
             cornersize: 10
           });
@@ -504,11 +504,11 @@ function sample8() {
         break;
 
       case 'image2':
-        fabric.Image.fromURL('../assets/logo.png', function(image) {
+        fabric.Image.fromURL('../assets/logo.png', image => {
           image.set({
-            left: left,
-            top: top,
-            angle: angle,
+            left,
+            top,
+            angle,
             padding: 10,
             cornersize: 10
           });
@@ -522,13 +522,13 @@ function sample8() {
         var id: any = element.id;
 		const match = /\d+$/.exec(id);
         if (match) {
-          fabric.loadSVGFromURL('../assets/' + match[0] + '.svg', function(objects, options) {
+          fabric.loadSVGFromURL('../assets/' + match[0] + '.svg', (objects, options) => {
             var loadedObject = fabric.util.groupSVGElements(objects, options);
 
             loadedObject.set({
-              left: left,
-              top: top,
-              angle: angle,
+              left,
+              top,
+              angle,
               padding: 10,
               cornersize: 10
             });
@@ -576,13 +576,13 @@ function sample8() {
     } else if (activeGroup) {
       var objectsInGroup = activeGroup.getObjects();
       canvas.discardActiveGroup();
-      objectsInGroup.forEach(function(object) {
+      objectsInGroup.forEach(object => {
         canvas.remove(object);
       });
     }
   };
 
-  var supportsInputOfType = function(type: string) {
+  var supportsInputOfType = (type: string) => {
     return () => {
       var el = document.createElement('input');
       try {
@@ -755,7 +755,7 @@ function sample8() {
     lockRotationEl.innerHTML = (selectedObject.lockRotation ? 'Unlock rotation' : 'Lock rotation');
   }
 
-  canvas.on('selection:cleared', function(e) {
+  canvas.on('selection:cleared', e => {
     for (var i = activeObjectButtons.length; i--; ) {
       activeObjectButtons[i];
     }
@@ -763,8 +763,8 @@ function sample8() {
 
   var drawingModeEl = document.getElementById('drawing-mode'),
     drawingOptionsEl = document.getElementById('drawing-mode-options'),
-    drawingColorEl = document.getElementById('drawing-color'),
-    drawingLineWidthEl = document.getElementById('drawing-line-width');
+    drawingColorEl = <HTMLInputElement> document.getElementById('drawing-color'),
+    drawingLineWidthEl = <HTMLInputElement> document.getElementById('drawing-line-width');
 
   drawingModeEl.onclick = () => {
     var canvasWithDrawingMode: any = canvas;
@@ -814,7 +814,7 @@ function sample8() {
   };
 
 
-  document.onkeydown = function(e) {
+  document.onkeydown = e => {
     var obj = canvas.getActiveObject() || canvas.getActiveGroup();
     if (obj && e.keyCode === 8) {
       // this is horrible. need to fix, so that unified interface can be used
@@ -825,7 +825,7 @@ function sample8() {
         //           canvas.remove(obj);
         //         });
       } else {
-        //canvas.remove(obj);
+        // canvas.remove(obj);
       }
       canvas.renderAll();
       // return false;
@@ -837,8 +837,8 @@ function sample8() {
   }, 100);
 
   if (document.location.search.indexOf('guidelines') > -1) {
-    //initCenteringGuidelines(canvas);
-    //initAligningGuidelines(canvas);
+    // initCenteringGuidelines(canvas);
+    // initAligningGuidelines(canvas);
   }
 
   gradientifyBtn.onclick = () => {
@@ -856,7 +856,7 @@ function sample8() {
     }
   };
 
-  var textEl = document.getElementById('text');
+  var textEl = <HTMLInputElement> document.getElementById('text');
   if (textEl) {
     textEl.onfocus = function() {
       var activeObject = canvas.getActiveObject();
@@ -1032,7 +1032,7 @@ function sample8() {
 
   document.getElementById('load-svg').onclick = () => {
     var svg = (<HTMLInputElement> document.getElementById('svg-console')).value;
-    fabric.loadSVGFromString(svg, function(objects, options) {
+    fabric.loadSVGFromString(svg, (objects, options) => {
       var obj = fabric.util.groupSVGElements(objects, options);
       canvas.add(obj).centerObject(obj).renderAll();
       obj.setCoords();

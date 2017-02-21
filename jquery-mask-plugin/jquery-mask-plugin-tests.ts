@@ -63,8 +63,8 @@ $('.cep_with_callback').mask('00000-000', options);
 // on the fly mask changed
 options = {
     onKeyPress(cep, e, field, options) {
-        let masks: string[] = ['00000-000', '0-00-00-00'];
-        let mask: string = (cep.length > 7) ? masks[1] : masks[0];
+        const masks: string[] = ['00000-000', '0-00-00-00'];
+        const mask: string = (cep.length > 7) ? masks[1] : masks[0];
         $('.crazy_cep').mask(mask, options);
     }
 };

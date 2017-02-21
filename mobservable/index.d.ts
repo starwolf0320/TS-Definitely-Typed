@@ -17,14 +17,14 @@ interface _IMobservableStatic {
      * @param properties the properties that should be added and made reactive
      * @returns targer
      */
-    extendReactive(target: Object, properties: Object):Object;
+    extendReactive(target: Object, properties: Object): Object;
 
     /**
      * Returns true if the provided value is reactive.
      * @param value object, function or array
      * @param propertyName if propertyName is specified, checkes whether value.propertyName is reactive.
      */
-    isReactive(value: any, propertyName?:string): boolean;
+    isReactive(value: any, propertyName?: string): boolean;
 
     /**
      * Can be used in combination with makeReactive / extendReactive.
@@ -33,12 +33,12 @@ interface _IMobservableStatic {
      * Future assignments to the same property will inherit this behavior.
      * @param value initial value of the reactive property that is being defined.
      */
-    asReference<T>(value: any):{value:T};
+    asReference<T>(value: any):{value: T};
 
     /**
      * ES6 / Typescript decorator which can to make class properties and getter functions reactive.
      */
-    observable(target: Object, key: string):any; // decorator / annotation
+    observable(target: Object, key: string): any; // decorator / annotation
 
     /**
      * Creates a reactive view and keeps it alive, so that the view is always
@@ -84,12 +84,12 @@ interface _IMobservableStatic {
     logLevel:  number;  // 0 = production, 1 = development, 2 = debugging
 
     extras: {
-        getDependencyTree(thing:any, property?:string): Mobservable.IDependencyTree;
+        getDependencyTree(thing: any, property?: string): Mobservable.IDependencyTree;
 
-        getObserverTree(thing:any, property?:string): Mobservable.IObserverTree;
+        getObserverTree(thing: any, property?: string): Mobservable.IObserverTree;
 
-        trackTransitions(extensive?:boolean, onReport?:(lines:Mobservable.ITransitionEvent) => void) : Mobservable.Lambda;
-    }
+        trackTransitions(extensive?: boolean, onReport?:(lines: Mobservable.ITransitionEvent) => void) : Mobservable.Lambda;
+    };
 }
 
 interface IMakeReactive {
@@ -104,9 +104,9 @@ interface IMobservableStatic extends _IMobservableStatic, IMakeReactive {
 
 declare namespace Mobservable {
     interface IMakeReactiveOptions {
-        as?:  string /* "auto" | "reference" | TODO:  see #8 "structure" */
-        scope?:  Object,
-        context?: Object,
+        as?:  string; /* "auto" | "reference" | TODO:  see #8 "structure" */
+        scope?:  Object;
+        context?: Object;
         recurse?:  boolean;
         name?: string;
         // protected:  boolean TODO:  see #9
@@ -130,7 +130,7 @@ declare namespace Mobservable {
 
     interface IObservableValue<T> extends IObservable {
         (): T;
-        (value: T):void;
+        (value: T): void;
         observe(callback: (newValue: T, oldValue: T)=>void, fireImmediately?: boolean): Lambda;
     }
 

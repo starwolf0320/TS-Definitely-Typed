@@ -54,7 +54,7 @@ namespace Tests.Async {
 		p = p.then(x => x);
 		p = p.then(x => p);
 		p = p.then(undefined, reason => 10);
-		//p = p.then(undefined, reason => p);
+		// p = p.then(undefined, reason => p);
 
 		var ps: Rx.IPromise<string> = p.then(undefined, reason => "error");
 		ps = p.then(x => "");

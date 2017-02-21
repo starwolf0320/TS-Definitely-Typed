@@ -18,7 +18,7 @@ function test() {
     nblas.scal(a, n);
     nblas.swap(a, a);
     res = nblas.iamax(a);
-    //nblas.iamin(a);
+    // nblas.iamin(a);
 
     // BLAS Level 2 Routines
     nblas.gbmv(a, a, a, n, n, n, n, nblas.Trans);

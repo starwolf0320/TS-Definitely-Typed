@@ -112,7 +112,7 @@ Handlebars.registerHelper('highlight', (property: string, options: any) =>
 var coolView = App.CoolView.create();
 
 var Person2 = Em.Object.extend<typeof Em.Object>({
-    sayHello: function() {
+    sayHello() {
         console.log('Hello from ' + this.get('name'));
     }
 });
@@ -145,7 +145,7 @@ people2.everyProperty('isHappy', true);
 people2.someProperty('isHappy', true);
 
 // Examples taken from http://emberjs.com/api/classes/Em.RSVP.Promise.html
-var promise = new Em.RSVP.Promise<string, string>(function(resolve: Function, reject: Function) {
+var promise = new Em.RSVP.Promise<string, string>((resolve: Function, reject: Function) => {
   // on success
   resolve('ok!');
 

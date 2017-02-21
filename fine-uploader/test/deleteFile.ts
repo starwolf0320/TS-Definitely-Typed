@@ -7,7 +7,7 @@ function deleteFileTest() {
         myParam: string;
     }
 
-    let deleteFileOptions: qq.DeleteFileOptions<CustomHeader, CustomParams> = {
+    const deleteFileOptions: qq.DeleteFileOptions<CustomHeader, CustomParams> = {
         customHeader: {
             myOption: "ewwww"
         },
@@ -20,9 +20,9 @@ function deleteFileTest() {
     };
 
 
-    let config: qq.BasicOptions = {
+    const config: qq.BasicOptions = {
         deleteFile: deleteFileOptions
     };
 
-    let uploader = new qq.FineUploaderBasic(config);
+    const uploader = new qq.FineUploaderBasic(config);
 }

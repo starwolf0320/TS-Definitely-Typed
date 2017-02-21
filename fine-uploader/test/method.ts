@@ -48,7 +48,7 @@ class TestMethods {
         interface ResponseType {
             hi: string;
         }
-        let response: ResponseType | ResponseType[] = this.uploader.getUploads<ResponseType>({
+        const response: ResponseType | ResponseType[] = this.uploader.getUploads<ResponseType>({
             status: "proggresssssssesees"
         });
     }
@@ -98,8 +98,8 @@ class TestMethods {
         this.uploader.clearStoredFiles();
         const shouldContinue: boolean = this.uploader.continueUpload(1234);
         this.uploader.deleteFile(1234);
-        let elem: HTMLElement = this.uploader.getButton(1234);
-        let fileOrBlob: File | Blob = this.uploader.getFile(1234);
+        const elem: HTMLElement = this.uploader.getButton(1234);
+        const fileOrBlob: File | Blob = this.uploader.getFile(1234);
         let num: number = this.uploader.getInProgress();
         let s: string = this.uploader.getName(1234);
         num = this.uploader.getParentId(1234);
@@ -108,7 +108,7 @@ class TestMethods {
         num = this.uploader.getSize(1234);
         s = this.uploader.getUuid(1234);
         this.uploader.log("why am i doing this?", "info");
-        let b: boolean = this.uploader.pauseUpload(1234);
+        const b: boolean = this.uploader.pauseUpload(1234);
         this.uploader.reset();
         this.uploader.retry(1234);
         const blobPromise: Promise<Blob> = this.uploader.scaleImage(1234, {
@@ -133,7 +133,7 @@ class TestMethods {
     uiTests() {
         this.uploader.addExtraDropzone(new HTMLElement());
         let elem: HTMLElement = this.uploader.getDropTarget(1234);
-        let n: number = this.uploader.getId(elem);
+        const n: number = this.uploader.getId(elem);
         elem = this.uploader.getItemByFileId(n);
         this.uploader.removeExtraDropzone(elem);
     }

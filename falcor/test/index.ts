@@ -1,6 +1,6 @@
 import falcor = require('falcor');
 
-let dataSource: falcor.DataSource;
+declare const dataSource: falcor.DataSource;
 dataSource.get([['someParam']]).subscribe(jsonGraphEnvelope => {
     console.log(jsonGraphEnvelope.jsonGraph);
 });

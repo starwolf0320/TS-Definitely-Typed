@@ -146,7 +146,7 @@ qty.format(); // same units, current default formatter => '1.12 m'
 
 Qty('37 tempC').to('tempF'); // => 98.6 tempF
 
-let scalar: number = 42;
+const scalar: number = 42;
 
 Qty('100 tempC').add('10 degC');  // 110 tempC
 Qty('100 tempC').sub('10 degC');  // 90 tempC
@@ -1324,7 +1324,7 @@ describe("js-quantities", () => {
     it("should divide while trying to avoid numerical errors", () => {
       expect(Qty.divSafe(0.000773, 0.000001)).toBe(773);
       // TODO uncomment and fix
-      //expect(Qty.divSafe(24.5, 0.2777777777777778)).toBe(88.2);
+      // expect(Qty.divSafe(24.5, 0.2777777777777778)).toBe(88.2);
     });
   });
 

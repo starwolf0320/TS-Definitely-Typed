@@ -23,7 +23,7 @@ import {
 } from 'react-leaflet';
 const { BaseLayer, Overlay } = LayersControl;
 
-///animate.js
+/// animate.js
 export class AnimateExample extends Component<any, any> {
     state = {
         animate: false,
@@ -64,7 +64,7 @@ export class AnimateExample extends Component<any, any> {
                 <Map
                     animate={this.state.animate}
                     center={this.state.latlng}
-                    //TODO length={4}
+                    // TODO length={4}
                     onclick={this.handleClick}
                     ref='map'
                     zoom={13}>
@@ -79,7 +79,7 @@ export class AnimateExample extends Component<any, any> {
     }
 }
 
-//bounds.js
+// bounds.js
 const outer: Array<[number, number]> = [
     [50.505, -29.09],
     [52.505, 29.09],
@@ -124,7 +124,7 @@ export class BoundsExample extends Component<any, any> {
     }
 }
 
-//custom-component.js
+// custom-component.js
 const SomeFn = (asd: string) => (
     asd + asd
 );
@@ -179,7 +179,7 @@ export class CustomComponent extends Component<any, any> {
     }
 }
 
-//draggable-marker.js
+// draggable-marker.js
 export class DraggableExample extends Component<any, any> {
     state = {
         center: {
@@ -231,7 +231,7 @@ export class DraggableExample extends Component<any, any> {
     }
 }
 
-//events.js
+// events.js
 export class EventsExample extends Component<any, any> {
     state = {
         hasLocation: false,
@@ -264,7 +264,7 @@ export class EventsExample extends Component<any, any> {
         return (
             <Map
                 center={this.state.latlng}
-                //TODO length={4}
+                // TODO length={4}
                 onClick={this.handleClick}
                 onlocationfound={this.handleLocationFound}
                 ref='map'
@@ -279,7 +279,7 @@ export class EventsExample extends Component<any, any> {
     }
 }
 
-//layers-control.js
+// layers-control.js
 export class LayersControlExample extends Component<any, any> {
     render() {
         const center: [number, number] = [51.505, -0.09];
@@ -334,7 +334,7 @@ export class LayersControlExample extends Component<any, any> {
     }
 }
 
-//other-layers.js
+// other-layers.js
 export class OtherLayersExample extends Component<any, any> {
     render() {
         const center: [number, number] = [51.505, -0.09];
@@ -368,7 +368,7 @@ export class OtherLayersExample extends Component<any, any> {
     }
 }
 
-//pane.js
+// pane.js
 export class PaneExample extends Component<any, any> {
     state = {
         render: true,
@@ -405,7 +405,7 @@ export class PaneExample extends Component<any, any> {
     }
 }
 
-//simple.js
+// simple.js
 export class SimpleExample extends Component<any, any> {
     state = {
         lat: 51.505,
@@ -431,7 +431,7 @@ export class SimpleExample extends Component<any, any> {
     }
 }
 
-//tooltip.js
+// tooltip.js
 export class TooltipExample extends Component<any, any> {
     state = {
         clicked: 0,
@@ -489,7 +489,7 @@ export class TooltipExample extends Component<any, any> {
     }
 }
 
-//vector-layers.js
+// vector-layers.js
 export class VectorLayersExample extends Component<any, any> {
     render() {
         const center: [number, number] = [51.505, -0.09];
@@ -543,7 +543,7 @@ export class VectorLayersExample extends Component<any, any> {
     }
 }
 
-//wms-tile-layer.js
+// wms-tile-layer.js
 export class WMSTileLayerExample extends Component<any, any> {
     state = {
         lat: 51.505,
@@ -577,7 +577,7 @@ export class WMSTileLayerExample extends Component<any, any> {
     }
 }
 
-//zoom-control.js
+// zoom-control.js
 const ZoomControlExample = () => (
     <Map center={[51.505, -0.09]} zoom={13} zoomControl={false}>
         <TileLayer

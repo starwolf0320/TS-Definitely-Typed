@@ -43,7 +43,7 @@ async function test() {
     json = await fs.readJson(path, readJsonOptions);
     json = await fs.readJSON(path, readJsonOptions);
     await fs.remove(path);
-    let dirs: string[] = await fs.walk(dir);
+    const dirs: string[] = await fs.walk(dir);
     await fs.writeJson(path, data);
     await fs.writeJson(path, data, writeJsonOptions);
     await fs.writeJSON(path, data, writeJsonOptions);

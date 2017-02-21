@@ -1,5 +1,5 @@
 function messageTest() {
-    let messageOptions: qq.MessagesOptions = {
+    const messageOptions: qq.MessagesOptions = {
         emptyError: "emptyError",
         maxHeightImageError: "maxHeightImageError",
         maxWidthImageError: "error occurred",
@@ -13,9 +13,9 @@ function messageTest() {
         unsupportedBrowserIos8Safari: "error occurred"
     };
 
-    let config: qq.BasicOptions = {
+    const config: qq.BasicOptions = {
         messages: messageOptions
     };
 
-    let uploader = new qq.FineUploaderBasic(config);
+    const uploader = new qq.FineUploaderBasic(config);
 }

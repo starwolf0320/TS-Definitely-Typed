@@ -3,7 +3,7 @@ function pasteTest() {
 
     const pasteOptions: qq.PasteOptions = {
         defaultName: "pasted_image",
-        targetElement: targetElement
+        targetElement
     };
 
     const config: qq.BasicOptions = {

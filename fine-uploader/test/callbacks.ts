@@ -4,7 +4,7 @@ class CallbacksTest {
     }
 
     testCallbacks() {
-        let opts = this.opts;
+        const opts = this.opts;
 
         interface CustomType {
             myTypeOfClass: string;

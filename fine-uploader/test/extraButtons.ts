@@ -3,10 +3,10 @@ function extraButtons() {
         myValue: string;
     }
 
-    let element: HTMLElement = new HTMLElement();
+    const element: HTMLElement = new HTMLElement();
 
-    let extraButtonOptions: qq.ExtraButtonsOptions<Validation> = {
-        element: element,
+    const extraButtonOptions: qq.ExtraButtonsOptions<Validation> = {
+        element,
         fileInputTitle: "inputTitle",
         folders: true,
         multiple: false,
@@ -15,9 +15,9 @@ function extraButtons() {
         }
     };
 
-    let config: qq.BasicOptions = {
+    const config: qq.BasicOptions = {
         extraButtons: extraButtonOptions
     };
 
-    let uploader = new qq.FineUploaderBasic(config);
+    const uploader = new qq.FineUploaderBasic(config);
 }

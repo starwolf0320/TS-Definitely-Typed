@@ -2,14 +2,14 @@ import * as NsApi from "ns-api";
 
 declare var console: { log(msg: any): string };
 
-let ns: NsApi = NsApi({
+const ns: NsApi = NsApi({
     username: "",
     password: "",
     timeout: 1500
 });
 
 ns.vertrektijden("", (err, data) => {
-    if(err) {
+    if (err) {
         console.log(err);
     } else {
         console.log(data);
@@ -18,7 +18,7 @@ ns.vertrektijden("", (err, data) => {
 
 // Get travel advise
 ns.reisadvies ({}, (err, data) => {
-    if(err) {
+    if (err) {
         console.log(err);
     } else {
         console.log(data);
@@ -26,7 +26,7 @@ ns.reisadvies ({}, (err, data) => {
 });
 
 ns.prijzen({}, (err, data) => {
-    if(err) {
+    if (err) {
         console.log(err);
     } else {
         console.log(data);
@@ -34,7 +34,7 @@ ns.prijzen({}, (err, data) => {
 });
 
 ns.stations("code", (err, data) => {
-    if(err) {
+    if (err) {
         console.log(err);
     } else {
         console.log(data);
@@ -42,7 +42,7 @@ ns.stations("code", (err, data) => {
 });
 
 ns.stations((err, data) => {
-    if(err) {
+    if (err) {
         console.log(err);
     } else {
         console.log(data);
@@ -50,7 +50,7 @@ ns.stations((err, data) => {
 });
 
 ns.storingen({}, (err, data) => {
-    if(err) {
+    if (err) {
         console.log(err);
     } else {
         console.log(data);

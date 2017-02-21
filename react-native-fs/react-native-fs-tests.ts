@@ -75,7 +75,7 @@ var uploadProgress: RNFS.UploadCallbackProgress = (response) => {
 // upload files
 RNFS.uploadFiles({
   toUrl: uploadUrl,
-  files: files,
+  files,
   method: 'POST',
   headers: {
     Accept: 'application/json',
@@ -93,7 +93,7 @@ RNFS.uploadFiles({
     }
   })
   .catch((err) => {
-    if(err.description === "cancelled") {
+    if (err.description === "cancelled") {
       // cancelled by user
     }
     console.log(err);
