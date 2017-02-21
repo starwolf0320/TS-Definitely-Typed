@@ -24,21 +24,21 @@ import {
 } from "react-router";
 import { createHistory, History } from "history";
 
-const routerHistory = useRouterHistory(createHistory)({ basename: "/test" })
+const routerHistory = useRouterHistory(createHistory)({ basename: "/test" });
 
 interface CustomHistory {
 	test(): undefined;
 }
 
-type CombinedHistory = History & CustomHistory
+type CombinedHistory = History & CustomHistory;
 
 function createCustomHistory(history: History): CombinedHistory {
 	return {
 		...history,
 		test() {}
-	} as CombinedHistory
+	} as CombinedHistory;
 }
-const customHistory = createCustomHistory(browserHistory)
+const customHistory = createCustomHistory(browserHistory);
 
 
 const NavLink = (props: LinkProps) => (
@@ -141,13 +141,13 @@ ReactDOM.render((
 	<Router history={ routerHistory }>
 		<Route path="/" component={Master} />
 	</Router>
-), document.body)
+), document.body);
 
 ReactDOM.render((
 	<Router history={ customHistory }>
 		<Route path="/" component={Master} />
 	</Router>
-), document.body)
+), document.body);
 
 
 const history = createMemoryHistory("baseurl");
