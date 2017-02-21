@@ -37,7 +37,6 @@ class StringCoercible {
 }
 
 let num: number;
-let str: string;
 let date: Date;
 
 let clampFlag: boolean;
@@ -46,7 +45,7 @@ let outputNumber: number;
 let outputString: string;
 
 let domainNumbers: number[] = [1, 100];
-let domainNumeric: NumCoercible[] = [new NumCoercible(0), new NumCoercible(100)];
+const domainNumeric: NumCoercible[] = [new NumCoercible(0), new NumCoercible(100)];
 let domainStrings: string[];
 let domainDates: Date[] = [new Date(2016, 0, 15), new Date(2016, 5, 15)];
 
@@ -165,7 +164,7 @@ outputString = linearScaleNumString(10);
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedLinearScale: d3Scale.ScaleLinear<number, string> = linearScaleNumString.copy();
+const copiedLinearScale: d3Scale.ScaleLinear<number, string> = linearScaleNumString.copy();
 
 // -------------------------------------------------------------------------------
 // Power Scale Factories
@@ -194,7 +193,7 @@ squarerootScaleNumString = d3Scale.scaleSqrt<number, string>();
 
 // exponent --------------------------------------------------------------------
 
-let exponent: number = squarerootScaleNumber.exponent();
+const exponent: number = squarerootScaleNumber.exponent();
 
 powerScaleNumber = powerScaleNumber.exponent(5);
 
@@ -277,7 +276,7 @@ outputString = powerScaleNumString(10);
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedPowerScale: d3Scale.ScalePower<number, string> = powerScaleNumString.copy();
+const copiedPowerScale: d3Scale.ScalePower<number, string> = powerScaleNumString.copy();
 
 // -------------------------------------------------------------------------------
 // Logarithmic Scale Factory
@@ -299,7 +298,7 @@ logScaleNumString = d3Scale.scaleLog<number, string>();
 
 // base --------------------------------------------------------------------
 
-let base: number = logScaleNumber.base();
+const base: number = logScaleNumber.base();
 
 logScaleNumber = logScaleNumber.base(42);
 
@@ -382,7 +381,7 @@ outputString = logScaleNumString(10);
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedLogScale: d3Scale.ScaleLogarithmic<number, string> = logScaleNumString.copy();
+const copiedLogScale: d3Scale.ScaleLogarithmic<number, string> = logScaleNumString.copy();
 
 // -------------------------------------------------------------------------------
 // Identity Scale Factory
@@ -438,7 +437,7 @@ outputNumber = identityScale(10);
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedIdentityScale: d3Scale.ScaleIdentity = identityScale.copy();
+const copiedIdentityScale: d3Scale.ScaleIdentity = identityScale.copy();
 
 
 // -------------------------------------------------------------------------------
@@ -555,7 +554,7 @@ outputString = localTimeScaleNumString(new Date(2016, 6, 4));
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedTimeScale: d3Scale.ScaleTime<number, string> = localTimeScaleNumString.copy();
+const copiedTimeScale: d3Scale.ScaleTime<number, string> = localTimeScaleNumString.copy();
 
 // -------------------------------------------------------------------------------
 // Sequential Scale Factory
@@ -574,7 +573,7 @@ sequentialScaleColorString = d3Scale.scaleSequential(d3Scale.interpolateCool); /
 
 sequentialScaleColorString = sequentialScaleColorString.domain([0, 1]);
 sequentialScaleColorString = sequentialScaleColorString.domain([new NumCoercible(0), new NumCoercible(100)]);
-let domainSequential: [number, number] = sequentialScaleColorString.domain();
+const domainSequential: [number, number] = sequentialScaleColorString.domain();
 
 // clamp(...) -----------------------------------------------------------------
 
@@ -594,7 +593,7 @@ outputString = sequentialScaleColorString(10);
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedSequentialScale: d3Scale.ScaleSequential<string> = sequentialScaleColorString.copy();
+const copiedSequentialScale: d3Scale.ScaleSequential<string> = sequentialScaleColorString.copy();
 
 
 
@@ -640,7 +639,7 @@ quantizeScaleString = d3Scale.scaleQuantize<string>();
 
 quantizeScaleNumber = quantizeScaleNumber.domain([0, 1]);
 quantizeScaleNumber = quantizeScaleNumber.domain([new NumCoercible(0), new NumCoercible(100)]);
-let domainQuantize: [number, number] = quantizeScaleNumber.domain();
+const domainQuantize: [number, number] = quantizeScaleNumber.domain();
 
 // range(...) -----------------------------------------------------------------
 
@@ -680,7 +679,7 @@ outputNumber = quantizeScaleNumber(0.51);
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedQuantizeScale: d3Scale.ScaleQuantize<number> = quantizeScaleNumber.copy();
+const copiedQuantizeScale: d3Scale.ScaleQuantize<number> = quantizeScaleNumber.copy();
 
 
 // -------------------------------------------------------------------------------
@@ -724,7 +723,7 @@ numExtent = quantileScaleString.invertExtent('q50');
 
 // quantile() -----------------------------------------------------------------------
 
-let quantiles: number[] = quantileScaleNumber.quantiles();
+const quantiles: number[] = quantileScaleNumber.quantiles();
 
 // (...) value mapping from domain to output -----------------------------------
 
@@ -732,7 +731,7 @@ outputNumber = quantileScaleNumber(0.51);
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedQuantileScale: d3Scale.ScaleQuantile<number> = quantileScaleNumber.copy();
+const copiedQuantileScale: d3Scale.ScaleQuantile<number> = quantileScaleNumber.copy();
 
 
 // -------------------------------------------------------------------------------
@@ -780,7 +779,7 @@ outputString = thresholdScaleNumberString(0.9);
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedThresholdScale: d3Scale.ScaleThreshold<number, string> = thresholdScaleNumberString.copy();
+const copiedThresholdScale: d3Scale.ScaleThreshold<number, string> = thresholdScaleNumberString.copy();
 
 
 // -------------------------------------------------------------------------------
@@ -816,13 +815,13 @@ rangeNumbers = ordinalScaleStringNumber.range();
 
 // unknown(...) and d3Scale.scaleImplicit --------------------------------------
 
-let implicit: { name: 'implicit' } = d3Scale.scaleImplicit;
+const implicit: { name: 'implicit' } = d3Scale.scaleImplicit;
 
 ordinalScaleStringString = ordinalScaleStringString.unknown(d3Scale.scaleImplicit);
 
 ordinalScaleStringNumber = ordinalScaleStringNumber.unknown(0);
 
-let unknownValue: string | { name: 'implicit' } = ordinalScaleStringString.unknown();
+const unknownValue: string | { name: 'implicit' } = ordinalScaleStringString.unknown();
 
 if (typeof unknownValue === 'string') {
     console.log(unknownValue);
@@ -838,7 +837,7 @@ outputNumber = ordinalScaleStringNumber('negative');
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedOrdinalScale: d3Scale.ScaleOrdinal<string, number> = ordinalScaleStringNumber.copy();
+const copiedOrdinalScale: d3Scale.ScaleOrdinal<string, number> = ordinalScaleStringNumber.copy();
 
 
 // -------------------------------------------------------------------------------
@@ -920,7 +919,7 @@ outputNumberMaybe = bandScaleCoercible(new StringCoercible('negative'));
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedBandScale: d3Scale.ScaleBand<StringCoercible> = bandScaleCoercible.copy();
+const copiedBandScale: d3Scale.ScaleBand<StringCoercible> = bandScaleCoercible.copy();
 
 
 // -------------------------------------------------------------------------------
@@ -991,7 +990,7 @@ outputNumberMaybe = pointScaleCoercible(new StringCoercible('negative'));
 
 // copy(...) -----------------------------------------------------------------
 
-let copiedPointScale: d3Scale.ScalePoint<StringCoercible> = pointScaleCoercible.copy();
+const copiedPointScale: d3Scale.ScalePoint<StringCoercible> = pointScaleCoercible.copy();
 
 // -------------------------------------------------------------------------------
 // Categorical Color Schemas for Ordinal Scales

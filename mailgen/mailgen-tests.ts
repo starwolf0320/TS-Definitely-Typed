@@ -8,7 +8,7 @@ const generator: Mailgen = new Mailgen({
             }
 });
 
-let content: Mailgen.Content = {
+const content: Mailgen.Content = {
     body: {
         name: "Hi",
         intro: "test",

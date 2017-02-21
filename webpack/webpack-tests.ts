@@ -103,7 +103,7 @@ configuration = {
     }
 };
 
-let CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 configuration = {
     entry: {
         p1: "./page1",
@@ -221,22 +221,22 @@ configuration = {
 // https://webpack.github.io/docs/list-of-plugins.html
 //
 
-let resourceRegExp: any;
-let newResource: any;
-let contextRegExp: any;
-let newContentResource: any;
-let newContentRecursive: any;
-let newContentRegExp: any;
-let requestRegExp: any;
-let options: any;
-let definitions: any;
-let paths: any;
-let preferEntry = true;
-let context: any;
-let request: any;
-let types: any;
-let banner: any;
-let plugins: webpack.Plugin[] = [];
+declare const resourceRegExp: any;
+declare const newResource: any;
+declare const contextRegExp: any;
+declare const newContentResource: any;
+declare const newContentRecursive: any;
+declare const newContentRegExp: any;
+declare const requestRegExp: any;
+declare const options: any;
+declare const definitions: any;
+declare const paths: any;
+const preferEntry = true;
+declare const context: any;
+declare const request: any;
+declare const types: any;
+declare const banner: any;
+const plugins: webpack.Plugin[] = [];
 
 plugin = new webpack.NormalModuleReplacementPlugin(resourceRegExp, newResource);
 plugin = new webpack.ContextReplacementPlugin(
@@ -338,17 +338,17 @@ plugin = new webpack.ProvidePlugin({
 plugin = new webpack.SourceMapDevToolPlugin({
     //// asset matching
     test: /\.js$/,
-    //include: Condition | Condition[],
+    // include: Condition | Condition[],
     exclude: [
         /node_modules/
     ],
     //
     //// file and reference
     filename: null, // | string
-    //append: false | string,
+    // append: false | string,
     //// sources naming
-    //moduleFilenameTemplate: string,
-    //fallbackModuleFilenameTemplate: string,
+    // moduleFilenameTemplate: string,
+    // fallbackModuleFilenameTemplate: string,
     //
     //// quality/performance
     module: true,
@@ -413,7 +413,7 @@ declare function successfullyCompiled(): void;
 webpack({
     // configuration
 }, (err, stats) => {
-    if(err)
+    if (err)
         return handleFatalError(err);
     var jsonStats = stats.toJson();
     var jsonStatsWithAllOptions = stats.toJson({
@@ -438,9 +438,9 @@ webpack({
         version: true,
         warnings: true
     });
-    if(jsonStats.errors.length > 0)
+    if (jsonStats.errors.length > 0)
         return handleSoftErrors(jsonStats.errors);
-    if(jsonStats.warnings.length > 0)
+    if (jsonStats.warnings.length > 0)
         handleWarnings(jsonStats.warnings);
     successfullyCompiled();
 });

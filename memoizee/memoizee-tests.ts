@@ -42,7 +42,7 @@ memoized(String({ toString() { return "12"; } }), Number({}));
     var afn = (a: number, b: number) => {
         return new Promise(res => { res(a + b); });
     };
-    let memoized = memoize(afn, { promise: true });
+    const memoized = memoize(afn, { promise: true });
     memoized(3, 7);
     memoized(3, 7);
 }

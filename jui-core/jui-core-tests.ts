@@ -4,10 +4,10 @@ jui.ready(["util.color"], (color: UtilColor) => {
     console.log(color.rgb("#ff0000"));
 });
 
-let _: UtilBase = jui.include("util.base");
+const _: UtilBase = jui.include("util.base");
 
-let str: string = "10";
+const str: string = "10";
 console.log(_.typeCheck("string", str));
 
-let i: number = 10;
+const i: number = 10;
 console.log(_.typeCheck("string", i));

@@ -19,7 +19,7 @@ SwaggerHapi.create(config, (err, swaggerHapi) => {
   // };
 
   if (swaggerHapi.config.swagger !== undefined) {
-    let appRootFromMw = swaggerHapi.config.swagger.appRoot;
+    const appRootFromMw = swaggerHapi.config.swagger.appRoot;
   }
 
   app.register(swaggerHapi.plugin, err => {
@@ -29,12 +29,12 @@ SwaggerHapi.create(config, (err, swaggerHapi) => {
 });
 
 
-let swaggerSecurityHandlerCb = (err: Error) => {
-    //do nothing
+const swaggerSecurityHandlerCb = (err: Error) => {
+    // do nothing
 };
 
 
-let configComplex: SwaggerHapi.Config = {
+const configComplex: SwaggerHapi.Config = {
     appRoot: __dirname,
     configDir: "some/directory",
     controllersDirs: ["some/directory"],
@@ -44,7 +44,7 @@ let configComplex: SwaggerHapi.Config = {
     swaggerSecurityHandlers: {
         // did not manage to research the typings of first 3 arguments
         someHandlerName: ({}, {}, {}, swaggerSecurityHandlerCb) => {
-            //do nothing
+            // do nothing
         }
     },
     validateResponse: true

@@ -137,7 +137,7 @@ const tests = {
 
   'Create CSR with own encrypted key': (test: any) => {
     var password = 'my:secure! "password\'s\nawesome';
-    pem.createPrivateKey(2048, { cipher: 'des3', password: password }, (error: any, data: any) => {
+    pem.createPrivateKey(2048, { cipher: 'des3', password }, (error: any, data: any) => {
       var key = (data && data.key || '').toString();
 
       pem.createCSR({

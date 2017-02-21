@@ -13,7 +13,7 @@ describe('bitcoinjs-lib (basic)', () => {
         function rng() { return new Buffer('zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'); }
 
         // generate random keyPair
-        var keyPair = bitcoin.ECPair.makeRandom({ rng: rng });
+        var keyPair = bitcoin.ECPair.makeRandom({ rng });
         var address = keyPair.getAddress();
 
         assert.strictEqual(address, '1F5VhMHukdnUES9kfXqzPzMeF1GPHKiF64');
@@ -35,7 +35,7 @@ describe('bitcoinjs-lib (basic)', () => {
 
         var litecoin = bitcoin.networks.litecoin;
 
-        var keyPair = bitcoin.ECPair.makeRandom({ network: litecoin, rng: rng });
+        var keyPair = bitcoin.ECPair.makeRandom({ network: litecoin, rng });
         var wif = keyPair.toWIF();
         var address = keyPair.getAddress();
 

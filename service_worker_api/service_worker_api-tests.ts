@@ -107,7 +107,7 @@ self.addEventListener('activate', (event: ExtendableEvent) => {
 function sendMessage(message: any) {
     return new Promise((resolve, reject) => {
         var messageChannel = new MessageChannel();
-        messageChannel.port1.onmessage = function(event) {
+        messageChannel.port1.onmessage = event => {
             if (event.data.error) {
                 reject(event.data.error);
             } else {
@@ -128,7 +128,7 @@ sendMessage('test').then((clientId: string) => {
 
 self.clients.matchAll({type: "test"}).then(clients => {
     for (var cli of clients) {
-        if(cli.url === 'index.html') {
+        if (cli.url === 'index.html') {
             self.clients.openWindow(cli.url);
             // or do something else involving the matching client
         }

@@ -6,7 +6,7 @@
 import {RequestHandler, Server, Request, Response, Route} from 'restify';
 import Logger = require('bunyan');
 
-//*************** This module includes the follow pre plugins, which are intended to be used prior to the routing of a request:
+// *************** This module includes the follow pre plugins, which are intended to be used prior to the routing of a request:
 
 export namespace pre {
   /**
@@ -45,7 +45,7 @@ export namespace pre {
   function userAgentConnection( options?: {userAgentRegExp: any} ): RequestHandler;
 }
 
-//*************** This module includes the following header parser plugins:
+// *************** This module includes the following header parser plugins:
 
 /**
  * Check the client's Accept header can be handled by this server.
@@ -106,7 +106,7 @@ export function conditionalRequest(): RequestHandler[];
  */
 export function fullResponse(): RequestHandler;
 
-//************ This module includes the following data parsing plugins:
+// ************ This module includes the following data parsing plugins:
 
 interface BodyParserOptions {
   /**
@@ -292,7 +292,7 @@ interface RequestLogger {
  */
 export function requestLogger(options?: RequestLogger): RequestHandler;
 
-//******************** The module includes the following response plugins:
+// ******************** The module includes the following response plugins:
 
 /**
  * expires requests based on current time + delta

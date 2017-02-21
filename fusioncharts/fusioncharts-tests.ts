@@ -14,7 +14,7 @@ FusionCharts('chartId').render();
 
 FusionCharts["debugger"].enable(true);
 
-let chartData = {
+const chartData = {
     type: 'column2d',
     renderAt: 'chart-container',
     width: '450',
@@ -36,7 +36,7 @@ let chartData = {
     }
 };
 
-let chart = new FusionCharts(chartData);
+const chart = new FusionCharts(chartData);
 chart.render();
 chart.isActive();
 chart.addEventListener('ready', eventObject => {

@@ -1,6 +1,6 @@
 import * as ps from 'python-shell';
 
-let PythonShell = ps.PythonShell;
+const PythonShell = ps.PythonShell;
 
 ps.run('my_script.py', err => {
   if (err) throw err;

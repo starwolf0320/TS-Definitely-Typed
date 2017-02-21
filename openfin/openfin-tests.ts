@@ -82,7 +82,7 @@
 		console.log("failure:", err);
 	});
 	// removeEventListener
-	let previousCallback = (event: fin.WindowEvent) => { };
+	const previousCallback = (event: fin.WindowEvent) => { };
 	application.removeEventListener("closed", previousCallback, () => {
 		console.log("The unregistration was successful");
 	}, err => {
@@ -142,7 +142,7 @@ function test_external_application() {
 		console.log(`Error Message: ${err.message} Error Stack: ${err.stack}`);
 	});
 	// removeEventListener
-	let previousCallback = () => { };
+	const previousCallback = () => { };
 	externalApp.removeEventListener('connected', previousCallback, () => {
 		console.log('The unregistration was successful');
 	}, (reason, err) => {
@@ -160,7 +160,7 @@ function test_inter_application_bus() {
 		console.log("The application " + uuid + " has unsubscribed to " + topic);
 	});
 	// removeSubscribeListener
-	let aRegisteredListener = (uuid: string, topic: string, name: string) => { };
+	const aRegisteredListener = (uuid: string, topic: string, name: string) => { };
 	fin.desktop.InterApplicationBus.removeSubscribeListener(aRegisteredListener);
 	// removeUnsubscribeListener
 	fin.desktop.InterApplicationBus.removeUnsubscribeListener(aRegisteredListener);
@@ -179,7 +179,7 @@ function test_inter_application_bus() {
 		console.log("The application " + uuid + " sent this message: " + message);
 	});
 	// unsubscribe
-	let aRegisteredMessageListener = (message: any, senderUuid: string) => {
+	const aRegisteredMessageListener = (message: any, senderUuid: string) => {
 		console.log(message, senderUuid);
 	};
 	fin.desktop.InterApplicationBus.unsubscribe("*", "a topic", aRegisteredMessageListener);
@@ -197,9 +197,9 @@ function test_notification() {
 		url: "http://localhost:5000/Account/Register",
 		message: "Hello",
 		onShow: () => { },
-		//onClose: () => { },
+		// onClose: () => { },
 		onDismiss: () => { },
-		//onClick: () => { },
+		// onClick: () => { },
 		onMessage: () => { },
 		onError: () => { }
 	});
@@ -231,7 +231,7 @@ function test_system() {
 		console.log("failure: " + err);
 	});
 	// downloadAsset
-	let dirAppAsset = {
+	const dirAppAsset = {
 		src: 'http://local:8000/dir.zip',
 		alias: 'dirApp',
 		version: '1.23.24',
@@ -239,12 +239,12 @@ function test_system() {
 		args: ''
 	};
 	fin.desktop.System.downloadAsset(dirAppAsset, progress => {
-		let downloadedPercent = Math.floor((progress.downloadedBytes / progress.totalBytes) * 100);
+		const downloadedPercent = Math.floor((progress.downloadedBytes / progress.totalBytes) * 100);
 		console.log(`Downloaded ${downloadedPercent}%`);
 	}, p => {
 		console.log(`Downlod complete, can be found on ${p.path}`);
-		//lets launch our application asset.
-		//launchDirApp();
+		// lets launch our application asset.
+		// launchDirApp();
 	}, (reason, err) => {
 		console.log(reason, err);
 	});
@@ -350,9 +350,9 @@ function test_system() {
 	});
 	//
 	fin.desktop.System.launchExternalProcess({
-		//Additionally note that the executable found in the zip file specified in appAssets
-		//will default to the one mentioned by appAssets.target
-		//If the the path below refers to a specific path it will override this default
+		// Additionally note that the executable found in the zip file specified in appAssets
+		// will default to the one mentioned by appAssets.target
+		// If the the path below refers to a specific path it will override this default
 		alias: "myApp",
 		listener(result) {
 			console.log('the exit code', result.exitCode);
@@ -428,7 +428,7 @@ function test_system() {
 	}, result => {
 		console.log("Result UUID is " + result.uuid);
 
-		//release it.
+		// release it.
 		fin.desktop.System.releaseExternalProcess(result.uuid, () => {
 			console.log("Process has been unmapped!");
 		}, reason => {
@@ -436,7 +436,7 @@ function test_system() {
 		});
 	});
 	// removeEventListener
-	let aRegisteredListener = (event: fin.SystemBaseEvent) => { };
+	const aRegisteredListener = (event: fin.SystemBaseEvent) => { };
 	fin.desktop.System.removeEventListener("monitor-info-changed", aRegisteredListener, () => {
 		console.log("successful");
 	}, err => {
@@ -654,7 +654,7 @@ function test_window() {
 	}, () => {
 		// When finWindow moves or is moved, secondWindow moves by the same amount
 		secondWindow.joinGroup(finWindow, () => {
-			//once we are in the group, lets leave it.
+			// once we are in the group, lets leave it.
 			secondWindow.leaveGroup();
 		});
 	});
@@ -662,22 +662,22 @@ function test_window() {
 	finWindow.maximize();
 	// mergeGroups
 	{
-		let finWindowOne = new fin.desktop.Window({
+		const finWindowOne = new fin.desktop.Window({
 			url: "http://www.openfin.co",
 			name: "finWindowOne",
 			autoShow: true
 		});
-		let finWindowTwo = new fin.desktop.Window({
+		const finWindowTwo = new fin.desktop.Window({
 			url: "http://www.openfin.co",
 			name: "finWindowTwo",
 			autoShow: true
 		});
-		let finWindowThree = new fin.desktop.Window({
+		const finWindowThree = new fin.desktop.Window({
 			url: "http://www.openfin.co",
 			name: "finWindowThree",
 			autoShow: true
 		});
-		let finWindowFour = new fin.desktop.Window({
+		const finWindowFour = new fin.desktop.Window({
 			url: "http://www.openfin.co",
 			name: "finWindowFour",
 			autoShow: true
@@ -696,7 +696,7 @@ function test_window() {
 	// moveTo
 	finWindow.moveTo(100, 200);
 	// removeEventListener
-	let aRegisteredListener = (event: fin.WindowBaseEvent) => { };
+	const aRegisteredListener = (event: fin.WindowBaseEvent) => { };
 	finWindow.removeEventListener("bounds-changed", aRegisteredListener);
 	// resizeBy
 	finWindow.resizeBy(10, 10, "top-right");

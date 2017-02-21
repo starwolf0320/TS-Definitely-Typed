@@ -10,7 +10,7 @@ let rule: RRule = new RRule({
 });
 
 let x: Date[];
-let y: string[];
+const y: string[] = [];
 
 // Get all occurrence dates (Date instances):
 x = rule.all();
@@ -60,4 +60,4 @@ options.dtstart = new Date(2000, 1, 1);
 rule = new RRule(options);
 
 // Test arrays
-let multipleInstance = new RRule({freq: 3, byhour: [6, 12, 18]});
+const multipleInstance = new RRule({freq: 3, byhour: [6, 12, 18]});

@@ -13,7 +13,7 @@ const credentials = {
 };
 
 // Initialize the OAuth2 Library
-//const oauth2 = require('simple-oauth2').create(credentials);
+// const oauth2 = require('simple-oauth2').create(credentials);
 import oauth2lib = require("simple-oauth2");
 const oauth2 = oauth2lib.create(credentials);
 
@@ -29,7 +29,7 @@ const oauth2 = oauth2lib.create(credentials);
     });
 
     // Redirect example using Express (see http://expressjs.com/api.html#res.redirect)
-    //res.redirect(authorizationUri);
+    // res.redirect(authorizationUri);
 
     // Get the access token object (the authorization code is given from the previous step).
     const tokenConfig = {

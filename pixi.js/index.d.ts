@@ -2604,7 +2604,7 @@ export namespace utils {
 	export var TextureCache: any;
 	export var BaseTextureCache: any;
 
-	//https://github.com/kaimallea/isMobile
+	// https://github.com/kaimallea/isMobile
 	export namespace isMobile {
 		export var apple: {
 			phone: boolean;

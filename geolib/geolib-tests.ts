@@ -70,12 +70,12 @@ posAsDecimal = geolib.getCenterOfBounds([
 
 
 
-let bound: Bound = geolib.getBounds([
+const bound: Bound = geolib.getBounds([
   {latitude: 52.516272, longitude: 13.377722, elevation: 1},
   {latitude: 51.515, longitude: 7.453619, elevation: 1},
   {latitude: 51.503333, longitude: -0.119722, elevation: 1}]);
 
-let isInside: boolean = geolib.isPointInside(
+const isInside: boolean = geolib.isPointInside(
   {latitude: 51.5125, longitude: 7.485},
   [
     {latitude: 51.50, longitude: 7.40},
@@ -86,7 +86,7 @@ let isInside: boolean = geolib.isPointInside(
 ); // -> true
 
 // checks if 51.525, 7.4575 is within a radius of 5km from 51.5175, 7.4678
-let boolResult: boolean = geolib.isPointInCircle(
+const boolResult: boolean = geolib.isPointInCircle(
   {latitude: 51.525, longitude: 7.4575},
   {latitude: 51.5175, longitude: 7.4678},
   5000
@@ -129,7 +129,7 @@ distanceArray = geolib.orderByDistance({latitude: 51.515, longitude: 7.453619}, 
 
 
 // in this case set offset to 1 otherwise the nearest point will always be your reference point
-let posAsDecimalArray: Distance[] = geolib.findNearest(
+const posAsDecimalArray: Distance[] = geolib.findNearest(
   {latitude: 51.515, longitude: 7.453619},
   [
     {latitude: 52.516272, longitude: 13.377722},
@@ -164,15 +164,15 @@ speed = geolib.getSpeed(
   ]
 ); // -> 66.9408 (mph)
 
-let point1 = {latitude: 0.5, longitude: 0};
-let point2 = {latitude: 0, longitude: 10};
-let point3 = {latitude: 0, longitude: 15.5};
-let start  = {latitude: 0, longitude: 0};
-let end    = {latitude: 0, longitude: 15};
+const point1 = {latitude: 0.5, longitude: 0};
+const point2 = {latitude: 0, longitude: 10};
+const point3 = {latitude: 0, longitude: 15.5};
+const start  = {latitude: 0, longitude: 0};
+const end    = {latitude: 0, longitude: 15};
 
-let isInLine1 = geolib.isPointInLine(point1, start, end); //-> false;
-let isInLine2 = geolib.isPointInLine(point2, start, end); //-> true;
-let isInLine3 = geolib.isPointInLine(point3, start, end); //-> false;
+const isInLine1 = geolib.isPointInLine(point1, start, end); //-> false;
+const isInLine2 = geolib.isPointInLine(point2, start, end); //-> true;
+const isInLine3 = geolib.isPointInLine(point3, start, end); //-> false;
 
 
 let convertResult: number = geolib.convertUnit('km', 14213, 2); // -> 14,21
@@ -180,7 +180,7 @@ convertResult = geolib.convertUnit('km', 14213); // -> 14,21
 
 let result: number = geolib.sexagesimal2decimal("51° 29' 46\" N");
 
-let resultString: string = geolib.decimal2sexagesimal(51.49611111); // -> 51° 29' 46.00
+const resultString: string = geolib.decimal2sexagesimal(51.49611111); // -> 51° 29' 46.00
 
 result = geolib.latitude({lat: 51.49611, lng: 7.38896}); // -> 51.49611
 result = geolib.longitude({lat: 51.49611, lng: 7.38896}); // -> 7.38896
@@ -190,8 +190,8 @@ result = geolib.useDecimal(51.59611111); // -> 51.59611111
 
 result = geolib.elevation({lat: 51.49611, lng: 7.38896});
 
-let initialPoint = {latitude: 51.516272, longitude: 0.45425};
-let radius = 100;
+const initialPoint = {latitude: 51.516272, longitude: 0.45425};
+const radius = 100;
 dist = 1234;
 bearing = 45;
 

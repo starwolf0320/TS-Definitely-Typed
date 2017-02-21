@@ -13,13 +13,13 @@ import * as d3Dsv from 'd3-dsv';
 // ------------------------------------------------------------------------------------------
 
 
-let csvTestString: string = '1997,Ford,E350,2.34\n2000,Mercury,Cougar,2.38';
-let tsvTestString: string = '1997\tFord\tE350\t2.34\n2000\tMercury\tCougar\t2.38';
-let pipedTestString: string = '1997|Ford|E350|2.34\n2000|Mercury|Cougar|2.38';
+const csvTestString: string = '1997,Ford,E350,2.34\n2000,Mercury,Cougar,2.38';
+const tsvTestString: string = '1997\tFord\tE350\t2.34\n2000\tMercury\tCougar\t2.38';
+const pipedTestString: string = '1997|Ford|E350|2.34\n2000|Mercury|Cougar|2.38';
 
-let csvTestStringWithHeader: string = 'Year,Make,Model,Length\n1997,Ford,E350,2.34\n2000,Mercury,Cougar,2.38';
-let tsvTestStringWithHeader: string = 'Year\tMake\tModel\tLength\n1997\tFord\tE350\t2.34\n2000\tMercury\tCougar\t2.38';
-let pipedTestStringWithHeader: string = 'Year|Make|Model|Length\n1997|Ford|E350|2.34\n2000|Mercury|Cougar|2.38';
+const csvTestStringWithHeader: string = 'Year,Make,Model,Length\n1997,Ford,E350,2.34\n2000,Mercury,Cougar,2.38';
+const tsvTestStringWithHeader: string = 'Year\tMake\tModel\tLength\n1997\tFord\tE350\t2.34\n2000\tMercury\tCougar\t2.38';
+const pipedTestStringWithHeader: string = 'Year|Make|Model|Length\n1997|Ford|E350|2.34\n2000|Mercury|Cougar|2.38';
 
 interface ParsedTestObject {
     year: Date;
@@ -58,20 +58,16 @@ str = parseArray[0]['Year'];
 // with row mapper ---------------------------------------------------------------------------
 
 parseMappedArray = d3Dsv.csvParse(csvTestStringWithHeader, (rawRow, index, columns) => {
-    let rr: d3Dsv.DSVRowString = rawRow;
-    let i: number = index;
-    let c: string[] = columns;
-    let pr: ParsedTestObject;
-
-    pr = {
+    const rr: d3Dsv.DSVRowString = rawRow;
+    const i: number = index;
+    const c: string[] = columns;
+    const pr: ParsedTestObject = {
         year: new Date(+rr['Year'], 0, 1),
         make: rr['Make'],
         model: rr['Model'],
         length: +rr['Length']
     };
-
     return pr;
-
 });
 
 columns = parseMappedArray.columns;
@@ -95,19 +91,15 @@ str = parseRowsArray[0][0]; // 'Year' of first row
 // with row mapper ---------------------------------------------------------------------------
 
 parseRowsMappedArray = d3Dsv.csvParseRows(csvTestString, (rawRow, index) => {
-    let rr: string[] = rawRow;
-    let i: number = index;
-    let pr: ParsedTestObject;
-
-    pr = {
+    const rr: string[] = rawRow;
+    const i: number = index;
+    const pr: ParsedTestObject = {
         year: new Date(+rr[0], 0, 1),
         make: rr[1],
         model: rr[2],
         length: +rr[3]
     };
-
     return pr;
-
 });
 
 date = parseRowsMappedArray[0].year;
@@ -147,20 +139,16 @@ str = parseArray[0]['Year'];
 // with row mapper ---------------------------------------------------------------------------
 
 parseMappedArray = d3Dsv.tsvParse(tsvTestStringWithHeader, (rawRow, index, columns) => {
-    let rr: d3Dsv.DSVRowString = rawRow;
-    let i: number = index;
-    let c: string[] = columns;
-    let pr: ParsedTestObject;
-
-    pr = {
+    const rr: d3Dsv.DSVRowString = rawRow;
+    const i: number = index;
+    const c: string[] = columns;
+    const pr: ParsedTestObject = {
         year: new Date(+rr['Year'], 0, 1),
         make: rr['Make'],
         model: rr['Model'],
         length: +rr['Length']
     };
-
     return pr;
-
 });
 
 columns = parseMappedArray.columns;
@@ -184,19 +172,15 @@ str = parseRowsArray[0][0]; // 'Year' of first row
 // with row mapper ---------------------------------------------------------------------------
 
 parseRowsMappedArray = d3Dsv.tsvParseRows(tsvTestString, (rawRow, index) => {
-    let rr: string[] = rawRow;
-    let i: number = index;
-    let pr: ParsedTestObject;
-
-    pr = {
+    const rr: string[] = rawRow;
+    const i: number = index;
+    const pr: ParsedTestObject = {
         year: new Date(+rr[0], 0, 1),
         make: rr[1],
         model: rr[2],
         length: +rr[3]
     };
-
     return pr;
-
 });
 
 date = parseRowsMappedArray[0].year;
@@ -241,20 +225,16 @@ str = parseArray[0]['Year'];
 // with row mapper ---------------------------------------------------------------------------
 
 parseMappedArray = dsv.parse(pipedTestStringWithHeader, (rawRow, index, columns) => {
-    let rr: d3Dsv.DSVRowString = rawRow;
-    let i: number = index;
-    let c: string[] = columns;
-    let pr: ParsedTestObject;
-
-    pr = {
+    const rr: d3Dsv.DSVRowString = rawRow;
+    const i: number = index;
+    const c: string[] = columns;
+    const pr: ParsedTestObject = {
         year: new Date(+rr['Year'], 0, 1),
         make: rr['Make'],
         model: rr['Model'],
         length: +rr['Length']
     };
-
     return pr;
-
 });
 
 columns = parseMappedArray.columns;
@@ -278,19 +258,15 @@ str = parseRowsArray[0][0]; // 'Year' of first row
 // with row mapper ---------------------------------------------------------------------------
 
 parseRowsMappedArray = dsv.parseRows(pipedTestString, (rawRow, index) => {
-    let rr: string[] = rawRow;
-    let i: number = index;
-    let pr: ParsedTestObject;
-
-    pr = {
+    const rr: string[] = rawRow;
+    const i: number = index;
+    const pr: ParsedTestObject = {
         year: new Date(+rr[0], 0, 1),
         make: rr[1],
         model: rr[2],
         length: +rr[3]
     };
-
     return pr;
-
 });
 
 date = parseRowsMappedArray[0].year;

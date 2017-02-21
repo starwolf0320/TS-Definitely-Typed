@@ -43,13 +43,13 @@ forwardConnectionArgs.first = 10;
 backwardConnectionArgs.before = "b";
 backwardConnectionArgs.last = 10;
 // connectionDefinitions returns a connectionType and its associated edgeType, given a node type.
-let resolve: GraphQLFieldResolver<any, any> = (source, args, context, info) => {
+const resolve: GraphQLFieldResolver<any, any> = (source, args, context, info) => {
     info.fieldName = "f";
 };
 const fields: GraphQLFieldConfigMap<any, any> = {};
 let t: GraphQLObjectType;
 let e: GraphQLObjectType;
-let def = connectionDefinitions({
+const def = connectionDefinitions({
     connectionFields: fields,
     edgeFields: fields,
     name: "N",
@@ -89,7 +89,7 @@ conn2.then((res) => {
 // cursorForObjectInConnection is a helper method that takes an array and a member object, and returns a cursor for use in the mutation payload.
 cursorForObjectInConnection(["a"], "b").toLowerCase();
 // An example usage of these methods from the test schema:
-let shipType: GraphQLObjectType = new GraphQLObjectType({
+const shipType: GraphQLObjectType = new GraphQLObjectType({
     name: "ShipType",
     fields: {},
 });

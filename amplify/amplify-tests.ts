@@ -26,7 +26,7 @@ amplify.subscribe("dataexample2", (param1, param2) => {
     alert(param1 + param2); // barbaz
 });
 
-//...
+// ...
 
 amplify.publish("dataexample2", "bar", "baz");
 
@@ -176,7 +176,7 @@ amplify.request("twitter-mentions", { user: "amplifyjs" });
 
 // Setting up and using decoders
 
-//Example:
+// Example:
 
 var appEnvelopeDecoder: amplify.Decoder = (data, status, xhr, success, error) => {
     if (data.status === "success") {
@@ -188,7 +188,7 @@ var appEnvelopeDecoder: amplify.Decoder = (data, status, xhr, success, error) =>
     }
 };
 
-//a new decoder can be added to the amplifyDecoders interface
+// a new decoder can be added to the amplifyDecoders interface
 declare module "amplify" {
     interface Decoders {
         appEnvelope: amplify.Decoder;
@@ -197,7 +197,7 @@ declare module "amplify" {
 
 amplify.request.decoders.appEnvelope = appEnvelopeDecoder;
 
-//but you can also just add it via an index
+// but you can also just add it via an index
 amplify.request.decoders['appEnvelopeStr'] = appEnvelopeDecoder;
 
 
@@ -250,7 +250,7 @@ amplify.request({
 // amplify.request comes with built in support for status.The status parameter appears in the default success or error callbacks when using an ajax definition.
 
     amplify.request.define("statusExample1", "ajax", {
-        //...
+        // ...
     });
 
  amplify.request({

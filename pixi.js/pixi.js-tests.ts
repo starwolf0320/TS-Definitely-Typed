@@ -31,7 +31,7 @@ namespace basics {
             this.bunny.position.x = 200;
             this.bunny.position.y = 150;
 
-            //add it to the stage
+            // add it to the stage
             this.stage.addChild(this.bunny);
 
             this.animate();
@@ -76,10 +76,10 @@ namespace basics {
             this.sprite.on('mousedown', this.onDown, this);
             this.sprite.on('touchstart', this.onDown, this);
 
-            //add it to the stage
+            // add it to the stage
             this.stage.addChild(this.sprite);
 
-            //start animatng
+            // start animatng
             this.animate();
 
         }
@@ -414,7 +414,7 @@ namespace basics {
 
             this.movie.rotation += 0.01;
 
-            //render the stage container
+            // render the stage container
             this.renderer.render(this.stage);
 
             requestAnimationFrame(this.animate);
@@ -537,7 +537,7 @@ namespace basics {
             this.graphics.y = this.strip.y;
             this.stage.addChild(this.graphics);
 
-            //start animating
+            // start animating
             this.animate();
 
         }
@@ -546,13 +546,13 @@ namespace basics {
 
             this.count += 0.1;
 
-            //make the snake
+            // make the snake
             for (var i = 0; i < this.points.length; i++) {
                 this.points[i].y = Math.sin((i * 0.5) + this.count) * 30;
                 this.points[i].x = i * this.ropeLength + Math.cos((i * 0.3) + this.count) * 20;
             }
 
-            //render the stage
+            // render the stage
             this.renderer.render(this.stage);
 
             this.renderPoints();
@@ -604,7 +604,7 @@ namespace basics {
             // create the root of the scene graph
             this.stage = new PIXI.Container();
 
-            //create a texture from an image path
+            // create a texture from an image path
             this.texture = PIXI.Texture.fromImage('../../_assets/p2.jpeg');
 
             /* create a tiling sprite ...
@@ -661,10 +661,10 @@ namespace basics {
             // create the root of the scene graph
             this.stage = new PIXI.Container();
 
-            //create a video texture from a path
+            // create a video texture from a path
             this.texture = PIXI.Texture.fromVideo('../../_assets/testVideo.mp4');
 
-            //create a new sprite using the video texture (yes it's that easy)
+            // create a new sprite using the video texture (yes it's that easy)
             this.videoSprite = new PIXI.Sprite(this.texture);
             this.videoSprite.width = this.renderer.width;
             this.videoSprite.height = this.renderer.height;
@@ -678,7 +678,7 @@ namespace basics {
 
         private animate = (): void => {
 
-            //render the stage
+            // render the stage
             this.renderer.render(this.stage);
 
             requestAnimationFrame(this.animate);
@@ -1096,11 +1096,11 @@ namespace demos {
 
             this.alienContainer.cacheAsBitmap = !this.alienContainer.cacheAsBitmap;
 
-            //feel free to play with what's below
-            //var sprite = new PIXI.Sprite(this.alienContainer.generateTexture());
-            //this.stage.addChild(sprite);
-            //sprite.position.x = Math.random() * 800;
-            //sprite.position.y = Math.random() * 600;
+            // feel free to play with what's below
+            // var sprite = new PIXI.Sprite(this.alienContainer.generateTexture());
+            // this.stage.addChild(sprite);
+            // sprite.position.x = Math.random() * 800;
+            // sprite.position.y = Math.random() * 600;
 
         }
 
@@ -1168,7 +1168,7 @@ namespace demos {
 
     export class DraggableBunny extends PIXI.Sprite {
 
-        //todo I dont know what event.data is at this time
+        // todo I dont know what event.data is at this time
         private data: any;
 
         private dragging: boolean;
@@ -1218,7 +1218,7 @@ namespace demos {
 
         private onDragEnd = (event: PIXI.interaction.InteractionEvent): void => {
 
-            //set interactiondata to null
+            // set interactiondata to null
             this.data = null;
             this.alpha = 1;
             this.dragging = false;
@@ -1255,7 +1255,7 @@ namespace demos {
             // create the root of the scene graph
             this.stage = new PIXI.Container();
 
-            //create a texture from an image
+            // create a texture from an image
             this.texture = PIXI.Texture.fromImage('../../_assets/bunny.png');
 
             for (var i = 0; i < 10; i++) {
@@ -1549,7 +1549,7 @@ namespace demos {
                 .on('mouseout', this.onButtonOut);
 
             // you can also listen to click and tap events :
-            //.on('click', this.noop)
+            // .on('click', this.noop)
 
         }
 
@@ -2137,7 +2137,7 @@ namespace demos {
 
             this.bol = false;
 
-            //an image path
+            // an image path
             this.texture = PIXI.Texture.fromImage('../../_assets/flowerTop.png');
 
             // create a second texture
@@ -2410,7 +2410,7 @@ namespace filters {
 
             this.count = 0;
 
-            //nimate
+            // nimate
             this.animate();
 
         }
@@ -2680,7 +2680,7 @@ namespace filters {
 
             this.stage.addChild(this.help);
 
-            //nimate
+            // animate
             this.animate();
 
         }

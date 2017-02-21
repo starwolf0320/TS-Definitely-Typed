@@ -508,6 +508,6 @@ declare namespace Artyom {
 
 }
 
-//tslint:disable-next-line:export-just-namespace
+// tslint:disable-next-line:export-just-namespace
 export = Artyom;
 export as namespace Artyom;

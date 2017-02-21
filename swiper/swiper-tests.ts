@@ -269,14 +269,14 @@ function thumbsGalleryLoop() {
         prevButton: '.swiper-button-prev',
         spaceBetween: 10,
         loop: true,
-        loopedSlides: 5, //looped slides should be the same
+        loopedSlides: 5, // looped slides should be the same
     });
     var galleryThumbs = new Swiper('.gallery-thumbs', {
         spaceBetween: 10,
         slidesPerView: 4,
         touchRatio: 0.2,
         loop: true,
-        loopedSlides: 5, //looped slides should be the same
+        loopedSlides: 5, // looped slides should be the same
         slideToClickedSlide: true
     });
     galleryTop.params.control = galleryThumbs;
@@ -499,7 +499,7 @@ function autoheight() {
         paginationClickable: true,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
-        autoHeight: true, //enable auto height
+        autoHeight: true, // enable auto height
     });
 }
 // 35-effect-flip.html

@@ -28,7 +28,7 @@ class AuthService {
 
     $get = [
         '$rootScope', '$injector', ($rootScope: ng.IScope, $injector: ng.auto.IInjectorService) => {
-            let $http: ng.IHttpService; //initialized later because of circular dependency problem
+            let $http: ng.IHttpService; // initialized later because of circular dependency problem
             function retry(config: ng.IRequestConfig, deferred: ng.IDeferred<any>) {
                 $http = $http || $injector.get<ng.IHttpService>('$http');
                 $http(config).then(response => {
@@ -275,7 +275,7 @@ foo.then((x) => {
 }).then((x) => {
     // Object is inferred here
     x.a = 123;
-    //Try a promise
+    // Try a promise
     var y: ng.IPromise<number>;
     var condition: boolean;
     return condition ? y : x.a; // IPromise<T> | T, both are good for the 1st arg of .then()
@@ -590,7 +590,7 @@ function test_angular_forEach() {
     angular.forEach(values, (value, key) => {
         this.push(key + ': ' + value);
     }, log);
-    //expect(log).toEqual(['name: misko', 'gender: male']);
+    // expect(log).toEqual(['name: misko', 'gender: male']);
 }
 
 // angular.element() tests

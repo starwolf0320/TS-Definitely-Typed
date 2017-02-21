@@ -16,7 +16,6 @@ import { path } from 'd3-path';
 
 let context: CanvasRenderingContext2D | null = document.querySelector('canvas')!.getContext('2d');
 let num: number;
-let pathString: string;
 let pathStringMaybe: string | null;
 
 // -----------------------------------------------------------------------------------
@@ -39,7 +38,7 @@ let arcDefaultDatum: d3Shape.DefaultArcObject = {
     padAngle: 0.03
 };
 
-let arcDatum: ArcDatum = {
+const arcDatum: ArcDatum = {
     iRadius: 40,
     oRadius: 60,
     sAngle: 0,

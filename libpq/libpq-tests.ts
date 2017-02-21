@@ -5,7 +5,8 @@ import {Buffer} from 'buffer';
 import * as assert from 'assert';
 import * as async from 'async';
 import * as PQ from 'libpq';
-import * as _ from 'lodash';
+
+declare const _: { times<T>(n: number, f: () => T): T[] };
 
 declare const ok: Function;
 
@@ -126,7 +127,7 @@ const consume = (pq: PQ, cb: Function) => {
 };
 
 describe('async simple query', () => {
-    let pq: PQ;
+    const pq: PQ = null as any;
 
     it('dispatches simple query', (done: Function) => {
         assert(pq.setNonBlocking(true));
@@ -167,30 +168,30 @@ describe('async simple query', () => {
         consume(pq, () => {
             assert.ifError(pq.errorMessage());
 
-            //first time there should be a result
+            // first time there should be a result
             assert(pq.getResult());
 
-            //call 'getResult' until it returns false indicating
-            //there is no more input to consume
+            // call 'getResult' until it returns false indicating
+            // there is no more input to consume
             assert.strictEqual(pq.getResult(), false);
 
-            //since we only prepared a statement there should be
-            //0 tuples in the result
+            // since we only prepared a statement there should be
+            // 0 tuples in the result
             assert.equal(pq.ntuples(), 0);
 
-            //now execute the previously prepared statement
+            // now execute the previously prepared statement
             const success = pq.sendQueryPrepared(statementName, ['Brian']);
             assert(success, pq.errorMessage());
             assert.strictEqual(pq.flush(), 0, 'Should have flushed parameters');
             consume(pq, () => {
                 assert.ifError(pq.errorMessage());
 
-                //consume the result of the query execution
+                // consume the result of the query execution
                 assert(pq.getResult());
                 assert.equal(pq.ntuples(), 1);
                 assert.equal(pq.getvalue(0, 0), 'Brian');
 
-                //call 'getResult' again to ensure we're finished
+                // call 'getResult' again to ensure we're finished
                 assert.strictEqual(pq.getResult(), false);
                 done();
             });
