@@ -2,11 +2,11 @@
 
 declare var $: any;
 
-window.alert = function(thing?: string) {
+window.alert = (thing?: string) => {
     $('#content').append('<div>' + thing + '</div>');
 };
 
-$(function () {
+$(() => {
     var audio = new Audio();
     audio.src = Modernizr.audio.ogg ? 'background.ogg' :
             Modernizr.audio.mp3 ? 'background.mp3' :
@@ -54,7 +54,7 @@ $(function () {
 });
 
 
-Modernizr.on('flash', function( result ) {
+Modernizr.on('flash', result => {
   if (result) {
    // the browser has flash
   } else {
@@ -62,7 +62,7 @@ Modernizr.on('flash', function( result ) {
   }
 });
 
-Modernizr.addTest('itsTuesday', function() {
+Modernizr.addTest('itsTuesday', () => {
  var d = new Date();
  return d.getDay() === 2;
 });
@@ -71,7 +71,7 @@ Modernizr.addTest('hasJquery', 'jQuery' in window);
 
 var detects = {
  hasjquery: 'jQuery' in window,
- itstuesday: function() {
+ itstuesday: () => {
    var d = new Date();
    return d.getDay() === 2;
  }
@@ -100,7 +100,7 @@ if (query) {
 Modernizr.prefixed('boxSizing');
 
 var raf = Modernizr.prefixed('requestAnimationFrame', window);
-raf(function() {
+raf(() => {
 });
 
 var rAFProp = Modernizr.prefixed('requestAnimationFrame', window, false);
@@ -125,19 +125,19 @@ Modernizr.testProp('pointerEvents');  // true
 Modernizr.testProp('pointerEvents', 'none'); // true
 Modernizr.testProp('pointerEvents', 'penguin'); // false
 
-Modernizr.testStyles('#modernizr { width: 9px; color: papayawhip; }', function(elem, rule) {
+Modernizr.testStyles('#modernizr { width: 9px; color: papayawhip; }', (elem, rule) => {
   // elem is the first DOM node in the page (by default #modernizr)
   // rule is the first argument you supplied - the CSS rule in string form
   Modernizr.addTest('widthworks', elem.style.width === '9px');
 });
 
-Modernizr.testStyles('#modernizr {width: 1px}; #modernizr2 {width: 2px}', function(elem) {
+Modernizr.testStyles('#modernizr {width: 1px}; #modernizr2 {width: 2px}', elem => {
   document.getElementById('modernizr').style.width === '1px'; // true
   document.getElementById('modernizr2').style.width === '2px'; // true
   elem.firstChild === document.getElementById('modernizr2'); // true
 }, 1);
 
-Modernizr.testStyles('#modernizr {width: 1px}; #modernizr2 {width: 2px}', function(elem) {
+Modernizr.testStyles('#modernizr {width: 1px}; #modernizr2 {width: 2px}', elem => {
   document.getElementById('modernizr').style.width === '1px'; // true
   document.getElementById('modernizr2').style.width === '2px'; // true
   elem.firstChild === document.getElementById('modernizr2'); // true

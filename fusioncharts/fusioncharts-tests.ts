@@ -39,7 +39,7 @@ let chartData = {
 let chart = new FusionCharts(chartData);
 chart.render();
 chart.isActive();
-chart.addEventListener('ready', function(eventObject) {
+chart.addEventListener('ready', eventObject => {
     eventObject.type;
 });
 chart.chartType();

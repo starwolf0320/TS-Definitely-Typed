@@ -1,8 +1,6 @@
-/// <reference types="jquery"/>
-
 import {jui, UtilColor, UtilBase} from "./index";
 
-jui.ready(["util.color"], function(color: UtilColor) {
+jui.ready(["util.color"], (color: UtilColor) => {
     console.log(color.rgb("#ff0000"));
 });
 

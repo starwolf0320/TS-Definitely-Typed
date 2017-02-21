@@ -126,19 +126,15 @@ clampFlag = linearScaleNumber.clamp();
 
 linearScaleString = linearScaleString.interpolate(interpolateCubehelix.gamma(3));
 
-linearScaleNumString = linearScaleNumString.interpolate(function (a, b) {
+linearScaleNumString = linearScaleNumString.interpolate((a, b) => {
     // take two numbers
-    return function (t: number) {
-        return (a * (1 - t) + b * t) + 'px'; // a and b are numbers based on Range Type, return value of interpolator is string based on Output type
-    };
+    return (t: number) => (a * (1 - t) + b * t) + 'px'; // a and b are numbers based on Range Type, return value of interpolator is string based on Output type
 });
 
 // Changes scale output type (inferred generic)
-linearScaleNumString = linearScaleNumber.interpolate(function (a, b) {
+linearScaleNumString = linearScaleNumber.interpolate((a, b) => {
     // take two numbers
-    return function (t: number) {
-        return (a * (1 - t) + b * t) + 'px'; // a and b are numbers based on Range Type, return value of interpolator is string based on Output type
-    };
+    return (t: number) => (a * (1 - t) + b * t) + 'px'; // a and b are numbers based on Range Type, return value of interpolator is string based on Output type
 });
 
 // nice(...) -----------------------------------------------------------------------
@@ -249,11 +245,9 @@ clampFlag = powerScaleNumber.clamp();
 
 powerScaleString = powerScaleString.interpolate(interpolateCubehelix.gamma(3));
 
-powerScaleNumString = powerScaleNumString.interpolate(function (a, b) {
+powerScaleNumString = powerScaleNumString.interpolate((a, b) => {
     // take two numbers
-    return function (t: number) {
-        return (a * (1 - t) + b * t) + 'px'; // a and b are numbers based on Range Type, return value of interpolator is string based on Output type
-    };
+    return (t: number) => (a * (1 - t) + b * t) + 'px'; // a and b are numbers based on Range Type, return value of interpolator is string based on Output type
 });
 
 // nice(...) -----------------------------------------------------------------------
@@ -356,11 +350,9 @@ clampFlag = logScaleNumber.clamp();
 
 logScaleString = logScaleString.interpolate(interpolateCubehelix.gamma(3));
 
-logScaleNumString = logScaleNumString.interpolate(function (a, b) {
+logScaleNumString = logScaleNumString.interpolate((a, b) => {
     // take two numbers
-    return function (t: number) {
-        return (a * (1 - t) + b * t) + 'px'; // a and b are numbers based on Range Type, return value of interpolator is string based on Output type
-    };
+    return (t: number) => (a * (1 - t) + b * t) + 'px'; // a and b are numbers based on Range Type, return value of interpolator is string based on Output type
 });
 
 // nice(...) -----------------------------------------------------------------------
@@ -517,11 +509,9 @@ clampFlag = localTimeScaleNumber.clamp();
 
 localTimeScaleString = localTimeScaleString.interpolate(interpolateCubehelix.gamma(3));
 
-localTimeScaleNumString = localTimeScaleNumString.interpolate(function (a, b) {
+localTimeScaleNumString = localTimeScaleNumString.interpolate((a, b) => {
     // take two numbers
-    return function (t: number) {
-        return (a * (1 - t) + b * t) + 'px'; // a and b are numbers based on Range Type, return value of interpolator is string based on Output type
-    };
+    return (t: number) => (a * (1 - t) + b * t) + 'px'; // a and b are numbers based on Range Type, return value of interpolator is string based on Output type
 });
 
 // nice(...) -----------------------------------------------------------------------

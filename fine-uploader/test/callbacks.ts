@@ -8,7 +8,7 @@ class CallbacksTest {
 
         interface CustomType {
             myTypeOfClass: string;
-        };
+        }
 
         opts.onAutoRetry = (id, name, attemptNumber) => {};
 

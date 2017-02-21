@@ -86,7 +86,7 @@ svgArc = svgArc.context(null); // use as path string generator for SVG
 
 canvasArc = canvasArc.innerRadius(40);
 
-svgArc = svgArc.innerRadius(function (d) {
+svgArc = svgArc.innerRadius(d => {
     return d.iRadius; // datum type is ArcDatum
 });
 accessorArcDatumNumber = svgArc.innerRadius();
@@ -95,7 +95,7 @@ accessorArcDatumNumber = svgArc.innerRadius();
 
 canvasArc = canvasArc.outerRadius(60);
 
-svgArc = svgArc.outerRadius(function (d) {
+svgArc = svgArc.outerRadius(d => {
     return d.oRadius; // datum type is ArcDatum
 });
 accessorArcDatumNumber = svgArc.outerRadius();
@@ -104,7 +104,7 @@ accessorArcDatumNumber = svgArc.outerRadius();
 
 canvasArc = canvasArc.cornerRadius(4);
 
-svgArc = svgArc.cornerRadius(function (d) {
+svgArc = svgArc.cornerRadius(d => {
     return d.oRadius / 10; // datum type is ArcDatum
 });
 accessorArcDatumNumber = svgArc.cornerRadius();
@@ -113,7 +113,7 @@ accessorArcDatumNumber = svgArc.cornerRadius();
 
 canvasArc = canvasArc.startAngle(0);
 
-svgArc = svgArc.startAngle(function (d) {
+svgArc = svgArc.startAngle(d => {
     return d.sAngle; // datum type is ArcDatum
 });
 accessorArcDatumNumber = svgArc.startAngle();
@@ -122,7 +122,7 @@ accessorArcDatumNumber = svgArc.startAngle();
 
 canvasArc = canvasArc.endAngle(Math.PI / 2);
 
-svgArc = svgArc.endAngle(function (d) {
+svgArc = svgArc.endAngle(d => {
     return d.eAngle; // datum type is ArcDatum
 });
 accessorArcDatumNumber = svgArc.endAngle();
@@ -131,7 +131,7 @@ accessorArcDatumNumber = svgArc.endAngle();
 
 canvasArc = canvasArc.padAngle(0);
 
-svgArc = svgArc.padAngle(function (d) {
+svgArc = svgArc.padAngle(d => {
     return d.pAngle; // datum type is ArcDatum
 });
 accessorArcDatumNumber = svgArc.padAngle();
@@ -140,7 +140,7 @@ accessorArcDatumNumber = svgArc.padAngle();
 
 canvasArc = canvasArc.padRadius(0);
 
-svgArc = svgArc.padRadius(function (d) {
+svgArc = svgArc.padRadius(d => {
     return Math.sqrt(d.iRadius * d.iRadius + d.oRadius * d.oRadius);
 });
 
@@ -192,10 +192,10 @@ class Arcer {
         this.cornerRadius = 3;
 
         this.arc = d3Shape.arc<Arcer, ArcerDatum>()
-            .innerRadius(function (d) {
+            .innerRadius(d => {
                 return Math.min(d.innerRadius, this.innerRadius);
             })
-            .outerRadius(function (d) {
+            .outerRadius(d => {
                 return Math.min(d.outerRadius, this.outerRadius);
             })
             .cornerRadius(this.cornerRadius)
@@ -274,7 +274,7 @@ defaultPieValueAccessor = defaultPie.value();
 
 let pieValueAccessor: (d: PieDatum, i?: number, data?: PieDatum[]) => number;
 
-pie = pie.value(function (d, i, data) {
+pie = pie.value((d, i, data) => {
     console.log(data.length > 0 ? data[0].val : 'no data'); // data type is Array<PieDatum>
     return d.val; // d type is PieDatum
 });
@@ -286,7 +286,7 @@ pieValueAccessor = pie.value();
 
 let pieSorter: ((a: PieDatum, b: PieDatum) => number) | null;
 
-pie = pie.sort(function (a, b) {
+pie = pie.sort((a, b) => {
     return b.val - a.val; // type of a and b is PieDatum
 });
 
@@ -298,7 +298,7 @@ pie = pie.sort(null);
 
 let pieValuesSorter: ((a: number, b: number) => number) | null;
 
-pie = pie.sortValues(function (a, b) {
+pie = pie.sortValues((a, b) => {
     return b - a; // type of a and b is number
 });
 
@@ -310,7 +310,7 @@ pie = pie.sortValues(null);
 
 defaultPie = defaultPie.startAngle(0);
 
-pie = pie.startAngle(function (d) {
+pie = pie.startAngle(d => {
     console.log(d.length > 0 ? d[0].val : 'no data'); // data type is Array<PieDatum>
     return 0;
 });
@@ -320,7 +320,7 @@ accessorPieDatumNumber = pie.startAngle();
 
 defaultPie = defaultPie.endAngle(2 * Math.PI);
 
-pie = pie.endAngle(function (d) {
+pie = pie.endAngle(d => {
     console.log(d.length > 0 ? d[0].val : 'no data'); // data type is Array<PieDatum>
     return 2 * Math.PI;
 });
@@ -330,7 +330,7 @@ accessorPieDatumNumber = pie.endAngle();
 
 defaultPie = defaultPie.padAngle(0.03);
 
-pie = pie.padAngle(function (d) {
+pie = pie.padAngle(d => {
     console.log(d.length > 0 ? d[0].val : 'no data'); // data type is Array<PieDatum>
     return 0.03;
 
@@ -396,7 +396,7 @@ line = line.context(null); // use as path string generator for SVG
 
 defaultLine = defaultLine.x(30);
 
-line = line.x(function (d, t, data) {
+line = line.x((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('X-Coordinate of first point: ', data[0].x); // data type is Array<LineDatum>
     return d.x; // d type is LineDatum
@@ -408,7 +408,7 @@ lineXYAccessorFn = line.x();
 
 defaultLine = defaultLine.y(10);
 
-line = line.y(function (d, t, data) {
+line = line.y((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Y-Coordinate of first point: ', data[0].y); // data type is Array<LineDatum>
     return d.y; // d type is LineDatum
@@ -420,7 +420,7 @@ lineXYAccessorFn = line.y();
 
 defaultLine = defaultLine.defined(true);
 
-line = line.defined(function (d, t, data) {
+line = line.defined((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Y-Coordinate of first point: ', data[0].y); // data type is Array<LineDatum>
     return !d.missing; // d type is LineDatum
@@ -468,7 +468,7 @@ radialLine = radialLine.context(null); // use as path string generator for SVG
 
 defaultRadialLine = defaultRadialLine.angle(Math.PI);
 
-radialLine = radialLine.angle(function (d, t, data) {
+radialLine = radialLine.angle((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Angle of first point: ', data[0].angle); // data type is Array<RadialLineDatum>
     return d.angle; // d type is RadialLineDatum
@@ -480,7 +480,7 @@ radialLineAngRAccessorFn = radialLine.angle();
 
 defaultRadialLine = defaultRadialLine.radius(30);
 
-radialLine = radialLine.radius(function (d, t, data) {
+radialLine = radialLine.radius((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Angle of first point: ', data[0].angle); // data type is Array<RadialLineDatum>
     return d.radius; // d type is RadialLineDatum
@@ -492,7 +492,7 @@ radialLineAngRAccessorFn = radialLine.radius();
 
 defaultRadialLine = defaultRadialLine.defined(true);
 
-radialLine = radialLine.defined(function (d, t, data) {
+radialLine = radialLine.defined((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Angle of first point: ', data[0].angle); // data type is Array<RadialLineDatum>
     return !d.missing; // d type is RadialLineDatum
@@ -569,7 +569,7 @@ area = area.context(null); // use as path string generator for SVG
 
 defaultArea = defaultArea.x(30);
 
-area = area.x(function (d, t, data) {
+area = area.x((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('X0-Coordinate of first point: ', data[0].x0); // data type is Array<AreaDatum>
     return d.x0; // d type is AreaDatum
@@ -581,7 +581,7 @@ areaXYAccessorFn = area.x();
 
 defaultArea = defaultArea.x0(30);
 
-area = area.x0(function (d, t, data) {
+area = area.x0((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('X0-Coordinate of first point: ', data[0].x0); // data type is Array<AreaDatum>
     return d.x0; // d type is AreaDatum
@@ -593,7 +593,7 @@ areaXYAccessorFn = area.x0();
 
 defaultArea = defaultArea.x1(30);
 
-area = area.x1(function (d, t, data) {
+area = area.x1((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('X1-Coordinate of first point: ', data[0].x1); // data type is Array<AreaDatum>
     return d.x1; // d type is AreaDatum
@@ -605,7 +605,7 @@ areaXYAccessorFnMaybe = area.x1();
 
 defaultArea = defaultArea.y(10);
 
-area = area.y(function (d, t, data) {
+area = area.y((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Y0-Coordinate of first point: ', data[0].y0); // data type is Array<AreaDatum>
     return d.y0; // d type is AreaDatum
@@ -617,7 +617,7 @@ areaXYAccessorFn = area.y();
 
 defaultArea = defaultArea.y0(10);
 
-area = area.y0(function (d, t, data) {
+area = area.y0((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Y0-Coordinate of first point: ', data[0].y0); // data type is Array<AreaDatum>
     return d.y0; // d type is AreaDatum
@@ -629,7 +629,7 @@ areaXYAccessorFn = area.y0();
 
 defaultArea = defaultArea.y1(10);
 
-area = area.y1(function (d, t, data) {
+area = area.y1((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Y1-Coordinate of first point: ', data[0].y1); // data type is Array<AreaDatum>
     return d.y1; // d type is AreaDatum
@@ -641,7 +641,7 @@ areaXYAccessorFnMaybe = area.y1();
 
 defaultArea = defaultArea.defined(true);
 
-area = area.defined(function (d, t, data) {
+area = area.defined((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Y0-Coordinate of first point: ', data[0].y0); // data type is Array<AreaDatum>
     return !d.missing; // d type is AreaDatum
@@ -699,7 +699,7 @@ radialArea = radialArea.context(null); // use as path string generator for SVG
 
 defaultRadialArea = defaultRadialArea.angle(Math.PI);
 
-radialArea = radialArea.angle(function (d, t, data) {
+radialArea = radialArea.angle((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Start angle of first point: ', data[0].startAngle); // data type is Array<RadialAreaDatum>
     return d.startAngle; // d type is RadialAreaDatum
@@ -711,7 +711,7 @@ radialAreaAngRAccessorFn = radialArea.angle();
 
 defaultRadialArea = defaultRadialArea.startAngle(Math.PI);
 
-radialArea = radialArea.startAngle(function (d, t, data) {
+radialArea = radialArea.startAngle((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Start angle of first point: ', data[0].startAngle); // data type is Array<RadialAreaDatum>
     return d.startAngle; // d type is RadialAreaDatum
@@ -723,7 +723,7 @@ radialAreaAngRAccessorFn = radialArea.startAngle();
 
 defaultRadialArea = defaultRadialArea.endAngle(Math.PI);
 
-radialArea = radialArea.endAngle(function (d, t, data) {
+radialArea = radialArea.endAngle((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('End angle of first point: ', data[0].endAngle); // data type is Array<RadialAreaDatum>
     return d.endAngle; // d type is RadialAreaDatum
@@ -735,7 +735,7 @@ radialAreaAngRAccessorFnMaybe = radialArea.endAngle();
 
 defaultRadialArea = defaultRadialArea.radius(10);
 
-radialArea = radialArea.radius(function (d, t, data) {
+radialArea = radialArea.radius((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Inner radius of first point: ', data[0].innerRadius); // data type is Array<RadialAreaDatum>
     return d.innerRadius; // d type is RadialAreaDatum
@@ -747,7 +747,7 @@ radialAreaAngRAccessorFn = radialArea.radius();
 
 defaultRadialArea = defaultRadialArea.innerRadius(10);
 
-radialArea = radialArea.innerRadius(function (d, t, data) {
+radialArea = radialArea.innerRadius((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Inner radius of first point: ', data[0].innerRadius); // data type is Array<RadialAreaDatum>
     return d.innerRadius; // d type is RadialAreaDatum
@@ -759,7 +759,7 @@ radialAreaAngRAccessorFn = radialArea.innerRadius();
 
 defaultRadialArea = defaultRadialArea.outerRadius(20);
 
-radialArea = radialArea.outerRadius(function (d, t, data) {
+radialArea = radialArea.outerRadius((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Outer radius of first point: ', data[0].outerRadius); // data type is Array<RadialAreaDatum>
     return d.outerRadius; // d type is RadialAreaDatum
@@ -771,7 +771,7 @@ radialAreaAngRAccessorFnMaybe = radialArea.outerRadius();
 
 defaultRadialArea = defaultRadialArea.defined(true);
 
-radialArea = radialArea.defined(function (d, t, data) {
+radialArea = radialArea.defined((d, t, data) => {
     console.log('Number of Points: ', data.length);
     console.log('Inner radius of first point: ', data[0].innerRadius); // data type is Array<RadialAreaDatum>
     return !d.missing; // d type is RadialAreaDatum
@@ -925,7 +925,7 @@ interface SymbolDatum {
 let customSymbol: d3Shape.SymbolType;
 
 customSymbol = {
-    draw: function (context: CanvasPathMethods, size: number): void {
+    draw(context: CanvasPathMethods, size: number): void {
         // draw custom symbol using canvas path methods
     }
 };
@@ -955,7 +955,7 @@ svgSymbol = svgSymbol.context(null); // use as path string generator for SVG
 
 canvasSymbol = canvasSymbol.size(30);
 
-svgSymbol = svgSymbol.size(function (d) {
+svgSymbol = svgSymbol.size(d => {
     return d.size; // datum type is SymbolDatum
 });
 
@@ -966,7 +966,7 @@ sizeAccessorFn = svgSymbol.size();
 
 canvasSymbol = canvasSymbol.type(d3Shape.symbolDiamond);
 
-svgSymbol = svgSymbol.type(function (d) {
+svgSymbol = svgSymbol.type(d => {
     let t: d3Shape.SymbolType;
     switch (d.type) { // datum type is SymbolDatum
         case 'circle':
@@ -1023,10 +1023,10 @@ class Symbolizer {
                 break;
         }
         this.symbol = d3Shape.symbol<Symbolizer, SymbolDatum>()
-            .size(function (this: Symbolizer, d?: SymbolDatum) {
+            .size(function(this: Symbolizer, d?: SymbolDatum) {
                 return d ? d.size : this.size;
             })
-            .type(function (this: Symbolizer, d?: SymbolDatum) {
+            .type(function(this: Symbolizer, d?: SymbolDatum) {
                 let type = this.type;
                 if (d && d.type) {
                     switch (d.type) {
@@ -1118,7 +1118,7 @@ overlyComplicatedStack = d3Shape.stack<StackDatum, StackKey>();
 
 defaultStack = defaultStack.keys(['bananas', 'apples', 'oranges']);
 
-overlyComplicatedStack = overlyComplicatedStack.keys(function (data: StackDatum[], keys: StackKey[]) {
+overlyComplicatedStack = overlyComplicatedStack.keys((data: StackDatum[], keys: StackKey[]) => {
     return keys;
 });
 
@@ -1129,7 +1129,7 @@ keysAccessor = overlyComplicatedStack.keys();
 
 defaultStack = defaultStack.value(30);
 
-overlyComplicatedStack = overlyComplicatedStack.value(function (d, key, j, data) {
+overlyComplicatedStack = overlyComplicatedStack.value((d, key, j, data) => {
     return d.values[key.name];
 });
 

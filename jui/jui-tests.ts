@@ -17,7 +17,7 @@ jui.ready([
     'ui.progress',
     'ui.property',
     'ui.select'
-], function (
+], (
     accordion: UIAccordion,
     autocomplete: UIAutoComplete,
     colorpicker: UIColorPicker,
@@ -30,7 +30,7 @@ jui.ready([
     progress: UIProgress,
     property: UIProperty,
     select: UISelect
-) {
+) => {
     let a: UIAccordion = accordion("#test", {
         multipanel: false
     });

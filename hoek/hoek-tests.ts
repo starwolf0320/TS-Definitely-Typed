@@ -253,7 +253,7 @@ console.log(stack2);
 
 // nextTick(fn)
 
-let myFn = function () {
+let myFn = () => {
     console.log('Do this later');
 };
 
@@ -269,7 +269,7 @@ console.log('Do this first');
 
 // once(fn)
 
-myFn = function () {
+myFn = () => {
     console.log('Ran myFn');
 };
 

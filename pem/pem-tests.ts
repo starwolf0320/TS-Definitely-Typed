@@ -514,7 +514,7 @@ const tests = {
                               selfSigned: true
                             }, (error: any, csr: any) => {
 
-        pem.createPkcs12(csr.clientKey, csr.certificate, 'mypassword', function(err: any, pkcs12: any){
+        pem.createPkcs12(csr.clientKey, csr.certificate, 'mypassword', (err: any, pkcs12: any) => {
           test.ifError(err);
           test.ok(pkcs12);
 
@@ -533,7 +533,7 @@ const tests = {
                               selfSigned: true
                             }, (error: any, csr: any) => {
 
-        pem.createPkcs12(csr.clientKey, csr.certificate, 'mypassword', {cipher: 'aes256', clientKeyPassword: 'xxx'}, function(err: any, pkcs12: any){
+        pem.createPkcs12(csr.clientKey, csr.certificate, 'mypassword', {cipher: 'aes256', clientKeyPassword: 'xxx'}, (err: any, pkcs12: any) => {
           test.ifError(err);
           test.ok(pkcs12);
 

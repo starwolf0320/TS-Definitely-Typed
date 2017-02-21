@@ -30,8 +30,8 @@ interface CanvasDatum {
 
 let canvas = select<HTMLCanvasElement, any>('canvas')
     .datum<CanvasDatum>({ width: 500, height: 400, radius: 2.5 })
-    .attr('width', function (d) { return d.width; })
-    .attr('height', function (d) { return d.height; });
+    .attr('width', d => d.width)
+    .attr('height', d => d.height);
 
 let context = canvas.node()!.getContext('2d');
 
@@ -44,8 +44,7 @@ function drawPointsOnCanvas(radius: number) {
 }
 
 function drawPointOnCanvas(radius: number) {
-
-    return function (point: [number, number]) {
+    return (point: [number, number]) => {
         if (context) {
             context.moveTo(point[0] + radius, point[1]);
             context.arc(point[0], point[1], radius, 0, 2 * Math.PI);
@@ -64,8 +63,8 @@ interface SVGDatum {
 
 let svg = select<SVGSVGElement, undefined>('svg')
     .datum<SVGDatum>({ width: 500, height: 500, filterBrushEvent: true })
-    .attr('width', function (d) { return d.width; })
-    .attr('height', function (d) { return d.height; });
+    .attr('width', d => d.width)
+    .attr('height', d => d.height);
 
 
 let g = svg.append<SVGGElement>('g');
@@ -73,8 +72,8 @@ let g = svg.append<SVGGElement>('g');
 g.selectAll()
     .data<[number, number]>(points)
     .enter().append<SVGCircleElement>('circle')
-    .attr('cx', function (d) { return d[0]; })
-    .attr('cy', function (d) { return d[1]; })
+    .attr('cx', d => d[0])
+    .attr('cy', d => d[1])
     .attr('r', 2.5);
 
 // For test of using zoomBehavior to transform selections and transitions ----
@@ -135,7 +134,6 @@ svgZoom = d3Zoom.zoom<SVGRectElement, SVGDatum>();
 
 // chainable
 svgZoom = svgZoom.filter(function (d, i, group) {
-
     // Cast d3 event to D3ZoomEvent to be used in filter logic
     let e = <d3Zoom.D3ZoomEvent<SVGRectElement, SVGDatum>> event;
 
@@ -235,8 +233,8 @@ canvas.call(canvasZoom);
 
 // attach the zoom behavior to an overlay svg rectangle
 let svgOverlay: Selection<SVGRectElement, SVGDatum, HTMLElement, any> = svg.append<SVGRectElement>('rect')
-    .attr('width', function (d) { return d.width; })
-    .attr('height', function (d) { return d.height; })
+    .attr('width', d => d.width)
+    .attr('height', d => d.height)
     .style('fill', 'none')
     .style('pointer-events', 'all')
     .call(svgZoom);

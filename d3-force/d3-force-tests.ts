@@ -105,7 +105,7 @@ forceCollide = d3Force.forceCollide<SimNode>();
 forceCollide = d3Force.forceCollide<SimNode>(15);
 
 // with radius accessor function
-forceCollide = d3Force.forceCollide<SimNode>(function (node, index, nodes) {
+forceCollide = d3Force.forceCollide<SimNode>((node, index, nodes) => {
     let n: SimNode = node;
     let i: number = index;
     let ns: SimNode[] = nodes;
@@ -120,7 +120,7 @@ let radiusAccessor: (node: SimNode, i: number, nodes: SimNode[]) => number;
 // radius
 
 forceCollide = forceCollide.radius(20);
-forceCollide = forceCollide.radius(function (node, index, nodes) {
+forceCollide = forceCollide.radius((node, index, nodes) => {
     let n: SimNode = node;
     let i: number = index;
     let ns: SimNode[] = nodes;
@@ -184,7 +184,7 @@ num = simLink.s;
 
 // id (node id accessor)
 
-forceLink = forceLink.id(function (node, index, nodes) {
+forceLink = forceLink.id((node, index, nodes) => {
     let n: SimNode = node;
     let i: number = index;
     let ns: SimNode[] = nodes;
@@ -194,7 +194,7 @@ forceLink = forceLink.id(function (node, index, nodes) {
 // distance
 
 forceLink = forceLink.distance(50);
-forceLink = forceLink.distance(function (link, index, links) {
+forceLink = forceLink.distance((link, index, links) => {
     let l: SimLink = link;
     let i: number = index;
     let ls: SimLink[] = links;
@@ -206,7 +206,7 @@ linkNumberAccessor = forceLink.distance();
 // strength
 
 forceLink = forceLink.strength(0.95);
-forceLink = forceLink.strength(function (link, index, links) {
+forceLink = forceLink.strength((link, index, links) => {
     let l: SimLink = link;
     let i: number = index;
     let ls: SimLink[] = links;
@@ -242,7 +242,7 @@ let simNodeNumberAccessor: (node: SimNode, i: number, nodes: SimNode[]) => numbe
 // strength
 
 forceCharge = forceCharge.strength(-3000);
-forceCharge = forceCharge.strength(function (node, index, nodes) {
+forceCharge = forceCharge.strength((node, index, nodes) => {
     let n: SimNode = node;
     let i: number = index;
     let ns: SimNode[] = nodes;
@@ -286,7 +286,7 @@ forcePosX = d3Force.forceX<SimNode>();
 // strength
 
 forcePosX = forcePosX.strength(0.2);
-forcePosX = forcePosX.strength(function (node, index, nodes) {
+forcePosX = forcePosX.strength((node, index, nodes) => {
     let n: SimNode = node;
     let i: number = index;
     let ns: SimNode[] = nodes;
@@ -297,7 +297,7 @@ simNodeNumberAccessor = forcePosX.strength();
 // x
 
 forcePosX = forcePosX.x(100);
-forcePosX = forcePosX.x(function (node, index, nodes) {
+forcePosX = forcePosX.x((node, index, nodes) => {
     let n: SimNode = node;
     let i: number = index;
     let ns: SimNode[] = nodes;
@@ -341,7 +341,7 @@ forcePosY = d3Force.forceY<SimNode>();
 // strength
 
 forcePosY = forcePosY.strength(0.2);
-forcePosY = forcePosY.strength(function (node, index, nodes) {
+forcePosY = forcePosY.strength((node, index, nodes) => {
     let n: SimNode = node;
     let i: number = index;
     let ns: SimNode[] = nodes;
@@ -352,7 +352,7 @@ simNodeNumberAccessor = forcePosY.strength();
 // y
 
 forcePosY = forcePosY.y(100);
-forcePosY = forcePosY.y(function (node, index, nodes) {
+forcePosY = forcePosY.y((node, index, nodes) => {
     let n: SimNode = node;
     let i: number = index;
     let ns: SimNode[] = nodes;

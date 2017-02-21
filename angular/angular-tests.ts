@@ -19,19 +19,19 @@ class AuthService {
      * Required by HTTP interceptor.
      * Function is attached to provider to be invisible for regular users of this service.
      */
-    pushToBuffer = function(config: ng.IRequestConfig, deferred: ng.IDeferred<any>) {
+    pushToBuffer = (config: ng.IRequestConfig, deferred: ng.IDeferred<any>) => {
         this.buffer.push({
             config,
             deferred
         });
-    };
+    }
 
     $get = [
-        '$rootScope', '$injector', function($rootScope: ng.IScope, $injector: ng.auto.IInjectorService) {
+        '$rootScope', '$injector', ($rootScope: ng.IScope, $injector: ng.auto.IInjectorService) => {
             let $http: ng.IHttpService; //initialized later because of circular dependency problem
             function retry(config: ng.IRequestConfig, deferred: ng.IDeferred<any>) {
                 $http = $http || $injector.get<ng.IHttpService>('$http');
-                $http(config).then(function(response) {
+                $http(config).then(response => {
                     deferred.resolve(response);
                 });
             }
@@ -49,7 +49,7 @@ class AuthService {
                     retryAll();
                 }
             };
-        } as any
+        }
     ];
 }
 
@@ -61,13 +61,13 @@ angular.module('http-auth-interceptor', [])
  * $http interceptor.
  * On 401 response - it stores the request and broadcasts 'event:angular-auth-loginRequired'.
  */
-    .config(['$httpProvider', 'authServiceProvider', function($httpProvider: ng.IHttpProvider, authServiceProvider: any) {
+    .config(['$httpProvider', 'authServiceProvider', ($httpProvider: ng.IHttpProvider, authServiceProvider: any) => {
 
         $httpProvider.defaults.headers.common = {Authorization: 'Bearer token'};
         $httpProvider.defaults.headers.get['Authorization'] = 'Bearer token';
-        $httpProvider.defaults.headers.post['Authorization'] = function(config: ng.IRequestConfig): string { return 'Bearer token'; };
+        $httpProvider.defaults.headers.post['Authorization'] = (config: ng.IRequestConfig) => 'Bearer token';
 
-        const interceptor = ['$rootScope', '$q', function($rootScope: ng.IScope, $q: ng.IQService) {
+        const interceptor = ['$rootScope', '$q', ($rootScope: ng.IScope, $q: ng.IQService) => {
             function success(response: ng.IHttpPromiseCallbackArg<any>) {
                 return response;
             }
@@ -83,13 +83,10 @@ angular.module('http-auth-interceptor', [])
                 return $q.reject(response);
             }
 
-          return function(promise: ng.IHttpPromise<any>) {
-                return promise.then(success, error);
-            };
-
-      } as any];
+            return (promise: ng.IHttpPromise<any>) => promise.then(success, error);
+        }];
         $httpProvider.interceptors.push(interceptor);
-    } as any]);
+    }]);
 
 namespace HttpAndRegularPromiseTests {
     interface Person {
@@ -161,8 +158,8 @@ namespace My.Namespace {
 
 // IModule Registering Test
 let mod = angular.module('tests', []);
-mod.controller('name', function($scope: ng.IScope) { });
-mod.controller('name', ['$scope', function($scope: ng.IScope) { }]);
+mod.controller('name', ($scope: ng.IScope) => { });
+mod.controller('name', ['$scope', ($scope: ng.IScope) => { }]);
 mod.controller('name', class {
     // Uncommenting the next line should lead to a type error because this signature isn't compatible
     // with the signature of the `$onChanges` hook:
@@ -170,8 +167,8 @@ mod.controller('name', class {
 });
 mod.controller({
     MyCtrl: class{},
-    MyCtrl2: function() {}, // tslint:disable-line:object-literal-shorthand
-    MyCtrl3: ['$fooService', function($fooService: any) { }]
+    MyCtrl2() {},
+    MyCtrl3: ['$fooService', ($fooService: any) => { }]
 });
 mod.directive('myDirectiveA', ($rootScope: ng.IRootScopeService) => {
     return (scope, el, attrs) => {
@@ -183,7 +180,7 @@ mod.directive('myDirectiveA', ($rootScope: ng.IRootScopeService) => {
         scope.$watch(() => foo, () => el.text(foo));
     };
 });
-mod.directive('myDirectiveB', ['$rootScope', function($rootScope: ng.IRootScopeService) {
+mod.directive('myDirectiveB', ['$rootScope', ($rootScope: ng.IRootScopeService) => {
     return {
         link(scope, el, attrs) {
             el.click(e => {
@@ -200,28 +197,28 @@ mod.directive({
         template: 'my-bar-dir.tpl.html'
     })]
 });
-mod.factory('name', function($scope: ng.IScope) { });
-mod.factory('name', ['$scope', function($scope: ng.IScope) { }]);
+mod.factory('name', ($scope: ng.IScope) => {});
+mod.factory('name', ['$scope', ($scope: ng.IScope) => {}]);
 mod.factory({
-    name1: function(foo: any) { }, // tslint:disable-line:object-literal-shorthand
-    name2: ['foo', function(foo: any) { }]
+    name1(foo: any) {},
+    name2: ['foo', (foo: any) => {}]
 });
-mod.filter('name', function($scope: ng.IScope) { });
-mod.filter('name', ['$scope', function($scope: ng.IScope) { }]);
+mod.filter('name', ($scope: ng.IScope) => {});
+mod.filter('name', ['$scope', ($scope: ng.IScope) => {}]);
 mod.filter({
-    name1: function(foo: any) { }, // tslint:disable-line:object-literal-shorthand
-    name2: ['foo', function(foo: any) { }]
+    name1(foo: any) {},
+    name2: ['foo', (foo: any) => {}]
 });
-mod.provider('name', function($scope: ng.IScope) { return { $get: () => { } }; });
+mod.provider('name', ($scope: ng.IScope) => ({ $get: () => { } }));
 mod.provider('name', TestProvider);
-mod.provider('name', ['$scope', function($scope: ng.IScope) { } as any]);
+mod.provider('name', ['$scope', ($scope: ng.IScope) => {}]);
 mod.provider(My.Namespace);
-mod.service('name', function($scope: ng.IScope) { });
-mod.service('name', ['$scope', function($scope: ng.IScope) { } as any]);
+mod.service('name', ($scope: ng.IScope) => {});
+mod.service('name', ['$scope', ($scope: ng.IScope) => {}]);
 mod.service({
     MyCtrl: class{},
-    MyCtrl2: function() {}, // tslint:disable-line:object-literal-shorthand
-    MyCtrl3: ['$fooService', function($fooService: any) { }]
+    MyCtrl2: () => {}, // tslint:disable-line:object-literal-shorthand
+    MyCtrl3: ['$fooService', ($fooService: any) => {}]
 });
 mod.constant('name', 23);
 mod.constant('name', '23');
@@ -229,8 +226,8 @@ mod.constant(My.Namespace);
 mod.value('name', 23);
 mod.value('name', '23');
 mod.value(My.Namespace);
-mod.decorator('name', function($scope: ng.IScope) {});
-mod.decorator('name', ['$scope', function($scope: ng.IScope) {} as any]);
+mod.decorator('name', ($scope: ng.IScope) => {});
+mod.decorator('name', ['$scope', ($scope: ng.IScope) => {}]);
 
 class TestProvider implements ng.IServiceProvider {
     constructor(private $scope: ng.IScope) {
@@ -242,7 +239,7 @@ class TestProvider implements ng.IServiceProvider {
 
 // QProvider tests
 angular.module('qprovider-test', [])
-    .config(['$qProvider', function($qProvider: ng.IQProvider) {
+    .config(['$qProvider', ($qProvider: ng.IQProvider) => {
         const provider: ng.IQProvider = $qProvider.errorOnUnhandledRejections(false);
         const currentValue: boolean = $qProvider.errorOnUnhandledRejections();
     }]);
@@ -590,7 +587,7 @@ namespace TestPromise {
 function test_angular_forEach() {
     const values: { [key: string]: string } = { name: 'misko', gender: 'male' };
     const log: string[] = [];
-    angular.forEach(values, function(value, key) {
+    angular.forEach(values, (value, key) => {
         this.push(key + ': ' + value);
     }, log);
     //expect(log).toEqual(['name: misko', 'gender: male']);
@@ -708,19 +705,12 @@ angular.module('AnotherSampleDirective', []).directive('myDirective', ['$interpo
             const defer = $q.defer();
             defer.reject();
             defer.resolve();
-            defer.promise.then(function(d) {
-                return d;
-            }).then(function(): any {
-                return null;
-            }, function(): any {
-                return null;
-            })
-            .catch((): any => {
-                return null;
-            })
-            .finally((): any => {
-                return null;
-            });
+            defer.promise.then(d => d)
+            .then(
+                (): any => null,
+                (): any => null)
+            .catch((): any => null)
+            .finally((): any => null);
             let promise = new $q((resolve) => {
                 resolve();
             });
@@ -740,39 +730,39 @@ angular.module('AnotherSampleDirective', []).directive('myDirective', ['$interpo
 
 // test from https://docs.angularjs.org/guide/directive
 angular.module('docsSimpleDirective', [])
-    .controller('Controller', ['$scope', function($scope: any) {
+    .controller('Controller', ['$scope', ($scope: any) => {
         $scope.customer = {
             name: 'Naomi',
             address: '1600 Amphitheatre'
         };
     }])
-    .directive('myCustomer', function() {
+    .directive('myCustomer', () => {
         return {
             template: 'Name: {{customer.name}} Address: {{customer.address}}'
         };
     });
 
 angular.module('docsTemplateUrlDirective', [])
-    .controller('Controller', ['$scope', function($scope: any) {
+    .controller('Controller', ['$scope', ($scope: any) => {
         $scope.customer = {
             name: 'Naomi',
             address: '1600 Amphitheatre'
         };
     }])
-    .directive('myCustomer', function() {
+    .directive('myCustomer', () => {
         return {
             templateUrl: 'my-customer.html'
         };
     });
 
 angular.module('docsRestrictDirective', [])
-    .controller('Controller', ['$scope', function($scope: any) {
+    .controller('Controller', ['$scope', ($scope: any) => {
         $scope.customer = {
             name: 'Naomi',
             address: '1600 Amphitheatre'
         };
     }])
-    .directive('myCustomer', function() {
+    .directive('myCustomer', () => {
         return {
             restrict: 'E',
             templateUrl: 'my-customer.html'
@@ -780,19 +770,19 @@ angular.module('docsRestrictDirective', [])
     });
 
 angular.module('docsScopeProblemExample', [])
-    .controller('NaomiController', ['$scope', function($scope: any) {
+    .controller('NaomiController', ['$scope', ($scope: any) => {
         $scope.customer = {
             name: 'Naomi',
             address: '1600 Amphitheatre'
         };
     }])
-    .controller('IgorController', ['$scope', function($scope: any) {
+    .controller('IgorController', ['$scope', ($scope: any) => {
         $scope.customer = {
             name: 'Igor',
             address: '123 Somewhere'
         };
     }])
-    .directive('myCustomer', function() {
+    .directive('myCustomer', () => {
         return {
             restrict: 'E',
             templateUrl: 'my-customer.html'
@@ -800,11 +790,11 @@ angular.module('docsScopeProblemExample', [])
     });
 
 angular.module('docsIsolateScopeDirective', [])
-    .controller('Controller', ['$scope', function($scope: any) {
+    .controller('Controller', ['$scope', ($scope: any) => {
         $scope.naomi = { name: 'Naomi', address: '1600 Amphitheatre' };
         $scope.igor = { name: 'Igor', address: '123 Somewhere' };
     }])
-    .directive('myCustomer', function() {
+    .directive('myCustomer', () => {
         return {
             restrict: 'E',
             scope: {
@@ -815,11 +805,11 @@ angular.module('docsIsolateScopeDirective', [])
     });
 
 angular.module('docsIsolationExample', [])
-    .controller('Controller', ['$scope', function($scope: any) {
+    .controller('Controller', ['$scope', ($scope: any) => {
         $scope.naomi = { name: 'Naomi', address: '1600 Amphitheatre' };
         $scope.vojta = { name: 'Vojta', address: '3456 Somewhere Else' };
     }])
-    .directive('myCustomer', function() {
+    .directive('myCustomer', () => {
         return {
             restrict: 'E',
             scope: {
@@ -830,10 +820,10 @@ angular.module('docsIsolationExample', [])
     });
 
 angular.module('docsTimeDirective', [])
-    .controller('Controller', ['$scope', function($scope: any) {
+    .controller('Controller', ['$scope', ($scope: any) => {
         $scope.format = 'M/d/yy h:mm:ss a';
     }])
-    .directive('myCurrentTime', ['$interval', 'dateFilter', function($interval: any, dateFilter: any) {
+    .directive('myCurrentTime', ['$interval', 'dateFilter', ($interval: any, dateFilter: any) => {
 
         return {
             link(scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) {
@@ -844,17 +834,17 @@ angular.module('docsTimeDirective', [])
                     element.text(dateFilter(new Date(), format));
                 }
 
-                scope.$watch(attrs['myCurrentTime'], function(value: any) {
+                scope.$watch(attrs['myCurrentTime'], (value: any) => {
                     format = value;
                     updateTime();
                 });
 
-                element.on('$destroy', function() {
+                element.on('$destroy', () => {
                     $interval.cancel(timeoutId);
                 });
 
                 // start the UI update process; save the timeoutId for canceling
-                timeoutId = $interval(function() {
+                timeoutId = $interval(() => {
                     updateTime(); // update DOM
                 }, 1000);
             }
@@ -862,10 +852,10 @@ angular.module('docsTimeDirective', [])
     }]);
 
 angular.module('docsTransclusionDirective', [])
-    .controller('Controller', ['$scope', function($scope: any) {
+    .controller('Controller', ['$scope', ($scope: any) => {
         $scope.name = 'Tobias';
     }])
-    .directive('myDialog', function() {
+    .directive('myDialog', () => {
         return {
             restrict: 'E',
             transclude: true,
@@ -874,10 +864,10 @@ angular.module('docsTransclusionDirective', [])
     });
 
 angular.module('docsTransclusionExample', [])
-    .controller('Controller', ['$scope', function($scope: any) {
+    .controller('Controller', ['$scope', ($scope: any) => {
         $scope.name = 'Tobias';
     }])
-    .directive('myDialog', function() {
+    .directive('myDialog', () => {
         return {
             restrict: 'E',
             transclude: true,
@@ -890,16 +880,16 @@ angular.module('docsTransclusionExample', [])
     });
 
 angular.module('docsIsoFnBindExample', [])
-    .controller('Controller', ['$scope', '$timeout', function($scope: any, $timeout: any) {
+    .controller('Controller', ['$scope', '$timeout', ($scope: any, $timeout: any) => {
         $scope.name = 'Tobias';
-        $scope.hideDialog = function() {
+        $scope.hideDialog = () => {
             $scope.dialogIsHidden = true;
-            $timeout(function() {
+            $timeout(() => {
                 $scope.dialogIsHidden = false;
             }, 2000);
         };
     }])
-    .directive('myDialog', function() {
+    .directive('myDialog', () => {
         return {
             restrict: 'E',
             transclude: true,
@@ -911,8 +901,8 @@ angular.module('docsIsoFnBindExample', [])
     });
 
 angular.module('dragModule', [])
-    .directive('myDraggable', ['$document', function($document: any) {
-        return function(scope: any, element: any, attr: any) {
+    .directive('myDraggable', ['$document', ($document: any) => {
+        return (scope: any, element: any, attr: any) => {
             let startX = 0, startY = 0, x = 0, y = 0;
 
             element.css({
@@ -922,7 +912,7 @@ angular.module('dragModule', [])
                 cursor: 'pointer'
             });
 
-            element.on('mousedown', function(event: any) {
+            element.on('mousedown', (event: any) => {
                 // Prevent default dragging of selected content
                 event.preventDefault();
                 startX = event.pageX - x;
@@ -948,7 +938,7 @@ angular.module('dragModule', [])
     }]);
 
 angular.module('docsTabsExample', [])
-    .directive('myTabs', function() {
+    .directive('myTabs', () => {
         return {
             restrict: 'E',
             transclude: true,
@@ -956,14 +946,14 @@ angular.module('docsTabsExample', [])
             controller($scope: ng.IScope) {
                 const panes: any = $scope['panes'] = [];
 
-                $scope['select'] = function(pane: any) {
-                    angular.forEach(panes, function(pane: any) {
+                $scope['select'] = (pane: any) => {
+                    angular.forEach(panes, (pane: any) => {
                         pane.selected = false;
                     });
                     pane.selected = true;
                 };
 
-                this.addPane = function(pane: any) {
+                this.addPane = (pane: any) => {
                     if (panes.length === 0) {
                         $scope['select'](pane);
                     }
@@ -973,7 +963,7 @@ angular.module('docsTabsExample', [])
             templateUrl: 'my-tabs.html'
         };
     })
-    .directive('myPane', function() {
+    .directive('myPane', () => {
         return {
             require: '^myTabs',
             restrict: 'E',
@@ -989,7 +979,7 @@ angular.module('docsTabsExample', [])
     });
 
 angular.module('multiSlotTranscludeExample', [])
-    .directive('dropDownMenu', function() {
+    .directive('dropDownMenu', () => {
         return {
             transclude: {
                 button: 'button',
@@ -1047,15 +1037,15 @@ interface ICopyExampleScope {
 }
 
 angular.module('copyExample', [])
-    .controller('ExampleController', ['$scope', function($scope: ICopyExampleScope) {
+    .controller('ExampleController', ['$scope', ($scope: ICopyExampleScope) => {
         $scope.master = { };
 
-        $scope.update = function(user) {
+        $scope.update = user => {
             // Example with 1 argument
             $scope.master = angular.copy(user);
         };
 
-        $scope.reset = function() {
+        $scope.reset = () => {
             // Example with 2 arguments
             angular.copy($scope.master, $scope.user);
         };
@@ -1128,7 +1118,7 @@ function NgModelControllerTyping() {
     var $q: angular.IQService;
 
     // See https://docs.angularjs.org/api/ng/type/ngModel.NgModelController#$validators
-    ngModel.$validators['validCharacters'] = function(modelValue, viewValue) {
+    ngModel.$validators['validCharacters'] = (modelValue, viewValue) => {
         const value = modelValue || viewValue;
         return /[0-9]+/.test(value) &&
             /[a-z]+/.test(value) &&
@@ -1136,7 +1126,7 @@ function NgModelControllerTyping() {
             /\W+/.test(value);
     };
 
-    ngModel.$asyncValidators['uniqueUsername'] = function(modelValue, viewValue) {
+    ngModel.$asyncValidators['uniqueUsername'] = (modelValue, viewValue) => {
         const value = modelValue || viewValue;
         return $http.get('/api/users/' + value).
             then(function resolved() {
@@ -1250,8 +1240,8 @@ function parseWithParams() {
 
 function doBootstrap(element: Element | JQuery, mode: string): ng.auto.IInjectorService {
     if (mode === 'debug') {
-        return angular.bootstrap(element, ['main', function($provide: ng.auto.IProvideService) {
-            $provide.decorator('$rootScope', function($delegate: ng.IRootScopeService) {
+        return angular.bootstrap(element, ['main', ($provide: ng.auto.IProvideService) => {
+            $provide.decorator('$rootScope', ($delegate: ng.IRootScopeService) => {
                 $delegate['debug'] = true;
             });
         }, 'debug-helpers'], {

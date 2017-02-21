@@ -97,30 +97,30 @@ let circles: Selection<SVGCircleElement, CircleDatum, SVGSVGElement, SVGDatum>;
 
 circles = select<SVGSVGElement, any>('svg')
     .datum(dimensions)
-    .attr('width', function (d) { return d.width; })
-    .attr('height', function (d) { return d.height; })
+    .attr('width', d => d.width)
+    .attr('height', d => d.height)
     .selectAll()
     .data(startCircleData)
     .enter()
     .append<SVGCircleElement>('circle')
-    .attr('cx', function (d) { return d.cx; })
-    .attr('cy', function (d) { return d.cy; })
-    .attr('r', function (d) { return d.r; })
-    .style('stroke', function (d) { return d.color; })
-    .style('fill', function (d) { return d.color; });
+    .attr('cx', d => d.cx)
+    .attr('cy', d => d.cy)
+    .attr('r', d => d.r)
+    .style('stroke', d => d.color)
+    .style('fill', d => d.color);
 
 circles = circles
-    .data(endCircleData, function (d) { return d.nodeId; });
+    .data(endCircleData, d => d.nodeId);
 
 let enterCircles = circles
     .enter()
     .append<SVGCircleElement>('circle')
-    .classed('big', function (d) { return d.r > 10; })
-    .attr('cx', function (d) { return d.cx; })
-    .attr('cy', function (d) { return d.cy; })
-    .attr('r', function (d) { return d.r; })
-    .style('stroke', function (d) { return d.color; })
-    .style('fill', function (d) { return d.color; });
+    .classed('big', d => d.r > 10)
+    .attr('cx', d => d.cx)
+    .attr('cy', d => d.cy)
+    .attr('r', d => d.r)
+    .style('stroke', d => d.color)
+    .style('fill', d => d.color);
 
 
 let exitCircles = circles.exit<CircleDatum>(); // Note: need to re-type datum type, as the exit selection elements have the 'old data'
@@ -171,9 +171,7 @@ let delay: number = enterTransition.delay();
 
 let easingFn: (normalizedTime: number) => number;
 
-enterTransition = enterTransition.ease(function (t) {
-    return t;
-}); // settable and chainable
+enterTransition = enterTransition.ease(t => t); // settable and chainable
 easingFn = enterTransition.ease();
 
 // --------------------------------------------------------------------------
@@ -327,7 +325,7 @@ select<HTMLBodyElement, { test: string }>('body')
     .transition().duration(500)
     .text('Let us start with this transition text.')
     .transition().duration(100)
-    .text(function (d) { return d.test; }); // selection datum type
+    .text(d => d.test); // selection datum type
 
 
 // test, when it is not certain, whether an element of the type to be selected exists
@@ -461,8 +459,8 @@ enterTransition = enterTransition.each(function (d, i, g) {  // check chaining r
 
 function changeExitColor(transition: d3Transition.Transition<SVGCircleElement, CircleDatum, any, any>, fill: string, stroke: string) {
     transition
-        .style('fill', function (d) { return (d.r < 10) ? fill : 'black'; }) // datum type is CircleDatum
-        .style('stroke', function (d) { return (this.r.baseVal.value < 10) ? stroke : 'black'; }); // this type is SVGCircleElement
+        .style('fill', d => (d.r < 10) ? fill : 'black') // datum type is CircleDatum
+        .style('stroke', function(d) { return (this.r.baseVal.value < 10) ? stroke : 'black'; }); // this type is SVGCircleElement
 }
 
 // returns 'this' transition

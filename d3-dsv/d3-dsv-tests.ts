@@ -31,11 +31,11 @@ interface ParsedTestObject {
 let parseArray: d3Dsv.DSVParsedArray<d3Dsv.DSVRowString>;
 let parseMappedArray: d3Dsv.DSVParsedArray<ParsedTestObject>;
 
-let parseRowsArray: Array<Array<string>>;
-let parseRowsMappedArray: Array<ParsedTestObject>;
+let parseRowsArray: string[][];
+let parseRowsMappedArray: ParsedTestObject[];
 
 
-let columns: Array<string>;
+let columns: string[];
 let num: number;
 let date: Date;
 let str: string;
@@ -57,10 +57,10 @@ str = parseArray[0]['Year'];
 
 // with row mapper ---------------------------------------------------------------------------
 
-parseMappedArray = d3Dsv.csvParse(csvTestStringWithHeader, function (rawRow, index, columns) {
+parseMappedArray = d3Dsv.csvParse(csvTestStringWithHeader, (rawRow, index, columns) => {
     let rr: d3Dsv.DSVRowString = rawRow;
     let i: number = index;
-    let c: Array<string> = columns;
+    let c: string[] = columns;
     let pr: ParsedTestObject;
 
     pr = {
@@ -94,8 +94,8 @@ str = parseRowsArray[0][0]; // 'Year' of first row
 
 // with row mapper ---------------------------------------------------------------------------
 
-parseRowsMappedArray = d3Dsv.csvParseRows(csvTestString, function (rawRow, index) {
-    let rr: Array<string> = rawRow;
+parseRowsMappedArray = d3Dsv.csvParseRows(csvTestString, (rawRow, index) => {
+    let rr: string[] = rawRow;
     let i: number = index;
     let pr: ParsedTestObject;
 
@@ -122,14 +122,12 @@ str = d3Dsv.csvFormat(parseRowsMappedArray, columns);
 
 // csvFormatRows(...) ========================================================================
 
-str = d3Dsv.csvFormatRows(parseRowsMappedArray.map(function(d, i) {
-  return [
+str = d3Dsv.csvFormatRows(parseRowsMappedArray.map((d, i) => [
     d.year.getFullYear().toString(),
     d.make,
     d.model,
     d.length.toString()
-  ];
-}));
+]));
 
 // ------------------------------------------------------------------------------------------
 // Test TSV
@@ -148,10 +146,10 @@ str = parseArray[0]['Year'];
 
 // with row mapper ---------------------------------------------------------------------------
 
-parseMappedArray = d3Dsv.tsvParse(tsvTestStringWithHeader, function (rawRow, index, columns) {
+parseMappedArray = d3Dsv.tsvParse(tsvTestStringWithHeader, (rawRow, index, columns) => {
     let rr: d3Dsv.DSVRowString = rawRow;
     let i: number = index;
-    let c: Array<string> = columns;
+    let c: string[] = columns;
     let pr: ParsedTestObject;
 
     pr = {
@@ -185,8 +183,8 @@ str = parseRowsArray[0][0]; // 'Year' of first row
 
 // with row mapper ---------------------------------------------------------------------------
 
-parseRowsMappedArray = d3Dsv.tsvParseRows(tsvTestString, function (rawRow, index) {
-    let rr: Array<string> = rawRow;
+parseRowsMappedArray = d3Dsv.tsvParseRows(tsvTestString, (rawRow, index) => {
+    let rr: string[] = rawRow;
     let i: number = index;
     let pr: ParsedTestObject;
 
@@ -213,14 +211,12 @@ str = d3Dsv.tsvFormat(parseRowsMappedArray, columns);
 
 // tsvFormatRows(...) ========================================================================
 
-str = d3Dsv.tsvFormatRows(parseRowsMappedArray.map(function(d, i) {
-  return [
+str = d3Dsv.tsvFormatRows(parseRowsMappedArray.map((d, i) => [
     d.year.getFullYear().toString(),
     d.make,
     d.model,
     d.length.toString()
-  ];
-}));
+]));
 
 // ------------------------------------------------------------------------------------------
 // Test DSV Generalized Parsers and Formatters
@@ -244,10 +240,10 @@ str = parseArray[0]['Year'];
 
 // with row mapper ---------------------------------------------------------------------------
 
-parseMappedArray = dsv.parse(pipedTestStringWithHeader, function (rawRow, index, columns) {
+parseMappedArray = dsv.parse(pipedTestStringWithHeader, (rawRow, index, columns) => {
     let rr: d3Dsv.DSVRowString = rawRow;
     let i: number = index;
-    let c: Array<string> = columns;
+    let c: string[] = columns;
     let pr: ParsedTestObject;
 
     pr = {
@@ -281,8 +277,8 @@ str = parseRowsArray[0][0]; // 'Year' of first row
 
 // with row mapper ---------------------------------------------------------------------------
 
-parseRowsMappedArray = dsv.parseRows(pipedTestString, function (rawRow, index) {
-    let rr: Array<string> = rawRow;
+parseRowsMappedArray = dsv.parseRows(pipedTestString, (rawRow, index) => {
+    let rr: string[] = rawRow;
     let i: number = index;
     let pr: ParsedTestObject;
 
@@ -309,11 +305,9 @@ str = dsv.format(parseRowsMappedArray, columns);
 
 // formatRows(...) ========================================================================
 
-str = dsv.formatRows(parseRowsMappedArray.map(function(d, i) {
-  return [
+str = dsv.formatRows(parseRowsMappedArray.map((d, i) => [
     d.year.getFullYear().toString(),
     d.make,
     d.model,
     d.length.toString()
-  ];
-}));
+]));

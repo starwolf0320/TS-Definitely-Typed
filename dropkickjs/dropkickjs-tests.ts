@@ -1,5 +1,3 @@
-/// <reference path="index.d.ts"/>
-
 //constructor
 var constructorNoOptions = new Dropkick('#my-select');
 var constructorNoOptions2 = new Dropkick(new HTMLSelectElement());

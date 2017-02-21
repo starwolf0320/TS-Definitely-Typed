@@ -16,7 +16,7 @@ var marker = L.marker(new L.LatLng([0, 0]), {
 }).addTo(map);
 
 // every time the marker is dragged, update the coordinates container
-marker.on('dragend', function() {
+marker.on('dragend', () => {
 	var m = marker.getLatLng();
 	coordinates.innerHTML = 'Latitude: ' + m.lat + '<br />Longitude: ' + m.lng;
 });
@@ -36,6 +36,6 @@ var marker2 = L.mapbox.featureLayer({
 
 // Iterate over the featureLayer we've called "marker"
 // and open its popup instead of clicking to trigger it.
-marker2.eachLayer(function(marker: L.Marker) {
+marker2.eachLayer((marker: L.Marker) => {
   marker.openPopup();
 });

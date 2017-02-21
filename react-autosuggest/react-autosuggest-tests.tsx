@@ -16,7 +16,7 @@ function escapeRegexCharacters(str: string): string {
 
 export class ReactAutosuggestBasicTest extends React.Component<any, any> {
     //region Fields
-    public static languages: Language[] = [
+    static languages: Language[] = [
         {name: 'C', year: 1972},
         {name: 'C#', year: 2000},
         {name: 'C++', year: 1983},
@@ -47,7 +47,7 @@ export class ReactAutosuggestBasicTest extends React.Component<any, any> {
     //endregion
 
     //region Rendering methods
-    public render(): JSX.Element {
+    render(): JSX.Element {
         const {value, suggestions} = this.state;
         const inputProps = {
             placeholder: `Type 'c'`,
@@ -59,7 +59,7 @@ export class ReactAutosuggestBasicTest extends React.Component<any, any> {
             input: 'themed-input-class',
             container: 'themed-container-class',
             suggestionFocused: 'active'
-        }
+        };
 
         return <Autosuggest suggestions={suggestions}
                             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested.bind(this)}
@@ -123,7 +123,7 @@ interface LanguageGroup {
 
 export class ReactAutosuggestMultipleTest extends React.Component<any, any> {
     //region Fields
-    public static languages: LanguageGroup[] = [
+    static languages: LanguageGroup[] = [
         {
             title: '1970s',
             languages: [
@@ -178,7 +178,7 @@ export class ReactAutosuggestMultipleTest extends React.Component<any, any> {
     //endregion
 
     //region Rendering methods
-    public render(): JSX.Element {
+    render(): JSX.Element {
         const { value, suggestions } = this.state;
         const inputProps = {
             placeholder: `Type 'c'`,
@@ -258,7 +258,7 @@ export class ReactAutosuggestMultipleTest extends React.Component<any, any> {
 
 ReactDOM.render(<ReactAutosuggestMultipleTest />, document.getElementById('app'));
 
-interface IPerson {
+interface Person {
     first: string;
     last: string;
     twitter: string;
@@ -266,7 +266,7 @@ interface IPerson {
 
 export class ReactAutosuggestCustomTest extends React.Component<any, any> {
     //region Fields
-    public static people: IPerson[] = [
+    static people: Person[] = [
         {first: 'Charlie', last: 'Brown', twitter: 'dancounsell'},
         {first: 'Charlotte', last: 'White', twitter: 'mtnmissy'},
         {first: 'Chloe', last: 'Jones', twitter: 'ladylexy'},
@@ -286,7 +286,7 @@ export class ReactAutosuggestCustomTest extends React.Component<any, any> {
     //endregion
 
     //region Rendering methods
-    public render(): JSX.Element {
+    render(): JSX.Element {
         const { value, suggestions } = this.state;
         const inputProps = {
             placeholder: "Type 'c'",
@@ -301,14 +301,14 @@ export class ReactAutosuggestCustomTest extends React.Component<any, any> {
                             inputProps={inputProps} />;
     }
 
-    protected renderSuggestion(suggestion: IPerson, { value, valueBeforeUpDown }: any): JSX.Element {
+    protected renderSuggestion(suggestion: Person, { value, valueBeforeUpDown }: any): JSX.Element {
         const suggestionText = `${suggestion.first} ${suggestion.last}`;
         const query = (valueBeforeUpDown || value).trim();
         const parts =  suggestionText.split(' ').map((part: string) => {
             return {
                 highlight: (Math.ceil(Math.random() * 10)) % 2,
                 text: part
-            }
+            };
         });
 
         return <span className={'suggestion-content ' + suggestion.twitter}>
@@ -340,7 +340,7 @@ export class ReactAutosuggestCustomTest extends React.Component<any, any> {
     //endregion
 
     //region Helper methods
-    protected getSuggestions(value: string): IPerson[] {
+    protected getSuggestions(value: string): Person[] {
         const escapedValue = escapeRegexCharacters(value.trim());
 
         if (escapedValue === '') {
@@ -352,7 +352,7 @@ export class ReactAutosuggestCustomTest extends React.Component<any, any> {
         return ReactAutosuggestCustomTest.people.filter(person => regex.test(this.getSuggestionValue(person)));
     }
 
-    protected getSuggestionValue(suggestion: IPerson): string {
+    protected getSuggestionValue(suggestion: Person): string {
         return `${suggestion.first} ${suggestion.last}`;
     }
     //endregion

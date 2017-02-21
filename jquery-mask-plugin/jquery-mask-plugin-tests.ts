@@ -1,6 +1,6 @@
 
 // basic usage
-$(document).ready(function () {
+$(document).ready(() => {
     $('.date').mask('00/00/0000');
     $('.time').mask('00:00:00');
     $('.date_time').mask('00/00/0000 00:00:00');
@@ -42,17 +42,17 @@ $(document).ready(function () {
 
 // callback examples
 let options: jQueryMask.Options = {
-    onComplete: function (cep: Object) {
+    onComplete(cep: Object) {
         alert('CEP Completed!:' + cep);
     },
-    onKeyPress: function (cep: Object, event: Event, currentField: JQuery, options: jQueryMask.Options) {
+    onKeyPress(cep: Object, event: Event, currentField: JQuery, options: jQueryMask.Options) {
         console.log('An key was pressed!:', cep, ' event: ', event,
             'currentField: ', currentField, ' options: ', options);
     },
-    onChange: function (cep: Object) {
+    onChange(cep: Object) {
         console.log('cep changed! ', cep);
     },
-    onInvalid: function (val: Object, e: Event, f: JQuery, invalid: jQueryMask.Invalid[], options: jQueryMask.Options) {
+    onInvalid(val: Object, e: Event, f: JQuery, invalid: jQueryMask.Invalid[], options: jQueryMask.Options) {
         var error = invalid[0];
         console.log("Digit: ", error.v, " is invalid for the position: ", error.p, ". We expect something like: ", error.e);
     }
@@ -62,7 +62,7 @@ $('.cep_with_callback').mask('00000-000', options);
 
 // on the fly mask changed
 options = {
-    onKeyPress: function (cep, e, field, options) {
+    onKeyPress(cep, e, field, options) {
         let masks: string[] = ['00000-000', '0-00-00-00'];
         let mask: string = (cep.length > 7) ? masks[1] : masks[0];
         $('.crazy_cep').mask(mask, options);
@@ -72,12 +72,12 @@ options = {
 $('.crazy_cep').mask('00000-000', options);
 
 // mask as a function
-let maskBehavior: (value: string) => string = function (val: string) {
+let maskBehavior: (value: string) => string = val => {
   return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
 };
 
 options = {
-  onKeyPress: function(val: string, e: Event, field: JQuery, options: jQueryMask.Options) {
+  onKeyPress(val: string, e: Event, field: JQuery, options: jQueryMask.Options) {
       field.mask(maskBehavior.apply({}, arguments), options);
     }
 };

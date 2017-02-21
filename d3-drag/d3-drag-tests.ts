@@ -65,7 +65,7 @@ circleCustomDrag = d3Drag.drag<SVGCircleElement, CircleDatum, CustomSubject | d3
 
 let containerAccessor: (this: SVGCircleElement, d: CircleDatum, i: number, group: SVGCircleElement[] | NodeListOf<SVGCircleElement>) => d3Drag.DragContainerElement;
 
-containerAccessor = function (d, i, group) {
+containerAccessor = function(d, i, group) {
     console.log('Node Id of circle: ', d.nodeId);
     // console.log(this.a); // fails, a is not a property of SVGCircleElement
     return this.ownerSVGElement; // this-type is SVGCircleElement
@@ -73,7 +73,7 @@ containerAccessor = function (d, i, group) {
 
 // Test chainability
 circleDrag = circleDrag
-    .container(function (d, i, group) { // container accessor function setter
+    .container(function(d, i, group) { // container accessor function setter
         console.log('Node Id of circle: ', d.nodeId); // CircleDatum type
         // console.log(this.a); // fails, a is not a property of SVGCircleElement
         return this.ownerSVGElement; // this-type is SVGCircleElement
@@ -93,12 +93,12 @@ containerAccessor = circleDrag.container();
 
 let filterFn: (this: SVGCircleElement, datum: CircleDatum, index: number, group: SVGCircleElement[] | NodeListOf<SVGCircleElement>) => boolean;
 
-filterFn = function (d) {
+filterFn = function(d) {
     return (d.color !== 'green' && this.r.baseVal.value < 10) ? !event.button : true; // 'this' is SVGCircleElement and d is CircleDatum
 };
 
 // chainable
-circleDrag = circleDrag.filter(function (d, i, group) {
+circleDrag = circleDrag.filter(function(d, i, group) {
 
     return (d.color !== 'green' && this.r.baseVal.value < 10) ? !event.button : true; // 'this' is SVGCircleElement and d is CircleDatum
 });
@@ -108,7 +108,7 @@ filterFn = circleDrag.filter();
 
 // set and get subject ---------------------------------------------------------
 
-circleCustomDrag.subject(function (d, i, g) {
+circleCustomDrag.subject(function(d, i, g) {
     // Cast event type for completeness, otherwise event is of type any.
     let e = <d3Drag.D3DragEvent<SVGCircleElement, CircleDatum, CustomSubject | d3Drag.SubjectPosition>> event;
     let that: SVGCircleElement = this;
