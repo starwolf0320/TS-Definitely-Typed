@@ -183,9 +183,7 @@ namespace BoardSquare {
                             height: '100%'
                         },
                         children: [
-                            Square.create({
-                                black: black
-                            }),
+                            Square.create({ black }),
                             isOver && !canDrop ? this._renderOverlay('red') : null,
                             !isOver && canDrop ? this._renderOverlay('yellow') : null,
                             isOver && canDrop ? this._renderOverlay('green') : null
@@ -252,10 +250,7 @@ namespace Board {
                     width: '12.5%',
                     height: '12.5%'
                 }
-            }, BoardSquare.create({
-                x: x,
-                y: y
-            }, this._renderPiece(x, y)));
+            }, BoardSquare.create({ x, y }, this._renderPiece(x, y)));
         }
 
         render() {

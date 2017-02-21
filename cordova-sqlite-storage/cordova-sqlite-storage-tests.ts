@@ -209,7 +209,7 @@ function quickInstallationTest() {
         db.executeSql("select length('tenletters') as stringlength", [], res => {
             var stringlength = res.rows.item(0).stringlength;
             console.log('got stringlength: ' + stringlength);
-            //document.getElementById('deviceready').querySelector('.received').innerHTML = 'stringlength: ' + stringlength;
+            // document.getElementById('deviceready').querySelector('.received').innerHTML = 'stringlength: ' + stringlength;
         });
     });
 }

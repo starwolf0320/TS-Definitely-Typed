@@ -42,7 +42,7 @@ channel.publish('greeting', 'Hello World!');
 
 // Optionally, you can use a callback to be notified of success or failure
 channel.publish('greeting', 'Hello World!', err => {
-  if(err) {
+  if (err) {
     console.log('publish failed with error ' + err);
   } else {
     console.log('publish succeeded');
@@ -144,7 +144,7 @@ restChannel.publish('greeting', 'Hello World!');
 
 // Optionally, you can use a callback to be notified of success or failure
 restChannel.publish('greeting', 'Hello World!', err => {
-  if(err) {
+  if (err) {
     console.log('publish failed with error ' + err);
   } else {
     console.log('publish succeeded');
