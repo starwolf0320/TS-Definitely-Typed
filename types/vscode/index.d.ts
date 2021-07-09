@@ -9259,7 +9259,7 @@ declare module 'vscode' {
          * Get {@link TreeItem} representation of the `element`
          *
          * @param element The element for which {@link TreeItem} representation is asked for.
-         * @return TreeItem representation of the element
+         * @return {@link TreeItem} representation of the element
          */
         getTreeItem(element: T): TreeItem | Thenable<TreeItem>;
 
@@ -10141,14 +10141,6 @@ declare module 'vscode' {
         readonly text: string;
     }
 
-    export enum TextDocumentChangeReason {
-        /** The text change is caused by an undo operation. */
-        Undo = 1,
-
-        /** The text change is caused by an redo operation. */
-        Redo = 2,
-    }
-
     /**
      * An event describing a transactional {@link TextDocument document} change.
      */
@@ -10163,12 +10155,6 @@ declare module 'vscode' {
          * An array of content changes.
          */
         readonly contentChanges: readonly TextDocumentContentChangeEvent[];
-
-        /**
-         * The reason why the document was changed.
-         * Is undefined if the reason is not known.
-        */
-        readonly reason?: TextDocumentChangeReason;
     }
 
     /**
@@ -11547,7 +11533,7 @@ declare module 'vscode' {
         /**
          * The metadata of this cell. Can be anything but must be JSON-stringifyable.
          */
-        readonly metadata: { [key: string]: any };
+        readonly metadata: { [key: string]: any }
 
         /**
          * The outputs of this cell.
