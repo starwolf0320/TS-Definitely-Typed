@@ -1,2 +1,3 @@
 native.d.ts
 server.d.ts
+errs.png
